@@ -1,0 +1,1278 @@
+{
+ "dst": [
+  [
+   "TOK",
+   "2024-03-08",
+   "00:00 UTC"
+  ],
+  [
+   "TOK",
+   "2024-03-12",
+   "00:00 UTC"
+  ],
+  [
+   "TOK",
+   "2024-04-02",
+   "00:00 UTC"
+  ],
+  [
+   "TOK",
+   "2024-10-29",
+   "00:00 UTC"
+  ],
+  [
+   "TOK",
+   "2024-11-05",
+   "00:00 UTC"
+  ],
+  [
+   "TOK",
+   "2024-07-01",
+   "00:00 UTC"
+  ],
+  [
+   "LDN",
+   "2024-03-08",
+   "08:00 UTC"
+  ],
+  [
+   "LDN",
+   "2024-03-12",
+   "08:00 UTC"
+  ],
+  [
+   "LDN",
+   "2024-04-02",
+   "07:00 UTC"
+  ],
+  [
+   "LDN",
+   "2024-10-29",
+   "08:00 UTC"
+  ],
+  [
+   "LDN",
+   "2024-11-05",
+   "08:00 UTC"
+  ],
+  [
+   "LDN",
+   "2024-07-01",
+   "07:00 UTC"
+  ],
+  [
+   "NY8",
+   "2024-03-08",
+   "13:00 UTC"
+  ],
+  [
+   "NY8",
+   "2024-03-12",
+   "12:00 UTC"
+  ],
+  [
+   "NY8",
+   "2024-04-02",
+   "12:00 UTC"
+  ],
+  [
+   "NY8",
+   "2024-10-29",
+   "12:00 UTC"
+  ],
+  [
+   "NY8",
+   "2024-11-05",
+   "13:00 UTC"
+  ],
+  [
+   "NY8",
+   "2024-07-01",
+   "12:00 UTC"
+  ],
+  [
+   "NY930",
+   "2024-03-08",
+   "14:30 UTC"
+  ],
+  [
+   "NY930",
+   "2024-03-12",
+   "13:30 UTC"
+  ],
+  [
+   "NY930",
+   "2024-04-02",
+   "13:30 UTC"
+  ],
+  [
+   "NY930",
+   "2024-10-29",
+   "13:30 UTC"
+  ],
+  [
+   "NY930",
+   "2024-11-05",
+   "14:30 UTC"
+  ],
+  [
+   "NY930",
+   "2024-07-01",
+   "13:30 UTC"
+  ]
+ ],
+ "rows": [
+  {
+   "sym": "XAUUSD",
+   "session": "TOK",
+   "orb": 5,
+   "sessions": 1803,
+   "coverage_pct": 49.0,
+   "width_med": 1.1569999999999254,
+   "width_atrD_med": 0.0517630710439449,
+   "width_p10_p90_atrD": [
+    0.028329898691877194,
+    0.09810578637351748
+   ],
+   "width_over_cost_med": 2.5711111111109455,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.45,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "TOK",
+   "orb": 15,
+   "sessions": 1804,
+   "coverage_pct": 49.0,
+   "width_med": 1.7900000000000773,
+   "width_atrD_med": 0.08084311969738348,
+   "width_p10_p90_atrD": [
+    0.04643977945116612,
+    0.15416228448005279
+   ],
+   "width_over_cost_med": 3.9777777777779493,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.45,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "TOK",
+   "orb": 30,
+   "sessions": 1806,
+   "coverage_pct": 49.0,
+   "width_med": 2.355000000000018,
+   "width_atrD_med": 0.1070035953612678,
+   "width_p10_p90_atrD": [
+    0.06201288212951175,
+    0.20494095945440283
+   ],
+   "width_over_cost_med": 5.233333333333373,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.45,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "TOK",
+   "orb": 60,
+   "sessions": 1807,
+   "coverage_pct": 49.1,
+   "width_med": 3.2600000000002183,
+   "width_atrD_med": 0.14654890415438057,
+   "width_p10_p90_atrD": [
+    0.08950029844482847,
+    0.2676245879132573
+   ],
+   "width_over_cost_med": 7.244444444444929,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.45,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "LDN",
+   "orb": 5,
+   "sessions": 3629,
+   "coverage_pct": 98.6,
+   "width_med": 1.3209999999999127,
+   "width_atrD_med": 0.06933991123714146,
+   "width_p10_p90_atrD": [
+    0.03885174295073023,
+    0.12424338649035936
+   ],
+   "width_over_cost_med": 2.9355555555553616,
+   "spread_med_entry_window": 0.3019999861717224,
+   "spread_years": 1825,
+   "cost": 0.45,
+   "activity_data_share": 0.502
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "LDN",
+   "orb": 15,
+   "sessions": 3628,
+   "coverage_pct": 98.5,
+   "width_med": 2.1329999999999245,
+   "width_atrD_med": 0.11453507804273048,
+   "width_p10_p90_atrD": [
+    0.0670790398879299,
+    0.20556127518406161
+   ],
+   "width_over_cost_med": 4.739999999999832,
+   "spread_med_entry_window": 0.3019999861717224,
+   "spread_years": 1825,
+   "cost": 0.45,
+   "activity_data_share": 0.502
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "LDN",
+   "orb": 30,
+   "sessions": 3628,
+   "coverage_pct": 98.5,
+   "width_med": 2.930500000000052,
+   "width_atrD_med": 0.15644244151393194,
+   "width_p10_p90_atrD": [
+    0.09264200158635273,
+    0.27305177840412226
+   ],
+   "width_over_cost_med": 6.512222222222337,
+   "spread_med_entry_window": 0.3019999861717224,
+   "spread_years": 1825,
+   "cost": 0.45,
+   "activity_data_share": 0.502
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "LDN",
+   "orb": 60,
+   "sessions": 3628,
+   "coverage_pct": 98.5,
+   "width_med": 4.047500000000014,
+   "width_atrD_med": 0.21331619346021394,
+   "width_p10_p90_atrD": [
+    0.12738479697568086,
+    0.375638068476533
+   ],
+   "width_over_cost_med": 8.994444444444474,
+   "spread_med_entry_window": 0.3019999861717224,
+   "spread_years": 1825,
+   "cost": 0.45,
+   "activity_data_share": 0.502
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY8",
+   "orb": 5,
+   "sessions": 3523,
+   "coverage_pct": 95.7,
+   "width_med": 1.4600000000000364,
+   "width_atrD_med": 0.07719054741250667,
+   "width_p10_p90_atrD": [
+    0.043016347604552974,
+    0.14964603941209384
+   ],
+   "width_over_cost_med": 3.2444444444445253,
+   "spread_med_entry_window": 0.2985000014305115,
+   "spread_years": 1775,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY8",
+   "orb": 15,
+   "sessions": 3523,
+   "coverage_pct": 95.7,
+   "width_med": 2.3980000000001382,
+   "width_atrD_med": 0.1277116560412573,
+   "width_p10_p90_atrD": [
+    0.07368897405661295,
+    0.23141057505950816
+   ],
+   "width_over_cost_med": 5.328888888889196,
+   "spread_med_entry_window": 0.2985000014305115,
+   "spread_years": 1775,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY8",
+   "orb": 30,
+   "sessions": 3523,
+   "coverage_pct": 95.7,
+   "width_med": 4.1030000000000655,
+   "width_atrD_med": 0.21251567968702237,
+   "width_p10_p90_atrD": [
+    0.12567637232693585,
+    0.3919618521203884
+   ],
+   "width_over_cost_med": 9.117777777777922,
+   "spread_med_entry_window": 0.2985000014305115,
+   "spread_years": 1775,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY8",
+   "orb": 60,
+   "sessions": 3522,
+   "coverage_pct": 95.7,
+   "width_med": 6.705500000000143,
+   "width_atrD_med": 0.3444366187220923,
+   "width_p10_p90_atrD": [
+    0.20036959334841958,
+    0.7046567577392728
+   ],
+   "width_over_cost_med": 14.901111111111428,
+   "spread_med_entry_window": 0.30000001192092896,
+   "spread_years": 1775,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY930",
+   "orb": 5,
+   "sessions": 3520,
+   "coverage_pct": 95.6,
+   "width_med": 2.21550000000002,
+   "width_atrD_med": 0.11603625629921815,
+   "width_p10_p90_atrD": [
+    0.0658936269603624,
+    0.20421197738407493
+   ],
+   "width_over_cost_med": 4.923333333333377,
+   "spread_med_entry_window": 0.2967499941587448,
+   "spread_years": 1770,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY930",
+   "orb": 15,
+   "sessions": 3520,
+   "coverage_pct": 95.6,
+   "width_med": 3.7670000000000528,
+   "width_atrD_med": 0.19760669176024187,
+   "width_p10_p90_atrD": [
+    0.11296827852547264,
+    0.35154073488484444
+   ],
+   "width_over_cost_med": 8.371111111111228,
+   "spread_med_entry_window": 0.2967499941587448,
+   "spread_years": 1770,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY930",
+   "orb": 30,
+   "sessions": 3522,
+   "coverage_pct": 95.7,
+   "width_med": 5.169999999999959,
+   "width_atrD_med": 0.2659166321265677,
+   "width_p10_p90_atrD": [
+    0.15869986258503535,
+    0.48848138822721804
+   ],
+   "width_over_cost_med": 11.488888888888798,
+   "spread_med_entry_window": 0.2939999997615814,
+   "spread_years": 1775,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "XAUUSD",
+   "session": "NY930",
+   "orb": 60,
+   "sessions": 3522,
+   "coverage_pct": 95.7,
+   "width_med": 7.378999999999905,
+   "width_atrD_med": 0.3815355028793899,
+   "width_p10_p90_atrD": [
+    0.2238288456780223,
+    0.6982306938662274
+   ],
+   "width_over_cost_med": 16.397777777777566,
+   "spread_med_entry_window": 0.2939999997615814,
+   "spread_years": 1775,
+   "cost": 0.45,
+   "activity_data_share": 0.503
+  },
+  {
+   "sym": "EURUSD",
+   "session": "TOK",
+   "orb": 5,
+   "sessions": 3854,
+   "coverage_pct": 98.5,
+   "width_med": 0.00038000000000004697,
+   "width_atrD_med": 0.05288810833164158,
+   "width_p10_p90_atrD": [
+    0.02671873794804773,
+    0.10144655286633827
+   ],
+   "width_over_cost_med": 2.5333333333336467,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2825,
+   "cost": 0.00015,
+   "activity_data_share": 0.732
+  },
+  {
+   "sym": "EURUSD",
+   "session": "TOK",
+   "orb": 15,
+   "sessions": 3855,
+   "coverage_pct": 98.5,
+   "width_med": 0.0005999999999999339,
+   "width_atrD_med": 0.08334315690203552,
+   "width_p10_p90_atrD": [
+    0.04629404469457196,
+    0.15181423307545644
+   ],
+   "width_over_cost_med": 3.99999999999956,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2825,
+   "cost": 0.00015,
+   "activity_data_share": 0.732
+  },
+  {
+   "sym": "EURUSD",
+   "session": "TOK",
+   "orb": 30,
+   "sessions": 3851,
+   "coverage_pct": 98.4,
+   "width_med": 0.0007800000000000029,
+   "width_atrD_med": 0.10873440285204451,
+   "width_p10_p90_atrD": [
+    0.06255585344056239,
+    0.1898532227185843
+   ],
+   "width_over_cost_med": 5.20000000000002,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2820,
+   "cost": 0.00015,
+   "activity_data_share": 0.732
+  },
+  {
+   "sym": "EURUSD",
+   "session": "TOK",
+   "orb": 60,
+   "sessions": 3854,
+   "coverage_pct": 98.5,
+   "width_med": 0.0010799999999999699,
+   "width_atrD_med": 0.15058902076943326,
+   "width_p10_p90_atrD": [
+    0.09300709938367989,
+    0.2625400156179578
+   ],
+   "width_over_cost_med": 7.1999999999997994,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2825,
+   "cost": 0.00015,
+   "activity_data_share": 0.732
+  },
+  {
+   "sym": "EURUSD",
+   "session": "LDN",
+   "orb": 5,
+   "sessions": 3873,
+   "coverage_pct": 99.0,
+   "width_med": 0.0006699999999999484,
+   "width_atrD_med": 0.09112709832133628,
+   "width_p10_p90_atrD": [
+    0.053675151072593,
+    0.16254502901138562
+   ],
+   "width_over_cost_med": 4.466666666666323,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "LDN",
+   "orb": 15,
+   "sessions": 3873,
+   "coverage_pct": 99.0,
+   "width_med": 0.001100000000000101,
+   "width_atrD_med": 0.15236713223292858,
+   "width_p10_p90_atrD": [
+    0.09127618095120899,
+    0.26744448667513177
+   ],
+   "width_over_cost_med": 7.333333333334006,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "LDN",
+   "orb": 30,
+   "sessions": 3873,
+   "coverage_pct": 99.0,
+   "width_med": 0.0015299999999998093,
+   "width_atrD_med": 0.2088230643545961,
+   "width_p10_p90_atrD": [
+    0.12778855091132235,
+    0.35618144957721704
+   ],
+   "width_over_cost_med": 10.19999999999873,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "LDN",
+   "orb": 60,
+   "sessions": 3873,
+   "coverage_pct": 99.0,
+   "width_med": 0.0020599999999999508,
+   "width_atrD_med": 0.2823833151801163,
+   "width_p10_p90_atrD": [
+    0.1768634467444544,
+    0.48245192243973156
+   ],
+   "width_over_cost_med": 13.733333333333006,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY8",
+   "orb": 5,
+   "sessions": 3872,
+   "coverage_pct": 99.0,
+   "width_med": 0.0005199999999998539,
+   "width_atrD_med": 0.07202388498315612,
+   "width_p10_p90_atrD": [
+    0.041544825216889895,
+    0.12623658588543848
+   ],
+   "width_over_cost_med": 3.466666666665693,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY8",
+   "orb": 15,
+   "sessions": 3871,
+   "coverage_pct": 98.9,
+   "width_med": 0.0008900000000000574,
+   "width_atrD_med": 0.12286825570957637,
+   "width_p10_p90_atrD": [
+    0.07512072974427807,
+    0.21207808052054417
+   ],
+   "width_over_cost_med": 5.933333333333716,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY8",
+   "orb": 30,
+   "sessions": 3872,
+   "coverage_pct": 99.0,
+   "width_med": 0.0012900000000000134,
+   "width_atrD_med": 0.1781223277242549,
+   "width_p10_p90_atrD": [
+    0.1105800893737522,
+    0.3147891376584726
+   ],
+   "width_over_cost_med": 8.60000000000009,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY8",
+   "orb": 60,
+   "sessions": 3871,
+   "coverage_pct": 98.9,
+   "width_med": 0.0022599999999999287,
+   "width_atrD_med": 0.30494776266508694,
+   "width_p10_p90_atrD": [
+    0.17624213204767947,
+    0.6562265365225628
+   ],
+   "width_over_cost_med": 15.066666666666192,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY930",
+   "orb": 5,
+   "sessions": 3870,
+   "coverage_pct": 98.9,
+   "width_med": 0.0006299999999999084,
+   "width_atrD_med": 0.08654952759607863,
+   "width_p10_p90_atrD": [
+    0.0496122764333463,
+    0.1573756538321467
+   ],
+   "width_over_cost_med": 4.19999999999939,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY930",
+   "orb": 15,
+   "sessions": 3871,
+   "coverage_pct": 98.9,
+   "width_med": 0.0010900000000000354,
+   "width_atrD_med": 0.1500432152117652,
+   "width_p10_p90_atrD": [
+    0.08797967642732835,
+    0.2679563696233783
+   ],
+   "width_over_cost_med": 7.266666666666903,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY930",
+   "orb": 30,
+   "sessions": 3873,
+   "coverage_pct": 99.0,
+   "width_med": 0.0015600000000000058,
+   "width_atrD_med": 0.21709598872227917,
+   "width_p10_p90_atrD": [
+    0.12608916938663153,
+    0.3889627403660182
+   ],
+   "width_over_cost_med": 10.40000000000004,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "EURUSD",
+   "session": "NY930",
+   "orb": 60,
+   "sessions": 3872,
+   "coverage_pct": 99.0,
+   "width_med": 0.0024699999999999722,
+   "width_atrD_med": 0.3336930444480428,
+   "width_p10_p90_atrD": [
+    0.1945751088830014,
+    0.5932697327102809
+   ],
+   "width_over_cost_med": 16.466666666666484,
+   "spread_med_entry_window": 2.9999999242136255e-05,
+   "spread_years": 2840,
+   "cost": 0.00015,
+   "activity_data_share": 0.733
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "TOK",
+   "orb": 5,
+   "sessions": 2077,
+   "coverage_pct": 53.1,
+   "width_med": 0.0004300000000001525,
+   "width_atrD_med": 0.051012971869983145,
+   "width_p10_p90_atrD": [
+    0.027147420824381555,
+    0.09457174103261529
+   ],
+   "width_over_cost_med": 2.3888888888897357,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.00018,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "TOK",
+   "orb": 15,
+   "sessions": 2077,
+   "coverage_pct": 53.1,
+   "width_med": 0.0006500000000000394,
+   "width_atrD_med": 0.07840303495617382,
+   "width_p10_p90_atrD": [
+    0.04445822292031493,
+    0.13716137024816175
+   ],
+   "width_over_cost_med": 3.61111111111133,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.00018,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "TOK",
+   "orb": 30,
+   "sessions": 2078,
+   "coverage_pct": 53.1,
+   "width_med": 0.0008600000000000829,
+   "width_atrD_med": 0.10219753907893996,
+   "width_p10_p90_atrD": [
+    0.0579831483516862,
+    0.17605942861478346
+   ],
+   "width_over_cost_med": 4.777777777778238,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.00018,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "TOK",
+   "orb": 60,
+   "sessions": 2080,
+   "coverage_pct": 53.2,
+   "width_med": 0.0012099999999999334,
+   "width_atrD_med": 0.1426703073654904,
+   "width_p10_p90_atrD": [
+    0.08718338544143256,
+    0.24368069706180326
+   ],
+   "width_over_cost_med": 6.722222222221852,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.00018,
+   "activity_data_share": 0.0
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "LDN",
+   "orb": 5,
+   "sessions": 3879,
+   "coverage_pct": 99.1,
+   "width_med": 0.0008600000000000829,
+   "width_atrD_med": 0.09470534668922995,
+   "width_p10_p90_atrD": [
+    0.055448102613985896,
+    0.16219088547093624
+   ],
+   "width_over_cost_med": 4.777777777778238,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "LDN",
+   "orb": 15,
+   "sessions": 3880,
+   "coverage_pct": 99.2,
+   "width_med": 0.0014100000000001334,
+   "width_atrD_med": 0.15431441546311092,
+   "width_p10_p90_atrD": [
+    0.09398157291889012,
+    0.26142930525344527
+   ],
+   "width_over_cost_med": 7.833333333334074,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "LDN",
+   "orb": 30,
+   "sessions": 3881,
+   "coverage_pct": 99.2,
+   "width_med": 0.0019100000000000783,
+   "width_atrD_med": 0.210189754639579,
+   "width_p10_p90_atrD": [
+    0.12721946553475974,
+    0.3501601342077393
+   ],
+   "width_over_cost_med": 10.611111111111546,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "LDN",
+   "orb": 60,
+   "sessions": 3881,
+   "coverage_pct": 99.2,
+   "width_med": 0.00258999999999987,
+   "width_atrD_med": 0.2826766729205729,
+   "width_p10_p90_atrD": [
+    0.17631243809251956,
+    0.4659570873458203
+   ],
+   "width_over_cost_med": 14.388888888888166,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY8",
+   "orb": 5,
+   "sessions": 3881,
+   "coverage_pct": 99.2,
+   "width_med": 0.0006699999999999484,
+   "width_atrD_med": 0.0733304233958881,
+   "width_p10_p90_atrD": [
+    0.041823613456323606,
+    0.13024509174900364
+   ],
+   "width_over_cost_med": 3.7222222222219354,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY8",
+   "orb": 15,
+   "sessions": 3877,
+   "coverage_pct": 99.1,
+   "width_med": 0.0011499999999999844,
+   "width_atrD_med": 0.12609583283295822,
+   "width_p10_p90_atrD": [
+    0.07611552201897138,
+    0.21912871237448628
+   ],
+   "width_over_cost_med": 6.388888888888801,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY8",
+   "orb": 30,
+   "sessions": 3878,
+   "coverage_pct": 99.1,
+   "width_med": 0.0016599999999999948,
+   "width_atrD_med": 0.183500469163759,
+   "width_p10_p90_atrD": [
+    0.11161717357486704,
+    0.31750239428888216
+   ],
+   "width_over_cost_med": 9.222222222222193,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY8",
+   "orb": 60,
+   "sessions": 3879,
+   "coverage_pct": 99.1,
+   "width_med": 0.0027199999999998337,
+   "width_atrD_med": 0.2934465375431025,
+   "width_p10_p90_atrD": [
+    0.17789343534828772,
+    0.577242342196772
+   ],
+   "width_over_cost_med": 15.111111111110185,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY930",
+   "orb": 5,
+   "sessions": 3878,
+   "coverage_pct": 99.1,
+   "width_med": 0.0007900000000000684,
+   "width_atrD_med": 0.08676659600038095,
+   "width_p10_p90_atrD": [
+    0.04873303108280054,
+    0.15173149379120915
+   ],
+   "width_over_cost_med": 4.3888888888892685,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY930",
+   "orb": 15,
+   "sessions": 3878,
+   "coverage_pct": 99.1,
+   "width_med": 0.0013399999999998968,
+   "width_atrD_med": 0.14957751230702843,
+   "width_p10_p90_atrD": [
+    0.0873438090997307,
+    0.25926745715309646
+   ],
+   "width_over_cost_med": 7.444444444443871,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY930",
+   "orb": 30,
+   "sessions": 3880,
+   "coverage_pct": 99.2,
+   "width_med": 0.0019200000000000328,
+   "width_atrD_med": 0.2116436530832208,
+   "width_p10_p90_atrD": [
+    0.12929086917040694,
+    0.36844625242996476
+   ],
+   "width_over_cost_med": 10.666666666666849,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "GBPUSD",
+   "session": "NY930",
+   "orb": 60,
+   "sessions": 3880,
+   "coverage_pct": 99.2,
+   "width_med": 0.0029399999999999427,
+   "width_atrD_med": 0.32260791189519944,
+   "width_p10_p90_atrD": [
+    0.19079203178347254,
+    0.5544464965716854
+   ],
+   "width_over_cost_med": 16.333333333333012,
+   "spread_med_entry_window": 9.000000136438757e-05,
+   "spread_years": 1805,
+   "cost": 0.00018,
+   "activity_data_share": 0.465
+  },
+  {
+   "sym": "USDJPY",
+   "session": "TOK",
+   "orb": 5,
+   "sessions": 3877,
+   "coverage_pct": 99.1,
+   "width_med": 0.06699999999997885,
+   "width_atrD_med": 0.08966989653473569,
+   "width_p10_p90_atrD": [
+    0.04912224865791879,
+    0.15999855300393295
+   ],
+   "width_over_cost_med": 5.583333333331571,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "TOK",
+   "orb": 15,
+   "sessions": 3874,
+   "coverage_pct": 99.0,
+   "width_med": 0.10099999999999909,
+   "width_atrD_med": 0.13466097133705657,
+   "width_p10_p90_atrD": [
+    0.07726479141268117,
+    0.24014106542568042
+   ],
+   "width_over_cost_med": 8.416666666666591,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "TOK",
+   "orb": 30,
+   "sessions": 3875,
+   "coverage_pct": 99.0,
+   "width_med": 0.1280000000000001,
+   "width_atrD_med": 0.17211455018802893,
+   "width_p10_p90_atrD": [
+    0.09866924596673476,
+    0.3034141115017849
+   ],
+   "width_over_cost_med": 10.666666666666677,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "TOK",
+   "orb": 60,
+   "sessions": 3876,
+   "coverage_pct": 99.1,
+   "width_med": 0.18299999999999272,
+   "width_atrD_med": 0.24410029595463711,
+   "width_p10_p90_atrD": [
+    0.14809563499554562,
+    0.41879628868104546
+   ],
+   "width_over_cost_med": 15.249999999999392,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "LDN",
+   "orb": 5,
+   "sessions": 3870,
+   "coverage_pct": 98.9,
+   "width_med": 0.05700000000000216,
+   "width_atrD_med": 0.07764794843634856,
+   "width_p10_p90_atrD": [
+    0.041467659439950955,
+    0.13978412215735278
+   ],
+   "width_over_cost_med": 4.75000000000018,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "LDN",
+   "orb": 15,
+   "sessions": 3870,
+   "coverage_pct": 98.9,
+   "width_med": 0.09300000000000352,
+   "width_atrD_med": 0.1256348002526753,
+   "width_p10_p90_atrD": [
+    0.06972123390566266,
+    0.2218997691708106
+   ],
+   "width_over_cost_med": 7.750000000000293,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "LDN",
+   "orb": 30,
+   "sessions": 3870,
+   "coverage_pct": 98.9,
+   "width_med": 0.12700000000000955,
+   "width_atrD_med": 0.1706936254161575,
+   "width_p10_p90_atrD": [
+    0.09853661096165688,
+    0.3007720036536863
+   ],
+   "width_over_cost_med": 10.58333333333413,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "LDN",
+   "orb": 60,
+   "sessions": 3870,
+   "coverage_pct": 98.9,
+   "width_med": 0.16900000000001114,
+   "width_atrD_med": 0.2281953675671279,
+   "width_p10_p90_atrD": [
+    0.1339208076986483,
+    0.41302210919083393
+   ],
+   "width_over_cost_med": 14.083333333334261,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY8",
+   "orb": 5,
+   "sessions": 3867,
+   "coverage_pct": 98.8,
+   "width_med": 0.04399999999999693,
+   "width_atrD_med": 0.05880452342490224,
+   "width_p10_p90_atrD": [
+    0.03188528613835775,
+    0.1087750846847256
+   ],
+   "width_over_cost_med": 3.6666666666664107,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY8",
+   "orb": 15,
+   "sessions": 3867,
+   "coverage_pct": 98.8,
+   "width_med": 0.07500000000000284,
+   "width_atrD_med": 0.09953343701400792,
+   "width_p10_p90_atrD": [
+    0.05638220745292864,
+    0.18368188700928076
+   ],
+   "width_over_cost_med": 6.250000000000237,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY8",
+   "orb": 30,
+   "sessions": 3868,
+   "coverage_pct": 98.8,
+   "width_med": 0.11499999999999488,
+   "width_atrD_med": 0.15356151253983144,
+   "width_p10_p90_atrD": [
+    0.08694052547793177,
+    0.2874300302588342
+   ],
+   "width_over_cost_med": 9.583333333332908,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY8",
+   "orb": 60,
+   "sessions": 3868,
+   "coverage_pct": 98.8,
+   "width_med": 0.20199999999999818,
+   "width_atrD_med": 0.27086131208475095,
+   "width_p10_p90_atrD": [
+    0.14399254862815022,
+    0.5926367924374812
+   ],
+   "width_over_cost_med": 16.833333333333183,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY930",
+   "orb": 5,
+   "sessions": 3866,
+   "coverage_pct": 98.8,
+   "width_med": 0.06300000000000239,
+   "width_atrD_med": 0.08480108074427592,
+   "width_p10_p90_atrD": [
+    0.04336394269185777,
+    0.1574439305687268
+   ],
+   "width_over_cost_med": 5.250000000000199,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY930",
+   "orb": 15,
+   "sessions": 3868,
+   "coverage_pct": 98.8,
+   "width_med": 0.10499999999998977,
+   "width_atrD_med": 0.14028045412425344,
+   "width_p10_p90_atrD": [
+    0.07551830501619951,
+    0.26191709150005577
+   ],
+   "width_over_cost_med": 8.749999999999147,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY930",
+   "orb": 30,
+   "sessions": 3870,
+   "coverage_pct": 98.9,
+   "width_med": 0.14750000000000796,
+   "width_atrD_med": 0.1988528911266277,
+   "width_p10_p90_atrD": [
+    0.10673998427822952,
+    0.37002817095511875
+   ],
+   "width_over_cost_med": 12.29166666666733,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  },
+  {
+   "sym": "USDJPY",
+   "session": "NY930",
+   "orb": 60,
+   "sessions": 3869,
+   "coverage_pct": 98.9,
+   "width_med": 0.22100000000000364,
+   "width_atrD_med": 0.2972128158374561,
+   "width_p10_p90_atrD": [
+    0.16202358461757044,
+    0.5731620174696997
+   ],
+   "width_over_cost_med": 18.41666666666697,
+   "spread_med_entry_window": null,
+   "spread_years": 0,
+   "cost": 0.012,
+   "activity_data_share": 1.0
+  }
+ ]
+}
