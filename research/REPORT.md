@@ -191,3 +191,15 @@ drawdown for the same return.
 |---|---|---|---|---|---|
 | 3% | 20% | 22.2% | 15.0% | 14 / 20 / 28% | 0.45% (94/98/90%) |
 | 4% | 20% | 30.2% | 19.6% | 19 / 26 / 36% | 0.60% (94/98/90%) |
+
+# ORB 50 — Expansion & Continuation System (full study: `orb/ORB_REPORT.md`)
+
+118,898 configurations of opening-range breakout (pure, H4-EMA trend-filtered, pullback continuation,
+failed-breakout reversal, management and filter variants) on gold, EURUSD, GBPUSD and USDJPY at the
+Tokyo, London and two New York opens, 5/15/30/60-minute ranges, 1-minute fills, 60/20/20 chronological
+split, walk-forward, deflated Sharpe, and one logged final test on 2023-2025.
+**No defensible edge.** Plain ORB is +0.01R before costs and about -0.10R after, in every period.
+Walk-forward lost in 26 of 27 model-years. The four best configurations (locked before the final years
+were read) all lose in 2023-2025 (-0.12 to -0.16R per trade). Not added to the book; no EA built.
+Data note found here: the tick-built gold (2011-18) and GBPUSD (2011-17) files have no 00:00-00:59 UTC
+data on any day.
