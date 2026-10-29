@@ -1,0 +1,785 @@
+kind,variant,id
+single,ORB alone,AB-0
+single,ORB + ema,AB-1
+single,ORB + vol,AB-2
+single,ORB + retest,AB-3
+single,ORB + pb2,AB-4
+single,ORB + chand,AB-5
+single,ORB + be,AB-6
+ladder,2 +EMA50,AB-7
+ladder,3 +vol filter,AB-8
+ladder,4 +retest,AB-9
+ladder,5 +2-candle pullback (instead of retest),AB-10
+ladder,6 +chandelier,AB-11
+ladder,7 +break-even,AB-12
+ladder,8 full spec (stop below the pullback low),AB-13
+single,ORB alone,AB-14
+single,ORB + ema,AB-15
+single,ORB + vol,AB-16
+single,ORB + retest,AB-17
+single,ORB + pb2,AB-18
+single,ORB + chand,AB-19
+single,ORB + be,AB-20
+ladder,2 +EMA50,AB-21
+ladder,3 +vol filter,AB-22
+ladder,4 +retest,AB-23
+ladder,5 +2-candle pullback (instead of retest),AB-24
+ladder,6 +chandelier,AB-25
+ladder,7 +break-even,AB-26
+ladder,8 full spec (stop below the pullback low),AB-27
+single,ORB alone,AB-28
+single,ORB + ema,AB-29
+single,ORB + vol,AB-30
+single,ORB + retest,AB-31
+single,ORB + pb2,AB-32
+single,ORB + chand,AB-33
+single,ORB + be,AB-34
+ladder,2 +EMA50,AB-35
+ladder,3 +vol filter,AB-36
+ladder,4 +retest,AB-37
+ladder,5 +2-candle pullback (instead of retest),AB-38
+ladder,6 +chandelier,AB-39
+ladder,7 +break-even,AB-40
+ladder,8 full spec (stop below the pullback low),AB-41
+single,ORB alone,AB-42
+single,ORB + ema,AB-43
+single,ORB + vol,AB-44
+single,ORB + retest,AB-45
+single,ORB + pb2,AB-46
+single,ORB + chand,AB-47
+single,ORB + be,AB-48
+ladder,2 +EMA50,AB-49
+ladder,3 +vol filter,AB-50
+ladder,4 +retest,AB-51
+ladder,5 +2-candle pullback (instead of retest),AB-52
+ladder,6 +chandelier,AB-53
+ladder,7 +break-even,AB-54
+ladder,8 full spec (stop below the pullback low),AB-55
+single,ORB alone,AB-56
+single,ORB + ema,AB-57
+single,ORB + vol,AB-58
+single,ORB + retest,AB-59
+single,ORB + pb2,AB-60
+single,ORB + chand,AB-61
+single,ORB + be,AB-62
+ladder,2 +EMA50,AB-63
+ladder,3 +vol filter,AB-64
+ladder,4 +retest,AB-65
+ladder,5 +2-candle pullback (instead of retest),AB-66
+ladder,6 +chandelier,AB-67
+ladder,7 +break-even,AB-68
+ladder,8 full spec (stop below the pullback low),AB-69
+single,ORB alone,AB-70
+single,ORB + ema,AB-71
+single,ORB + vol,AB-72
+single,ORB + retest,AB-73
+single,ORB + pb2,AB-74
+single,ORB + chand,AB-75
+single,ORB + be,AB-76
+ladder,2 +EMA50,AB-77
+ladder,3 +vol filter,AB-78
+ladder,4 +retest,AB-79
+ladder,5 +2-candle pullback (instead of retest),AB-80
+ladder,6 +chandelier,AB-81
+ladder,7 +break-even,AB-82
+ladder,8 full spec (stop below the pullback low),AB-83
+single,ORB alone,AB-84
+single,ORB + ema,AB-85
+single,ORB + vol,AB-86
+single,ORB + retest,AB-87
+single,ORB + pb2,AB-88
+single,ORB + chand,AB-89
+single,ORB + be,AB-90
+ladder,2 +EMA50,AB-91
+ladder,3 +vol filter,AB-92
+ladder,4 +retest,AB-93
+ladder,5 +2-candle pullback (instead of retest),AB-94
+ladder,6 +chandelier,AB-95
+ladder,7 +break-even,AB-96
+ladder,8 full spec (stop below the pullback low),AB-97
+single,ORB alone,AB-98
+single,ORB + ema,AB-99
+single,ORB + vol,AB-100
+single,ORB + retest,AB-101
+single,ORB + pb2,AB-102
+single,ORB + chand,AB-103
+single,ORB + be,AB-104
+ladder,2 +EMA50,AB-105
+ladder,3 +vol filter,AB-106
+ladder,4 +retest,AB-107
+ladder,5 +2-candle pullback (instead of retest),AB-108
+ladder,6 +chandelier,AB-109
+ladder,7 +break-even,AB-110
+ladder,8 full spec (stop below the pullback low),AB-111
+single,ORB alone,AB-112
+single,ORB + ema,AB-113
+single,ORB + vol,AB-114
+single,ORB + retest,AB-115
+single,ORB + pb2,AB-116
+single,ORB + chand,AB-117
+single,ORB + be,AB-118
+ladder,2 +EMA50,AB-119
+ladder,3 +vol filter,AB-120
+ladder,4 +retest,AB-121
+ladder,5 +2-candle pullback (instead of retest),AB-122
+ladder,6 +chandelier,AB-123
+ladder,7 +break-even,AB-124
+ladder,8 full spec (stop below the pullback low),AB-125
+single,ORB alone,AB-126
+single,ORB + ema,AB-127
+single,ORB + vol,AB-128
+single,ORB + retest,AB-129
+single,ORB + pb2,AB-130
+single,ORB + chand,AB-131
+single,ORB + be,AB-132
+ladder,2 +EMA50,AB-133
+ladder,3 +vol filter,AB-134
+ladder,4 +retest,AB-135
+ladder,5 +2-candle pullback (instead of retest),AB-136
+ladder,6 +chandelier,AB-137
+ladder,7 +break-even,AB-138
+ladder,8 full spec (stop below the pullback low),AB-139
+single,ORB alone,AB-140
+single,ORB + ema,AB-141
+single,ORB + vol,AB-142
+single,ORB + retest,AB-143
+single,ORB + pb2,AB-144
+single,ORB + chand,AB-145
+single,ORB + be,AB-146
+ladder,2 +EMA50,AB-147
+ladder,3 +vol filter,AB-148
+ladder,4 +retest,AB-149
+ladder,5 +2-candle pullback (instead of retest),AB-150
+ladder,6 +chandelier,AB-151
+ladder,7 +break-even,AB-152
+ladder,8 full spec (stop below the pullback low),AB-153
+single,ORB alone,AB-154
+single,ORB + ema,AB-155
+single,ORB + vol,AB-156
+single,ORB + retest,AB-157
+single,ORB + pb2,AB-158
+single,ORB + chand,AB-159
+single,ORB + be,AB-160
+ladder,2 +EMA50,AB-161
+ladder,3 +vol filter,AB-162
+ladder,4 +retest,AB-163
+ladder,5 +2-candle pullback (instead of retest),AB-164
+ladder,6 +chandelier,AB-165
+ladder,7 +break-even,AB-166
+ladder,8 full spec (stop below the pullback low),AB-167
+single,ORB alone,AB-168
+single,ORB + ema,AB-169
+single,ORB + vol,AB-170
+single,ORB + retest,AB-171
+single,ORB + pb2,AB-172
+single,ORB + chand,AB-173
+single,ORB + be,AB-174
+ladder,2 +EMA50,AB-175
+ladder,3 +vol filter,AB-176
+ladder,4 +retest,AB-177
+ladder,5 +2-candle pullback (instead of retest),AB-178
+ladder,6 +chandelier,AB-179
+ladder,7 +break-even,AB-180
+ladder,8 full spec (stop below the pullback low),AB-181
+single,ORB alone,AB-182
+single,ORB + ema,AB-183
+single,ORB + vol,AB-184
+single,ORB + retest,AB-185
+single,ORB + pb2,AB-186
+single,ORB + chand,AB-187
+single,ORB + be,AB-188
+ladder,2 +EMA50,AB-189
+ladder,3 +vol filter,AB-190
+ladder,4 +retest,AB-191
+ladder,5 +2-candle pullback (instead of retest),AB-192
+ladder,6 +chandelier,AB-193
+ladder,7 +break-even,AB-194
+ladder,8 full spec (stop below the pullback low),AB-195
+single,ORB alone,AB-196
+single,ORB + ema,AB-197
+single,ORB + vol,AB-198
+single,ORB + retest,AB-199
+single,ORB + pb2,AB-200
+single,ORB + chand,AB-201
+single,ORB + be,AB-202
+ladder,2 +EMA50,AB-203
+ladder,3 +vol filter,AB-204
+ladder,4 +retest,AB-205
+ladder,5 +2-candle pullback (instead of retest),AB-206
+ladder,6 +chandelier,AB-207
+ladder,7 +break-even,AB-208
+ladder,8 full spec (stop below the pullback low),AB-209
+single,ORB alone,AB-210
+single,ORB + ema,AB-211
+single,ORB + vol,AB-212
+single,ORB + retest,AB-213
+single,ORB + pb2,AB-214
+single,ORB + chand,AB-215
+single,ORB + be,AB-216
+ladder,2 +EMA50,AB-217
+ladder,3 +vol filter,AB-218
+ladder,4 +retest,AB-219
+ladder,5 +2-candle pullback (instead of retest),AB-220
+ladder,6 +chandelier,AB-221
+ladder,7 +break-even,AB-222
+ladder,8 full spec (stop below the pullback low),AB-223
+single,ORB alone,AB-224
+single,ORB + ema,AB-225
+single,ORB + vol,AB-226
+single,ORB + retest,AB-227
+single,ORB + pb2,AB-228
+single,ORB + chand,AB-229
+single,ORB + be,AB-230
+ladder,2 +EMA50,AB-231
+ladder,3 +vol filter,AB-232
+ladder,4 +retest,AB-233
+ladder,5 +2-candle pullback (instead of retest),AB-234
+ladder,6 +chandelier,AB-235
+ladder,7 +break-even,AB-236
+ladder,8 full spec (stop below the pullback low),AB-237
+single,ORB alone,AB-238
+single,ORB + ema,AB-239
+single,ORB + vol,AB-240
+single,ORB + retest,AB-241
+single,ORB + pb2,AB-242
+single,ORB + chand,AB-243
+single,ORB + be,AB-244
+ladder,2 +EMA50,AB-245
+ladder,3 +vol filter,AB-246
+ladder,4 +retest,AB-247
+ladder,5 +2-candle pullback (instead of retest),AB-248
+ladder,6 +chandelier,AB-249
+ladder,7 +break-even,AB-250
+ladder,8 full spec (stop below the pullback low),AB-251
+single,ORB alone,AB-252
+single,ORB + ema,AB-253
+single,ORB + vol,AB-254
+single,ORB + retest,AB-255
+single,ORB + pb2,AB-256
+single,ORB + chand,AB-257
+single,ORB + be,AB-258
+ladder,2 +EMA50,AB-259
+ladder,3 +vol filter,AB-260
+ladder,4 +retest,AB-261
+ladder,5 +2-candle pullback (instead of retest),AB-262
+ladder,6 +chandelier,AB-263
+ladder,7 +break-even,AB-264
+ladder,8 full spec (stop below the pullback low),AB-265
+single,ORB alone,AB-266
+single,ORB + ema,AB-267
+single,ORB + vol,AB-268
+single,ORB + retest,AB-269
+single,ORB + pb2,AB-270
+single,ORB + chand,AB-271
+single,ORB + be,AB-272
+ladder,2 +EMA50,AB-273
+ladder,3 +vol filter,AB-274
+ladder,4 +retest,AB-275
+ladder,5 +2-candle pullback (instead of retest),AB-276
+ladder,6 +chandelier,AB-277
+ladder,7 +break-even,AB-278
+ladder,8 full spec (stop below the pullback low),AB-279
+single,ORB alone,AB-280
+single,ORB + ema,AB-281
+single,ORB + vol,AB-282
+single,ORB + retest,AB-283
+single,ORB + pb2,AB-284
+single,ORB + chand,AB-285
+single,ORB + be,AB-286
+ladder,2 +EMA50,AB-287
+ladder,3 +vol filter,AB-288
+ladder,4 +retest,AB-289
+ladder,5 +2-candle pullback (instead of retest),AB-290
+ladder,6 +chandelier,AB-291
+ladder,7 +break-even,AB-292
+ladder,8 full spec (stop below the pullback low),AB-293
+single,ORB alone,AB-294
+single,ORB + ema,AB-295
+single,ORB + vol,AB-296
+single,ORB + retest,AB-297
+single,ORB + pb2,AB-298
+single,ORB + chand,AB-299
+single,ORB + be,AB-300
+ladder,2 +EMA50,AB-301
+ladder,3 +vol filter,AB-302
+ladder,4 +retest,AB-303
+ladder,5 +2-candle pullback (instead of retest),AB-304
+ladder,6 +chandelier,AB-305
+ladder,7 +break-even,AB-306
+ladder,8 full spec (stop below the pullback low),AB-307
+single,ORB alone,AB-308
+single,ORB + ema,AB-309
+single,ORB + vol,AB-310
+single,ORB + retest,AB-311
+single,ORB + pb2,AB-312
+single,ORB + chand,AB-313
+single,ORB + be,AB-314
+ladder,2 +EMA50,AB-315
+ladder,3 +vol filter,AB-316
+ladder,4 +retest,AB-317
+ladder,5 +2-candle pullback (instead of retest),AB-318
+ladder,6 +chandelier,AB-319
+ladder,7 +break-even,AB-320
+ladder,8 full spec (stop below the pullback low),AB-321
+single,ORB alone,AB-322
+single,ORB + ema,AB-323
+single,ORB + vol,AB-324
+single,ORB + retest,AB-325
+single,ORB + pb2,AB-326
+single,ORB + chand,AB-327
+single,ORB + be,AB-328
+ladder,2 +EMA50,AB-329
+ladder,3 +vol filter,AB-330
+ladder,4 +retest,AB-331
+ladder,5 +2-candle pullback (instead of retest),AB-332
+ladder,6 +chandelier,AB-333
+ladder,7 +break-even,AB-334
+ladder,8 full spec (stop below the pullback low),AB-335
+single,ORB alone,AB-336
+single,ORB + ema,AB-337
+single,ORB + vol,AB-338
+single,ORB + retest,AB-339
+single,ORB + pb2,AB-340
+single,ORB + chand,AB-341
+single,ORB + be,AB-342
+ladder,2 +EMA50,AB-343
+ladder,3 +vol filter,AB-344
+ladder,4 +retest,AB-345
+ladder,5 +2-candle pullback (instead of retest),AB-346
+ladder,6 +chandelier,AB-347
+ladder,7 +break-even,AB-348
+ladder,8 full spec (stop below the pullback low),AB-349
+single,ORB alone,AB-350
+single,ORB + ema,AB-351
+single,ORB + vol,AB-352
+single,ORB + retest,AB-353
+single,ORB + pb2,AB-354
+single,ORB + chand,AB-355
+single,ORB + be,AB-356
+ladder,2 +EMA50,AB-357
+ladder,3 +vol filter,AB-358
+ladder,4 +retest,AB-359
+ladder,5 +2-candle pullback (instead of retest),AB-360
+ladder,6 +chandelier,AB-361
+ladder,7 +break-even,AB-362
+ladder,8 full spec (stop below the pullback low),AB-363
+single,ORB alone,AB-364
+single,ORB + ema,AB-365
+single,ORB + vol,AB-366
+single,ORB + retest,AB-367
+single,ORB + pb2,AB-368
+single,ORB + chand,AB-369
+single,ORB + be,AB-370
+ladder,2 +EMA50,AB-371
+ladder,3 +vol filter,AB-372
+ladder,4 +retest,AB-373
+ladder,5 +2-candle pullback (instead of retest),AB-374
+ladder,6 +chandelier,AB-375
+ladder,7 +break-even,AB-376
+ladder,8 full spec (stop below the pullback low),AB-377
+single,ORB alone,AB-378
+single,ORB + ema,AB-379
+single,ORB + vol,AB-380
+single,ORB + retest,AB-381
+single,ORB + pb2,AB-382
+single,ORB + chand,AB-383
+single,ORB + be,AB-384
+ladder,2 +EMA50,AB-385
+ladder,3 +vol filter,AB-386
+ladder,4 +retest,AB-387
+ladder,5 +2-candle pullback (instead of retest),AB-388
+ladder,6 +chandelier,AB-389
+ladder,7 +break-even,AB-390
+ladder,8 full spec (stop below the pullback low),AB-391
+single,ORB alone,AB-392
+single,ORB + ema,AB-393
+single,ORB + vol,AB-394
+single,ORB + retest,AB-395
+single,ORB + pb2,AB-396
+single,ORB + chand,AB-397
+single,ORB + be,AB-398
+ladder,2 +EMA50,AB-399
+ladder,3 +vol filter,AB-400
+ladder,4 +retest,AB-401
+ladder,5 +2-candle pullback (instead of retest),AB-402
+ladder,6 +chandelier,AB-403
+ladder,7 +break-even,AB-404
+ladder,8 full spec (stop below the pullback low),AB-405
+single,ORB alone,AB-406
+single,ORB + ema,AB-407
+single,ORB + vol,AB-408
+single,ORB + retest,AB-409
+single,ORB + pb2,AB-410
+single,ORB + chand,AB-411
+single,ORB + be,AB-412
+ladder,2 +EMA50,AB-413
+ladder,3 +vol filter,AB-414
+ladder,4 +retest,AB-415
+ladder,5 +2-candle pullback (instead of retest),AB-416
+ladder,6 +chandelier,AB-417
+ladder,7 +break-even,AB-418
+ladder,8 full spec (stop below the pullback low),AB-419
+single,ORB alone,AB-420
+single,ORB + ema,AB-421
+single,ORB + vol,AB-422
+single,ORB + retest,AB-423
+single,ORB + pb2,AB-424
+single,ORB + chand,AB-425
+single,ORB + be,AB-426
+ladder,2 +EMA50,AB-427
+ladder,3 +vol filter,AB-428
+ladder,4 +retest,AB-429
+ladder,5 +2-candle pullback (instead of retest),AB-430
+ladder,6 +chandelier,AB-431
+ladder,7 +break-even,AB-432
+ladder,8 full spec (stop below the pullback low),AB-433
+single,ORB alone,AB-434
+single,ORB + ema,AB-435
+single,ORB + vol,AB-436
+single,ORB + retest,AB-437
+single,ORB + pb2,AB-438
+single,ORB + chand,AB-439
+single,ORB + be,AB-440
+ladder,2 +EMA50,AB-441
+ladder,3 +vol filter,AB-442
+ladder,4 +retest,AB-443
+ladder,5 +2-candle pullback (instead of retest),AB-444
+ladder,6 +chandelier,AB-445
+ladder,7 +break-even,AB-446
+ladder,8 full spec (stop below the pullback low),AB-447
+single,ORB alone,AB-448
+single,ORB + ema,AB-449
+single,ORB + vol,AB-450
+single,ORB + retest,AB-451
+single,ORB + pb2,AB-452
+single,ORB + chand,AB-453
+single,ORB + be,AB-454
+ladder,2 +EMA50,AB-455
+ladder,3 +vol filter,AB-456
+ladder,4 +retest,AB-457
+ladder,5 +2-candle pullback (instead of retest),AB-458
+ladder,6 +chandelier,AB-459
+ladder,7 +break-even,AB-460
+ladder,8 full spec (stop below the pullback low),AB-461
+single,ORB alone,AB-462
+single,ORB + ema,AB-463
+single,ORB + vol,AB-464
+single,ORB + retest,AB-465
+single,ORB + pb2,AB-466
+single,ORB + chand,AB-467
+single,ORB + be,AB-468
+ladder,2 +EMA50,AB-469
+ladder,3 +vol filter,AB-470
+ladder,4 +retest,AB-471
+ladder,5 +2-candle pullback (instead of retest),AB-472
+ladder,6 +chandelier,AB-473
+ladder,7 +break-even,AB-474
+ladder,8 full spec (stop below the pullback low),AB-475
+single,ORB alone,AB-476
+single,ORB + ema,AB-477
+single,ORB + vol,AB-478
+single,ORB + retest,AB-479
+single,ORB + pb2,AB-480
+single,ORB + chand,AB-481
+single,ORB + be,AB-482
+ladder,2 +EMA50,AB-483
+ladder,3 +vol filter,AB-484
+ladder,4 +retest,AB-485
+ladder,5 +2-candle pullback (instead of retest),AB-486
+ladder,6 +chandelier,AB-487
+ladder,7 +break-even,AB-488
+ladder,8 full spec (stop below the pullback low),AB-489
+single,ORB alone,AB-490
+single,ORB + ema,AB-491
+single,ORB + vol,AB-492
+single,ORB + retest,AB-493
+single,ORB + pb2,AB-494
+single,ORB + chand,AB-495
+single,ORB + be,AB-496
+ladder,2 +EMA50,AB-497
+ladder,3 +vol filter,AB-498
+ladder,4 +retest,AB-499
+ladder,5 +2-candle pullback (instead of retest),AB-500
+ladder,6 +chandelier,AB-501
+ladder,7 +break-even,AB-502
+ladder,8 full spec (stop below the pullback low),AB-503
+single,ORB alone,AB-504
+single,ORB + ema,AB-505
+single,ORB + vol,AB-506
+single,ORB + retest,AB-507
+single,ORB + pb2,AB-508
+single,ORB + chand,AB-509
+single,ORB + be,AB-510
+ladder,2 +EMA50,AB-511
+ladder,3 +vol filter,AB-512
+ladder,4 +retest,AB-513
+ladder,5 +2-candle pullback (instead of retest),AB-514
+ladder,6 +chandelier,AB-515
+ladder,7 +break-even,AB-516
+ladder,8 full spec (stop below the pullback low),AB-517
+single,ORB alone,AB-518
+single,ORB + ema,AB-519
+single,ORB + vol,AB-520
+single,ORB + retest,AB-521
+single,ORB + pb2,AB-522
+single,ORB + chand,AB-523
+single,ORB + be,AB-524
+ladder,2 +EMA50,AB-525
+ladder,3 +vol filter,AB-526
+ladder,4 +retest,AB-527
+ladder,5 +2-candle pullback (instead of retest),AB-528
+ladder,6 +chandelier,AB-529
+ladder,7 +break-even,AB-530
+ladder,8 full spec (stop below the pullback low),AB-531
+single,ORB alone,AB-532
+single,ORB + ema,AB-533
+single,ORB + vol,AB-534
+single,ORB + retest,AB-535
+single,ORB + pb2,AB-536
+single,ORB + chand,AB-537
+single,ORB + be,AB-538
+ladder,2 +EMA50,AB-539
+ladder,3 +vol filter,AB-540
+ladder,4 +retest,AB-541
+ladder,5 +2-candle pullback (instead of retest),AB-542
+ladder,6 +chandelier,AB-543
+ladder,7 +break-even,AB-544
+ladder,8 full spec (stop below the pullback low),AB-545
+single,ORB alone,AB-546
+single,ORB + ema,AB-547
+single,ORB + vol,AB-548
+single,ORB + retest,AB-549
+single,ORB + pb2,AB-550
+single,ORB + chand,AB-551
+single,ORB + be,AB-552
+ladder,2 +EMA50,AB-553
+ladder,3 +vol filter,AB-554
+ladder,4 +retest,AB-555
+ladder,5 +2-candle pullback (instead of retest),AB-556
+ladder,6 +chandelier,AB-557
+ladder,7 +break-even,AB-558
+ladder,8 full spec (stop below the pullback low),AB-559
+single,ORB alone,AB-560
+single,ORB + ema,AB-561
+single,ORB + vol,AB-562
+single,ORB + retest,AB-563
+single,ORB + pb2,AB-564
+single,ORB + chand,AB-565
+single,ORB + be,AB-566
+ladder,2 +EMA50,AB-567
+ladder,3 +vol filter,AB-568
+ladder,4 +retest,AB-569
+ladder,5 +2-candle pullback (instead of retest),AB-570
+ladder,6 +chandelier,AB-571
+ladder,7 +break-even,AB-572
+ladder,8 full spec (stop below the pullback low),AB-573
+single,ORB alone,AB-574
+single,ORB + ema,AB-575
+single,ORB + vol,AB-576
+single,ORB + retest,AB-577
+single,ORB + pb2,AB-578
+single,ORB + chand,AB-579
+single,ORB + be,AB-580
+ladder,2 +EMA50,AB-581
+ladder,3 +vol filter,AB-582
+ladder,4 +retest,AB-583
+ladder,5 +2-candle pullback (instead of retest),AB-584
+ladder,6 +chandelier,AB-585
+ladder,7 +break-even,AB-586
+ladder,8 full spec (stop below the pullback low),AB-587
+single,ORB alone,AB-588
+single,ORB + ema,AB-589
+single,ORB + vol,AB-590
+single,ORB + retest,AB-591
+single,ORB + pb2,AB-592
+single,ORB + chand,AB-593
+single,ORB + be,AB-594
+ladder,2 +EMA50,AB-595
+ladder,3 +vol filter,AB-596
+ladder,4 +retest,AB-597
+ladder,5 +2-candle pullback (instead of retest),AB-598
+ladder,6 +chandelier,AB-599
+ladder,7 +break-even,AB-600
+ladder,8 full spec (stop below the pullback low),AB-601
+single,ORB alone,AB-602
+single,ORB + ema,AB-603
+single,ORB + vol,AB-604
+single,ORB + retest,AB-605
+single,ORB + pb2,AB-606
+single,ORB + chand,AB-607
+single,ORB + be,AB-608
+ladder,2 +EMA50,AB-609
+ladder,3 +vol filter,AB-610
+ladder,4 +retest,AB-611
+ladder,5 +2-candle pullback (instead of retest),AB-612
+ladder,6 +chandelier,AB-613
+ladder,7 +break-even,AB-614
+ladder,8 full spec (stop below the pullback low),AB-615
+single,ORB alone,AB-616
+single,ORB + ema,AB-617
+single,ORB + vol,AB-618
+single,ORB + retest,AB-619
+single,ORB + pb2,AB-620
+single,ORB + chand,AB-621
+single,ORB + be,AB-622
+ladder,2 +EMA50,AB-623
+ladder,3 +vol filter,AB-624
+ladder,4 +retest,AB-625
+ladder,5 +2-candle pullback (instead of retest),AB-626
+ladder,6 +chandelier,AB-627
+ladder,7 +break-even,AB-628
+ladder,8 full spec (stop below the pullback low),AB-629
+single,ORB alone,AB-630
+single,ORB + ema,AB-631
+single,ORB + vol,AB-632
+single,ORB + retest,AB-633
+single,ORB + pb2,AB-634
+single,ORB + chand,AB-635
+single,ORB + be,AB-636
+ladder,2 +EMA50,AB-637
+ladder,3 +vol filter,AB-638
+ladder,4 +retest,AB-639
+ladder,5 +2-candle pullback (instead of retest),AB-640
+ladder,6 +chandelier,AB-641
+ladder,7 +break-even,AB-642
+ladder,8 full spec (stop below the pullback low),AB-643
+single,ORB alone,AB-644
+single,ORB + ema,AB-645
+single,ORB + vol,AB-646
+single,ORB + retest,AB-647
+single,ORB + pb2,AB-648
+single,ORB + chand,AB-649
+single,ORB + be,AB-650
+ladder,2 +EMA50,AB-651
+ladder,3 +vol filter,AB-652
+ladder,4 +retest,AB-653
+ladder,5 +2-candle pullback (instead of retest),AB-654
+ladder,6 +chandelier,AB-655
+ladder,7 +break-even,AB-656
+ladder,8 full spec (stop below the pullback low),AB-657
+single,ORB alone,AB-658
+single,ORB + ema,AB-659
+single,ORB + vol,AB-660
+single,ORB + retest,AB-661
+single,ORB + pb2,AB-662
+single,ORB + chand,AB-663
+single,ORB + be,AB-664
+ladder,2 +EMA50,AB-665
+ladder,3 +vol filter,AB-666
+ladder,4 +retest,AB-667
+ladder,5 +2-candle pullback (instead of retest),AB-668
+ladder,6 +chandelier,AB-669
+ladder,7 +break-even,AB-670
+ladder,8 full spec (stop below the pullback low),AB-671
+single,ORB alone,AB-672
+single,ORB + ema,AB-673
+single,ORB + vol,AB-674
+single,ORB + retest,AB-675
+single,ORB + pb2,AB-676
+single,ORB + chand,AB-677
+single,ORB + be,AB-678
+ladder,2 +EMA50,AB-679
+ladder,3 +vol filter,AB-680
+ladder,4 +retest,AB-681
+ladder,5 +2-candle pullback (instead of retest),AB-682
+ladder,6 +chandelier,AB-683
+ladder,7 +break-even,AB-684
+ladder,8 full spec (stop below the pullback low),AB-685
+single,ORB alone,AB-686
+single,ORB + ema,AB-687
+single,ORB + vol,AB-688
+single,ORB + retest,AB-689
+single,ORB + pb2,AB-690
+single,ORB + chand,AB-691
+single,ORB + be,AB-692
+ladder,2 +EMA50,AB-693
+ladder,3 +vol filter,AB-694
+ladder,4 +retest,AB-695
+ladder,5 +2-candle pullback (instead of retest),AB-696
+ladder,6 +chandelier,AB-697
+ladder,7 +break-even,AB-698
+ladder,8 full spec (stop below the pullback low),AB-699
+single,ORB alone,AB-700
+single,ORB + ema,AB-701
+single,ORB + vol,AB-702
+single,ORB + retest,AB-703
+single,ORB + pb2,AB-704
+single,ORB + chand,AB-705
+single,ORB + be,AB-706
+ladder,2 +EMA50,AB-707
+ladder,3 +vol filter,AB-708
+ladder,4 +retest,AB-709
+ladder,5 +2-candle pullback (instead of retest),AB-710
+ladder,6 +chandelier,AB-711
+ladder,7 +break-even,AB-712
+ladder,8 full spec (stop below the pullback low),AB-713
+single,ORB alone,AB-714
+single,ORB + ema,AB-715
+single,ORB + vol,AB-716
+single,ORB + retest,AB-717
+single,ORB + pb2,AB-718
+single,ORB + chand,AB-719
+single,ORB + be,AB-720
+ladder,2 +EMA50,AB-721
+ladder,3 +vol filter,AB-722
+ladder,4 +retest,AB-723
+ladder,5 +2-candle pullback (instead of retest),AB-724
+ladder,6 +chandelier,AB-725
+ladder,7 +break-even,AB-726
+ladder,8 full spec (stop below the pullback low),AB-727
+single,ORB alone,AB-728
+single,ORB + ema,AB-729
+single,ORB + vol,AB-730
+single,ORB + retest,AB-731
+single,ORB + pb2,AB-732
+single,ORB + chand,AB-733
+single,ORB + be,AB-734
+ladder,2 +EMA50,AB-735
+ladder,3 +vol filter,AB-736
+ladder,4 +retest,AB-737
+ladder,5 +2-candle pullback (instead of retest),AB-738
+ladder,6 +chandelier,AB-739
+ladder,7 +break-even,AB-740
+ladder,8 full spec (stop below the pullback low),AB-741
+single,ORB alone,AB-742
+single,ORB + ema,AB-743
+single,ORB + vol,AB-744
+single,ORB + retest,AB-745
+single,ORB + pb2,AB-746
+single,ORB + chand,AB-747
+single,ORB + be,AB-748
+ladder,2 +EMA50,AB-749
+ladder,3 +vol filter,AB-750
+ladder,4 +retest,AB-751
+ladder,5 +2-candle pullback (instead of retest),AB-752
+ladder,6 +chandelier,AB-753
+ladder,7 +break-even,AB-754
+ladder,8 full spec (stop below the pullback low),AB-755
+single,ORB alone,AB-756
+single,ORB + ema,AB-757
+single,ORB + vol,AB-758
+single,ORB + retest,AB-759
+single,ORB + pb2,AB-760
+single,ORB + chand,AB-761
+single,ORB + be,AB-762
+ladder,2 +EMA50,AB-763
+ladder,3 +vol filter,AB-764
+ladder,4 +retest,AB-765
+ladder,5 +2-candle pullback (instead of retest),AB-766
+ladder,6 +chandelier,AB-767
+ladder,7 +break-even,AB-768
+ladder,8 full spec (stop below the pullback low),AB-769
+single,ORB alone,AB-770
+single,ORB + ema,AB-771
+single,ORB + vol,AB-772
+single,ORB + retest,AB-773
+single,ORB + pb2,AB-774
+single,ORB + chand,AB-775
+single,ORB + be,AB-776
+ladder,2 +EMA50,AB-777
+ladder,3 +vol filter,AB-778
+ladder,4 +retest,AB-779
+ladder,5 +2-candle pullback (instead of retest),AB-780
+ladder,6 +chandelier,AB-781
+ladder,7 +break-even,AB-782
+ladder,8 full spec (stop below the pullback low),AB-783

@@ -1,0 +1,686 @@
+{
+ "management": [
+  {
+   "set": "canon",
+   "label": "break-even at 0.75R",
+   "bases": 56,
+   "dE_dev_median": -0.004040455048957184,
+   "share_better_dev": 0.3392857142857143,
+   "dE_val_median": 0.004079192499363433,
+   "share_better_val": 0.625,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "break-even at 1.0R",
+   "bases": 56,
+   "dE_dev_median": -0.002707144619395225,
+   "share_better_dev": 0.35714285714285715,
+   "dE_val_median": 0.0018174438728087734,
+   "share_better_val": 0.5178571428571429,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "break-even at 1.25R",
+   "bases": 56,
+   "dE_dev_median": -0.0003079747412647049,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": 0.000945543500243607,
+   "share_better_val": 0.5714285714285714,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 2.0 x ATR10 (no target)",
+   "bases": 56,
+   "dE_dev_median": -0.0024704852165010754,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": -0.010930800526759377,
+   "share_better_val": 0.35714285714285715,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 2.0 x ATR14 (no target)",
+   "bases": 56,
+   "dE_dev_median": -0.003065053713110416,
+   "share_better_dev": 0.44642857142857145,
+   "dE_val_median": -0.0116002883744044,
+   "share_better_val": 0.3392857142857143,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 2.0 x ATR20 (no target)",
+   "bases": 56,
+   "dE_dev_median": -0.002947063092080343,
+   "share_better_dev": 0.4642857142857143,
+   "dE_val_median": -0.014554020936380693,
+   "share_better_val": 0.3392857142857143,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 2.5 x ATR10 (no target)",
+   "bases": 56,
+   "dE_dev_median": 0.002711439781158363,
+   "share_better_dev": 0.5714285714285714,
+   "dE_val_median": -0.0062943598105511325,
+   "share_better_val": 0.44642857142857145,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 2.5 x ATR14 (no target)",
+   "bases": 56,
+   "dE_dev_median": 0.0018295031361912281,
+   "share_better_dev": 0.5178571428571429,
+   "dE_val_median": -0.008631814400924764,
+   "share_better_val": 0.35714285714285715,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 2.5 x ATR20 (no target)",
+   "bases": 56,
+   "dE_dev_median": 0.00018091457380065706,
+   "share_better_dev": 0.5,
+   "dE_val_median": -0.014284792790382823,
+   "share_better_val": 0.3392857142857143,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 3.0 x ATR10 (no target)",
+   "bases": 56,
+   "dE_dev_median": -0.00023439876706448856,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": -0.006081738436044003,
+   "share_better_val": 0.42857142857142855,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 3.0 x ATR14 (no target)",
+   "bases": 56,
+   "dE_dev_median": -0.0003708565259117058,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": -0.0015510491392885586,
+   "share_better_val": 0.5,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 3.0 x ATR20 (no target)",
+   "bases": 56,
+   "dE_dev_median": 0.002162070467269274,
+   "share_better_dev": 0.5357142857142857,
+   "dE_val_median": -0.003036093615084513,
+   "share_better_val": 0.4642857142857143,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 3.5 x ATR10 (no target)",
+   "bases": 56,
+   "dE_dev_median": 0.0018195904589010659,
+   "share_better_dev": 0.5357142857142857,
+   "dE_val_median": 0.0012983438135785452,
+   "share_better_val": 0.5178571428571429,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 3.5 x ATR14 (no target)",
+   "bases": 56,
+   "dE_dev_median": 0.001512209378161749,
+   "share_better_dev": 0.5357142857142857,
+   "dE_val_median": -0.011685653476284747,
+   "share_better_val": 0.42857142857142855,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "chandelier 3.5 x ATR20 (no target)",
+   "bases": 56,
+   "dE_dev_median": -0.0004119220580540914,
+   "share_better_dev": 0.5,
+   "dE_val_median": -0.0017928110676650073,
+   "share_better_val": 0.4642857142857143,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "50% at 1R + chandelier 3 x ATR14",
+   "bases": 56,
+   "dE_dev_median": -0.00012655973844445667,
+   "share_better_dev": 0.5,
+   "dE_val_median": 0.0006284252274655379,
+   "share_better_val": 0.5,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "canon",
+   "label": "50% at 1R + BE 1R + chandelier 3",
+   "bases": 56,
+   "dE_dev_median": -0.0010485605745041808,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": -0.0007003393459915665,
+   "share_better_val": 0.48214285714285715,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "break-even at 0.75R",
+   "bases": 98,
+   "dE_dev_median": -0.009079582995036844,
+   "share_better_dev": 0.2857142857142857,
+   "dE_val_median": 0.004079192499363433,
+   "share_better_val": 0.5816326530612245,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "break-even at 1.0R",
+   "bases": 98,
+   "dE_dev_median": -0.005526633079583466,
+   "share_better_dev": 0.2857142857142857,
+   "dE_val_median": 0.002220709606986889,
+   "share_better_val": 0.5306122448979592,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "break-even at 1.25R",
+   "bases": 98,
+   "dE_dev_median": -0.0014148715878107999,
+   "share_better_dev": 0.40816326530612246,
+   "dE_val_median": 0.0008669423645775547,
+   "share_better_val": 0.5510204081632653,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 2.0 x ATR10 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.0223476813489656,
+   "share_better_dev": 0.29591836734693877,
+   "dE_val_median": -0.012546829917878803,
+   "share_better_val": 0.3469387755102041,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 2.0 x ATR14 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.023251794284261884,
+   "share_better_dev": 0.2857142857142857,
+   "dE_val_median": -0.01439699780608849,
+   "share_better_val": 0.3469387755102041,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 2.0 x ATR20 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.021586704628473438,
+   "share_better_dev": 0.3163265306122449,
+   "dE_val_median": -0.016836845747580754,
+   "share_better_val": 0.32653061224489793,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 2.5 x ATR10 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.011929386186030854,
+   "share_better_dev": 0.3877551020408163,
+   "dE_val_median": -0.007577172742280315,
+   "share_better_val": 0.3979591836734694,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 2.5 x ATR14 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.018265267564823384,
+   "share_better_dev": 0.336734693877551,
+   "dE_val_median": -0.011768709851702815,
+   "share_better_val": 0.3673469387755102,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 2.5 x ATR20 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.01849064729370011,
+   "share_better_dev": 0.3163265306122449,
+   "dE_val_median": -0.01902578928571428,
+   "share_better_val": 0.336734693877551,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 3.0 x ATR10 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.011542323691326743,
+   "share_better_dev": 0.336734693877551,
+   "dE_val_median": -0.007014365137614678,
+   "share_better_val": 0.42857142857142855,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 3.0 x ATR14 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.012350561966223242,
+   "share_better_dev": 0.32653061224489793,
+   "dE_val_median": -0.004217828834273966,
+   "share_better_val": 0.4897959183673469,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 3.0 x ATR20 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.011343478793800241,
+   "share_better_dev": 0.3673469387755102,
+   "dE_val_median": -0.00385298857142857,
+   "share_better_val": 0.46938775510204084,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 3.5 x ATR10 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.014022207478462235,
+   "share_better_dev": 0.35714285714285715,
+   "dE_val_median": 0.0012983438135785452,
+   "share_better_val": 0.5102040816326531,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 3.5 x ATR14 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.013383060510869066,
+   "share_better_dev": 0.3469387755102041,
+   "dE_val_median": -0.007305911125485122,
+   "share_better_val": 0.47959183673469385,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "chandelier 3.5 x ATR20 (no target)",
+   "bases": 98,
+   "dE_dev_median": -0.019104696579130963,
+   "share_better_dev": 0.32653061224489793,
+   "dE_val_median": -0.0009564986065246153,
+   "share_better_val": 0.47959183673469385,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "50% at 1R + chandelier 3 x ATR14",
+   "bases": 98,
+   "dE_dev_median": -0.011587771950234568,
+   "share_better_dev": 0.30612244897959184,
+   "dE_val_median": -0.0006402930379746964,
+   "share_better_val": 0.4897959183673469,
+   "trades_kept": 1.0
+  },
+  {
+   "set": "all",
+   "label": "50% at 1R + BE 1R + chandelier 3",
+   "bases": 98,
+   "dE_dev_median": -0.01259708794038785,
+   "share_better_dev": 0.30612244897959184,
+   "dE_val_median": -0.001530320665614527,
+   "share_better_val": 0.47959183673469385,
+   "trades_kept": 1.0
+  }
+ ],
+ "filters": [
+  {
+   "set": "canon",
+   "label": "filter w:10~90",
+   "bases": 56,
+   "dE_dev_median": -0.0021641638993609713,
+   "share_better_dev": 0.4107142857142857,
+   "dE_val_median": 0.003605348938300867,
+   "share_better_val": 0.5714285714285714,
+   "trades_kept": 0.7992374899396796
+  },
+  {
+   "set": "canon",
+   "label": "filter w:20~80",
+   "bases": 56,
+   "dE_dev_median": -0.004295689057247004,
+   "share_better_dev": 0.44642857142857145,
+   "dE_val_median": 0.0015281906481258989,
+   "share_better_val": 0.5178571428571429,
+   "trades_kept": 0.6035361297397275
+  },
+  {
+   "set": "canon",
+   "label": "filter w:0~80",
+   "bases": 56,
+   "dE_dev_median": -0.011156130017054136,
+   "share_better_dev": 0.17857142857142858,
+   "dE_val_median": -0.012235710913566844,
+   "share_better_val": 0.19642857142857142,
+   "trades_kept": 0.8021495008746962
+  },
+  {
+   "set": "canon",
+   "label": "filter w:20~100",
+   "bases": 56,
+   "dE_dev_median": 0.011380614659969535,
+   "share_better_dev": 0.6964285714285714,
+   "dE_val_median": 0.016302477544340672,
+   "share_better_val": 0.8035714285714286,
+   "trades_kept": 0.7920683142459877
+  },
+  {
+   "set": "canon",
+   "label": "filter w:30~70",
+   "bases": 56,
+   "dE_dev_median": -0.0016744874578886251,
+   "share_better_dev": 0.4642857142857143,
+   "dE_val_median": 0.005366658224622907,
+   "share_better_val": 0.5178571428571429,
+   "trades_kept": 0.4056393861892583
+  },
+  {
+   "set": "canon",
+   "label": "filter v:0.8~1.25",
+   "bases": 56,
+   "dE_dev_median": -0.0008117699962878651,
+   "share_better_dev": 0.5,
+   "dE_val_median": -0.016696303936858378,
+   "share_better_val": 0.32142857142857145,
+   "trades_kept": 0.5598456361270083
+  },
+  {
+   "set": "canon",
+   "label": "filter v:1.0~99",
+   "bases": 56,
+   "dE_dev_median": 0.021889963895365065,
+   "share_better_dev": 0.7321428571428571,
+   "dE_val_median": 0.013314885562421979,
+   "share_better_val": 0.5714285714285714,
+   "trades_kept": 0.4089483327432037
+  },
+  {
+   "set": "canon",
+   "label": "filter v:0~1.0",
+   "bases": 56,
+   "dE_dev_median": -0.016907854552396316,
+   "share_better_dev": 0.25,
+   "dE_val_median": -0.018244307716385747,
+   "share_better_val": 0.42857142857142855,
+   "trades_kept": 0.563323351019839
+  },
+  {
+   "set": "canon",
+   "label": "skip impulsive bar > 1.5 ATR",
+   "bases": 56,
+   "dE_dev_median": -0.0037921681604388482,
+   "share_better_dev": 0.39285714285714285,
+   "dE_val_median": -0.007280803612581217,
+   "share_better_val": 0.375,
+   "trades_kept": 0.7996017826098831
+  },
+  {
+   "set": "canon",
+   "label": "skip impulsive bar > 2.0 ATR",
+   "bases": 56,
+   "dE_dev_median": -0.0007889443652411288,
+   "share_better_dev": 0.4642857142857143,
+   "dE_val_median": -0.005968646522521531,
+   "share_better_val": 0.30357142857142855,
+   "trades_kept": 0.9062872749332744
+  },
+  {
+   "set": "canon",
+   "label": "skip impulsive bar > 3.0 ATR",
+   "bases": 56,
+   "dE_dev_median": -0.0009966375846215403,
+   "share_better_dev": 0.42857142857142855,
+   "dE_val_median": -0.001087369601008692,
+   "share_better_val": 0.39285714285714285,
+   "trades_kept": 0.975763172956986
+  },
+  {
+   "set": "canon",
+   "label": "cancel after > 0 failed attempts",
+   "bases": 56,
+   "dE_dev_median": 0.0009612319325052986,
+   "share_better_dev": 0.5178571428571429,
+   "dE_val_median": -0.0023971103452954112,
+   "share_better_val": 0.44642857142857145,
+   "trades_kept": 0.6799731909742679
+  },
+  {
+   "set": "canon",
+   "label": "cancel after > 1 failed attempts",
+   "bases": 56,
+   "dE_dev_median": -0.00022202570508195185,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": 0.0035161764234785606,
+   "share_better_val": 0.625,
+   "trades_kept": 0.8833798573525757
+  },
+  {
+   "set": "canon",
+   "label": "cancel after > 2 failed attempts",
+   "bases": 56,
+   "dE_dev_median": -0.00039449740939973693,
+   "share_better_dev": 0.48214285714285715,
+   "dE_val_median": 0.00011627672429185762,
+   "share_better_val": 0.5,
+   "trades_kept": 0.9570774145412475
+  },
+  {
+   "set": "canon",
+   "label": "breakout activity >= 1.0 x (USDJPY)",
+   "bases": 16,
+   "dE_dev_median": 0.0012972637345385965,
+   "share_better_dev": 0.5625,
+   "dE_val_median": 0.0027041725834194112,
+   "share_better_val": 0.5,
+   "trades_kept": 0.9503413361702524
+  },
+  {
+   "set": "canon",
+   "label": "breakout activity >= 1.5 x (USDJPY)",
+   "bases": 16,
+   "dE_dev_median": 0.007315616600645995,
+   "share_better_dev": 0.5625,
+   "dE_val_median": -0.019254060229707784,
+   "share_better_val": 0.3125,
+   "trades_kept": 0.6997206985561023
+  },
+  {
+   "set": "canon",
+   "label": "breakout activity >= 2.0 x (USDJPY)",
+   "bases": 16,
+   "dE_dev_median": -0.0007939145066863176,
+   "share_better_dev": 0.4375,
+   "dE_val_median": -0.04506358462949753,
+   "share_better_val": 0.3125,
+   "trades_kept": 0.34655057675244005
+  },
+  {
+   "set": "all",
+   "label": "filter w:10~90",
+   "bases": 98,
+   "dE_dev_median": -0.002198102131415497,
+   "share_better_dev": 0.42857142857142855,
+   "dE_val_median": 0.0011958807876075624,
+   "share_better_val": 0.5204081632653061,
+   "trades_kept": 0.7991486333087083
+  },
+  {
+   "set": "all",
+   "label": "filter w:20~80",
+   "bases": 98,
+   "dE_dev_median": -0.0036314764901421263,
+   "share_better_dev": 0.46938775510204084,
+   "dE_val_median": -0.002734877815659228,
+   "share_better_val": 0.47959183673469385,
+   "trades_kept": 0.6027841193395046
+  },
+  {
+   "set": "all",
+   "label": "filter w:0~80",
+   "bases": 98,
+   "dE_dev_median": -0.010109935202362303,
+   "share_better_dev": 0.2755102040816326,
+   "dE_val_median": -0.012473958749483365,
+   "share_better_val": 0.23469387755102042,
+   "trades_kept": 0.8039602855867916
+  },
+  {
+   "set": "all",
+   "label": "filter w:20~100",
+   "bases": 98,
+   "dE_dev_median": 0.006044362474976202,
+   "share_better_dev": 0.6122448979591837,
+   "dE_val_median": 0.014576645824870836,
+   "share_better_val": 0.7346938775510204,
+   "trades_kept": 0.788703165374677
+  },
+  {
+   "set": "all",
+   "label": "filter w:30~70",
+   "bases": 98,
+   "dE_dev_median": 0.0007067973332456415,
+   "share_better_dev": 0.5,
+   "dE_val_median": 0.003216283919049736,
+   "share_better_val": 0.5204081632653061,
+   "trades_kept": 0.40538202388348016
+  },
+  {
+   "set": "all",
+   "label": "filter v:0.8~1.25",
+   "bases": 98,
+   "dE_dev_median": -0.00320496383717276,
+   "share_better_dev": 0.45918367346938777,
+   "dE_val_median": -0.02458423842412974,
+   "share_better_val": 0.32653061224489793,
+   "trades_kept": 0.5554833380092896
+  },
+  {
+   "set": "all",
+   "label": "filter v:1.0~99",
+   "bases": 98,
+   "dE_dev_median": 0.021889963895365065,
+   "share_better_dev": 0.6632653061224489,
+   "dE_val_median": 0.011179334332051493,
+   "share_better_val": 0.5612244897959183,
+   "trades_kept": 0.414258393173713
+  },
+  {
+   "set": "all",
+   "label": "filter v:0~1.0",
+   "bases": 98,
+   "dE_dev_median": -0.014674473985589555,
+   "share_better_dev": 0.336734693877551,
+   "dE_val_median": -0.018244307716385747,
+   "share_better_val": 0.4387755102040816,
+   "trades_kept": 0.5590801765732472
+  },
+  {
+   "set": "all",
+   "label": "skip impulsive bar > 1.5 ATR",
+   "bases": 98,
+   "dE_dev_median": -0.006303143579324787,
+   "share_better_dev": 0.3673469387755102,
+   "dE_val_median": -0.007905104401292742,
+   "share_better_val": 0.3877551020408163,
+   "trades_kept": 0.768306722716717
+  },
+  {
+   "set": "all",
+   "label": "skip impulsive bar > 2.0 ATR",
+   "bases": 98,
+   "dE_dev_median": -0.0006735495097569197,
+   "share_better_dev": 0.46938775510204084,
+   "dE_val_median": -0.005402846157359212,
+   "share_better_val": 0.3877551020408163,
+   "trades_kept": 0.8912143636261161
+  },
+  {
+   "set": "all",
+   "label": "skip impulsive bar > 3.0 ATR",
+   "bases": 98,
+   "dE_dev_median": -0.00045545509872583654,
+   "share_better_dev": 0.46938775510204084,
+   "dE_val_median": -2.924283736729927e-06,
+   "share_better_val": 0.46938775510204084,
+   "trades_kept": 0.9721735548265097
+  },
+  {
+   "set": "all",
+   "label": "cancel after > 0 failed attempts",
+   "bases": 98,
+   "dE_dev_median": 0.002331479923303119,
+   "share_better_dev": 0.5408163265306123,
+   "dE_val_median": -0.0061712461799798,
+   "share_better_val": 0.4489795918367347,
+   "trades_kept": 0.6641508431313087
+  },
+  {
+   "set": "all",
+   "label": "cancel after > 1 failed attempts",
+   "bases": 98,
+   "dE_dev_median": -0.0002985846017668353,
+   "share_better_dev": 0.47959183673469385,
+   "dE_val_median": 0.0024584857727204604,
+   "share_better_val": 0.5612244897959183,
+   "trades_kept": 0.8717290228893012
+  },
+  {
+   "set": "all",
+   "label": "cancel after > 2 failed attempts",
+   "bases": 98,
+   "dE_dev_median": -0.0015641822066705807,
+   "share_better_dev": 0.4387755102040816,
+   "dE_val_median": 0.0006691963877032969,
+   "share_better_val": 0.5306122448979592,
+   "trades_kept": 0.954580223448148
+  },
+  {
+   "set": "all",
+   "label": "breakout activity >= 1.0 x (USDJPY)",
+   "bases": 28,
+   "dE_dev_median": -0.001716195433358685,
+   "share_better_dev": 0.42857142857142855,
+   "dE_val_median": -0.005112442076957775,
+   "share_better_val": 0.39285714285714285,
+   "trades_kept": 0.9300436340486873
+  },
+  {
+   "set": "all",
+   "label": "breakout activity >= 1.5 x (USDJPY)",
+   "bases": 28,
+   "dE_dev_median": -0.014698899746077567,
+   "share_better_dev": 0.35714285714285715,
+   "dE_val_median": -0.028619362399014248,
+   "share_better_val": 0.21428571428571427,
+   "trades_kept": 0.6601656230949817
+  },
+  {
+   "set": "all",
+   "label": "breakout activity >= 2.0 x (USDJPY)",
+   "bases": 28,
+   "dE_dev_median": -0.004577836833243205,
+   "share_better_dev": 0.35714285714285715,
+   "dE_val_median": -0.04506358462949753,
+   "share_better_val": 0.35714285714285715,
+   "trades_kept": 0.3242489332256948
+  }
+ ]
+}
