@@ -1,0 +1,39 @@
+; TimelessCity v2.42 — S3_Trend_XAUUSD — PAYOUT EDITION (Balanced) — DEMO-VALIDATE FIRST
+; Fixed risk 1.6% | shared heat cap 10% | ladder OFF (fixed sizing beat it in every test)
+; Fortnightly payout: bank profit above the trading base every 14 days; withdraw 0.75% of base capital from the bank.
+; Replayed 2011-2025 + 2,000 reshuffled histories: 95% of fortnights paid on time (worst 1-in-20 history: 71%), ~18.6%/yr paid, typical trading drawdown 27% (1-in-20: 37%).
+InpStrategyMode=1
+InpTrendTF=16388
+InpDonchianN=20
+InpTrendATRmult=3.0
+InpTrendTrailR=1.5
+InpSides=0
+InpUseH2=false
+InpUseH1=false
+InpUseM30=false
+InpUseM20=false
+InpUseM15=false
+InpUseM10=false
+InpUseM5=false
+InpUseM1=false
+InpEntryMode=1
+InpUseRunner=false
+InpRiskMode=1
+InpFixedRisk=1.6
+InpPortfolioHeatCap=10.0
+InpProfile=1
+InpHarvestMode=0
+InpHarvestMult=1.015
+InpResetHarvestRef=false
+InpMaxLossDays=3
+InpPauseDays=7
+InpUseDeadzone=false
+InpUseSessionFilter=false
+InpUseNewsFilter=true
+InpNewsMinsBefore=20
+InpNewsMinsAfter=15
+InpNewsHighOnly=true
+InpMagicNumber=888005
+InpMaxSpreadPips=100
+InpMinEquityFloor=20.0
+InpShowDashboard=true

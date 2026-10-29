@@ -61,3 +61,40 @@ The goal assumes ~240 trades/yr at +0.3–0.5% each. The real edges give 26–41
 +0.27–0.33R. To make 120% from that, every trade must risk ~25%+ of equity. The 3.6% wall
 with 0 breaches in 20M lifecycles is a one-in-millions tail standard; it forces risk to
 ~0.1% per trade.
+
+---
+
+# Payout edition (brief revised: everything in the risk OS may change, 3.6% may be breached, goal = fortnightly payouts)
+
+## New families tried (awesome-systematic-trading families our data can test)
+Intraday momentum, short-term reversal, weekly time-series momentum, session seasonality:
+104 more variants, **none passes the funnel**. Intraday windows lose in *both* directions after
+costs (the spread eats small moves); gold weekly momentum works only in the 2019-25 bull.
+The 4-market edge set stays: S1 reversion (gold H1+M30+M20, EUR M20+M30), S2 yen trend, S3
+gold trend. Gold S1 with the H1 layer added: 6.8/yr, 62% win, +0.245R, PF 1.65, IS +0.20 ->
+OOS +0.28 (the dossier's S1 record, reproduced).
+
+## What made payouts work: trade count + a bank, not a ladder
+- The P26 descent ladder is dropped; fixed sizing beat it in every test.
+- Every 14 days, profit above the trading base moves to an internal bank; the broker
+  withdrawal is a fixed amount taken from the bank. Losses are always repaid by later profit
+  before anything is banked, so the trading base is never eaten.
+- Weights: every S1 leg 1.0, every trend leg 0.4 (measured Kelly ratio).
+
+## Results (real 2011-2025 record, and 2,000 histories rebuilt from reshuffled quarters)
+| Setting | S1 / trend risk | Heat cap | Payout per fortnight | Paid on time: real / typical / worst 1-in-20 | Paid per year | Trading drawdown: real / typical / 1-in-20 / worst |
+|---|---|---|---|---|---|---|
+| Steady | 3.0% / 1.2% | 8% | 0.50% of base | 95% / 97% / 78% | 12.4-12.7% | 22.8% / 21% / 29% / 45% |
+| Balanced | 4.0% / 1.6% | 10% | 0.75% of base | 94% / 95% / 71% | 18.3-18.6% | 29.3% / 27% / 37% / 56% |
+| Max | 5.0% / 2.0% | 10% | 1.00% of base | 92% / 93% / 66% | 24.0-24.4% | 35.3% / 33% / 44% / 65% |
+In no history did trading capital fall below half. The heat wall must be 10% for Max (at 8%
+it refuses 70 trades and on-time payouts fall to 79%). A drawdown throttle cut drawdown but
+missed more payouts, so it is off.
+
+Presets: `mt5/payout_presets/{Steady,Balanced,Max}/` (4 charts, one terminal). The EA's built-in
+harvest is a suggestion only; the 14-day bank/withdraw rule above is the payout schedule.
+
+## Still true
+120%/yr is not available from these edges at any survivable drawdown. The way to raise the
+fortnightly payout at the same drawdown is more uncorrelated legs: the trend engine on more
+markets (silver 2019-25, oil, US/EU indices, more FX), each through the same funnel.

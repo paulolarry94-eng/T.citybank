@@ -31,3 +31,6 @@ def weights(names, scheme):
         else:
             out.append(1.0)
     return out
+
+PORTS["P4_full_book"] = ["S1_XAUUSD_H1+M30+M20_long", "S1_EURUSD_M20+M30_long",
+                         "TR_USDJPY_H4_atr2_long", "TR_XAUUSD_H4_atr3_both"]

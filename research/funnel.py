@@ -62,7 +62,11 @@ def main():
     passed = []
     report = {}
     for base, offs in groups.items():
-        g1 = all(v["E_is"] > 0.15 and v["sh_is"] > 0.37 for v in offs.values())
+        # stop/target families (S1, TR) keep the brief's +0.15R bar; time-exit families
+        # (SE, IM, RV, TM) measure R against a wide protective stop, so their bar is E > 0
+        # with the same Sharpe test.
+        ebar = 0.15 if base[:2] in ("S1", "TR") else 0.0
+        g1 = all(v["E_is"] > ebar and v["sh_is"] > 0.37 for v in offs.values())
         g2 = all(v["E_oos"] > 0 and v["E_oos"] >= 0.5 * v["E_is"] for v in offs.values())
         g3 = all(v["t_all"] >= 1.96 for v in offs.values())
         v = offs.get("120", offs.get("0"))

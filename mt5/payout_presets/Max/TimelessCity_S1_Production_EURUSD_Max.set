@@ -1,0 +1,56 @@
+; TimelessCity v2.42 — S1_Production_EURUSD — PAYOUT EDITION (Max) — DEMO-VALIDATE FIRST
+; Fixed risk 5.0% | shared heat cap 10% | ladder OFF (fixed sizing beat it in every test)
+; Fortnightly payout: bank profit above the trading base every 14 days; withdraw 1.00% of base capital from the bank.
+; Replayed 2011-2025 + 2,000 reshuffled histories: 93% of fortnights paid on time (worst 1-in-20 history: 66%), ~24.4%/yr paid, typical trading drawdown 33% (1-in-20: 44%).
+InpUseH2=false
+InpUseH1=false
+InpUseM30=true
+InpUseM20=true
+InpUseM15=false
+InpUseM10=false
+InpUseM5=false
+InpUseM1=false
+InpSides=1
+InpEntryMode=1
+InpAllowOneCounter=false
+InpCounterMinTF=30
+InpMinEngulf=2
+InpRequireC4EMA=true
+InpTargetRR=1.0
+InpUseBreakeven=false
+InpBEatR=1.5
+InpUseRunner=false
+InpRunnerBankFrac=0.5
+InpRunnerTargetR=2.0
+InpRunnerTrailR=1.0
+InpMaxStopATR=3.0
+InpMinStopATR=0.0
+InpMaxGapATR=2.0
+InpMinGapATR=1.0
+InpMinEntrySpreadX=1.5
+InpRequireFVG=false
+InpUseSessionFilter=false
+InpRiskMode=1
+InpLadderStart=2.0
+InpLadderStep=1.0
+InpLadderMin=1.0
+InpLadderMax=4.0
+InpFixedRisk=5.0
+InpPortfolioHeatCap=10.0
+InpProfile=1
+InpHarvestMode=0
+InpHarvestMult=1.015
+InpResetHarvestRef=false
+InpMaxLossDays=3
+InpPauseDays=7
+InpUseDeadzone=true
+InpDeadStartHour=16
+InpDeadEndHour=20
+InpUseNewsFilter=true
+InpNewsMinsBefore=20
+InpNewsMinsAfter=15
+InpNewsHighOnly=true
+InpMagicNumber=888002
+InpMaxSpreadPips=100
+InpMinEquityFloor=20.0
+InpShowDashboard=true
