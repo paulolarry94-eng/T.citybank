@@ -205,6 +205,21 @@ def scan_trail(o, h, l, i0, side, entry, dist, trail_r, cost):
 
 
 # ----------------------------------------------------------------- instance replay
+GAP_SEC = 4 * 86400      # longer than any weekend + holiday: a hole in the record
+
+
+def data_gaps(ts):
+    """Indices i where the record jumps more than GAP_SEC between minute i and i+1."""
+    return np.flatnonzero(np.diff(ts) > GAP_SEC)
+
+
+def crosses_gap(gaps, j0, xi):
+    """True if a trade held from minute j0 to minute xi would span a hole in the data.
+    Such a trade is discarded, never scored: we cannot know what happened inside it."""
+    k = np.searchsorted(gaps, j0)
+    return k < len(gaps) and gaps[k] < xi
+
+
 class Pause:
     """Restraint engine: InpMaxLossDays consecutive losing days -> InpPauseDays pause."""
     def __init__(self, max_days=3, pause_days=7, on=True):
@@ -280,6 +295,7 @@ def run_s1(sym, m1, tfs=(30, 20), gap_band=(1.0, 2.0), max_stop_atr=3.0, rr=1.0,
                                    (tf, int(t)), int(a)))
     events.sort(key=lambda e: (e[0], e[1], -e[3], e[6]))
     trades, busy_until, used = [], -1, set()
+    gaps = data_gaps(ts)
     pz = Pause(on=pause)
     i = 0
     while i < len(events):
@@ -302,8 +318,11 @@ def run_s1(sym, m1, tfs=(30, 20), gap_band=(1.0, 2.0), max_stop_atr=3.0, rr=1.0,
             continue
         tp = entry + rr * dist if side > 0 else entry - rr * dist
         xi, px = scan_fixed(o, h, l, j0, side, entry, sl, tp, cost)
-        r = (px - entry) / dist if side > 0 else (entry - px) / dist
-        used.add(key)            # g_lastSig: never re-arm on the same signal bar
+        used.add(key)
+        if crosses_gap(gaps, j0, xi):
+            busy_until = xi
+            continue
+        r = (px - entry) / dist if side > 0 else (entry - px) / dist            # g_lastSig: never re-arm on the same signal bar
         trades.append((tnow, int(ts[xi]), side, r, dist, entry))
         pz.record(int(ts[xi]), r)
         busy_until = xi
@@ -324,6 +343,7 @@ def run_trend(sym, m1, tf=240, n_don=20, atr_mult=2.0, trail_r=1.5, sides=(1,),
         hh[t] = bh[t - n_don:t].max()
         ll[t] = bl[t - n_don:t].min()
     trades, busy_until = [], -1
+    gaps = data_gaps(ts)
     pz = Pause(on=pause)
     for t in range(n_don, len(bc) - 1):
         side = 1 if bc[t] > hh[t] else (-1 if bc[t] < ll[t] else 0)
@@ -343,6 +363,9 @@ def run_trend(sym, m1, tf=240, n_don=20, atr_mult=2.0, trail_r=1.5, sides=(1,),
         if dist < min_spread_x * cost:
             continue
         xi, px = scan_trail(o, h, l, j0, side, entry, dist, trail_r, cost)
+        if crosses_gap(gaps, j0, xi):
+            busy_until = xi
+            continue
         r = (px - entry) / dist if side > 0 else (entry - px) / dist
         trades.append((tnow, int(ts[xi]), side, r, dist, entry))
         pz.record(int(ts[xi]), r)

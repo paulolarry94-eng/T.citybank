@@ -32,7 +32,7 @@ def convert(root, sym, year, outdir="data"):
     out = pd.DataFrame({"o": g["bid"].first(), "h": g["bid"].max(), "l": g["bid"].min(),
                         "c": g["bid"].last(), "spr_med": g["spr"].median(),
                         "spr_max": g["spr"].max(), "n": g["bid"].size()})
-    ts = (out.index.view("int64") // 1_000_000).astype(np.int64)
+    ts = out.index.as_unit("ms").asi8.astype(np.int64)   # always milliseconds, whatever pandas' native unit
     path = os.path.join(outdir, f"{sym}_M1_bid_{year}.npz")
     np.savez_compressed(path, ts=ts, o=out.o.values, h=out.h.values, l=out.l.values,
                         c=out.c.values, spr_med=out.spr_med.values.astype(np.float32),
