@@ -28,10 +28,10 @@ def run_hist(legs, ladder, scale, harvest=False, d=(2, 3, 4), heat=0.08):
     order = np.argsort(t_out[taken], kind="stable")
     rr, ww = r[taken][order], w[taken][order]
     life_dd = []
-    for s in range(0, len(rr) - 359, 360):
-        f, m, _ = P.lifecycles(rr[s:s + 360], ww[s:s + 360], ladder, scale, d[0], d[1], d[2],
-                               1, 360, 360, 1, 9.9)
-        life_dd.append(m[0])
+    starts = range(0, max(1, len(rr) - 359), 30) if len(rr) >= 360 else [0]
+    for s in starts:          # every 360-trade lifecycle start, stepped by 30 trades
+        m, _ = P.seq_dd(rr[s:s + 360], ww[s:s + 360], ladder, scale, d[0], d[1], d[2])
+        life_dd.append(m)
     integ = P.integrity(ct)
     return {"cagr": float(cagr), "mdd": float(mdd), "life_dd": [float(x) for x in life_dd],
             "trades": int(taken.sum()), "per_month": float(taken.sum() / (yrs * 12)),

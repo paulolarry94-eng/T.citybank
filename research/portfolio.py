@@ -142,3 +142,22 @@ def integrity(close_t):
     g = np.diff(np.sort(close_t)) / 60.0
     score = np.where(g < 5, 0.70, np.where(g < 15, 0.85, 1.0))
     return float(np.r_[1.0, score].mean()), float((g < 60).mean()), float((g < 15).mean()), float((g < 5).mean())
+
+
+@njit(cache=True)
+def seq_dd(r, w, ladder, scale, d1, d2, d3):
+    """Exact max drawdown of one given resolved-trade sequence (ladder starts at L0)."""
+    eq = 1.0; peak = 1.0; mdd = 0.0; level = 0; consec = 0
+    nlev = len(ladder)
+    for i in range(len(r)):
+        eq *= 1.0 + ladder[level] * scale * w[i] * r[i]
+        if r[i] > 0.05:
+            level = max(level - 1, 0); consec = 0
+        elif r[i] < -0.05:
+            consec += 1
+            d = d1 if consec == 1 else (d2 if consec == 2 else d3)
+            level = min(level + d, nlev - 1)
+        if eq > peak: peak = eq
+        dd = 1.0 - eq / peak
+        if dd > mdd: mdd = dd
+    return mdd, eq
