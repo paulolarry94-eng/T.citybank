@@ -1,0 +1,442 @@
+<meta name="dash-one-writer">
+<style>
+  .ob-page { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .ob-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); max-width: 62rem; }
+  .ob-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .ob-take { font-size: var(--cds-font-size-body); color: var(--color-fg); margin: 0; line-height: 1.5; max-width: 65ch; }
+  .ob-page b { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .ob-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--cds-gap-md); }
+  .ob-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+  .ob-kpi-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .ob-kpi-value { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; font-variant-numeric: tabular-nums; }
+  .ob-kpi-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .ob-section { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+  .ob-h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .ob-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; max-width: 70ch; line-height: 1.5; }
+  .ob-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+  .ob-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; padding: 0; list-style: none; }
+  .ob-legend li { display: flex; align-items: center; gap: var(--cds-gap-xs); }
+  .ob-sw { width: 0.75rem; height: 0.75rem; border-radius: 2px; display: inline-block; }
+  .ob-chart { position: relative; width: 100%; min-height: 12rem; }
+  .ob-chart svg { display: block; overflow: visible; }
+  .ob-chart text { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+  .ob-chart .ob-lab { fill: var(--color-fg); }
+  .ob-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; z-index: 2; }
+  .ob-tip .ob-tip-h { color: var(--cds-text-secondary); }
+  .ob-tablewrap { overflow-x: auto; }
+  .ob-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .ob-table th, .ob-table td { text-align: right; padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .ob-table th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); }
+  .ob-table th:first-child, .ob-table td:first-child, .ob-table .ob-left { text-align: left; }
+  .ob-neg { color: var(--color-bad); }
+  .ob-pos { color: var(--color-ok); }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="ob-page">
+  <header class="ob-head" id="top">
+    <h1 class="ob-title">ORB 50 backtest verdict</h1>
+    <p class="ob-take">No out-of-sample edge. After costs, the plain opening-range breakout lost <b data-draw="sum" data-fmt="r" data-source="summary" data-field="value" data-where="metric=orb_alone_oos_E">—</b>R per trade in the untouched 2023–2025 years (<b data-draw="sum" data-fmt="r" data-source="summary" data-field="value" data-where="metric=orb_alone_oos_E_before_costs">—</b>R before costs), and every one of the four best configurations lost money there. Do not trade it.</p>
+  </header>
+
+  <section class="ob-kpis" aria-label="Headline figures">
+    <div class="ob-card">
+      <p class="ob-kpi-label">Configurations tested</p>
+      <p class="ob-kpi-value" data-draw="sum" data-fmt="n" data-source="summary" data-field="value" data-where="metric=configurations_tested">—</p>
+      <p class="ob-kpi-note">Gold, EURUSD, GBPUSD, USDJPY; four session opens; four range lengths; 1-minute fills</p>
+    </div>
+    <div class="ob-card">
+      <p class="ob-kpi-label">Plain ORB, final years 2023–2025</p>
+      <p class="ob-kpi-value"><span data-draw="sum" data-fmt="r" data-source="summary" data-field="value" data-where="metric=orb_alone_oos_E">—</span>R</p>
+      <p class="ob-kpi-note">Per trade after costs, pooled over every market, session and range length</p>
+    </div>
+    <div class="ob-card">
+      <p class="ob-kpi-label">Walk-forward years that lost</p>
+      <p class="ob-kpi-value"><span data-draw="sum" data-fmt="n" data-source="summary" data-field="value" data-where="metric=walkforward_losing_years">—</span> of <span data-draw="sum" data-fmt="n" data-source="summary" data-field="value" data-where="metric=walkforward_years">—</span></p>
+      <p class="ob-kpi-note">Best settings of the previous 3 years, traded blind the next year, 2014–2022, three models</p>
+    </div>
+    <div class="ob-card">
+      <p class="ob-kpi-label">Best configurations profitable in 2023–2025</p>
+      <p class="ob-kpi-value"><span data-draw="sum" data-fmt="n" data-source="summary" data-field="value" data-where="metric=finalists_profitable_oos">—</span> of <span data-draw="sum" data-fmt="n" data-source="summary" data-field="value" data-where="metric=finalists">—</span></p>
+      <p class="ob-kpi-note">Locked and committed before the final years were read</p>
+    </div>
+  </section>
+
+  <section class="ob-section" id="ablation">
+    <h2 class="ob-h2">Adding the system's components one at a time</h2>
+    <p class="ob-note">R per trade after costs, pooled over every market, session and range length. Each step keeps the previous ones. Only the two-candle pullback moves expectancy up, and every step stays below zero in every period. The full specification, with its stop beyond the pullback swing, is the worst.</p>
+    <div class="ob-card">
+      <ul class="ob-legend">
+        <li><span class="ob-sw" data-sw="0"></span>Development 2011–2019</li>
+        <li><span class="ob-sw" data-sw="1"></span>Validation 2020–2022</li>
+        <li><span class="ob-sw" data-sw="2"></span>Final out-of-sample 2023–2025</li>
+      </ul>
+      <div class="ob-chart" data-draw="abl" data-source="ablation" aria-label="Ablation chart"></div>
+    </div>
+  </section>
+
+  <section class="ob-section" id="walkforward">
+    <h2 class="ob-h2">Re-picking the best settings every year</h2>
+    <p class="ob-note">Each year, the most stable configuration of the previous three years was chosen per market and session, then traded blind for the year. R per trade after costs.</p>
+    <div class="ob-card">
+      <ul class="ob-legend">
+        <li><span class="ob-sw" data-sw="0"></span>A pure ORB</li>
+        <li><span class="ob-sw" data-sw="1"></span>B trend-filtered ORB</li>
+        <li><span class="ob-sw" data-sw="2"></span>C pullback ORB</li>
+      </ul>
+      <div class="ob-chart" data-draw="wf" data-source="walkforward" aria-label="Walk-forward chart"></div>
+    </div>
+  </section>
+
+  <section class="ob-section" id="finalists">
+    <h2 class="ob-h2">The four best configurations</h2>
+    <p class="ob-note">Equity of a $100,000 account risking 0.5% per trade, lot-rounded, after costs. Shaded: validation (2020–2022) and final out-of-sample (2023–2025). The gold curves rose in-sample on shorts during the 2011–2015 gold bear market, then fell.</p>
+    <div class="ob-grid2" data-draw="eq" data-source="equity finalists" aria-label="Equity curves"></div>
+    <div class="ob-card">
+      <div class="ob-tablewrap">
+        <table class="ob-table" data-source="finalists" data-row-key="cfg,period">
+          <thead>
+            <tr>
+              <th data-field="cfg">Config</th>
+              <th data-field="market" class="ob-left">Market</th>
+              <th data-field="period" class="ob-left">Period</th>
+              <th data-field="trades">Trades</th>
+              <th data-field="E">R per trade</th>
+              <th data-field="t">t</th>
+              <th data-field="E_before_costs">Before costs</th>
+              <th data-field="win">Win rate</th>
+              <th data-field="pf">Profit factor</th>
+              <th data-field="max_dd">Max drawdown</th>
+              <th data-field="long_E">Longs</th>
+              <th data-field="short_E">Shorts</th>
+            </tr>
+          </thead>
+          <tbody data-draw="fin"></tbody>
+        </table>
+      </div>
+      <p class="ob-note">A best pure ORB; B best trend-filtered ORB (H4 EMA20 with neutral zone); C best pullback ORB (three-candle pullback, H4 EMA50); X best robust combined (B plus skipping the narrowest 20% of opening ranges, chosen with knowledge of 2020–2022).</p>
+    </div>
+  </section>
+
+  <section class="ob-section" id="baseline">
+    <h2 class="ob-h2">Plain ORB before any tuning</h2>
+    <p class="ob-note">Market entry on the 5-minute close beyond the range, stop at the far side, 2R target. R per trade after costs, development years 2011–2019. Tokyo is missing for gold and GBPUSD because those years' files have no 00:00–01:00 UTC data.</p>
+    <div class="ob-card">
+      <div class="ob-chart" data-draw="heat" data-source="baseline" aria-label="Baseline heatmap"></div>
+    </div>
+  </section>
+
+  <section class="ob-section" id="models">
+    <h2 class="ob-h2">Every model in the development years</h2>
+    <p class="ob-note">Configurations with at least 150 trades in 2011–2019. With this many trials a t-statistic would need to exceed about 5 to mean anything.</p>
+    <div class="ob-card">
+      <div class="ob-tablewrap">
+        <table class="ob-table" data-source="models" data-row-key="model">
+          <thead>
+            <tr>
+              <th data-field="model">Model</th>
+              <th data-field="configs">Configurations</th>
+              <th data-field="t_above_2">With t above 2</th>
+              <th data-field="median_E">Median R per trade</th>
+              <th data-field="median_E_before_costs">Median before costs</th>
+              <th data-field="best_t">Best t</th>
+            </tr>
+          </thead>
+          <tbody data-draw="models"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="ob-section" id="method">
+    <h2 class="ob-h2">How it was tested</h2>
+    <p class="ob-note">Dukascopy 1-minute bid data in UTC, sessions in local time with daylight saving. Signals on completed 5-minute bars; entries at the next minute's open paying the spread, commission and slippage; pending orders filled minute by minute; a stop and target in the same minute count as the stop; gaps fill at the worse price; one trade per session, closed by the session end. Chronological split: development 2011–2019, validation 2020–2022, final 2023–2025, with the final years masked from every search. The full report, code and every experiment are in the repository under research/orb.</p>
+  </section>
+</div>
+
+<script>
+  window.obFmtR = d3.format('+.3f');
+  window.obFmtP = d3.format('.0%');
+  window.obFmtN = d3.format(',');
+  window.obPeriods = ['Development 2011-19', 'Validation 2020-22', 'Final out-of-sample 2023-25'];
+  window.obModels = ['A pure ORB', 'B trend ORB', 'C pullback ORB'];
+  window.obMeasure = (el, texts) => {
+    const svg = d3.select(el).append('svg').attr('width', 10).attr('height', 10);
+    let w = 0;
+    texts.forEach((t) => {
+      const n = svg.append('text').text(t).node();
+      w = Math.max(w, n.getComputedTextLength());
+    });
+    svg.remove();
+    return w;
+  };
+  window.obTip = (el) => {
+    let tip = el.querySelector('.ob-tip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'ob-tip';
+      tip.hidden = true;
+      el.appendChild(tip);
+    }
+    return tip;
+  };
+  window.obShowTip = (el, tip, lines, x, y) => {
+    tip.replaceChildren();
+    lines.forEach((ln, i) => {
+      const d = document.createElement('div');
+      if (i === 0) d.className = 'ob-tip-h';
+      d.textContent = ln;
+      tip.appendChild(d);
+    });
+    tip.hidden = false;
+    const W = el.clientWidth;
+    const tw = tip.offsetWidth;
+    const left = Math.max(0, Math.min(W - tw, x + 12));
+    tip.style.left = left + 'px';
+    tip.style.top = Math.max(0, y - 10) + 'px';
+  };
+  document.querySelectorAll('[data-sw]').forEach((s) => {
+    s.style.background = dash.colors[Number(s.dataset.sw)];
+  });
+</script>
+
+<script>
+  dash.draw('sum', (el) => {
+    const s = dash.data('summary');
+    if (s.status !== 'ok') { el.textContent = '—'; return; }
+    const metric = (el.dataset.where || '').split('=')[1];
+    const r = s.data.find((x) => x.metric === metric);
+    if (!r) { el.textContent = '—'; return; }
+    el.textContent = el.dataset.fmt === 'r' ? obFmtR(Number(r.value)) : obFmtN(Number(r.value));
+  });
+</script>
+
+<script>
+  dash.draw('abl', (el) => {
+    const d = dash.data('ablation');
+    el.replaceChildren();
+    if (d.status !== 'ok') { el.textContent = '—'; return; }
+    const rows = d.data.map((r) => ({...r, step: Number(r.step), E: Number(r.E), t: Number(r.t), trades: Number(r.trades)}));
+    const variants = [...new Map(rows.slice().sort((a, b) => a.step - b.step).map((r) => [r.variant, r.step])).keys()];
+    const W = Math.max(280, el.clientWidth);
+    const labW = obMeasure(el, variants);
+    const m = {top: 6, right: 16, bottom: 30, left: Math.min(labW + 12, W * 0.45)};
+    const band = 40;
+    const H = m.top + m.bottom + variants.length * band;
+    const lo = Math.min(0, d3.min(rows, (r) => r.E));
+    const hi = Math.max(0.02, d3.max(rows, (r) => r.E));
+    const x = d3.scaleLinear([lo, hi], [m.left, W - m.right]).nice();
+    const y = d3.scaleBand(variants, [m.top, H - m.bottom]).paddingInner(0.25);
+    const yi = d3.scaleBand(obPeriods, [0, y.bandwidth()]).paddingInner(0.12);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+    const ticks = x.ticks(Math.max(3, Math.floor((W - m.left) / 90)));
+    svg.append('g').selectAll('line').data(ticks).join('line')
+      .attr('x1', (v) => x(v)).attr('x2', (v) => x(v)).attr('y1', m.top).attr('y2', H - m.bottom)
+      .attr('stroke', 'var(--cds-chart-grid)').attr('stroke-width', 1);
+    svg.append('g').attr('transform', `translate(0,${H - m.bottom})`)
+      .call(d3.axisBottom(x).tickValues(ticks).tickFormat(d3.format('+.2f')).tickSizeOuter(0))
+      .attr('font-size', null).attr('font-family', null)
+      .call((g) => g.select('.domain').attr('stroke', 'var(--cds-chart-axis)'))
+      .call((g) => g.selectAll('.tick line').attr('stroke', 'var(--cds-chart-axis)'));
+    svg.append('g').selectAll('text').data(variants).join('text')
+      .attr('class', 'ob-lab').attr('x', m.left - 8).attr('y', (v) => y(v) + y.bandwidth() / 2).attr('dy', '0.35em')
+      .attr('text-anchor', 'end').text((v) => v);
+    const tip = obTip(el);
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => Math.min(x(0), x(r.E))).attr('width', (r) => Math.abs(x(r.E) - x(0)))
+      .attr('y', (r) => y(r.variant) + yi(r.period)).attr('height', yi.bandwidth()).attr('rx', 2)
+      .attr('fill', (r) => dash.colors[obPeriods.indexOf(r.period)])
+      .on('pointermove', (ev, r) => {
+        const [px, py] = d3.pointer(ev, el);
+        obShowTip(el, tip, [r.variant, r.period, `${obFmtR(r.E)}R per trade, t ${d3.format('+.1f')(r.t)}`, `${obFmtN(r.trades)} trades`], px, py);
+      })
+      .on('pointerleave', () => { tip.hidden = true; });
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m.top).attr('y2', H - m.bottom)
+      .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1);
+  });
+</script>
+
+<script>
+  dash.draw('wf', (el) => {
+    const d = dash.data('walkforward');
+    el.replaceChildren();
+    if (d.status !== 'ok') { el.textContent = '—'; return; }
+    const rows = d.data.map((r) => ({...r, year: Number(r.year), E: Number(r.E), trades: Number(r.trades)}));
+    const years = [...new Set(rows.map((r) => r.year))].sort((a, b) => a - b);
+    const W = Math.max(280, el.clientWidth);
+    const H = 240;
+    const lo = Math.min(-0.05, d3.min(rows, (r) => r.E));
+    const hi = Math.max(0.05, d3.max(rows, (r) => r.E));
+    const y = d3.scaleLinear([lo, hi], [H - 26, 8]).nice();
+    const yt = y.ticks(5);
+    const labW = obMeasure(el, yt.map(d3.format('+.2f')));
+    const m = {top: 8, right: 8, bottom: 26, left: labW + 10};
+    const x = d3.scaleBand(years, [m.left, W - m.right]).paddingInner(0.25).paddingOuter(0.1);
+    const xi = d3.scaleBand(obModels, [0, x.bandwidth()]).paddingInner(0.1);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+    svg.append('g').selectAll('line').data(yt).join('line')
+      .attr('x1', m.left).attr('x2', W - m.right).attr('y1', (v) => y(v)).attr('y2', (v) => y(v))
+      .attr('stroke', 'var(--cds-chart-grid)').attr('stroke-width', 1);
+    svg.append('g').selectAll('text').data(yt).join('text')
+      .attr('x', m.left - 6).attr('y', (v) => y(v)).attr('dy', '0.35em').attr('text-anchor', 'end').text(d3.format('+.2f'));
+    const every = Math.ceil(years.length / Math.max(1, Math.floor((W - m.left) / 44)));
+    svg.append('g').selectAll('text').data(years.filter((v, i) => i % every === 0)).join('text')
+      .attr('x', (v) => x(v) + x.bandwidth() / 2).attr('y', H - 8).attr('text-anchor', 'middle').text((v) => String(v));
+    const tip = obTip(el);
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => x(r.year) + xi(r.model)).attr('width', xi.bandwidth())
+      .attr('y', (r) => Math.min(y(0), y(r.E))).attr('height', (r) => Math.abs(y(r.E) - y(0))).attr('rx', 2)
+      .attr('fill', (r) => dash.colors[obModels.indexOf(r.model)])
+      .on('pointermove', (ev, r) => {
+        const [px, py] = d3.pointer(ev, el);
+        obShowTip(el, tip, [String(r.year), r.model, `${obFmtR(r.E)}R per trade`, `${obFmtN(r.trades)} trades`], px, py);
+      })
+      .on('pointerleave', () => { tip.hidden = true; });
+    svg.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(0)).attr('y2', y(0))
+      .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1);
+  });
+</script>
+
+<script>
+  dash.draw('eq', (el) => {
+    const d = dash.data('equity');
+    const f = dash.data('finalists');
+    el.replaceChildren();
+    if (d.status !== 'ok' || f.status !== 'ok') { el.textContent = '—'; return; }
+    const names = new Map(f.data.map((r) => [r.cfg, `${r.cfg}  ${r.market}`]));
+    const parse = d3.utcParse('%Y-%m-%d');
+    const all = d.data.map((r) => ({cfg: r.cfg, date: parse(String(r.date).slice(0, 10)), equity: Number(r.equity)}));
+    const cfgs = [...new Set(all.map((r) => r.cfg))];
+    const x0 = parse('2011-01-01');
+    const x1 = parse('2026-01-01');
+    const shades = [[parse('2020-01-01'), parse('2023-01-01'), 0.10], [parse('2023-01-01'), parse('2026-01-01'), 0.2]];
+    const fmtK = (v) => '$' + d3.format(',.0f')(v / 1000) + 'k';
+    cfgs.forEach((cfg) => {
+      const rows = all.filter((r) => r.cfg === cfg);
+      const card = document.createElement('div');
+      card.className = 'ob-card';
+      const title = document.createElement('p');
+      title.className = 'ob-kpi-label';
+      title.textContent = names.get(cfg) || cfg;
+      card.appendChild(title);
+      const box = document.createElement('div');
+      box.className = 'ob-chart';
+      card.appendChild(box);
+      el.appendChild(card);
+      const W = Math.max(260, box.clientWidth);
+      const H = 170;
+      const y = d3.scaleLinear(d3.extent(rows, (r) => r.equity), [H - 22, 8]).nice();
+      const yt = y.ticks(4);
+      const labW = obMeasure(box, yt.map(fmtK));
+      const m = {top: 8, right: 10, bottom: 22, left: labW + 8};
+      const x = d3.scaleUtc([x0, x1], [m.left, W - m.right]);
+      const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+      svg.append('g').selectAll('rect').data(shades).join('rect')
+        .attr('x', (s) => x(s[0])).attr('width', (s) => x(s[1]) - x(s[0])).attr('y', m.top).attr('height', H - m.bottom - m.top)
+        .attr('fill', 'var(--cds-chart-muted)').attr('fill-opacity', (s) => s[2]);
+      svg.append('g').selectAll('line').data(yt).join('line')
+        .attr('x1', m.left).attr('x2', W - m.right).attr('y1', (v) => y(v)).attr('y2', (v) => y(v))
+        .attr('stroke', 'var(--cds-chart-grid)').attr('stroke-width', 1);
+      svg.append('g').selectAll('text').data(yt).join('text')
+        .attr('x', m.left - 6).attr('y', (v) => y(v)).attr('dy', '0.35em').attr('text-anchor', 'end').text(fmtK);
+      const xt = x.ticks(Math.max(2, Math.floor((W - m.left) / 70)));
+      svg.append('g').selectAll('text').data(xt).join('text')
+        .attr('x', (v) => x(v)).attr('y', H - 6).attr('text-anchor', 'middle').text(d3.utcFormat('%Y'));
+      svg.append('path').datum(rows)
+        .attr('fill', 'none').attr('stroke', dash.colors[0]).attr('stroke-width', 2)
+        .attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round')
+        .attr('d', d3.line().x((r) => x(r.date)).y((r) => y(r.equity)));
+      const dot = svg.append('circle').attr('r', 4).attr('fill', dash.colors[0]).attr('stroke', 'var(--color-panel)').attr('stroke-width', 2).attr('visibility', 'hidden');
+      const tip = obTip(box);
+      const bis = d3.bisector((r) => r.date).center;
+      svg.append('rect').attr('x', m.left).attr('y', m.top).attr('width', W - m.left - m.right).attr('height', H - m.top - m.bottom)
+        .attr('fill', 'transparent')
+        .on('pointermove', (ev) => {
+          const [px] = d3.pointer(ev, svg.node());
+          const r = rows[bis(rows, x.invert(px))];
+          if (!r) return;
+          dot.attr('cx', x(r.date)).attr('cy', y(r.equity)).attr('visibility', 'visible');
+          const scale = svg.node().getBoundingClientRect().width / W;
+          obShowTip(box, tip, [d3.utcFormat('%b %-d, %Y')(r.date), '$' + d3.format(',.0f')(r.equity)], x(r.date) * scale, y(r.equity) * scale);
+        })
+        .on('pointerleave', () => { tip.hidden = true; dot.attr('visibility', 'hidden'); });
+    });
+  });
+</script>
+
+<script>
+  dash.draw('fin', (tb) => {
+    const f = dash.data('finalists');
+    tb.replaceChildren();
+    if (f.status !== 'ok') return;
+    const cls = (v) => (v < 0 ? 'ob-neg' : v > 0 ? 'ob-pos' : '');
+    f.data.forEach((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = encodeURIComponent(r.cfg) + ',' + encodeURIComponent(r.period);
+      const cells = [
+        [String(r.cfg), 'ob-left'], [String(r.market), 'ob-left'], [String(r.period), 'ob-left'],
+        [obFmtN(Number(r.trades)), ''], [obFmtR(Number(r.E)), cls(Number(r.E))], [d3.format('+.2f')(Number(r.t)), ''],
+        [obFmtR(Number(r.E_before_costs)), ''], [obFmtP(Number(r.win)), ''], [d3.format('.2f')(Number(r.pf)), ''],
+        [d3.format('.1%')(Number(r.max_dd)), ''], [obFmtR(Number(r.long_E)), cls(Number(r.long_E))], [obFmtR(Number(r.short_E)), cls(Number(r.short_E))],
+      ];
+      cells.forEach(([txt, c]) => {
+        const td = document.createElement('td');
+        if (c) td.className = c;
+        td.textContent = txt;
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  });
+</script>
+
+<script>
+  dash.draw('models', (tb) => {
+    const d = dash.data('models');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    d.data.forEach((r) => {
+      const tr = document.createElement('tr');
+      [[String(r.model), 'ob-left'], [obFmtN(Number(r.configs)), ''], [obFmtN(Number(r.t_above_2)), ''],
+       [obFmtR(Number(r.median_E)), 'ob-neg'], [obFmtR(Number(r.median_E_before_costs)), ''], [d3.format('+.2f')(Number(r.best_t)), '']]
+        .forEach(([txt, c]) => {
+          const td = document.createElement('td');
+          if (c) td.className = c;
+          td.textContent = txt;
+          tr.appendChild(td);
+        });
+      tb.appendChild(tr);
+    });
+  });
+</script>
+
+<script>
+  dash.draw('heat', (el) => {
+    const d = dash.data('baseline');
+    el.replaceChildren();
+    if (d.status !== 'ok') { el.textContent = '—'; return; }
+    const rows = d.data.map((r) => ({market: r.market, orb: Number(r.orb), E: Number(r.E)}));
+    const markets = [...new Set(rows.map((r) => r.market))].sort();
+    const orbs = [...new Set(rows.map((r) => r.orb))].sort((a, b) => a - b);
+    const W = Math.max(280, el.clientWidth);
+    const labW = obMeasure(el, markets);
+    const m = {top: 22, right: 8, bottom: 4, left: labW + 10};
+    const cellH = 26;
+    const H = m.top + m.bottom + markets.length * cellH;
+    const x = d3.scaleBand(orbs, [m.left, Math.min(W - m.right, m.left + orbs.length * 120)]).paddingInner(0.06);
+    const y = d3.scaleBand(markets, [m.top, H - m.bottom]).paddingInner(0.08);
+    const lim = Math.max(0.05, d3.max(rows, (r) => Math.abs(r.E)));
+    const col = (v) => (v < 0 ? 'var(--color-bad)' : dash.colors[0]);
+    const op = (v) => 0.08 + 0.6 * Math.min(1, Math.abs(v) / lim);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+    svg.append('g').selectAll('text').data(orbs).join('text')
+      .attr('x', (o) => x(o) + x.bandwidth() / 2).attr('y', 12).attr('text-anchor', 'middle').text((o) => `${o}-minute range`);
+    svg.append('g').selectAll('text').data(markets).join('text')
+      .attr('class', 'ob-lab').attr('x', m.left - 8).attr('y', (k) => y(k) + y.bandwidth() / 2).attr('dy', '0.35em').attr('text-anchor', 'end').text((k) => k);
+    const g = svg.append('g').selectAll('g').data(rows).join('g');
+    g.append('rect').attr('x', (r) => x(r.orb)).attr('y', (r) => y(r.market)).attr('width', x.bandwidth()).attr('height', y.bandwidth())
+      .attr('rx', 2).attr('fill', (r) => col(r.E)).attr('fill-opacity', (r) => op(r.E));
+    g.append('text').attr('class', 'ob-lab').attr('x', (r) => x(r.orb) + x.bandwidth() / 2).attr('y', (r) => y(r.market) + y.bandwidth() / 2)
+      .attr('dy', '0.35em').attr('text-anchor', 'middle').text((r) => obFmtR(r.E));
+  });
+</script>
