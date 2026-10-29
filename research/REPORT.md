@@ -139,3 +139,23 @@ fortnightly return; the rest compounds. No reshuffled history halved the capital
 ## To trade it
 The v2.42 EA already runs S1 and Donchian-with-chandelier (S2, JPY D1 55). Four modes are new:
 Donchian Turtle exit, EMA cross, Williams volatility breakout, RSI(2). One terminal, 7 charts.
+
+---
+
+# Daily liquidity study (Asian range, PDH/PDL, PWH/PWL; sweeps, responses, combinations)
+
+436 variants on all four markets: sweep & reclaim (Asian / previous day / previous week),
+failed sweep -> breakout, reaction follow-through, stacked sweeps (Asian + PDH), weekly-range
+bias; M5/M15/H1 confirmation; targets 1R/2R/3R/mid/opposite; stops down to 0.08 x ATR;
+London-only, NY-only and full-session windows. **None passes; none of the 216 tighter-stop /
+session variants is positive in all three eras.** With ZERO costs the core ideas earn
+-0.02R to +0.06R per trade: there is essentially no directional information in them on these
+markets; real costs make them negative. (Ledger L-004 again: the entry pattern is ~0% of results.)
+
+One survivor: GBP/USD weekly follow-through (sweep of last week's high/low, reclaim, travel to
+the opposite weekly level, H1 close beyond it -> continuation, stop at last week's midpoint,
+2R target, exit Friday 20:00 UTC): 3.8/yr, +0.22R, eras +0.20 / +0.28 / +0.22, IS +0.225 /
+OOS +0.221, t 1.80. Added to the timeless book as its 8th strategy (first GBP leg):
+monthly Sharpe 1.16 -> 1.23 (IS 1.27 / OOS 1.21), t 4.50 -> 4.77, positive years 13 -> 14/15.
+At base 3% / heat cap 20%: CAGR 21.4%, real DD 17.0%, reshuffled DD typical 16% / 1-in-20 23% /
+worst 36%, never halved; 0.45% payout per fortnight on time in 98% of typical histories.

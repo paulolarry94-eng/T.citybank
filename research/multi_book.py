@@ -16,6 +16,7 @@ CANDS = {  # name: (file, full_pass)
  "JPY_RSI2_D1_lo5":           ("trades/multi/USDJPY_RSI2_D1_lo5.npy", False),
  "XAU_Donchian55_H4_turtle":  ("trades/multi/XAUUSD_DON_H4_n55_turtle.npy", False),
  "XAU_S3_Donchian20_H4_3atr": ("trades/TR_XAUUSD_H4_atr3_both_off120.npy", False),
+ "GBP_WeeklySweep_FollowThrough": ("trades/liquidity/GBPUSD_FOLLOW_weekly_H1_tp2.npy", False),
 }
 
 
