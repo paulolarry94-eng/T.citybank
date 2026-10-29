@@ -1,0 +1,40 @@
+; TimelessCity v2.42 — S3 TREND (XAUUSD, magic 888005) — DEMO-VALIDATE FIRST
+; Donchian H4 N20 close breakout | stop 3xATR | 1.5R chandelier trail | BOTH sides | no TP
+; Corrected-scanner record: 21/yr, 43% win, +0.242R, avgW +2.31R, best +11.6R, OOS +0.207.
+; Load on a XAUUSD H4 chart only. Deadzone OFF (trend not time-filtered); news filter ON.
+; NOTE: 3xATR stop (vs S2's 2x) — gold's wider H4 range needs the extra room.
+InpStrategyMode=1
+InpTrendTF=16388
+InpDonchianN=20
+InpTrendATRmult=3.0
+InpTrendTrailR=1.5
+InpSides=0
+InpUseH2=false
+InpUseH1=false
+InpUseM30=false
+InpUseM20=false
+InpUseM15=false
+InpUseM10=false
+InpUseM5=false
+InpUseM1=false
+InpEntryMode=1
+InpUseRunner=false
+InpRiskMode=1
+InpFixedRisk=2.0
+InpPortfolioHeatCap=8.0
+InpProfile=1
+InpHarvestMode=0
+InpHarvestMult=1.015
+InpResetHarvestRef=false
+InpMaxLossDays=3
+InpPauseDays=7
+InpUseDeadzone=false
+InpUseSessionFilter=false
+InpUseNewsFilter=true
+InpNewsMinsBefore=20
+InpNewsMinsAfter=15
+InpNewsHighOnly=true
+InpMagicNumber=888005
+InpMaxSpreadPips=100
+InpMinEquityFloor=20.0
+InpShowDashboard=true
