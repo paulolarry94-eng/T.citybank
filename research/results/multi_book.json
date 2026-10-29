@@ -1,22 +1,22 @@
 {
  "kept": [
-  "JPY_S2_Donchian20_H4_long",
   "XAU_S1_reversion_H1M30M20",
-  "XAU_Donchian20_H4_turtle",
   "JPY_VolBreakout_D1_k0.7",
+  "XAU_Donchian20_H4_turtle",
+  "JPY_S2_Donchian20_H4_long",
+  "XAU_EMA20-50_H4",
   "GBP_WeeklySweep_FollowThrough",
   "JPY_Donchian55_D1_trail",
-  "JPY_RSI2_D1_lo5",
-  "XAU_EMA20-50_H4"
+  "JPY_RSI2_D1_lo5"
  ],
  "weights": {
-  "JPY_S2_Donchian20_H4_long": 0.17026284183050383,
   "XAU_S1_reversion_H1M30M20": 0.6153204848949257,
+  "JPY_VolBreakout_D1_k0.7": 0.13554061853791274,
   "XAU_Donchian20_H4_turtle": 0.13281845376088217,
-  "JPY_VolBreakout_D1_k0.7": 0.11189392752657366,
+  "JPY_S2_Donchian20_H4_long": 0.26214822965911966,
+  "XAU_EMA20-50_H4": 0.25000925715246164,
   "GBP_WeeklySweep_FollowThrough": 1.0,
   "JPY_Donchian55_D1_trail": 0.3905393711997427,
-  "JPY_RSI2_D1_lo5": 0.8312041923434419,
-  "XAU_EMA20-50_H4": 0.20854199006972995
+  "JPY_RSI2_D1_lo5": 0.8312041923434419
  }
 }

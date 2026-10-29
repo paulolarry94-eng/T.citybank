@@ -159,3 +159,35 @@ OOS +0.221, t 1.80. Added to the timeless book as its 8th strategy (first GBP le
 monthly Sharpe 1.16 -> 1.23 (IS 1.27 / OOS 1.21), t 4.50 -> 4.77, positive years 13 -> 14/15.
 At base 3% / heat cap 20%: CAGR 21.4%, real DD 17.0%, reshuffled DD typical 16% / 1-in-20 23% /
 worst 36%, never halved; 0.45% payout per fortnight on time in 98% of typical histories.
+
+---
+
+# Daily structure, round two ("try again")
+
+New angles, 160 variants on four markets: trend-aligned intraday sweeps (daily EMA20/50
+direction only, hold into next day, target the opposite daily pool); daily- and weekly-candle
+sweeps (take PDH/PWH, close back inside, multi-day hold) and their failed-sweep continuations;
+Turtle Soup Plus One (Raschke); NR4/NR7 breakouts (Crabel).
+**None passes; none is even a timeless candidate.** Median E per family: trend-aligned sweeps
+-0.08R, candle sweeps -0.03R, Turtle Soup -0.07R, NR4/NR7 -0.03 to -0.05R.
+Note: Turtle Soup first looked strong (GBP +0.65R, t 3.0). That came from a look-ahead bug in
+my stop (it used the entry day's full low). With the stop fixed to the signal day's low it
+falls to +0.32R, t 1.45, negative in 2016-18.
+
+## Where daily/weekly levels DO help: as filters on the book's legs
+Every filter below improves BOTH halves (2011-18 and 2019-25) and is positive in all eras:
+| Leg | Keep only | Kept | Dropped |
+|---|---|---|---|
+| S2 yen Donchian H4 long | breakout already beyond last week's high | +0.36R (IS +0.31 / OOS +0.43) | +0.23R (IS +0.05) |
+| Gold EMA 20/50 H4 | entry still inside yesterday's range | +0.57R (IS +0.65 / OOS +0.48) | -0.09R |
+| Yen volatility breakout D1 | breakout also beyond yesterday's high/low | +0.07R (IS +0.08 / OOS +0.07) | +0.01R |
+(Selection caveat: 3 kept out of 10 splits examined.)
+
+## Filtered 8-strategy book (186 trades/yr, 7.2 per fortnight)
+Monthly Sharpe 1.32 (IS 1.46, OOS 1.22), t 5.13, eras all positive, 61% positive months,
+14/15 positive years. Out-of-sample Sharpe is unchanged (1.21 -> 1.22); the gain is lower
+drawdown for the same return.
+| Base | Heat cap | CAGR | Real DD | Reshuffled DD typical / 1-in-20 / worst | Payout/fn (on time real/typ/1-in-20) |
+|---|---|---|---|---|---|
+| 3% | 20% | 22.2% | 15.0% | 14 / 20 / 28% | 0.45% (94/98/90%) |
+| 4% | 20% | 30.2% | 19.6% | 19 / 26 / 36% | 0.60% (94/98/90%) |

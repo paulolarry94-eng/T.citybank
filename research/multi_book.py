@@ -5,6 +5,8 @@ return-chasing), so 2019-2025 stays a fair test."""
 import numpy as np, json, datetime as dt
 import gold_search as GS
 
+import os
+FILTERED = os.environ.get("BOOK_FILTERED", "0") == "1"
 CANDS = {  # name: (file, full_pass)
  "XAU_S1_reversion_H1M30M20": ("trades/S1_XAUUSD_H1+M30+M20_long_off120.npy", True),
  "XAU_Donchian20_H4_turtle":  ("trades/multi/XAUUSD_DON_H4_n20_turtle.npy", True),
@@ -18,6 +20,12 @@ CANDS = {  # name: (file, full_pass)
  "XAU_S3_Donchian20_H4_3atr": ("trades/TR_XAUUSD_H4_atr3_both_off120.npy", False),
  "GBP_WeeklySweep_FollowThrough": ("trades/liquidity/GBPUSD_FOLLOW_weekly_H1_tp2.npy", False),
 }
+
+
+if FILTERED:   # daily/weekly level filters (liquidity study, round two)
+    CANDS["JPY_S2_Donchian20_H4_long"] = ("trades/filtered/JPY_S2_weekbreak.npy", True)
+    CANDS["XAU_EMA20-50_H4"] = ("trades/filtered/XAU_EMA_insidePD.npy", False)
+    CANDS["JPY_VolBreakout_D1_k0.7"] = ("trades/filtered/JPY_VBO_beyondPD.npy", True)
 
 
 def monthly(tr):
