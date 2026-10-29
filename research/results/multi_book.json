@@ -1,0 +1,20 @@
+{
+ "kept": [
+  "JPY_S2_Donchian20_H4_long",
+  "XAU_S1_reversion_H1M30M20",
+  "XAU_Donchian20_H4_turtle",
+  "JPY_VolBreakout_D1_k0.7",
+  "JPY_Donchian55_D1_trail",
+  "JPY_RSI2_D1_lo5",
+  "XAU_EMA20-50_H4"
+ ],
+ "weights": {
+  "JPY_S2_Donchian20_H4_long": 0.20483876693460376,
+  "XAU_S1_reversion_H1M30M20": 0.740275964152842,
+  "XAU_Donchian20_H4_turtle": 0.15979040407197978,
+  "JPY_VolBreakout_D1_k0.7": 0.13461665443614687,
+  "JPY_Donchian55_D1_trail": 0.469847691815271,
+  "JPY_RSI2_D1_lo5": 1.0,
+  "XAU_EMA20-50_H4": 0.25089140790036263
+ }
+}

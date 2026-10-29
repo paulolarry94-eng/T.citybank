@@ -98,3 +98,44 @@ harvest is a suggestion only; the 14-day bank/withdraw rule above is the payout 
 120%/yr is not available from these edges at any survivable drawdown. The way to raise the
 fortnightly payout at the same drawdown is more uncorrelated legs: the trend engine on more
 markets (silver 2019-25, oil, US/EU indices, more FX), each through the same funnel.
+
+---
+
+# Timeless four-market book (brief: risk OS removed; known strategies, all timeframes, all four markets; horizon = timelessness)
+
+## Search
+Published / widely used families on M15, M30, H1, H4, D1 for gold, EUR/USD, GBP/USD, USD/JPY:
+Donchian/Turtle breakouts, EMA crossovers, RSI(2) (Connors), Bollinger reversion, IBS reversion,
+Larry Williams volatility breakout, opening-range breakout, multi-timeframe trend; plus the
+existing S1/S2/S3. 356 variants + the earlier legs. New gate - TIMELESS: positive in each era
+(2011-15, 2016-18, 2019-25) - on top of in-sample, out-of-sample, t-stat and neighbour checks.
+- Only H4/D1 trend, daily volatility breakout and a few reversion legs survive; M15/M30
+  everything loses to the spread; EUR/USD and GBP/USD contribute nothing timeless.
+
+## The book (7 strategies, 242 trades/yr = 9.3 per fortnight)
+| Strategy | Market / TF | /yr | E | eras 11-15 / 16-18 / 19-25 | Weight |
+|---|---|---|---|---|---|
+| S2 Donchian 20, 2xATR, 1.5R chandelier, long | USDJPY H4 | 21.9 | +0.27R | +0.16 / +0.16 / +0.41 | 0.20 |
+| S1 Impulse4 reversion, 1:1 | XAUUSD H1+M30+M20 | 7.0 | +0.25R | +0.13 / +0.39 / +0.28 | 0.74 |
+| Donchian 20, Turtle exit (10-bar opposite break) | XAUUSD H4 | 46.0 | +0.16R | +0.13 / +0.23 / +0.16 | 0.16 |
+| Williams volatility breakout k=0.7 | USDJPY D1 | 134.6 | +0.06R | +0.08 / +0.04 / +0.05 | 0.13 |
+| Donchian 55, 2xATR, 1.5R chandelier, both | USDJPY D1 | 5.5 | +0.33R | +0.50 / +0.01 / +0.39 | 0.47 |
+| RSI(2) < 5 / > 95 with 200-SMA filter | USDJPY D1 | 9.2 | +0.10R | +0.15 / +0.09 / +0.07 | 1.00 |
+| EMA 20/50 cross, both | XAUUSD H4 | 17.4 | +0.23R | +0.22 / +0.42 / +0.17 | 0.25 |
+Weights = inverse monthly-R volatility on 2011-2018 only (risk balance). Book: monthly Sharpe
+1.16 (2011-18: 1.15, 2019-25: 1.19), t 4.50, positive in all eras, 13/15 positive years.
+
+## Risk (fixed fractional; per-trade risk = base x weight)
+| Base | Heat cap | CAGR | Real DD | Reshuffled DD typical / 1-in-20 / worst | Payout/fn (on time real/typical/1-in-20) |
+|---|---|---|---|---|---|
+| 1.5% | 10% | 11.3% | 9.1% | 10 / 14 / 24% | 0.25% (93/98/87%) |
+| 2.0% | 10% | 14.1% | 11.7% | 13 / 18 / 31% | 0.30% (93/98/88%) |
+| **3.0%** | **20%** | **22.6%** | **17.3%** | **19 / 26 / 43%** | **0.45% (93/98/89%)** |
+| 4.0% | 20% | 28.1% | 22.0% | 24 / 34 / 53% | 0.55% (93/99/89%) |
+| 5.0% | 20% | 31.5% | 24.6% | 29 / 41 / 61% | 0.65% (93/99/89%) |
+Recommended for a timeless horizon: base 3%, heat cap 20%. Payout set at 60% of the expected
+fortnightly return; the rest compounds. No reshuffled history halved the capital at any setting.
+
+## To trade it
+The v2.42 EA already runs S1 and Donchian-with-chandelier (S2, JPY D1 55). Four modes are new:
+Donchian Turtle exit, EMA cross, Williams volatility breakout, RSI(2). One terminal, 7 charts.
