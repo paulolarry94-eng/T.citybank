@@ -118,3 +118,25 @@ Shopping list (owner):
 3. A futures route (an MT5 futures broker with CME micros, or IBKR) for trend+carry.
 4. Optional new edge types: economic-calendar history with timestamps, CFTC COT weekly positioning,
    central-bank rate history.
+
+## 7. Exness Zero sensitivity (2026-10-30) — the cost lever
+The owner trades an Exness Zero account (near-zero spread + commission). All results above use costs
+set 20–40% above measured ECN levels (XAU $0.45/oz, EUR 1.5 pips, GBP 1.8, JPY 1.2) plus a constant
+swap. Re-scoring the same trades with lower costs (sensitivity, not yet verified against real
+Exness numbers):
+
+| Costs | Book Sharpe 2011–25 (2023–25) | Book + trend/carry (2017–24) |
+|---|---|---|
+| as assumed | 1.00 (0.60) | 1.08 (0.91) |
+| x0.5 | 1.28 (0.86) | 1.29 (1.14) |
+| x0.3 | 1.39 (0.96) | 1.37 (1.23) |
+| x0.5 + swap-free | **1.64 (1.16)** | 1.56 (1.42) |
+| x0.3 + swap-free | **1.75 (1.27)** | 1.64 (1.50) |
+
+The intraday scanner stays negative even at x0.3 (2020–25), so costs revive the book, not intraday
+patterns. Verification needed: run `mt5/NorthStarExport.mq5` on the Exness terminal (swaps, real
+minute spreads), plus the Zero commission per lot per side for each symbol.
+
+Data route: datafeed.dukascopy.com is now reachable from this cloud but answers HTTP 429 from the
+first request (shared cloud IP throttled). Run `python3 tools/dukascopy_m1.py --all 2011 2025` on a
+home PC (stdlib + numpy) and push `data/*.npz` to GitHub, or use the MT5 export.
