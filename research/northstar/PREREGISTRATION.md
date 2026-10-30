@@ -132,3 +132,32 @@ Portfolio acceptance: real max drawdown ≤ 30% and 1-in-20 reshuffled drawdown 
 
 No claim of compiled code, passed tests or verified edge without the artifact. Missing earlier
 outputs are listed as missing, not reconstructed from memory.
+
+## Amendment 1 — 2026-10-30, before any grid result (clarifications only; no threshold changed)
+
+Written after the unit tests passed and after one timing smoke test (FVG-A, w 0.1, d 0, b 0, g 30,
+2R target, gold only, all years mixed) — no grid, ranking or validation result has been seen.
+
+1. **Grid dimensions.** Every module's grid = its pattern parameters x management {2R, 3R, none} x
+   trail {none, 3 ATR} x bias {off, on}. FVG-D is reported as the bias-on half of the FVG-A grid.
+   SD continuation is one module (RBR long + DBD short); RBR and DBD are also reported separately
+   (long and short sums are logged per year), likewise DBR / RBD.
+2. **One-step neighbours** (criterion A4): configurations that differ in exactly one ORDERED parameter
+   by one position in its declared list — timeframe, k, nb, m, w, d, b, g, QM pivot k, target
+   (2R, 3R, none), trail (none, 3 ATR), retest offset t. Categorical choices (entry break/retest,
+   bias on/off, QM level near/far, FVG model) define variants and are not stepped.
+3. **Walk-forward** (criterion A3): for each test year 2014–2022, the configuration is re-selected
+   inside the module's grid by the module rule (pooled over markets, ≥ 3 of 4 markets positive,
+   ≥ 100 trades, E > 0, rank by t) on the 3 preceding years; that configuration's test-year trades
+   are pooled over the 9 test years.
+4. **Combination filters** (experiments 6–8), declared now: FVG filter = any same-direction FVG with
+   w ≥ 0.1 ATR on the primary's timeframe whose third candle closed within the 10 bars up to and
+   including the entry decision bar; QM filter = a same-direction QM trigger (pivot k 3, m 0.25, level
+   near, break) on the primary's timeframe within the 30 bars up to the decision bar. Each filter is
+   applied to the primary module's full grid; the filtered grid is selected by the module rule, and
+   incremental value = paired change in development E between filtered and unfiltered versions of the
+   same configuration.
+5. **Stress** (criterion A5) from logged sums: E_stress = (sum R − 0.5 x sum cost R − 1.0 x sum
+   financing R) / n, plus a separate re-run with entries delayed 1 minute (market orders only; resting
+   limit orders are unaffected by latency in this model). All three applied together.
+6. **Deflated Sharpe** uses the module's full grid size as the number of trials, monthly R returns.
