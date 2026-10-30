@@ -1,0 +1,210 @@
+{
+ "SDC": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 720
+ },
+ "SDR": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 720
+ },
+ "FVG-A": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 768
+ },
+ "FVG-B": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 192
+ },
+ "FVG-C": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 96
+ },
+ "FVG-D": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 384
+ },
+ "QM": {
+  "tier": "Rejected",
+  "criteria": {
+   "1_E_pos_dev_val_oos": true,
+   "2_oos_PF110_t2_n100": false,
+   "3_walk_forward_E_pos": true,
+   "4_neighbours_stable": false,
+   "5_stress_dev_val_pos": true,
+   "6_oos_pos_2_markets": true
+  },
+  "config": {
+   "tf": "H1",
+   "qk": 3.0,
+   "m": 0.5,
+   "level": "far",
+   "entry": "break",
+   "t": 0.0,
+   "tgt": 2.0,
+   "trail": 0.0,
+   "bias": 1
+  },
+  "oos": {
+   "n": 147,
+   "E": 0.042804681405105335,
+   "t": 0.4542241636523817,
+   "PF": 1.087836361493136,
+   "win": 0.4557823129251701
+  },
+  "per_market": {
+   "XAUUSD": {
+    "n": 43,
+    "E": -0.17941344972452306,
+    "t": -1.1048343279488066,
+    "PF": 0.6917778305844294,
+    "win": 0.3488372093023256
+   },
+   "EURUSD": {
+    "n": 20,
+    "E": 0.009477796190308429,
+    "t": 0.03465922439582301,
+    "PF": 1.0178783528666853,
+    "win": 0.45
+   },
+   "GBPUSD": {
+    "n": 37,
+    "E": -0.04449922302715058,
+    "t": -0.23895859697497285,
+    "PF": 0.9133978479906909,
+    "win": 0.40540540540540543
+   },
+   "USDJPY": {
+    "n": 47,
+    "E": 0.32902089006177404,
+    "t": 1.9415897811317535,
+    "PF": 1.9100677381000697,
+    "win": 0.5957446808510638
+   }
+  },
+  "per_year": {
+   "2023": {
+    "n": 43,
+    "E": -0.11400663280523905,
+    "t": -0.7002940252948423,
+    "PF": 0.7843148490578684,
+    "win": 0.4418604651162791
+   },
+   "2024": {
+    "n": 50,
+    "E": 0.04189509222286544,
+    "t": 0.27082201159502817,
+    "PF": 1.089408335421548,
+    "win": 0.46
+   },
+   "2025": {
+    "n": 54,
+    "E": 0.16851516233393507,
+    "t": 0.9944130823583349,
+    "PF": 1.357156570300438,
+    "win": 0.46296296296296297
+   }
+  },
+  "dsr": 0.01133339643450093,
+  "configs": 1728
+ },
+ "QM+FVG": {
+  "tier": "Rejected",
+  "criteria": {
+   "1_E_pos_dev_val_oos": false,
+   "2_oos_PF110_t2_n100": false,
+   "3_walk_forward_E_pos": false,
+   "4_neighbours_stable": false,
+   "5_stress_dev_val_pos": true,
+   "6_oos_pos_2_markets": true
+  },
+  "config": {
+   "tf": "H1",
+   "qk": 3.0,
+   "m": 0.5,
+   "level": "far",
+   "entry": "break",
+   "t": 0.0,
+   "tgt": 3.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "oos": {
+   "n": 201,
+   "E": 0.11294309310470037,
+   "t": 1.3109909265397397,
+   "PF": 1.2491606714829169,
+   "win": 0.47761194029850745
+  },
+  "per_market": {
+   "XAUUSD": {
+    "n": 61,
+    "E": -0.014705702283219688,
+    "t": -0.0923294436950291,
+    "PF": 0.9724344641344256,
+    "win": 0.39344262295081966
+   },
+   "EURUSD": {
+    "n": 36,
+    "E": -0.011619332059458679,
+    "t": -0.06427192604112635,
+    "PF": 0.9758305888454059,
+    "win": 0.4444444444444444
+   },
+   "GBPUSD": {
+    "n": 39,
+    "E": 0.20668903930899765,
+    "t": 0.949587664151195,
+    "PF": 1.4574550016897605,
+    "win": 0.4358974358974359
+   },
+   "USDJPY": {
+    "n": 65,
+    "E": 0.2454774303755504,
+    "t": 1.6589450598484208,
+    "PF": 1.6749074017394514,
+    "win": 0.6
+   }
+  },
+  "per_year": {
+   "2023": {
+    "n": 49,
+    "E": 0.1567089611264275,
+    "t": 0.8147073217033272,
+    "PF": 1.3339227718962996,
+    "win": 0.46938775510204084
+   },
+   "2024": {
+    "n": 69,
+    "E": -0.13114864095295956,
+    "t": -1.0958108878576975,
+    "PF": 0.744285595244098,
+    "win": 0.391304347826087
+   },
+   "2025": {
+    "n": 83,
+    "E": 0.2900250463205305,
+    "t": 2.0417427233233205,
+    "PF": 1.7355093144360974,
+    "win": 0.5542168674698795
+   }
+  },
+  "dsr": 5.32946655523725e-06,
+  "configs": 1728
+ },
+ "SDC+FVG": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 720
+ },
+ "SDC+QM": {
+  "tier": "Rejected",
+  "reason": "no configuration passed the development gate",
+  "configs": 720
+ }
+}

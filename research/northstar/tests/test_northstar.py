@@ -6,6 +6,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 import core, patterns as P
+import risk
 
 DAY = 86400
 MON = 4 * DAY          # 1970-01-05 is a Monday (epoch day 4)
@@ -176,6 +177,72 @@ class TestExecution(unittest.TestCase):
                           A([-1.0]), A([9.0]), A([1], np.int64), A([0], np.int64), A([10.0]), 0.01, 0.0, 0.0, 50,
                           np.zeros(0, np.int64), 0.0, 2 ** 62, core.BLOCK[0], core.BLOCK[1], 0)
         self.assertEqual(len(r), 0)
+
+
+
+def trades(r, t0=1600041600, gap=86400, hold=3600, inst=None, side=None, legs=None, w=None, same_time=False):
+    n = len(r); t = np.full(n, t0, np.int64) if same_time else t0 + np.arange(n, dtype=np.int64) * gap
+    return dict(t_in=t, t_out=t + hold, side=np.asarray(side if side is not None else np.ones(n), np.int64),
+                r=np.asarray(r, float), leg=np.asarray(legs if legs is not None else np.zeros(n), np.int64),
+                inst=np.asarray(inst if inst is not None else np.zeros(n), np.int64), usd=np.ones(n, np.int64),
+                w=np.asarray(w if w is not None else np.ones(n), float))
+
+
+class TestRiskManager(unittest.TestCase):
+    def test_fixed_fractional_compounds_on_current_equity(self):
+        s = risk.simulate(trades([1.0] * 10 + [-1.0] * 5), 0.01, "FF")
+        self.assertAlmostEqual(s["final"], 1.01 ** 10 * 0.99 ** 5, places=12)
+
+    def test_leg_weight_scales_risk(self):
+        s = risk.simulate(trades([1.0], w=[0.5]), 0.02, "FF")
+        self.assertAlmostEqual(s["final"], 1.01, places=12)
+
+    def test_same_instrument_same_direction_cap(self):
+        s = risk.simulate(trades([1.0] * 6, same_time=True, legs=range(6)), 0.01, "FF+CAPS")
+        self.assertEqual(s["taken"], 3)                      # 3% same instrument + direction
+
+    def test_total_open_risk_cap(self):
+        T = trades([1.0] * 12, same_time=True, legs=range(12), inst=[i % 6 for i in range(12)], side=[1, -1] * 6)
+        T["usd"] = np.zeros(12, np.int64)                    # isolate the 10% total cap from the USD cap
+        self.assertEqual(risk.simulate(T, 0.01, "FF+CAPS")["taken"], 10)
+
+    def test_net_usd_direction_cap(self):
+        T = trades([1.0] * 8, same_time=True, legs=range(8), inst=[0, 1, 2, 3, 0, 1, 2, 3])
+        T["usd"] = np.ones(8, np.int64)                      # all longs USD-short: 6% net cap -> 6 trades at 1%
+        self.assertEqual(risk.simulate(T, 0.01, "FF+CAPS")["taken"], 6)
+
+    def test_per_trade_cap(self):
+        s = risk.simulate(trades([1.0]), 0.05, "FF+CAPS")
+        self.assertAlmostEqual(s["final"], 1.02, places=12)
+
+    def test_amber_halves_risk_after_ten_percent_drawdown(self):
+        r = [-1.0] * 6 + [1.0]                                 # 6 x 2% losses 3 days apart -> DD 11.4%, next trade at 1%
+        s = risk.simulate(trades(r, gap=3 * 86400, legs=range(7)), 0.02, "RAG")
+        self.assertAlmostEqual(s["final"], 0.98 ** 6 * 1.01, places=12)
+
+    def test_amber_on_five_day_loss(self):
+        r = [-1.0] * 6 + [1.0]                                 # daily 2% losses: after 4 the 5-day loss is 7.8% -> AMBER
+        s = risk.simulate(trades(r, legs=range(7)), 0.02, "RAG")
+        self.assertAlmostEqual(s["final"], 0.98 ** 4 * 0.99 ** 2 * 1.01, places=12)
+
+    def test_red_pauses_entries_and_rearms_after_further_loss(self):
+        s = risk.simulate(trades([-1.0] * 40, legs=range(40)), 0.02, "RAG")
+        # 4 losses at 2%, then 1% (AMBER) until DD >= 20% at trade 19 -> RED, 14-day pause, resume in AMBER,
+        # RED again only after a further 5% loss from the equity at acknowledgement (amendment 2)
+        self.assertEqual(s["red_episodes"], 2)
+        self.assertGreater(s["skipped"], 14)
+
+    def test_ff_red_never_changes_size_for_amber(self):
+        r = [-1.0] * 6 + [1.0]
+        s = risk.simulate(trades(r, legs=range(7)), 0.02, "FF+RED")
+        self.assertAlmostEqual(s["final"], 0.98 ** 6 * 1.02, places=12)
+        self.assertGreater(s["amber_entries"], 0)           # shadow AMBER recorded
+
+    def test_day_loss_red(self):
+        T = trades([-1.0] * 4 + [1.0] * 3, gap=1800, hold=600, legs=range(7), inst=[0, 1, 2, 3, 0, 1, 2])
+        s = risk.simulate(T, 0.02, "FF+RED")                  # 4 x 2% in one day = 7.8% >= 6% -> RED
+        self.assertEqual(s["red_episodes"], 1)
+        self.assertEqual(s["taken"], 4)
 
 
 if __name__ == "__main__":

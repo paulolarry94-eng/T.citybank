@@ -175,3 +175,18 @@ Also fixed now: the portfolio candidate for the risk comparison is chosen by the
 weights: inverse monthly-R volatility on 2011–2019, largest weight 1. The base risk is chosen on
 2011–2022 only (largest risk with real max drawdown ≤ 30% and 1-in-20 reshuffled ≤ 35% under RAG);
 2023–2025 is then reported at that risk.
+
+## Amendment 3 — 2026-10-30, after the pre-registered policy comparison, before the demo policy's 2023–2025 numbers
+
+Seen at this point: the full 2011–2022 frontier of FF / FF+CAPS / RAG / BRAKE (0.25%–2% base risk,
+both portfolios) and, as pre-registered, the 2023–2025 results of all four policies at the
+rule-chosen risk (2%). On 2011–2022, plain fixed fractional at a lower base risk dominates RAG and
+BRAKE at equal 1-in-20 drawdown (e.g. BOOK: FF 1.25% → CAGR 13.6%, max DD 10.4%, 1-in-20 16.4%;
+RAG 2% → 12.6%, 13.1%, 18.3%); AMBER time is almost entirely the ≥10% drawdown trigger, which halves
+the recovery speed.
+Decision (on 2011–2022 evidence only): the demo forward-test policy is **FF+RED** — fixed fractional,
+all exposure caps, RED as a circuit breaker (drawdown ≥ 20% with the amendment-2 re-arm, day loss ≥ 6%,
+and the live operational triggers), resuming at full risk after the pause; AMBER is computed and
+reported in shadow mode only (no size change) so the forward test can measure it. Base risk 1% x leg
+weight: on 2011–2022 its 1-in-20 drawdown (13.3%) is far from both the 35% acceptance line and the 20%
+RED line, and caps bind on only ~2% of entries. Its 2023–2025 result is computed once, after this note.

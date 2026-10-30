@@ -1,0 +1,66 @@
+{
+ "RBR long": {
+  "configs_with_100_trades": 24,
+  "share_positive": 0.0,
+  "median_E": -0.22369610260480746,
+  "best": {
+   "tf": "M5",
+   "k": 1.0,
+   "nb": 2.0,
+   "entry": "break",
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0,
+   "dev_nL": 223,
+   "dev_EL": -0.1194678002254693
+  }
+ },
+ "DBD short": {
+  "configs_with_100_trades": 24,
+  "share_positive": 0.0,
+  "median_E": -0.27504486863997846,
+  "best": {
+   "tf": "M15",
+   "k": 1.0,
+   "nb": 1.0,
+   "entry": "break",
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0,
+   "dev_nS": 154,
+   "dev_ES": -0.0948376551025683
+  }
+ },
+ "DBR long": {
+  "configs_with_100_trades": 18,
+  "share_positive": 0.0,
+  "median_E": -0.24438194459855245,
+  "best": {
+   "tf": "M5",
+   "k": 1.0,
+   "nb": 2.0,
+   "entry": "break",
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0,
+   "dev_nL": 176,
+   "dev_EL": -0.0687570439929036
+  }
+ },
+ "RBD short": {
+  "configs_with_100_trades": 24,
+  "share_positive": 0.0,
+  "median_E": -0.2898860084106981,
+  "best": {
+   "tf": "M5",
+   "k": 1.0,
+   "nb": 1.0,
+   "entry": "break",
+   "tgt": 3.0,
+   "trail": 0.0,
+   "bias": 1,
+   "dev_nS": 293,
+   "dev_ES": -0.05914038277735654
+  }
+ }
+}
