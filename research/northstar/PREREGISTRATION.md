@@ -161,3 +161,17 @@ Written after the unit tests passed and after one timing smoke test (FVG-A, w 0.
    financing R) / n, plus a separate re-run with entries delayed 1 minute (market orders only; resting
    limit orders are unaffected by latency in this model). All three applied together.
 6. **Deflated Sharpe** uses the module's full grid size as the number of trials, monthly R returns.
+
+## Amendment 2 — 2026-10-30, before any risk-manager simulation
+
+Reason: the RED rule in §6 cannot be exited when RED was caused by the drawdown trigger — no new
+entries means equity cannot recover above the 20% line, so "all checks passing" never happens.
+Fix: after the operator acknowledgement (backtest: 10 trading days ≈ 14 calendar days), trading
+resumes in AMBER and the drawdown RED trigger re-arms only on a further 5% loss from the equity at
+acknowledgement (or is reset when the account returns to GREEN). Daily-loss RED is unchanged.
+Also fixed now: the portfolio candidate for the risk comparison is chosen by the tier rules
+(§5) — no new module reached Tier A or B, so the comparison runs on the pre-existing 11-leg book
+(frozen legs, financing applied), with book + four strategies as the reference used earlier. Leg
+weights: inverse monthly-R volatility on 2011–2019, largest weight 1. The base risk is chosen on
+2011–2022 only (largest risk with real max drawdown ≤ 30% and 1-in-20 reshuffled ≤ 35% under RAG);
+2023–2025 is then reported at that risk.
