@@ -227,3 +227,15 @@ storyline on gold (+0.40R, 11/yr, all eras positive, t 2.76) and USDJPY (+0.24R)
 timeframes, below the multiple-testing bar -> forward-test before trading. Frontier of the 11-leg
 book with the drawdown brake: ~64% median CAGR at ~30% typical drawdown ("Growth 60", 1.5% paid per
 fortnight); 120% needs ~45% typical drawdowns.
+
+# Four strategies + central risk manager (full write-up: `four/FOUR_REPORT.md`)
+
+Trend continuation, failed breakout reversal, contraction->expansion, expansion follow-through:
+102,240 runs (24 entry variants x H1/H4/D1 x 4 markets x 360 exits), locked universal rules
+(commit 8d8128a) tested once on 2023-2025. Expansion follow-through is the most stable (H4, bar
+>= 2.5 ATR with trend: +0.15 / +0.24 / +0.05R across dev / val / 2023-25); trend continuation and
+contraction weaker; failed breakout reversal fails validation (excluded). Exits: breakeven lifts
+backtests and hurts in 2023-25 at 0.5-1R; 1-1.5R targets hurt; a loose (4 ATR) trail is best per
+trade, but at portfolio level exits that cap holding time win. Central risk manager (inverse-vol
+weights, drawdown brake, 4% per-trade / 30% total / 12% per-market caps) over book + four: 23 legs,
+real 2011-2025 CAGR 53%, max DD 22%; 1.50% paid per fortnight (37%/yr) on time 94% typical.

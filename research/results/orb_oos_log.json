@@ -166,5 +166,47 @@
  {
   "label": "ablation table 2023-2025 (one batch, reporting only)",
   "runs": 784
+ },
+ {
+  "when": "2026-10-30T13:24:18+00:00",
+  "label": "four strategies: locked rules, 2011-2025 incl. final years",
+  "rules": {
+   "TC": {
+    "tf": "H4",
+    "var": "don55",
+    "stop": "atr1.5",
+    "tgt": 5.0,
+    "be": 0.5,
+    "trail": 0.0
+   },
+   "FB": {
+    "tf": "H4",
+    "var": "n55_wick_none",
+    "stop": "atr2.5",
+    "tgt": 0.0,
+    "be": 1.0,
+    "trail": 0.0
+   },
+   "VC": {
+    "tf": "H4",
+    "var": "bbw20_trend",
+    "stop": "atr1.5",
+    "tgt": 5.0,
+    "be": 0.5,
+    "trail": 2.0
+   },
+   "VE": {
+    "tf": "H4",
+    "var": "x2.5_trend",
+    "stop": "atr1.5",
+    "tgt": 2.0,
+    "be": 0.5,
+    "trail": 2.0
+   }
+  }
+ },
+ {
+  "when": "2026-10-30T13:27:13+00:00",
+  "label": "four: management variants on 2023-2025 (reporting)"
  }
 ]
