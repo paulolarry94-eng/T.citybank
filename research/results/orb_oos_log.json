@@ -208,5 +208,9 @@
  {
   "when": "2026-10-30T13:27:13+00:00",
   "label": "four: management variants on 2023-2025 (reporting)"
+ },
+ {
+  "when": "2026-10-30T14:04:38+00:00",
+  "label": "FVG watch-list cluster + market-entry comparison, 2023-2025"
  }
 ]

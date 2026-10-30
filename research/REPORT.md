@@ -239,3 +239,13 @@ backtests and hurts in 2023-25 at 0.5-1R; 1-1.5R targets hurt; a loose (4 ATR) t
 trade, but at portfolio level exits that cap holding time win. Central risk manager (inverse-vol
 weights, drawdown brake, 4% per-trade / 30% total / 12% per-market caps) over book + four: 23 legs,
 real 2011-2025 CAGR 53%, max DD 22%; 1.50% paid per fortnight (37%/yr) on time 94% typical.
+
+# Fair Value Gaps (full write-up: `fvg/FVG_REPORT.md`)
+
+7,872 configurations (edge / midpoint retrace, inversion FVG, gap-fill fade; displacement, gap size,
+ICT stop, daily bias, killzones, targets, trailing) on four markets, M15/H1/H4. No robust edge:
+7.8% positive in development, medians about zero before costs, M15 worst. The ICT stop beyond candle 1
+beats a tight stop at the gap (+0.07R); midpoint entries are worse than the gap edge. A cluster picked
+with validation in view lost in 2023-2025. Entering immediately after the displacement is weakly
+positive in every period (+0.07 / +0.12 / +0.09R): the same effect the expansion follow-through
+strategy already trades.
