@@ -6,17 +6,27 @@ growth/drawdown frontier, and ship an EA. The only rule kept is the one that mak
 nothing is counted that only works in hindsight.
 
 ## 1. The arithmetic of the goal (Kelly)
-Growth at a portfolio volatility σ with Sharpe S ≈ S·σ − σ²/2. Full Kelly (σ = S) maximises it at S²/2.
+Log growth at portfolio volatility σ with Sharpe S ≈ S·σ − σ²/2; yearly return = e^growth − 1. Full Kelly
+(σ = S) maximises it. *(Corrected 2026-10-30: an earlier version of this table showed log growth as if it
+were the yearly return, which overstated the Sharpe the goal needs.)*
 
-| True Sharpe | Growth at 25% vol | at 40% vol | at 60% vol | Full Kelly (theoretical maximum) |
+| True Sharpe | Yearly return at 25% vol | at 40% vol | at 60% vol | Full Kelly (theoretical max) |
 |---|---|---|---|---|
-| 0.74 (our −1 s.e.) | 15% | 22% | 26% | 27% at 74% vol |
-| **1.08 (our best estimate)** | **24%** | **35%** | **47%** | 58% at 108% vol |
-| 1.42 (our +1 s.e.) | 33% | 49% | 67% | 101% at 142% vol |
+| 0.74 (our −1 s.e.) | 17% | 24% | 30% | 32% at 74% vol |
+| **1.08 (our best estimate)** | **27%** | **42%** | **60%** | 79% at 108% vol |
+| 1.42 (our +1 s.e.) | 38% | 63% | 96% | 174% at 142% vol |
 
-60% a year at a survivable 30–40% volatility needs a **true Sharpe of 1.7–2.2**. Leverage alone gets
-there only by accepting 50%+ drawdowns about half the time (§3). The project's lever is therefore
-**breadth**: more independent edges, which raises the Sharpe. More leverage on the same edge doesn't.
+Sharpe needed: **60% a year → 1.7 at 30% vol, 1.5 at 35%, 1.4 at 40%. 120% a year → 2.0 at 45% vol,
+2.2 at 40%.** Fat-tailed simulation, 3-year paths (`what it takes`, §6):
+
+| Sharpe / vol | Median yearly return | Bad decile | Median max DD | 1-in-20 DD |
+|---|---|---|---|---|
+| 1.08 / 25% (today) | 27% | 6% | 26% | 43% |
+| 1.5 / 30% | 50% | 20% | 26% | 42% |
+| 2.0 / 35% | 90% | 47% | 27% | 42% |
+| 2.0 / 40% | 105% | 52% | 30% | 47% |
+
+The project's lever is **breadth**: more independent edges raise the Sharpe; leverage doesn't.
 
 ## 2. Evidence so far: daily returns, costs included (`combine.py`, `mr_breadth.py`, `carver.py`)
 
@@ -46,7 +56,7 @@ Correlation of the book with trend+carry: **−0.02**. Best combination: book 57
 | 60% | 60% / 54% | 56% | 4% | 51% | 71% | 53% | 47% |
 
 Drawdowns are understated: book P&L is booked at trade exit (no intratrade marking).
-**Recommended operating point: 20–25% vol (about quarter Kelly).** Expected about 20–27% a year with
+**Recommended operating point today: 20–25% vol (about quarter Kelly).** Expected about 20–27% a year with
 about 20–25% typical drawdowns. 60% a year is a 1-in-6 three-year outcome at 30% vol, not a plan.
 Note: this daily-return frontier supersedes earlier trade-based figures (e.g. Hunt 2's "53% CAGR at
 22% DD"), which had no financing and a lower drawdown measurement.
@@ -80,3 +90,31 @@ Note: this daily-return frontier supersedes earlier trade-based figures (e.g. Hu
 4. **Size at 20–25% vol** with the RED circuit breaker; fortnightly salary payouts from realised
    profit only.
 5. **Demo 6 months**, weekly report (`../northstar/weekly.py`), then small live.
+
+## 6. What it takes to reach and pass the goal
+Portfolio Sharpe ≈ leg Sharpe x √(N / (1 + (N−1)·ρ)), with N independent legs at average correlation ρ.
+Today: 11 legs averaging about Sharpe 0.3 each, near-zero correlation → 1.0; with trend+carry 1.08.
+
+| Goal | Portfolio Sharpe | Legs needed (Sharpe 0.3 each, ρ ≈ 0) | (Sharpe 0.5 each, ρ 0.02) |
+|---|---|---|---|
+| 60% a year, ~30% DD | 1.5 | ~25 | ~11 |
+| 120% a year, ~30% DD | 2.0 | ~45 | ~24 |
+| 200%+ a year | 2.9 | not reachable with 0.3 legs | ~100 |
+
+Correlation is the hidden ceiling: at ρ = 0.02, 0.3-Sharpe legs can never pass 2.1 however many
+there are. Uncorrelated markets (indices, energy, crypto, metals) matter more than more USD pairs.
+
+Shopping list (owner):
+1. M1 bid data 2011–2025 (ask too if possible) for: AUDUSD, NZDUSD, USDCAD, USDCHF, EURJPY, GBPJPY,
+   EURGBP, AUDJPY, CADJPY, CHFJPY, EURAUD, EURCHF, GBPAUD, AUDNZD, XAGUSD, XPTUSD, WTI, Brent, natural
+   gas, US500, NAS100, US30, GER40, UK100, JP225, BTCUSD, ETHUSD. Free tick data for the FX pairs and
+   silver already exists for 2007–2018 in the `FX-Data` GitHub organisation (EURUSD to 2022); 2019–2025
+   and every index, energy and crypto market still need fetching. Easiest: allow
+   `datafeed.dukascopy.com` here. Otherwise run dukascopy-node on your PC
+   (`npx dukascopy-node -i audusd -from 2019-01-01 -to 2020-01-01 -t m1 -p bid -f csv`, one file per
+   year) and push the CSVs to a GitHub repo; `tools/ingest_m1.py` reads that naming directly.
+2. The MT5 broker's real costs: symbol specs (spread by hour, commission, swap long/short) for
+   every symbol above.
+3. A futures route (an MT5 futures broker with CME micros, or IBKR) for trend+carry.
+4. Optional new edge types: economic-calendar history with timestamps, CFTC COT weekly positioning,
+   central-bank rate history.
