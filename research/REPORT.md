@@ -203,3 +203,16 @@ Walk-forward lost in 26 of 27 model-years. The four best configurations (locked 
 were read) all lose in 2023-2025 (-0.12 to -0.16R per trade). Not added to the book; no EA built.
 Data note found here: the tick-built gold (2011-18) and GBPUSD (2011-17) files have no 00:00-00:59 UTC
 data on any day.
+
+# Hunt 2 — expanded book + drawdown brake + fortnightly payouts (full write-up: `hunt/HUNT2_REPORT.md`)
+
+New, uncorrelated leg from a structural flow: EURUSD weakens during European working hours
+(short 09:00-13:00 London, Tue-Thu, +0.041R, t 2.95, all eras positive). Two weak cross-pair legs
+(GBPJPY H4 Donchian, EURGBP D1 Bollinger). Expanded 11-leg book: monthly Sharpe 1.32 -> 1.52
+(2019-25: 1.22 -> 1.35), 15/15 positive years. Risk systems compared at equal drawdown risk:
+a linear drawdown brake (risk x 1 at the peak down to x 0.3 at the budget) gives the same or better
+median return with much thinner tails; volatility targeting does worse. With a 4% per-trade cap:
+Steady 0.75%/fortnight (19%/yr, DD ~15%), Balanced 1.00%/fortnight (26%/yr, DD ~25%, 1-in-20 31%),
+Max 1.25%/fortnight (32%/yr, heat cap 30%). Growth mode: 28% / 44% / 50% real CAGR.
+Caveat: new legs were selected with 2019-2025 visible; a 0.05R-per-trade edge decay makes
+payouts unreliable.

@@ -1,0 +1,41 @@
+{
+ "kept": [
+  "EUR_EuroHours_short_TueThu",
+  "XAU_S1_reversion_H1M30M20",
+  "JPY_VolBreakout_D1_k0.7",
+  "XAU_Donchian20_H4_turtle",
+  "JPY_S2_Donchian20_H4_long",
+  "XAU_EMA20-50_H4",
+  "GBP_WeeklySweep_FollowThrough",
+  "JPY_Donchian55_D1_trail",
+  "JPY_RSI2_D1_lo5",
+  "GBPJPY_Donchian20_H4_trail",
+  "EURGBP_Bollinger_D1_k1.5"
+ ],
+ "weights": {
+  "EUR_EuroHours_short_TueThu": 0.19337149168983808,
+  "XAU_S1_reversion_H1M30M20": 0.6153204848949257,
+  "JPY_VolBreakout_D1_k0.7": 0.13554061853791274,
+  "XAU_Donchian20_H4_turtle": 0.13281845376088217,
+  "JPY_S2_Donchian20_H4_long": 0.26214822965911966,
+  "XAU_EMA20-50_H4": 0.25000925715246164,
+  "GBP_WeeklySweep_FollowThrough": 1.0,
+  "JPY_Donchian55_D1_trail": 0.3905393711997427,
+  "JPY_RSI2_D1_lo5": 0.8312041923434419,
+  "GBPJPY_Donchian20_H4_trail": 0.14588558376965288,
+  "EURGBP_Bollinger_D1_k1.5": 0.3665689503861306
+ },
+ "files": {
+  "EUR_EuroHours_short_TueThu": "trades/hunt/EUR_EuroHours_short_0913_TueThu.npy",
+  "XAU_S1_reversion_H1M30M20": "trades/S1_XAUUSD_H1+M30+M20_long_off120.npy",
+  "JPY_VolBreakout_D1_k0.7": "trades/filtered/JPY_VBO_beyondPD.npy",
+  "XAU_Donchian20_H4_turtle": "trades/multi/XAUUSD_DON_H4_n20_turtle.npy",
+  "JPY_S2_Donchian20_H4_long": "trades/filtered/JPY_S2_weekbreak.npy",
+  "XAU_EMA20-50_H4": "trades/filtered/XAU_EMA_insidePD.npy",
+  "GBP_WeeklySweep_FollowThrough": "trades/liquidity/GBPUSD_FOLLOW_weekly_H1_tp2.npy",
+  "JPY_Donchian55_D1_trail": "trades/multi/USDJPY_DON_D1_n55_trail.npy",
+  "JPY_RSI2_D1_lo5": "trades/multi/USDJPY_RSI2_D1_lo5.npy",
+  "GBPJPY_Donchian20_H4_trail": "trades/crosses/GBPJPY_DON_H4_n20_trail.npy",
+  "EURGBP_Bollinger_D1_k1.5": "trades/crosses/EURGBP_BB_D1_k1.5.npy"
+ }
+}
