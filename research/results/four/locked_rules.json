@@ -1,0 +1,34 @@
+{
+ "TC": {
+  "tf": "H4",
+  "var": "don55",
+  "stop": "atr1.5",
+  "tgt": 5.0,
+  "be": 0.5,
+  "trail": 0.0
+ },
+ "FB": {
+  "tf": "H4",
+  "var": "n55_wick_none",
+  "stop": "atr2.5",
+  "tgt": 0.0,
+  "be": 1.0,
+  "trail": 0.0
+ },
+ "VC": {
+  "tf": "H4",
+  "var": "bbw20_trend",
+  "stop": "atr1.5",
+  "tgt": 5.0,
+  "be": 0.5,
+  "trail": 2.0
+ },
+ "VE": {
+  "tf": "H4",
+  "var": "x2.5_trend",
+  "stop": "atr1.5",
+  "tgt": 2.0,
+  "be": 0.5,
+  "trail": 2.0
+ }
+}
