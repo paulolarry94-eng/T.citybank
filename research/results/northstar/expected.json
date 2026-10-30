@@ -1,0 +1,143 @@
+{
+ "source": "BOOK 11 legs, R after costs and financing, 2011-2022; weekly bands from 200 reshuffled paths at the demo policy",
+ "policy": "FF+RED",
+ "base_risk": 0.01,
+ "weekly": {
+  "return_p05": -0.012574167415731141,
+  "return_p25": -0.0047093046211448275,
+  "return_median": 0.0006846108797049499,
+  "return_p75": 0.007234654416270525,
+  "return_p95": 0.018891769414504444,
+  "trades_per_week": 7.78258258124898,
+  "trades_per_active_week_p05": 5.0,
+  "trades_per_active_week_p95": 11.0,
+  "win_rate": 0.4675431388660641,
+  "mean_R": 0.07557200077586713,
+  "losing_streak_p95": 5,
+  "max_losing_streak": 12
+ },
+ "legs": {
+  "EUR_EuroHours_short_TueThu": {
+   "symbol": "EURUSD",
+   "weight": 0.32916794842342073,
+   "n_2011_2022": 1857,
+   "mean_R": 0.047241224872020184,
+   "sd_R": 0.6682174422252697,
+   "win_rate": 0.5245018847603662,
+   "trades_per_year": 154.75,
+   "streak_p99": 7,
+   "streak_max": 10
+  },
+  "XAU_S1_reversion_H1M30M20": {
+   "symbol": "XAUUSD",
+   "weight": 0.6333372273759069,
+   "n_2011_2022": 75,
+   "mean_R": 0.26148959298510155,
+   "sd_R": 0.9630205262864446,
+   "win_rate": 0.64,
+   "trades_per_year": 6.25,
+   "streak_p99": 4,
+   "streak_max": 5
+  },
+  "JPY_VolBreakout_D1_k0.7": {
+   "symbol": "USDJPY",
+   "weight": 0.2118375165370466,
+   "n_2011_2022": 1182,
+   "mean_R": 0.06993464390295775,
+   "sd_R": 1.3312776613598838,
+   "win_rate": 0.4263959390862944,
+   "trades_per_year": 98.5,
+   "streak_p99": 7,
+   "streak_max": 11
+  },
+  "XAU_Donchian20_H4_turtle": {
+   "symbol": "XAUUSD",
+   "weight": 0.21034865377242754,
+   "n_2011_2022": 507,
+   "mean_R": 0.07479078109367449,
+   "sd_R": 1.9583289470157144,
+   "win_rate": 0.3096646942800789,
+   "trades_per_year": 42.25,
+   "streak_p99": 10,
+   "streak_max": 13
+  },
+  "JPY_S2_Donchian20_H4_long": {
+   "symbol": "USDJPY",
+   "weight": 0.36601147453959293,
+   "n_2011_2022": 99,
+   "mean_R": 0.28268427305753585,
+   "sd_R": 1.9957824821011292,
+   "win_rate": 0.41414141414141414,
+   "trades_per_year": 8.25,
+   "streak_p99": 8,
+   "streak_max": 9
+  },
+  "XAU_EMA20-50_H4": {
+   "symbol": "XAUUSD",
+   "weight": 0.3356042147180742,
+   "n_2011_2022": 98,
+   "mean_R": 0.3338176353085958,
+   "sd_R": 1.9229678278630646,
+   "win_rate": 0.29591836734693877,
+   "trades_per_year": 8.166666666666666,
+   "streak_p99": 7,
+   "streak_max": 7
+  },
+  "GBP_WeeklySweep_FollowThrough": {
+   "symbol": "GBPUSD",
+   "weight": 0.9253439179580453,
+   "n_2011_2022": 42,
+   "mean_R": 0.30867680649251444,
+   "sd_R": 0.9051939813427681,
+   "win_rate": 0.5476190476190477,
+   "trades_per_year": 3.5,
+   "streak_p99": 4,
+   "streak_max": 5
+  },
+  "JPY_Donchian55_D1_trail": {
+   "symbol": "USDJPY",
+   "weight": 0.42049308841019095,
+   "n_2011_2022": 65,
+   "mean_R": 0.1864612546844278,
+   "sd_R": 1.6827710270237548,
+   "win_rate": 0.4307692307692308,
+   "trades_per_year": 5.416666666666667,
+   "streak_p99": 5,
+   "streak_max": 5
+  },
+  "JPY_RSI2_D1_lo5": {
+   "symbol": "USDJPY",
+   "weight": 1.0,
+   "n_2011_2022": 104,
+   "mean_R": 0.10379760656137181,
+   "sd_R": 0.6545889799038498,
+   "win_rate": 0.6634615384615384,
+   "trades_per_year": 8.666666666666666,
+   "streak_p99": 4,
+   "streak_max": 5
+  },
+  "GBPJPY_Donchian20_H4_trail": {
+   "symbol": "GBPJPY",
+   "weight": 0.24583102298038825,
+   "n_2011_2022": 524,
+   "mean_R": 0.08169931370828477,
+   "sd_R": 1.6121705000651476,
+   "win_rate": 0.4179389312977099,
+   "trades_per_year": 43.666666666666664,
+   "streak_p99": 7,
+   "streak_max": 8
+  },
+  "EURGBP_Bollinger_D1_k1.5": {
+   "symbol": "EURGBP",
+   "weight": 0.5590731812478283,
+   "n_2011_2022": 315,
+   "mean_R": 0.0018237473722929895,
+   "sd_R": 0.894708175859597,
+   "win_rate": 0.5841269841269842,
+   "trades_per_year": 26.25,
+   "streak_p99": 6,
+   "streak_max": 7
+  }
+ },
+ "assumed_cost_R": 0.026
+}

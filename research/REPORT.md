@@ -1,3 +1,10 @@
+> **Latest (2026-10-30): North Star final validation — see `research/northstar/NORTHSTAR_REPORT.md`.**
+> No deployment-ready configuration was established. Supply/demand, FVG and Quasimodo modules
+> were all rejected under pre-registered rules. The 11-leg book, re-scored with financing, is the
+> only forward-test (Tier B) candidate: 2023–25 +0.044R per trade, 95% interval [−0.029, +0.117]R.
+> The demo policy is fixed-fractional at 1% with caps and a RED circuit breaker. MT5 governor
+> source has been written but not compiled.
+
 # TimelessCity × SEESARE P26 — the honest Pareto (2011–2025)
 
 Generated from the real record: Dukascopy prices 2011–2025 (gold from May 2011; gold

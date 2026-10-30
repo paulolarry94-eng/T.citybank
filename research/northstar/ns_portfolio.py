@@ -2,7 +2,7 @@
 
 Portfolios: BOOK (11 frozen legs) and BOOK+FOUR (the 23-leg reference), all R after costs AND financing.
 
-    python3 portfolio.py -> results/northstar/portfolio.json, weekly_bands.json
+    python3 ns_portfolio.py -> results/northstar/portfolio.json, weekly_bands.json
 """
 import os, sys, json
 import numpy as np

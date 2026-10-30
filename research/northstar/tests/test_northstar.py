@@ -245,5 +245,42 @@ class TestRiskManager(unittest.TestCase):
         self.assertEqual(s["taken"], 4)
 
 
+
+class TestWeeklyRules(unittest.TestCase):
+    EXP = dict(base_risk=0.01, assumed_cost_R=0.026,
+               weekly=dict(return_p05=-0.0126, return_p25=-0.005, return_median=0.0007, return_p75=0.007, return_p95=0.019,
+                           trades_per_week=7.8, trades_per_active_week_p05=5, trades_per_active_week_p95=11, win_rate=0.47, mean_R=0.076),
+               legs={"A": dict(mean_R=0.1, streak_p99=6), "B": dict(mean_R=0.1, streak_p99=6)})
+
+    def _logs(self, ra, rb):
+        import pandas as pd
+        rows = []; t = pd.Timestamp("2026-01-05 10:00")
+        for leg, rr in (("A", ra), ("B", rb)):
+            for i, r in enumerate(rr):
+                o = t + pd.Timedelta(hours=6 * i)
+                rows.append(dict(ticket=len(rows), leg=leg, symbol="EURUSD", side=1, t_open=o, t_close=o + pd.Timedelta(hours=1), entry=1.1,
+                                 exit=1.1, stop=1.09, risk_money=100.0, pnl_money=100.0 * r, r=r, spread_entry=10.0, slippage_pts=0.0,
+                                 slippage_r=0.0, swap=0.0, commission=0.0))
+        T = pd.DataFrame(rows)
+        E = pd.DataFrame([dict(time=pd.Timestamp("2026-01-05"), balance=10000.0, equity=10000.0, open_risk_pct=0.0, state="GREEN"),
+                          dict(time=T.t_close.max(), balance=10000 + T.pnl_money.sum(), equity=10000 + T.pnl_money.sum(), open_risk_pct=0.0, state="GREEN")])
+        return T, E, pd.DataFrame(columns=["time", "type", "detail"])
+
+    def test_short_losing_run_is_not_flagged(self):
+        import weekly
+        T, E, V = self._logs([1, -1, -1, -1, -1, -1], [0.5] * 6)            # 5 losses < 99% streak of 6, only 6 trades
+        md = weekly.report(T, E, V, str(T.t_close.max().date() + __import__("datetime").timedelta(days=1)), self.EXP)
+        self.assertNotIn("under review (", md)
+        self.assertNotIn("broken", md.replace("never called broken", ""))
+
+    def test_persistent_underperformance_is_flagged_for_review_only(self):
+        import weekly
+        T, E, V = self._logs([-1, 1, -1, -1, 1, -1, -1, -1] * 5, [0.5] * 6)  # 40 trades, mean -0.5R vs +0.1R expected
+        md = weekly.report(T, E, V, str(T.t_close.max().date() + __import__("datetime").timedelta(days=1)), self.EXP)
+        self.assertIn("A under review", md)
+        self.assertIn("Operator decision required; no automatic change", md)
+        self.assertNotIn("B under review", md)
+
+
 if __name__ == "__main__":
     unittest.main()
