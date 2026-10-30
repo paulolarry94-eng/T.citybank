@@ -216,3 +216,14 @@ Steady 0.75%/fortnight (19%/yr, DD ~15%), Balanced 1.00%/fortnight (26%/yr, DD ~
 Max 1.25%/fortnight (32%/yr, heat cap 30%). Growth mode: 28% / 44% / 50% real CAGR.
 Caveat: new legs were selected with 2019-2025 visible; a 0.05R-per-trade edge decay makes
 payouts unreliable.
+
+# Gold 6-8 pm Nigeria time, Malaysian SnR, engulfing / failed engulfing (full write-up: `msnr/MSNR_REPORT.md`)
+
+Buying gold 18:00-20:00 WAT: zero drift before costs, loses after costs in 15/15 years. Malaysian
+SnR (A/V levels, fresh levels, storyline, engulfing, failed engulfing, RBS/SBR; 2,202 configurations
+on four markets): median -0.125R per trade; selecting the best on 2011-18 does not carry into
+2019-25. One watch-list cluster: failed engulfing at fresh H1 levels with M15 entries and the daily
+storyline on gold (+0.40R, 11/yr, all eras positive, t 2.76) and USDJPY (+0.24R); fragile across
+timeframes, below the multiple-testing bar -> forward-test before trading. Frontier of the 11-leg
+book with the drawdown brake: ~64% median CAGR at ~30% typical drawdown ("Growth 60", 1.5% paid per
+fortnight); 120% needs ~45% typical drawdowns.
