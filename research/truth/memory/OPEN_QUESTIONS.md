@@ -26,5 +26,11 @@ data and a pre-registered Truth Lab run.
 ### Q6 Futures route for trend + carry
 Works only on real futures (P12). Owner decision: an MT5 futures broker (CME micros) or IBKR.
 
+### Q7 Prop accounts (FTMO-style): which per-phase risk and which guard maximise pass x payout?
+Replay (`research/prop/ftmo_sim.py`) says the book passes both phases in 33-54% of 12-month windows at 1-1.5% risk
+but slowly (median 6-8 months for +10%). To test: a near-barrier risk brake (rational in prop accounts because
+-10% ends the account, unlike P8's personal-account finding), phase-specific risk, an open-risk cap that makes a
+5% daily breach structurally impossible, and FTMO's real costs/swaps on a Swing account. FAMILY: prop, risk, sizing.
+
 ## Answered
 (none yet)

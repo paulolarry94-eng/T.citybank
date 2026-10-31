@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-22 ideas tested, about 301,000 configurations; 3 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+23 ideas tested, about 301,020 configurations; 3 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -27,6 +27,8 @@
 | portfolio | 2 | 2 | 15 |
 | retest | 2 | 0 | 9,312 |
 | reversion | 2 | 2 | 15 |
+| risk | 2 | 0 | 60 |
+| sizing | 2 | 0 | 60 |
 | breadth | 1 | 0 | 2 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
@@ -38,14 +40,13 @@
 | ict | 1 | 0 | 780 |
 | momentum | 1 | 0 | 1 |
 | pairs | 1 | 0 | 1 |
+| prop | 1 | 0 | 20 |
 | quasimodo | 1 | 0 | 3,456 |
 | random | 1 | 0 | 48 |
 | ranking | 1 | 0 | 61,787 |
-| risk | 1 | 0 | 40 |
 | scanner | 1 | 0 | 61,787 |
 | seasonal | 1 | 1 | 11 |
 | short-vol | 1 | 0 | 1 |
-| sizing | 1 | 0 | 40 |
 | stat-arb | 1 | 0 | 1 |
 | supply-demand | 1 | 0 | 1,440 |
 | support-resistance | 1 | 0 | 2,202 |
@@ -59,6 +60,7 @@
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |
 | 2026-10-31 | donchian_trend_v2_room_to_run | trend, breakout | 64 | Rejected: no configuration passed the development gate | 4-market rule fails: gold +0.14-0.21R, JPY +0.15-0.28R, EUR/GBP negative |
 | 2026-10-31 | coin_flip_control_v1 | control, random | 48 | Rejected | control: 1 random setting passed the first gate, caught by walk-forward/neighbours/DSR |
+| 2026-10-31 | FTMO-style prop challenge replay (TimelessCity, 11-leg book) | prop, risk, sizing | 20 | Study: informative (no new edge) | book at 1-1.5% risk/trade: phase 1 passed in 52-72% of 12-month windows (median ~26-34 weeks), both phases 33-54%; funded payouts ~6-8% of account/yr; TimelessCity lower (17-33% both phases) |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |
