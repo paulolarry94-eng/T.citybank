@@ -10,6 +10,7 @@ import numpy as np
 
 NAME = "my_idea_v1"                       # results go to research/results/truth/<NAME>/
 HYPOTHESIS = "Why should this make money? Who is on the other side?"
+FAMILY = ["trend"]                          # tags (e.g. trend, reversal, liquidity, smc, session, carry): the lab shows how earlier ideas with these tags ended
 RULES = "Plain-language rules, used for the EA specification."
 MARKETS = ["XAUUSD", "EURUSD", "GBPUSD", "USDJPY"]   # any symbol with data/<SYM>_M1_bid_<YEAR>.npz and an entry in costs.json
 TIMEFRAMES = ["H1", "H4"]                  # M5 M15 M30 H1 H4 D1 (H4 / D1 on the broker clock, 22:00 UTC)

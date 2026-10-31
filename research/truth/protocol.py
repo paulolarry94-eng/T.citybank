@@ -251,6 +251,7 @@ def run(path, look=True, markets=None, procs=4):
     rec = dict(name=S.NAME, hypothesis=S.HYPOTHESIS, fingerprint=S.FINGERPRINT, started=time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
                markets=S.MARKETS, timeframes=S.TIMEFRAMES, params=S.GRID, management=S.MANAGEMENT, time_stop=S.TIME_STOP)
     print(f"[0] {S.NAME}  fingerprint {S.FINGERPRINT[:12]}  markets {S.MARKETS}", flush=True)
+    rec["priors"] = show_priors(S)
     M0 = market(S.MARKETS[0])
     ok, la = lookahead_check(S, M0); rec["lookahead"] = dict(ok=ok, checks=la)
     print(f"[1] look-ahead check: {'PASS' if ok else 'FAIL'}", flush=True)
@@ -321,8 +322,32 @@ def run(path, look=True, markets=None, procs=4):
     return finish(S, rec, out)
 
 
+def show_priors(S):
+    """What happened to earlier ideas of the same family (research/truth/memory/ledger.jsonl)."""
+    fam = list(getattr(S, "FAMILY", []))
+    if not fam:
+        print("    priors: no FAMILY tags declared (add FAMILY = [...] to learn from earlier ideas)", flush=True)
+        return []
+    try:
+        import memory
+        hits = [e for e in memory.priors(fam) if e.get("name") != S.NAME]
+    except Exception as ex:
+        print(f"    priors: memory unavailable ({ex})", flush=True); return []
+    surv = sum(memory.survived(e) for e in hits)
+    print(f"    priors for {fam}: {len(hits)} earlier ideas, {surv} survived", flush=True)
+    for e in hits[:8]:
+        print(f"      - {e['name']}: {e['verdict']}", flush=True)
+    return [dict(name=e["name"], verdict=e["verdict"]) for e in hits]
+
+
 def finish(S, rec, out):
     json.dump(rec, open(os.path.join(out, "summary.json"), "w"), indent=1, default=float)
+    try:                                                     # every run becomes memory
+        import memory
+        memory.record(memory.from_truth(S, rec))
+        print("[10] memory: ledger + LESSONS.md updated (record what you learned in research/truth/memory/JOURNAL.md)", flush=True)
+    except Exception as ex:
+        print(f"[10] memory NOT updated: {ex}", flush=True)
     open(os.path.join(out, "REPORT.md"), "w").write(report_md(S, rec))
     if rec.get("tier") in ("A", "B"):
         open(os.path.join(out, "EA_SPEC.md"), "w").write(ea_spec_md(S, rec))

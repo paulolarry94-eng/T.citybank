@@ -6,6 +6,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..")); sys.path.insert(0, os.path.join(HERE, "..", "..", "..", "tools"))
 import protocol as P
 import parity_check as PC
+import memory as MEMORY
+
+_TMP_MEM = tempfile.mkdtemp()                       # tests never touch the real memory
+MEMORY.MEM = _TMP_MEM; MEMORY.LEDGER = os.path.join(_TMP_MEM, "ledger.jsonl")
 
 
 def fake_bars(n=400, seed=1):
@@ -105,6 +109,39 @@ class TestParity(unittest.TestCase):
         X = R.copy(); X["t"] = X.t + pd.Timedelta(minutes=30); X["r"] = X.r + 0.02
         self.assertTrue(PC.check(R, X, 240)["passed"])
         self.assertFalse(PC.check(R, X.iloc[:30].reset_index(drop=True), 240)["passed"])
+
+
+
+class TestMemory(unittest.TestCase):
+    def setUp(self):
+        for f in os.listdir(_TMP_MEM):
+            os.remove(os.path.join(_TMP_MEM, f))
+
+    def test_record_replaces_same_fingerprint_and_keeps_others(self):
+        MEMORY.record(dict(date="2026-01-01", name="a", fingerprint="1", family=["trend"], verdict="Rejected"))
+        MEMORY.record(dict(date="2026-01-02", name="a", fingerprint="1", family=["trend"], verdict="Tier B: forward-test candidate"))
+        MEMORY.record(dict(date="2026-01-03", name="b", fingerprint="2", family=["liquidity"], verdict="Rejected"))
+        rows = MEMORY.load()
+        self.assertEqual(len(rows), 2)
+        self.assertEqual([r["verdict"] for r in rows if r["name"] == "a"], ["Tier B: forward-test candidate"])
+        self.assertTrue(os.path.exists(os.path.join(_TMP_MEM, "LESSONS.md")))
+
+    def test_priors_and_survivor_logic(self):
+        MEMORY.record(dict(date="2026-01-01", name="x", fingerprint="1", family=["Liquidity", "reversal"], verdict="Rejected"))
+        MEMORY.record(dict(date="2026-01-02", name="y", fingerprint="2", family=["trend"], verdict="Survivor (futures only)"))
+        self.assertEqual([e["name"] for e in MEMORY.priors(["liquidity"])], ["x"])
+        self.assertFalse(MEMORY.survived(MEMORY.load()[0])); self.assertTrue(MEMORY.survived(MEMORY.load()[1]))
+        self.assertFalse(MEMORY.survived(dict(verdict="Rejected (equity-index RSI2 on watch)")))
+
+    def test_lab_run_is_recorded_in_memory(self):
+        with tempfile.TemporaryDirectory() as d:
+            S = types.SimpleNamespace(NAME="mem_test", HYPOTHESIS="h", FAMILY=["trend"], MARKETS=["XAUUSD"], TIME_STOP=50, signals=lambda *a: [])
+            rec = dict(name="mem_test", fingerprint="f" * 64, started="now", markets=["XAUUSD"], timeframes=["H4"], params={}, management={},
+                       verdict="Rejected: no configuration passed the development gate", lookahead=dict(ok=True, checks=[]),
+                       grid_summary=dict(configs=12, passed_gate=0, share_dev_positive=0.1, median_dev_E=-0.1, share_dev_and_val_positive=0.0))
+            P.finish(S, rec, d)
+        e = [r for r in MEMORY.load() if r["name"] == "mem_test"]
+        self.assertEqual(len(e), 1); self.assertEqual(e[0]["family"], ["trend"]); self.assertEqual(e[0]["configs"], 12)
 
 
 if __name__ == "__main__":

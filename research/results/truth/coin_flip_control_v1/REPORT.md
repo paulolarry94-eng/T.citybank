@@ -4,7 +4,7 @@
 
 Hypothesis: None — random direction at random bars. Exists to prove the lab rejects noise.
 
-Fingerprint `e5c9e121982edd30` · started 2026-10-31 12:24:24 UTC · markets XAUUSD, EURUSD, GBPUSD, USDJPY · timeframes H1, H4 · parameters {"every": [20, 40]} · management {"tgt": [2.0, 3.0, 0.0], "trail": [0.0, 3.0], "bias": [0, 1]}
+Fingerprint `e5c9e121982edd30` · started 2026-10-31 12:39:49 UTC · markets XAUUSD, EURUSD, GBPUSD, USDJPY · timeframes H1, H4 · parameters {"every": [20, 40]} · management {"tgt": [2.0, 3.0, 0.0], "trail": [0.0, 3.0], "bias": [0, 1]}
 
 1. Look-ahead check (real-time decisions + prefix invariance): **pass**.
 2. Grid: 48 configurations; 19% positive in development 2011–19, 6% positive in development and validation; median -0.060R per trade.

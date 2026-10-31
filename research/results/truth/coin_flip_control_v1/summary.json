@@ -2,7 +2,7 @@
  "name": "coin_flip_control_v1",
  "hypothesis": "None \u2014 random direction at random bars. Exists to prove the lab rejects noise.",
  "fingerprint": "e5c9e121982edd3002aaa9e8165b7c6a3da8e8290ee9d4875e519144ac5a2a2b",
- "started": "2026-10-31 12:24:24 UTC",
+ "started": "2026-10-31 12:39:49 UTC",
  "markets": [
   "XAUUSD",
   "EURUSD",
@@ -35,6 +35,7 @@
   ]
  },
  "time_stop": 50,
+ "priors": [],
  "lookahead": {
   "ok": true,
   "checks": [
