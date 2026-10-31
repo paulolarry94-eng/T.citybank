@@ -1,0 +1,108 @@
+{
+ "name": "donchian_trend_v2_room_to_run",
+ "hypothesis": "Breakouts of an N-bar range persist, and trends need room: no target, trail or opposite signal only, long time stop. (v1 with a 50-bar time stop was rejected at the gate.)",
+ "fingerprint": "411b3dcd1c11a946348e88e556d679e92afb1cbcd5abbc66b1b3b59604f1e62a",
+ "started": "2026-10-31 12:24:50 UTC",
+ "markets": [
+  "XAUUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY"
+ ],
+ "timeframes": [
+  "H4",
+  "D1"
+ ],
+ "params": {
+  "n": [
+   20,
+   55
+  ],
+  "atr_stop": [
+   2.0,
+   3.0
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0,
+   3.0
+  ],
+  "trail": [
+   3.0,
+   0.0
+  ],
+  "bias": [
+   0,
+   1
+  ]
+ },
+ "time_stop": 300,
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 64,
+  "passed_gate": 0,
+  "share_dev_positive": 0.03125,
+  "median_dev_E": -0.06303608941052456,
+  "share_dev_and_val_positive": 0.03125
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

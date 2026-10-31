@@ -1,0 +1,109 @@
+{
+ "name": "donchian_trend_v1",
+ "hypothesis": "Breakouts of an N-bar range persist (trend following: slow information diffusion, hedging flows).",
+ "fingerprint": "d2e00c7f54e9b68b6517931dbbd759fbb0a77b035b4823cd3dcd8c9ff1da4481",
+ "started": "2026-10-31 12:24:42 UTC",
+ "markets": [
+  "XAUUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY"
+ ],
+ "timeframes": [
+  "H4",
+  "D1"
+ ],
+ "params": {
+  "n": [
+   20,
+   55
+  ],
+  "atr_stop": [
+   2.0,
+   3.0
+  ]
+ },
+ "management": {
+  "tgt": [
+   2.0,
+   3.0,
+   0.0
+  ],
+  "trail": [
+   0.0,
+   3.0
+  ],
+  "bias": [
+   0,
+   1
+  ]
+ },
+ "time_stop": 50,
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 96,
+  "passed_gate": 0,
+  "share_dev_positive": 0.041666666666666664,
+  "median_dev_E": -0.037546856843606355,
+  "share_dev_and_val_positive": 0.041666666666666664
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}
