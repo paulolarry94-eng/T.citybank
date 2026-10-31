@@ -27,3 +27,14 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   funded payouts ~6-8% of the account a year at 80%. At 1.5% risk, phase 1 failure rises to 4-28%. TimelessCity passes less often.
 - **Decisions:** none yet. Open question Q7 added (per-phase risk, near-barrier brake, structural daily-loss guard).
 - **Facts vs estimates:** FTMO rules are from third-party summaries; costs are our research costs, not FTMO's.
+
+## 2026-10-31 (later) · third-party EA review: Gold Hunter V9
+- **Asked:** is there anything in Gold Hunter V9 (.ex5 + .set) that helps the goal; look from another perspective.
+- **Done:** .ex5 is compiled and protected (no readable logic); reconstructed the standard hedged grid from the .set
+  (0.01 lots, multiplier 1.0, step 1020 pips, basket TP 420 pips, 99 orders per side, no stop); replayed on XAUUSD
+  M1 2011–2025 under two pip readings, with costs + swaps and a low-cost swap-free profile; capped variants; account
+  replays from 168 month starts at $1k–$50k per 0.01 lot (`research/gridbot/gold_hunter_sim.py`).
+- **Learned:** P15 (judge bots by equity, not balance). The grid harvests small range moves but carries an unbounded
+  trend tail; no edge once the tail is capped. Confirms P13 (short-volatility shape) and P10 (short windows mislead).
+- **Decisions:** not usable for the goal; the replay method is the template for auditing future third-party EAs.
+- **Facts vs estimates:** the EA's exact code is unknown; results are for the standard reading of its settings.

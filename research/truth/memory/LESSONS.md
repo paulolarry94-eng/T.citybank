@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-23 ideas tested, about 301,020 configurations; 3 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+24 ideas tested, about 301,036 configurations; 3 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -28,7 +28,9 @@
 | retest | 2 | 0 | 9,312 |
 | reversion | 2 | 2 | 15 |
 | risk | 2 | 0 | 60 |
+| short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
+| averaging | 1 | 0 | 16 |
 | breadth | 1 | 0 | 2 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
@@ -37,6 +39,7 @@
 | engulfing | 1 | 0 | 2,202 |
 | factor | 1 | 0 | 1 |
 | futures | 1 | 1 | 1 |
+| grid | 1 | 0 | 16 |
 | ict | 1 | 0 | 780 |
 | momentum | 1 | 0 | 1 |
 | pairs | 1 | 0 | 1 |
@@ -46,10 +49,10 @@
 | ranking | 1 | 0 | 61,787 |
 | scanner | 1 | 0 | 61,787 |
 | seasonal | 1 | 1 | 11 |
-| short-vol | 1 | 0 | 1 |
 | stat-arb | 1 | 0 | 1 |
 | supply-demand | 1 | 0 | 1,440 |
 | support-resistance | 1 | 0 | 2,202 |
+| third-party-ea | 1 | 0 | 16 |
 | volatility | 1 | 0 | 102,260 |
 
 ## Every idea tested (newest first)
@@ -61,6 +64,7 @@
 | 2026-10-31 | donchian_trend_v2_room_to_run | trend, breakout | 64 | Rejected: no configuration passed the development gate | 4-market rule fails: gold +0.14-0.21R, JPY +0.15-0.28R, EUR/GBP negative |
 | 2026-10-31 | coin_flip_control_v1 | control, random | 48 | Rejected | control: 1 random setting passed the first gate, caught by walk-forward/neighbours/DSR |
 | 2026-10-31 | FTMO-style prop challenge replay (TimelessCity, 11-leg book) | prop, risk, sizing | 20 | Study: informative (no new edge) | book at 1-1.5% risk/trade: phase 1 passed in 52-72% of 12-month windows (median ~26-34 weeks), both phases 33-54%; funded payouts ~6-8% of account/yr; TimelessCity lower (17-33% both phases) |
+| 2026-10-31 | Gold Hunter V9 (third-party grid EA, owner's .set) | grid, averaging, short-vol, third-party-ea | 16 | Rejected | hedged constant-lot grid, no stop: realised P&L positive but net -$155k to -$196k per 0.01 lot 2011-25 (pip $0.01); all 12 bounded (capped + stop) versions lose; looks profitable at 3 months in 95-100% of starts, then 19-74% of accounts blown within 3 years |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

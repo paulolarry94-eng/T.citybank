@@ -1,0 +1,74 @@
+[
+ {
+  "interpretation": "pip=$0.01",
+  "capital_per_001_lot": 1000,
+  "starts": 168,
+  "blown_within_1y": 0.8333333333333334,
+  "blown_within_3y": 0.9940476190476191,
+  "profitable_after_3_months": 0.5535714285714286,
+  "profitable_at_3m_but_blown_within_3y": 0.5476190476190477
+ },
+ {
+  "interpretation": "pip=$0.01",
+  "capital_per_001_lot": 5000,
+  "starts": 168,
+  "blown_within_1y": 0.3869047619047619,
+  "blown_within_3y": 0.7380952380952381,
+  "profitable_after_3_months": 0.9464285714285714,
+  "profitable_at_3m_but_blown_within_3y": 0.6845238095238095
+ },
+ {
+  "interpretation": "pip=$0.01",
+  "capital_per_001_lot": 10000,
+  "starts": 168,
+  "blown_within_1y": 0.20238095238095238,
+  "blown_within_3y": 0.5595238095238095,
+  "profitable_after_3_months": 1.0,
+  "profitable_at_3m_but_blown_within_3y": 0.5595238095238095
+ },
+ {
+  "interpretation": "pip=$0.01",
+  "capital_per_001_lot": 50000,
+  "starts": 168,
+  "blown_within_1y": 0.017857142857142856,
+  "blown_within_3y": 0.20238095238095238,
+  "profitable_after_3_months": 1.0,
+  "profitable_at_3m_but_blown_within_3y": 0.20238095238095238
+ },
+ {
+  "interpretation": "pip=$0.10",
+  "capital_per_001_lot": 1000,
+  "starts": 168,
+  "blown_within_1y": 0.20833333333333334,
+  "blown_within_3y": 0.625,
+  "profitable_after_3_months": 0.9880952380952381,
+  "profitable_at_3m_but_blown_within_3y": 0.6130952380952381
+ },
+ {
+  "interpretation": "pip=$0.10",
+  "capital_per_001_lot": 5000,
+  "starts": 168,
+  "blown_within_1y": 0.041666666666666664,
+  "blown_within_3y": 0.22023809523809523,
+  "profitable_after_3_months": 0.9880952380952381,
+  "profitable_at_3m_but_blown_within_3y": 0.22023809523809523
+ },
+ {
+  "interpretation": "pip=$0.10",
+  "capital_per_001_lot": 10000,
+  "starts": 168,
+  "blown_within_1y": 0.011904761904761904,
+  "blown_within_3y": 0.19047619047619047,
+  "profitable_after_3_months": 0.9880952380952381,
+  "profitable_at_3m_but_blown_within_3y": 0.19047619047619047
+ },
+ {
+  "interpretation": "pip=$0.10",
+  "capital_per_001_lot": 50000,
+  "starts": 168,
+  "blown_within_1y": 0.0,
+  "blown_within_3y": 0.0,
+  "profitable_after_3_months": 0.9880952380952381,
+  "profitable_at_3m_but_blown_within_3y": 0.0
+ }
+]

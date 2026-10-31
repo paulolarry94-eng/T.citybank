@@ -62,3 +62,9 @@ VIX carry: good years, then −97%. Evidence: multiasset study. Confidence: high
 ### P14 Chart-pattern concepts have no edge on these markets after costs
 ICT/SMC (FVG, liquidity grabs, structure shifts), Quasimodo, supply/demand, Malaysian SnR, engulfing, ORB:
 all rejected, about 250,000 configurations. Evidence: ledger. Confidence: high (for XAU/EUR/GBP/JPY, 2011–2025).
+
+### P15 Judge any bot by equity, not balance: realised P&L hides open risk
+Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
+realised profit positive, net −$155k to −$196k per 0.01 lot once open losses count; it showed a realised profit after
+3 months in 95–100% of start dates, then wiped out 19–74% of accounts within 3 years. With the tail capped by a stop,
+all 12 versions lose (no edge underneath). Evidence: research/gridbot/. Confidence: high (for grid/averaging bots on gold).
