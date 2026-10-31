@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-30 ideas tested, about 301,335 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+34 ideas tested, about 301,471 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -13,30 +13,34 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
+| trend | 8 | 3 | 102,564 |
 | reversal | 7 | 1 | 105,844 |
+| breakout | 6 | 0 | 119,346 |
 | session | 6 | 0 | 183,467 |
-| trend | 6 | 3 | 102,436 |
+| breadth | 5 | 0 | 77 |
 | intraday | 5 | 0 | 180,973 |
 | smc | 5 | 0 | 14,988 |
-| breakout | 4 | 0 | 119,218 |
+| daily | 4 | 1 | 14 |
+| mean-reversion | 4 | 0 | 11 |
 | third-party-ea | 4 | 0 | 304 |
 | grid | 3 | 0 | 196 |
+| index | 3 | 0 | 72 |
 | liquidity | 3 | 0 | 1,376 |
 | oscillator | 3 | 0 | 288 |
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
-| breadth | 2 | 0 | 5 |
 | carry | 2 | 1 | 2 |
-| daily | 2 | 1 | 6 |
+| dip-buying | 2 | 0 | 8 |
+| energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
 | fvg | 2 | 0 | 9,312 |
-| mean-reversion | 2 | 0 | 3 |
 | pattern | 2 | 0 | 4,896 |
 | portfolio | 2 | 2 | 15 |
 | retest | 2 | 0 | 9,312 |
 | reversion | 2 | 2 | 15 |
 | risk | 2 | 0 | 60 |
+| rsi2 | 2 | 0 | 8 |
 | short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
 | stop-entry | 2 | 1 | 6 |
@@ -52,7 +56,9 @@
 | factor | 1 | 0 | 1 |
 | futures | 1 | 1 | 1 |
 | gbpusd | 1 | 0 | 144 |
+| hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
+| metals | 1 | 0 | 64 |
 | momentum | 1 | 0 | 1 |
 | pairs | 1 | 0 | 1 |
 | prop | 1 | 0 | 20 |
@@ -84,6 +90,10 @@
 | 2026-10-31 | Exness Zero costs (measured spreads) and book re-score | costs, exness, swap-free, book | 5 | Study: informative | Zero spreads measured from Exness's own tick archive: ~0 on XAU/EUR/GBP/JPY/US500 (cost = commission + slippage). Book Sharpe 1.00 -> 1.15 with swaps, 1.51 swap-free (2023-25: 0.75 / 1.06) at high-end commission ($3.50/side FX, $5.50 gold). Commission and swap-free status unconfirmed. |
 | 2026-10-31 | osc_turn_sessions_v1 | oscillator, intraday, session, time-filter, third-party-ea | 108 | Rejected: no configuration passed the development gate | share_dev_positive +0.019 |
 | 2026-10-31 | Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25) | oscillator, intraday, session, time-filter, third-party-ea, grid | 36 | Study: informative (no new edge) | Best 6 hours picked on 2011-19: +1.11 pips/trade gross -> -0.13 in 2020-25; 0/18 positive after Exness costs. Grid best 8 hours +2.76 -> +0.18 pips/basket (below one order's cost). Big winners = trend days (1.5-2.3x normal range) starting at London/NY opens, known only afterwards; grid stop-outs = trend days (1.3-1.5x range). |
+| 2026-10-31 | breadth_trend_v1 | trend, breakout, breadth, index, energy, metals | 64 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-10-31 | index_rsi2_v1 | mean-reversion, dip-buying, rsi2, index, daily, breadth | 4 | Rejected | dev_E +0.040, val_E +0.026, final_E +0.094, final_n +83.000, final_PF +1.668, dsr +0.555, share_dev_positive +1.000 |
+| 2026-10-31 | wti_trend_v1 | trend, breakout, energy, hindsight-market-choice | 64 | Rejected | dev_E +0.160, val_E -0.168, final_E -0.183, final_n +99.000, final_PF +0.774, dsr +0.005, share_dev_positive +0.797 |
+| 2026-10-31 | index_rsi2_breadth_v1 | mean-reversion, dip-buying, rsi2, index, daily, breadth | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

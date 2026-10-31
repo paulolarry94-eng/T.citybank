@@ -54,6 +54,8 @@ Learning rules:
   the book re-scores to Sharpe 1.15 with swaps, 1.51 swap-free (commission estimated at the high end; swap-free status
   unconfirmed). Breadth: data for US500, GER40, WTI, XAGUSD (Q4) comes from HistData.com
   (`tools/histdata_m1.py`, works from the cloud; Dukascopy throttles the cloud and GitHub Actions).
+- Breadth (2026-10-31): trend does not transfer to US500/GER40/WTI/XAGUSD; index RSI(2) has a small raw edge, about zero
+  after costs. Synthesis "where the gold is": top of `research/CONCLUSION.md` (at 1% risk the book makes ~9–12%/yr).
 - Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 

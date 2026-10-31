@@ -1,0 +1,150 @@
+{
+ "name": "breadth_trend_v1",
+ "hypothesis": "Trend persistence (slow information diffusion, hedging and momentum flows) exists in equity indices, oil and silver as it does in gold and USDJPY; futures evidence (research/multiasset) says indices and energy trend.",
+ "fingerprint": "94312d81b003db7ddccbcda3ce8a14012bf5e04788440d3480c4ec7d4377de5a",
+ "started": "2026-10-31 18:16:25 UTC",
+ "markets": [
+  "US500",
+  "GER40",
+  "WTI",
+  "XAGUSD"
+ ],
+ "timeframes": [
+  "H4",
+  "D1"
+ ],
+ "params": {
+  "n": [
+   20,
+   55
+  ],
+  "atr_stop": [
+   2.0,
+   3.0
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0,
+   3.0
+  ],
+  "trail": [
+   3.0,
+   0.0
+  ],
+  "bias": [
+   0,
+   1
+  ]
+ },
+ "time_stop": 300,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Futures trend + carry (pysystemtrade data, Carver defaults)",
+   "verdict": "Survivor (futures only)"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold)",
+   "verdict": "Survivor: deployed EA (demo gate pending)"
+  },
+  {
+   "name": "donchian_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "donchian_trend_v2_room_to_run",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 64,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.12133282282105518,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

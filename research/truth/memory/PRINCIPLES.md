@@ -38,6 +38,10 @@ negative; TimelessCity's EUR trend leg S4 rejected). Declare markets before test
 is hindsight. Confidence: high.
 More evidence (2026-10-31): the owner's daily close-beyond reversal is Tier B on EUR/USD (+0.04R per trade) but fails as a
 4-market rule (gold negative, GBP flat): EUR/USD mean-reverts at the daily scale, where the others don't.
+More evidence (2026-10-31, breadth): before costs, trend at H4–D1 is positive on oil (+0.21R) and silver (+0.11R) but negative
+on US500 (−0.05R) and GER40 (−0.04R); equity indices instead revert after short dips (RSI(2) +0.02 to +0.09R raw on 5 indices).
+Commodities and JPY trend; equity indices and EUR mean-revert. Evidence: research/results/truth/breadth_trend_v1/,
+index_rsi2_v1/, index_rsi2_breadth_v1/.
 
 ### P7 After a liquidity grab, continuation beats reversal
 About 1,400 sweep/grab variants: fading the grab has no edge; the only survivor is a continuation
@@ -55,6 +59,9 @@ correlation sets the ceiling. Evidence: book, multiasset combination. Confidence
 The coin-flip control passed the development gate and was positive in all three periods; only neighbours,
 walk-forward and the deflated Sharpe caught it. Never trust one filter. Evidence: Truth Lab control. Confidence: high.
 
+More evidence (2026-10-31): oil was the only one of four new markets with a positive trend in 2011–22 (+0.14R net). Tested
+alone afterwards (hindsight, called out), its 2023–25 look was −0.18R per trade. Picking the winner after the fact found luck.
+
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics; not yet measured live here.
 Confidence: prior (to be measured on demo).
@@ -62,6 +69,8 @@ Confidence: prior (to be measured on demo).
 ### P12 CFD financing kills high-notional strategies
 Trend + carry needs about 4x notional; CFD markups make it Sharpe 0.06 versus 0.50 on futures. Bonds are
 impossible as CFDs. Evidence: multiasset study. Confidence: high.
+More evidence (2026-10-31): single-market trend trades on index and commodity CFDs pay 0.06–0.33R financing per trade
+(US500 0.33R, GER40 0.26R, silver 0.12R, oil 0.06R at the lab's estimates), more than the raw edge on indices and silver.
 
 ### P13 Short volatility hides ruin
 VIX carry: good years, then −97%. Evidence: multiasset study. Confidence: high.

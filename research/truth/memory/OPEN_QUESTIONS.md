@@ -35,7 +35,7 @@ Exness DE30 Zero (HistData's GRXEUR is a different index from 2020-06-15 to 2023
 match within 0.3%. No monthly roll-gap pattern in WTI; the April 2020 negative-oil episode is in the data. Next: declare the
 families (book families: trend, dip reversion) before the first run; costs for these markets are still estimates.
 
-### Q5 Equity-index RSI(2) mean reversion (watch-list)
+### Q5 Equity-index RSI(2) mean reversion (watch-list) — TESTED 2026-10-31, see Answered
 +0.41 Sharpe on stock indices in the daily futures data (`research/multiasset/mr_breadth.py`). Needs index
 data and a pre-registered Truth Lab run.
 
@@ -54,4 +54,10 @@ Tier B (`research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md`): +0.
 Exness costs (Q1) or a 2026 forward test show it stronger. FAMILY: reversal, daily, stop-entry, eurusd.
 
 ## Answered
-(none yet)
+- **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
+  failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
+  on a swap-free account.
+- **Q5 (2026-10-31):** RSI(2) dip-buying is positive on US500 and GER40 in every period (2023–25 +0.09R, PF 1.67, 83 trades) but
+  not significant, negative under stress, and about zero after costs on NAS100, UK100 and JP225. Rejected at the lab's costs;
+  the raw edge (+0.02 to +0.09R) is real but small. Revisit only with measured index commissions on a swap-free account.
+  Evidence: research/results/truth/index_rsi2_v1/, index_rsi2_breadth_v1/.

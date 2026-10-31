@@ -1,0 +1,310 @@
+{
+ "name": "index_rsi2_v1",
+ "hypothesis": "Short-term sell-offs in equity indices overshoot (liquidity demand from forced and impatient sellers) and revert within days; buying them in an uptrend earns that liquidity premium plus the equity drift.",
+ "fingerprint": "b964c8b77620e05226fd3463cd0ee6f9eb6559f65687af3686275090f838eab1",
+ "started": "2026-10-31 18:16:35 UTC",
+ "markets": [
+  "US500",
+  "GER40"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "lo": [
+   5,
+   10
+  ],
+  "trend": [
+   100,
+   200
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "Pairs stat-arb (10 linked pairs)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 4,
+  "passed_gate": 1,
+  "share_dev_positive": 1.0,
+  "median_dev_E": 0.030945234202593493,
+  "share_dev_and_val_positive": 1.0
+ },
+ "selection": {
+  "candidate": {
+   "tf": "D1",
+   "lo": 10,
+   "trend": 200,
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 206,
+   "dev_E": 0.04010340084914724,
+   "dev_t": 1.2587684132464112,
+   "dev_Es": -0.009748487781304702,
+   "dev_fin": 0.04562394082026842,
+   "dev_nL": 160,
+   "dev_EL": 0.07200406445684562,
+   "dev_nS": 46,
+   "dev_ES": -0.07085542909067319,
+   "e1_n": 114,
+   "e1_E": 0.02186904963761713,
+   "e1_t": 0.531914761014045,
+   "e1_Es": -0.03477131764906359,
+   "e1_fin": 0.051986359323400205,
+   "e1_nL": 96,
+   "e1_EL": 0.05753922786380855,
+   "e1_nS": 18,
+   "e1_ES": -0.16837190090207044,
+   "e2_n": 92,
+   "e2_E": 0.06269814039386935,
+   "e2_t": 1.2581200985488519,
+   "e2_Es": 0.021258062272222635,
+   "e2_fin": 0.03774007441421381,
+   "e2_nL": 64,
+   "e2_EL": 0.09370131934640123,
+   "e2_nS": 28,
+   "e2_ES": -0.00816626864048924,
+   "val_n": 86,
+   "val_E": 0.02616122138431898,
+   "val_t": 0.485722896942002,
+   "val_Es": 0.007964501124274577,
+   "val_fin": 0.01636347373992312,
+   "val_nL": 50,
+   "val_EL": -0.0012403630645589536,
+   "val_nS": 36,
+   "val_ES": 0.06421897756331613,
+   "devE_US500": 0.037900024371424555,
+   "devE_GER40": 0.04283367170197753,
+   "mk_pos": 2
+  },
+  "neighbours": [
+   {
+    "param": "lo",
+    "value": 5,
+    "dev_E": 0.09502250169898534,
+    "dev_t": 2.107011599300294,
+    "dev_n": 101
+   },
+   {
+    "param": "trend",
+    "value": 100,
+    "dev_E": 0.02178706755603974,
+    "dev_t": 0.671883767044577,
+    "dev_n": 188
+   }
+  ],
+  "neighbours_all_pos": true,
+  "neighbours_median_t": 1.3894476831724354,
+  "walk_forward": {
+   "E": null,
+   "n": 0,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": null
+    },
+    {
+     "year": 2015,
+     "pick": null
+    },
+    {
+     "year": 2016,
+     "pick": null
+    },
+    {
+     "year": 2017,
+     "pick": null
+    },
+    {
+     "year": 2018,
+     "pick": null
+    },
+    {
+     "year": 2019,
+     "pick": null
+    },
+    {
+     "year": 2020,
+     "pick": null
+    },
+    {
+     "year": 2021,
+     "pick": null
+    },
+    {
+     "year": 2022,
+     "pick": null
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 206,
+   "E": 0.04010340084914726,
+   "t": 1.2557094332368306,
+   "PF": 1.2654595211347763,
+   "win": 0.6747572815533981
+  },
+  "val": {
+   "n": 86,
+   "E": 0.026161221384318988,
+   "t": 0.48289066931715624,
+   "PF": 1.1425186449688687,
+   "win": 0.686046511627907
+  },
+  "stress_dev_val": {
+   "n": 293,
+   "E": -0.005377769765811374,
+   "t": -0.19256102231198322,
+   "PF": 0.9701073871652639,
+   "win": 0.6143344709897611
+  },
+  "dsr": {
+   "sr_trade": 0.08748942184935159,
+   "sr0": 0.07734068585073921,
+   "dsr": 0.5550574659779423,
+   "n_trials": 4,
+   "T": 206
+  }
+ },
+ "final_look": {
+  "fingerprint": "b964c8b77620e05226fd3463cd0ee6f9eb6559f65687af3686275090f838eab1",
+  "config": "{\"bias\": 0, \"lo\": 10, \"tf\": \"D1\", \"tgt\": 0.0, \"trail\": 0.0, \"trend\": 200}",
+  "time": "2026-10-31 18:16:42 UTC",
+  "oos": {
+   "n": 83,
+   "E": 0.09442189138403044,
+   "t": 1.8674862568401982,
+   "PF": 1.6679011330998819,
+   "win": 0.7228915662650602
+  },
+  "per_market": {
+   "US500": {
+    "n": 45,
+    "E": 0.12569810647593418,
+    "t": 2.082120585385149,
+    "PF": 2.1977424315525877,
+    "win": 0.7333333333333333
+   },
+   "GER40": {
+    "n": 38,
+    "E": 0.05738426824888129,
+    "t": 0.677507864698099,
+    "PF": 1.3110154449267817,
+    "win": 0.7105263157894737
+   }
+  }
+ },
+ "tier": "Rejected",
+ "criteria": {
+  "1_E_pos_dev_val_oos": true,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": false,
+  "4_neighbours_stable": true,
+  "5_stress_dev_val_pos": false,
+  "6_oos_pos_2_markets": true
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 206,
+   "E": 0.08995528947959917,
+   "t": 2.8727662919852803,
+   "PF": 1.6792931602362922,
+   "win": 0.7475728155339806
+  },
+  "val": {
+   "n": 86,
+   "E": 0.044357941644363394,
+   "t": 0.824421921575373,
+   "PF": 1.2516249354090803,
+   "win": 0.686046511627907
+  },
+  "2023-25": {
+   "n": 83,
+   "E": 0.11327869005020033,
+   "t": 2.259770283956192,
+   "PF": 1.8429327578055417,
+   "win": 0.7469879518072289
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": 0.034292220320304045,
+  "weights": {
+   "book": 0.222,
+   "cand": 0.778
+  },
+  "book_sharpe": 0.9966979649236697,
+  "cand_sharpe": 0.15931512035055378,
+  "combined_sharpe": 0.7846294303506608,
+  "book_sharpe_2017_on": 0.8410009720694611,
+  "combined_sharpe_2017_on": 0.6577506289281184
+ },
+ "verdict": "Rejected"
+}

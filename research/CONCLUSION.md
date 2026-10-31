@@ -1,5 +1,46 @@
 # Conclusion of the research phase (2026-10-31)
 
+## Update 2026-10-31 (evening): where the gold is
+**No new edge was found today, and that is the answer.** The gold is the 11-leg book we already have, now scored with
+measured Exness costs. The way to the goal is cheaper costs, live proof and more capital, not more patterns.
+
+What was tested today (rules fixed before results; configurations counted):
+| Idea | Configurations | Result |
+|---|---|---|
+| Dark Mimas (classic + grid) on EUR/GBP | 144 runs | 0 of 108 tradable profitable; the grid wins 96–98% of baskets and still loses |
+| Active trading hours (oscillator bot, 1% risk) | 108 | 0 pass; best hours picked on 2011–19 vanish in 2020–25 (P17) |
+| Trend on US500, GER40, WTI, XAGUSD | 64 | 0 pass |
+| Trend on WTI alone (market picked after results: hindsight) | 64 | 2023–25 −0.18R per trade: the pick was luck |
+| RSI(2) dip-buying on US500, GER40 | 4 | positive in every period (2023–25 +0.09R) but not significant and fails stress: watch only |
+| RSI(2) on NAS100, UK100, JP225 (same rules, new markets) | 4 | 0 pass; +0.02 to +0.09R before costs, about zero after |
+| Owner's EUR/USD daily reversal | 3 | Tier B but tiny (+0.04R, Sharpe 0.49, fading) |
+
+How these markets behave (before costs; the timeless part):
+| Behaviour | Where it is | Where it is not |
+|---|---|---|
+| Trends at H4–D1 | gold, USDJPY (the book's legs); silver +0.11R and oil +0.21R before costs (CFD financing eats most of it; oil failed 2023–25) | EUR, GBP, US500 (−0.05R), GER40 (−0.04R) |
+| Short dips revert within days | equity indices (+0.02 to +0.09R raw), EURUSD daily | — |
+| Intraday patterns, scalping, grids, session filters | nowhere after costs | — |
+
+The engine, re-scored with measured Exness Zero costs (backtest; live is expected to be 30–50% weaker, P11):
+| Account | Sharpe 2011–25 | 2023–25 | Per year at 1% risk (max drawdown) | At 2% | At 3% |
+|---|---|---|---|---|---|
+| Exness Zero + swaps | 1.15 | 0.75 | 9% (10%) | 18% (20%) | 26% (28%) |
+| Exness Zero swap-free | 1.51 | 1.06 | 12% (9%) | 25% (18%) | 38% (25%) |
+
+What that means for 60–120% a year:
+- **At 1% risk per trade the book makes about 9–12% a year.** 60–120% on your own account would need 4–6% risk, with
+  drawdowns of 33% and more, and live results matching the backtest. No evidence here supports that.
+- **The realistic levers, in order:**
+  1. Swap-free status (+0.36 Sharpe; a 2-minute phone check).
+  2. Live proof: compile TimelessCity, run parity, then 3–6 months on demo.
+  3. Risk of 2–3% per trade once live matches the backtest.
+  4. Other people's capital: prop accounts (Q7). The book passed both FTMO phases in 33–54% of replay windows, with
+     payouts of about 6–8% of the funded size a year, which multiplies the return on your own cash.
+- **Breadth next:** only markets that trend before costs and can be held without heavy financing (JPY crosses, and
+  metals if swap-free), declared before testing.
+
+
 ## What the evidence says
 - **Tested:** about 300,000 configurations and candidate trades, 2011–2025, after spreads, commission,
   slippage and overnight swaps. Every concept had rules fixed before its results, and every final

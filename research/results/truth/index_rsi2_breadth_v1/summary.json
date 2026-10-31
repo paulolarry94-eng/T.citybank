@@ -1,0 +1,102 @@
+{
+ "name": "index_rsi2_breadth_v1",
+ "hypothesis": "Short-term sell-offs in equity indices overshoot (liquidity demand from forced and impatient sellers) and revert within days; buying them in an uptrend earns that liquidity premium plus the equity drift.",
+ "fingerprint": "cee44b5be5eb8807d331fdf92039773e6d651f40c58d645422d992325b197b6f",
+ "started": "2026-10-31 18:25:05 UTC",
+ "markets": [
+  "NAS100",
+  "UK100",
+  "JP225"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "lo": [
+   5,
+   10
+  ],
+  "trend": [
+   100,
+   200
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "Pairs stat-arb (10 linked pairs)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 4,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.025988028689607843,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

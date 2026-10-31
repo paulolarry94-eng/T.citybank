@@ -99,3 +99,16 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   there. HistData has no WTI after 2023-12-01. Both gaps were filled from Exness, with seams matching within 0.3%. Time zone verified
   against the 14:30 UTC US cash-open spike.
 - **Next:** declare which families to test on US500, GER40, WTI, XAGUSD before any run (Q4).
+
+## 2026-10-31 (evening) · "reason over everything to find gold"
+- **Asked:** use everything learned to find the real edge.
+- **Done:** fixed in advance, then ran: trend family on US500/GER40/WTI/XAGUSD (64 configurations); RSI(2) on US500/GER40
+  (4); the same RSI(2) on 3 new indices NAS100/UK100/JP225 (4; HistData data added and checked); WTI trend alone, a market
+  picked after results (hindsight, called out; 64). New executor `exit_when` + test (18 pass). Wrote the synthesis at the top
+  of research/CONCLUSION.md.
+- **Learned:** commodities and JPY trend, while equity indices and EUR mean-revert (P6). CFD financing eats single-market
+  index and commodity trend (P12). The hindsight oil pick failed 2023–25 (P10). Index RSI(2) has a small raw edge that costs
+  remove (Q5 answered). No new leg.
+- **Decisions:** the gold is the existing book at measured Exness costs. The levers are the swap-free check, live proof,
+  2–3% risk after proof, and prop capital (Q7). Pattern and market hunting on CFDs has diminishing returns.
+- **Facts vs estimates:** costs for the new markets are the lab's conservative estimates (commissions unknown).

@@ -1,0 +1,450 @@
+{
+ "name": "wti_trend_v1",
+ "hypothesis": "Oil trends (inventory cycles, OPEC decisions and hedging flows diffuse slowly). Chosen after breadth_trend_v1 (hindsight); only 2023-25 is clean.",
+ "fingerprint": "e77413114dabc308ff55ca0577c41ee370e53c46270cc31f1d20a288b9328fb9",
+ "started": "2026-10-31 18:17:34 UTC",
+ "markets": [
+  "WTI"
+ ],
+ "timeframes": [
+  "H4",
+  "D1"
+ ],
+ "params": {
+  "n": [
+   20,
+   55
+  ],
+  "atr_stop": [
+   2.0,
+   3.0
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0,
+   3.0
+  ],
+  "trail": [
+   3.0,
+   0.0
+  ],
+  "bias": [
+   0,
+   1
+  ]
+ },
+ "time_stop": 300,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Futures trend + carry (pysystemtrade data, Carver defaults)",
+   "verdict": "Survivor (futures only)"
+  },
+  {
+   "name": "TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold)",
+   "verdict": "Survivor: deployed EA (demo gate pending)"
+  },
+  {
+   "name": "donchian_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "donchian_trend_v2_room_to_run",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 64,
+  "passed_gate": 13,
+  "share_dev_positive": 0.796875,
+  "median_dev_E": 0.07563297540900248,
+  "share_dev_and_val_positive": 0.5625
+ },
+ "selection": {
+  "candidate": {
+   "tf": "H4",
+   "n": 55,
+   "atr_stop": 2.0,
+   "tgt": 3.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 267,
+   "dev_E": 0.16043983519060034,
+   "dev_t": 1.4433610443399876,
+   "dev_Es": 0.09435804062937853,
+   "dev_fin": 0.0469119101611871,
+   "dev_nL": 131,
+   "dev_EL": -0.027626172153956095,
+   "dev_nS": 136,
+   "dev_ES": 0.3415916510886657,
+   "e1_n": 145,
+   "e1_E": 0.2533695751906065,
+   "e1_t": 1.6444417446873996,
+   "e1_Es": 0.19520150771141606,
+   "e1_fin": 0.041477567511303964,
+   "e1_nL": 67,
+   "e1_EL": -0.08797008705728704,
+   "e1_nS": 78,
+   "e1_ES": 0.546571592762515,
+   "e2_n": 122,
+   "e2_E": 0.04999055404305201,
+   "e2_t": 0.31328668281245897,
+   "e2_Es": -0.025496899755010335,
+   "e2_fin": 0.053370760031949835,
+   "e2_nL": 64,
+   "e2_EL": 0.0355463637604685,
+   "e2_nS": 58,
+   "e2_ES": 0.06592897090659243,
+   "val_n": 97,
+   "val_E": -0.16794151300406943,
+   "val_t": -0.9781021907224589,
+   "val_Es": -0.21307508860592386,
+   "val_fin": 0.03164940144772494,
+   "val_nL": 55,
+   "val_EL": -0.08934135156863532,
+   "val_nS": 42,
+   "val_ES": -0.27087029583618555,
+   "devE_WTI": 0.16043983519060034,
+   "mk_pos": 1
+  },
+  "neighbours": [
+   {
+    "param": "tf",
+    "value": "D1",
+    "dev_E": 0.09061312517108522,
+    "dev_t": 0.3428663592059443,
+    "dev_n": 47
+   },
+   {
+    "param": "n",
+    "value": 20,
+    "dev_E": 0.04829152557320659,
+    "dev_t": 0.5414095879064832,
+    "dev_n": 400
+   },
+   {
+    "param": "atr_stop",
+    "value": 3.0,
+    "dev_E": 0.045728762124905925,
+    "dev_t": 0.33405889407137823,
+    "dev_n": 162
+   },
+   {
+    "param": "tgt",
+    "value": 0.0,
+    "dev_E": 0.25040167577953437,
+    "dev_t": 0.7845453030475731,
+    "dev_n": 120
+   },
+   {
+    "param": "trail",
+    "value": 3.0,
+    "dev_E": 0.060652825646919734,
+    "dev_t": 0.8788062993379819,
+    "dev_n": 319
+   }
+  ],
+  "neighbours_all_pos": true,
+  "neighbours_median_t": 0.5414095879064832,
+  "walk_forward": {
+   "E": -0.005769919525797645,
+   "n": 368,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": [
+      "H4",
+      "20",
+      "3.0",
+      "0.0",
+      "3.0",
+      "1"
+     ],
+     "n": 50,
+     "E": 0.047603630650252936
+    },
+    {
+     "year": 2015,
+     "pick": [
+      "H4",
+      "20",
+      "2.0",
+      "3.0",
+      "0.0",
+      "1"
+     ],
+     "n": 48,
+     "E": 0.04896463538558191
+    },
+    {
+     "year": 2016,
+     "pick": [
+      "H4",
+      "20",
+      "2.0",
+      "3.0",
+      "0.0",
+      "1"
+     ],
+     "n": 43,
+     "E": -0.29840446775412716
+    },
+    {
+     "year": 2017,
+     "pick": [
+      "H4",
+      "55",
+      "2.0",
+      "3.0",
+      "3.0",
+      "0"
+     ],
+     "n": 38,
+     "E": 0.05019050808319849
+    },
+    {
+     "year": 2018,
+     "pick": [
+      "H4",
+      "55",
+      "2.0",
+      "3.0",
+      "3.0",
+      "0"
+     ],
+     "n": 44,
+     "E": 0.09325483751900238
+    },
+    {
+     "year": 2019,
+     "pick": [
+      "H4",
+      "55",
+      "3.0",
+      "3.0",
+      "3.0",
+      "0"
+     ],
+     "n": 29,
+     "E": -0.14135693537585758
+    },
+    {
+     "year": 2020,
+     "pick": [
+      "H4",
+      "20",
+      "2.0",
+      "3.0",
+      "0.0",
+      "0"
+     ],
+     "n": 34,
+     "E": 0.6086925084498108
+    },
+    {
+     "year": 2021,
+     "pick": [
+      "H4",
+      "20",
+      "2.0",
+      "3.0",
+      "0.0",
+      "0"
+     ],
+     "n": 42,
+     "E": -0.09060037068690327
+    },
+    {
+     "year": 2022,
+     "pick": [
+      "H4",
+      "20",
+      "2.0",
+      "3.0",
+      "0.0",
+      "0"
+     ],
+     "n": 40,
+     "E": -0.32059632634070134
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 267,
+   "E": 0.16043983519060034,
+   "t": 1.4406555854584167,
+   "PF": 1.2222144771798291,
+   "win": 0.30337078651685395
+  },
+  "val": {
+   "n": 97,
+   "E": -0.16794151300406943,
+   "t": -0.9730473652006613,
+   "PF": 0.7953234317454796,
+   "win": 0.21649484536082475
+  },
+  "stress_dev_val": {
+   "n": 346,
+   "E": 0.027905307153203548,
+   "t": 0.2910159943787499,
+   "PF": 1.035767022317247,
+   "win": 0.2861271676300578
+  },
+  "dsr": {
+   "sr_trade": 0.08816669001463551,
+   "sr0": 0.24055991702173032,
+   "dsr": 0.004893573196682044,
+   "n_trials": 64,
+   "T": 267
+  }
+ },
+ "final_look": {
+  "fingerprint": "e77413114dabc308ff55ca0577c41ee370e53c46270cc31f1d20a288b9328fb9",
+  "config": "{\"atr_stop\": 2.0, \"bias\": 0, \"n\": 55, \"tf\": \"H4\", \"tgt\": 3.0, \"trail\": 0.0}",
+  "time": "2026-10-31 18:17:44 UTC",
+  "oos": {
+   "n": 99,
+   "E": -0.1825269659552573,
+   "t": -1.11056129977984,
+   "PF": 0.7742155403008656,
+   "win": 0.21212121212121213
+  },
+  "per_market": {
+   "WTI": {
+    "n": 99,
+    "E": -0.1825269659552573,
+    "t": -1.11056129977984,
+    "PF": 0.7742155403008656,
+    "win": 0.21212121212121213
+   }
+  }
+ },
+ "tier": "Rejected",
+ "criteria": {
+  "1_E_pos_dev_val_oos": false,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": false,
+  "4_neighbours_stable": false,
+  "5_stress_dev_val_pos": true,
+  "6_oos_pos_2_markets": false
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 267,
+   "E": 0.2265216297518221,
+   "t": 2.011908665945686,
+   "PF": 1.3302974592788697,
+   "win": 0.30337078651685395
+  },
+  "val": {
+   "n": 97,
+   "E": -0.12280793740221496,
+   "t": -0.7053398220815015,
+   "PF": 0.8448893690344105,
+   "win": 0.21649484536082475
+  },
+  "2023-25": {
+   "n": 99,
+   "E": -0.12998258257352194,
+   "t": -0.7813699953986858,
+   "PF": 0.8323580243557884,
+   "win": 0.21212121212121213
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": -0.001813687394940952,
+  "weights": {
+   "book": 0.556,
+   "cand": 0.444
+  },
+  "book_sharpe": 0.9966979649236697,
+  "cand_sharpe": -0.02811264253147269,
+  "combined_sharpe": 0.6947363955671496,
+  "book_sharpe_2017_on": 0.8410009720694611,
+  "combined_sharpe_2017_on": 0.29808458933465887
+ },
+ "verdict": "Rejected"
+}
