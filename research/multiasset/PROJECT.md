@@ -1,5 +1,9 @@
 # Project North Star — plan and status (multi-strategy phase)
 
+> **Correction 2026-10-31 (P20):** the book's daily series here dropped trades that closed at the Sunday-night open, which
+> understated the book (Sharpe 1.01 → 1.24 after the fix; `combine.json` and `sources_daily.csv.gz` are re-run, the tables
+> below are not). Book rows below are about 0.2 Sharpe too low; futures-only rows are unaffected.
+
 Goal (owner): the highest sustainable growth with regular fortnightly payouts; aspiration 60–120% a year.
 Project manager's job: find every independent source of return, combine them, size them on the
 growth/drawdown frontier, and ship an EA. The only rule kept is the one that makes results real:

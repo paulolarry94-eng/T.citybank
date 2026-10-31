@@ -51,11 +51,14 @@ Learning rules:
   engulfing, about 1,400 liquidity-grab variants, an intraday best-setup scanner, short volatility, pairs,
   cross-sectional momentum, broad mean reversion, GREEN/AMBER sizing states.
 - Biggest levers: swaps and breadth. Exness Zero spreads are MEASURED at about 0 (`research/exness/EXNESS_COSTS.md`):
-  the book re-scores to Sharpe 1.15 with swaps, 1.51 swap-free (commission estimated at the high end; swap-free status
-  unconfirmed). Breadth: data for US500, GER40, WTI, XAGUSD (Q4) comes from HistData.com
+  the book re-scores to Sharpe 1.36 with swaps, 1.74 swap-free (commission estimated at the high end; swap-free status
+  unconfirmed; figures corrected 2026-10-31 after a bug that dropped Sunday-open exits, P20). Breadth: data for US500, GER40, WTI, XAGUSD (Q4) comes from HistData.com
   (`tools/histdata_m1.py`, works from the cloud; Dukascopy throttles the cloud and GitHub Actions).
 - Breadth (2026-10-31): trend does not transfer to US500/GER40/WTI/XAGUSD; index RSI(2) has a small raw edge, about zero
-  after costs. Synthesis "where the gold is": top of `research/CONCLUSION.md` (at 1% risk the book makes ~9–12%/yr).
+  after costs. Synthesis "where the gold is": top of `research/CONCLUSION.md` (backtest at 1% risk: ~11–14%/yr).
+- Champion check (2026-10-31): on untouched Jan–Oct 2026 Exness data the book made −1.36% at 1% risk (+0.78% swap-free),
+  +0.022R/trade vs +0.078R backtested: weaker than the backtest, consistent with P11, not yet proof either way. Report and
+  dashboard: `research/champion/`, https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg.
 - Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 

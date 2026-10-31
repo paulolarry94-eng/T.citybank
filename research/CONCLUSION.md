@@ -1,5 +1,15 @@
 # Conclusion of the research phase (2026-10-31)
 
+## Update 2026-10-31 (late night): the champion's untouched test
+**The 11-leg book is still the champion, but the first clean test came in weak.** On January–October 2026 Exness Zero prices,
+which no selection or test had seen, the book made **−1.36%** at 1% risk with swaps (**+0.78%** swap-free), max drawdown 5.3%,
+over 333 trades: +0.022R per trade against +0.078R in the backtest. A 10-month stretch that bad happened in 4% of the
+backtest's stretches (typical +8.2%), but in 13–23% if the live edge is 30–50% weaker, which is what P11 predicts. Verdict:
+weaker than the backtest, too short to tell a smaller edge from none (~430 trades needed). Keep 1% risk and the frozen weights,
+confirm swap-free, forward-test. Report: https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg; code `research/champion/`.
+A bug found while making it (Sunday-open exits missing from daily series, P20) understated every daily-series figure; the
+tables below are corrected where marked.
+
 ## Update 2026-10-31 (evening): where the gold is
 **No new edge was found today, and that is the answer.** The gold is the 11-leg book we already have, now scored with
 measured Exness costs. The way to the goal is cheaper costs, live proof and more capital, not more patterns.
@@ -22,17 +32,20 @@ How these markets behave (before costs; the timeless part):
 | Short dips revert within days | equity indices (+0.02 to +0.09R raw), EURUSD daily | — |
 | Intraday patterns, scalping, grids, session filters | nowhere after costs | — |
 
-The engine, re-scored with measured Exness Zero costs (backtest; live is expected to be 30–50% weaker, P11):
+The engine, re-scored with measured Exness Zero costs (backtest; live is expected to be 30–50% weaker, P11;
+corrected for the Sunday-exit bug, first written as 1.15 / 1.51):
 | Account | Sharpe 2011–25 | 2023–25 | Per year at 1% risk (max drawdown) | At 2% | At 3% |
 |---|---|---|---|---|---|
-| Exness Zero + swaps | 1.15 | 0.75 | 9% (10%) | 18% (20%) | 26% (28%) |
-| Exness Zero swap-free | 1.51 | 1.06 | 12% (9%) | 25% (18%) | 38% (25%) |
+| Exness Zero + swaps | 1.36 | 0.95 | 11% (10%) | 22% (19%) | 33% (27%) |
+| Exness Zero swap-free | 1.74 | 1.27 | 14% (8%) | 30% (16%) | 46% (23%) |
+| Untouched Jan–Oct 2026 (10 months) | −0.22 / +0.17 | — | −1.4% / +0.8% (5%) | — | — |
 
 What that means for 60–120% a year:
-- **At 1% risk per trade the book makes about 9–12% a year.** 60–120% on your own account would need 4–6% risk, with
-  drawdowns of 33% and more, and live results matching the backtest. No evidence here supports that.
+- **At 1% risk per trade the book makes about 11–14% a year in the backtest** (the untouched 2026 test: −1.4% to +0.8%).
+  60–120% on your own account would need about 4% risk or more, with drawdowns of 30% and more, and live results matching
+  the backtest. No evidence here supports that; 2026 points the other way.
 - **The realistic levers, in order:**
-  1. Swap-free status (+0.36 Sharpe; a 2-minute phone check).
+  1. Swap-free status (+0.38 Sharpe; a 2-minute phone check).
   2. Live proof: compile TimelessCity, run parity, then 3–6 months on demo.
   3. Risk of 2–3% per trade once live matches the backtest.
   4. Other people's capital: prop accounts (Q7). The book passed both FTMO phases in 33–54% of replay windows, with
@@ -56,7 +69,8 @@ What that means for 60–120% a year:
     breakout, JPY RSI(2), JPY 55-day Donchian, a filtered gold EMA cross, GBP weekly follow-through
     and two crosses.
   - **Futures trend + carry**: works only on real futures, not CFDs.
-- **What it's worth (backtest, P&L booked at exit):**
+- **What it's worth (backtest, P&L booked at exit; computed before the 2026-10-31 Sunday-exit fix, so the book rows
+  understate it by about 0.2 Sharpe: the re-run `research/results/multiasset/combine.json` gives the book 1.24, not 1.00):**
 
 | System | Costs and swaps | Sharpe | Per year | Max drawdown |
 |---|---|---|---|---|

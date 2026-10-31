@@ -143,3 +143,31 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Learned:** P19. Costs: fortnights 54% -> 59%, years 87% -> 100% (lab -> Exness swap-free). Breadth: one leg 26% of fortnights,
   the book 54-59%. Time: ~250-430 trades for a 90% chance of being up. About 4 fortnights in 10 lose even in the best case.
 - **Decisions:** payouts should come from a buffer above the high-water mark, not every fortnight (to discuss with the owner).
+
+## 2026-10-31 (late night) · "what do the backtest and a professional report say about our champion? the one that quiets the doubt"
+- **Asked:** a professional report on the champion (the 11-leg book), with perspective.
+- **Done:** regenerated all 11 legs with their original code on 2011–2026 data (2026 = Exness Zero ticks, untouched); entry
+  parity with the stored trades 100% on 10 legs, 96% on the gold EMA leg. Scored January–October 2026 with the frozen weights
+  (`research/champion/regen_2026.py`), built a tearsheet (`tearsheet.py`) and the report's data (`dashboard_data.py`), and
+  published the dashboard https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg. Perspective checks fixed before running: share of
+  backtest 10-month stretches as bad as 2026 under the full edge and under a 30% / 50% weaker edge; per-trade z-test.
+- **Bug found and fixed (P20):** every daily P&L series re-indexed to business days dropped trades that closed at the Sunday-night
+  open (228 days, +28% of the backtest's P&L; they are mostly Friday survivors). Fixed in `exness/rescore_book.py`,
+  `truth/protocol.py` (portfolio-fit only; tiers and verdicts are set before it), `multiasset/combine.py`,
+  `champion/regen_2026.py`; regression test added (21 pass). Re-ran rescore_book (+ risk scaling now reproducible), odds,
+  combine, tearsheet. `prop/ftmo_sim.py` was already correct (searchsorted maps Sunday to Monday).
+- **Learned (with evidence, `research/results/champion/`):**
+  - Backtest 2011–25, Exness + swaps, 1% risk: Sharpe 1.36 (was 1.15), 10.7%/yr, max DD 9.7%, 14/15 years; swap-free 1.74;
+    stress (costs ×1.5, swaps ×2) 0.76; 2023–25 0.95.
+  - Untouched Jan–Oct 2026: −1.36% with swaps (first measured −2.34% with the bug), +0.78% swap-free, max DD 5.3%, 333 trades,
+    +0.022R/trade vs +0.078R (z −0.81, p 0.21; weighted p 0.07). At or below 4.1% of backtest 10-month stretches (median
+    +8.2%); 13.3% if the edge is 30% weaker, 22.9% if 50% weaker. P11 gets its first measurement.
+  - Losses came from heavily weighted, rarely trading legs (gold S1 −3.98R, JPY Donchian55 −5.54R, JPY RSI2 −2.03R) and GBPJPY
+    (−9.58R); the JPY volatility breakout (+12.4R) and gold Donchian20 (+9.79R) won. Raised as Q9; 2026 cannot decide it.
+- **Decisions:** no rule or weight changes from 2026 (hindsight). Keep 1% risk; confirm swap-free (Q1); forward-test; judge at
+  about 430 trades. Every figure built from a daily series before today is understated; corrected in CLAUDE.md, CONCLUSION.md,
+  EXNESS_COSTS.md, P5, P19, Q1, the ledger; `multiasset/PROJECT.md` tables flagged, not regenerated.
+- **Facts vs estimates:** commission is the high-end public estimate; swap-free status unconfirmed; 2026 prices are Exness ticks,
+  the backtest is other vendors (seam). The two public Sharpe ranges on the dashboard (stocks, CTA index) are recalled, not looked up.
+- **Next:** re-score each new 2026/2027 month with `champion/regen_2026.py`; Q9 weighting study on 2011–22 walk-forward only;
+  owner's swap-free and commission check.

@@ -2,8 +2,10 @@
 
 **Outcome:** on the Zero account the spread is effectively zero on gold, EUR, GBP, JPY, US500 and oil, so the cost
 is commission + slippage. With the commission at the high end of what is published, the 11-leg book re-scores from
-Sharpe 1.00 to **1.15 with swaps** and **1.51 if the account is swap-free** (2023–25: 0.75 / 1.06). Two numbers
-are still unconfirmed: the exact commission per lot and the owner's swap-free status.
+Sharpe 1.20 (research costs) to **1.36 with swaps** and **1.74 if the account is swap-free** (2023–25: 0.95 / 1.27). Two
+numbers are still unconfirmed: the exact commission per lot and the owner's swap-free status.
+*Corrected 2026-10-31: the first version read 1.00 → 1.15 / 1.51 (2023–25 0.75 / 1.06) because the daily series dropped
+trades that closed at the Sunday-night open (principle P20). Tables below are the corrected re-run.*
 
 ## 1. Spreads (measured from Exness's own Zero-account ticks)
 Source: Exness's public tick archive `ticks.ex2archive.com` (`{SYMBOL}_Zero_Spread`, 2020–2026). The sample was fixed
@@ -40,23 +42,26 @@ Script: `research/exness/exness_costs.py`; data: `research/results/exness/zero_s
 ## 3. The 11-leg book re-scored (same trades, same weights; `research/exness/rescore_book.py`)
 | Profile | Sharpe 2011–25 | Sharpe 2023–25 | Per year at 1% risk | Max drawdown at 1% risk |
 |---|---|---|---|---|
-| Lab costs + swaps (as before) | 0.99 | 0.59 | 7.4% | 10.9% |
-| Exness Zero realistic + swaps | 1.15 | 0.75 | 8.7% | 10.3% |
-| Exness Zero realistic, swap-free | **1.51** | **1.06** | 11.9% | 9.1% |
-| Exness Zero low commission + swaps | 1.29 | 0.88 | 9.9% | 9.9% |
-| Exness Zero low commission, swap-free | 1.65 | 1.18 | 13.2% | 8.6% |
+| Lab costs + swaps (as before) | 1.20 | 0.79 | 9.4% | 10.3% |
+| Exness Zero realistic + swaps | 1.36 | 0.95 | 10.7% | 9.7% |
+| Exness Zero realistic, swap-free | **1.74** | **1.27** | 14.2% | 8.3% |
+| Exness Zero low commission + swaps | 1.50 | 1.08 | 11.9% | 9.2% |
+| Exness Zero low commission, swap-free | 1.88 | 1.39 | 15.5% | 7.8% |
 
 Risk scaling, Exness Zero realistic and swap-free (`research/results/exness/book_risk_scaling.json`; backtest, before
 the expected live haircut, P11):
 | Risk per trade | Per year 2011–25 | Per year 2023–25 | Max drawdown |
 |---|---|---|---|
-| 1% | 12% | 8% | 9% |
-| 2% | 25% | 17% | 18% |
-| 3% | 38% | 25% | 25% |
-| 4% | 52% | 33% | 33% |
+| 1% | 14% | 10% | 8% |
+| 2% | 30% | 21% | 16% |
+| 3% | 46% | 32% | 23% |
+| 4% | 64% | 44% | 30% |
+
+Untouched check, January–October 2026 (`research/champion/`): −1.36% with swaps, +0.78% swap-free at 1% risk. The
+backtest rows above are the best case; plan with the live haircut of P11.
 
 ## 4. What is still unverified, and the 2-minute check on a phone
-1. **Swap-free status** (worth +0.36 Sharpe): MT5 app → Quotes → tap XAUUSD → Specification (Details) → read
+1. **Swap-free status** (worth +0.38 Sharpe): MT5 app → Quotes → tap XAUUSD → Specification (Details) → read
    "Swap long" and "Swap short". If both are 0, the account is swap-free on gold. Repeat for EURUSD, GBPUSD, USDJPY.
 2. **Commission:** open and close 0.01 lot of EURUSD and of XAUUSD on the Zero account (demo is fine) → History
    shows the commission. Multiply by 100 for a full lot.

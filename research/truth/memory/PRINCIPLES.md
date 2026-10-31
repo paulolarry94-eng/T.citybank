@@ -31,9 +31,12 @@ February–October 2026 (M30 +0.02R → −0.16R). It is not an edge.
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
 +0.063 → +0.044R. A swap-free account changes the picture (book Sharpe 1.00 → 1.64 with low costs).
 Evidence: North Star rescore, TimelessCity rescore. Confidence: high (size of the Exness effect unverified).
-Update (2026-10-31): with MEASURED Exness Zero spreads and high-end published commission, the book is Sharpe 1.15 with
-swaps and 1.51 swap-free (2023–25: 0.75 / 1.06). Swap-free status is the single largest cost lever left (+0.36 Sharpe).
-Evidence: research/exness/EXNESS_COSTS.md. Commission and the owner's swap-free status are still unconfirmed.
+Update (2026-10-31, corrected the same night): with MEASURED Exness Zero spreads and high-end published commission, the
+book is Sharpe 1.36 with swaps and 1.74 swap-free (2023–25: 0.95 / 1.27); January–October 2026 (untouched) −1.36% with swaps
+vs +0.78% swap-free. Swap-free status is the single largest cost lever left (+0.38 Sharpe).
+Evidence: research/exness/EXNESS_COSTS.md, research/results/champion/. Commission and swap-free status still unconfirmed.
+History: first written as 1.15 / 1.51 (2023–25: 0.75 / 1.06); those daily series dropped trades closing at the Sunday open
+(bug fixed 2026-10-31, see JOURNAL). The earlier "1.00 → 1.64" figures came from the same kind of series and are understated too.
 
 ### P6 Trend persistence is market-specific
 Gold and USDJPY trend; EURUSD and GBPUSD don't (Donchian lab: gold +0.14–0.21R, JPY +0.15–0.28R, EUR/GBP
@@ -66,8 +69,11 @@ More evidence (2026-10-31): oil was the only one of four new markets with a posi
 alone afterwards (hindsight, called out), its 2023–25 look was −0.18R per trade. Picking the winner after the fact found luck.
 
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
-Selection bias from wide searches. Evidence: industry and statistics; not yet measured live here.
-Confidence: prior (to be measured on demo).
+Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
+on untouched January–October 2026 Exness data made +0.022R per trade against +0.078R in its 2011–25 backtest (about 70%
+weaker per trade, though within noise: z −0.81 on 333 trades), −1.36% at 1% risk vs a typical +8.2% for 10 months.
+A stretch that bad has a 4% chance under the full backtest edge, 13% if the edge is 30% weaker, 23% if 50% weaker.
+Evidence: research/results/champion/ (dashboard_data.py). Confidence: medium (one short out-of-sample period, no live fills yet).
 
 ### P12 CFD financing kills high-notional strategies
 Trend + carry needs about 4x notional; CFD markups make it Sharpe 0.06 versus 0.50 on futures. Bonds are
@@ -119,9 +125,18 @@ none of 56 single conditions was profitable even in the learning years (2011-19)
 When nothing separates winners in-sample, the wins are noise around a negative mean. Evidence: research/results/sop/winning_conditions.json.
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
-On the 11-leg book's own trades: the share of profitable fortnights rises from 54% (lab costs) to 59% (Exness Zero
-swap-free), and of profitable years from 87% to 100% of 2011-25, from costs alone. One leg alone is profitable in 26% of
-fortnights and 55-66% of years; the eleven together in 54-59% and 87-100%. With +0.08-0.10R per trade and a 1.26R spread,
-a 90% chance of being up needs about 250-430 trades (8-13 months of the book). Even then 4 fortnights in 10 lose, so
+On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
+swap-free), and of profitable years from 87% to 100% of 2011-25, from costs alone. One leg alone is profitable in 27-28% of
+fortnights and 58-68% of years; the eleven together in 55-61% and 87-100%. With +0.08-0.10R per trade and a 1.26R spread,
+a 90% chance of being up needs about 250-430 trades (8-13 months of the book). (Corrected 2026-10-31 for the Sunday-exit
+bug; first written as 54-59% of fortnights, one leg 26%, 55-66% of years.) Even then 4 fortnights in 10 lose, so
 fortnightly payouts must come from a buffer, not from each fortnight. Without positive expectancy no filter raises the
 odds (P16, P18). Evidence: research/results/probability/odds.json. Confidence: high (backtest; live will be weaker, P11).
+
+### P20 Every trade must reach the daily P&L: a weekday calendar silently drops Sunday-open exits
+Daily series built by re-indexing to business days lost every trade that closed at the Sunday-night FX open. Those exits
+are mostly survivors of Friday (stop-outs land on weekdays), so dropping them removed winners: the book's Sharpe read 1.15
+instead of 1.36 (Exness + swaps) and 1.01 instead of 1.24 (research costs), and the 2026 test −2.34% instead of −1.36%.
+Trade-level R, Truth Lab gates and verdicts were unaffected (the tier is set before the daily series is built). Rule: roll
+weekend dates to Monday and check that the daily series sums to the trade list. Evidence: research/truth/tests/test_truth.py
+(TestDailySeries), commit 7e194a6. Confidence: high.

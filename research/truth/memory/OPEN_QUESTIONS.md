@@ -6,9 +6,10 @@ here first, with FAMILY tags, so priors can be checked before testing.
 ### Q1 What are the real Exness Zero costs and is the account swap-free?
 PARTLY ANSWERED (2026-10-31, `research/exness/EXNESS_COSTS.md`): Zero spreads measured from Exness's own tick archive
 are about 0 on XAU/EUR/GBP/JPY, so cost = commission + slippage. With high-end published commission the book re-scores
-to Sharpe 1.15 with swaps and 1.51 swap-free (profile: `research/truth/costs_exness_zero.json`). Still open, owner
+to Sharpe 1.36 with swaps and 1.74 swap-free (corrected 2026-10-31 from 1.15 / 1.51, Sunday-exit bug; profile:
+`research/truth/costs_exness_zero.json`). Still open, owner
 check on a phone (2 minutes): (a) MT5 app → symbol Specification → Swap long/short = 0? (swap-free status, worth
-+0.36 Sharpe); (b) commission shown in History after a 0.01-lot EURUSD and XAUUSD round trip.
++0.38 Sharpe); (b) commission shown in History after a 0.01-lot EURUSD and XAUUSD round trip.
 
 ### Q2 Does the TimelessCity EA trade like the research?
 Compile v2.42, Strategy Tester 2023–2025 (real ticks), compare with
@@ -16,6 +17,11 @@ Compile v2.42, Strategy Tester 2023–2025 (real ticks), compare with
 
 ### Q3 How much weaker is live than the backtest? (tests P11)
 Measure on 3–6 months of demo with `research/northstar/weekly.py`.
+FIRST EVIDENCE (2026-10-31, untouched data, not live fills): the 11-leg book on January–October 2026 Exness Zero prices made
++0.022R per trade vs +0.078R backtested, −1.36% at 1% risk (+0.78% swap-free), at or below 4% of backtest 10-month stretches;
+13% / 23% if the live edge is 30% / 50% weaker. Consistent with P11, too short to tell a smaller edge from none (~430 trades
+needed). Dashboard: https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg; data `research/results/champion/`. Keep scoring it
+month by month with `research/champion/regen_2026.py` as new Exness months arrive (no rule or weight changes).
 
 ### Q4 Breadth: do the book's families work on new markets?
 Needs M1 data for ~27 markets (`tools/dukascopy_m1.py --all 2011 2025` on a home PC; Dukascopy throttles
@@ -52,6 +58,13 @@ but slowly (median 6-8 months for +10%). To test: a near-barrier risk brake (rat
 Tier B (`research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md`): +0.04R per trade, Sharpe 0.49 and falling
 (0.59 → 0.48 → 0.23), +0.9% a year at 1% risk; weakens the book after 2017 (0.84 → 0.76). Watch-list only unless real
 Exness costs (Q1) or a 2026 forward test show it stronger. FAMILY: reversal, daily, stop-entry, eurusd.
+
+### Q9 Are inverse-volatility leg weights right for the book?
+Raised by the 2026 test: the weights (inverse monthly volatility, 2011–19) put the most risk on legs that trade rarely
+(JPY RSI2 1.00, GBP weekly sweep 0.93, gold S1 0.63), and those lost in 2026 while the busy, low-weight legs won; equal
+weights would have done better in 2026. Choosing weights from 2026 is hindsight, so 2026 cannot decide this. Test only on
+2011–22 with a walk-forward (weights fitted on past years, applied to the next), then one look at 2023–25, comparing:
+inverse-vol (current), equal risk, and inverse-vol capped by trade count. FAMILY: portfolio, weighting, sizing, book.
 
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone

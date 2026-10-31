@@ -1,20 +1,21 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-39 ideas tested, about 302,423 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+40 ideas tested, about 302,424 configurations; 5 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
 |---|---|---|---|---|
-| Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12 | research/hunt/HUNT2_REPORT.md; research/northstar/NORTHSTAR_REPORT.md |
 | Futures trend + carry (pysystemtrade data, Carver defaults) | trend, carry, futures, diversified | Survivor (futures only) | Sharpe 0.96 since 2000, 0.50 2011-24; as CFDs 0.06 | research/multiasset/PROJECT.md |
 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) | research/northstar/TIMELESSCITY_RESCORE.md |
 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | Tier B: forward-test candidate |  | research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md |
+| Champion (11-leg book) untouched test, Jan-Oct 2026 + professional tearsheet | book, out-of-sample, forward-test, portfolio, trend, reversion | Survivor, weakened: 2026 below backtest, within a 30-50% live haircut | Legs regenerated with original code on Exness Zero 2026 ticks (entry parity 100% on 10 legs, 96% on XAU EMA). Jan-Oct 2026 at 1% risk: -1.36% with swaps (+0.78% swap-free), max DD 5.3%, 333 trades, +0.022R/trade vs +0.078R backtest (z -0.81, p 0.21; weighted p 0.07). At or below 4.1% of backtest 10-month stretches (median +8.2%); 13% if live edge 30% weaker, 23% if 50%. Backtest 2011-25 (corrected): Sharpe 1.36, 10.7%/yr, max DD 9.7%, 14/15 years; swap-free 1.74; stress (costs x1.5, swaps x2) 0.76. 2026 losses came from high-weight, rarely trading legs (S1 gold, JPY RSI2, JPY Donchian55) and GBPJPY; VBO and gold Donchian20 won. | research/champion/{regen_2026,tearsheet,dashboard_data}.py; research/results/champion/; dashboard https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg |
+| Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12. CORRECTED 2026-10-31 (Sunday-exit bug, P20): Sharpe 1.24 after research costs+swaps 2011-24Q1 (1.03 after 2016); Exness Zero 1.36 with swaps, 1.74 swap-free 2011-25; untouched Jan-Oct 2026 -1.36% | research/hunt/HUNT2_REPORT.md; research/northstar/NORTHSTAR_REPORT.md |
 
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
+| trend | 9 | 4 | 102,565 |
 | intraday | 8 | 0 | 181,850 |
-| trend | 8 | 3 | 102,564 |
 | reversal | 7 | 1 | 105,844 |
 | breadth | 6 | 0 | 80 |
 | breakout | 6 | 0 | 119,346 |
@@ -27,16 +28,18 @@
 | owner-idea | 4 | 0 | 949 |
 | structure | 4 | 0 | 949 |
 | third-party-ea | 4 | 0 | 304 |
+| book | 3 | 1 | 9 |
 | ema | 3 | 0 | 840 |
 | grid | 3 | 0 | 196 |
 | index | 3 | 0 | 72 |
 | limit-entry | 3 | 0 | 840 |
 | liquidity | 3 | 0 | 1,376 |
 | oscillator | 3 | 0 | 288 |
+| portfolio | 3 | 3 | 16 |
+| reversion | 3 | 3 | 16 |
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
-| book | 2 | 0 | 8 |
 | carry | 2 | 1 | 2 |
 | costs | 2 | 0 | 8 |
 | dip-buying | 2 | 0 | 8 |
@@ -44,8 +47,6 @@
 | eurusd | 2 | 1 | 147 |
 | fvg | 2 | 0 | 9,312 |
 | pattern | 2 | 0 | 4,896 |
-| portfolio | 2 | 2 | 15 |
-| reversion | 2 | 2 | 15 |
 | risk | 2 | 0 | 60 |
 | rsi2 | 2 | 0 | 8 |
 | short-vol | 2 | 0 | 17 |
@@ -59,6 +60,7 @@
 | exness | 1 | 0 | 5 |
 | factor | 1 | 0 | 1 |
 | filter-mining | 1 | 0 | 109 |
+| forward-test | 1 | 1 | 1 |
 | futures | 1 | 1 | 1 |
 | gbpusd | 1 | 0 | 144 |
 | gold | 1 | 0 | 72 |
@@ -66,6 +68,7 @@
 | ict | 1 | 0 | 780 |
 | metals | 1 | 0 | 64 |
 | momentum | 1 | 0 | 1 |
+| out-of-sample | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
 | payouts | 1 | 0 | 3 |
 | probability | 1 | 0 | 3 |
@@ -95,7 +98,6 @@
 | 2026-10-31 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | 3 | Tier B: forward-test candidate | dev_E +0.040, val_E +0.030, final_E +0.012, final_n +112.000, final_PF +1.137, dsr +0.907, share_dev_positive +1.000 |
 | 2026-10-31 | close_beyond_reversal_4mkt_v1 | reversal, daily, stop-entry, bailout-exit, breadth | 3 | Rejected: no configuration passed the development gate | share_dev_positive +1.000 |
 | 2026-10-31 | Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files) | oscillator, scalping, intraday, grid, averaging, third-party-ea, eurusd, gbpusd | 144 | Rejected | classic (stop-and-reverse on oscillator turns): loses before costs in 18/18 (-0.17 to -0.65 pips/trade), -1.2 to -1.9 pips at Exness Zero costs; grid set: 96-98% of baskets win but 0/36 tradable configs profitable at Exness Zero costs (-$1.6k to -$12.8k per 0.01 lot 2011-25). Vendor's live signals: equity DD 51-53% vs balance DD 8-25% (losses held open). |
-| 2026-10-31 | Exness Zero costs (measured spreads) and book re-score | costs, exness, swap-free, book | 5 | Study: informative | Zero spreads measured from Exness's own tick archive: ~0 on XAU/EUR/GBP/JPY/US500 (cost = commission + slippage). Book Sharpe 1.00 -> 1.15 with swaps, 1.51 swap-free (2023-25: 0.75 / 1.06) at high-end commission ($3.50/side FX, $5.50 gold). Commission and swap-free status unconfirmed. |
 | 2026-10-31 | osc_turn_sessions_v1 | oscillator, intraday, session, time-filter, third-party-ea | 108 | Rejected: no configuration passed the development gate | share_dev_positive +0.019 |
 | 2026-10-31 | Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25) | oscillator, intraday, session, time-filter, third-party-ea, grid | 36 | Study: informative (no new edge) | Best 6 hours picked on 2011-19: +1.11 pips/trade gross -> -0.13 in 2020-25; 0/18 positive after Exness costs. Grid best 8 hours +2.76 -> +0.18 pips/basket (below one order's cost). Big winners = trend days (1.5-2.3x normal range) starting at London/NY opens, known only afterwards; grid stop-outs = trend days (1.3-1.5x range). |
 | 2026-10-31 | breadth_trend_v1 | trend, breakout, breadth, index, energy, metals | 64 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
@@ -106,7 +108,9 @@
 | 2026-10-31 | sop_4leg_gold_v1 | engulfing, structure, retest, limit-entry, ema, owner-idea, gold, daily | 72 | Rejected: no configuration passed the development gate | share_dev_positive +0.347 |
 | 2026-10-31 | Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout | engulfing, structure, retest, limit-entry, intraday, ema, owner-idea | 12 | Rejected | Detector reproduces 6 of the owner's 12 cases exactly; on all setups 2011-25 the owner's setup loses 0.12-0.20R/trade (before costs -0.02 to -0.05R); Feb-Oct 2026 (untouched): M5 -0.09R (376 trades), M15 -0.35R, M30 +0.02R (82); breakeven worse in 2026. Case studies select winners: 4 of 5 reproduced cases won vs 21-34% of all setups. |
 | 2026-10-31 | SOP winning-conditions study (learn 2011-19, check later) | engulfing, structure, owner-idea, filter-mining, intraday | 109 | Rejected: no winning condition exists | 23,000 filled setups (EUR/GBP M5-M30) with 19 features known at entry: 0 of 56 single conditions positive even in 2011-19; best 2-condition rule (stop >12 pips, costs <12% of R) -0.045R in 2011-19 (both halves negative), -0.08R 2020-22, +0.12R 2023-25 (257 trades), -0.32R Feb-Oct 2026. All setups: -0.15 to -0.18R in every period, 28% win. |
-| 2026-10-31 | Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book) | probability, breadth, costs, payouts, book | 3 | Study: informative | Book positive fortnights 54% (lab costs) -> 56% (Exness Zero + swaps) -> 59% (swap-free); months 60/63/68%; years 87/87/100%. One leg alone: 26% of fortnights, 55-66% of years. Per trade +0.069/+0.078/+0.103R (sd 1.26R): 90% chance of being up needs ~544/428/253 trades (~7-16 months of the book). |
+| 2026-10-31 | Exness Zero costs (measured spreads) and book re-score | costs, exness, swap-free, book | 5 | Study: informative | Zero spreads measured from Exness's own tick archive: ~0 on XAU/EUR/GBP/JPY/US500 (cost = commission + slippage). Book Sharpe 1.00 -> 1.15 with swaps, 1.51 swap-free (2023-25: 0.75 / 1.06) at high-end commission ($3.50/side FX, $5.50 gold). Commission and swap-free status unconfirmed. CORRECTED 2026-10-31 (Sunday-exit bug, see journal): 1.36 with swaps, 1.74 swap-free (2023-25: 0.95 / 1.27); lab costs 1.20. |
+| 2026-10-31 | Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book) | probability, breadth, costs, payouts, book | 3 | Study: informative | CORRECTED 2026-10-31 (Sunday-exit bug): book positive fortnights 55% (lab costs) -> 57% (Exness Zero + swaps) -> 61% (swap-free); months 62/67/69%; years 87/93/100%. One leg alone: 27-28% of fortnights, 58-68% of years. Per trade +0.069/+0.078/+0.103R (sd 1.26R): 90% chance of being up needs ~544/428/253 trades (~7-16 months of the book). |
+| 2026-10-31 | Champion (11-leg book) untouched test, Jan-Oct 2026 + professional tearsheet | book, out-of-sample, forward-test, portfolio, trend, reversion | 1 | Survivor, weakened: 2026 below backtest, within a 30-50% live haircut | Legs regenerated with original code on Exness Zero 2026 ticks (entry parity 100% on 10 legs, 96% on XAU EMA). Jan-Oct 2026 at 1% risk: -1.36% with swaps (+0.78% swap-free), max DD 5.3%, 333 trades, +0.022R/trade vs +0.078R backtest (z -0.81, p 0.21; weighted p 0.07). At or below 4.1% of backtest 10-month stretches (median +8.2%); 13% if live edge 30% weaker, 23% if 50%. Backtest 2011-25 (corrected): Sharpe 1.36, 10.7%/yr, max DD 9.7%, 14/15 years; swap-free 1.74; stress (costs x1.5, swaps x2) 0.76. 2026 losses came from high-weight, rarely trading legs (S1 gold, JPY RSI2, JPY Donchian55) and GBPJPY; VBO and gold Donchian20 won. |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |
@@ -120,7 +124,7 @@
 | 2026-10-29 | FVG study | smc, fvg, retest | 7872 | Rejected | info is in the displacement, not the gap |
 | 2026-10-29 | Daily liquidity sweeps (Asian, PDH/PDL, PWH/PWL) | liquidity, sweep, reversal, session | 436 | Rejected | zero-cost edge -0.02 to +0.06R; one survivor (GBP weekly follow-through, now a book leg) |
 | 2026-10-29 | Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7) | liquidity, sweep, reversal, breakout | 160 | Rejected | none positive in all eras |
-| 2026-10-28 | Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | 11 | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12 |
 | 2026-10-28 | Gold WAT session + Malaysian SnR | support-resistance, engulfing, reversal, session | 2202 | Rejected | no robust edge |
 | 2026-10-28 | Four strategies (trend continuation, failed breakout, vol contraction/expansion) | trend, reversal, volatility, breakeven | 102260 | Rejected (as a set) | with swaps 2023-25 +0.005R/trade; failed-breakout reversal fails everywhere; breakeven is a backtest mirage |
+| 2026-10-28 | Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | 11 | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12. CORRECTED 2026-10-31 (Sunday-exit bug, P20): Sharpe 1.24 after research costs+swaps 2011-24Q1 (1.03 after 2016); Exness Zero 1.36 with swaps, 1.74 swap-free 2011-25; untouched Jan-Oct 2026 -1.36% |
 | 2026-10-27 | ORB 50 study | breakout, intraday, session | 118898 | Rejected | all 4 finalists negative 2023-25 (-0.12 to -0.16R) |
