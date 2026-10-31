@@ -91,3 +91,72 @@ def bailout(stop_key, unit, ny_from="16:45", ny_to="16:55"):
             res = res.copy(); res[:, 3] -= (cost_mult - 1.0) * res[:, 5] + (swap_mult - 1.0) * res[:, 7]
         return res
     return run
+
+
+@njit(cache=True)
+def _next_arrow(o, h, l, c, ts, gaps, k0s, sides, stops, exk, cost, swap, cut, delay, blo, bhi):
+    """Exit at the open of the minute after the next arrow (exk, sorted M1 indices), or at the protective stop."""
+    n = len(k0s); out = np.zeros((n, 8)); m = 0; busy = -1; busy_open = False; N = len(o); ne = len(exk)
+    for j in range(n):
+        k0 = k0s[j] + delay
+        if k0 < busy or (k0 == busy and not busy_open) or k0 >= N - 2:
+            continue
+        if ts[k0] >= cut:
+            break
+        tod = ts[k0] % 86400
+        if blo <= tod < bhi:
+            continue
+        sd = sides[j]; stop = stops[j]
+        entry = o[k0] + cost if sd > 0 else o[k0]
+        d = entry - stop if sd > 0 else stop - entry
+        if d <= 0:
+            continue
+        lo, hi = 0, ne                                           # first exit arrow strictly after the signal's entry
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if exk[mid] <= k0s[j]:
+                lo = mid + 1
+            else:
+                hi = mid
+        ke = exk[lo] if lo < ne else N - 1
+        kx = ke; at_open = True
+        px = o[ke] if sd > 0 else o[ke] + cost
+        for i in range(k0, ke):
+            if sd > 0:
+                if l[i] <= stop:
+                    px = o[i] if (i > k0 and o[i] < stop) else stop; kx = i; at_open = False; break
+            else:
+                if h[i] + cost >= stop:
+                    px = o[i] + cost if (i > k0 and o[i] + cost > stop) else stop; kx = i; at_open = False; break
+        busy = kx; busy_open = at_open
+        skip = False
+        for g in gaps:
+            if k0 <= g < kx:
+                skip = True; break
+        if skip:
+            continue
+        r = (px - entry) / d if sd > 0 else (entry - px) / d
+        nts = core.nights_held(ts[k0], ts[kx])
+        fin = nts * swap / d
+        out[m, 0] = ts[k0]; out[m, 1] = ts[kx]; out[m, 2] = sd; out[m, 3] = r - fin; out[m, 4] = d
+        out[m, 5] = cost / d; out[m, 6] = nts; out[m, 7] = fin; m += 1
+    return out[:m]
+
+
+def next_arrow(arrow_bars):
+    """Executor: hold until the next arrow (any colour change), exit at the next bar's open, or at the stop.
+    arrow_bars(B, p) -> sorted bar indices of every arrow (all of them, not only the ones that were traded)."""
+    def run(M, B, C, p, cut=core.CUT, cost_mult=1.0, swap_mult=1.0, delay=0):
+        if len(C["k0"]) == 0:
+            return np.zeros((0, 8))
+        ab = np.asarray(arrow_bars(B, p), np.int64)
+        ab = ab[ab < len(B["nxt"])]
+        exk = np.sort(np.asarray(B["nxt"], np.int64)[ab])
+        o = np.argsort(C["k0"], kind="stable")
+        res = _next_arrow(M.o, M.h, M.l, M.G.c, M.ts.astype(np.int64), M.gaps.astype(np.int64),
+                          C["k0"][o].astype(np.int64), C["side"][o].astype(np.int64), C["stop"][o].astype(np.float64), exk,
+                          M.cost, M.swap, cut if cut else 2 ** 62, int(delay), core.BLOCK[0], core.BLOCK[1])
+        if cost_mult != 1.0 or swap_mult != 1.0:
+            res = res.copy(); res[:, 3] -= (cost_mult - 1.0) * res[:, 5] + (swap_mult - 1.0) * res[:, 7]
+        return res
+    return run

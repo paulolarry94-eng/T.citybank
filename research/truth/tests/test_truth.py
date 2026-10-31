@@ -181,5 +181,34 @@ class TestStopEntryAndBailout(unittest.TestCase):
         self.assertAlmostEqual(res[0, 3], (1.0700 - 1.1000) / 0.0250, places=9)   # gapped through the 250-pip stop
 
 
+class TestNextArrowExecutor(unittest.TestCase):
+    def _minutes(self, closes, t0=1704880800):            # 2024-01-10 10:00 UTC (outside the rollover block)
+        c = np.asarray(closes, float); o = np.r_[c[0], c[:-1]]
+        h = np.maximum(o, c) + 0.00005; l = np.minimum(o, c) - 0.00005
+        ts = t0 + np.arange(len(c), dtype=np.int64) * 60
+        return o, h, l, c, ts
+
+    def test_long_exits_at_the_next_arrow_open_and_reverses(self):
+        import executors as X, core
+        o, h, l, c, ts = self._minutes([1.1000, 1.1002, 1.1005, 1.1010, 1.1008, 1.1004, 1.1000, 1.0998])
+        k0 = np.array([1, 4], np.int64); sides = np.array([1, -1], np.int64); stops = np.array([1.0950, 1.1060])
+        exk = np.array([1, 4, 7], np.int64)                  # arrows: entries at 1 and 4, the next arrow at 7
+        res = X._next_arrow(o, h, l, c, ts, np.zeros(0, np.int64), k0, sides, stops, exk, 0.0002, 0.0, 2 ** 62, 0,
+                            core.BLOCK[0], core.BLOCK[1])
+        self.assertEqual(len(res), 2)                        # the reversal at minute 4 is allowed (exit at that open)
+        entry = o[1] + 0.0002; d = entry - 1.0950
+        self.assertAlmostEqual(res[0, 3], (o[4] - entry) / d, places=9)
+        d2 = 1.1060 - o[4]
+        self.assertAlmostEqual(res[1, 3], (o[4] - (o[7] + 0.0002)) / d2, places=9)
+
+    def test_stop_before_the_arrow(self):
+        import executors as X, core
+        o, h, l, c, ts = self._minutes([1.1000, 1.1000, 1.0990, 1.0940, 1.0930, 1.0950])
+        res = X._next_arrow(o, h, l, c, ts, np.zeros(0, np.int64), np.array([1], np.int64), np.array([1], np.int64),
+                            np.array([1.0950]), np.array([1, 5], np.int64), 0.0002, 0.0, 2 ** 62, 0, core.BLOCK[0], core.BLOCK[1])
+        entry = o[1] + 0.0002
+        self.assertAlmostEqual(res[0, 3], (1.0950 - entry) / (entry - 1.0950), places=9)     # stopped at -1R
+
+
 if __name__ == "__main__":
     unittest.main()

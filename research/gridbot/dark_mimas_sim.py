@@ -146,9 +146,9 @@ def grid(ts, o, h, l, c, bar_open_idx, act, side, step, tp, sl, max_orders, cost
     order; basket closes at weighted average +/- tp (profit) or -/+ sl (loss). Equal lots (fixed 0.01)."""
     n = len(ts); nb_open = len(bar_open_idx); m = len(act)
     be = np.zeros(max_orders); nb = 0; se = np.zeros(max_orders); ns = 0
-    bfin = 0.0; sfin = 0.0
+    bfin = 0.0; sfin = 0.0; bt0 = 0; st0 = 0
     realized = 0.0; peak = 0.0; maxdd = 0.0; min_eq = 0.0; last_day = -1
-    baskets = np.zeros((4 * m + 10, 5)); kb = 0        # t_close, side, orders, net, 1=target/0=stop
+    baskets = np.zeros((4 * m + 10, 6)); kb = 0        # t_close, side, orders, net, 1=target/0=stop, t_open
     yr = np.zeros(20)
     bo_j = 0; a_j = 0; bclosed_bar = -1; sclosed_bar = -1; cur_bar = -1; max_n = 0
     for i in range(n):
@@ -165,9 +165,9 @@ def grid(ts, o, h, l, c, bar_open_idx, act, side, step, tp, sl, max_orders, cost
         if a_j < m and act[a_j] == i:
             s = side[a_j]
             if s == 1 and nb == 0 and bclosed_bar != cur_bar:
-                be[0] = o[i]; nb = 1; bfin = 0.0; realized -= cost; yr[y] -= cost
+                be[0] = o[i]; nb = 1; bfin = 0.0; bt0 = ts[i]; realized -= cost; yr[y] -= cost
             if s == -1 and ns == 0 and sclosed_bar != cur_bar:
-                se[0] = o[i]; ns = 1; sfin = 0.0; realized -= cost; yr[y] -= cost
+                se[0] = o[i]; ns = 1; sfin = 0.0; st0 = ts[i]; realized -= cost; yr[y] -= cost
         if new_bar:
             if 0 < nb < max_orders and o[i] <= be[nb - 1] - step:
                 be[nb] = o[i]; nb += 1; realized -= cost; yr[y] -= cost
@@ -191,7 +191,7 @@ def grid(ts, o, h, l, c, bar_open_idx, act, side, step, tp, sl, max_orders, cost
                 g = 0.0
                 for q in range(nb): g += px - be[q]
                 realized += g; yr[y] += g
-                baskets[kb, 0] = ts[i]; baskets[kb, 1] = 1; baskets[kb, 2] = nb; baskets[kb, 3] = g; baskets[kb, 4] = hit; kb += 1
+                baskets[kb, 0] = ts[i]; baskets[kb, 1] = 1; baskets[kb, 2] = nb; baskets[kb, 3] = g; baskets[kb, 4] = hit; baskets[kb, 5] = bt0; kb += 1
                 nb = 0; bclosed_bar = cur_bar
         if ns > 0:
             avg = 0.0
@@ -206,7 +206,7 @@ def grid(ts, o, h, l, c, bar_open_idx, act, side, step, tp, sl, max_orders, cost
                 g = 0.0
                 for q in range(ns): g += se[q] - px
                 realized += g; yr[y] += g
-                baskets[kb, 0] = ts[i]; baskets[kb, 1] = -1; baskets[kb, 2] = ns; baskets[kb, 3] = g; baskets[kb, 4] = hit; kb += 1
+                baskets[kb, 0] = ts[i]; baskets[kb, 1] = -1; baskets[kb, 2] = ns; baskets[kb, 3] = g; baskets[kb, 4] = hit; baskets[kb, 5] = st0; kb += 1
                 ns = 0; sclosed_bar = cur_bar
         fl = 0.0
         for q in range(nb): fl += l[i] - be[q]
