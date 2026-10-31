@@ -112,3 +112,16 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** the gold is the existing book at measured Exness costs. The levers are the swap-free check, live proof,
   2–3% risk after proof, and prop capital (Q7). Pattern and market hunting on CFDs has diminishing returns.
 - **Facts vs estimates:** costs for the new markets are the lab's conservative estimates (commissions unknown).
+
+## 2026-10-31 (night) · the owner's 4-leg engulfing SOP ("it's an edge")
+- **Asked:** study 12 case-study documents deeply; test all windows, swing sizes 3-5, whole-candle engulfing, stop 3.5 pips
+  beyond Leg 4, retest within N candles, breakeven on/off; also gold daily; "train your eyes to see it reliably".
+- **Done:** coded the SOP and calibrated the detector on the owner's own cases until it reproduced them: 6 exact matches,
+  owner-rejected cases not flagged (`research/sop/parity_cases.py`). Several documents carry the screenshot date, not the trade
+  date; the real dates were found by price. Lab additions: real-spread limit fills (`FILL_SPREAD`; before, a buy limit needed the
+  whole all-in cost to fill, which misses touch-and-go fills); `executors.bracket` with breakeven; vectorised detector (80x
+  faster); 20 tests pass. Ran 756 FX and 72 gold configurations through the lab, then February–October 2026 Exness data
+  (untouched) as the final check.
+- **Learned:** rejected everywhere (P14 evidence). Before costs it is slightly negative; costs add 0.10–0.14R per trade (small
+  stops). Breakeven helps a little in 2011–22, then hurts in 2026 (P4). New P18: case studies select winners.
+- **Facts vs estimates:** commission is the high-end public estimate; FXCM (owner's charts) vs Exness prices differ by ~0.1–0.5 pip.

@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-36 ideas tested, about 302,299 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+37 ideas tested, about 302,311 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -14,32 +14,33 @@
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
 | trend | 8 | 3 | 102,564 |
+| intraday | 7 | 0 | 181,741 |
 | reversal | 7 | 1 | 105,844 |
 | breakout | 6 | 0 | 119,346 |
-| intraday | 6 | 0 | 181,729 |
 | session | 6 | 0 | 183,467 |
 | breadth | 5 | 0 | 77 |
 | daily | 5 | 1 | 86 |
+| retest | 5 | 0 | 10,152 |
 | smc | 5 | 0 | 14,988 |
+| engulfing | 4 | 0 | 3,042 |
 | mean-reversion | 4 | 0 | 11 |
-| retest | 4 | 0 | 10,140 |
 | third-party-ea | 4 | 0 | 304 |
-| engulfing | 3 | 0 | 3,030 |
+| ema | 3 | 0 | 840 |
 | grid | 3 | 0 | 196 |
 | index | 3 | 0 | 72 |
+| limit-entry | 3 | 0 | 840 |
 | liquidity | 3 | 0 | 1,376 |
 | oscillator | 3 | 0 | 288 |
+| owner-idea | 3 | 0 | 840 |
+| structure | 3 | 0 | 840 |
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | carry | 2 | 1 | 2 |
 | dip-buying | 2 | 0 | 8 |
-| ema | 2 | 0 | 828 |
 | energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
 | fvg | 2 | 0 | 9,312 |
-| limit-entry | 2 | 0 | 828 |
-| owner-idea | 2 | 0 | 828 |
 | pattern | 2 | 0 | 4,896 |
 | portfolio | 2 | 2 | 15 |
 | reversion | 2 | 2 | 15 |
@@ -48,7 +49,6 @@
 | short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
 | stop-entry | 2 | 1 | 6 |
-| structure | 2 | 0 | 828 |
 | time-filter | 2 | 0 | 144 |
 | book | 1 | 0 | 5 |
 | breakeven | 1 | 0 | 102,260 |
@@ -101,6 +101,7 @@
 | 2026-10-31 | index_rsi2_breadth_v1 | mean-reversion, dip-buying, rsi2, index, daily, breadth | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-10-31 | sop_4leg_v1 | engulfing, structure, retest, limit-entry, intraday, ema, owner-idea | 756 | Rejected | dev_E +0.084, val_E -0.240, final_E -0.109, final_n +97.000, final_PF +0.806, dsr +0.001, share_dev_positive +0.114 |
 | 2026-10-31 | sop_4leg_gold_v1 | engulfing, structure, retest, limit-entry, ema, owner-idea, gold, daily | 72 | Rejected: no configuration passed the development gate | share_dev_positive +0.347 |
+| 2026-10-31 | Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout | engulfing, structure, retest, limit-entry, intraday, ema, owner-idea | 12 | Rejected | Detector reproduces 6 of the owner's 12 cases exactly; on all setups 2011-25 the owner's setup loses 0.12-0.20R/trade (before costs -0.02 to -0.05R); Feb-Oct 2026 (untouched): M5 -0.09R (376 trades), M15 -0.35R, M30 +0.02R (82); breakeven worse in 2026. Case studies select winners: 4 of 5 reproduced cases won vs 21-34% of all setups. |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

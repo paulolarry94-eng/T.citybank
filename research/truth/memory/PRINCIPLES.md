@@ -24,6 +24,9 @@ Evidence: North Star ablation. Confidence: high.
 They add no out-of-sample edge; small targets hurt. Evidence: four-strategy study (mgmt_oos, exit_eras).
 Confidence: medium-high.
 
+More evidence (2026-10-31): owner's SOP: breakeven at 1:1 added +0.01 to +0.02R in 2011–22, then cost money in
+February–October 2026 (M30 +0.02R → −0.16R). It is not an edge.
+
 ### P5 Overnight swaps matter for multi-day trades
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
 +0.063 → +0.044R. A swap-free account changes the picture (book Sharpe 1.00 → 1.64 with low costs).
@@ -78,6 +81,8 @@ VIX carry: good years, then −97%. Evidence: multiasset study. Confidence: high
 ### P14 Chart-pattern concepts have no edge on these markets after costs
 ICT/SMC (FVG, liquidity grabs, structure shifts), Quasimodo, supply/demand, Malaysian SnR, engulfing, ORB:
 all rejected, about 250,000 configurations. Evidence: ledger. Confidence: high (for XAU/EUR/GBP/JPY, 2011–2025).
+More evidence (2026-10-31): the owner's 4-leg engulfing SOP (calibrated on their own case studies): 2 of 756 FX settings
+pass the gate and then fail; 0 of 72 on gold H4/D1; February–October 2026, untouched: −0.09 to −0.35R per trade.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
@@ -102,3 +107,10 @@ Choosing a strategy's best trading hours on past data mostly selects luck. Dark 
 same (−0.04 to −0.05R). The big winners of high-frequency bots are trend days that start near the London or New York
 open, and a trend day is known only after it ends. A time filter must survive a learn-then-check split before anyone
 trusts it. Evidence: research/gridbot/DARK_MIMAS_REPORT.md, research/results/truth/osc_turn_sessions_v1/. Confidence: medium-high.
+
+### P18 Case studies select winners; only a coded scan of every setup shows the hit rate
+The owner's 4-leg SOP documents showed mostly wins. Coded so that it reproduces the owner's own cases (same legs, entry and
+stop on 6 of 12), the rules find about 4,600 setups on EURUSD M30 alone in 2011–2025; 4 of the 5 reproduced cases won,
+but only 21–34% of all setups win, below the ~37% the 2R target needs after costs. Before trusting any discretionary
+pattern, code it, check it against the trader's examples, then test every occurrence. Evidence: research/sop/SOP_REPORT.md.
+Confidence: medium-high.
