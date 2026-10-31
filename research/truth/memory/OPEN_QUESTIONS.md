@@ -27,6 +27,8 @@ gold, so these add less independence than four unrelated markets would. Not chos
 starts later than 2011) and natural gas (high costs). Families must be declared before the first run. To check
 when the data arrives: start years (Dukascopy returned "not found" for WTI on 2011-06-07), oil contract-roll
 price jumps, and costs and swaps from the Exness export (Q1). How-to: `tools/DATA_HOWTO.md`.
+Data source changed (2026-10-31, before any test): Dukascopy throttled the cloud and GitHub Actions, so the four markets
+come from HistData.com (`tools/histdata_m1.py`, bid M1, EST→UTC). Markets unchanged.
 
 ### Q5 Equity-index RSI(2) mean reversion (watch-list)
 +0.41 Sharpe on stock indices in the daily futures data (`research/multiasset/mr_breadth.py`). Needs index

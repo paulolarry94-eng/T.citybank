@@ -52,8 +52,8 @@ Learning rules:
   cross-sectional momentum, broad mean reversion, GREEN/AMBER sizing states.
 - Biggest levers: swaps and breadth. Exness Zero spreads are MEASURED at about 0 (`research/exness/EXNESS_COSTS.md`):
   the book re-scores to Sharpe 1.15 with swaps, 1.51 swap-free (commission estimated at the high end; swap-free status
-  unconfirmed). Breadth: data for US500, GER40, WTI, XAGUSD (Q4) is being fetched by GitHub Actions
-  (`.github/workflows/fetch-data.yml`).
+  unconfirmed). Breadth: data for US500, GER40, WTI, XAGUSD (Q4) comes from HistData.com
+  (`tools/histdata_m1.py`, works from the cloud; Dukascopy throttles the cloud and GitHub Actions).
 - Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 
@@ -68,7 +68,8 @@ Learning rules:
   NorthStarExport.mq5 (exports broker specs, M1 bars with spread, and the economic calendar). All MQL5 except
   TimelessCity is uncompiled.
 - `research/exness/`: Exness Zero spread measurement (Exness's public tick archive ticks.ex2archive.com) and book re-score.
-- `tools/`: `dukascopy_m1.py` (Dukascopy throttles this cloud; GitHub Actions or a home PC works), `ingest_mt5.py`,
+- `tools/`: `histdata_m1.py` (HistData M1, works from the cloud), `dukascopy_m1.py` (home PC only: Dukascopy throttles
+  cloud and GitHub IPs), `ingest_mt5.py`,
   `parity_check.py`, `bootstrap.sh`.
 
 ## Next steps (gated)

@@ -1,7 +1,14 @@
 # Getting more market data (breadth, OPEN_QUESTIONS Q4)
 
 Declared markets (2026-10-31, before any data): **US500, GER40, WTI, XAGUSD**, 1-minute bid bars 2011–2025.
-Dukascopy throttles cloud machines, so the download runs on your own PC.
+
+**Update 2026-10-31: no owner action needed.** Dukascopy throttled both this cloud machine and GitHub's servers (every
+year failed with HTTP 429), so the data now comes from HistData.com, which downloads fine from the cloud:
+
+    python3 tools/histdata_m1.py US500,GER40,WTI,XAGUSD 2011 2025
+
+(HistData ASCII is in EST without daylight saving; the tool converts to UTC; checked against the 14:30 UTC US cash-open
+volatility spike.) The Dukascopy routes below still work from a home PC if a second source is ever needed.
 
 ## Route 1 (recommended): Dukascopy via the repo's downloader (Windows)
 1. Install Python from https://www.python.org/downloads/ and tick **"Add python.exe to PATH"** on the first screen.
