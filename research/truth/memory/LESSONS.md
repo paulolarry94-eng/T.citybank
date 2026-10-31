@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-38 ideas tested, about 302,420 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+39 ideas tested, about 302,423 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,9 +16,9 @@
 | intraday | 8 | 0 | 181,850 |
 | trend | 8 | 3 | 102,564 |
 | reversal | 7 | 1 | 105,844 |
+| breadth | 6 | 0 | 80 |
 | breakout | 6 | 0 | 119,346 |
 | session | 6 | 0 | 183,467 |
-| breadth | 5 | 0 | 77 |
 | daily | 5 | 1 | 86 |
 | engulfing | 5 | 0 | 3,151 |
 | retest | 5 | 0 | 10,152 |
@@ -36,7 +36,9 @@
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
+| book | 2 | 0 | 8 |
 | carry | 2 | 1 | 2 |
+| costs | 2 | 0 | 8 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
@@ -50,10 +52,8 @@
 | sizing | 2 | 0 | 60 |
 | stop-entry | 2 | 1 | 6 |
 | time-filter | 2 | 0 | 144 |
-| book | 1 | 0 | 5 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
-| costs | 1 | 0 | 5 |
 | cross-sectional | 1 | 0 | 1 |
 | diversified | 1 | 1 | 1 |
 | exness | 1 | 0 | 5 |
@@ -67,6 +67,8 @@
 | metals | 1 | 0 | 64 |
 | momentum | 1 | 0 | 1 |
 | pairs | 1 | 0 | 1 |
+| payouts | 1 | 0 | 3 |
+| probability | 1 | 0 | 3 |
 | prop | 1 | 0 | 20 |
 | quasimodo | 1 | 0 | 3,456 |
 | random | 1 | 0 | 48 |
@@ -104,6 +106,7 @@
 | 2026-10-31 | sop_4leg_gold_v1 | engulfing, structure, retest, limit-entry, ema, owner-idea, gold, daily | 72 | Rejected: no configuration passed the development gate | share_dev_positive +0.347 |
 | 2026-10-31 | Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout | engulfing, structure, retest, limit-entry, intraday, ema, owner-idea | 12 | Rejected | Detector reproduces 6 of the owner's 12 cases exactly; on all setups 2011-25 the owner's setup loses 0.12-0.20R/trade (before costs -0.02 to -0.05R); Feb-Oct 2026 (untouched): M5 -0.09R (376 trades), M15 -0.35R, M30 +0.02R (82); breakeven worse in 2026. Case studies select winners: 4 of 5 reproduced cases won vs 21-34% of all setups. |
 | 2026-10-31 | SOP winning-conditions study (learn 2011-19, check later) | engulfing, structure, owner-idea, filter-mining, intraday | 109 | Rejected: no winning condition exists | 23,000 filled setups (EUR/GBP M5-M30) with 19 features known at entry: 0 of 56 single conditions positive even in 2011-19; best 2-condition rule (stop >12 pips, costs <12% of R) -0.045R in 2011-19 (both halves negative), -0.08R 2020-22, +0.12R 2023-25 (257 trades), -0.32R Feb-Oct 2026. All setups: -0.15 to -0.18R in every period, 28% win. |
+| 2026-10-31 | Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book) | probability, breadth, costs, payouts, book | 3 | Study: informative | Book positive fortnights 54% (lab costs) -> 56% (Exness Zero + swaps) -> 59% (swap-free); months 60/63/68%; years 87/87/100%. One leg alone: 26% of fortnights, 55-66% of years. Per trade +0.069/+0.078/+0.103R (sd 1.26R): 90% chance of being up needs ~544/428/253 trades (~7-16 months of the book). |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

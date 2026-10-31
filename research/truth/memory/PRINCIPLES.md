@@ -117,3 +117,11 @@ Confidence: medium-high.
 More evidence (2026-10-31): looking for "the conditions that made it win" across 23,000 setups and 19 features known at entry,
 none of 56 single conditions was profitable even in the learning years (2011-19); the best 2-condition rule lost there too.
 When nothing separates winners in-sample, the wins are noise around a negative mean. Evidence: research/results/sop/winning_conditions.json.
+
+### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
+On the 11-leg book's own trades: the share of profitable fortnights rises from 54% (lab costs) to 59% (Exness Zero
+swap-free), and of profitable years from 87% to 100% of 2011-25, from costs alone. One leg alone is profitable in 26% of
+fortnights and 55-66% of years; the eleven together in 54-59% and 87-100%. With +0.08-0.10R per trade and a 1.26R spread,
+a 90% chance of being up needs about 250-430 trades (8-13 months of the book). Even then 4 fortnights in 10 lose, so
+fortnightly payouts must come from a buffer, not from each fortnight. Without positive expectancy no filter raises the
+odds (P16, P18). Evidence: research/results/probability/odds.json. Confidence: high (backtest; live will be weaker, P11).

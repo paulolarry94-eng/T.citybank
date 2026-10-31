@@ -136,3 +136,10 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   -0.18R in every period at a 28% win rate. Nothing known at entry separates the winners: P18 evidence. No lab run (the rule
   failed its own keep criterion).
 - **Decisions:** the SOP family is closed. The detector stays as a journaling tool if the owner wants it.
+
+## 2026-10-31 (night, last) · "they're not setups, just probability: how do we increase our probability?"
+- **Done:** measured on the book's own trades how costs, breadth and time change the share of profitable fortnights, months,
+  quarters and years (`research/probability/odds.py`).
+- **Learned:** P19. Costs: fortnights 54% -> 59%, years 87% -> 100% (lab -> Exness swap-free). Breadth: one leg 26% of fortnights,
+  the book 54-59%. Time: ~250-430 trades for a 90% chance of being up. About 4 fortnights in 10 lose even in the best case.
+- **Decisions:** payouts should come from a buffer above the high-water mark, not every fortnight (to discuss with the owner).
