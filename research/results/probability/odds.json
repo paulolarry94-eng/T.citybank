@@ -1,17 +1,17 @@
 {
  "lab costs + swaps": {
   "book": {
-   "fortnight": 0.541,
-   "month": 0.603,
-   "quarter": 0.633,
+   "fortnight": 0.554,
+   "month": 0.62,
+   "quarter": 0.667,
    "year": 0.867,
-   "worst_month_pct": -4.9
+   "worst_month_pct": -4.7
   },
   "one_leg_average": {
-   "fortnight": 0.258,
-   "month": 0.343,
-   "quarter": 0.473,
-   "year": 0.545
+   "fortnight": 0.269,
+   "month": 0.355,
+   "quarter": 0.479,
+   "year": 0.582
   },
   "per_trade_mean_R": 0.069,
   "per_trade_sd_R": 1.258,
@@ -20,17 +20,17 @@
  },
  "Exness Zero + swaps": {
   "book": {
-   "fortnight": 0.556,
-   "month": 0.631,
-   "quarter": 0.65,
-   "year": 0.867,
-   "worst_month_pct": -4.8
+   "fortnight": 0.574,
+   "month": 0.665,
+   "quarter": 0.683,
+   "year": 0.933,
+   "worst_month_pct": -4.6
   },
   "one_leg_average": {
-   "fortnight": 0.261,
-   "month": 0.348,
-   "quarter": 0.489,
-   "year": 0.6
+   "fortnight": 0.273,
+   "month": 0.359,
+   "quarter": 0.495,
+   "year": 0.63
   },
   "per_trade_mean_R": 0.078,
   "per_trade_sd_R": 1.259,
@@ -39,17 +39,17 @@
  },
  "Exness Zero swap-free": {
   "book": {
-   "fortnight": 0.592,
-   "month": 0.676,
-   "quarter": 0.717,
+   "fortnight": 0.605,
+   "month": 0.693,
+   "quarter": 0.75,
    "year": 1.0,
-   "worst_month_pct": -4.6
+   "worst_month_pct": -4.5
   },
   "one_leg_average": {
-   "fortnight": 0.267,
-   "month": 0.361,
-   "quarter": 0.506,
-   "year": 0.661
+   "fortnight": 0.279,
+   "month": 0.372,
+   "quarter": 0.518,
+   "year": 0.679
   },
   "per_trade_mean_R": 0.103,
   "per_trade_sd_R": 1.283,

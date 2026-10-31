@@ -1,0 +1,8 @@
+id,label,group,lo,hi
+bt,"Backtest 2011–25, Exness costs + swaps",Champion,1.36,1.36
+sf,"Backtest 2011–25, swap-free",Champion,1.74,1.74
+h23,2023–25 only,Champion,0.95,0.95
+stress,"Stress: costs x1.5, swaps x2",Champion,0.76,0.76
+live,Expected live: 30–50% weaker (P11),Champion,0.68,0.95
+y26,"Jan–Oct 2026, untouched",Champion,-0.22,-0.22
+fut,"Futures trend + carry replica, 2011–24",Reference in this project,0.5,0.5

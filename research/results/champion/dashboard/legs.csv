@@ -1,0 +1,12 @@
+leg,name,market,weight,trades_per_year,mean_R,win_pct,share_pnl,trades_2026,R_2026,contrib_2026_pct
+EUR_EuroHours_short_TueThu,"EUR/USD European-hours short, Tue-Thu",EURUSD,0.33,155,0.057,53.4,26.7,128,2.87,0.94
+XAU_S1_reversion_H1M30M20,Gold dip reversion (S1),XAUUSD,0.63,7,0.274,62.2,10.5,4,-3.98,-2.52
+JPY_VolBreakout_D1_k0.7,USD/JPY daily volatility breakout,USDJPY,0.21,99,0.048,41.9,9.2,77,12.4,2.63
+XAU_Donchian20_H4_turtle,"Gold H4 Donchian 20, turtle exit",XAUUSD,0.21,43,0.114,32.3,9.6,34,9.79,2.06
+JPY_S2_Donchian20_H4_long,"USD/JPY H4 trend, long only (S2)",USDJPY,0.37,8,0.281,43.6,7.4,8,3.06,1.12
+XAU_EMA20-50_H4,Gold H4 EMA 20/50 cross,XAUUSD,0.34,8,0.459,28.8,11.2,7,-0.9,-0.3
+GBP_WeeklySweep_FollowThrough,"GBP/USD weekly-level sweep, follow-through",GBPUSD,0.93,4,0.222,50.9,7.0,5,2.45,2.27
+JPY_Donchian55_D1_trail,USD/JPY daily Donchian 55,USDJPY,0.42,5,0.204,45.0,4.2,7,-5.54,-2.33
+JPY_RSI2_D1_lo5,USD/JPY daily RSI(2) dip,USDJPY,1.0,9,0.081,66.4,6.5,6,-2.03,-2.03
+GBPJPY_Donchian20_H4_trail,GBP/JPY H4 Donchian 20,GBPJPY,0.25,43,0.068,41.6,6.7,36,-9.58,-2.36
+EURGBP_Bollinger_D1_k1.5,EUR/GBP daily Bollinger reversion,EURGBP,0.56,27,0.006,59.0,0.8,21,-1.21,-0.68

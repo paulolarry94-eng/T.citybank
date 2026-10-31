@@ -44,70 +44,70 @@
  "results": {
   "research costs + swaps (as assumed)": {
    "2011-2025": {
-    "sharpe": 0.99,
-    "cagr_at_1pct": 0.0742,
-    "max_dd_at_1pct": 0.1095
+    "sharpe": 1.2,
+    "cagr_at_1pct": 0.0935,
+    "max_dd_at_1pct": 0.1026
    },
    "2023-2025": {
-    "sharpe": 0.59,
-    "cagr_at_1pct": 0.0444,
-    "max_dd_at_1pct": 0.1095
+    "sharpe": 0.79,
+    "cagr_at_1pct": 0.0615,
+    "max_dd_at_1pct": 0.1026
    },
    "mean_R_per_trade": 0.0692,
    "trades": 6100
   },
   "Exness Zero realistic + swaps": {
    "2011-2025": {
-    "sharpe": 1.15,
-    "cagr_at_1pct": 0.087,
-    "max_dd_at_1pct": 0.1035
+    "sharpe": 1.36,
+    "cagr_at_1pct": 0.1067,
+    "max_dd_at_1pct": 0.0966
    },
    "2023-2025": {
-    "sharpe": 0.75,
-    "cagr_at_1pct": 0.0578,
-    "max_dd_at_1pct": 0.1035
+    "sharpe": 0.95,
+    "cagr_at_1pct": 0.0753,
+    "max_dd_at_1pct": 0.0966
    },
    "mean_R_per_trade": 0.078,
    "trades": 6100
   },
   "Exness Zero realistic, swap-free": {
    "2011-2025": {
-    "sharpe": 1.51,
-    "cagr_at_1pct": 0.1195,
-    "max_dd_at_1pct": 0.0908
+    "sharpe": 1.74,
+    "cagr_at_1pct": 0.142,
+    "max_dd_at_1pct": 0.0832
    },
    "2023-2025": {
-    "sharpe": 1.06,
-    "cagr_at_1pct": 0.0843,
-    "max_dd_at_1pct": 0.0908
+    "sharpe": 1.27,
+    "cagr_at_1pct": 0.1046,
+    "max_dd_at_1pct": 0.0832
    },
    "mean_R_per_trade": 0.1035,
    "trades": 6100
   },
   "Exness Zero low commission + swaps": {
    "2011-2025": {
-    "sharpe": 1.29,
-    "cagr_at_1pct": 0.0989,
-    "max_dd_at_1pct": 0.0989
+    "sharpe": 1.5,
+    "cagr_at_1pct": 0.1192,
+    "max_dd_at_1pct": 0.0917
    },
    "2023-2025": {
-    "sharpe": 0.88,
-    "cagr_at_1pct": 0.0684,
-    "max_dd_at_1pct": 0.0989
+    "sharpe": 1.08,
+    "cagr_at_1pct": 0.0864,
+    "max_dd_at_1pct": 0.0917
    },
    "mean_R_per_trade": 0.0881,
    "trades": 6100
   },
   "Exness Zero low commission, swap-free": {
    "2011-2025": {
-    "sharpe": 1.65,
-    "cagr_at_1pct": 0.1317,
-    "max_dd_at_1pct": 0.0861
+    "sharpe": 1.88,
+    "cagr_at_1pct": 0.1549,
+    "max_dd_at_1pct": 0.0782
    },
    "2023-2025": {
-    "sharpe": 1.18,
-    "cagr_at_1pct": 0.0952,
-    "max_dd_at_1pct": 0.0861
+    "sharpe": 1.39,
+    "cagr_at_1pct": 0.1161,
+    "max_dd_at_1pct": 0.0782
    },
    "mean_R_per_trade": 0.1136,
    "trades": 6100

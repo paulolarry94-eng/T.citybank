@@ -1,122 +1,122 @@
 {
  "research + swaps | 1% | 2011-25": {
-  "sharpe": 0.99,
-  "cagr_at_1pct": 0.0742,
-  "max_dd_at_1pct": 0.1095
+  "sharpe": 1.2,
+  "cagr_at_1pct": 0.0935,
+  "max_dd_at_1pct": 0.1026
  },
  "research + swaps | 1% | 2023-25": {
-  "sharpe": 0.59,
-  "cagr_at_1pct": 0.0444,
-  "max_dd_at_1pct": 0.1095
+  "sharpe": 0.79,
+  "cagr_at_1pct": 0.0615,
+  "max_dd_at_1pct": 0.1026
  },
  "research + swaps | 2% | 2011-25": {
-  "sharpe": 0.99,
-  "cagr_at_1pct": 0.1475,
-  "max_dd_at_1pct": 0.2086
+  "sharpe": 1.2,
+  "cagr_at_1pct": 0.1888,
+  "max_dd_at_1pct": 0.1964
  },
  "research + swaps | 2% | 2023-25": {
-  "sharpe": 0.59,
-  "cagr_at_1pct": 0.0843,
-  "max_dd_at_1pct": 0.2086
+  "sharpe": 0.79,
+  "cagr_at_1pct": 0.1199,
+  "max_dd_at_1pct": 0.1964
  },
  "research + swaps | 3% | 2011-25": {
-  "sharpe": 0.99,
-  "cagr_at_1pct": 0.2192,
-  "max_dd_at_1pct": 0.2982
+  "sharpe": 1.2,
+  "cagr_at_1pct": 0.2853,
+  "max_dd_at_1pct": 0.282
  },
  "research + swaps | 3% | 2023-25": {
-  "sharpe": 0.59,
-  "cagr_at_1pct": 0.1194,
-  "max_dd_at_1pct": 0.2982
+  "sharpe": 0.79,
+  "cagr_at_1pct": 0.1746,
+  "max_dd_at_1pct": 0.282
  },
  "research + swaps | 4% | 2011-25": {
-  "sharpe": 0.99,
-  "cagr_at_1pct": 0.2887,
-  "max_dd_at_1pct": 0.379
+  "sharpe": 1.2,
+  "cagr_at_1pct": 0.3819,
+  "max_dd_at_1pct": 0.3599
  },
  "research + swaps | 4% | 2023-25": {
-  "sharpe": 0.59,
-  "cagr_at_1pct": 0.1493,
-  "max_dd_at_1pct": 0.379
+  "sharpe": 0.79,
+  "cagr_at_1pct": 0.2249,
+  "max_dd_at_1pct": 0.3599
  },
  "Exness Zero realistic + swaps | 1% | 2011-25": {
-  "sharpe": 1.15,
-  "cagr_at_1pct": 0.087,
-  "max_dd_at_1pct": 0.1035
+  "sharpe": 1.36,
+  "cagr_at_1pct": 0.1067,
+  "max_dd_at_1pct": 0.0966
  },
  "Exness Zero realistic + swaps | 1% | 2023-25": {
-  "sharpe": 0.75,
-  "cagr_at_1pct": 0.0578,
-  "max_dd_at_1pct": 0.1035
+  "sharpe": 0.95,
+  "cagr_at_1pct": 0.0753,
+  "max_dd_at_1pct": 0.0966
  },
  "Exness Zero realistic + swaps | 2% | 2011-25": {
-  "sharpe": 1.15,
-  "cagr_at_1pct": 0.1751,
-  "max_dd_at_1pct": 0.198
+  "sharpe": 1.36,
+  "cagr_at_1pct": 0.2177,
+  "max_dd_at_1pct": 0.1856
  },
  "Exness Zero realistic + swaps | 2% | 2023-25": {
-  "sharpe": 0.75,
-  "cagr_at_1pct": 0.1123,
-  "max_dd_at_1pct": 0.198
+  "sharpe": 0.95,
+  "cagr_at_1pct": 0.1492,
+  "max_dd_at_1pct": 0.1856
  },
  "Exness Zero realistic + swaps | 3% | 2011-25": {
-  "sharpe": 1.15,
-  "cagr_at_1pct": 0.2635,
-  "max_dd_at_1pct": 0.284
+  "sharpe": 1.36,
+  "cagr_at_1pct": 0.3323,
+  "max_dd_at_1pct": 0.2674
  },
  "Exness Zero realistic + swaps | 3% | 2023-25": {
-  "sharpe": 0.75,
-  "cagr_at_1pct": 0.163,
-  "max_dd_at_1pct": 0.284
+  "sharpe": 0.95,
+  "cagr_at_1pct": 0.221,
+  "max_dd_at_1pct": 0.2674
  },
  "Exness Zero realistic + swaps | 4% | 2011-25": {
-  "sharpe": 1.15,
-  "cagr_at_1pct": 0.3514,
-  "max_dd_at_1pct": 0.3622
+  "sharpe": 1.36,
+  "cagr_at_1pct": 0.4498,
+  "max_dd_at_1pct": 0.3425
  },
  "Exness Zero realistic + swaps | 4% | 2023-25": {
-  "sharpe": 0.75,
-  "cagr_at_1pct": 0.2094,
-  "max_dd_at_1pct": 0.3622
+  "sharpe": 0.95,
+  "cagr_at_1pct": 0.2898,
+  "max_dd_at_1pct": 0.3425
  },
  "Exness Zero realistic, swap-free | 1% | 2011-25": {
-  "sharpe": 1.51,
-  "cagr_at_1pct": 0.1195,
-  "max_dd_at_1pct": 0.0908
+  "sharpe": 1.74,
+  "cagr_at_1pct": 0.142,
+  "max_dd_at_1pct": 0.0832
  },
  "Exness Zero realistic, swap-free | 1% | 2023-25": {
-  "sharpe": 1.06,
-  "cagr_at_1pct": 0.0843,
-  "max_dd_at_1pct": 0.0908
+  "sharpe": 1.27,
+  "cagr_at_1pct": 0.1046,
+  "max_dd_at_1pct": 0.0832
  },
  "Exness Zero realistic, swap-free | 2% | 2011-25": {
-  "sharpe": 1.51,
-  "cagr_at_1pct": 0.246,
-  "max_dd_at_1pct": 0.175
+  "sharpe": 1.74,
+  "cagr_at_1pct": 0.2963,
+  "max_dd_at_1pct": 0.1612
  },
  "Exness Zero realistic, swap-free | 2% | 2023-25": {
-  "sharpe": 1.06,
-  "cagr_at_1pct": 0.1686,
-  "max_dd_at_1pct": 0.175
+  "sharpe": 1.27,
+  "cagr_at_1pct": 0.2125,
+  "max_dd_at_1pct": 0.1612
  },
  "Exness Zero realistic, swap-free | 3% | 2011-25": {
-  "sharpe": 1.51,
-  "cagr_at_1pct": 0.3792,
-  "max_dd_at_1pct": 0.253
+  "sharpe": 1.74,
+  "cagr_at_1pct": 0.4629,
+  "max_dd_at_1pct": 0.2343
  },
  "Exness Zero realistic, swap-free | 3% | 2023-25": {
-  "sharpe": 1.06,
-  "cagr_at_1pct": 0.2521,
-  "max_dd_at_1pct": 0.253
+  "sharpe": 1.27,
+  "cagr_at_1pct": 0.323,
+  "max_dd_at_1pct": 0.2343
  },
  "Exness Zero realistic, swap-free | 4% | 2011-25": {
-  "sharpe": 1.51,
-  "cagr_at_1pct": 0.5182,
-  "max_dd_at_1pct": 0.325
+  "sharpe": 1.74,
+  "cagr_at_1pct": 0.6416,
+  "max_dd_at_1pct": 0.3025
  },
  "Exness Zero realistic, swap-free | 4% | 2023-25": {
-  "sharpe": 1.06,
-  "cagr_at_1pct": 0.334,
-  "max_dd_at_1pct": 0.325
+  "sharpe": 1.27,
+  "cagr_at_1pct": 0.435,
+  "max_dd_at_1pct": 0.3025
  }
 }

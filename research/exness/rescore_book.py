@@ -43,7 +43,7 @@ def zero_costs(comm_scale=1.0):
 
 
 def daily(T, w):
-    d = pd.DatetimeIndex(pd.to_datetime(np.asarray(T["t_out"]), unit="s")).normalize()
+    d = pd.DatetimeIndex(pd.to_datetime(np.asarray(T["t_out"]), unit="s")).normalize() + pd.offsets.BDay(0)  # Sunday-open exits count on Monday
     pnl = pd.Series(0.01 * w * np.asarray(T["r"]), index=d).groupby(level=0).sum()
     idx = pd.date_range("2011-01-03", "2025-12-31", freq="B")
     return pnl.reindex(idx, fill_value=0.0)
@@ -65,6 +65,7 @@ def main():
                 "Exness Zero realistic, swap-free": (zero_costs(1.0), {k: 0.0 for k in SWAP}),
                 "Exness Zero low commission + swaps": (zero_costs(0.5), SWAP),
                 "Exness Zero low commission, swap-free": (zero_costs(0.5), {k: 0.0 for k in SWAP})}
+    series = {}
     res = {"costs_round_trip": {k: {s: round(v, 6) for s, v in c.items()} for k, (c, _) in profiles.items()}, "results": {}}
     for label, (cost, swap) in profiles.items():
         rows = []
@@ -73,11 +74,21 @@ def main():
             r = x["r"] + COST[sym] / x["dist"] - cost[sym] / x["dist"] - nights * swap[sym] / x["dist"]
             rows.append(pd.DataFrame(dict(t_out=x["t_out"].astype(np.int64), r=r, w=w[i])))
         D = pd.concat(rows)
-        p = daily(D, D["w"].to_numpy())
+        p = daily(D, D["w"].to_numpy()); series[label] = p
         res["results"][label] = {"2011-2025": stats(p), "2023-2025": stats(p[p.index >= "2023-01-01"]),
                                  "mean_R_per_trade": round(float(D["r"].mean()), 4), "trades": int(len(D))}
         print(label, res["results"][label], flush=True)
     json.dump(res, open(os.path.join(OUT, "book_rescore.json"), "w"), indent=1)
+    # risk scaling: the same daily P&L at 1-4% risk per trade (backtest, before the live haircut of P11)
+    short = {"research costs + swaps (as assumed)": "research + swaps", "Exness Zero realistic + swaps": "Exness Zero realistic + swaps",
+             "Exness Zero realistic, swap-free": "Exness Zero realistic, swap-free"}
+    scale = {}
+    for label, nm in short.items():
+        p = series[label]
+        for k in (1, 2, 3, 4):
+            scale[f"{nm} | {k}% | 2011-25"] = stats(k * p)
+            scale[f"{nm} | {k}% | 2023-25"] = stats(k * p[p.index >= "2023-01-01"])
+    json.dump(scale, open(os.path.join(OUT, "book_risk_scaling.json"), "w"), indent=1)
 
 
 if __name__ == "__main__":

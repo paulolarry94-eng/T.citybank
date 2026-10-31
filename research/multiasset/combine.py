@@ -28,7 +28,7 @@ PAIRS = [("AUD", "NZD"), ("EUR", "CHF"), ("GOLD", "SILVER"), ("SP500", "NASDAQ")
 def book_daily():
     import ns_portfolio as PF
     T, names = PF.build("BOOK")
-    d = pd.to_datetime(T["t_out"], unit="s").normalize()
+    d = pd.to_datetime(T["t_out"], unit="s").normalize() + pd.offsets.BDay(0)  # Sunday-open exits count on Monday
     pnl = pd.Series(0.01 * T["w"] * T["r"], index=d).groupby(level=0).sum()
     idx = pd.date_range("2011-01-03", pnl.index.max(), freq="B")
     return pnl.reindex(idx, fill_value=0.0)

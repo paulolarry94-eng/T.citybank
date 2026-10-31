@@ -255,7 +255,7 @@ def walk_forward(S, P, per, need):
 
 # ----------------------------------------------------------------------------- 8 portfolio fit
 def daily(trades, risk=0.01, w=1.0):
-    d = pd.to_datetime(trades[:, 1].astype(np.int64), unit="s").normalize()
+    d = pd.to_datetime(trades[:, 1].astype(np.int64), unit="s").normalize() + pd.offsets.BDay(0)  # Sunday-open exits count on Monday
     s = pd.Series(risk * w * trades[:, 3], index=d).groupby(level=0).sum()
     return s.reindex(pd.date_range("2011-01-03", "2025-12-31", freq="B"), fill_value=0.0)
 
@@ -263,7 +263,7 @@ def daily(trades, risk=0.01, w=1.0):
 def book_daily():
     import ns_portfolio as PF
     T, _ = PF.build("BOOK")
-    d = pd.to_datetime(T["t_out"], unit="s").normalize()
+    d = pd.to_datetime(T["t_out"], unit="s").normalize() + pd.offsets.BDay(0)
     s = pd.Series(0.01 * T["w"] * T["r"], index=d).groupby(level=0).sum()
     return s.reindex(pd.date_range("2011-01-03", "2025-12-31", freq="B"), fill_value=0.0)
 

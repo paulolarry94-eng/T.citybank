@@ -236,5 +236,16 @@ class TestNextArrowExecutor(unittest.TestCase):
         self.assertAlmostEqual(res[0, 3], 2.0, places=9)
 
 
+class TestDailySeries(unittest.TestCase):
+    def test_weekend_exits_count_on_monday(self):
+        """A trade that closes at the Sunday-night open must not vanish from the daily P&L (2026-10-31 bug)."""
+        sun = int(pd.Timestamp("2015-03-08 21:30", tz="UTC").timestamp())        # Sunday
+        tue = int(pd.Timestamp("2015-03-10 12:00", tz="UTC").timestamp())
+        tr = np.array([[0, sun, 1, 2.0], [0, tue, 1, -1.0]], dtype=float)
+        s = P.daily(tr)
+        self.assertAlmostEqual(float(s.sum()), 0.01 * (2.0 - 1.0), places=12)
+        self.assertAlmostEqual(float(s.loc["2015-03-09"]), 0.02, places=12)     # Monday
+
+
 if __name__ == "__main__":
     unittest.main()

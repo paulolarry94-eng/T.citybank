@@ -1,0 +1,203 @@
+{
+ "parity": {
+  "EUR_EuroHours_short_TueThu": {
+   "regenerated": 2296,
+   "stored": 2296,
+   "common": 2296,
+   "match": 1.0
+  },
+  "XAU_S1_reversion_H1M30M20": {
+   "regenerated": 96,
+   "stored": 96,
+   "common": 96,
+   "match": 1.0
+  },
+  "JPY_VolBreakout_D1_k0.7": {
+   "regenerated": 1462,
+   "stored": 1462,
+   "common": 1462,
+   "match": 1.0
+  },
+  "XAU_Donchian20_H4_turtle": {
+   "regenerated": 643,
+   "stored": 643,
+   "common": 643,
+   "match": 1.0
+  },
+  "JPY_S2_Donchian20_H4_long": {
+   "regenerated": 116,
+   "stored": 116,
+   "common": 116,
+   "match": 1.0
+  },
+  "XAU_EMA20-50_H4": {
+   "regenerated": 112,
+   "stored": 117,
+   "common": 112,
+   "match": 0.957
+  },
+  "GBP_WeeklySweep_FollowThrough": {
+   "regenerated": 55,
+   "stored": 55,
+   "common": 55,
+   "match": 1.0
+  },
+  "JPY_Donchian55_D1_trail": {
+   "regenerated": 80,
+   "stored": 80,
+   "common": 80,
+   "match": 1.0
+  },
+  "JPY_RSI2_D1_lo5": {
+   "regenerated": 130,
+   "stored": 130,
+   "common": 130,
+   "match": 1.0
+  },
+  "GBPJPY_Donchian20_H4_trail": {
+   "regenerated": 643,
+   "stored": 643,
+   "common": 643,
+   "match": 1.0
+  },
+  "EURGBP_Bollinger_D1_k1.5": {
+   "regenerated": 401,
+   "stored": 401,
+   "common": 401,
+   "match": 1.0
+  }
+ },
+ "legs": {
+  "EUR_EuroHours_short_TueThu": {
+   "weight": 0.329,
+   "trades_2026": 128,
+   "R_sum_exness": 2.87,
+   "R_mean_exness": 0.022
+  },
+  "XAU_S1_reversion_H1M30M20": {
+   "weight": 0.633,
+   "trades_2026": 4,
+   "R_sum_exness": -3.98,
+   "R_mean_exness": -0.995
+  },
+  "JPY_VolBreakout_D1_k0.7": {
+   "weight": 0.212,
+   "trades_2026": 77,
+   "R_sum_exness": 12.4,
+   "R_mean_exness": 0.161
+  },
+  "XAU_Donchian20_H4_turtle": {
+   "weight": 0.21,
+   "trades_2026": 34,
+   "R_sum_exness": 9.79,
+   "R_mean_exness": 0.288
+  },
+  "JPY_S2_Donchian20_H4_long": {
+   "weight": 0.366,
+   "trades_2026": 8,
+   "R_sum_exness": 3.06,
+   "R_mean_exness": 0.382
+  },
+  "XAU_EMA20-50_H4": {
+   "weight": 0.336,
+   "trades_2026": 7,
+   "R_sum_exness": -0.9,
+   "R_mean_exness": -0.129
+  },
+  "GBP_WeeklySweep_FollowThrough": {
+   "weight": 0.925,
+   "trades_2026": 5,
+   "R_sum_exness": 2.45,
+   "R_mean_exness": 0.49
+  },
+  "JPY_Donchian55_D1_trail": {
+   "weight": 0.42,
+   "trades_2026": 7,
+   "R_sum_exness": -5.54,
+   "R_mean_exness": -0.792
+  },
+  "JPY_RSI2_D1_lo5": {
+   "weight": 1.0,
+   "trades_2026": 6,
+   "R_sum_exness": -2.03,
+   "R_mean_exness": -0.338
+  },
+  "GBPJPY_Donchian20_H4_trail": {
+   "weight": 0.246,
+   "trades_2026": 36,
+   "R_sum_exness": -9.58,
+   "R_mean_exness": -0.266
+  },
+  "EURGBP_Bollinger_D1_k1.5": {
+   "weight": 0.559,
+   "trades_2026": 21,
+   "R_sum_exness": -1.21,
+   "R_mean_exness": -0.058
+  }
+ },
+ "book_2026": {
+  "research costs + swaps": {
+   "trades": 333,
+   "mean_R": 0.013,
+   "win": 0.45,
+   "return_pct_at_1pct": -2.4,
+   "max_dd_pct": 5.41,
+   "sharpe_ann": -0.41,
+   "months_positive": "4/10",
+   "monthly_pct": {
+    "2026-01": -0.4,
+    "2026-02": 0.83,
+    "2026-03": -0.06,
+    "2026-04": -1.23,
+    "2026-05": 0.23,
+    "2026-06": -0.12,
+    "2026-07": 1.0,
+    "2026-08": -0.78,
+    "2026-09": 2.19,
+    "2026-10": -3.91
+   }
+  },
+  "Exness Zero + swaps": {
+   "trades": 333,
+   "mean_R": 0.022,
+   "win": 0.456,
+   "return_pct_at_1pct": -1.36,
+   "max_dd_pct": 5.28,
+   "sharpe_ann": -0.22,
+   "months_positive": "5/10",
+   "monthly_pct": {
+    "2026-01": -0.3,
+    "2026-02": 0.9,
+    "2026-03": 0.01,
+    "2026-04": -1.15,
+    "2026-05": 0.34,
+    "2026-06": -0.01,
+    "2026-07": 1.12,
+    "2026-08": -0.67,
+    "2026-09": 2.35,
+    "2026-10": -3.78
+   }
+  },
+  "Exness Zero swap-free": {
+   "trades": 333,
+   "mean_R": 0.04,
+   "win": 0.465,
+   "return_pct_at_1pct": 0.78,
+   "max_dd_pct": 5.12,
+   "sharpe_ann": 0.17,
+   "months_positive": "6/10",
+   "monthly_pct": {
+    "2026-01": -0.12,
+    "2026-02": 1.02,
+    "2026-03": 0.29,
+    "2026-04": -0.99,
+    "2026-05": 0.58,
+    "2026-06": 0.15,
+    "2026-07": 1.52,
+    "2026-08": -0.53,
+    "2026-09": 2.65,
+    "2026-10": -3.62
+   }
+  }
+ }
+}

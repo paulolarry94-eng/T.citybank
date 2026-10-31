@@ -100,7 +100,7 @@ def main():
     for lab, rr in rows.items():
         D = pd.DataFrame(rr, columns=["t_out", "r", "w"])
         D = D[D.t_out >= JAN26]
-        d = pd.DatetimeIndex(pd.to_datetime(D.t_out.to_numpy(), unit="s")).normalize()
+        d = pd.DatetimeIndex(pd.to_datetime(D.t_out.to_numpy(), unit="s")).normalize() + pd.offsets.BDay(0)  # Sunday-open exits count on Monday
         p = pd.Series(0.01 * D.w.to_numpy() * D.r.to_numpy(), index=d).groupby(level=0).sum()
         idx = pd.date_range("2026-01-01", "2026-10-30", freq="B"); p = p.reindex(idx, fill_value=0.0)
         eq = (1 + p).cumprod(); dd = float((1 - eq / eq.cummax()).max())

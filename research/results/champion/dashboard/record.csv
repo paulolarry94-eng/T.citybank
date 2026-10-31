@@ -1,0 +1,6 @@
+period,label,role,ret,ret_sf,ret_basis,sharpe,sharpe_sf,max_dd,months_up,years_up
+2011-2019,2011–2019,Learning years: legs and weights fitted,11.37,15.13,a year,1.46,1.86,5.88,69.4,8/9
+2020-2022,2020–2022,Validation years,11.76,15.2,a year,1.5,1.86,7.89,69.4,3/3
+2023-2025,2023–2025,"Former holdout, seen when the legs were chosen",7.53,10.46,a year,0.95,1.27,9.66,52.8,3/3
+2011-2025,2011–2025,Whole backtest,10.67,14.2,a year,1.36,1.74,9.66,66.1,14/15
+2026,Jan–Oct 2026,Untouched: no test or choice has seen it,-1.36,0.78,in 10 months,-0.22,0.17,5.28,50.0,
