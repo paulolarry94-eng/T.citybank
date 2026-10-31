@@ -99,11 +99,16 @@ def stop_scan(o, h, l, ts, bfirst, bnxt, start, end, side, level, cost, blo, bhi
     return -1, 0.0, -1
 
 
-def to_candidates(B, rows, M, cap):
+def to_candidates(B, rows, M, cap, spread=None):
     """rows: iterable of (bar, side, stop) for a market order at the next bar's open, or
     (bar, side, stop, limit_price, valid_bars) for a pending limit order from the next bar, or
-    (bar, side, stop, stop_entry_price, valid_bars, "stop") for a pending stop order (breakout entry)."""
+    (bar, side, stop, stop_entry_price, valid_bars, "stop") for a pending stop order (breakout entry).
+    spread: optional real bid-ask spread for limit fills (strategy FILL_SPREAD). Without it a buy limit fills only when
+    bid + ALL-IN cost reaches the level (conservative: commission is not part of the quote). With it the fill test uses
+    the spread, and the rest of the all-in cost (commission + slippage) is added to the long entry price, so the round
+    trip still pays exactly the all-in cost."""
     out = []; n = len(B["c"])
+    fill_cost = M.cost if spread is None else float(spread)
     for r in rows:
         bar, side, stop = int(r[0]), int(r[1]), float(r[2])
         if bar + 2 >= n or side not in (1, -1) or not np.isfinite(stop):
@@ -116,8 +121,10 @@ def to_candidates(B, rows, M, cap):
                 out.append((k, side, px, stop, u, u, cap, dec_t))
         elif len(r) >= 5:
             k, px, u = core.limit_scan(M.o, M.h, M.l, M.ts, B["first"], B["nxt"], B["c"], bar + 1, bar + 1 + int(r[4]), side,
-                                       float(r[3]), stop, M.cost, 0.1 * M.cost, core.BLOCK[0], core.BLOCK[1])
+                                       float(r[3]), stop, fill_cost, 0.1 * fill_cost, core.BLOCK[0], core.BLOCK[1])
             if k >= 0:
+                if side > 0 and spread is not None:
+                    px += M.cost - fill_cost                 # commission + slippage on top of the quoted ask
                 out.append((k, side, px, stop, u, u, cap, dec_t))
         else:
             out.append((int(B["nxt"][bar]), side, -1.0, stop, bar + 1, bar, cap, dec_t))
@@ -143,7 +150,7 @@ def mgmt_sets(S):
 
 def run_config(S, M, p, tgt, trail, bias, cut=core.CUT, **kw):
     B = M.bars(p["tf"])
-    C = to_candidates(B, S.signals(B, p, M), M, S.STOP_CAP_ATR)
+    C = to_candidates(B, S.signals(B, p, M), M, S.STOP_CAP_ATR, getattr(S, "FILL_SPREAD", {}).get(M.sym))
     return execute(S, M, B, C, p, tgt, trail, bias, cut=cut, **kw)
 
 
@@ -184,7 +191,7 @@ def _worker(args):
     S = load_strategy(path); M = market(sym, S); rows = []
     for p in param_sets(S):
         B = M.bars(p["tf"])
-        C = to_candidates(B, S.signals(B, p, M), M, S.STOP_CAP_ATR)
+        C = to_candidates(B, S.signals(B, p, M), M, S.STOP_CAP_ATR, getattr(S, "FILL_SPREAD", {}).get(M.sym))
         for tgt, trail, bias in mgmt_sets(S):
             tr = execute(S, M, B, C, p, tgt, trail, bias)
             rows.append(dict(sym=sym, **p, tgt=tgt, trail=trail, bias=int(bias), n_cands=len(C["k0"]), **agg(tr)))

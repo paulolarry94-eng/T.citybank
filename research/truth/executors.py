@@ -186,3 +186,76 @@ def exit_when(exit_bars):
             res = res.copy(); res[:, 3] -= (cost_mult - 1.0) * res[:, 5] + (swap_mult - 1.0) * res[:, 7]
         return res
     return run
+
+
+@njit(cache=True)
+def _bracket(o, h, l, c, ts, gaps, k0s, sides, entries, stops, tgt, be, cost, swap, cut, delay, max_min, blo, bhi):
+    """Filled orders (k0 = fill minute, entries = fill price incl. the ask for longs) managed with a fixed stop, a target
+    at tgt x R and, if be, the stop moved to the entry once price has gone +1R (from the next minute on). Same minute:
+    stop first. Time stop after max_min minutes."""
+    n = len(k0s); out = np.zeros((n, 8)); m = 0; busy = -1; N = len(o)
+    for j in range(n):
+        k0 = k0s[j] + delay
+        if k0 <= busy or k0 >= N - 2:
+            continue
+        if ts[k0] >= cut:
+            break
+        sd = sides[j]; entry = entries[j]; stop = stops[j]
+        if delay > 0:
+            entry = max(entry, o[k0] + cost) if sd > 0 else min(entry, o[k0])
+        d = entry - stop if sd > 0 else stop - entry
+        if d <= 0:
+            continue
+        tp = entry + tgt * d if sd > 0 else entry - tgt * d
+        trig = entry + d if sd > 0 else entry - d
+        armed = False
+        kx = N - 1; px = c[N - 1] if sd > 0 else c[N - 1] + cost
+        for i in range(k0, N):
+            if ts[i] - ts[k0] >= max_min * 60:
+                kx = i; px = o[i] if sd > 0 else o[i] + cost; break
+            if sd > 0:
+                if l[i] <= stop:
+                    px = o[i] if (i > k0 and o[i] < stop) else stop; kx = i; break
+                if h[i] >= tp:
+                    px = tp; kx = i; break
+                if be and not armed and h[i] >= trig:
+                    armed = True; stop = entry
+            else:
+                if h[i] + cost >= stop:
+                    px = o[i] + cost if (i > k0 and o[i] + cost > stop) else stop; kx = i; break
+                if l[i] + cost <= tp:
+                    px = tp; kx = i; break
+                if be and not armed and l[i] + cost <= trig:
+                    armed = True; stop = entry
+        busy = kx
+        skip = False
+        for g in gaps:
+            if k0 <= g < kx:
+                skip = True; break
+        if skip:
+            continue
+        r = (px - entry) / d if sd > 0 else (entry - px) / d
+        nts = core.nights_held(ts[k0], ts[kx])
+        fin = nts * swap / d
+        out[m, 0] = ts[k0]; out[m, 1] = ts[kx]; out[m, 2] = sd; out[m, 3] = r - fin; out[m, 4] = d
+        out[m, 5] = cost / d; out[m, 6] = nts; out[m, 7] = fin; m += 1
+    return out[:m]
+
+
+def bracket(tgt=2.0, be_key="be", time_stop_bars=200):
+    """Executor for limit (or stop) entries: fixed stop, target tgt x R, optional breakeven at +1R (grid key be_key)."""
+    def run(M, B, C, p, cut=core.CUT, cost_mult=1.0, swap_mult=1.0, delay=0):
+        if len(C["k0"]) == 0:
+            return np.zeros((0, 8))
+        o = np.argsort(C["k0"], kind="stable")
+        ent = C["entry"][o].astype(np.float64); sd = C["side"][o].astype(np.int64); k0 = C["k0"][o].astype(np.int64)
+        mkt = ent < 0                                            # market orders: fill at the minute's open
+        ent[mkt & (sd > 0)] = M.o[k0[mkt & (sd > 0)]] + M.cost
+        ent[mkt & (sd < 0)] = M.o[k0[mkt & (sd < 0)]]
+        res = _bracket(M.o, M.h, M.l, M.G.c, M.ts.astype(np.int64), M.gaps.astype(np.int64), k0, sd, ent,
+                       C["stop"][o].astype(np.float64), float(tgt), bool(p.get(be_key, 0)), M.cost, M.swap,
+                       cut if cut else 2 ** 62, int(delay), int(time_stop_bars * B["minutes"]), core.BLOCK[0], core.BLOCK[1])
+        if cost_mult != 1.0 or swap_mult != 1.0:
+            res = res.copy(); res[:, 3] -= (cost_mult - 1.0) * res[:, 5] + (swap_mult - 1.0) * res[:, 7]
+        return res
+    return run

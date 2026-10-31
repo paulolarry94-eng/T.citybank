@@ -217,6 +217,24 @@ class TestNextArrowExecutor(unittest.TestCase):
                          core.BLOCK[0], core.BLOCK[1])
         self.assertEqual(int(res[0, 1]), int(ts[6]))         # the long ignores the short-exit list (3) and leaves at 6
 
+    def test_bracket_breakeven_turns_a_loser_into_zero(self):
+        import executors as X, core
+        # long filled at 1.1000 (stop 1.0990, 1R = 10 pips): price reaches +1R, then falls through the stop
+        o, h, l, c, ts = self._minutes([1.1000, 1.1005, 1.1011, 1.1003, 1.0985, 1.0980])
+        args = (o, h, l, c, ts, np.zeros(0, np.int64), np.array([1], np.int64), np.array([1], np.int64), np.array([1.1000]),
+                np.array([1.0990]), 2.0)
+        no_be = X._bracket(*args, False, 0.0, 0.0, 2 ** 62, 0, 10 ** 6, core.BLOCK[0], core.BLOCK[1])
+        be = X._bracket(*args, True, 0.0, 0.0, 2 ** 62, 0, 10 ** 6, core.BLOCK[0], core.BLOCK[1])
+        self.assertAlmostEqual(no_be[0, 3], -1.0, places=9)
+        self.assertAlmostEqual(be[0, 3], 0.0, places=9)
+
+    def test_bracket_target_at_2R(self):
+        import executors as X, core
+        o, h, l, c, ts = self._minutes([1.1000, 1.1006, 1.1012, 1.1021, 1.1030])
+        res = X._bracket(o, h, l, c, ts, np.zeros(0, np.int64), np.array([1], np.int64), np.array([1], np.int64),
+                         np.array([1.1000]), np.array([1.0990]), 2.0, True, 0.0, 0.0, 2 ** 62, 0, 10 ** 6, core.BLOCK[0], core.BLOCK[1])
+        self.assertAlmostEqual(res[0, 3], 2.0, places=9)
+
 
 if __name__ == "__main__":
     unittest.main()
