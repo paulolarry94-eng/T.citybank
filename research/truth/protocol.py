@@ -62,22 +62,59 @@ def ensure_costs(sym):
     E.COST[sym] = COSTS[sym]["cost"]; core.SWAP[sym] = COSTS[sym]["swap"]
 
 
-def market(sym):
+def market(sym, S=None):
     ensure_costs(sym)
+    over = getattr(S, "COSTS", {}) if S is not None else {}
+    if sym in over:                                          # the strategy's own cost assumption (e.g. the owner's spec)
+        E.COST[sym] = over[sym]
     return core.Mkt(sym)
 
 
+def execute(S, M, B, C, p, tgt, trail, bias, cut=core.CUT, **kw):
+    if hasattr(S, "EXECUTOR"):
+        return S.EXECUTOR(M, B, C, p, cut=cut, **kw)
+    core.TIME_STOP = S.TIME_STOP
+    return core.execute(M, B, C, tgt, trail, cut=cut, bias=bool(bias), **kw)
+
+
 # ----------------------------------------------------------------------------- signals -> candidates
+from numba import njit
+
+
+@njit(cache=True)
+def stop_scan(o, h, l, ts, bfirst, bnxt, start, end, side, level, cost, blo, bhi):
+    """Pending STOP order from bar `start` to `end` (exclusive): a buy stop fills when the ask reaches the level
+    (at the level, or the worse open on a gap); a sell stop when the bid reaches it. No fills in the rollover block."""
+    for u in range(start, min(end, len(bfirst))):
+        for k in range(bfirst[u], bnxt[u]):
+            t = ts[k] % 86400
+            if blo <= t < bhi:
+                continue
+            if side > 0:
+                if h[k] + cost >= level:
+                    return k, max(level, o[k] + cost), u
+            else:
+                if l[k] <= level:
+                    return k, min(level, o[k]), u
+    return -1, 0.0, -1
+
+
 def to_candidates(B, rows, M, cap):
     """rows: iterable of (bar, side, stop) for a market order at the next bar's open, or
-    (bar, side, stop, limit_price, valid_bars) for a pending limit order from the next bar."""
+    (bar, side, stop, limit_price, valid_bars) for a pending limit order from the next bar, or
+    (bar, side, stop, stop_entry_price, valid_bars, "stop") for a pending stop order (breakout entry)."""
     out = []; n = len(B["c"])
     for r in rows:
         bar, side, stop = int(r[0]), int(r[1]), float(r[2])
         if bar + 2 >= n or side not in (1, -1) or not np.isfinite(stop):
             continue
         dec_t = int(B["t"][bar] + B["minutes"] * 60)
-        if len(r) >= 5:
+        if len(r) >= 6 and r[5] == "stop":
+            k, px, u = stop_scan(M.o, M.h, M.l, M.ts, B["first"], B["nxt"], bar + 1, bar + 1 + int(r[4]), side, float(r[3]),
+                                 M.cost, core.BLOCK[0], core.BLOCK[1])
+            if k >= 0:
+                out.append((k, side, px, stop, u, u, cap, dec_t))
+        elif len(r) >= 5:
             k, px, u = core.limit_scan(M.o, M.h, M.l, M.ts, B["first"], B["nxt"], B["c"], bar + 1, bar + 1 + int(r[4]), side,
                                        float(r[3]), stop, M.cost, 0.1 * M.cost, core.BLOCK[0], core.BLOCK[1])
             if k >= 0:
@@ -107,8 +144,7 @@ def mgmt_sets(S):
 def run_config(S, M, p, tgt, trail, bias, cut=core.CUT, **kw):
     B = M.bars(p["tf"])
     C = to_candidates(B, S.signals(B, p, M), M, S.STOP_CAP_ATR)
-    core.TIME_STOP = S.TIME_STOP
-    return core.execute(M, B, C, tgt, trail, cut=cut, bias=bool(bias), **kw)
+    return execute(S, M, B, C, p, tgt, trail, bias, cut=cut, **kw)
 
 
 # ----------------------------------------------------------------------------- 1 look-ahead check
@@ -145,13 +181,12 @@ def lookahead_check(S, M, n_live=40, seed=7):
 # ----------------------------------------------------------------------------- 2 grid
 def _worker(args):
     path, sym = args
-    S = load_strategy(path); M = market(sym); rows = []
+    S = load_strategy(path); M = market(sym, S); rows = []
     for p in param_sets(S):
         B = M.bars(p["tf"])
         C = to_candidates(B, S.signals(B, p, M), M, S.STOP_CAP_ATR)
-        core.TIME_STOP = S.TIME_STOP
         for tgt, trail, bias in mgmt_sets(S):
-            tr = core.execute(M, B, C, tgt, trail, bias=bool(bias))
+            tr = execute(S, M, B, C, p, tgt, trail, bias)
             rows.append(dict(sym=sym, **p, tgt=tgt, trail=trail, bias=int(bias), n_cands=len(C["k0"]), **agg(tr)))
     return rows
 
@@ -252,7 +287,7 @@ def run(path, look=True, markets=None, procs=4):
                markets=S.MARKETS, timeframes=S.TIMEFRAMES, params=S.GRID, management=S.MANAGEMENT, time_stop=S.TIME_STOP)
     print(f"[0] {S.NAME}  fingerprint {S.FINGERPRINT[:12]}  markets {S.MARKETS}", flush=True)
     rec["priors"] = show_priors(S)
-    M0 = market(S.MARKETS[0])
+    M0 = market(S.MARKETS[0], S)
     ok, la = lookahead_check(S, M0); rec["lookahead"] = dict(ok=ok, checks=la)
     print(f"[1] look-ahead check: {'PASS' if ok else 'FAIL'}", flush=True)
     if not ok:
@@ -281,7 +316,7 @@ def run(path, look=True, markets=None, procs=4):
     p = {k: cfg[k] for k in ["tf"] + list(S.GRID)}
     base, strs, full = [], [], []
     for i, s in enumerate(S.MARKETS):
-        M = market(s)
+        M = market(s, S)
         b = run_config(S, M, p, cfg["tgt"], cfg["trail"], cfg["bias"]); base.append(np.c_[b, np.full(len(b), i)])
         strs.append(run_config(S, M, p, cfg["tgt"], cfg["trail"], cfg["bias"], cost_mult=1.5, swap_mult=2.0, delay=1))
         f = run_config(S, M, p, cfg["tgt"], cfg["trail"], cfg["bias"], cut=0); full.append(np.c_[f, np.full(len(f), i)])

@@ -144,5 +144,42 @@ class TestMemory(unittest.TestCase):
         self.assertEqual(len(e), 1); self.assertEqual(e[0]["family"], ["trend"]); self.assertEqual(e[0]["configs"], 12)
 
 
+
+class TestStopEntryAndBailout(unittest.TestCase):
+    def _minutes(self, closes, t0=1704923000):        # 2024-01-10 21:43:20 UTC ~ 16:43 New York (EST)
+        c = np.asarray(closes, float); o = np.r_[c[0], c[:-1]]
+        h = np.maximum(o, c) + 0.00005; l = np.minimum(o, c) - 0.00005
+        ts = (t0 - t0 % 60) + np.arange(len(c), dtype=np.int64) * 60
+        return o, h, l, c, ts
+
+    def test_buy_stop_fills_when_the_ask_reaches_the_level(self):
+        o, h, l, c, ts = self._minutes([1.1000, 1.1003, 1.1006, 1.1012, 1.1015])
+        first = np.array([0], np.int64); nxt = np.array([5], np.int64)
+        k, px, u = P.stop_scan(o, h, l, ts, first, nxt, 0, 1, 1, 1.1010, 0.0002, 0, 0)
+        self.assertEqual(k, 3)                             # minute 2: ask high 1.10085 < 1.1010; minute 3: 1.10145 >= 1.1010
+        self.assertAlmostEqual(px, 1.1010, places=9)       # fills at the level (no gap)
+
+    def test_bailout_exits_on_first_profitable_minute_in_the_new_york_window(self):
+        import executors as X
+        closes = [1.1000] * 3 + [1.0998, 1.1004, 1.1006, 1.1010] + [1.1010] * 20
+        o, h, l, c, ts = self._minutes(closes)
+        bail = X.ny_window(ts, 16 * 60 + 45, 16 * 60 + 55)
+        self.assertTrue(bail[2] or bail[3])                  # the window starts ~16:45 New York
+        res = X._bailout(o, h, l, c, ts, np.zeros(0, np.int64), bail, np.array([1], np.int64), np.array([1], np.int64),
+                         np.array([1.1001]), np.array([0.0250]), 0.0002, 0.0, 2 ** 62, 0)
+        self.assertEqual(len(res), 1)
+        first_profit = next(i for i in range(2, len(c)) if bail[i] and c[i] > 1.1001)
+        self.assertEqual(int(res[0, 1]), int(ts[first_profit]))
+        self.assertAlmostEqual(res[0, 3], (c[first_profit] - 1.1001) / 0.0250, places=9)
+
+    def test_bailout_stop_with_gap_fills_at_worse_open(self):
+        import executors as X
+        o, h, l, c, ts = self._minutes([1.1000, 1.1000, 1.0700, 1.0700])
+        o[2] = 1.0700; h[2] = 1.0705; l[2] = 1.0695
+        res = X._bailout(o, h, l, c, ts, np.zeros(0, np.int64), np.zeros(len(c), np.bool_), np.array([1], np.int64),
+                         np.array([1], np.int64), np.array([1.1000]), np.array([0.0250]), 0.0002, 0.0, 2 ** 62, 0)
+        self.assertAlmostEqual(res[0, 3], (1.0700 - 1.1000) / 0.0250, places=9)   # gapped through the 250-pip stop
+
+
 if __name__ == "__main__":
     unittest.main()
