@@ -31,6 +31,8 @@ Evidence: North Star rescore, TimelessCity rescore. Confidence: high (size of th
 Gold and USDJPY trend; EURUSD and GBPUSD don't (Donchian lab: gold +0.14–0.21R, JPY +0.15–0.28R, EUR/GBP
 negative; TimelessCity's EUR trend leg S4 rejected). Declare markets before testing; picking them afterwards
 is hindsight. Confidence: high.
+More evidence (2026-10-31): the owner's daily close-beyond reversal is Tier B on EUR/USD (+0.04R per trade) but fails as a
+4-market rule (gold negative, GBP flat): EUR/USD mean-reverts at the daily scale, where the others don't.
 
 ### P7 After a liquidity grab, continuation beats reversal
 About 1,400 sweep/grab variants: fading the grab has no edge; the only survivor is a continuation
@@ -68,3 +70,9 @@ Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9
 realised profit positive, net −$155k to −$196k per 0.01 lot once open losses count; it showed a realised profit after
 3 months in 95–100% of start dates, then wiped out 19–74% of accounts within 3 years. With the tail capped by a stop,
 all 12 versions lose (no edge underneath). Evidence: research/gridbot/. Confidence: high (for grid/averaging bots on gold).
+
+### P16 Win rate is not edge
+Exits that bank the first profit behind a wide stop produce 85–90% winners and tiny expectancy. Owner's EUR/USD reversal:
+88% winners, +34 pips average win vs −179 average loss, +0.04R per trade, +0.9% a year at 1% risk (4.3% a year at 5%
+risk with a 21% drawdown). Gold Hunter: realised wins nearly every month, net loss. Judge by expectancy, return per unit
+of drawdown and equity. Evidence: research/results/truth/eurusd_close_beyond_reversal_v1/, research/gridbot/. Confidence: high.

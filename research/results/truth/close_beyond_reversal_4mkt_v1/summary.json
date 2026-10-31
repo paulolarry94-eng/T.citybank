@@ -1,0 +1,104 @@
+{
+ "name": "close_beyond_reversal_4mkt_v1",
+ "hypothesis": "Same as eurusd_close_beyond_reversal_v1: an exhaustion close beyond the prior range snaps back.",
+ "fingerprint": "367894baf44b3f7ce2229337ec371bfcad29ad4446aa019d4a93eaf1e4b35b0f",
+ "started": "2026-10-31 15:45:47 UTC",
+ "markets": [
+  "XAUUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "stop_pct": [
+   1.35,
+   2.25,
+   3.15
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily liquidity sweeps (Asian, PDH/PDL, PWH/PWL)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 3,
+  "passed_gate": 0,
+  "share_dev_positive": 1.0,
+  "median_dev_E": 0.008691716966054275,
+  "share_dev_and_val_positive": 1.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

@@ -38,3 +38,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   trend tail; no edge once the tail is capped. Confirms P13 (short-volatility shape) and P10 (short windows mislead).
 - **Decisions:** not usable for the goal; the replay method is the template for auditing future third-party EAs.
 - **Facts vs estimates:** the EA's exact code is unknown; results are for the standard reading of its settings.
+
+## 2026-10-31 (later) · owner's EUR/USD daily reversal (no indicators)
+- **Asked:** test the spec exactly: red close below the prior low → buy stop at its high (next session only); green
+  close above the prior high → sell stop at its low; flat only; 4-pip costs; exit when in profit 16:45–16:55 New York,
+  else a 250-pip stop.
+- **Done:** priors showed 5/5 reversal ideas rejected (told the owner why this differs). Extended the Truth Lab with
+  stop-order entries, a custom-exit executor (New York bailout) and per-strategy costs, with 3 new tests (15 pass).
+  Ran the spec (stop 150/250/350 pips declared) and a 4-market breadth check declared before running.
+- **Learned:** Tier B on EUR/USD: +0.040 / +0.030 / +0.012R per trade (dev / val / 2023–25), deflated Sharpe 0.91 (3 tries),
+  88% winners, Sharpe 0.49 falling to 0.23, +0.9% a year at 1% risk. 4-market rule fails (EUR-specific): adds to P6. New P16.
+- **Decisions:** watch-list (Q8); not a goal-mover. Real Exness costs (Q1) remain the priority.
+- **Facts vs estimates:** the 2023–25 look is logged once (fingerprint 0fe044ee8598); P&L is booked at exit.

@@ -32,5 +32,10 @@ but slowly (median 6-8 months for +10%). To test: a near-barrier risk brake (rat
 -10% ends the account, unlike P8's personal-account finding), phase-specific risk, an open-risk cap that makes a
 5% daily breach structurally impossible, and FTMO's real costs/swaps on a Swing account. FAMILY: prop, risk, sizing.
 
+### Q8 EUR/USD daily close-beyond reversal (owner's spec): worth a small forward test?
+Tier B (`research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md`): +0.04R per trade, Sharpe 0.49 and falling
+(0.59 → 0.48 → 0.23), +0.9% a year at 1% risk; weakens the book after 2017 (0.84 → 0.76). Watch-list only unless real
+Exness costs (Q1) or a 2026 forward test show it stronger. FAMILY: reversal, daily, stop-entry, eurusd.
+
 ## Answered
 (none yet)

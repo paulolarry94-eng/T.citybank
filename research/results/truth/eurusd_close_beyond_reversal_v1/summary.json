@@ -1,0 +1,313 @@
+{
+ "name": "eurusd_close_beyond_reversal_v1",
+ "hypothesis": "A daily close beyond the prior day's range is an exhaustion move; a stop entry back through the bar's far extreme catches the snap-back, and banking the first profitable New York close harvests it.",
+ "fingerprint": "0fe044ee85982c535c611c382478f1604bba92f95f75e6ff26dedc31e5c46526",
+ "started": "2026-10-31 15:45:12 UTC",
+ "markets": [
+  "EURUSD"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "stop_pips": [
+   150,
+   250,
+   350
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily liquidity sweeps (Asian, PDH/PDL, PWH/PWL)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London)",
+   "verdict": "Rejected"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 3,
+  "passed_gate": 2,
+  "share_dev_positive": 1.0,
+  "median_dev_E": 0.031723577235775124,
+  "share_dev_and_val_positive": 1.0
+ },
+ "selection": {
+  "candidate": {
+   "tf": "D1",
+   "stop_pips": 250,
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 252,
+   "dev_E": 0.04004444444444597,
+   "dev_t": 1.7715260456320436,
+   "dev_Es": 0.024711111111112637,
+   "dev_fin": 0.007333333333333334,
+   "dev_nL": 132,
+   "dev_EL": 0.034660606060607106,
+   "dev_nS": 120,
+   "dev_ES": 0.04596666666666872,
+   "e1_n": 159,
+   "e1_E": 0.05278993710691961,
+   "e1_t": 1.804321638082559,
+   "e1_Es": 0.03976352201257999,
+   "e1_fin": 0.005026415094339623,
+   "e1_nL": 87,
+   "e1_EL": 0.026574712643679246,
+   "e1_nS": 72,
+   "e1_ES": 0.08446666666666838,
+   "e2_n": 93,
+   "e2_E": 0.018253763440862002,
+   "e2_t": 0.5180610581778532,
+   "e2_Es": -0.001023655913976707,
+   "e2_fin": 0.011277419354838709,
+   "e2_nL": 45,
+   "e2_EL": 0.05029333333333431,
+   "e2_nS": 48,
+   "e2_ES": -0.011783333333330781,
+   "val_n": 89,
+   "val_E": 0.030193258426967746,
+   "val_t": 0.8624750153734193,
+   "val_Es": 0.014858426966293588,
+   "val_fin": 0.007334831460674158,
+   "val_nL": 43,
+   "val_EL": 0.026548837209303414,
+   "val_nS": 46,
+   "val_ES": 0.033600000000001795,
+   "devE_EURUSD": 0.04004444444444597,
+   "mk_pos": 1
+  },
+  "neighbours": [
+   {
+    "param": "stop_pips",
+    "value": 150,
+    "dev_E": 0.031723577235775124,
+    "dev_t": 1.0260639002490577,
+    "dev_n": 287
+   },
+   {
+    "param": "stop_pips",
+    "value": 350,
+    "dev_E": 0.02867498440424303,
+    "dev_t": 1.4928453710401197,
+    "dev_n": 229
+   }
+  ],
+  "neighbours_all_pos": true,
+  "neighbours_median_t": 1.2594546356445888,
+  "walk_forward": {
+   "E": 0.10384888888889102,
+   "n": 60,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": [
+      "D1",
+      "250",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 25,
+     "E": 0.051824000000001064
+    },
+    {
+     "year": 2015,
+     "pick": [
+      "D1",
+      "150",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 35,
+     "E": 0.1410095238095267
+    },
+    {
+     "year": 2016,
+     "pick": null
+    },
+    {
+     "year": 2017,
+     "pick": null
+    },
+    {
+     "year": 2018,
+     "pick": null
+    },
+    {
+     "year": 2019,
+     "pick": null
+    },
+    {
+     "year": 2020,
+     "pick": null
+    },
+    {
+     "year": 2021,
+     "pick": null
+    },
+    {
+     "year": 2022,
+     "pick": null
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 252,
+   "E": 0.04004444444444597,
+   "t": 1.7680076190295515,
+   "PF": 1.4464737633837899,
+   "win": 0.8809523809523809
+  },
+  "val": {
+   "n": 89,
+   "E": 0.030193258426967743,
+   "t": 0.8576159625368155,
+   "PF": 1.3727459357487848,
+   "win": 0.9101123595505618
+  },
+  "stress_dev_val": {
+   "n": 339,
+   "E": 0.01620530973451514,
+   "t": 0.8241045149296901,
+   "PF": 1.1692046126552538,
+   "win": 0.8171091445427728
+  },
+  "dsr": {
+   "sr_trade": 0.1113740113338005,
+   "sr0": 0.01847063479007636,
+   "dsr": 0.907233680378215,
+   "n_trials": 3,
+   "T": 252
+  }
+ },
+ "final_look": {
+  "fingerprint": "0fe044ee85982c535c611c382478f1604bba92f95f75e6ff26dedc31e5c46526",
+  "config": "{\"bias\": 0, \"stop_pips\": 250, \"tf\": \"D1\", \"tgt\": 0.0, \"trail\": 0.0}",
+  "time": "2026-10-31 15:45:34 UTC",
+  "oos": {
+   "n": 112,
+   "E": 0.011657142857143823,
+   "t": 0.3758365087735084,
+   "PF": 1.1366376423308895,
+   "win": 0.8482142857142857
+  },
+  "per_market": {
+   "EURUSD": {
+    "n": 112,
+    "E": 0.011657142857143823,
+    "t": 0.3758365087735084,
+    "PF": 1.1366376423308895,
+    "win": 0.8482142857142857
+   }
+  }
+ },
+ "tier": "B",
+ "criteria": {
+  "1_E_pos_dev_val_oos": true,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": true,
+  "4_neighbours_stable": true,
+  "5_stress_dev_val_pos": true,
+  "6_oos_pos_2_markets": false
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 252,
+   "E": 0.055377777777779316,
+   "t": 2.4765758495295107,
+   "PF": 1.6394428152492866,
+   "win": 0.9126984126984127
+  },
+  "val": {
+   "n": 89,
+   "E": 0.04552808988764191,
+   "t": 1.3173221598838163,
+   "PF": 1.5835253456221408,
+   "win": 0.9213483146067416
+  },
+  "2023-25": {
+   "n": 112,
+   "E": 0.029900000000000974,
+   "t": 0.9933441368636754,
+   "PF": 1.3750896057347801,
+   "win": 0.9196428571428571
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": 0.11160151659861826,
+  "weights": {
+   "book": 0.206,
+   "cand": 0.794
+  },
+  "book_sharpe": 0.9966979649236697,
+  "cand_sharpe": 0.4903558700453972,
+  "combined_sharpe": 1.078301014383684,
+  "book_sharpe_2017_on": 0.8410009720694611,
+  "combined_sharpe_2017_on": 0.7626339843723237
+ },
+ "verdict": "Tier B: forward-test candidate"
+}

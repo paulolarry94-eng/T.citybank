@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-24 ideas tested, about 301,036 configurations; 3 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+26 ideas tested, about 301,042 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -8,18 +8,22 @@
 | Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12 | research/hunt/HUNT2_REPORT.md; research/northstar/NORTHSTAR_REPORT.md |
 | Futures trend + carry (pysystemtrade data, Carver defaults) | trend, carry, futures, diversified | Survivor (futures only) | Sharpe 0.96 since 2000, 0.50 2011-24; as CFDs 0.06 | research/multiasset/PROJECT.md |
 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) | research/northstar/TIMELESSCITY_RESCORE.md |
+| eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | Tier B: forward-test candidate |  | research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md |
 
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
+| reversal | 7 | 1 | 105,844 |
 | trend | 6 | 3 | 102,436 |
-| reversal | 5 | 0 | 105,838 |
 | smc | 5 | 0 | 14,988 |
 | breakout | 4 | 0 | 119,218 |
 | session | 4 | 0 | 183,323 |
 | liquidity | 3 | 0 | 1,376 |
 | sweep | 3 | 0 | 1,376 |
+| bailout-exit | 2 | 1 | 6 |
+| breadth | 2 | 0 | 5 |
 | carry | 2 | 1 | 2 |
+| daily | 2 | 1 | 6 |
 | fvg | 2 | 0 | 9,312 |
 | intraday | 2 | 0 | 180,685 |
 | mean-reversion | 2 | 0 | 3 |
@@ -30,13 +34,14 @@
 | risk | 2 | 0 | 60 |
 | short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
+| stop-entry | 2 | 1 | 6 |
 | averaging | 1 | 0 | 16 |
-| breadth | 1 | 0 | 2 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
 | cross-sectional | 1 | 0 | 1 |
 | diversified | 1 | 1 | 1 |
 | engulfing | 1 | 0 | 2,202 |
+| eurusd | 1 | 1 | 3 |
 | factor | 1 | 0 | 1 |
 | futures | 1 | 1 | 1 |
 | grid | 1 | 0 | 16 |
@@ -65,6 +70,8 @@
 | 2026-10-31 | coin_flip_control_v1 | control, random | 48 | Rejected | control: 1 random setting passed the first gate, caught by walk-forward/neighbours/DSR |
 | 2026-10-31 | FTMO-style prop challenge replay (TimelessCity, 11-leg book) | prop, risk, sizing | 20 | Study: informative (no new edge) | book at 1-1.5% risk/trade: phase 1 passed in 52-72% of 12-month windows (median ~26-34 weeks), both phases 33-54%; funded payouts ~6-8% of account/yr; TimelessCity lower (17-33% both phases) |
 | 2026-10-31 | Gold Hunter V9 (third-party grid EA, owner's .set) | grid, averaging, short-vol, third-party-ea | 16 | Rejected | hedged constant-lot grid, no stop: realised P&L positive but net -$155k to -$196k per 0.01 lot 2011-25 (pip $0.01); all 12 bounded (capped + stop) versions lose; looks profitable at 3 months in 95-100% of starts, then 19-74% of accounts blown within 3 years |
+| 2026-10-31 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | 3 | Tier B: forward-test candidate | dev_E +0.040, val_E +0.030, final_E +0.012, final_n +112.000, final_PF +1.137, dsr +0.907, share_dev_positive +1.000 |
+| 2026-10-31 | close_beyond_reversal_4mkt_v1 | reversal, daily, stop-entry, bailout-exit, breadth | 3 | Rejected: no configuration passed the development gate | share_dev_positive +1.000 |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |
