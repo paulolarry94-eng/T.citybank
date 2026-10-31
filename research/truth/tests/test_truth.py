@@ -209,6 +209,14 @@ class TestNextArrowExecutor(unittest.TestCase):
         entry = o[1] + 0.0002
         self.assertAlmostEqual(res[0, 3], (1.0950 - entry) / (entry - 1.0950), places=9)     # stopped at -1R
 
+    def test_long_and_short_use_their_own_exit_lists(self):
+        import executors as X, core
+        o, h, l, c, ts = self._minutes([1.1000, 1.1002, 1.1004, 1.1006, 1.1008, 1.1010, 1.1012, 1.1014])
+        res = X._exit_on(o, h, l, c, ts, np.zeros(0, np.int64), np.array([1], np.int64), np.array([1], np.int64),
+                         np.array([1.0950]), np.array([6], np.int64), np.array([3], np.int64), 0.0002, 0.0, 2 ** 62, 0,
+                         core.BLOCK[0], core.BLOCK[1])
+        self.assertEqual(int(res[0, 1]), int(ts[6]))         # the long ignores the short-exit list (3) and leaves at 6
+
 
 if __name__ == "__main__":
     unittest.main()

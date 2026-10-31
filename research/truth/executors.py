@@ -93,10 +93,15 @@ def bailout(stop_key, unit, ny_from="16:45", ny_to="16:55"):
     return run
 
 
-@njit(cache=True)
 def _next_arrow(o, h, l, c, ts, gaps, k0s, sides, stops, exk, cost, swap, cut, delay, blo, bhi):
     """Exit at the open of the minute after the next arrow (exk, sorted M1 indices), or at the protective stop."""
-    n = len(k0s); out = np.zeros((n, 8)); m = 0; busy = -1; busy_open = False; N = len(o); ne = len(exk)
+    return _exit_on(o, h, l, c, ts, gaps, k0s, sides, stops, exk, exk, cost, swap, cut, delay, blo, bhi)
+
+
+@njit(cache=True)
+def _exit_on(o, h, l, c, ts, gaps, k0s, sides, stops, exl, exs, cost, swap, cut, delay, blo, bhi):
+    """Exit longs at the first index in exl after entry (shorts: exs), at that minute's open; or at the stop."""
+    n = len(k0s); out = np.zeros((n, 8)); m = 0; busy = -1; busy_open = False; N = len(o)
     for j in range(n):
         k0 = k0s[j] + delay
         if k0 < busy or (k0 == busy and not busy_open) or k0 >= N - 2:
@@ -107,6 +112,8 @@ def _next_arrow(o, h, l, c, ts, gaps, k0s, sides, stops, exk, cost, swap, cut, d
         if blo <= tod < bhi:
             continue
         sd = sides[j]; stop = stops[j]
+        exk = exl if sd > 0 else exs
+        ne = len(exk)
         entry = o[k0] + cost if sd > 0 else o[k0]
         d = entry - stop if sd > 0 else stop - entry
         if d <= 0:
@@ -153,9 +160,28 @@ def next_arrow(arrow_bars):
         ab = ab[ab < len(B["nxt"])]
         exk = np.sort(np.asarray(B["nxt"], np.int64)[ab])
         o = np.argsort(C["k0"], kind="stable")
-        res = _next_arrow(M.o, M.h, M.l, M.G.c, M.ts.astype(np.int64), M.gaps.astype(np.int64),
-                          C["k0"][o].astype(np.int64), C["side"][o].astype(np.int64), C["stop"][o].astype(np.float64), exk,
-                          M.cost, M.swap, cut if cut else 2 ** 62, int(delay), core.BLOCK[0], core.BLOCK[1])
+        res = _exit_on(M.o, M.h, M.l, M.G.c, M.ts.astype(np.int64), M.gaps.astype(np.int64),
+                       C["k0"][o].astype(np.int64), C["side"][o].astype(np.int64), C["stop"][o].astype(np.float64), exk, exk,
+                       M.cost, M.swap, cut if cut else 2 ** 62, int(delay), core.BLOCK[0], core.BLOCK[1])
+        if cost_mult != 1.0 or swap_mult != 1.0:
+            res = res.copy(); res[:, 3] -= (cost_mult - 1.0) * res[:, 5] + (swap_mult - 1.0) * res[:, 7]
+        return res
+    return run
+
+
+def exit_when(exit_bars):
+    """Executor: exit at the next bar's open after the first closed bar where the exit condition holds (for longs and
+    shorts separately), or at the stop. exit_bars(B, p) -> (bar indices where longs exit, bar indices where shorts exit)."""
+    def run(M, B, C, p, cut=core.CUT, cost_mult=1.0, swap_mult=1.0, delay=0):
+        if len(C["k0"]) == 0:
+            return np.zeros((0, 8))
+        nxt = np.asarray(B["nxt"], np.int64)
+        xl, xs = exit_bars(B, p)
+        xl = np.sort(nxt[np.asarray(xl, np.int64)]); xs = np.sort(nxt[np.asarray(xs, np.int64)])
+        o = np.argsort(C["k0"], kind="stable")
+        res = _exit_on(M.o, M.h, M.l, M.G.c, M.ts.astype(np.int64), M.gaps.astype(np.int64),
+                       C["k0"][o].astype(np.int64), C["side"][o].astype(np.int64), C["stop"][o].astype(np.float64), xl, xs,
+                       M.cost, M.swap, cut if cut else 2 ** 62, int(delay), core.BLOCK[0], core.BLOCK[1])
         if cost_mult != 1.0 or swap_mult != 1.0:
             res = res.copy(); res[:, 3] -= (cost_mult - 1.0) * res[:, 5] + (swap_mult - 1.0) * res[:, 7]
         return res
