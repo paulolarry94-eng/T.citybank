@@ -77,3 +77,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   phone check (swap values, commission) is now the cheapest high-value action.
 - **Facts vs estimates:** spreads are MEASURED (Exness ticks); commission is an ESTIMATE (high end of public figures);
   slippage is assumed; book numbers are backtests before the expected live haircut (P11).
+
+## 2026-10-31 (later) · active hours for the Dark Mimas bot; what its winners look like
+- **Asked:** did we try other timeframes; study the winners and their hours; give the bot active hours; what is special
+  about the rare winners of high-frequency bots; keep risk at 1% per trade; only timeless alpha.
+- **Done:** timing study learning on 2011–19 and checking on 2020–25 (`research/gridbot/dark_mimas_time.py`); a lab
+  strategy with session windows declared before running, 1R = 2×ATR stop, exit at the next arrow, M15/H1/H4, follow or
+  fade, 4 markets, Exness Zero costs (`osc_turn_sessions_v1`; new `executors.next_arrow`, 2 new tests, 17 pass).
+  Hindsight noted: this family's 2011–25 behaviour had been seen before the lab run.
+- **Learned:** P17 (active hours picked from a backtest do not carry forward). Big winners = trend days at session
+  opens (known only afterwards); grid losses = trend days. Higher timeframes are less bad (M15 −0.068R, H1 −0.035R,
+  H4 −0.025R per trade), consistent with P3, but all negative. At a negative edge the best risk per trade is zero.
+- **Decisions:** the oscillator/Dark family is closed. Real progress remains costs (owner's phone check) and breadth (Q4).

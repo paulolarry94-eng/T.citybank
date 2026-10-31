@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-28 ideas tested, about 301,191 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+30 ideas tested, about 301,335 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -14,12 +14,15 @@
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
 | reversal | 7 | 1 | 105,844 |
+| session | 6 | 0 | 183,467 |
 | trend | 6 | 3 | 102,436 |
+| intraday | 5 | 0 | 180,973 |
 | smc | 5 | 0 | 14,988 |
 | breakout | 4 | 0 | 119,218 |
-| session | 4 | 0 | 183,323 |
-| intraday | 3 | 0 | 180,829 |
+| third-party-ea | 4 | 0 | 304 |
+| grid | 3 | 0 | 196 |
 | liquidity | 3 | 0 | 1,376 |
+| oscillator | 3 | 0 | 288 |
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
@@ -28,7 +31,6 @@
 | daily | 2 | 1 | 6 |
 | eurusd | 2 | 1 | 147 |
 | fvg | 2 | 0 | 9,312 |
-| grid | 2 | 0 | 160 |
 | mean-reversion | 2 | 0 | 3 |
 | pattern | 2 | 0 | 4,896 |
 | portfolio | 2 | 2 | 15 |
@@ -38,7 +40,7 @@
 | short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
 | stop-entry | 2 | 1 | 6 |
-| third-party-ea | 2 | 0 | 160 |
+| time-filter | 2 | 0 | 144 |
 | book | 1 | 0 | 5 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
@@ -52,7 +54,6 @@
 | gbpusd | 1 | 0 | 144 |
 | ict | 1 | 0 | 780 |
 | momentum | 1 | 0 | 1 |
-| oscillator | 1 | 0 | 144 |
 | pairs | 1 | 0 | 1 |
 | prop | 1 | 0 | 20 |
 | quasimodo | 1 | 0 | 3,456 |
@@ -81,6 +82,8 @@
 | 2026-10-31 | close_beyond_reversal_4mkt_v1 | reversal, daily, stop-entry, bailout-exit, breadth | 3 | Rejected: no configuration passed the development gate | share_dev_positive +1.000 |
 | 2026-10-31 | Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files) | oscillator, scalping, intraday, grid, averaging, third-party-ea, eurusd, gbpusd | 144 | Rejected | classic (stop-and-reverse on oscillator turns): loses before costs in 18/18 (-0.17 to -0.65 pips/trade), -1.2 to -1.9 pips at Exness Zero costs; grid set: 96-98% of baskets win but 0/36 tradable configs profitable at Exness Zero costs (-$1.6k to -$12.8k per 0.01 lot 2011-25). Vendor's live signals: equity DD 51-53% vs balance DD 8-25% (losses held open). |
 | 2026-10-31 | Exness Zero costs (measured spreads) and book re-score | costs, exness, swap-free, book | 5 | Study: informative | Zero spreads measured from Exness's own tick archive: ~0 on XAU/EUR/GBP/JPY/US500 (cost = commission + slippage). Book Sharpe 1.00 -> 1.15 with swaps, 1.51 swap-free (2023-25: 0.75 / 1.06) at high-end commission ($3.50/side FX, $5.50 gold). Commission and swap-free status unconfirmed. |
+| 2026-10-31 | osc_turn_sessions_v1 | oscillator, intraday, session, time-filter, third-party-ea | 108 | Rejected: no configuration passed the development gate | share_dev_positive +0.019 |
+| 2026-10-31 | Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25) | oscillator, intraday, session, time-filter, third-party-ea, grid | 36 | Study: informative (no new edge) | Best 6 hours picked on 2011-19: +1.11 pips/trade gross -> -0.13 in 2020-25; 0/18 positive after Exness costs. Grid best 8 hours +2.76 -> +0.18 pips/basket (below one order's cost). Big winners = trend days (1.5-2.3x normal range) starting at London/NY opens, known only afterwards; grid stop-outs = trend days (1.3-1.5x range). |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

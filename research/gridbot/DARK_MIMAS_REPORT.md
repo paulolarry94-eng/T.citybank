@@ -77,3 +77,37 @@ something looks good is exactly the hindsight the project forbids (P10).
 Evidence: `research/gridbot/dark_mimas_sim.py`, `research/results/gridbot/dark_mimas.json`.
 Sources: mql5.com product 66348 (Dark Mimas MT5), product 64140 (Dark Oscillator MT5), seller page msolito59,
 signals 2312398 and 2312403 (read 2026-10-31).
+
+## When do they win? Timing study (2026-10-31, `dark_mimas_time.py`)
+Owner's question: study the winners and their hours, and give the bot active hours. The method was fixed before
+running: **learn on 2011–2019 only, check on 2020–2025**. A pattern counts only if it repeats in the check years.
+
+**Classic (oscillator turns), 18 configurations**
+| | 2011–19 (learn) | 2020–25 (check) |
+|---|---|---|
+| The 6 best hours (picked on 2011–19): pips per trade before costs | +1.11 on average | −0.13 on average (4 of 18 above zero) |
+| The same hours after Exness Zero costs | | −0.14 to −1.57 (0 of 18 above zero) |
+| Hour-of-day profile, rank correlation learn vs check | median 0.36 | |
+
+The shape repeats somewhat (the bad hours stay bad, mostly because of noise), but the hours that looked best do not
+stay profitable.
+
+What the rare big winners look like (top 1% of trades, 2011–19):
+- they bring in 14–28% of all the profit from winning trades;
+- they happen on days whose range is **1.5–2.3× the 20-day average** (all trades: 1.06–1.14×), so they are trend days;
+- they start mostly at the **London open (07–08 UTC) and the New York open (12–13 UTC)**;
+- they are 1.5–2× more likely to start in the high-volatility regime, and they last 2–5× longer than an average trade.
+
+So the bot wins when a trend day starts near a session open and it happens to be on the right side. The trouble is
+that a trend day is known only after it has happened. Predicting it in advance is what the opening-range breakout and
+session studies tried, and they were rejected (P14).
+
+**Grid set, 18 configurations**
+- Stopped baskets (2–4.5% of baskets) happen on days with **1.3–1.5× the normal range**; baskets that reach their
+  target come on ordinary days (1.1×). The grid is short volatility: it loses on trend days (P13).
+- Best 8 opening hours picked on 2011–19: +2.76 pips per basket before costs → +0.18 in 2020–25, which is below the
+  cost of a single order.
+- Hour-of-day profile correlation learn vs check: about zero (−0.53 to +0.37).
+
+**Conclusion:** active hours chosen from history do not carry forward for this family. The lesson for us: a time
+filter is only real if it survives a learn-then-check split. "Best hours" from one backtest are mostly luck (P10).

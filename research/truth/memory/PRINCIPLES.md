@@ -84,3 +84,12 @@ Exits that bank the first profit behind a wide stop produce 85–90% winners and
 88% winners, +34 pips average win vs −179 average loss, +0.04R per trade, +0.9% a year at 1% risk (4.3% a year at 5%
 risk with a 21% drawdown). Gold Hunter: realised wins nearly every month, net loss. Judge by expectancy, return per unit
 of drawdown and equity. Evidence: research/results/truth/eurusd_close_beyond_reversal_v1/, research/gridbot/. Confidence: high.
+
+### P17 Active hours picked from a backtest do not carry forward
+Choosing a strategy's best trading hours on past data mostly selects luck. Dark Mimas family: best 6 hours picked on
+2011–19 made +1.11 pips per trade before costs, then −0.13 in 2020–25 (0 of 18 positive after costs). Grid best hours:
++2.76 → +0.18 pips per basket. The lab test with session windows declared in advance (osc_turn_sessions_v1:
+6 windows × 3 timeframes × 3 oscillators × follow/fade, 4 markets) gave 0 of 108 passing, and every window lost about the
+same (−0.04 to −0.05R). The big winners of high-frequency bots are trend days that start near the London or New York
+open, and a trend day is known only after it ends. A time filter must survive a learn-then-check split before anyone
+trusts it. Evidence: research/gridbot/DARK_MIMAS_REPORT.md, research/results/truth/osc_turn_sessions_v1/. Confidence: medium-high.
