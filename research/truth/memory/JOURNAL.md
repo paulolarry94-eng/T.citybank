@@ -125,3 +125,14 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Learned:** rejected everywhere (P14 evidence). Before costs it is slightly negative; costs add 0.10–0.14R per trade (small
   stops). Breakeven helps a little in 2011–22, then hurts in 2026 (P4). New P18: case studies select winners.
 - **Facts vs estimates:** commission is the high-end public estimate; FXCM (owner's charts) vs Exness prices differ by ~0.1–0.5 pip.
+
+## 2026-10-31 (night, later) · "get the conditions that made it win, then test in and out of sample"
+- **Done:** every SOP setup on EUR/GBP M5/M15/M30 2011-2025 plus Feb-Oct 2026 (23,000+ filled), each simulated alone with the
+  lab's fills and exits; 19 features known at entry (hour, day, engulfing types, entry %, leg geometry, stop size, cost share,
+  volatility, H4 trend, EMA slope). Learned on 2011-19 only: terciles and categories (56 conditions), then the best pair
+  (109 conditions tried), kept only if positive in both halves. Method committed before running.
+- **Learned:** 0 of 56 conditions positive even in 2011-19. The best pair (stop >12 pips, costs <12% of R) lost -0.045R in the
+  years it was picked from; later -0.08R, +0.12R (2023-25, 257 trades), -0.32R (Feb-Oct 2026). All setups lose -0.15 to
+  -0.18R in every period at a 28% win rate. Nothing known at entry separates the winners: P18 evidence. No lab run (the rule
+  failed its own keep criterion).
+- **Decisions:** the SOP family is closed. The detector stays as a journaling tool if the owner wants it.

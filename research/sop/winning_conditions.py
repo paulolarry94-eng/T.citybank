@@ -111,7 +111,7 @@ def load_2026(sym, y0=2011, y1=2025):
 
 
 def year(t):
-    return pd.to_datetime(t, unit="s").year
+    return pd.to_datetime(t, unit="s").dt.year
 
 
 def stats(r):

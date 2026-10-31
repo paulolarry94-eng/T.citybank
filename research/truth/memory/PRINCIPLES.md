@@ -114,3 +114,6 @@ stop on 6 of 12), the rules find about 4,600 setups on EURUSD M30 alone in 2011â
 but only 21â€“34% of all setups win, below the ~37% the 2R target needs after costs. Before trusting any discretionary
 pattern, code it, check it against the trader's examples, then test every occurrence. Evidence: research/sop/SOP_REPORT.md.
 Confidence: medium-high.
+More evidence (2026-10-31): looking for "the conditions that made it win" across 23,000 setups and 19 features known at entry,
+none of 56 single conditions was profitable even in the learning years (2011-19); the best 2-condition rule lost there too.
+When nothing separates winners in-sample, the wins are noise around a negative mean. Evidence: research/results/sop/winning_conditions.json.
