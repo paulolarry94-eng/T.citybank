@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-26 ideas tested, about 301,042 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+28 ideas tested, about 301,191 configurations; 4 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -18,14 +18,17 @@
 | smc | 5 | 0 | 14,988 |
 | breakout | 4 | 0 | 119,218 |
 | session | 4 | 0 | 183,323 |
+| intraday | 3 | 0 | 180,829 |
 | liquidity | 3 | 0 | 1,376 |
 | sweep | 3 | 0 | 1,376 |
+| averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | breadth | 2 | 0 | 5 |
 | carry | 2 | 1 | 2 |
 | daily | 2 | 1 | 6 |
+| eurusd | 2 | 1 | 147 |
 | fvg | 2 | 0 | 9,312 |
-| intraday | 2 | 0 | 180,685 |
+| grid | 2 | 0 | 160 |
 | mean-reversion | 2 | 0 | 3 |
 | pattern | 2 | 0 | 4,896 |
 | portfolio | 2 | 2 | 15 |
@@ -35,29 +38,33 @@
 | short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
 | stop-entry | 2 | 1 | 6 |
-| averaging | 1 | 0 | 16 |
+| third-party-ea | 2 | 0 | 160 |
+| book | 1 | 0 | 5 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
+| costs | 1 | 0 | 5 |
 | cross-sectional | 1 | 0 | 1 |
 | diversified | 1 | 1 | 1 |
 | engulfing | 1 | 0 | 2,202 |
-| eurusd | 1 | 1 | 3 |
+| exness | 1 | 0 | 5 |
 | factor | 1 | 0 | 1 |
 | futures | 1 | 1 | 1 |
-| grid | 1 | 0 | 16 |
+| gbpusd | 1 | 0 | 144 |
 | ict | 1 | 0 | 780 |
 | momentum | 1 | 0 | 1 |
+| oscillator | 1 | 0 | 144 |
 | pairs | 1 | 0 | 1 |
 | prop | 1 | 0 | 20 |
 | quasimodo | 1 | 0 | 3,456 |
 | random | 1 | 0 | 48 |
 | ranking | 1 | 0 | 61,787 |
+| scalping | 1 | 0 | 144 |
 | scanner | 1 | 0 | 61,787 |
 | seasonal | 1 | 1 | 11 |
 | stat-arb | 1 | 0 | 1 |
 | supply-demand | 1 | 0 | 1,440 |
 | support-resistance | 1 | 0 | 2,202 |
-| third-party-ea | 1 | 0 | 16 |
+| swap-free | 1 | 0 | 5 |
 | volatility | 1 | 0 | 102,260 |
 
 ## Every idea tested (newest first)
@@ -72,6 +79,8 @@
 | 2026-10-31 | Gold Hunter V9 (third-party grid EA, owner's .set) | grid, averaging, short-vol, third-party-ea | 16 | Rejected | hedged constant-lot grid, no stop: realised P&L positive but net -$155k to -$196k per 0.01 lot 2011-25 (pip $0.01); all 12 bounded (capped + stop) versions lose; looks profitable at 3 months in 95-100% of starts, then 19-74% of accounts blown within 3 years |
 | 2026-10-31 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | 3 | Tier B: forward-test candidate | dev_E +0.040, val_E +0.030, final_E +0.012, final_n +112.000, final_PF +1.137, dsr +0.907, share_dev_positive +1.000 |
 | 2026-10-31 | close_beyond_reversal_4mkt_v1 | reversal, daily, stop-entry, bailout-exit, breadth | 3 | Rejected: no configuration passed the development gate | share_dev_positive +1.000 |
+| 2026-10-31 | Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files) | oscillator, scalping, intraday, grid, averaging, third-party-ea, eurusd, gbpusd | 144 | Rejected | classic (stop-and-reverse on oscillator turns): loses before costs in 18/18 (-0.17 to -0.65 pips/trade), -1.2 to -1.9 pips at Exness Zero costs; grid set: 96-98% of baskets win but 0/36 tradable configs profitable at Exness Zero costs (-$1.6k to -$12.8k per 0.01 lot 2011-25). Vendor's live signals: equity DD 51-53% vs balance DD 8-25% (losses held open). |
+| 2026-10-31 | Exness Zero costs (measured spreads) and book re-score | costs, exness, swap-free, book | 5 | Study: informative | Zero spreads measured from Exness's own tick archive: ~0 on XAU/EUR/GBP/JPY/US500 (cost = commission + slippage). Book Sharpe 1.00 -> 1.15 with swaps, 1.51 swap-free (2023-25: 0.75 / 1.06) at high-end commission ($3.50/side FX, $5.50 gold). Commission and swap-free status unconfirmed. |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

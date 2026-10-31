@@ -1,0 +1,116 @@
+{
+ "costs_round_trip": {
+  "research costs + swaps (as assumed)": {
+   "XAUUSD": 0.45,
+   "EURUSD": 0.00015,
+   "GBPUSD": 0.00018,
+   "USDJPY": 0.012,
+   "GBPJPY": 0.03,
+   "EURGBP": 0.00015
+  },
+  "Exness Zero realistic + swaps": {
+   "EURUSD": 9.5e-05,
+   "GBPUSD": 9.8e-05,
+   "USDJPY": 0.013465,
+   "XAUUSD": 0.162216,
+   "GBPJPY": 0.0235,
+   "EURGBP": 0.000106
+  },
+  "Exness Zero realistic, swap-free": {
+   "EURUSD": 9.5e-05,
+   "GBPUSD": 9.8e-05,
+   "USDJPY": 0.013465,
+   "XAUUSD": 0.162216,
+   "GBPJPY": 0.0235,
+   "EURGBP": 0.000106
+  },
+  "Exness Zero low commission + swaps": {
+   "EURUSD": 6e-05,
+   "GBPUSD": 6.3e-05,
+   "USDJPY": 0.008215,
+   "XAUUSD": 0.107216,
+   "GBPJPY": 0.01825,
+   "EURGBP": 7.8e-05
+  },
+  "Exness Zero low commission, swap-free": {
+   "EURUSD": 6e-05,
+   "GBPUSD": 6.3e-05,
+   "USDJPY": 0.008215,
+   "XAUUSD": 0.107216,
+   "GBPJPY": 0.01825,
+   "EURGBP": 7.8e-05
+  }
+ },
+ "results": {
+  "research costs + swaps (as assumed)": {
+   "2011-2025": {
+    "sharpe": 0.99,
+    "cagr_at_1pct": 0.0742,
+    "max_dd_at_1pct": 0.1095
+   },
+   "2023-2025": {
+    "sharpe": 0.59,
+    "cagr_at_1pct": 0.0444,
+    "max_dd_at_1pct": 0.1095
+   },
+   "mean_R_per_trade": 0.0692,
+   "trades": 6100
+  },
+  "Exness Zero realistic + swaps": {
+   "2011-2025": {
+    "sharpe": 1.15,
+    "cagr_at_1pct": 0.087,
+    "max_dd_at_1pct": 0.1035
+   },
+   "2023-2025": {
+    "sharpe": 0.75,
+    "cagr_at_1pct": 0.0578,
+    "max_dd_at_1pct": 0.1035
+   },
+   "mean_R_per_trade": 0.078,
+   "trades": 6100
+  },
+  "Exness Zero realistic, swap-free": {
+   "2011-2025": {
+    "sharpe": 1.51,
+    "cagr_at_1pct": 0.1195,
+    "max_dd_at_1pct": 0.0908
+   },
+   "2023-2025": {
+    "sharpe": 1.06,
+    "cagr_at_1pct": 0.0843,
+    "max_dd_at_1pct": 0.0908
+   },
+   "mean_R_per_trade": 0.1035,
+   "trades": 6100
+  },
+  "Exness Zero low commission + swaps": {
+   "2011-2025": {
+    "sharpe": 1.29,
+    "cagr_at_1pct": 0.0989,
+    "max_dd_at_1pct": 0.0989
+   },
+   "2023-2025": {
+    "sharpe": 0.88,
+    "cagr_at_1pct": 0.0684,
+    "max_dd_at_1pct": 0.0989
+   },
+   "mean_R_per_trade": 0.0881,
+   "trades": 6100
+  },
+  "Exness Zero low commission, swap-free": {
+   "2011-2025": {
+    "sharpe": 1.65,
+    "cagr_at_1pct": 0.1317,
+    "max_dd_at_1pct": 0.0861
+   },
+   "2023-2025": {
+    "sharpe": 1.18,
+    "cagr_at_1pct": 0.0952,
+    "max_dd_at_1pct": 0.0861
+   },
+   "mean_R_per_trade": 0.1136,
+   "trades": 6100
+  }
+ }
+}

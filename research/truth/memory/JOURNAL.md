@@ -60,3 +60,20 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   `tools/DATA_HOWTO.md`; the CSV importer now maps Dukascopy index and oil names.
 - **Learned:** nothing about edges (no results).
 - **Next:** owner downloads and uploads → declare families → Truth Lab runs per market with Exness costs.
+
+## 2026-10-31 (later) · Exness Zero costs and Dark Mimas
+- **Asked:** find Exness costs from any source using a realistic sample; research the "Dark" EAs (owner downloaded
+  Dark Mimas: manual + 4 .set files) and learn from them.
+- **Done:** found Exness's public tick archive (ticks.ex2archive.com, Zero-account feeds 2020–2026); measured Zero
+  spreads on a sample fixed before measuring (6 months × 8 markets); collected commission figures (they conflict) and
+  built realistic and low-commission profiles; re-scored the 11-leg book. Researched the vendor (MQL5 pages, two live
+  signals). Reconstructed both Dark Mimas settings (classic stop-and-reverse; 5-pip averaging grid) with 3 oscillator
+  versions and replayed EUR/GBP M5/M15/H1 2011–25 (144 runs). Breadth-data download moved to GitHub Actions (owner on
+  a phone).
+- **Learned:** Zero spreads ≈ 0 (cost = commission + slippage). Book Sharpe 1.15 with swaps, 1.51 swap-free
+  (2023–25 0.75 / 1.06): P5 and P1 updated. Dark Mimas: rejected, 0 of 108 tradable configurations profitable; grid
+  wins 96–98% of baskets yet loses; vendor signals show 51–53% equity drawdowns (P15, P16 strengthened).
+- **Decisions:** Exness Zero profile added as an extra cost profile (lab standard unchanged). Owner's 2-minute
+  phone check (swap values, commission) is now the cheapest high-value action.
+- **Facts vs estimates:** spreads are MEASURED (Exness ticks); commission is an ESTIMATE (high end of public figures);
+  slippage is assumed; book numbers are backtests before the expected live haircut (P11).

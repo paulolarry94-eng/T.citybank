@@ -8,6 +8,8 @@ not yet tested here). When new evidence contradicts a principle, edit it, keep t
 ### P1 Costs decide intraday trading
 Raw edge of intraday setups on XAU/EUR/GBP/JPY is about +0.01–0.02R per trade; all-in costs are about 0.07R.
 Evidence: scanner (61,787 setups: gross +0.015R, costs 0.076R), ORB study, liquidity studies. Confidence: high.
+More evidence (2026-10-31): Exness Zero spreads measured at about 0 (the cost is commission + slippage, about 1 pip on FX);
+the Dark Mimas oscillator scalper still loses 1.2–1.9 pips per trade there, and loses before costs too.
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -26,6 +28,9 @@ Confidence: medium-high.
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
 +0.063 → +0.044R. A swap-free account changes the picture (book Sharpe 1.00 → 1.64 with low costs).
 Evidence: North Star rescore, TimelessCity rescore. Confidence: high (size of the Exness effect unverified).
+Update (2026-10-31): with MEASURED Exness Zero spreads and high-end published commission, the book is Sharpe 1.15 with
+swaps and 1.51 swap-free (2023–25: 0.75 / 1.06). Swap-free status is the single largest cost lever left (+0.36 Sharpe).
+Evidence: research/exness/EXNESS_COSTS.md. Commission and the owner's swap-free status are still unconfirmed.
 
 ### P6 Trend persistence is market-specific
 Gold and USDJPY trend; EURUSD and GBPUSD don't (Donchian lab: gold +0.14–0.21R, JPY +0.15–0.28R, EUR/GBP
@@ -70,6 +75,9 @@ Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9
 realised profit positive, net −$155k to −$196k per 0.01 lot once open losses count; it showed a realised profit after
 3 months in 95–100% of start dates, then wiped out 19–74% of accounts within 3 years. With the tail capped by a stop,
 all 12 versions lose (no edge underneath). Evidence: research/gridbot/. Confidence: high (for grid/averaging bots on gold).
+More evidence (2026-10-31): Dark Mimas grid set on EUR/GBP 2011–25 wins 96–98% of baskets and loses in all 36 tradable
+configurations; the vendor's own live signals show 51–53% equity drawdowns against 8–25% on balance. MQL5 "growth %" is
+time-weighted: a $100 start topped up later inflates it; compare money deposited with equity. Confidence: high.
 
 ### P16 Win rate is not edge
 Exits that bank the first profit behind a wide stop produce 85–90% winners and tiny expectancy. Owner's EUR/USD reversal:

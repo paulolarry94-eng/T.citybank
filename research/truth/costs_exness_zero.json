@@ -1,0 +1,29 @@
+{
+ "_note": "Exness Zero all-in round-trip cost (measured Zero spread + commission + slippage) in price units. Spreads MEASURED from Exness's Zero tick archive (research/exness/EXNESS_COSTS.md); commission ESTIMATED from public sources at the high end ($3.50/side FX, $5.50/side gold); swaps as the lab standard unless the account is confirmed swap-free. An additional profile: the lab standard (costs.json) stays the default.",
+ "realistic": {
+  "EURUSD": 9.5e-05,
+  "GBPUSD": 9.8e-05,
+  "USDJPY": 0.013465,
+  "XAUUSD": 0.162216,
+  "GBPJPY": 0.0235,
+  "EURGBP": 0.000106
+ },
+ "low_commission": {
+  "EURUSD": 6e-05,
+  "GBPUSD": 6.3e-05,
+  "USDJPY": 0.008215,
+  "XAUUSD": 0.107216,
+  "GBPJPY": 0.01825,
+  "EURGBP": 7.8e-05
+ },
+ "measured_spread_only": {
+  "XAUUSD": 0.002216,
+  "EURUSD": 5e-06,
+  "GBPUSD": 8e-06,
+  "USDJPY": 0.000965,
+  "XAGUSD": 0.004598,
+  "US500": 0.002805,
+  "DE30": 0.215819,
+  "USOIL": 0.007656
+ }
+}

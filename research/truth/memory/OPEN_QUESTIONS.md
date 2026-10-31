@@ -4,9 +4,11 @@ Move a question to "Answered" with a link to its evidence once it is resolved. N
 here first, with FAMILY tags, so priors can be checked before testing.
 
 ### Q1 What are the real Exness Zero costs and is the account swap-free?
-Blocks everything that depends on costs (could move the book from Sharpe 1.00 to 1.64). Owner action: run
-`mt5/NorthStarExport.mq5`, push the folder, report the commission per lot. Then:
-`python3 tools/ingest_mt5.py <folder>`, replace estimates in `research/truth/costs.json`, re-score.
+PARTLY ANSWERED (2026-10-31, `research/exness/EXNESS_COSTS.md`): Zero spreads measured from Exness's own tick archive
+are about 0 on XAU/EUR/GBP/JPY, so cost = commission + slippage. With high-end published commission the book re-scores
+to Sharpe 1.15 with swaps and 1.51 swap-free (profile: `research/truth/costs_exness_zero.json`). Still open, owner
+check on a phone (2 minutes): (a) MT5 app → symbol Specification → Swap long/short = 0? (swap-free status, worth
++0.36 Sharpe); (b) commission shown in History after a 0.01-lot EURUSD and XAUUSD round trip.
 
 ### Q2 Does the TimelessCity EA trade like the research?
 Compile v2.42, Strategy Tester 2023–2025 (real ticks), compare with

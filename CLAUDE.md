@@ -50,8 +50,12 @@ Learning rules:
 - Rejected after costs on XAUUSD/EURUSD/GBPUSD/USDJPY: ORB, FVG, supply/demand, Quasimodo, Malaysian SnR,
   engulfing, about 1,400 liquidity-grab variants, an intraday best-setup scanner, short volatility, pairs,
   cross-sectional momentum, broad mean reversion, GREEN/AMBER sizing states.
-- Biggest levers: real costs and swaps (Exness Zero swap-free could add +0.3 to +0.6 Sharpe; unverified),
-  and breadth (more markets for the proven families).
+- Biggest levers: swaps and breadth. Exness Zero spreads are MEASURED at about 0 (`research/exness/EXNESS_COSTS.md`):
+  the book re-scores to Sharpe 1.15 with swaps, 1.51 swap-free (commission estimated at the high end; swap-free status
+  unconfirmed). Breadth: data for US500, GER40, WTI, XAGUSD (Q4) is being fetched by GitHub Actions
+  (`.github/workflows/fetch-data.yml`).
+- Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
+  reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 for XAUUSD, EURUSD, GBPUSD, USDJPY (`{SYM}_M1_bid_{YEAR}.npz`).
@@ -63,7 +67,8 @@ Learning rules:
 - `mt5/`: TimelessCity.mq5 + presets, NorthStarGovernor.mq5 + NorthStarRisk.mqh, TruthEA.mq5 template,
   NorthStarExport.mq5 (exports broker specs, M1 bars with spread, and the economic calendar). All MQL5 except
   TimelessCity is uncompiled.
-- `tools/`: `dukascopy_m1.py` (Dukascopy throttles cloud IPs: run it on a home PC), `ingest_mt5.py`,
+- `research/exness/`: Exness Zero spread measurement (Exness's public tick archive ticks.ex2archive.com) and book re-score.
+- `tools/`: `dukascopy_m1.py` (Dukascopy throttles this cloud; GitHub Actions or a home PC works), `ingest_mt5.py`,
   `parity_check.py`, `bootstrap.sh`.
 
 ## Next steps (gated)
