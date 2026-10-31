@@ -1,8 +1,12 @@
 """Download Dukascopy 1-minute BID candles straight from the public datafeed (one LZMA file per day) and save
 them in the repo's format: data/{SYM}_M1_bid_{YEAR}.npz (ts in ms UTC, o, h, l, c, v).
 
-    python3 tools/dukascopy_m1.py AUDUSD 2011 2025           # one symbol, years inclusive
-    python3 tools/dukascopy_m1.py --all 2011 2025            # the whole breadth list below
+    python3 tools/dukascopy_m1.py AUDUSD 2011 2025                  # one symbol, years inclusive
+    python3 tools/dukascopy_m1.py US500,GER40,WTI,XAGUSD 2011 2025  # several symbols (comma list)
+    python3 tools/dukascopy_m1.py --four 2011 2025                  # the 4 declared breadth markets (Q4)
+    python3 tools/dukascopy_m1.py --all 2011 2025                   # the whole breadth list below
+Optional: --workers N (parallel requests, default 4). Finished years are skipped, so re-running the same
+command after an interruption continues where it stopped. Run it on a home PC: Dukascopy throttles cloud IPs.
 
 Day file: https://datafeed.dukascopy.com/datafeed/{SYM}/{YYYY}/{MM-1:02d}/{DD:02d}/BID_candles_min_1.bi5
 Records: 24 bytes big-endian: seconds-from-midnight u32, open, close, low, high (u32 price x factor), volume f32.
@@ -28,6 +32,7 @@ BREADTH = {
     "US30": ("USA30IDXUSD", (10000, 50000)), "GER40": ("DEUIDXEUR", (5000, 26000)), "UK100": ("GBRIDXGBP", (4500, 10000)),
     "JP225": ("JPNIDXJPY", (8000, 45000)), "BTCUSD": ("BTCUSD", (100, 200000)), "ETHUSD": ("ETHUSD", (5, 10000)),
 }
+FOUR = ["US500", "GER40", "WTI", "XAGUSD"]          # declared 2026-10-31 before any data (OPEN_QUESTIONS Q4)
 FACTORS = [1, 10, 100, 1000, 10000, 100000, 1000000]
 
 
@@ -41,7 +46,7 @@ def parse(raw):
     return a[:, :5].astype(np.int64), vol
 
 
-def fetch_day(feed, day, tries=5):
+def fetch_day(feed, day, tries=8):
     u = URL.format(s=feed, y=day.year, m=day.month - 1, d=day.day)
     for k in range(tries):
         try:
@@ -53,10 +58,14 @@ def fetch_day(feed, day, tries=5):
         except urllib.error.HTTPError as e:
             if e.code == 404:
                 return None
-            time.sleep(2 ** k)
+            wait = 2 ** k
+            if e.code == 429:                                  # throttled: honour Retry-After, else back off longer
+                ra = e.headers.get("Retry-After") if e.headers else None
+                wait = int(ra) if ra and ra.isdigit() else min(60, 5 * 2 ** k)
+            time.sleep(wait)
         except Exception:
             time.sleep(2 ** k)
-    raise RuntimeError(f"failed {u}")
+    raise RuntimeError(f"failed {u} (Dukascopy busy or throttling: wait a few minutes and run the same command again)")
 
 
 def factor_for(medians, lo_hi):
@@ -68,7 +77,7 @@ def factor_for(medians, lo_hi):
     raise ValueError(f"no price factor maps median {np.median(medians)} into {lo_hi}")
 
 
-def year(sym, y, workers=8):
+def year(sym, y, workers=4):
     feed, rng = BREADTH.get(sym, (sym, None))
     out = os.path.join(DATA, f"{sym}_M1_bid_{y}.npz")
     if os.path.exists(out):
@@ -98,18 +107,30 @@ def year(sym, y, workers=8):
     if bad > 0.01:
         raise ValueError(f"{sym} {y}: {bad:.1%} bars violate low <= open/close <= high (column order?)")
     np.savez_compressed(out, ts=ts.astype(np.int64), o=o, h=h, l=l, c=c, v=vol)
-    print(f"{sym} {y}: {len(ts)} bars, factor {f}, {dt.datetime.utcfromtimestamp(ts[0] / 1000):%m-%d} -> "
-          f"{dt.datetime.utcfromtimestamp(ts[-1] / 1000):%m-%d}, range {l.min():g}-{h.max():g}", flush=True)
+    utc = lambda t: dt.datetime.fromtimestamp(t / 1000, dt.timezone.utc)
+    print(f"{sym} {y}: {len(ts)} bars, factor {f}, {utc(ts[0]):%m-%d} -> {utc(ts[-1]):%m-%d}, "
+          f"range {l.min():g}-{h.max():g}", flush=True)
     return out
 
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    syms = list(BREADTH) if a[0] == "--all" else [a[0].upper()]
+    workers = 4
+    if "--workers" in a:
+        i = a.index("--workers"); workers = int(a[i + 1]); del a[i:i + 2]
+    if len(a) != 3:
+        sys.exit(__doc__)
+    syms = list(BREADTH) if a[0] == "--all" else FOUR if a[0] == "--four" else [x.strip().upper() for x in a[0].split(",") if x.strip()]
     y0, y1 = int(a[1]), int(a[2])
+    os.makedirs(DATA, exist_ok=True)
+    done, failed = [], []
     for s in syms:
         for y in range(y0, y1 + 1):
             try:
-                year(s, y)
+                if year(s, y, workers):
+                    done.append(f"{s} {y}")
             except Exception as e:
-                print(f"{s} {y}: ERROR {e}", flush=True)
+                failed.append(f"{s} {y}"); print(f"{s} {y}: ERROR {e}", flush=True)
+    print(f"\nDone: {len(done)} year files in {os.path.abspath(DATA)}")
+    if failed:
+        print(f"Not finished ({len(failed)}): {', '.join(failed)}\nRun the same command again later; finished years are skipped.")

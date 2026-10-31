@@ -18,6 +18,13 @@ Measure on 3–6 months of demo with `research/northstar/weekly.py`.
 ### Q4 Breadth: do the book's families work on new markets?
 Needs M1 data for ~27 markets (`tools/dukascopy_m1.py --all 2011 2025` on a home PC; Dukascopy throttles
 cloud IPs). Pre-register markets and families before running through the Truth Lab.
+**Declared 2026-10-31, before any data was seen: US500, GER40, WTI, XAGUSD** (owner asked for 4 markets).
+Reasons: stocks (US500; also allows Q5), European stocks in London hours (GER40), energy (WTI), and the
+direct test of whether the gold families transfer (XAGUSD). GER40 and US500 move together, and so do silver and
+gold, so these add less independence than four unrelated markets would. Not chosen: BTCUSD (Dukascopy history
+starts later than 2011) and natural gas (high costs). Families must be declared before the first run. To check
+when the data arrives: start years (Dukascopy returned "not found" for WTI on 2011-06-07), oil contract-roll
+price jumps, and costs and swaps from the Exness export (Q1). How-to: `tools/DATA_HOWTO.md`.
 
 ### Q5 Equity-index RSI(2) mean reversion (watch-list)
 +0.41 Sharpe on stock indices in the daily futures data (`research/multiasset/mr_breadth.py`). Needs index

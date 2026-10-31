@@ -8,11 +8,16 @@ Prints a coverage line per file so gaps are visible before anything is tested.""
 import sys, re, os, datetime as dt
 import numpy as np
 
+# Dukascopy instrument names that differ from the repo's symbol names
+NAMES = {"USA500IDXUSD": "US500", "USATECHIDXUSD": "NAS100", "USA30IDXUSD": "US30", "DEUIDXEUR": "GER40",
+         "GBRIDXGBP": "UK100", "JPNIDXJPY": "JP225", "LIGHTCMDUSD": "WTI", "BRENTCMDUSD": "BRENT", "GASCMDUSD": "NATGAS"}
+
 def ingest(path, outdir="data"):
-    m = re.search(r"([a-z]{6})-m1-bid-(\d{4})-01-01", os.path.basename(path))
+    m = re.search(r"(?:^|[^a-z0-9])([a-z0-9]{6,14})-m1-bid-(\d{4})-01-01", "/" + os.path.basename(path))
     if not m:
         raise SystemExit(f"cannot read symbol/year from {path}")
     sym, year = m.group(1).upper(), int(m.group(2))
+    sym = NAMES.get(sym, sym)
     a = np.loadtxt(path, delimiter=",", skiprows=1)
     a = a[np.argsort(a[:, 0])]
     ts = a[:, 0].astype(np.int64)

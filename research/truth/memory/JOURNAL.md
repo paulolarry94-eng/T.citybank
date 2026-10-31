@@ -50,3 +50,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   88% winners, Sharpe 0.49 falling to 0.23, +0.9% a year at 1% risk. 4-market rule fails (EUR-specific): adds to P6. New P16.
 - **Decisions:** watch-list (Q8); not a goal-mover. Real Exness costs (Q1) remain the priority.
 - **Facts vs estimates:** the 2023–25 look is logged once (fingerprint 0fe044ee8598); P&L is booked at exit.
+
+## 2026-10-31 (later) · where to get data for 4 more markets
+- **Asked:** where to download data for 4 more markets.
+- **Done:** declared the markets before any data: US500, GER40, WTI, XAGUSD (Q4). Tested Dukascopy from the
+  cloud again: most requests still throttled (HTTP 429), so the download runs on the owner's PC. The downloader's decoding was
+  checked on one real day each for US500 (2,061.6) and XAGUSD (37.03) and on synthetic files. Added several
+  symbols, `--four`, longer back-off on 429, a Windows double-click file (`tools/get_four_markets.bat`) and
+  `tools/DATA_HOWTO.md`; the CSV importer now maps Dukascopy index and oil names.
+- **Learned:** nothing about edges (no results).
+- **Next:** owner downloads and uploads → declare families → Truth Lab runs per market with Exness costs.
