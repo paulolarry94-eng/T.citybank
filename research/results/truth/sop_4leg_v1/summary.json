@@ -1,0 +1,557 @@
+{
+ "name": "sop_4leg_v1",
+ "hypothesis": "After a clean two-swing trend structure with engulfing rejections at both swing extremes and an aligned EMA, price returns to the origin engulfing zone (Leg 4) and continues the trend from there.",
+ "fingerprint": "c9d4e687a7ae5fb8e409fa0a0eaf059066b0214e4228f2fff3fbbbbc9873ed04",
+ "started": "2026-10-31 19:05:13 UTC",
+ "markets": [
+  "EURUSD",
+  "GBPUSD"
+ ],
+ "timeframes": [
+  "M5",
+  "M15",
+  "M30"
+ ],
+ "params": {
+  "k": [
+   3,
+   4,
+   5
+  ],
+  "engulf": [
+   "perfect",
+   "any"
+  ],
+  "window": [
+   "owner",
+   "asia",
+   "london",
+   "overlap",
+   "ny",
+   "london_ny",
+   "all"
+  ],
+  "valid": [
+   5,
+   10,
+   20
+  ],
+  "be": [
+   0,
+   1
+  ]
+ },
+ "management": {
+  "tgt": [
+   2.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 200,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "FVG study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "North Star FVG models A-D",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 756,
+  "passed_gate": 2,
+  "share_dev_positive": 0.11375661375661375,
+  "median_dev_E": -0.1488026284605576,
+  "share_dev_and_val_positive": 0.051587301587301584
+ },
+ "selection": {
+  "candidate": {
+   "tf": "M15",
+   "k": 3,
+   "engulf": "perfect",
+   "window": "overlap",
+   "valid": 10,
+   "be": 1,
+   "tgt": 2.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 240,
+   "dev_E": 0.08378239831869318,
+   "dev_t": 1.033474328839717,
+   "dev_Es": 0.03245651682414137,
+   "dev_fin": 0.0042479804223928535,
+   "dev_nL": 114,
+   "dev_EL": 0.08292396716649177,
+   "dev_nS": 126,
+   "dev_ES": 0.08455907412306587,
+   "e1_n": 133,
+   "e1_E": 0.0727560477132944,
+   "e1_t": 0.6765626087197556,
+   "e1_Es": 0.022725534056326074,
+   "e1_fin": 0.006003434850338707,
+   "e1_nL": 66,
+   "e1_EL": 0.09544615392506069,
+   "e1_nS": 67,
+   "e1_ES": 0.05040459980319626,
+   "e2_n": 107,
+   "e2_E": 0.09748804907119821,
+   "e2_t": 0.7908883799296745,
+   "e2_Es": 0.04455203746077162,
+   "e2_fin": 0.002065966974572307,
+   "e2_nL": 48,
+   "e2_EL": 0.06570596037345948,
+   "e2_nS": 59,
+   "e2_ES": 0.12334466360495175,
+   "val_n": 81,
+   "val_E": -0.24032815543832395,
+   "val_t": -1.8947137766399393,
+   "val_Es": -0.2910210598936703,
+   "val_fin": 0.0009370206883703867,
+   "val_nL": 46,
+   "val_EL": -0.17283629985747517,
+   "val_nS": 35,
+   "val_ES": -0.32903173705886807,
+   "devE_EURUSD": 0.03959595603986236,
+   "devE_GBPUSD": 0.14356405551946427,
+   "mk_pos": 2
+  },
+  "neighbours": [
+   {
+    "param": "tf",
+    "value": "M5",
+    "dev_E": -0.19906728404517307,
+    "dev_t": -4.947545854912182,
+    "dev_n": 815
+   },
+   {
+    "param": "tf",
+    "value": "M30",
+    "dev_E": 0.03870316656623945,
+    "dev_t": 0.23780305463909715,
+    "dev_n": 63
+   },
+   {
+    "param": "k",
+    "value": 4,
+    "dev_E": 0.05803718283192985,
+    "dev_t": 0.5641835608251264,
+    "dev_n": 163
+   },
+   {
+    "param": "engulf",
+    "value": "any",
+    "dev_E": -0.03989291368027921,
+    "dev_t": -0.7215919790818004,
+    "dev_n": 494
+   },
+   {
+    "param": "window",
+    "value": "london",
+    "dev_E": -0.12544803247811334,
+    "dev_t": -2.288106226190116,
+    "dev_n": 484
+   },
+   {
+    "param": "window",
+    "value": "ny",
+    "dev_E": -0.17387400435645503,
+    "dev_t": -1.1680170493237318,
+    "dev_n": 62
+   },
+   {
+    "param": "valid",
+    "value": 5,
+    "dev_E": 0.11497595245847976,
+    "dev_t": 1.238226655232993,
+    "dev_n": 182
+   },
+   {
+    "param": "valid",
+    "value": 20,
+    "dev_E": 0.07885402194700537,
+    "dev_t": 1.0020701265592202,
+    "dev_n": 255
+   },
+   {
+    "param": "be",
+    "value": 0,
+    "dev_E": 0.10181779311544047,
+    "dev_t": 1.0728229459748153,
+    "dev_n": 240
+   }
+  ],
+  "neighbours_all_pos": false,
+  "neighbours_median_t": 0.23780305463909715,
+  "walk_forward": {
+   "E": -0.08413457055924863,
+   "n": 397,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": [
+      "M30",
+      "4",
+      "any",
+      "owner",
+      "5",
+      "1",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 47,
+     "E": -0.14905234507252413
+    },
+    {
+     "year": 2015,
+     "pick": [
+      "M30",
+      "3",
+      "perfect",
+      "owner",
+      "20",
+      "1",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 46,
+     "E": -0.2196678050509973
+    },
+    {
+     "year": 2016,
+     "pick": [
+      "M15",
+      "3",
+      "any",
+      "overlap",
+      "10",
+      "0",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 60,
+     "E": 0.020735589386830233
+    },
+    {
+     "year": 2017,
+     "pick": [
+      "M15",
+      "3",
+      "any",
+      "overlap",
+      "5",
+      "0",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 39,
+     "E": 0.2260214485726791
+    },
+    {
+     "year": 2018,
+     "pick": [
+      "M15",
+      "3",
+      "any",
+      "overlap",
+      "10",
+      "0",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 50,
+     "E": -0.22
+    },
+    {
+     "year": 2019,
+     "pick": [
+      "M30",
+      "4",
+      "perfect",
+      "all",
+      "10",
+      "1",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 59,
+     "E": -0.054007360333668084
+    },
+    {
+     "year": 2020,
+     "pick": [
+      "M30",
+      "5",
+      "perfect",
+      "all",
+      "10",
+      "1",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 27,
+     "E": 0.03422398698243385
+    },
+    {
+     "year": 2021,
+     "pick": [
+      "M5",
+      "4",
+      "perfect",
+      "ny",
+      "10",
+      "0",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 36,
+     "E": -0.18029674375989005
+    },
+    {
+     "year": 2022,
+     "pick": [
+      "M5",
+      "4",
+      "perfect",
+      "ny",
+      "10",
+      "0",
+      "2.0",
+      "0.0",
+      "0"
+     ],
+     "n": 33,
+     "E": -0.19991356764529555
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 240,
+   "E": 0.08378239831869319,
+   "t": 1.0313190098538019,
+   "PF": 1.1877641715988914,
+   "win": 0.2625
+  },
+  "val": {
+   "n": 81,
+   "E": -0.240328155438324,
+   "t": -1.8829816899876701,
+   "PF": 0.6106683881899151,
+   "win": 0.20987654320987653
+  },
+  "stress_dev_val": {
+   "n": 323,
+   "E": -0.10628294390620434,
+   "t": -1.5383499328975188,
+   "PF": 0.8144437140422819,
+   "win": 0.24148606811145512
+  },
+  "dsr": {
+   "sr_trade": 0.06657135582984829,
+   "sr0": 0.2609729532345999,
+   "dsr": 0.0009494406558510082,
+   "n_trials": 756,
+   "T": 240
+  }
+ },
+ "final_look": {
+  "fingerprint": "c9d4e687a7ae5fb8e409fa0a0eaf059066b0214e4228f2fff3fbbbbc9873ed04",
+  "config": "{\"be\": 1, \"bias\": 0, \"engulf\": \"perfect\", \"k\": 3, \"tf\": \"M15\", \"tgt\": 2.0, \"trail\": 0.0, \"valid\": 10, \"window\": \"overlap\"}",
+  "time": "2026-10-31 19:08:34 UTC",
+  "oos": {
+   "n": 97,
+   "E": -0.1088773647016099,
+   "t": -0.8876174214690427,
+   "PF": 0.8056128794494246,
+   "win": 0.2268041237113402
+  },
+  "per_market": {
+   "EURUSD": {
+    "n": 52,
+    "E": -0.027255349244158126,
+    "t": -0.16466193070264268,
+    "PF": 0.9440035328259488,
+    "win": 0.23076923076923078
+   },
+   "GBPUSD": {
+    "n": 45,
+    "E": -0.20319613811910975,
+    "t": -1.1070689922383115,
+    "PF": 0.6849143910781488,
+    "win": 0.2222222222222222
+   }
+  }
+ },
+ "tier": "Rejected",
+ "criteria": {
+  "1_E_pos_dev_val_oos": false,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": false,
+  "4_neighbours_stable": false,
+  "5_stress_dev_val_pos": false,
+  "6_oos_pos_2_markets": false
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 240,
+   "E": 0.135108279813245,
+   "t": 1.6587315226052974,
+   "PF": 1.320241032070872,
+   "win": 0.5208333333333334
+  },
+  "val": {
+   "n": 81,
+   "E": -0.18963525098297768,
+   "t": -1.48394829436251,
+   "PF": 0.6768026530763388,
+   "win": 0.38271604938271603
+  },
+  "2023-25": {
+   "n": 97,
+   "E": -0.048739029005585056,
+   "t": -0.39581150517603253,
+   "PF": 0.9074282922657285,
+   "win": 0.4329896907216495
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": -0.005710379369033262,
+  "weights": {
+   "book": 0.442,
+   "cand": 0.558
+  },
+  "book_sharpe": 0.9966979649236697,
+  "cand_sharpe": -0.23657667527020337,
+  "combined_sharpe": 0.518079123715836,
+  "book_sharpe_2017_on": 0.8410009720694611,
+  "combined_sharpe_2017_on": 0.11898713218024744
+ },
+ "verdict": "Rejected"
+}

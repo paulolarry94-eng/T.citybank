@@ -1,0 +1,149 @@
+{
+ "name": "sop_4leg_gold_v1",
+ "hypothesis": "After a clean two-swing trend structure with engulfing rejections at both swing extremes and an aligned EMA, price returns to the origin engulfing zone (Leg 4) and continues the trend from there. On gold's higher timeframes (owner's daily example).",
+ "fingerprint": "e2b3f1f32416bee5588b5b1fa0733712f07c8ced55bf10c15f73b8e22c2f78a2",
+ "started": "2026-10-31 19:08:38 UTC",
+ "markets": [
+  "XAUUSD"
+ ],
+ "timeframes": [
+  "H4",
+  "D1"
+ ],
+ "params": {
+  "k": [
+   3,
+   4,
+   5
+  ],
+  "engulf": [
+   "perfect",
+   "any"
+  ],
+  "window": [
+   "all"
+  ],
+  "valid": [
+   10,
+   20,
+   50
+  ],
+  "be": [
+   0,
+   1
+  ]
+ },
+ "management": {
+  "tgt": [
+   2.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 200,
+ "priors": [
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "FVG study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "North Star FVG models A-D",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 72,
+  "passed_gate": 0,
+  "share_dev_positive": 0.3472222222222222,
+  "median_dev_E": -0.0729153552774639,
+  "share_dev_and_val_positive": 0.19444444444444445
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}
