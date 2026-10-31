@@ -45,7 +45,7 @@ def main(sym, y0, y1, overwrite=False):
             continue
         b = pd.concat(parts); b = b[~b.index.duplicated()].sort_index()
         b = b[b.index.year == y]
-        ts = (b.index.asi8 // 10 ** 6).astype(np.int64)
+        ts = b.index.as_unit("ms").asi8.astype(np.int64)
         np.savez_compressed(out, ts=ts, o=b.o.to_numpy(float), h=b.h.to_numpy(float), l=b.l.to_numpy(float),
                             c=b.c.to_numpy(float), v=b.v.to_numpy(np.float32))
         print(f"{sym} {y}: {len(b)} bars from Exness {feed}_Zero_Spread, {b.index[0]:%m-%d} -> {b.index[-1]:%m-%d}, "

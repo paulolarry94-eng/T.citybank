@@ -29,6 +29,11 @@ when the data arrives: start years (Dukascopy returned "not found" for WTI on 20
 price jumps, and costs and swaps from the Exness export (Q1). How-to: `tools/DATA_HOWTO.md`.
 Data source changed (2026-10-31, before any test): Dukascopy throttled the cloud and GitHub Actions, so the four markets
 come from HistData.com (`tools/histdata_m1.py`, bid M1, EST→UTC). Markets unchanged.
+DATA READY (2026-10-31), checked with `tools/check_m1.py`: US500 2011–25 HistData; GER40 HistData 2011 → 2020-01-29, then
+Exness DE30 Zero (HistData's GRXEUR is a different index from 2020-06-15 to 2023-12-03, so it was replaced); WTI HistData 2011
+→ 2023-12-01, then Exness USOIL Zero; XAGUSD HistData 2011–25 (2025 surge to ~$64–84 confirmed against Exness). Seams
+match within 0.3%. No monthly roll-gap pattern in WTI; the April 2020 negative-oil episode is in the data. Next: declare the
+families (book families: trend, dip reversion) before the first run; costs for these markets are still estimates.
 
 ### Q5 Equity-index RSI(2) mean reversion (watch-list)
 +0.41 Sharpe on stock indices in the daily futures data (`research/multiasset/mr_breadth.py`). Needs index

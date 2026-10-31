@@ -58,7 +58,8 @@ Learning rules:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 
 ## Map
-- `data/` M1 bid bars 2011–2025 for XAUUSD, EURUSD, GBPUSD, USDJPY (`{SYM}_M1_bid_{YEAR}.npz`).
+- `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
+  GER40, WTI, XAGUSD from HistData + Exness ticks (sources and seams in OPEN_QUESTIONS Q4).
 - `research/engine.py`, `research/gold_lab.py`: loaders and early engines.
 - `research/northstar/`: execution core (`core.py`), pattern modules, pre-registration, risk manager, weekly
   report; the lab builds on it.

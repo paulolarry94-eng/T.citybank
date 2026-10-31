@@ -89,3 +89,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   opens (known only afterwards); grid losses = trend days. Higher timeframes are less bad (M15 −0.068R, H1 −0.035R,
   H4 −0.025R per trade), consistent with P3, but all negative. At a negative edge the best risk per trade is zero.
 - **Decisions:** the oscillator/Dark family is closed. Real progress remains costs (owner's phone check) and breadth (Q4).
+
+## 2026-10-31 (later) · breadth data downloaded (owner on a phone; the .bat could not run)
+- **Asked:** the GitHub download "is hitting errors"; how to get the data.
+- **Done:** read the cancelled run's logs: Dukascopy throttled GitHub's servers too (every year failed). Switched the source
+  to HistData.com (works from the cloud) plus Exness's own tick archive where HistData is wrong or missing; wrote
+  `tools/histdata_m1.py`, `tools/exness_m1.py` and `tools/check_m1.py`; removed the failing workflow.
+- **Learned (data facts):** HistData GRXEUR from 2020-06-15 to 2023-12-03 is a different index (3,000–4,400), so it is unusable
+  there. HistData has no WTI after 2023-12-01. Both gaps were filled from Exness, with seams matching within 0.3%. Time zone verified
+  against the 14:30 UTC US cash-open spike.
+- **Next:** declare which families to test on US500, GER40, WTI, XAGUSD before any run (Q4).
