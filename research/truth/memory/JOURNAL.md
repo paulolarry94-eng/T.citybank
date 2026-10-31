@@ -171,3 +171,20 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   the backtest is other vendors (seam). The two public Sharpe ranges on the dashboard (stocks, CTA index) are recalled, not looked up.
 - **Next:** re-score each new 2026/2027 month with `champion/regen_2026.py`; Q9 weighting study on 2011–22 walk-forward only;
   owner's swap-free and commission check.
+
+## 2026-10-31 (last) · the owner's "Leg 34" setup on gold, 5-minute chart
+- **Asked:** "the 3-4 strategy is profitable on 5m a lot of times, especially when the 10 EMA slope supports the direction";
+  explain it and ask questions. Owner's answers: name = Leg 34; zone = the whole eaten candle; small heads that do not break
+  the 10 EMA with an engulfing don't count; limit valid 8 hours; compare 3R and 4R, try trailing; EMA slope read like a
+  line chart. Stop buffer on gold and trading hours not answered (both tested two ways, declared before results).
+- **Done:** dated the owner's screenshot by price (30 Oct 2026, 01:20 UTC candle); parity: the detector finds the owner's
+  tops and reproduces 2 of 3 checkable trades (same fill times), entries at 30% of the eaten candle (the EUR 70% rule
+  missed both), one trade missed by ~$1 (owner's entry lower than any rule here). Pre-registered `leg34_gold_v1`
+  (144 configs) and the 2026 check before running; new `executors.managed` (fixed 3R/4R, breakeven, R-ladder, EMA trail;
+  24 tests pass). Lab: rejected, 0/144 positive in 2011-19 (best -0.12R). Diagnostics `research/sop/leg34_diag.py`.
+- **Learned:** no raw edge (+0.00 to +0.02R before costs); costs are 10-17% of the small 5-minute stops. Half the trades
+  reach +1R and 23% reach +3R, so "in profit before the loss" is normal (P16). Trailing and breakeven do not help. The EMA
+  slope does not sort winners. October 2026 (screenshot month) was mildly positive, Jan-Sep 2026 lost (P18).
+- **Decisions:** Leg 34 / the 4-leg SOP family is closed on EUR, GBP and gold at 5-30 min and gold H4/D1. No re-test with
+  rules changed after these results (that would need a new name and a reason that is not these results).
+- **Facts vs estimates:** commission is the high-end public estimate; owner's prices are OANDA, ours Exness (differ ~$0.1-0.3).

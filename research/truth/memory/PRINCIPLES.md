@@ -10,6 +10,8 @@ Raw edge of intraday setups on XAU/EUR/GBP/JPY is about +0.01–0.02R per trade;
 Evidence: scanner (61,787 setups: gross +0.015R, costs 0.076R), ORB study, liquidity studies. Confidence: high.
 More evidence (2026-10-31): Exness Zero spreads measured at about 0 (the cost is commission + slippage, about 1 pip on FX);
 the Dark Mimas oscillator scalper still loses 1.2–1.9 pips per trade there, and loses before costs too.
+Evidence (2026-10-31, Leg 34 on gold M5, 144 configs): before costs +0.00 to +0.02R per trade; Exness Zero costs are 10-17% of a
+$1-1.60 five-minute stop (6% in 2025), so every version loses -0.11 to -0.13R. research/results/sop/leg34_diag.json.
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -89,6 +91,8 @@ ICT/SMC (FVG, liquidity grabs, structure shifts), Quasimodo, supply/demand, Mala
 all rejected, about 250,000 configurations. Evidence: ledger. Confidence: high (for XAU/EUR/GBP/JPY, 2011–2025).
 More evidence (2026-10-31): the owner's 4-leg engulfing SOP (calibrated on their own case studies): 2 of 756 FX settings
 pass the gate and then fail; 0 of 72 on gold H4/D1; February–October 2026, untouched: −0.09 to −0.35R per trade.
+Evidence (2026-10-31): the owner's Leg 34 on gold M5 (3R/4R targets, breakeven, R-ladder and EMA trails): 0 of 144 positive in
+2011-19; owner's settings -0.06 to -0.20R per trade on untouched Jan-Sep 2026. research/results/truth/leg34_gold_v1/.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
@@ -104,6 +108,9 @@ Exits that bank the first profit behind a wide stop produce 85–90% winners and
 88% winners, +34 pips average win vs −179 average loss, +0.04R per trade, +0.9% a year at 1% risk (4.3% a year at 5%
 risk with a 21% drawdown). Gold Hunter: realised wins nearly every month, net loss. Judge by expectancy, return per unit
 of drawdown and equity. Evidence: research/results/truth/eurusd_close_beyond_reversal_v1/, research/gridbot/. Confidence: high.
+Evidence (2026-10-31, Leg 34 gold M5): 48% of filled trades reach +1R before the stop, 31% +2R, 23% +3R. "It was in profit
+before the loss" is the normal path of a no-edge trade, not a sign of edge; breakeven and trailing turn it into many small
+losses (before costs +0.004 to +0.014R).
 
 ### P17 Active hours picked from a backtest do not carry forward
 Choosing a strategy's best trading hours on past data mostly selects luck. Dark Mimas family: best 6 hours picked on
@@ -123,6 +130,9 @@ Confidence: medium-high.
 More evidence (2026-10-31): looking for "the conditions that made it win" across 23,000 setups and 19 features known at entry,
 none of 56 single conditions was profitable even in the learning years (2011-19); the best 2-condition rule lost there too.
 When nothing separates winners in-sample, the wins are noise around a negative mean. Evidence: research/results/sop/winning_conditions.json.
+Evidence (2026-10-31, Leg 34 gold M5): the month the owner's screenshots come from (Oct 2026) was mildly positive (+0.03 to
++0.11R, ~100 trades); the nine untouched months before it lost -0.06 to -0.20R (700-870 trades), and so did 2011-2025. The 10 EMA
+slope did not separate winners (thirds by steepness: -0.14 / -0.16 / -0.13R).
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero

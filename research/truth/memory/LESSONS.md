@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-40 ideas tested, about 302,424 configurations; 5 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+42 ideas tested, about 302,580 configurations; 5 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -14,25 +14,26 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
+| intraday | 10 | 0 | 182,006 |
 | trend | 9 | 4 | 102,565 |
-| intraday | 8 | 0 | 181,850 |
+| engulfing | 7 | 0 | 3,307 |
+| retest | 7 | 0 | 10,308 |
 | reversal | 7 | 1 | 105,844 |
 | breadth | 6 | 0 | 80 |
 | breakout | 6 | 0 | 119,346 |
+| owner-idea | 6 | 0 | 1,105 |
 | session | 6 | 0 | 183,467 |
+| structure | 6 | 0 | 1,105 |
 | daily | 5 | 1 | 86 |
-| engulfing | 5 | 0 | 3,151 |
-| retest | 5 | 0 | 10,152 |
+| ema | 5 | 0 | 996 |
+| limit-entry | 5 | 0 | 996 |
 | smc | 5 | 0 | 14,988 |
 | mean-reversion | 4 | 0 | 11 |
-| owner-idea | 4 | 0 | 949 |
-| structure | 4 | 0 | 949 |
 | third-party-ea | 4 | 0 | 304 |
 | book | 3 | 1 | 9 |
-| ema | 3 | 0 | 840 |
+| gold | 3 | 0 | 228 |
 | grid | 3 | 0 | 196 |
 | index | 3 | 0 | 72 |
-| limit-entry | 3 | 0 | 840 |
 | liquidity | 3 | 0 | 1,376 |
 | oscillator | 3 | 0 | 288 |
 | portfolio | 3 | 3 | 16 |
@@ -53,6 +54,7 @@
 | sizing | 2 | 0 | 60 |
 | stop-entry | 2 | 1 | 6 |
 | time-filter | 2 | 0 | 144 |
+| trailing | 2 | 0 | 156 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
 | cross-sectional | 1 | 0 | 1 |
@@ -63,7 +65,6 @@
 | forward-test | 1 | 1 | 1 |
 | futures | 1 | 1 | 1 |
 | gbpusd | 1 | 0 | 144 |
-| gold | 1 | 0 | 72 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
 | metals | 1 | 0 | 64 |
@@ -111,6 +112,8 @@
 | 2026-10-31 | Exness Zero costs (measured spreads) and book re-score | costs, exness, swap-free, book | 5 | Study: informative | Zero spreads measured from Exness's own tick archive: ~0 on XAU/EUR/GBP/JPY/US500 (cost = commission + slippage). Book Sharpe 1.00 -> 1.15 with swaps, 1.51 swap-free (2023-25: 0.75 / 1.06) at high-end commission ($3.50/side FX, $5.50 gold). Commission and swap-free status unconfirmed. CORRECTED 2026-10-31 (Sunday-exit bug, see journal): 1.36 with swaps, 1.74 swap-free (2023-25: 0.95 / 1.27); lab costs 1.20. |
 | 2026-10-31 | Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book) | probability, breadth, costs, payouts, book | 3 | Study: informative | CORRECTED 2026-10-31 (Sunday-exit bug): book positive fortnights 55% (lab costs) -> 57% (Exness Zero + swaps) -> 61% (swap-free); months 62/67/69%; years 87/93/100%. One leg alone: 27-28% of fortnights, 58-68% of years. Per trade +0.069/+0.078/+0.103R (sd 1.26R): 90% chance of being up needs ~544/428/253 trades (~7-16 months of the book). |
 | 2026-10-31 | Champion (11-leg book) untouched test, Jan-Oct 2026 + professional tearsheet | book, out-of-sample, forward-test, portfolio, trend, reversion | 1 | Survivor, weakened: 2026 below backtest, within a 30-50% live haircut | Legs regenerated with original code on Exness Zero 2026 ticks (entry parity 100% on 10 legs, 96% on XAU EMA). Jan-Oct 2026 at 1% risk: -1.36% with swaps (+0.78% swap-free), max DD 5.3%, 333 trades, +0.022R/trade vs +0.078R backtest (z -0.81, p 0.21; weighted p 0.07). At or below 4.1% of backtest 10-month stretches (median +8.2%); 13% if live edge 30% weaker, 23% if 50%. Backtest 2011-25 (corrected): Sharpe 1.36, 10.7%/yr, max DD 9.7%, 14/15 years; swap-free 1.74; stress (costs x1.5, swaps x2) 0.76. 2026 losses came from high-weight, rarely trading legs (S1 gold, JPY RSI2, JPY Donchian55) and GBPJPY; VBO and gold Donchian20 won. |
+| 2026-10-31 | leg34_gold_v1 | engulfing, structure, retest, limit-entry, intraday, ema, owner-idea, gold, trailing | 144 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-10-31 | Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics | engulfing, structure, retest, limit-entry, intraday, ema, owner-idea, gold, trailing | 12 | Rejected (confirms the lab) | Owner's settings (swing 3, any engulfing, all hours), 6 exits x 2 buffers: 2011-19 -0.14 to -0.17R, 2020-22 -0.08 to -0.12, 2023-25 -0.02 to -0.10, untouched Jan-Sep 2026 -0.06 to -0.20R (700-870 trades); Oct 2026 (owner's screenshot month) -0.18 to +0.11R (~100 trades). Before costs +0.00 to +0.02R; costs 10-17% of R (median stop $1-1.60). 48% of trades reach +1R, 23% +3R. EMA slope thirds -0.14/-0.16/-0.13R. Detector matched 2 of 3 dated owner trades (30 Oct 2026); entry 30% of the eaten candle. |
 | 2026-10-30 | North Star supply/demand (RBR/DBD/DBR/RBD) | supply-demand, smc, pattern | 1440 | Rejected | no setting passes the gate; every side negative |
 | 2026-10-30 | North Star FVG models A-D | smc, fvg, retest | 1440 | Rejected | 0% of settings positive in 2011-19 |
 | 2026-10-30 | North Star Quasimodo (+FVG) | quasimodo, pattern, smc | 3456 | Rejected | best H1 +0.13R dev; neighbours negative; deflated Sharpe 0.011 |

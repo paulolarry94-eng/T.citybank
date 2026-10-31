@@ -1,0 +1,141 @@
+{
+ "name": "leg34_gold_v1",
+ "hypothesis": "On gold's 5-minute chart, after a 4-3-2-1 trend structure with engulfing legs above (below) the 10 EMA and a falling (rising) EMA, price returns to the eaten Leg 4 candle within 8 hours and continues the trend far enough for 3-4R targets or a trailing exit to pay after costs.",
+ "fingerprint": "06f74d5badf43bd4fd85140a2e61deb7ebc715ae4a9ef5776e0038e10b6d16fc",
+ "started": "2026-10-31 20:21:05 UTC",
+ "markets": [
+  "XAUUSD"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "k": [
+   3,
+   4,
+   5
+  ],
+  "engulf": [
+   "perfect",
+   "any"
+  ],
+  "window": [
+   "all",
+   "owner"
+  ],
+  "buffer": [
+   "fixed",
+   "scaled"
+  ],
+  "exit": [
+   "t3",
+   "t4",
+   "t3be",
+   "t4be",
+   "ladder",
+   "ema"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 288,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "FVG study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "North Star FVG models A-D",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 144,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.18598625663672597,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}
