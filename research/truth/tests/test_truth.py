@@ -235,6 +235,29 @@ class TestNextArrowExecutor(unittest.TestCase):
                          np.array([1.1000]), np.array([1.0990]), 2.0, True, 0.0, 0.0, 2 ** 62, 0, 10 ** 6, core.BLOCK[0], core.BLOCK[1])
         self.assertAlmostEqual(res[0, 3], 2.0, places=9)
 
+    def _managed(self, closes, mode, exl=(), exs=()):
+        import executors as X, core
+        o, h, l, c, ts = self._minutes(closes)
+        tgt, be, ladder, use_ex = X.EXIT_MODES[mode]
+        return X._managed(o, h, l, c, ts, np.zeros(0, np.int64), np.array([1], np.int64), np.array([1], np.int64),
+                          np.array([1.1000]), np.array([1.0990]), tgt, be, ladder, np.array(exl, np.int64),
+                          np.array(exs, np.int64), use_ex, 0.0, 0.0, 2 ** 62, 0, 10 ** 6, core.BLOCK[0], core.BLOCK[1]), ts
+
+    def test_managed_fixed_4R_target(self):
+        res, _ = self._managed([1.1000, 1.1000, 1.1020, 1.1041], "t4")
+        self.assertAlmostEqual(res[0, 3], 4.0, places=9)
+
+    def test_managed_ladder_locks_one_R_after_two(self):
+        # +1R arms breakeven, +2.2R moves the stop to +1R, the pullback exits there
+        res, _ = self._managed([1.1000, 1.1000, 1.1010, 1.1022, 1.1018, 1.1013, 1.1009], "ladder")
+        self.assertAlmostEqual(res[0, 3], 1.0, places=9)
+
+    def test_managed_ema_exit_only_after_one_R(self):
+        # an EMA-cross minute before +1R (2) is ignored; the next one after +1R (5) exits at that minute's open
+        res, ts = self._managed([1.1000, 1.1000, 1.1004, 1.1011, 1.1015, 1.1012, 1.1008], "ema", exl=[2, 5])
+        self.assertEqual(int(res[0, 1]), int(ts[5]))
+        self.assertAlmostEqual(res[0, 3], 1.5, places=9)
+
 
 class TestDailySeries(unittest.TestCase):
     def test_weekend_exits_count_on_monday(self):
