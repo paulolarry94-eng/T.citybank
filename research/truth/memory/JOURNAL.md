@@ -188,3 +188,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** Leg 34 / the 4-leg SOP family is closed on EUR, GBP and gold at 5-30 min and gold H4/D1. No re-test with
   rules changed after these results (that would need a new name and a reason that is not these results).
 - **Facts vs estimates:** commission is the high-end public estimate; owner's prices are OANDA, ours Exness (differ ~$0.1-0.3).
+
+## 2026-10-31 (closing) · "one with an edge exists: what is the miracle, even risk-physics-wise? we are not done"
+- **Done:** a synthesis, no new tests. Kelly arithmetic on the book (yearly volatility 7.7% at 1% risk): growth-optimal risk
+  per trade is ~10% at a live Sharpe of 0.8 and ~18% at 1.36, so 1% is about a tenth of Kelly. 60-120% a year needs a TRUE
+  Sharpe of ~1.2-1.5 at half Kelly (ideal model: 12% chance of a 50% drawdown) or ~1.5 at quarter Kelly. Breadth ceiling:
+  book Sharpe ~ leg Sharpe x sqrt(N / (1 + (N-1) x correlation)), capped at leg Sharpe / sqrt(correlation).
+- **Decisions:** logged Q10-Q14 (flow calendars with a payer, gold's record-low relative cost, portfolio vol targeting,
+  evidence-based bet sizing, CFTC positioning). Nothing promoted to a principle (no new evidence).
+- **Facts vs estimates:** the Kelly figures assume normal returns and a known Sharpe; real tails and estimation error make
+  the safe fraction smaller.

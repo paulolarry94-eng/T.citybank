@@ -66,6 +66,34 @@ weights would have done better in 2026. Choosing weights from 2026 is hindsight,
 2011–22 with a walk-forward (weights fitted on past years, applied to the next), then one look at 2023–25, comparing:
 inverse-vol (current), equal risk, and inverse-vol capped by trade count. FAMILY: portfolio, weighting, sizing, book.
 
+### Q10 Flow-driven calendar edges with a known payer (declare rules before loading data)
+Candidates, each with someone who must trade regardless of price: USDJPY "Gotobi" days (Japanese importers buy dollars at
+the Tokyo fix on the 5th/10th/15th...; documented in research, untested here); turn of the month in US500/GER40 (salary and
+pension flows); the pre-FOMC drift in US500 (documented, weaker after 2015); Japanese fiscal year-end JPY flows (March).
+Priors: London 4 pm fix reversal real but only half a cost; month-end 1.4-1.9 costs but 12 trades a year (Hunt 2). Data:
+USDJPY, US500, GER40 M1 in data/. FAMILY: calendar, flow, fix, seasonal.
+
+### Q11 Gold's cost is now the lowest it has ever been relative to its movement
+Commission is fixed in dollars per ounce while gold doubled: a 5-minute stop's cost fell from 10-17% of R (2011-22) to 6%
+(2025) (`research/results/sop/leg34_diag.json`). Hypotheses that died on costs could be re-scored at today's relative cost,
+but only declared ones (e.g. a documented Asia-up / New-York-down intraday drift), never hours mined from results (P17).
+FAMILY: costs, gold, session, seasonal.
+
+### Q12 Portfolio volatility targeting for the book (risk physics, not a new signal)
+Scale the whole book's risk by the inverse of its recent realised volatility (20-60 days), fitted walk-forward, against
+fixed 1%. Prior: P8 (GREEN/AMBER states did not help); this is a different mechanism (continuous scaling, documented as
+"volatility-managed portfolios", mixed out of sample). FAMILY: sizing, volatility, portfolio, book.
+
+### Q13 A bet-size rule that grows with live evidence (fractional Kelly under uncertainty)
+At a live Sharpe of 0.8 the book's growth-optimal risk is ~10% per trade; 1% is a tenth of it. Sized for the backtest
+Sharpe (1.36) when the truth is 0.8, half-Kelly becomes 0.85 Kelly: a 39% chance of a 50% drawdown in the ideal model.
+Define in advance how risk rises (1% -> 2% -> 3%) as live per-trade evidence accumulates (~1,000 trades for t = 2 at
++0.078R). FAMILY: sizing, kelly, live.
+
+### Q14 Positioning data as a signal (CFTC Commitments of Traders, weekly, public)
+Speculator positioning extremes in gold, JPY and EUR futures as a trend filter or a contrarian signal; first check that the
+data can be downloaded from the cloud. Evidence elsewhere is mixed; untested here. FAMILY: positioning, sentiment, weekly.
+
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
