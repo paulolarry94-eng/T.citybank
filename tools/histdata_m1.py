@@ -27,8 +27,8 @@ def fetch_year(pair, y, tries=4):
             op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
             html = op.open(urllib.request.Request(url, headers=UA), timeout=60).read().decode("utf-8", "ignore")
             form = dict(re.findall(r'<input type="hidden" name="(\w+)" id="\w+" value="([^"]*)"', html))
-            if "tk" not in form:
-                return None                                      # no file for this year
+            if not form.get("tk"):
+                return None                                      # no file for this year (HistData leaves the token empty)
             req = urllib.request.Request("https://www.histdata.com/get.php", data=urllib.parse.urlencode(form).encode(),
                                          headers={**UA, "Referer": url})
             raw = op.open(req, timeout=300).read()
@@ -61,7 +61,10 @@ def main(syms, y0, y1):
             out = os.path.join(DATA, f"{sym}_M1_bid_{y}.npz")
             if y >= y0 and os.path.exists(out):
                 continue
-            raw = fetch_year(pair, y)
+            try:
+                raw = fetch_year(pair, y)
+            except RuntimeError as e:
+                print(f"{sym} {y}: ERROR {e}", flush=True); raw = None
             if raw is None:
                 if y >= y0:
                     missing.append(f"{sym} {y}"); print(f"{sym} {y}: no HistData file", flush=True)
