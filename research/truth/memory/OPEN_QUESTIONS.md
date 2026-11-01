@@ -94,6 +94,13 @@ Define in advance how risk rises (1% -> 2% -> 3%) as live per-trade evidence acc
 Speculator positioning extremes in gold, JPY and EUR futures as a trend filter or a contrarian signal; first check that the
 data can be downloaded from the cloud. Evidence elsewhere is mixed; untested here. FAMILY: positioning, sentiment, weekly.
 
+### Q15 A 5-minute hunter must hunt flows with a payer, not shapes (owner's 5-min focus, 2026-11-01)
+Shapes at M5 are about zero before costs on 11 markets (P21, P1). Candidates where someone must trade at a set time:
+the Tokyo fix (USDJPY, 00:55 UTC; ties to Q10), the London 4 pm fix (known small), the US cash close auction (US500/NAS100
+last 10-15 minutes), the first minutes after scheduled data (CPI, NFP) using the exported economic calendar. Also check
+first: the lab's index/oil/silver costs are estimates (US500 0.6 pt) while Exness Zero spreads measured ~0.003 pt; the
+index commission is unknown (owner: MT5 Specification). FAMILY: intraday, flow, fix, auction, news, m5.
+
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

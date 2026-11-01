@@ -5,3 +5,4 @@ __pycache__/
 research/trades/crosses/*
 !research/trades/crosses/GBPJPY_DON_H4_n20_trail.npy
 !research/trades/crosses/EURGBP_BB_D1_k1.5.npy
+research/results/hunter5m/setups_m5.csv.gz   # 28 MB, regenerate with research/hunter5m/winner_anatomy.py

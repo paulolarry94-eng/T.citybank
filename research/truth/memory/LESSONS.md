@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-42 ideas tested, about 302,580 configurations; 5 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+44 ideas tested, about 302,715 configurations; 5 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -14,24 +14,25 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| intraday | 10 | 0 | 182,006 |
+| intraday | 12 | 0 | 182,141 |
 | trend | 9 | 4 | 102,565 |
-| engulfing | 7 | 0 | 3,307 |
+| breadth | 8 | 0 | 215 |
+| engulfing | 8 | 0 | 3,440 |
+| owner-idea | 8 | 0 | 1,240 |
 | retest | 7 | 0 | 10,308 |
 | reversal | 7 | 1 | 105,844 |
-| breadth | 6 | 0 | 80 |
+| structure | 7 | 0 | 1,238 |
 | breakout | 6 | 0 | 119,346 |
-| owner-idea | 6 | 0 | 1,105 |
 | session | 6 | 0 | 183,467 |
-| structure | 6 | 0 | 1,105 |
 | daily | 5 | 1 | 86 |
 | ema | 5 | 0 | 996 |
+| gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
 | smc | 5 | 0 | 14,988 |
 | mean-reversion | 4 | 0 | 11 |
 | third-party-ea | 4 | 0 | 304 |
 | book | 3 | 1 | 9 |
-| gold | 3 | 0 | 228 |
+| filter-mining | 3 | 0 | 244 |
 | grid | 3 | 0 | 196 |
 | index | 3 | 0 | 72 |
 | liquidity | 3 | 0 | 1,376 |
@@ -55,13 +56,13 @@
 | stop-entry | 2 | 1 | 6 |
 | time-filter | 2 | 0 | 144 |
 | trailing | 2 | 0 | 156 |
+| winner-anatomy | 2 | 0 | 135 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
 | cross-sectional | 1 | 0 | 1 |
 | diversified | 1 | 1 | 1 |
 | exness | 1 | 0 | 5 |
 | factor | 1 | 0 | 1 |
-| filter-mining | 1 | 0 | 109 |
 | forward-test | 1 | 1 | 1 |
 | futures | 1 | 1 | 1 |
 | gbpusd | 1 | 0 | 144 |
@@ -89,6 +90,8 @@
 ## Every idea tested (newest first)
 | Date | Idea | Family | Configs | Verdict | Key numbers |
 |---|---|---|---|---|---|
+| 2026-11-01 | 5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19) | engulfing, structure, intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 133 | Rejected: winners' attributes do not select winners | ~194,000 filled Leg 34 setups on M5, 11 markets, each simulated alone. Before costs about zero on every market (ladder -0.07 to +0.04R; silver/oil/indices costs are lab estimates). Gold 2011-19: 43% reach +1R, 13% +5R, 6% +10R, 1.5% +20R. Top 10% runners look like all trades (lifts 0.86-1.15); top 1% lean to quiet volatility, a quiet day, a strong 4h push, small structure. Best 2-condition rule (cost_R low & EMA slope mid, 133 conditions) failed its own halves (-0.04 / +0.04R), then -0.08R gold 2020-22, -0.06R 2023-25, -0.10R pooled other markets (9 of 10 negative), -0.02R Jan-Sep 2026. |
+| 2026-11-01 | 5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample) | intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 2 | Rejected: worse than taking every setup | Score = quiet volatility, quiet day, strong 4h push, small structure, deep Leg 2 (cut points gold 2011-19); trade score>=3. Ladder exit: gold 2011-19 -0.20R (all setups -0.15), 2020-22 -0.13, 2023-25 -0.12, other 10 markets -0.35 (all -0.31), Jan-Sep 2026 -0.14R. The profile concentrates runners and losers alike. |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |

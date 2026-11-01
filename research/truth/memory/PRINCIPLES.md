@@ -12,6 +12,8 @@ More evidence (2026-10-31): Exness Zero spreads measured at about 0 (the cost is
 the Dark Mimas oscillator scalper still loses 1.2–1.9 pips per trade there, and loses before costs too.
 Evidence (2026-10-31, Leg 34 on gold M5, 144 configs): before costs +0.00 to +0.02R per trade; Exness Zero costs are 10-17% of a
 $1-1.60 five-minute stop (6% in 2025), so every version loses -0.11 to -0.13R. research/results/sop/leg34_diag.json.
+Evidence (2026-11-01, 5-min hunter): Leg 34 on M5 across 11 markets is about zero before costs on every market (-0.07 to
++0.04R) and negative after costs on all of them. research/results/hunter5m/winner_anatomy.json.
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -133,6 +135,8 @@ When nothing separates winners in-sample, the wins are noise around a negative m
 Evidence (2026-10-31, Leg 34 gold M5): the month the owner's screenshots come from (Oct 2026) was mildly positive (+0.03 to
 +0.11R, ~100 trades); the nine untouched months before it lost -0.06 to -0.20R (700-870 trades), and so did 2011-2025. The 10 EMA
 slope did not separate winners (thirds by steepness: -0.14 / -0.16 / -0.13R).
+Evidence (2026-11-01): studying the biggest winners instead of case studies does not help either: rules built from the
+attributes of Leg 34's top runners lost out of sample on gold and on 9-10 of 10 other markets (P21).
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
@@ -150,3 +154,10 @@ instead of 1.36 (Exness + swaps) and 1.01 instead of 1.24 (research costs), and 
 Trade-level R, Truth Lab gates and verdicts were unaffected (the tier is set before the daily series is built). Rule: roll
 weekend dates to Monday and check that the daily series sums to the trade list. Evidence: research/truth/tests/test_truth.py
 (TestDailySeries), commit 7e194a6. Confidence: high.
+
+### P21 The anatomy of winners cannot be traded when the setup has no raw edge
+Of 10,600 gold Leg 34 trades (M5, 2011-19), the top 10% runners look like all the others (no attribute above 1.15x); the
+top 1% lean to quiet conditions and a strong 4-hour push, but a filter that keeps those setups keeps more losers too:
+-0.20R vs -0.15R for every setup, worse again on 10 other markets and in 2026. The best rule from 133 conditions failed its
+own learning halves. Winners are the tail of a noisy distribution, not a separate kind of trade; only a positive mean
+before costs can be filtered into a better one. Evidence: research/hunter5m/ (two pre-registered steps). Confidence: high.

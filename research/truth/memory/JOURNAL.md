@@ -198,3 +198,16 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   evidence-based bet sizing, CFTC positioning). Nothing promoted to a principle (no new evidence).
 - **Facts vs estimates:** the Kelly figures assume normal returns and a known Sharpe; real tails and estimation error make
   the safe fraction smaller.
+
+## 2026-11-01 · "study the 1% of the 1% winners, run them through all markets: build a 5-min hunter"
+- **Done:** two pre-registered studies (`research/hunter5m/`). Step 1: every Leg 34 setup on M5 in 11 markets (~194,000 filled,
+  each simulated alone, lab fills and exits, Exness costs for 4 markets, lab estimates for 7), 22 features known at entry;
+  anatomy of the top 10% / 1% / 0.1% runners on gold 2011-19; rule search (133 conditions); frozen rule tested on gold 2020-25,
+  10 other markets and Jan-Sep 2026. Step 2: a "runner profile" score from the top-1% anatomy, declared before its
+  out-of-sample numbers.
+- **Learned (P21):** before costs Leg 34 is about zero everywhere; top-10% runners look like all trades; top-1% lean to quiet
+  conditions and a strong 4-hour push; both rules lose out of sample (step 1: 9 of 10 markets negative; step 2 worse than taking
+  every setup, even in-sample). A one-off weekend gap held under the 24-hour time stop cost one 2026 trade -13.7R (real risk).
+- **Decisions:** stop mining shapes at M5; logged Q15 (a 5-min hunter must hunt flows with a payer: Tokyo fix, US close
+  auction, data releases) and the index-cost check. The 28 MB setups file is regenerable and not committed.
+- **Facts vs estimates:** costs for XAGUSD, WTI and the five indices are lab estimates (likely high for indices).
