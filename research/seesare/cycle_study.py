@@ -1,4 +1,7 @@
-"""SEESARE cycle-block study (owner's Phase 3 directive, Part II), fixed 2026-11-01 before any result.
+"""NOTE (2026-11-01): written for ledger format 1 (the retired win/loss ladder); it ran at commit c26e079. The current
+tools/seesare_verify.py writes format 2 (drawdown-keyed ladder), so this script no longer runs against it; its results file
+stands as recorded.
+SEESARE cycle-block study (owner's Phase 3 directive, Part II), fixed 2026-11-01 before any result.
 
 Question: run the only lab-verified flow (Tokyo gotobi fix, research/truth/strategies/tokyo_fix_gotobi_v1.py, pre2300) through
 the real SEESARE ledger rules (tools/seesare_verify.py Ledger: 16-level ladder, 2.0 exponent, losing time exits NEGATIVE,

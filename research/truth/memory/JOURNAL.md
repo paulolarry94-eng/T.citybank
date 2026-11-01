@@ -432,3 +432,26 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   stopped (-2.3%, +0.3%). Fixed 0.5%: +5.1% (2023-25 one lifecycle at 4.7%). SEESARE outcome ladder +0.7%. Book + Tokyo + EURUSD:
   guard +5.7%, ladder +5.4%, weaker in 2023-25. One lifecycle = about 11 months (book), 9 months (with the two Tier B legs).
 - **Next:** owner decides on the drawdown-keyed ladder for CycleLedger.mqh.
+
+## 2026-11-01 (late night, 10) · owner: "Drawdown-keyed engine": build it into CycleLedger.mqh and the router, maximised Tokyo weight
+- **Asked:** retire the win/loss ladder; build the drawdown-keyed ladder into CycleLedger.mqh and SeesareRouter.mq5; give
+  "inelastic bottleneck" flows (Tokyo fix, ECB reference rate) a maximised weight for a "4:1 edge"; cent units native,
+  commission 0 by default, outbox unchanged; byte-exact self-test vectors.
+- **Corrected premises:** the +6% per lifecycle was not from flat risk (legs were already inverse-volatility weighted); it came
+  from the 11-leg book, which the router cannot trade yet; no flow has a 4:1 payoff (Tokyo about 1:1); the ECB reference-rate
+  flow has never been tested.
+- **Checked (design committed 22a3899 before results):** research/seesare/ddladder_weight_check.py, 8 runs. Tokyo alone +11.8% per
+  lifecycle but a lifecycle is about 5 years; Tokyo weight 1.00 vs 0.57 mixed (+0.3 / +0.4 points at Exness costs, -0.8 / -0.2
+  at lab costs), 2.00 worse everywhere. Default 0.57, cap 1.00.
+- **Built (uncompiled):** ledger format 2: level = drawdown in $2.25 bands (computed in whole ten-thousandths, exact in both
+  languages), plan = 0.30 x weight x room left, real risk <= plan, weight (0, 1.00], SHADOW never moves the level, Stopped() at
+  L15; genesis declares the sizing; Telegram text and twin updated; Exposure (PlanAtLevel(level, weight),
+  LowestFeasibleLevel(weight, ...), Size by weight); FlowModule weight + SetWeight; router InpTokyoWeight, commission default 0,
+  InpLadder removed, stopped lifecycle logged; DealReader by weight; self-tests: Phase 1 (245 generated checks + new StopTest),
+  Phase 2 (weight checks; a stale check left in Phase 4 that expected a winning time exit to be MANUAL was removed), Phase 3 (87
+  generated checks). Retired ladder functions kept in the twin only so earlier studies still run (ddladder check reproduces).
+- **Learned:** the drawdown-keyed ladder holds 3.6% by construction: drawdown + plan < $36 at every level, a single loss up to
+  1/0.30 = 3.33 times the plan cannot cross it, nine full-plan losses in a row stop the lifecycle at $33.75 (P24 updated).
+- **Tests:** 78 twin tests pass (Phase 1: 42, Phase 2: 14, Phase 3: 22); MQL5 not compiled.
+- **Next:** owner compiles and runs the three self-tests; port the 11 book legs as router modules (the evidence for +6% per
+  lifecycle is theirs); record the plan at entry before allowing concurrent positions; test the ECB fix flow in the lab (Q19).

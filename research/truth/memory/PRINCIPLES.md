@@ -218,6 +218,9 @@ Confidence: high (arithmetic, reproducible). Related: P8 (sizing states add noth
 Update 2026-11-01 (Phase 4): under the owner's time-exit ascension rule a stop at L0 followed by two winning time exits
 of one cent puts the ladder back at L0 every time: ladder alone 16.2% over 360 events, with the guard 3.60% (121 real,
 239 paper); under the Phase 2 rule the same path cost 0.21%. Evidence: research/truth/tests/test_seesare_phase1.py (pump).
+Update 2026-11-01 (Phase 5): a ladder keyed to drawdown instead of outcomes IS such a check: with risk <= 0.30 x weight
+x room left (weight <= 1), drawdown + risk stays below the cap at every level, and a single loss up to 3.33 times its
+plan cannot cross it. Evidence: research/truth/tests/test_seesare_phase1.py (Ladder, EnvelopeGuard), mt5/Seesare/README.md.
 
 ### P25 A ladder that climbs only on target hits sinks to its floor when the edge is paid at the time exit
 SEESARE moves up one level only on a POSITIVE outcome (a target hit) and down 2-4 levels on a NEGATIVE one. A flow whose

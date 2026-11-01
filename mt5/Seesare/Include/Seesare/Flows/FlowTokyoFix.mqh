@@ -32,6 +32,10 @@
 #define SEESARE_TOKYO_STOP_PCT         0.003
 #define SEESARE_TOKYO_RATIO            1.04
 #define SEESARE_TOKYO_MAX_SPREAD_PIPS  2.0
+//--- weight on the drawdown ladder: the book's inverse-volatility rule gives 0.5732 (research/results/seesare/
+//--- universe_cap_study.json). 1.00 ("maximised") was mixed: +0.3 / +0.4 points per lifecycle at Exness costs, -0.8 / -0.2 at
+//--- higher costs; 2.00 was worse everywhere (research/results/seesare/ddladder_weight_check.json)
+#define SEESARE_TOKYO_WEIGHT           0.57
 
 class CSeesareFlowTokyoFix : public CSeesareFlowModule
   {
@@ -49,6 +53,7 @@ CSeesareFlowTokyoFix::CSeesareFlowTokyoFix(const string symbol)
    m_domain       = "forex";
    m_evidence     = SEESARE_EVIDENCE_CANDIDATE;
    m_evidence_ref = "research/results/truth/tokyo_fix_gotobi_v1, Tier B, 2023-25 +0.052R over 214 trades";
+   m_weight       = SEESARE_TOKYO_WEIGHT;
   }
 
 bool CSeesareFlowTokyoFix::SlotForUtcDay(const datetime utc_day, SSeesareSlot &slot)

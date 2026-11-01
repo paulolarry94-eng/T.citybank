@@ -1,0 +1,329 @@
+{
+ "design": "Drawdown-keyed ladder: what the router can trade today, and a \"maximised\" Tokyo weight (owner, 2026-11-01).\nFixed before any result of this check.\n\nRule throughout: the drawdown-keyed ladder exactly as it goes into CycleLedger.mqh: 16 levels of 0.225% (2.25 USD on the\n$1,000 baseline), level = floor(drawdown / 0.225%), risk = 0.30 x weight x (3.6% - (level+1) x 0.225%), pre-trade guard,\nlifecycle = 360 real trades then reset, stopped lifecycles counted (research/seesare/universe_lifecycle_study.py).\nCosts: Exness Zero + swaps (primary) and lab costs + swaps (higher-cost proxy; ProCent USDJPY is 1.9 pips, lab 1.35).\nChecks (none selected; all reported; 2011-22 and 2023-25 reported separately; both periods were already seen for these legs,\nso this is descriptive, not a holdout):\n  A  Tokyo fix alone, weight 1.00 (the only module the SEESARE router can trade live today)\n  B  book + Tokyo fix + EURUSD reversal with the Tokyo weight at 0.5732 (the book's inverse-volatility rule), 1.00 (the\n     largest weight any leg has: the \"maximised\" weight the code will allow) and 2.00 (beyond anything tested)\nOutput: research/results/seesare/ddladder_weight_check.json\n",
+ "results": {
+  "A_tokyo_only_w1.00/zero_swaps": {
+   "2011-22": {
+    "finished": 2,
+    "completed": 2,
+    "stopped": 0,
+    "worst_dd_pct": 3.35,
+    "partial": [
+     {
+      "taken": 138,
+      "ret_pct": 4.16,
+      "dd_pct": 2.57
+     }
+    ],
+    "mean_ret_pct": 11.83,
+    "median_ret_pct": 11.83,
+    "worst_ret_pct": 10.4,
+    "best_ret_pct": 13.27,
+    "positive": "2/2",
+    "mean_days": 1835.0,
+    "trades_per_year": 71.5
+   },
+   "2023-25": {
+    "finished": 0,
+    "completed": 0,
+    "stopped": 0,
+    "worst_dd_pct": 3.2,
+    "partial": [
+     {
+      "taken": 214,
+      "ret_pct": 4.72,
+      "dd_pct": 3.2
+     }
+    ],
+    "trades_per_year": 71.3
+   }
+  },
+  "B_universe_tokyo_w0.5732/zero_swaps": {
+   "2011-22": {
+    "finished": 16,
+    "completed": 15,
+    "stopped": 1,
+    "worst_dd_pct": 3.61,
+    "partial": [
+     {
+      "taken": 334,
+      "ret_pct": 10.02,
+      "dd_pct": 2.69
+     }
+    ],
+    "mean_ret_pct": 6.56,
+    "median_ret_pct": 6.65,
+    "worst_ret_pct": -3.0,
+    "best_ret_pct": 17.1,
+    "positive": "13/16",
+    "mean_days": 279.0,
+    "trades_per_year": 505.6
+   },
+   "2023-25": {
+    "finished": 4,
+    "completed": 3,
+    "stopped": 1,
+    "worst_dd_pct": 3.59,
+    "partial": [
+     {
+      "taken": 245,
+      "ret_pct": 12.16,
+      "dd_pct": 2.09
+     }
+    ],
+    "mean_ret_pct": 2.18,
+    "median_ret_pct": 2.89,
+    "worst_ret_pct": -3.15,
+    "best_ret_pct": 6.07,
+    "positive": "3/4",
+    "mean_days": 252.0,
+    "trades_per_year": 519.3
+   }
+  },
+  "B_universe_tokyo_w1.0/zero_swaps": {
+   "2011-22": {
+    "finished": 16,
+    "completed": 15,
+    "stopped": 1,
+    "worst_dd_pct": 3.54,
+    "partial": [
+     {
+      "taken": 356,
+      "ret_pct": 16.84,
+      "dd_pct": 2.75
+     }
+    ],
+    "mean_ret_pct": 6.84,
+    "median_ret_pct": 6.17,
+    "worst_ret_pct": -2.23,
+    "best_ret_pct": 18.0,
+    "positive": "13/16",
+    "mean_days": 269.0,
+    "trades_per_year": 505.6
+   },
+   "2023-25": {
+    "finished": 4,
+    "completed": 3,
+    "stopped": 1,
+    "worst_dd_pct": 3.59,
+    "partial": [
+     {
+      "taken": 233,
+      "ret_pct": 7.99,
+      "dd_pct": 2.73
+     }
+    ],
+    "mean_ret_pct": 2.62,
+    "median_ret_pct": 1.54,
+    "worst_ret_pct": -1.51,
+    "best_ret_pct": 8.9,
+    "positive": "3/4",
+    "mean_days": 251.0,
+    "trades_per_year": 519.3
+   }
+  },
+  "B_universe_tokyo_w2.0/zero_swaps": {
+   "2011-22": {
+    "finished": 16,
+    "completed": 12,
+    "stopped": 4,
+    "worst_dd_pct": 3.71,
+    "partial": [
+     {
+      "taken": 324,
+      "ret_pct": 14.13,
+      "dd_pct": 2.96
+     }
+    ],
+    "mean_ret_pct": 5.78,
+    "median_ret_pct": 3.01,
+    "worst_ret_pct": -2.88,
+    "best_ret_pct": 17.94,
+    "positive": "13/16",
+    "mean_days": 267.0,
+    "trades_per_year": 505.6
+   },
+   "2023-25": {
+    "finished": 4,
+    "completed": 2,
+    "stopped": 2,
+    "worst_dd_pct": 3.59,
+    "partial": [
+     {
+      "taken": 231,
+      "ret_pct": 14.66,
+      "dd_pct": 2.21
+     }
+    ],
+    "mean_ret_pct": 1.19,
+    "median_ret_pct": 0.08,
+    "worst_ret_pct": -3.39,
+    "best_ret_pct": 8.01,
+    "positive": "2/4",
+    "mean_days": 230.0,
+    "trades_per_year": 519.3
+   }
+  },
+  "A_tokyo_only_w1.00/lab_swaps": {
+   "2011-22": {
+    "finished": 2,
+    "completed": 2,
+    "stopped": 0,
+    "worst_dd_pct": 3.35,
+    "partial": [
+     {
+      "taken": 138,
+      "ret_pct": 4.16,
+      "dd_pct": 2.57
+     }
+    ],
+    "mean_ret_pct": 11.83,
+    "median_ret_pct": 11.83,
+    "worst_ret_pct": 10.4,
+    "best_ret_pct": 13.27,
+    "positive": "2/2",
+    "mean_days": 1835.0,
+    "trades_per_year": 71.5
+   },
+   "2023-25": {
+    "finished": 0,
+    "completed": 0,
+    "stopped": 0,
+    "worst_dd_pct": 3.2,
+    "partial": [
+     {
+      "taken": 214,
+      "ret_pct": 4.72,
+      "dd_pct": 3.2
+     }
+    ],
+    "trades_per_year": 71.3
+   }
+  },
+  "B_universe_tokyo_w0.5732/lab_swaps": {
+   "2011-22": {
+    "finished": 16,
+    "completed": 15,
+    "stopped": 1,
+    "worst_dd_pct": 3.54,
+    "partial": [
+     {
+      "taken": 336,
+      "ret_pct": 7.81,
+      "dd_pct": 2.72
+     }
+    ],
+    "mean_ret_pct": 5.97,
+    "median_ret_pct": 5.66,
+    "worst_ret_pct": -2.74,
+    "best_ret_pct": 16.5,
+    "positive": "13/16",
+    "mean_days": 271.0,
+    "trades_per_year": 505.6
+   },
+   "2023-25": {
+    "finished": 4,
+    "completed": 3,
+    "stopped": 1,
+    "worst_dd_pct": 3.59,
+    "partial": [
+     {
+      "taken": 242,
+      "ret_pct": 10.2,
+      "dd_pct": 2.31
+     }
+    ],
+    "mean_ret_pct": 1.37,
+    "median_ret_pct": 2.13,
+    "worst_ret_pct": -3.1,
+    "best_ret_pct": 4.31,
+    "positive": "3/4",
+    "mean_days": 251.0,
+    "trades_per_year": 519.3
+   }
+  },
+  "B_universe_tokyo_w1.0/lab_swaps": {
+   "2011-22": {
+    "finished": 16,
+    "completed": 13,
+    "stopped": 3,
+    "worst_dd_pct": 3.72,
+    "partial": [
+     {
+      "taken": 349,
+      "ret_pct": 12.75,
+      "dd_pct": 2.91
+     }
+    ],
+    "mean_ret_pct": 5.22,
+    "median_ret_pct": 5.5,
+    "worst_ret_pct": -2.96,
+    "best_ret_pct": 17.78,
+    "positive": "11/16",
+    "mean_days": 270.0,
+    "trades_per_year": 505.6
+   },
+   "2023-25": {
+    "finished": 4,
+    "completed": 3,
+    "stopped": 1,
+    "worst_dd_pct": 3.56,
+    "partial": [
+     {
+      "taken": 223,
+      "ret_pct": 5.75,
+      "dd_pct": 2.78
+     }
+    ],
+    "mean_ret_pct": 1.14,
+    "median_ret_pct": 0.63,
+    "worst_ret_pct": -1.35,
+    "best_ret_pct": 4.67,
+    "positive": "2/4",
+    "mean_days": 241.0,
+    "trades_per_year": 519.3
+   }
+  },
+  "B_universe_tokyo_w2.0/lab_swaps": {
+   "2011-22": {
+    "finished": 16,
+    "completed": 10,
+    "stopped": 6,
+    "worst_dd_pct": 3.71,
+    "partial": [
+     {
+      "taken": 323,
+      "ret_pct": 14.11,
+      "dd_pct": 3.04
+     }
+    ],
+    "mean_ret_pct": 5.38,
+    "median_ret_pct": 3.69,
+    "worst_ret_pct": -2.73,
+    "best_ret_pct": 14.85,
+    "positive": "11/16",
+    "mean_days": 267.0,
+    "trades_per_year": 505.6
+   },
+   "2023-25": {
+    "finished": 4,
+    "completed": 2,
+    "stopped": 2,
+    "worst_dd_pct": 3.57,
+    "partial": [
+     {
+      "taken": 221,
+      "ret_pct": 13.58,
+      "dd_pct": 1.8
+     }
+    ],
+    "mean_ret_pct": 0.55,
+    "median_ret_pct": 0.26,
+    "worst_ret_pct": -3.35,
+    "best_ret_pct": 5.04,
+    "positive": "2/4",
+    "mean_days": 231.0,
+    "trades_per_year": 519.3
+   }
+  }
+ }
+}

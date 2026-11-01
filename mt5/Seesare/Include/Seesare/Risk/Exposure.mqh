@@ -4,7 +4,8 @@
 //| broker volume (SEESARE 9.1). UNCOMPILED SOURCE.                  |
 //| Twin: tools/seesare_flows.py size().                             |
 //|                                                                  |
-//| plan     = CSeesareCycleLedger::PlanUsdAt(declared ratio, domain)|
+//| plan     = CSeesareCycleLedger::PlanUsdAt(module weight): the    |
+//|            drawdown-keyed ladder, 0.30 x weight x room left      |
 //| per lot  = loss at the stop for 1.0 lot (OrderCalcProfit) +      |
 //|            commission per lot                                    |
 //| volume   = floor((plan / per lot) / volume step) x step, never   |
@@ -20,9 +21,9 @@
 //| divided by UnitsPerUsd (USD 1, USC 100) so the plan, the risk    |
 //| and the envelope stay in dollars of the $1,000 virtual baseline. |
 //| A cent account lowers the smallest tradeable risk 100x, but a    |
-//| plan below 0.01 lot of the cent contract is still SHADOW (USDJPY |
-//| at a 0.3% stop: L0-L3 real with the measured ratio 1.04, L0-L9   |
-//| with ratio 3.5; twin: tools/seesare_outbox.py level_table).      |
+//| plan below 0.01 lot of the cent contract is still SHADOW (twin:  |
+//| tools/seesare_outbox.py level_table; USDJPY at a 0.3% stop with  |
+//| weight 0.57: real at every level from L0 to L14).                |
 //+------------------------------------------------------------------+
 #ifndef SEESARE_RISK_EXPOSURE_MQH
 #define SEESARE_RISK_EXPOSURE_MQH
@@ -61,12 +62,10 @@ public:
      {
       return UnitsPerUsd(AccountInfoString(ACCOUNT_CURRENCY));
      }
-   //--- planned delta at a level, rounded exactly as the ledger writes it (PlanUsdAt)
-   static double     PlanAtLevel(const double level_pct, const double ratio, const double friction)
+   //--- planned risk at a drawdown level, rounded exactly as the ledger writes it (PlanUsdAt)
+   static double     PlanAtLevel(const int level, const double weight)
      {
-      double r = StringToDouble(CSeesareText::Fmt(ratio, 2));
-      double mult = StringToDouble(CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(r), 4), 4));
-      return StringToDouble(CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(level_pct, mult, friction), 4), 4));
+      return StringToDouble(CSeesareLadder::PlanText(level, weight));
      }
    //--- lots = floor((plan / per lot) / step) x step, capped at vmax; feasible if >= vmin
    static double     Volume(const double plan_usd, const double per_lot_usd, const double step, const double vmin,
@@ -83,27 +82,19 @@ public:
       feasible = (vol >= vmin - 1e-12);
       return vol;
      }
-   //--- deepest level (0-15) whose plan still buys the broker minimum; -1 if none
-   static int        LowestFeasibleLevelFor(const double &pct[], const double ratio, const double friction,
-                                            const double per_lot_usd, const double step, const double vmin)
+   //--- deepest drawdown level (0-14) whose plan still buys the broker minimum; -1 if none (L15 never trades)
+   static int        LowestFeasibleLevel(const double weight, const double per_lot_usd, const double step, const double vmin)
      {
       int lowest = -1;
-      for(int lv = 0; lv < ArraySize(pct); lv++)
+      for(int lv = 0; lv < SEESARE_LEVELS; lv++)
         {
          double virtual_volume = 0.0;
          bool ok = false;
-         Volume(PlanAtLevel(pct[lv], ratio, friction), per_lot_usd, step, vmin, DBL_MAX, virtual_volume, ok);
+         Volume(PlanAtLevel(lv, weight), per_lot_usd, step, vmin, DBL_MAX, virtual_volume, ok);
          if(ok)
             lowest = lv;
         }
       return lowest;
-     }
-   static int        LowestFeasibleLevel(const double ratio, const double friction, const double per_lot_usd,
-                                         const double step, const double vmin)
-     {
-      double pct[];
-      CSeesareLadder::Defaults(pct);
-      return LowestFeasibleLevelFor(pct, ratio, friction, per_lot_usd, step, vmin);
      }
    //--- USD lost by 1.0 lot between entry and stop (positive), from the broker's own contract maths;
    //--- units_per_usd converts the account money (USD 1, US cents 100) back to dollars
@@ -120,12 +111,12 @@ public:
       loss = -profit / units_per_usd;
       return (loss > 0.0);
      }
-   static bool       Size(const CSeesareCycleLedger &ledger, const string symbol, const string domain, const int side,
-                          const double entry, const double stop, const double ratio, const double commission_per_lot,
+   static bool       Size(const CSeesareCycleLedger &ledger, const string symbol, const int side, const double entry,
+                          const double stop, const double weight, const double commission_per_lot,
                           const double units_per_usd, SSeesareSizing &out)
      {
       out.feasible       = false;
-      out.plan_usd       = ledger.PlanUsdAt(ratio, domain);
+      out.plan_usd       = ledger.PlanUsdAt(weight);
       out.loss_per_lot   = 0.0;
       out.per_lot        = 0.0;
       out.virtual_volume = 0.0;
@@ -134,7 +125,7 @@ public:
       out.why            = "";
       if(out.plan_usd < 0.0)
         {
-         out.why = "the ledger is not open or the domain is unknown";
+         out.why = "the ledger is not open or the weight is outside (0, 1.00]";
          return false;
         }
       if(!LossPerLot(symbol, side, entry, stop, units_per_usd, out.loss_per_lot))

@@ -9,8 +9,13 @@
 //|   Decide         at the entry instant: which side, how far is    |
 //|                  the stop, is the target a live order? (closed   |
 //|                  bars and published data only)                   |
-//|   DeclaredRatio  the reward:risk it declares to SEESARE, taken   |
-//|                  from its measured research payoff.              |
+//|   DeclaredRatio  the reward:risk it declares (target distance /  |
+//|                  stop distance), from its measured payoff.       |
+//|   Weight         its share of the drawdown ladder's room, in     |
+//|                  (0, 1.00]: plan = 0.30 x weight x room left.    |
+//|                  Defaults come from the book's inverse-volatility|
+//|                  rule; 1.00 is the largest weight any tested leg |
+//|                  has, and the code allows no more.               |
 //| The router owns timing, the spread gate, sizing, execution and   |
 //| the ledger, so every module is held to the same rules.           |
 //|                                                                  |
@@ -86,6 +91,7 @@ protected:
    ENUM_SEESARE_EVIDENCE m_evidence;
    string            m_evidence_ref;
    ENUM_SEESARE_STATUS m_status;
+   double            m_weight;
    string            m_error;
    double            PipSize(void) const;
    double            PipsToPoints(const double pips) const;
@@ -99,6 +105,8 @@ public:
    ENUM_SEESARE_EVIDENCE Evidence(void) const { return m_evidence; }
    string            EvidenceRef(void) const { return m_evidence_ref; }
    ENUM_SEESARE_STATUS Status(void) const { return m_status; }
+   double            Weight(void) const { return m_weight; }
+   bool              SetWeight(const double weight);
    string            LastError(void) const { return m_error; }
    bool              SetStatus(const ENUM_SEESARE_STATUS status);
    static string     StatusName(const ENUM_SEESARE_STATUS s);
@@ -118,7 +126,22 @@ CSeesareFlowModule::CSeesareFlowModule(void)
    m_evidence     = SEESARE_EVIDENCE_UNTESTED;
    m_evidence_ref = "";
    m_status       = SEESARE_STATUS_OFF;
+   m_weight       = 0.0;
    m_error        = "";
+  }
+
+//--- (0, 1.00] with 2 decimals, as the ledger records it; anything else is refused and the weight is unchanged
+bool CSeesareFlowModule::SetWeight(const double weight)
+  {
+   m_error = "";
+   double w = StringToDouble(DoubleToString(weight, 2));
+   if(w <= 0.0 || w > 1.0 + 1e-12)
+     {
+      m_error = m_id + ": weight " + DoubleToString(weight, 4) + " is outside (0, 1.00]";
+      return false;
+     }
+   m_weight = w;
+   return true;
   }
 
 //--- LIVE needs a Truth Lab pass; a refused LIVE request falls back to PAPER and returns false

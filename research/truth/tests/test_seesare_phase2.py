@@ -96,12 +96,14 @@ class Sizing(unittest.TestCase):
             self.assertGreater(vol + 0.01, virtual - 1e-9)
             self.assertEqual(ok, vol >= 0.01 - 1e-12)
 
-    def test_tokyo_is_shadow_only_at_1000(self):
-        mult = float(S.num(S.floor_dp(S.multiplier(1.04), 4), 4))
-        plan = float(S.num(S.floor_dp(S.plan_usd(S.LADDER[0], mult, 0.05), 4), 4))
-        self.assertEqual((mult, plan), (0.0882, 0.1206))
-        for p in (plan, 1.368, 2.052):                            # honest ratio, ratio 3.5, multiplier cap 1.5
-            self.assertFalse(F.size(p, 300.0 + 7.0, 0.01, 0.01, 100.0)[0])
+    def test_tokyo_on_the_drawdown_ladder_at_1000(self):
+        plan = float(S.plan_text(0, 0.57))                         # Tokyo weight 0.57 (the book's inverse-volatility rule)
+        self.assertEqual(plan, 5.7712)
+        self.assertTrue(F.size(plan, 300.0 + 7.0, 0.01, 0.01, 100.0)[0])        # one standard 0.01 lot fits at L0
+        self.assertFalse(F.size(float(S.plan_text(8, 0.57)), 300.0 + 7.0, 0.01, 0.01, 100.0)[0])   # not at L8
+        src = read(INC, "Flows", "FlowTokyoFix.mqh")
+        self.assertIn("#define SEESARE_TOKYO_WEIGHT           0.57", src)
+        self.assertIn("m_weight       = SEESARE_TOKYO_WEIGHT;", src)
 
 
 class MqlSourceAgreement(unittest.TestCase):

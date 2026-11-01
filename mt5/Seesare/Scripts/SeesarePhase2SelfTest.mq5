@@ -181,11 +181,18 @@ void HandWrittenTests(void)
    T_Bool("evidence: US close (UNTESTED) is held to PAPER", refused && usclose.Status() == SEESARE_STATUS_PAPER, usclose.LastError());
    T_Str("module ids", tokyo.Id() + "," + london.Id() + "," + usclose.Id(), "TOKYO_FIX,LDN_FIX_EURUSD,US_CLOSE_US500");
    T_Str("domains", tokyo.Domain() + "," + london.Domain() + "," + usclose.Domain(), "forex,forex,indices");
-//--- SEESARE arithmetic at the Tokyo module's measured ratio
-   double mult = CSeesareText::FloorDp(CSeesareLadder::Multiplier(StringToDouble(CSeesareText::Fmt(tokyo.DeclaredRatio(), 2))), 4);
+//--- drawdown-keyed ladder at the Tokyo module's weight
    T_Str("Tokyo declared ratio", CSeesareText::Fmt(tokyo.DeclaredRatio(), 2), "1.04");
-   T_Str("Tokyo multiplier at 1.04", CSeesareText::Fmt(mult, 4), "0.0882");
-   T_Str("Tokyo planned delta at L0", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.144, mult, 0.05), 4), 4), "0.1206");
+   T_Str("Tokyo weight", CSeesareText::Fmt(tokyo.Weight(), 2), "0.57");
+   T_Str("Tokyo planned risk at L0", CSeesareLadder::PlanText(0, tokyo.Weight()), "5.7712");
+   T_Str("Tokyo planned risk at L14", CSeesareLadder::PlanText(14, tokyo.Weight()), "0.3847");
+   T_Str("Tokyo planned risk at L15 (stopped)", CSeesareLadder::PlanText(15, tokyo.Weight()), "0.0000");
+   bool w_ok = tokyo.SetWeight(1.0);
+   T_Bool("weight 1.00 (the maximum) is accepted", w_ok && tokyo.Weight() == 1.0, tokyo.LastError());
+   bool w_refused = !tokyo.SetWeight(1.5) && tokyo.Weight() == 1.0;
+   T_Bool("weight 1.50 is refused and leaves the weight unchanged", w_refused, "");
+   w_refused = !tokyo.SetWeight(0.0);
+   T_Bool("weight 0 is refused", w_refused, "");
    T_Str("London declared ratio", CSeesareText::Fmt(london.DeclaredRatio(), 2), "5.00");
    T_Str("US close declared ratio", CSeesareText::Fmt(usclose.DeclaredRatio(), 2), "4.00");
    delete tokyo;
@@ -196,7 +203,6 @@ void HandWrittenTests(void)
    T_Int("rule: a winning time exit is POSITIVE (time-exit ascension)", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, 0.10, SEESARE_TIME_POLICY), 1);
    T_Int("rule: a time exit at exactly 0 is MANUAL", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, 0.0, SEESARE_TIME_POLICY), 0);
    T_Int("rule: a winning hand close stays MANUAL", (long)CSeesareLadder::Classify(SEESARE_BY_HUMAN, 0.10, SEESARE_TIME_POLICY), 0);
-   T_Int("rule: a winning time exit is MANUAL", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, 0.10, SEESARE_TIME_POLICY), 0);
 //--- US close feed lines
    datetime d = 0;
    int minute = -1;
@@ -268,17 +274,16 @@ void LiveSizingReport(void)
             ": only USD and US cents are converted)");
       return;
      }
-   double mult = CSeesareText::FloorDp(CSeesareLadder::Multiplier(SEESARE_TOKYO_RATIO), 4);
-   double plan = CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.144, mult, 0.05), 4);
+   double plan = CSeesareExposure::PlanAtLevel(0, SEESARE_TOKYO_WEIGHT);
    double virtual_volume = 0.0;
    bool feasible = false;
-   double vol = CSeesareExposure::Volume(plan, loss + 7.0, SymbolInfoDouble(sym, SYMBOL_VOLUME_STEP),
+   double vol = CSeesareExposure::Volume(plan, loss, SymbolInfoDouble(sym, SYMBOL_VOLUME_STEP),
                                          SymbolInfoDouble(sym, SYMBOL_VOLUME_MIN), SymbolInfoDouble(sym, SYMBOL_VOLUME_MAX),
                                          virtual_volume, feasible);
    string verdict = "SHADOW only";
    if(feasible)
       verdict = "REAL feasible";
-   Print("INFO  Tokyo fix on this terminal: the 0.3% stop loses ", DoubleToString(loss, 2), " USD per lot; SEESARE plan at L0 ",
+   Print("INFO  Tokyo fix on this terminal: the 0.3% stop loses ", DoubleToString(loss, 2), " USD per lot (no commission); plan at L0, weight 0.57: ",
          DoubleToString(plan, 4), " USD buys ", DoubleToString(virtual_volume, 5), " lots (broker minimum ",
          DoubleToString(SymbolInfoDouble(sym, SYMBOL_VOLUME_MIN), 2), "): ", verdict, " (volume ", DoubleToString(vol, 2), ")");
   }

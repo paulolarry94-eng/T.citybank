@@ -30,9 +30,9 @@
 #include <Seesare\Flows\FlowUsClose.mqh>
 
 input string                     InpLifecycle     = "P26-001";                         // SEESARE lifecycle id (used by LIVE modules)
-input string                     InpLadder        = "";                                // 16 level % "0.1440,...,0.0003" (4 decimals, decreasing); empty = SEESARE P26 default. Published in the genesis line; fixed for the lifecycle
 input ENUM_SEESARE_SERVER_SCHEME InpScheme        = SEESARE_SERVER_GMT2_EU;            // broker server time scheme (Phase 1 self-test)
 input ENUM_SEESARE_STATUS        InpTokyoStatus   = SEESARE_STATUS_PAPER;              // Module 1 Tokyo gotobi fix (CANDIDATE)
+input double                     InpTokyoWeight   = SEESARE_TOKYO_WEIGHT;              // its weight on the drawdown ladder, (0, 1.00]; 1.00 = the maximum any leg has
 input string                     InpTokyoSymbol   = "USDJPY";
 input ENUM_SEESARE_STATUS        InpLondonStatus  = SEESARE_STATUS_OFF;                // Module 3 London 4 pm fix (REJECTED: paper at most)
 input string                     InpLondonSymbol1 = "EURUSD";
@@ -42,7 +42,7 @@ input string                     InpUsSymbol      = "US500";
 input string                     InpUsFeed        = "seesare\\feeds\\moc_imbalance.csv"; // Common\Files: YYYY-MM-DD,HH:MM,net_usd (New York)
 input double                     InpUsMinUsd      = 1000000000.0;                      // |net imbalance| needed to trade, USD
 input double                     InpUsMaxSpread   = 50.0;                              // US close spread cap, points
-input double                     InpCommissionLot = 7.0;                               // commission per lot of this broker's contract, round trip, USD (RoboForex ProCent: 0)
+input double                     InpCommissionLot = 0.0;                               // commission per lot of this broker's contract, round trip, USD (RoboForex ProCent: 0; set it on commission accounts)
 input double                     InpUnitsPerUsd   = 0.0;                               // account money per USD: 0 = from the account currency (USD 1, USC 100)
 input int                        InpPatienceSec   = 300;                               // wait this long after the entry time for a normal spread
 
@@ -65,6 +65,15 @@ double               g_units = 0.0;
 void Log(const string text)
   {
    Print("SEESARE router: ", text);
+  }
+
+//--- the weight a module declares to the drawdown ladder (0 if the id is unknown: the ledger then refuses the event)
+double WeightOf(const string id)
+  {
+   for(int i = 0; i < ArraySize(g_mod); i++)
+      if(g_mod[i].Id() == id)
+         return g_mod[i].Weight();
+   return 0.0;
   }
 
 bool AddModule(CSeesareFlowModule *m, const ENUM_SEESARE_STATUS status)
@@ -115,28 +124,19 @@ int OnInit()
    if(MQLInfoInteger(MQL_TESTER) != 0)
       base = "seesare_tester\\";
    g_root = base + IntegerToString(AccountInfoInteger(ACCOUNT_LOGIN));
-   AddModule(new CSeesareFlowTokyoFix(InpTokyoSymbol), InpTokyoStatus);
+   CSeesareFlowModule *tokyo = new CSeesareFlowTokyoFix(InpTokyoSymbol);
+   if(!tokyo.SetWeight(InpTokyoWeight))
+     {
+      Log(tokyo.LastError());
+      delete tokyo;
+      return INIT_PARAMETERS_INCORRECT;
+     }
+   AddModule(tokyo, InpTokyoStatus);
    AddModule(new CSeesareFlowLondonFix(InpLondonSymbol1), InpLondonStatus);
    AddModule(new CSeesareFlowLondonFix(InpLondonSymbol2), InpLondonStatus);
    AddModule(new CSeesareFlowUsClose(InpUsSymbol, InpUsFeed, InpUsMinUsd, InpUsMaxSpread), InpUsStatus);
    if(g_live)
      {
-      if(InpLadder != "")
-        {
-         double pct[];
-         string why = "";
-         if(!CSeesareLadder::Parse(InpLadder, pct, why))
-           {
-            Log("ladder: " + why);
-            return INIT_PARAMETERS_INCORRECT;
-           }
-         if(!g_ledger.SetLadder(pct))
-           {
-            Log(g_ledger.LastError());
-            return INIT_PARAMETERS_INCORRECT;
-           }
-         Log("ladder " + CSeesareLadder::Text(pct) + " (declared in the genesis line)");
-        }
       if(!g_ledger.Open(g_root, InpLifecycle, g_clock.UtcNow(), false))
         {
          Log("ledger: " + g_ledger.LastError());
@@ -144,6 +144,8 @@ int OnInit()
         }
       Log("lifecycle " + InpLifecycle + ": " + IntegerToString(g_ledger.RealCount()) + " real events, level " +
           IntegerToString(g_ledger.Level()) + ", envelope room " + CSeesareText::Fmt(g_ledger.EnvelopeRoomUSD(), 2) + " USD");
+      if(g_ledger.Stopped())
+         Log("lifecycle " + InpLifecycle + " is STOPPED: its drawdown is in the last band, no real event fits; events continue on paper until a new lifecycle id is set");
      }
    if(!g_paper.Init(g_root, g_units))
       Log("paper book: " + g_paper.LastError());
@@ -290,7 +292,7 @@ void TryEntry(const int i, const datetime now)
    if(live)
      {
       SSeesareSizing sz;
-      CSeesareExposure::Size(g_ledger, m.Market(), m.Domain(), plan.side, entry, stop, plan.ratio, InpCommissionLot, g_units, sz);
+      CSeesareExposure::Size(g_ledger, m.Market(), plan.side, entry, stop, m.Weight(), InpCommissionLot, g_units, sz);
       volume = sz.virtual_volume;
       if(sz.feasible)
          Log(m.Id() + ": REAL would be feasible (" + sz.why + ") but this build has no order gateway: SHADOW");
@@ -355,7 +357,7 @@ void Finish(const SSeesarePaperResult &r)
    e.utc_open   = r.open_utc;
    e.utc_close  = r.close_utc;
    e.close_by   = r.by;
-   e.ratio      = r.ratio;
+   e.weight     = WeightOf(r.module_id);
    e.risk_usd   = 0.0;
    e.volume     = r.volume;
    e.entry      = r.entry;

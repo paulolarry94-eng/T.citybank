@@ -87,6 +87,10 @@ Learning rules:
 - Universe under a 3.6% lifecycle cap (2026-11-01, P27, `research/results/seesare/universe_cap_study.json`): book + guard or
   book + drawdown-keyed ladder about +6-7%/yr in backtest (2023-25 +6.8% / +6.0%), 2026 untouched -2.3% / -1.5%; SEESARE outcome
   ladder about 0; adding Tokyo fix + EURUSD reversal hurt 2023-25.
+- SEESARE Phase 5 (2026-11-01, uncompiled): drawdown-keyed ladder replaces the win/loss ladder in CycleLedger.mqh (ledger
+  format 2: level = drawdown in $2.25 bands, plan = 0.30 x weight x room left, real risk <= plan, weight (0, 1.00]); holds 3.6%
+  by construction (gaps up to 3.33x the plan); Tokyo weight 0.57 (1.00 mixed, 2.00 worse: `ddladder_weight_check.json`); the
+  router can only trade the Tokyo fix today (one lifecycle about 5 years). Twin and 78 tests pass.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

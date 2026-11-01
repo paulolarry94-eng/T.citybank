@@ -53,9 +53,9 @@ def fmt_event(line):
         f"{HEAD} | {kv['life']} | {where}",
         f"{kv['module']} {kv['symbol']} {kv['side']}",
         f"Open {kv['open']} | Close {kv['close']} | by {kv['by']}",
-        f"Result {kv['res']} | {signed(kv['delta'])} USD | level L{kv['lvl_before']} -> L{kv['lvl_after']} | negative run {kv['neg_run']}",
+        f"Result {kv['res']} | {signed(kv['delta'])} USD | level L{kv['lvl_before']} -> L{kv['lvl_after']} | drawdown before {kv['dd']} USD",
         f"Entry {kv['entry']} | Lower {kv['lower']} | Upper {kv['upper']} | Exit {kv['exit']}",
-        f"Ratio {kv['ratio']} | multiplier {kv['mult']} | planned {kv['plan']} USD | risk {kv['risk']} USD | volume {kv['vol']}",
+        f"Weight {kv['weight']} | planned {kv['plan']} USD | risk {kv['risk']} USD | volume {kv['vol']}",
         f"Deals {deals}",
         f"Chain k={kv['k']} | hash {h}",
         f"Prev {kv['prev']}"])
@@ -66,8 +66,8 @@ def fmt_genesis(line):
     return "\n".join([
         f"{HEAD} | {kv['life']} | lifecycle opened {kv['created']}",
         f"Baseline {kv['baseline']} USD | {kv['events']} events in cycles of {kv['cycle_size']} | envelope {kv['envelope_pct']}%",
-        f"Time exits {kv['time_policy']} | exponent {kv['exponent']}",
-        f"Ladder % {kv['ladder']}",
+        f"Sizing {kv['sizing']}: {kv['levels']} levels of {kv['band']} USD drawdown | risk = {kv['room_mult']} x weight x room left | weight <= {kv['max_weight']}",
+        f"Time exits {kv['time_policy']}",
         f"Genesis hash {_hash(line)}"])
 
 
@@ -140,12 +140,11 @@ def units_per_usd(currency):
     return 0.0
 
 
-def level_table(ratio, fric, per_lot_usd, step, vmin):
-    """Planned delta and volume at each of the 16 levels (the ledger's rounding), feasible = volume >= broker minimum."""
-    mult = float(S.num(S.floor_dp(S.multiplier(float(S.num(ratio, 2))), 4), 4))
+def level_table(weight, per_lot_usd, step, vmin):
+    """Planned risk and volume at each of the 16 drawdown levels (the ledger's rounding), feasible = volume >= broker minimum."""
     out = []
-    for lv, pct in enumerate(S.LADDER):
-        plan = float(S.num(S.floor_dp(S.plan_usd(pct, mult, fric), 4), 4))
+    for lv in range(S.LEVELS):
+        plan = float(S.plan_text(lv, weight))
         vol = math.floor(plan / per_lot_usd / step + 1e-9) * step if per_lot_usd > 0 else 0.0
         out.append((lv, plan, vol, vol >= vmin - 1e-12))
     return out
@@ -168,8 +167,8 @@ DEAL_REASONS = [("DEAL_REASON_SL", "STOP"), ("DEAL_REASON_TP", "TARGET"), ("DEAL
 
 
 # ------------------------------------------------------------------------------------------------ vectors
-TABLE_CASES = [("cent USDJPY 0.3% stop, ratio 1.04", 1.04, 3.00), ("cent USDJPY 0.3% stop, ratio 3.50", 3.5, 3.00),
-               ("standard USDJPY 0.3% stop, ratio 3.50", 3.5, 300.0), ("cent EURUSD 10-pip stop, ratio 3.50", 3.5, 1.00)]
+TABLE_CASES = [("cent USDJPY 0.3% stop, weight 0.57", 0.57, 3.00), ("cent USDJPY 0.3% stop, weight 1.00", 1.0, 3.00),
+               ("standard USDJPY 0.3% stop, weight 0.57", 0.57, 300.0), ("cent EURUSD 10-pip stop, weight 0.25", 0.25, 1.00)]
 CURRENCIES = [("USD", 1.0), ("USC", 100.0), ("usc", 100.0), (" USC ", 100.0), ("EUR", 0.0), ("", 0.0)]
 SIGNED = [("0.4321", "+0.4321"), ("-0.0592", "-0.0592"), ("0.0000", "0.0000"), ("0.00000", "0.00000"), ("12.0000", "+12.0000"),
           ("", "")]
@@ -184,7 +183,7 @@ CENT_MONEY, CENT_UNITS = 30.8, 100.0
 def cent_event():
     t0 = S.date(2026, 11, 4, 23, 0)
     return dict(mode="REAL", module="TOKYO_FIX", domain="forex", symbol="USDJPY", side=1, digits=3, open=t0,
-                close=t0 + 115 * 60, by="TIME", ratio=1.04, risk=0.12, vol=0.04, entry=151.234, lower=150.78,
+                close=t0 + 115 * 60, by="TIME", weight=0.57, risk=0.12, vol=0.04, entry=151.234, lower=150.78,
                 upper=151.706, exit=151.311, delta=CENT_MONEY / CENT_UNITS, deals="50001000;50001001")
 
 
@@ -210,8 +209,8 @@ def vectors():
     sm = samples()
     out = {"text " + k: (fmt_genesis if k == "genesis" else fmt_audit if k == "anchor" else fmt_lifecycle
                          if k == "lifecycle" else fmt_event)(v) for k, v in sm.items()}
-    for name, ratio, per_lot in TABLE_CASES:
-        rows = level_table(ratio, 0.05, per_lot, 0.01, 0.01)
+    for name, weight, per_lot in TABLE_CASES:
+        rows = level_table(weight, per_lot, 0.01, 0.01)
         out[f"table {name}"] = table_text(rows)
         out[f"lowest feasible {name}"] = lowest_feasible(rows)
     for c, u in CURRENCIES:
@@ -270,9 +269,9 @@ def mql_block():
     t("   T_Str(\"outbox body for an unknown kind\", CSeesareTelegram::Body(\"NOTE\", VEC3_EVENT_REAL), \"\");")
     for a, b in SIGNED:
         t(f"   T_Str({_q('signed ' + repr(a))}, CSeesareTelegram::Signed({_q(a)}), {_q(b)});")
-    for name, ratio, per_lot in TABLE_CASES:
-        t(f"   T_Str({_q('levels ' + name)}, LevelTable({ratio!r}, {per_lot!r}), {_q(v['table ' + name])});")
-        t(f"   T_Int({_q('lowest feasible level ' + name)}, CSeesareExposure::LowestFeasibleLevel({ratio!r}, 0.05, "
+    for name, weight, per_lot in TABLE_CASES:
+        t(f"   T_Str({_q('levels ' + name)}, LevelTable({weight!r}, {per_lot!r}), {_q(v['table ' + name])});")
+        t(f"   T_Int({_q('lowest feasible level ' + name)}, CSeesareExposure::LowestFeasibleLevel({weight!r}, "
           f"{per_lot!r}, 0.01, 0.01), {v['lowest feasible ' + name]});")
     for c, u in CURRENCIES:
         t(f"   T_Str({_q('money units per USD for [' + c + ']')}, CSeesareText::Fmt(CSeesareExposure::UnitsPerUsd({_q(c)}), 1), "

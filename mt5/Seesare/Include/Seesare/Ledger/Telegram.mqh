@@ -18,9 +18,10 @@
 //|   SEESARE P26 | P26-001 | Cycle 3/36 | Step 7/10 | REAL          |
 //|   TOKYO_FIX USDJPY BUY                                           |
 //|   Open ... | Close ... | by TIME                                 |
-//|   Result NEGATIVE | -0.0592 USD | level L0 -> L2 | negative run 1|
+//|   Result NEGATIVE | -3.0000 USD | level L0 -> L1 | drawdown      |
+//|     before 0.0000 USD                                            |
 //|   Entry ... | Lower ... | Upper ... | Exit ...                   |
-//|   Ratio 1.04 | multiplier ... | planned ... USD | risk ... USD   |
+//|   Weight 0.57 | planned ... USD | risk ... USD | volume ...      |
 //|   Deals 50001000, 50001001                                       |
 //|   Chain k=.. | hash ..                                           |
 //|   Prev ..                                                        |
@@ -79,14 +80,17 @@ public:
      {
       CSeesareKV kv;
       string h = "";
-      if(!Load(line, kv, h, "life,created,baseline,events,cycle_size,envelope_pct,time_policy,exponent,ladder") || h == "")
+      string need = "life,created,baseline,events,cycle_size,envelope_pct,sizing,levels,band,room_mult,max_weight";
+      need += ",time_policy";
+      if(!Load(line, kv, h, need) || h == "")
          return "";
       string t = SEESARE_TG_HEAD;
       t += " | " + kv.Get("life") + " | lifecycle opened " + kv.Get("created");
       t += "\nBaseline " + kv.Get("baseline") + " USD | " + kv.Get("events") + " events in cycles of " + kv.Get("cycle_size") +
            " | envelope " + kv.Get("envelope_pct") + "%";
-      t += "\nTime exits " + kv.Get("time_policy") + " | exponent " + kv.Get("exponent");
-      t += "\nLadder % " + kv.Get("ladder");
+      t += "\nSizing " + kv.Get("sizing") + ": " + kv.Get("levels") + " levels of " + kv.Get("band") +
+           " USD drawdown | risk = " + kv.Get("room_mult") + " x weight x room left | weight <= " + kv.Get("max_weight");
+      t += "\nTime exits " + kv.Get("time_policy");
       t += "\nGenesis hash " + h;
       return t;
      }
@@ -95,7 +99,7 @@ public:
      {
       CSeesareKV kv;
       string h = "";
-      string need = "life,k,mode,cycle,step,module,symbol,side,open,close,by,res,lvl_before,lvl_after,neg_run,ratio,mult,plan,risk";
+      string need = "life,k,mode,cycle,step,module,symbol,side,open,close,by,res,dd,lvl_before,lvl_after,weight,plan,risk";
       need += ",vol,entry,lower,upper,exit,delta,deals,prev";
       if(!Load(line, kv, h, need) || h == "")
          return "";
@@ -116,10 +120,10 @@ public:
       t += "\n" + kv.Get("module") + " " + kv.Get("symbol") + " " + kv.Get("side");
       t += "\nOpen " + kv.Get("open") + " | Close " + kv.Get("close") + " | by " + kv.Get("by");
       t += "\nResult " + kv.Get("res") + " | " + Signed(kv.Get("delta")) + " USD | level L" + kv.Get("lvl_before") + " -> L" +
-           kv.Get("lvl_after") + " | negative run " + kv.Get("neg_run");
+           kv.Get("lvl_after") + " | drawdown before " + kv.Get("dd") + " USD";
       t += "\nEntry " + kv.Get("entry") + " | Lower " + kv.Get("lower") + " | Upper " + kv.Get("upper") + " | Exit " + kv.Get("exit");
-      t += "\nRatio " + kv.Get("ratio") + " | multiplier " + kv.Get("mult") + " | planned " + kv.Get("plan") + " USD | risk " +
-           kv.Get("risk") + " USD | volume " + kv.Get("vol");
+      t += "\nWeight " + kv.Get("weight") + " | planned " + kv.Get("plan") + " USD | risk " + kv.Get("risk") + " USD | volume " +
+           kv.Get("vol");
       t += "\nDeals " + deals;
       t += "\nChain k=" + kv.Get("k") + " | hash " + h;
       t += "\nPrev " + kv.Get("prev");

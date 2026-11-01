@@ -147,7 +147,7 @@ class OutboxMessage(unittest.TestCase):
         line, msg = O.cent_case()
         lines = msg.rstrip("\n").split("\n")
         self.assertEqual(lines[7], "SEESARE P26 | P3SELFTEST | Cycle 1/36 | Step 1/10 | REAL")
-        self.assertEqual(lines[10], "Result POSITIVE | +0.3080 USD | level L0 -> L0 | negative run 0")
+        self.assertEqual(lines[10], "Result POSITIVE | +0.3080 USD | level L0 -> L0 | drawdown before 0.0000 USD")
         self.assertEqual(lines[13], "Deals 50001000, 50001001")
         self.assertIn("|delta=0.3080|deals=50001000;50001001|", line)
 
@@ -163,18 +163,18 @@ class CentSizing(unittest.TestCase):
         stop = entry * (1 - 0.003)
         self.assertAlmostEqual(1000.0 * (entry - stop) / stop, 3.009, places=3)
 
-    def test_tokyo_on_a_cent_account_is_real_only_at_the_top_four_levels(self):
-        rows = O.level_table(1.04, 0.05, 3.00, 0.01, 0.01)
-        self.assertEqual(O.lowest_feasible(rows), 3)
-        self.assertEqual([r[2] for r in rows[:4]], [0.04, 0.02, 0.01, 0.01])
+    def test_tokyo_on_a_cent_account_is_real_down_to_l14(self):
+        rows = O.level_table(0.57, 3.00, 0.01, 0.01)
+        self.assertEqual(O.lowest_feasible(rows), 14)             # L15 has no plan: the lifecycle is stopped there
+        self.assertEqual([S.num(r[2], 2) for r in rows[:3]], ["1.92", "1.79", "1.66"])
 
-    def test_standard_account_is_never_real_at_these_plans(self):
-        self.assertEqual(O.lowest_feasible(O.level_table(3.5, 0.05, 300.0, 0.01, 0.01)), -1)
+    def test_standard_account_is_real_down_to_l7(self):
+        self.assertEqual(O.lowest_feasible(O.level_table(0.57, 300.0, 0.01, 0.01)), 7)
 
     def test_volumes_never_round_up(self):
-        for ratio in (0.5, 1.04, 2.0, 3.5, 5.0, 8.5):
-            for per_lot in (0.37, 1.0, 3.0, 3.07, 10.0):
-                for lv, plan, vol, ok in O.level_table(ratio, 0.05, per_lot, 0.01, 0.01):
+        for weight in (0.01, 0.25, 0.57, 1.0):
+            for per_lot in (0.37, 1.0, 3.0, 3.07, 10.0, 300.0):
+                for lv, plan, vol, ok in O.level_table(weight, per_lot, 0.01, 0.01):
                     self.assertLessEqual(vol * per_lot, plan + 1e-12)
                     self.assertEqual(ok, vol >= 0.01 - 1e-12)
 

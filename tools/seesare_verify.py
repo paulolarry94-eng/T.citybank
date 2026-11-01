@@ -12,7 +12,8 @@ compiled code against them on the owner's terminal.
 What the chain proves. Every ledger line carries the SHA-256 of the line before it (keyless), so changing any recorded
 event changes every later hash. Anyone can recompute a keyless chain from scratch, so it proves integrity only against a
 head published elsewhere (the outbox stream, anchors.txt, a public post). The verifier also checks every rule that can be
-checked from the text alone: the SEESARE ladder moves, the multiplier, friction and planned delta, the 10-event cycles, the
+checked from the text alone: the drawdown-keyed ladder (format 2, 2026-11-01: level = lifecycle drawdown in bands of $2.25,
+planned risk = 0.30 x weight x the room left below the band, real risk <= plan), the outcome rule, the 10-event cycles, the
 lifecycle lock, and the pre-trade envelope rule (drawdown before the event + its all-in risk <= 3.6% of $1,000).
 Deal tickets in each REAL line can be matched against the broker statement.
 """
@@ -27,20 +28,25 @@ BASELINE = 1000.0            # fixed virtual State Value, insulated from withdra
 CYCLE_EVENTS = 10
 LIFECYCLE_EVENTS = 360
 ENVELOPE_PCT = 3.6           # peak-to-trough cap on the lifecycle's real P&L, % of BASELINE
-EXPONENT = 2.0               # structural multiplier below 3.5:1 (owner's decision, 2026-11-01)
 LEVELS = 16
-FORMAT = "1"
-LADDER = [0.144, 0.095, 0.062, 0.041, 0.027, 0.018, 0.012, 0.008, 0.005, 0.0033, 0.0022, 0.0014, 0.0009, 0.0006,
-          0.0004, 0.0003]    # SEESARE P26 section 5, % of State Value per level
-FRICTION = {"forex": 0.05, "crypto": 0.08, "stocks": 0.03, "indices": 0.025, "commodities": 0.04}   # SEESARE 8.2
-GENESIS_KEYS = "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,time_policy,ladder,created".split(",")
+FORMAT = "2"                 # 2 = drawdown-keyed ladder (owner, 2026-11-01); 1 was the SEESARE win/loss ladder (retired)
+# Drawdown-keyed ladder (research/seesare/universe_lifecycle_study.py: book, 13 of 13 lifecycles completed 2011-22):
+# level = floor(lifecycle drawdown / BAND_USD), capped at 15; planned risk = ROOM_MULT x weight x room left below the band.
+SIZING = "DRAWDOWN_KEYED"
+BAND_USD = 2.25              # 3.6% of $1,000 / 16 levels
+BAND_UNITS = 22500           # the band in ten-thousandths of a dollar (levels are computed in whole units: exact in MQL5 too)
+ROOM_MULT = 0.30             # share of the room left that one event may risk at weight 1.00 (chosen on 2011-22)
+MAX_WEIGHT = 1.0             # the largest weight any tested leg has; weights are declared with 2 decimals in (0, 1.00]
+DOMAINS = ("forex", "crypto", "stocks", "indices", "commodities")
+GENESIS_KEYS = ("v,life,k,genesis,baseline,events,cycle_size,envelope_pct,sizing,levels,band,room_mult,max_weight,"
+                "time_policy,created").split(",")
 # Time-exit rule, declared in the genesis line (ENUM_SEESARE_TIME_POLICY order). The verifier reads all three; the MQL5 build
 # writes only BUILD_POLICY. History (owner decisions, 2026-11-01): MANUAL (Phase 1 mandate) -> LOSS_NEGATIVE (Phase 2: a losing
 # time exit descends) -> GAIN_POSITIVE_LOSS_NEGATIVE (Phase 4 "time-exit ascension": a time exit with a net gain also climbs).
 POLICIES = ("MANUAL", "LOSS_NEGATIVE", "GAIN_POSITIVE_LOSS_NEGATIVE")
 BUILD_POLICY = "GAIN_POSITIVE_LOSS_NEGATIVE"
-EVENT_KEYS = ("v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,lvl_before,lvl_after,neg_run,"
-              "ratio,mult,fric,plan,risk,vol,entry,lower,upper,exit,delta,deals,prev").split(",")
+EVENT_KEYS = ("v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,dd,lvl_before,lvl_after,weight,"
+              "plan,risk,vol,entry,lower,upper,exit,delta,deals,prev").split(",")
 AUDIT_KEYS = ("v,life,audit,cycle,events,pos,neg,man,shadow,pos_rate,net,net_pct,max_dd,max_dd_pct,life_net,life_dd,"
               "lvl_start,lvl_end,root,head,prev").split(",")
 CLOSE_BY = ["STOP", "TARGET", "TIME", "HUMAN", "BROKER"]          # order of ENUM_SEESARE_CLOSE
@@ -307,50 +313,43 @@ class Matrix:
 
 
 # ================================================================================================ ladder (CycleLedger.mqh)
-def ladder_text(p):
-    return ",".join(num(x, 4) for x in p)
+def level_from_dd(dd):
+    """CSeesareLadder::LevelFromDrawdown: whole $2.25 bands of lifecycle drawdown, 0..15. The drawdown is a sum of
+    4-decimal amounts, so it is converted to whole ten-thousandths first: no band edge depends on float noise."""
+    u = int(round(dd * 10000.0))
+    if u < 0:
+        u = 0
+    return min(LEVELS - 1, u // BAND_UNITS)
 
 
-def ladder_check(v):
-    if len(v) != LEVELS:
-        raise LedgerError("the ladder needs 16 levels")
-    for i, x in enumerate(v):
-        if not 0.0 < x <= 1.0:
-            raise LedgerError("ladder levels must be in (0, 1] percent")
-        if i and x >= v[i - 1]:
-            raise LedgerError("ladder levels must strictly decrease")
-        if abs(float(num(x, 4)) - x) > 1e-12:
-            raise LedgerError("ladder levels have at most 4 decimals")
+def room_usd(level):
+    """Room left below the bottom of the level's band: 3.6% of $1,000 - (level + 1) x $2.25; 0 at L15."""
+    return BAND_USD * (LEVELS - 1 - level)
 
 
-def ladder_parse(s):
-    parts = s.split(",")
-    if len(parts) != LEVELS or not all(is_decimal(x, 4) for x in parts):
-        raise LedgerError("malformed ladder")
-    v = [float(x) for x in parts]
-    ladder_check(v)
-    return v
+def plan_usd(level, weight, room_mult=ROOM_MULT):
+    """CSeesareLadder::PlanUsd: planned risk of one event (unrounded); the ledger writes it rounded down to 4 decimals."""
+    return room_mult * weight * room_usd(level)
+
+
+def plan_text(level, weight, room_mult=ROOM_MULT):
+    return num(floor_dp(plan_usd(level, float(num(weight, 2)), room_mult), 4), 4)
+
+
+# ---- RETIRED win/loss ladder (format 1, SEESARE P26 section 5 and 7.1). Not used by the ledger since 2026-11-01; kept only
+# so the earlier studies in research/seesare/ (universe_*_study.py "SEESARE" rule) still run and reproduce their results.
+LADDER = [0.144, 0.095, 0.062, 0.041, 0.027, 0.018, 0.012, 0.008, 0.005, 0.0033, 0.0022, 0.0014, 0.0009, 0.0006,
+          0.0004, 0.0003]
 
 
 def ladder_next(level, neg_run, res):
-    """SEESARE 7.1: a positive outcome climbs one level and clears the run; the 1st, 2nd, 3rd+ negative in a row
-    descends 2, 3, 4 levels; a manual resolution changes nothing (the run is kept)."""
+    """RETIRED. +1 level on a positive outcome; -2/-3/-4 for the 1st/2nd/3rd+ negative in a row; manual changes nothing."""
     if res == 1:
         return max(level - 1, 0), 0
     if res == -1:
         step = 2 if neg_run <= 0 else (3 if neg_run == 1 else 4)
         return min(level + step, LEVELS - 1), neg_run + 1
     return level, neg_run
-
-
-def multiplier(r):
-    if r >= 3.5:
-        return min(1.0 + 0.10 * (r - 3.5), 1.5)
-    return max((r / 3.5) ** EXPONENT, 0.082)
-
-
-def plan_usd(level_pct, mult, fric):
-    return BASELINE * level_pct / 100.0 * mult * (1.0 - fric)
 
 
 def classify(by, delta, policy=BUILD_POLICY):
@@ -394,26 +393,30 @@ def split_line(line):
 
 
 class Ledger:
-    """Replays (or writes) a lifecycle exactly as CSeesareCycleLedger does: one code path, apply_line, for both."""
+    """Replays (or writes) a lifecycle exactly as CSeesareCycleLedger does: one code path, apply_line, for both.
+    room_mult other than ROOM_MULT is for research only (the MQL5 build writes 0.30); adopt=True (the verifier) takes the
+    sizing constants and the time-exit rule from the genesis line."""
 
-    def __init__(self, life, ladder=None, adopt_ladder=False, time_policy=BUILD_POLICY):
+    def __init__(self, life, room_mult=ROOM_MULT, adopt=False, time_policy=BUILD_POLICY):
         if not is_life(life):
             raise LedgerError("bad lifecycle id")
         self.life = life
-        self.config = list(LADDER if ladder is None else ladder)
-        self.adopt_ladder = adopt_ladder
+        if not 0.0 < room_mult <= 1.0 or num(room_mult, 2) != num(round(room_mult, 2), 2):
+            raise LedgerError("room_mult must be in (0, 1] with 2 decimals")
+        self.config_room = float(num(room_mult, 2))
+        self.adopt = adopt
         if time_policy not in POLICIES:
             raise LedgerError("unknown time-exit policy")
         self.config_policy = time_policy
         self.policy = None
-        self.ladder = None
+        self.room_mult = None
         self.lines, self.hashes, self.line_utc = [], [], []
         self.audits, self.anchors, self.anchor_k = [], [], []
         self.genesis = self.head = ""
         self.created = 0
         self.k = -1
         self.n = self.shadow = 0
-        self.level = self.neg_run = 0
+        self.level = 0
         self.cycle = 1
         self.locked = False
         self.last_open = self.last_close = self.last_real_open = 0
@@ -448,20 +451,22 @@ class Ledger:
             raise LedgerError("a second genesis line")
         if keys != GENESIS_KEYS or kv["k"] != "0" or kv["genesis"] != "":
             raise LedgerError("genesis fields out of order")
-        if (kv["baseline"], kv["events"], kv["cycle_size"], kv["envelope_pct"], kv["exponent"]) != (
-                num(BASELINE, 2), str(LIFECYCLE_EVENTS), str(CYCLE_EVENTS), num(ENVELOPE_PCT, 2), num(EXPONENT, 2)):
+        if (kv["baseline"], kv["events"], kv["cycle_size"], kv["envelope_pct"], kv["sizing"], kv["levels"], kv["band"],
+                kv["max_weight"]) != (num(BASELINE, 2), str(LIFECYCLE_EVENTS), str(CYCLE_EVENTS), num(ENVELOPE_PCT, 2),
+                                      SIZING, str(LEVELS), num(BAND_USD, 4), num(MAX_WEIGHT, 2)):
             raise LedgerError("genesis constants differ from this build")
-        lad = ladder_parse(kv["ladder"])
-        if not self.adopt_ladder and ladder_text(lad) != ladder_text(self.config):
-            raise LedgerError("the configured ladder differs from the lifecycle's genesis ladder")
-        if kv["time_policy"] not in POLICIES or (not self.adopt_ladder and kv["time_policy"] != self.config_policy):
+        if not is_decimal(kv["room_mult"], 2) or not 0.0 < float(kv["room_mult"]) <= 1.0:
+            raise LedgerError("malformed room_mult")
+        if not self.adopt and kv["room_mult"] != num(self.config_room, 2):
+            raise LedgerError("room_mult differs from this build")
+        if kv["time_policy"] not in POLICIES or (not self.adopt and kv["time_policy"] != self.config_policy):
             raise LedgerError("time-exit policy differs from this build")
         created = iso_to_time(kv["created"])
         if created is None:
             raise LedgerError("bad genesis time")
         if dry:
             return
-        self.ladder, self.created, self.policy = lad, created, kv["time_policy"]
+        self.room_mult, self.created, self.policy = float(kv["room_mult"]), created, kv["time_policy"]
         self.genesis = self.head = h
         self.k = 0
         self.last_close = created
@@ -490,9 +495,8 @@ class Ledger:
             raise LedgerError(f"shadow-event numbering broken at k={k}")
         if not is_token(kv["module"]) or not is_token(kv["symbol"]):
             raise LedgerError(f"bad module or symbol at k={k}")
-        fric = FRICTION.get(kv["domain"])
-        if fric is None or kv["fric"] != num(fric, 4):
-            raise LedgerError(f"domain or friction not in the SEESARE table at k={k}")
+        if kv["domain"] not in DOMAINS:
+            raise LedgerError(f"unknown domain at k={k}")
         if kv["side"] not in ("BUY", "SELL"):
             raise LedgerError(f"bad side at k={k}")
         t_open, t_close = iso_to_time(kv["open"]), iso_to_time(kv["close"])
@@ -507,24 +511,30 @@ class Ledger:
             raise LedgerError(f"malformed delta at k={k}")
         if res != classify(kv["by"], float(kv["delta"]), self.policy):
             raise LedgerError(f"resolution does not follow the exit rule at k={k}")
+        if kv["dd"] != num(self.l_peak - self.l_net, 4):
+            raise LedgerError(f"dd is not the lifecycle drawdown at k={k}")
         if kv["lvl_before"] != str(self.level):
-            raise LedgerError(f"lvl_before is not the ladder's level at k={k}")
-        la, na = ladder_next(self.level, self.neg_run, res)
-        if kv["lvl_after"] != str(la) or kv["neg_run"] != str(na):
-            raise LedgerError(f"ladder rule broken at k={k}")
-        for f, d in (("ratio", 2), ("mult", 4), ("plan", 4), ("risk", 4), ("vol", 4), ("delta", 4)):
+            raise LedgerError(f"lvl_before is not the drawdown level at k={k}")
+        for f, d in (("weight", 2), ("plan", 4), ("risk", 4), ("vol", 4), ("delta", 4)):
             if not is_decimal(kv[f], d):
                 raise LedgerError(f"malformed {f} at k={k}")
-        ratio, mult, plan = float(kv["ratio"]), float(kv["mult"]), float(kv["plan"])
+        weight, plan = float(kv["weight"]), float(kv["plan"])
         risk, vol, delta = float(kv["risk"]), float(kv["vol"]), float(kv["delta"])
-        if not 0.0 < ratio <= 100.0:
-            raise LedgerError(f"declared ratio out of range at k={k}")
-        if abs(mult - multiplier(ratio)) > 0.0001 + 1e-9:
-            raise LedgerError(f"multiplier does not match the declared ratio at k={k}")
-        if abs(plan - plan_usd(self.ladder[self.level], mult, fric)) > 0.0001 + 1e-9:
-            raise LedgerError(f"planned delta does not match the ladder at k={k}")
+        if not 0.0 < weight <= MAX_WEIGHT:
+            raise LedgerError(f"weight out of range at k={k}")
+        if abs(plan - plan_usd(self.level, weight, self.room_mult)) > 0.0001 + 1e-9:
+            raise LedgerError(f"planned risk does not match the drawdown ladder at k={k}")
         if risk < 0.0 or vol < 0.0:
             raise LedgerError(f"negative risk or volume at k={k}")
+        if real and risk > plan + 1e-9:
+            raise LedgerError(f"real risk above the ladder's plan at k={k}")
+        if real:
+            net2 = self.l_net + delta
+            la = level_from_dd(max(self.l_peak, net2) - net2)
+        else:
+            la = self.level
+        if kv["lvl_after"] != str(la):
+            raise LedgerError(f"drawdown level rule broken at k={k}")
         deals = kv["deals"]
         if not is_deals(deals):
             raise LedgerError(f"bad deal tickets at k={k}")
@@ -566,7 +576,7 @@ class Ledger:
         else:
             self.shadow += 1
             self.c_shadow += 1
-        self.level, self.neg_run, self.k, self.head = la, na, k, h
+        self.level, self.k, self.head = la, k, h
         self.last_open, self.last_close = t_open, t_close
         self._remember(line, h, t_close)
         if real and self.n % CYCLE_EVENTS == 0:
@@ -604,9 +614,9 @@ class Ledger:
     # ------------------------------------------------------------------ writing (CSeesareCycleLedger::Open / Record)
     def genesis_line(self, created):
         g = (f"v={FORMAT}|life={self.life}|k=0|genesis|baseline={num(BASELINE, 2)}|events={LIFECYCLE_EVENTS}|"
-             f"cycle_size={CYCLE_EVENTS}|envelope_pct={num(ENVELOPE_PCT, 2)}|exponent={num(EXPONENT, 2)}|"
-             f"time_policy={self.config_policy}|"
-             f"ladder={ladder_text(self.config)}|created={iso(created)}")
+             f"cycle_size={CYCLE_EVENTS}|envelope_pct={num(ENVELOPE_PCT, 2)}|sizing={SIZING}|levels={LEVELS}|"
+             f"band={num(BAND_USD, 4)}|room_mult={num(self.config_room, 2)}|max_weight={num(MAX_WEIGHT, 2)}|"
+             f"time_policy={self.config_policy}|created={iso(created)}")
         line = f"{g}|hash={sha(g)}"
         self.apply_line(line, dry=True)
         self.apply_line(line)
@@ -614,12 +624,15 @@ class Ledger:
 
     def build_event_line(self, e):
         real = e["mode"] == "REAL"
-        fric = FRICTION[e["domain"]]
-        s_ratio = num(e["ratio"], 2)
-        s_mult = num(floor_dp(multiplier(float(s_ratio)), 4), 4)
-        s_plan = num(floor_dp(plan_usd(self.ladder[self.level], float(s_mult), fric), 4), 4)
-        res = classify(e["by"], float(num(e["delta"], 4)), self.policy)
-        la, na = ladder_next(self.level, self.neg_run, res)
+        s_weight = num(e["weight"], 2)
+        s_plan = plan_text(self.level, float(s_weight), self.room_mult)
+        s_delta = num(e["delta"], 4)
+        res = classify(e["by"], float(s_delta), self.policy)
+        if real:
+            net2 = self.l_net + float(s_delta)
+            la = level_from_dd(max(self.l_peak, net2) - net2)
+        else:
+            la = self.level
         p = e["digits"]
         fields = [
             ("v", FORMAT), ("life", self.life), ("k", str(self.k + 1)), ("mode", "REAL" if real else "SHADOW"),
@@ -627,10 +640,10 @@ class Ledger:
             ("step", str(self.n % CYCLE_EVENTS + 1) if real else "-"), ("module", e["module"]),
             ("domain", e["domain"]), ("symbol", e["symbol"]), ("side", "BUY" if e["side"] > 0 else "SELL"),
             ("open", iso(e["open"])), ("close", iso(e["close"])), ("by", e["by"]), ("res", RES_NAME[res]),
-            ("lvl_before", str(self.level)), ("lvl_after", str(la)), ("neg_run", str(na)), ("ratio", s_ratio),
-            ("mult", s_mult), ("fric", num(fric, 4)), ("plan", s_plan), ("risk", num(e["risk"] if real else 0.0, 4)),
+            ("dd", num(self.l_peak - self.l_net, 4)), ("lvl_before", str(self.level)), ("lvl_after", str(la)),
+            ("weight", s_weight), ("plan", s_plan), ("risk", num(e["risk"] if real else 0.0, 4)),
             ("vol", num(e["vol"], 4)), ("entry", num(e["entry"], p)), ("lower", num(e["lower"], p)),
-            ("upper", num(e["upper"], p)), ("exit", num(e["exit"], p)), ("delta", num(e["delta"], 4)),
+            ("upper", num(e["upper"], p)), ("exit", num(e["exit"], p)), ("delta", s_delta),
             ("deals", e["deals"] if real else "-"), ("prev", self.head)]
         c = "|".join(f"{k}={v}" for k, v in fields)
         return f"{c}|hash={sha(c)}"
@@ -655,9 +668,16 @@ class Ledger:
             return False
         return self.drawdown() + float(num(risk, 4)) <= BASELINE * ENVELOPE_PCT / 100.0 + 1e-9
 
-    def plan_at(self, ratio, domain):
-        s_mult = num(floor_dp(multiplier(float(num(ratio, 2))), 4), 4)
-        return float(num(floor_dp(plan_usd(self.ladder[self.level], float(s_mult), FRICTION[domain]), 4), 4))
+    def plan_at(self, weight):
+        """CSeesareCycleLedger::PlanUsdAt: the planned risk the ledger will accept for a REAL event now (-1 if the weight is
+        out of range). 0 at L15: the lifecycle is stopped (no real event fits)."""
+        if not 0.0 < float(num(weight, 2)) <= MAX_WEIGHT:
+            return -1.0
+        return float(plan_text(self.level, weight, self.room_mult))
+
+    def stopped(self):
+        """No REAL event can be recorded any more (drawdown in the last band): a new lifecycle id is the owner's decision."""
+        return self.level >= LEVELS - 1
 
 
 # ================================================================================================ verifier
@@ -699,7 +719,7 @@ def verify(lines, anchor_lines=None):
     p = parse(c) if c else None
     if p is None or not is_life(p[1].get("life", "")):
         raise LedgerError("first line is not a genesis line")
-    L = Ledger(p[1]["life"], adopt_ladder=True, time_policy=p[1].get("time_policy", BUILD_POLICY)
+    L = Ledger(p[1]["life"], adopt=True, time_policy=p[1].get("time_policy", BUILD_POLICY)
                if p[1].get("time_policy") in POLICIES else BUILD_POLICY)
     for line in lines:
         L.apply_line(line)
@@ -721,40 +741,41 @@ def read_lines(path):
 SELFTEST_LIFE = "SELFTEST"
 SELFTEST_CREATED = date(2026, 11, 1)
 _B = ("USDJPY", 3, 151.234, 151.084)      # symbol, digits, entry, BUY stop (150 points)
-# mode, side, by, ratio, target, exit, delta, vol, risk. BUY: lower = stop, upper = target; SELL: mirrored.
+# mode, side, by, weight, target, exit, delta, vol, risk. BUY: lower = stop, upper = target; SELL: mirrored.
 # The ledger derives each resolution (STOP/BROKER negative, TARGET positive, TIME positive on a gain, negative on a loss,
-# manual at exactly 0; HUMAN manual). Comments give the path under the build's rule GAIN_POSITIVE_LOSS_NEGATIVE.
+# manual at exactly 0; HUMAN manual) and each level from the lifecycle drawdown (bands of $2.25; SHADOW events carry no money
+# and never move it). Comments: drawdown after the event and the level path. Plans at weight 1.00: L0 10.1250, L1 9.4500.
 SAMPLE = [
-    ("REAL", 1, "TIME", 3.5, 151.759, 151.311, 0.4321, 0.01, 1.06),       # time exit with a gain: POSITIVE, stays L0
-    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -1.0592, 0.01, 1.06),     # L0 -> L2
-    ("SHADOW", -1, "TARGET", 3.5, 150.709, 150.709, 2.0615, 0.0059, 0),   # L2 -> L1 on paper
-    ("SHADOW", 1, "TARGET", 3.5, 151.759, 151.759, 3.1605, 0.0091, 0),    # L1 -> L0
-    ("REAL", 1, "TARGET", 2.0, 151.534, 151.534, 1.912, 0.01, 1.06),      # ratio 2: multiplier 0.3265
-    ("REAL", 1, "TIME", 5.0, 151.984, 151.204, -0.295, 0.01, 1.06),       # losing time exit: NEGATIVE, L0 -> L2
-    ("REAL", -1, "STOP", 3.5, 150.709, 151.384, -1.0592, 0.01, 1.06),    # 2nd negative: L2 -> L5
-    ("SHADOW", 1, "STOP", 3.5, 151.759, 151.084, -0.589, 0.0059, 0),     # 3rd negative: L5 -> L9
-    ("SHADOW", 1, "TIME", 3.5, 151.759, 151.234, 0.0, 0.0017, 0),         # time exit at exactly 0: MANUAL, run kept
-    ("SHADOW", 1, "STOP", 3.5, 151.759, 151.084, -0.171, 0.0017, 0),     # 4th negative: L9 -> L13
-    ("SHADOW", 1, "TARGET", 3.5, 151.759, 151.759, 0.1663, 0.0005, 0),    # L13 -> L12
-    ("SHADOW", -1, "TARGET", 0.8, 151.114, 151.114, 0.0301, 0.0003, 0),   # ratio 0.8: floor 0.082; L12 -> L11
-    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.41, 0.01, 1.06),       # L11 -> L10
-    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.39, 0.01, 1.06),       # L10 -> L9
-    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.18, 0.01, 1.06),       # L9 -> L11
-    ("REAL", 1, "TIME", 3.5, 151.759, 151.271, 0.05, 0.01, 1.06),         # time exit with a gain: POSITIVE, L11 -> L10
-    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.29, 0.01, 1.06),       # 10th REAL: cycle 1 closes; L10 -> L9
-    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.12, 0.01, 1.06),       # cycle 2 step 1: L9 -> L11
-    ("SHADOW", 1, "HUMAN", 3.5, 151.759, 151.3, 0.01, 0.0006, 0),         # human close: MANUAL, run kept
-    ("REAL", -1, "BROKER", 3.5, 150.709, 151.384, -0.09, 0.01, 1.06),    # stop-out: 2nd negative, L11 -> L14
+    ("REAL", 1, "TIME", 1.00, 151.759, 151.311, 0.4321, 0.30, 3.00),     # gain: POSITIVE; dd 0, L0
+    ("REAL", 1, "STOP", 1.00, 151.759, 151.084, -3.0, 0.30, 3.00),       # dd 3.0000: L0 -> L1
+    ("SHADOW", -1, "TARGET", 1.00, 150.709, 150.709, 2.0615, 0.0059, 0),  # paper: stays L1
+    ("SHADOW", 1, "TARGET", 1.00, 151.759, 151.759, 3.1605, 0.0091, 0),   # paper: stays L1
+    ("REAL", 1, "TARGET", 0.57, 151.534, 151.534, 1.912, 0.01, 1.06),     # weight 0.57 (plan 5.3865); dd 1.0880: L1 -> L0
+    ("REAL", 1, "TIME", 1.00, 151.984, 151.204, -0.295, 0.01, 1.06),      # losing time exit: NEGATIVE; dd 1.3830, L0
+    ("REAL", -1, "STOP", 1.00, 150.709, 151.384, -4.5, 0.45, 4.50),       # dd 5.8830: L0 -> L2
+    ("SHADOW", 1, "STOP", 1.00, 151.759, 151.084, -0.589, 0.0059, 0),     # paper loss: stays L2
+    ("SHADOW", 1, "TIME", 1.00, 151.759, 151.234, 0.0, 0.0017, 0),        # time exit at exactly 0: MANUAL
+    ("SHADOW", 1, "STOP", 1.00, 151.759, 151.084, -0.171, 0.0017, 0),
+    ("SHADOW", 1, "TARGET", 1.00, 151.759, 151.759, 0.1663, 0.0005, 0),
+    ("SHADOW", -1, "TARGET", 0.25, 151.114, 151.114, 0.0301, 0.0003, 0),  # weight 0.25 on paper
+    ("REAL", 1, "TARGET", 0.25, 151.759, 151.759, 0.41, 0.01, 1.06),      # plan at L2, 0.25: 2.1937; dd 5.4730, L2
+    ("REAL", 1, "TARGET", 1.00, 151.759, 151.759, 3.39, 0.01, 1.06),      # dd 2.0830: L2 -> L0
+    ("REAL", 1, "STOP", 1.00, 151.759, 151.084, -0.18, 0.01, 1.06),       # dd 2.2630, just past the first band: L0 -> L1
+    ("REAL", 1, "TIME", 1.00, 151.759, 151.271, 0.05, 0.01, 1.06),        # gain; dd 2.2130: L1 -> L0
+    ("REAL", 1, "TARGET", 1.00, 151.759, 151.759, 0.29, 0.01, 1.06),      # 10th REAL: cycle 1 closes; dd 1.9230, L0
+    ("REAL", 1, "STOP", 1.00, 151.759, 151.084, -2.0, 0.20, 2.00),        # cycle 2 step 1; dd 3.9230: L0 -> L1
+    ("SHADOW", 1, "HUMAN", 1.00, 151.759, 151.3, 0.01, 0.0006, 0),        # human close: MANUAL
+    ("REAL", -1, "BROKER", 1.00, 150.709, 151.384, -9.0, 0.01, 1.06),     # stop-out gap beyond the risk: dd 12.9230, L1 -> L5
 ]
 
 
 def sample_event(i):
-    mode, side, by, ratio, target, exitp, delta, vol, risk = SAMPLE[i]
+    mode, side, by, weight, target, exitp, delta, vol, risk = SAMPLE[i]
     sym, digits, entry, stop = _B
     t0 = date(2026, 11, 4, 23, 0) + i * DAY
     lower, upper = (stop, target) if side > 0 else (target, round(2 * entry - stop, digits))
     return dict(mode=mode, module="TOKYO_FIX", domain="forex", symbol=sym, side=side, digits=digits, open=t0,
-                close=t0 + 115 * 60, by=by, ratio=ratio, risk=risk, vol=vol, entry=entry, lower=lower,
+                close=t0 + 115 * 60, by=by, weight=weight, risk=risk, vol=vol, entry=entry, lower=lower,
                 upper=upper, exit=exitp, delta=delta,
                 deals=f"{50001000 + 2 * i};{50001001 + 2 * i}" if mode == "REAL" else "-")
 
@@ -770,9 +791,28 @@ def lock_event(i):
     t0 = date(2027, 1, 4, 23, 0) + i * DAY
     win = i % 3 != 2
     return dict(mode="REAL", module="LOCKTEST", domain="forex", symbol="USDJPY", side=1, digits=3, open=t0,
-                close=t0 + 3600, by="TARGET" if win else "STOP", ratio=3.5, risk=1.06, vol=0.01,
+                close=t0 + 3600, by="TARGET" if win else "STOP", weight=1.0, risk=1.06, vol=0.01,
                 entry=151.234, lower=151.084, upper=151.759, exit=151.759 if win else 151.084,
                 delta=0.25 if win else -0.4, deals=f"{60000000 + i}")
+
+
+def stop_event(i, plan):
+    """The stop test (same in the MQL5 self-test): every event loses exactly its full plan at weight 1.00, one a day."""
+    t0 = date(2027, 6, 1, 23, 0) + i * DAY
+    return dict(mode="REAL", module="STOPTEST", domain="forex", symbol="USDJPY", side=1, digits=3, open=t0,
+                close=t0 + 3600, by="STOP", weight=1.0, risk=plan, vol=0.01, entry=151.234, lower=151.084,
+                upper=151.759, exit=151.084, delta=-plan, deals=f"{70000000 + i}")
+
+
+def stop_run():
+    """Losses at full plan until the ladder has no room left: how many events, and where the drawdown ends."""
+    L = Ledger("SELFTEST_STOP")
+    L.genesis_line(SELFTEST_CREATED)
+    i = 0
+    while not L.stopped() and i < 200:
+        L.record(stop_event(i, L.plan_at(1.0)))
+        i += 1
+    return L, i
 
 
 CLOCK_CASES = [   # (label, venue, local (y, m, d, hh, mi))
@@ -796,8 +836,8 @@ SERVER_CASES = [  # (scheme, server time (y, m, d, hh, mi))
 MATRIX_DATES = [(2026, 3, 10), (2026, 3, 13), (2026, 7, 1), (2026, 10, 28), (2026, 11, 1), (2026, 12, 4)]
 PROBES = [("TOKYO_FIX", (2026, 7, 1, 23, 30)), ("FUNDING_00", (2026, 7, 2, 0, 5)), ("NY_MOC", (2026, 3, 10, 19, 55)),
           ("NY_MOC", (2026, 3, 10, 20, 55)), ("WMR_FIX", (2026, 10, 30, 15, 45)), ("US_NFP", (2026, 3, 10, 13, 0))]
-MULT_RATIOS = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 8.5, 10.0]
-TRANSITIONS = [(0, 0, 1), (0, 0, -1), (2, 1, -1), (5, 2, -1), (14, 3, -1), (15, 4, -1), (7, 2, 0), (7, 2, 1), (0, 5, 1)]
+DD_CASES = [0.0, 0.0001, 2.2499, 2.25, 2.263, 4.4999, 4.5, 12.923, 33.7499, 33.75, 36.0, 50.0, -1.0]
+PLAN_WEIGHTS = [1.0, 0.57, 0.25, 0.01]
 DECIMAL_CASES = [("0.4321", 4, True), ("-0.4321", 4, True), ("-0.0000", 4, False), ("00.4321", 4, False),
                  ("0.432", 4, False), ("1", 0, True), ("-1", 0, True), ("1.", 0, False), ("12.50", 2, True),
                  ("+1.00", 2, False), ("1e5", 0, False), ("", 2, False)]
@@ -823,16 +863,17 @@ def vectors():
     m = Matrix()
     for y, mo, d in MATRIX_DATES:
         out[f"windows on {y}-{mo:02d}-{d:02d} (UTC start)"] = window_list(m, date(y, mo, d, 12))
-    for r in MULT_RATIOS:
-        out[f"multiplier {r:.2f}"] = num(floor_dp(multiplier(r), 4), 4)
-    for i, p in enumerate(LADDER):
-        out[f"plan L{i} forex 3.50"] = num(floor_dp(plan_usd(p, 1.0, FRICTION["forex"]), 4), 4)
+    for d in DD_CASES:
+        out[f"level for dd {d}"] = level_from_dd(d)
+    for w in PLAN_WEIGHTS:
+        for i in range(LEVELS):
+            out[f"plan L{i} weight {w:.2f}"] = plan_text(i, w)
     L, lines = build_selftest()
     out["genesis_line"] = L.lines[0]
     out["event1_line"] = lines[0]
     out["head_after_sample"] = L.head
     out["anchor1"] = L.anchors[0]
-    out.update(level=L.level, neg_run=L.neg_run, real=L.n, shadow=L.shadow, cycle=L.cycle,
+    out.update(level=L.level, real=L.n, shadow=L.shadow, cycle=L.cycle,
                life_net=num(L.l_net, 4), life_dd=num(L.l_dd, 4), envelope_room=num(L.envelope_room(), 4),
                messages=1 + len(lines) + len(L.anchors))
     TIE_CHECK = False
@@ -863,12 +904,12 @@ def mql_block():
     lock.genesis_line(SELFTEST_CREATED)
     for i in range(LIFECYCLE_EVENTS):
         lock.record(lock_event(i))
+    stop_L, stop_n = stop_run()
     o = ["//--- BEGIN GENERATED VECTORS: python3 tools/seesare_verify.py --mql  (do not edit by hand)",
          f"#define VEC_LIFE          {_q(SELFTEST_LIFE)}",
          f"#define VEC_EVENTS        {len(SAMPLE)}",
          f"#define VEC_MESSAGES      {v['messages']}",
          f"#define VEC_LEVEL         {L.level}",
-         f"#define VEC_NEG_RUN       {L.neg_run}",
          f"#define VEC_REAL          {L.n}",
          f"#define VEC_SHADOW        {L.shadow}",
          f"#define VEC_CYCLE         {L.cycle}",
@@ -881,7 +922,10 @@ def mql_block():
          f"#define VEC_HEAD          {_q(L.head)}",
          f"#define VEC_LOCK_MESSAGES {1 + LIFECYCLE_EVENTS + LIFECYCLE_EVENTS // CYCLE_EVENTS + 1}",
          f"#define VEC_LOCK_HEAD     {_q(lock.head)}",
-         f"#define VEC_LOCK_ANCHOR36 {_q(lock.anchors[-1])}"]
+         f"#define VEC_LOCK_ANCHOR36 {_q(lock.anchors[-1])}",
+         f"#define VEC_STOP_EVENTS   {stop_n}",
+         f"#define VEC_STOP_DD       {_q(num(stop_L.drawdown(), 4))}",
+         f"#define VEC_STOP_HEAD     {_q(stop_L.head)}"]
     ev = [sample_event(i) for i in range(len(SAMPLE))]
 
     def arr(name, typ, vals):
@@ -890,7 +934,7 @@ def mql_block():
     arr("VEC_MODE", "int", ["0" if e["mode"] == "REAL" else "1" for e in ev])
     arr("VEC_SIDE", "int", [str(e["side"]) for e in ev])
     arr("VEC_BY", "int", [str(CLOSE_BY.index(e["by"])) for e in ev])
-    for key, name in (("ratio", "VEC_RATIO"), ("risk", "VEC_RISK"), ("vol", "VEC_VOL"), ("lower", "VEC_LOWER"),
+    for key, name in (("weight", "VEC_WEIGHT"), ("risk", "VEC_RISK"), ("vol", "VEC_VOL"), ("lower", "VEC_LOWER"),
                       ("upper", "VEC_UPPER"), ("exit", "VEC_EXIT"), ("delta", "VEC_DELTA")):
         arr(name, "double", [_d(e[key]) for e in ev])
     arr("VEC_DEALS", "string", [_q(e["deals"]) for e in ev])
@@ -931,15 +975,11 @@ def mql_block():
         t(f"   T_Str(\"active {wid} at {iso(probe)}\", ActiveWin(m, \"{wid}\", {_date_call(a)}), "
           f"{_q(iso(r[2]) if r else 'no')});")
         t(f"   T_Str(\"next {wid} after {iso(probe)}\", NextWin(m, \"{wid}\", {_date_call(a)}), {_q(iso(nx[2]))});")
-    for r in MULT_RATIOS:
-        t(f"   T_Str(\"multiplier {r:.2f}\", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier({_d(r)}), 4), 4), "
-          f"{_q(v[f'multiplier {r:.2f}'])});")
-    for i in range(LEVELS):
-        t(f"   T_Str(\"plan L{i} forex 3.50\", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd("
-          f"{_d(LADDER[i])}, 1.0, 0.05), 4), 4), {_q(v[f'plan L{i} forex 3.50'])});")
-    for lv, nr, res in TRANSITIONS:
-        la, na = ladder_next(lv, nr, res)
-        t(f"   T_Str(\"ladder L{lv} run {nr} {RES_NAME[res]}\", Transition({lv}, {nr}, {res}), \"{la}/{na}\");")
+    for d in DD_CASES:
+        t(f"   T_Int(\"level for drawdown {d}\", CSeesareLadder::LevelFromDrawdown({_d(d)}), {v[f'level for dd {d}']});")
+    for w in PLAN_WEIGHTS:
+        for i in range(LEVELS):
+            t(f"   T_Str(\"plan L{i} weight {w:.2f}\", CSeesareLadder::PlanText({i}, {_d(w)}), {_q(v[f'plan L{i} weight {w:.2f}'])});")
     for by in CLOSE_BY:
         for delta in (0.5, -0.5):
             for pol, name in enumerate(POLICIES):

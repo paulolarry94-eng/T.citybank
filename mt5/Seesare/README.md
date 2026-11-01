@@ -52,9 +52,9 @@ Anyone can check a lifecycle: `python3 tools/seesare_verify.py ledger.txt anchor
 
 ## Rules the code enforces
 
-- **Ladder (SEESARE 7.1):** positive outcome +1 level; 1st/2nd/3rd+ negative in a row -2/-3/-4; manual resolution changes
+- **(Retired in Phase 5, see the end of this file.) Ladder (SEESARE 7.1):** positive outcome +1 level; 1st/2nd/3rd+ negative in a row -2/-3/-4; manual resolution changes
   nothing and keeps the negative run. The ledger computes the levels itself; a caller cannot write a different level.
-- **Multiplier:** ratio >= 3.5: min(1 + 0.10 (r - 3.5), 1.5); below: max((r / 3.5)^2.0, 0.082) (owner's exponent 2.0).
+- **(Retired in Phase 5.) Multiplier:** ratio >= 3.5: min(1 + 0.10 (r - 3.5), 1.5); below: max((r / 3.5)^2.0, 0.082) (owner's exponent 2.0).
   Multiplier and planned delta are rounded **down** to 4 decimals, so MQL5 and Python write identical text (SEESARE's own
   values at levels 9, 13 and 15 fall exactly on a rounding tie, e.g. $0.03135).
 - **Cycles:** 10 REAL events per cycle, 36 cycles, lock at 360. SHADOW events move the ladder but carry no money and do not
@@ -220,4 +220,47 @@ but climbs 1 per win. Its long-run position for independent outcomes:
 | 80% | 2.3 | 76% |
 
 Scaling the level sizes changes what each level risks, not where the ladder sits.
+
+## Phase 5 (2026-11-01): the drawdown-keyed engine
+
+**Owner's decision:** the SEESARE win/loss ladder is retired. Every event is sized by the drawdown-keyed ladder, which the
+strategy-universe study chose (`research/seesare/universe_lifecycle_study.py`: 11-leg book, 13 of 13 lifecycles completed
+2011-22, mean +6.1% per lifecycle).
+
+| Rule | Value |
+|---|---|
+| Level | lifecycle drawdown in whole $2.25 bands (0.225% of $1,000): L0 below $2.25 ... L15 from $33.75 |
+| Planned risk | 0.30 x weight x room left below the band = 0.30 x weight x $2.25 x (15 - level); L0 at weight 1.00 = $10.125 (1.01%) |
+| Weight | per module, (0, 1.00], 2 decimals; Tokyo fix 0.57 (the book's inverse-volatility rule; input `InpTokyoWeight`) |
+| Real risk | may not exceed the plan (the ledger refuses the line otherwise) |
+| Paper (SHADOW) events | carry no money and never move the level |
+| Stopped | at L15 no real event fits; the router logs it, events continue on paper until a new lifecycle id |
+| Outcome labels | stop/broker NEGATIVE, target POSITIVE, hand MANUAL, time exit by sign: published and counted, no longer sizing |
+
+**What this guarantees (planned losses):** for any drawdown inside a band, drawdown + plan stays below $36 at every level, so
+the ladder holds the 3.6% line by construction (the pre-trade guard stays as a second check). A single loss may even be up to
+3.33 times its planned risk (1 / 0.30, a gap through the stop) without crossing $36. Losses at full plan, one after another,
+stop the lifecycle after 9 events at $33.75 (3.375%). Bigger gaps can cross it. Tests: `research/truth/tests/
+test_seesare_phase1.py` (Ladder, EnvelopeGuard); MQL5 self-test `StopTest`.
+
+Format 2 ledger lines (`v=2`) carry `dd` (drawdown before the event), `lvl_before`, `lvl_after`, `weight` and `plan` in place of
+`neg_run`, `ratio`, `mult` and `fric`; the genesis line declares `sizing=DRAWDOWN_KEYED|levels=16|band=2.2500|room_mult=0.30|
+max_weight=1.00`. The Telegram text follows (`Weight 0.57 | planned ... | risk ...`, `level L0 -> L1 | drawdown before ...`).
+Commission default is now 0 (`InpCommissionLot`, RoboForex ProCent); the account currency is read automatically (USD or USC).
+
+**What the evidence says about using it now**
+
+| Check (`research/seesare/ddladder_weight_check.py`, design committed first) | Per lifecycle 2011-22 | 2023-25 | Lifecycle length |
+|---|---|---|---|
+| Tokyo fix alone (what the router can trade today), weight 1.00 | +11.8% (2 completed) | unfinished: +4.7% after 214 trades | about 5 years |
+| Book + Tokyo + EURUSD reversal, Tokyo weight 0.57 | +6.6% (15 completed, 1 stopped) | +2.2% (3 + 1) | about 9 months |
+| Same, Tokyo weight 1.00 ("maximised") | +6.8% (15 + 1) | +2.6% (3 + 1) | about 9 months |
+| Same, Tokyo weight 2.00 (beyond any tested leg) | +5.8% (12 + 4) | +1.2% (2 + 2) | about 9 months |
+
+At higher costs weight 1.00 was worse than 0.57 (+5.2% vs +6.0% and +1.1% vs +1.4%). Hence the default 0.57 and the 1.00 cap.
+
+**Not yet:** the 11 book legs (where the +6% per lifecycle comes from) are not router modules yet; only the Tokyo fix can run
+LIVE. The ledger validates "risk <= plan" against the level at record time, which is exact for one open position at a time
+(the router's rule today); concurrent positions will need the plan recorded at entry. Real orders (the gateway) are still not
+built.
 

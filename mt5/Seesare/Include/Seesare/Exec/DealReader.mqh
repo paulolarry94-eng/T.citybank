@@ -107,7 +107,7 @@ public:
    static bool       FromPosition(const ulong position_id, const CSeesareClock &clock, const double units_per_usd,
                                   SSeesareDealSummary &out);
    static bool       ToEvent(const SSeesareDealSummary &d, const string module, const string domain, const int digits,
-                             const double ratio, const double risk_usd, const double lower, const double upper,
+                             const double weight, const double risk_usd, const double lower, const double upper,
                              SSeesareEvent &e);
   };
 
@@ -229,7 +229,7 @@ bool CSeesareDealReader::FromPosition(const ulong position_id, const CSeesareClo
 
 //--- a closed position -> a REAL event for CSeesareCycleLedger::Record (the ledger derives the resolution itself)
 bool CSeesareDealReader::ToEvent(const SSeesareDealSummary &d, const string module, const string domain, const int digits,
-                                 const double ratio, const double risk_usd, const double lower, const double upper,
+                                 const double weight, const double risk_usd, const double lower, const double upper,
                                  SSeesareEvent &e)
   {
    e.Clear();
@@ -244,7 +244,7 @@ bool CSeesareDealReader::ToEvent(const SSeesareDealSummary &d, const string modu
    e.utc_open   = d.open_utc;
    e.utc_close  = d.close_utc;
    e.close_by   = d.close_by;
-   e.ratio      = ratio;
+   e.weight     = weight;
    e.risk_usd   = risk_usd;
    e.volume     = d.volume_in;
    e.entry      = d.entry_price;

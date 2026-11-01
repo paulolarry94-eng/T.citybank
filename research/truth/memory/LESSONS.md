@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-70 ideas tested, about 303,484 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+71 ideas tested, about 303,492 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,9 +16,9 @@
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
 | intraday | 17 | 1 | 182,551 |
-| owner-idea | 16 | 0 | 1,768 |
+| owner-idea | 17 | 0 | 1,776 |
+| flow | 14 | 1 | 56 |
 | awesome-list | 13 | 0 | 147 |
-| flow | 13 | 1 | 48 |
 | index | 13 | 0 | 98 |
 | breadth | 12 | 0 | 697 |
 | calendar | 12 | 1 | 139 |
@@ -28,30 +28,30 @@
 | reversal | 9 | 1 | 105,852 |
 | seasonal | 9 | 2 | 23 |
 | daily | 8 | 1 | 172 |
+| fix | 8 | 1 | 50 |
+| sizing | 8 | 0 | 180 |
 | structure | 8 | 0 | 1,634 |
-| fix | 7 | 1 | 42 |
 | repo-funnel | 7 | 0 | 222 |
 | retest | 7 | 0 | 10,308 |
 | risk | 7 | 0 | 172 |
+| seesare | 7 | 0 | 136 |
 | session | 7 | 0 | 183,863 |
-| sizing | 7 | 0 | 172 |
-| seesare | 6 | 0 | 128 |
+| portfolio | 6 | 3 | 120 |
+| usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
 | ema | 5 | 0 | 996 |
 | futures | 5 | 1 | 138 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
 | mean-reversion | 5 | 0 | 47 |
-| portfolio | 5 | 3 | 112 |
 | smc | 5 | 0 | 14,988 |
-| usdjpy | 5 | 1 | 34 |
+| drawdown-cap | 4 | 0 | 108 |
 | eurusd | 4 | 1 | 155 |
 | monthly | 4 | 0 | 20 |
 | oil | 4 | 0 | 7 |
 | third-party-ea | 4 | 0 | 304 |
 | carry | 3 | 1 | 18 |
 | cross-asset | 3 | 0 | 4 |
-| drawdown-cap | 3 | 0 | 100 |
 | filter-mining | 3 | 0 | 244 |
 | gbpusd | 3 | 0 | 152 |
 | grid | 3 | 0 | 196 |
@@ -148,6 +148,7 @@
 | 2026-11-01 | SEESARE time-exit ascension study (Tokyo fix, cent account) | seesare, sizing, risk, cent-account, usdjpy, flow, fix, owner-idea | 6 | Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3. | win_rate_1_9 +0.526, win_rate_2_85 +0.493, mean_R_per_morning_1_9 +0.024, mean_R_per_morning_2_85 -0.005, real_D +15.000, real_E +22.000, real_F +191.000, cycles_F +19.000, cycle_mean_pct_F +0.021, cycle_median_pct_F -0.003, positive_cycles_F +0.263, max_dd_pct_F +0.238, stress_cycle_mean_pct_F -0.018, win_rate_for_half_time_L0_L3 +0.750 |
 | 2026-11-01 | Strategy universe under a 3.6% lifecycle drawdown cap (4 sizing rules) | risk, sizing, drawdown-cap, seesare, portfolio, book, owner-idea | 48 | Study: the cap buys about 6-7% a year from the book in backtest, not great alpha. Chosen on 2011-22, one look at 2023-25 (Exness Zero + swaps): book + guard 0.75% +6.83%/yr (worst lifecycle 3.47%, across lifecycles 4.29%); book + drawdown-keyed 16-level ladder (m 0.3) +5.99%/yr (3.43%, 4.32%); book fixed 0.5% +3.41%/yr but 4.71% (cap broken); book + Tokyo fix + EURUSD reversal: guard +4.27%/yr, ladder +3.30%/yr (better 2011-22, worse 2023-25); SEESARE outcome ladder about 0 in every case. Untouched Jan-Oct 2026 (book): guard -2.34% and trading halted after about 5 months; drawdown ladder -1.52%; fixed -0.60%; SEESARE +2.09% at 0.64% drawdown. | U1_guard_dev +7.180, U1_guard_2325 +6.830, U1_guard_2026 -2.340, U1_ddladder_dev +7.040, U1_ddladder_2325 +5.990, U1_ddladder_2026 -1.520, U1_fixed_2325 +3.410, U1_fixed_2325_worst_dd +4.710, U2_guard_2325 +4.270, U2_ddladder_2325 +3.300, U1_seesare_2325 -0.110, swapfree_U1_guard_2325 +7.940, swapfree_U1_ddladder_2325 +7.470 |
 | 2026-11-01 | Strategy universe scored per 360-trade lifecycle (4 sizing rules) | risk, sizing, drawdown-cap, seesare, portfolio, book, owner-idea | 48 | Study: about +5-6% per lifecycle (one lifecycle = 360 trades = about 11 months for the book). 2011-22: book + drawdown ladder 13 completed, 0 stopped, mean +6.1%, median +5.8%, worst -2.6%, best +18.3%, worst drawdown 3.2%; book + guard 9 completed + 5 stopped, mean +6.4%; fixed 0.5% +5.1%; SEESARE outcome ladder +0.7%. 2023-25 (already seen in v1, not clean): ladder +0.1%, -0.7%, stopped +5.3%, unfinished +13.2%; guard +4.5%, stopped -2.8% and +6.7%, unfinished +9.0%. 2026 unfinished (333 trades): ladder -1.5%, guard two stopped lifecycles (-2.3%, +0.3%). Owner's +2% per 10-trade cycle = +72% per lifecycle; measured about +6% (0.17% per 10 trades). | U1_ddladder_mean +6.060, U1_ddladder_median +5.760, U1_ddladder_completed +13.000, U1_guard_mean +6.440, U1_guard_stopped +5.000, U1_fixed_mean +5.100, U1_seesare_mean +0.710, U2_guard_mean +5.680, U2_ddladder_mean +5.400, days_per_lifecycle_U1 +341.000, owner_target_per_lifecycle +72.000 |
+| 2026-11-01 | Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00 | seesare, sizing, drawdown-cap, flow, fix, usdjpy, portfolio, owner-idea | 8 | Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen. | tokyo_only_per_life +11.830, tokyo_only_days_per_life +1835.000, w057_dev +6.560, w100_dev +6.840, w200_dev +5.780, w057_2325 +2.180, w100_2325 +2.620, w200_2325 +1.190, w057_dev_lab +5.970, w100_dev_lab +5.220 |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |

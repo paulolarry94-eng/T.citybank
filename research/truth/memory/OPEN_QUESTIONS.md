@@ -213,6 +213,10 @@ about 0. Open: owner decides whether to replace the outcome ladder in CycleLedge
 (risk = 0.3 x room left x leg weight), and whether 6-7%/yr backtest (weaker live, P11) at this cap is worth running.
 Per lifecycle (360 real trades, reset): about +6% per lifecycle for the book (drawdown ladder: 13 of 13 completed in
 2011-22, none stopped); the owner's +2% per 10-trade cycle would be +72% per lifecycle.
+Phase 5 (2026-11-01): owner adopted the drawdown-keyed ladder; built into CycleLedger.mqh (format 2) and the twin, uncompiled.
+Tokyo weight 0.57 by default, 1.00 the cap ("maximised" was mixed, 2.00 worse). Open: the 11 book legs are not router modules
+(only the Tokyo fix can trade: one lifecycle about 5 years); concurrent positions need the plan recorded at entry; the ECB
+reference-rate flow is untested (Q19); owner compiles and runs the three self-tests.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

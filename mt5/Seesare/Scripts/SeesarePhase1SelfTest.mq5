@@ -96,45 +96,39 @@ string NextWin(CSeesareTimingMatrix &m, const string id, const datetime utc)
    return CSeesareDst::IsoUtc(w.start_utc);
   }
 
-string Transition(const int level, const int neg_run, const int res)
-  {
-   int la = 0;
-   int na = 0;
-   CSeesareLadder::Next(level, neg_run, (ENUM_SEESARE_RES)res, la, na);
-   return IntegerToString(la) + "/" + IntegerToString(na);
-  }
-
 //--- BEGIN GENERATED VECTORS: python3 tools/seesare_verify.py --mql  (do not edit by hand)
 #define VEC_LIFE          "SELFTEST"
 #define VEC_EVENTS        20
 #define VEC_MESSAGES      22
-#define VEC_LEVEL         14
-#define VEC_NEG_RUN       2
+#define VEC_LEVEL         5
 #define VEC_REAL          12
 #define VEC_SHADOW        8
 #define VEC_CYCLE         2
-#define VEC_LIFE_NET      "0.6807"
-#define VEC_LIFE_DD       "1.3542"
-#define VEC_ROOM          "35.3958"
-#define VEC_GENESIS       "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|time_policy=GAIN_POSITIVE_LOSS_NEGATIVE|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d"
-#define VEC_EVENT1        "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=POSITIVE|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d|hash=04207bf6db269c3f8efabd078ec0eb7a8e7fcb0bd05ac0bc0ced9a8a542a8325"
-#define VEC_ANCHOR1       "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=6|neg=4|man=0|shadow=7|pos_rate=0.6000|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=9|root=7bf0c38789f86e5c592834cd7300228a23b062b46bb82feb6684826f316da0ae|head=4fcedd575407fa0956cd6747c685f86e64e6f3d018cb7fa519666a37436ac772|prev=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d|hash=28e51a232c795264106b40fd8c08ed6cb85846a475293a31454d05070791583b"
-#define VEC_HEAD          "5e5b53b607430fb4150b7e8ed3197d1381d00fcc06ac124ac3fdae4490da8476"
+#define VEC_LIFE_NET      "-12.4909"
+#define VEC_LIFE_DD       "12.9230"
+#define VEC_ROOM          "23.0770"
+#define VEC_GENESIS       "v=2|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|sizing=DRAWDOWN_KEYED|levels=16|band=2.2500|room_mult=0.30|max_weight=1.00|time_policy=GAIN_POSITIVE_LOSS_NEGATIVE|created=2026-11-01T00:00:00Z|hash=fe81fd4ca90826a7fa1be44cff1bd7d0924db16e4cd44d8b80efd0cf0c39f998"
+#define VEC_EVENT1        "v=2|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=POSITIVE|dd=0.0000|lvl_before=0|lvl_after=0|weight=1.00|plan=10.1250|risk=3.0000|vol=0.3000|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=fe81fd4ca90826a7fa1be44cff1bd7d0924db16e4cd44d8b80efd0cf0c39f998|hash=760a97cb414b48574b51c8d538c5661f7467500473cc4b8105bd972ca65b2370"
+#define VEC_ANCHOR1       "v=2|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=6|neg=4|man=0|shadow=7|pos_rate=0.6000|net=-1.4909|net_pct=-0.14909|max_dd=5.8830|max_dd_pct=0.58830|life_net=-1.4909|life_dd=5.8830|lvl_start=0|lvl_end=0|root=23d1bd36de446af1ea172266c805d4c2e7f5573efb024908c5cf19cee2a73de1|head=ee2410b803555886c71439d3e51adb1ac3f10b4033d79de9df2d0f342bc4c19c|prev=fe81fd4ca90826a7fa1be44cff1bd7d0924db16e4cd44d8b80efd0cf0c39f998|hash=76d652e5888211a531a8f7c66783e6b53a15230e6e7c0f7181e25f1c4753e40c"
+#define VEC_HEAD          "8a50bcaf13054a074ff82a9e799090fc7e9488c0a6da9daeb859a8c19fa3ea2a"
 #define VEC_LOCK_MESSAGES 398
-#define VEC_LOCK_HEAD     "b67c17981de7ba26e9a4d62fe5ad3fe04357d2565b702bf9381d5449525514ba"
-#define VEC_LOCK_ANCHOR36 "v=1|life=SELFTEST_LOCK|audit=cycle|cycle=36|events=351-360|pos=6|neg=4|man=0|shadow=0|pos_rate=0.6000|net=-0.1000|net_pct=-0.01000|max_dd=0.4000|max_dd_pct=0.04000|life_net=12.0000|life_dd=0.4000|lvl_start=0|lvl_end=2|root=e635486b1219689f06b6061abbc728c843af877e751b9f82686ae7ac43ee4205|head=b67c17981de7ba26e9a4d62fe5ad3fe04357d2565b702bf9381d5449525514ba|prev=e66a6aabaaf2cca22865c22927c61238b49dd687dedf3bf2e914cd51a0d63ac8|hash=b0cd7cc017192c667f76dc1a1f9c43acb495b2fd3456c85b2ac637a78ffcd0e3"
+#define VEC_LOCK_HEAD     "e4d3b560989f48640e6f3a523e58cff8d7fb4357a6b50a6b1099fbd4010ba252"
+#define VEC_LOCK_ANCHOR36 "v=2|life=SELFTEST_LOCK|audit=cycle|cycle=36|events=351-360|pos=6|neg=4|man=0|shadow=0|pos_rate=0.6000|net=-0.1000|net_pct=-0.01000|max_dd=0.4000|max_dd_pct=0.04000|life_net=12.0000|life_dd=0.4000|lvl_start=0|lvl_end=0|root=bc8da4fcc3914ffacb5b9daf854fd7e8b5f67e5104acfc039e9c3ac0d02eb31e|head=e4d3b560989f48640e6f3a523e58cff8d7fb4357a6b50a6b1099fbd4010ba252|prev=98797a49a8a761590fcc11ab199b3f4b4ccc28bcee17f978e288211e45b096c7|hash=a2ab2612cf5e8ed7c0e7fa32ac8339d464e7f6d40b2c50fc3fe154ad610b7f7a"
+#define VEC_STOP_EVENTS   9
+#define VEC_STOP_DD       "33.7500"
+#define VEC_STOP_HEAD     "4144536ae8fef9000ca0429487f410e7090e1629fb7fb30d171c328469132d77"
 const int VEC_MODE[VEC_EVENTS] = {0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0};
 const int VEC_SIDE[VEC_EVENTS] = {1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1};
 const int VEC_BY[VEC_EVENTS] = {2, 0, 1, 1, 1, 2, 0, 0, 2, 0, 1, 1, 1, 1, 0, 2, 1, 0, 3, 4};
-const double VEC_RATIO[VEC_EVENTS] = {3.5, 3.5, 3.5, 3.5, 2.0, 5.0, 3.5, 3.5, 3.5, 3.5, 3.5, 0.8, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5};
-const double VEC_RISK[VEC_EVENTS] = {1.06, 1.06, 0.0, 0.0, 1.06, 1.06, 1.06, 0.0, 0.0, 0.0, 0.0, 0.0, 1.06, 1.06, 1.06, 1.06, 1.06, 1.06, 0.0, 1.06};
-const double VEC_VOL[VEC_EVENTS] = {0.01, 0.01, 0.0059, 0.0091, 0.01, 0.01, 0.01, 0.0059, 0.0017, 0.0017, 0.0005, 0.0003, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.0006, 0.01};
+const double VEC_WEIGHT[VEC_EVENTS] = {1.0, 1.0, 1.0, 1.0, 0.57, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.25, 0.25, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
+const double VEC_RISK[VEC_EVENTS] = {3.0, 3.0, 0.0, 0.0, 1.06, 1.06, 4.5, 0.0, 0.0, 0.0, 0.0, 0.0, 1.06, 1.06, 1.06, 1.06, 1.06, 2.0, 0.0, 1.06};
+const double VEC_VOL[VEC_EVENTS] = {0.3, 0.3, 0.0059, 0.0091, 0.01, 0.01, 0.45, 0.0059, 0.0017, 0.0017, 0.0005, 0.0003, 0.01, 0.01, 0.01, 0.01, 0.01, 0.2, 0.0006, 0.01};
 const double VEC_LOWER[VEC_EVENTS] = {151.084, 151.084, 150.709, 151.084, 151.084, 151.084, 150.709, 151.084, 151.084, 151.084, 151.084, 151.114, 151.084, 151.084, 151.084, 151.084, 151.084, 151.084, 151.084, 150.709};
 const double VEC_UPPER[VEC_EVENTS] = {151.759, 151.759, 151.384, 151.759, 151.534, 151.984, 151.384, 151.759, 151.759, 151.759, 151.759, 151.384, 151.759, 151.759, 151.759, 151.759, 151.759, 151.759, 151.759, 151.384};
 const double VEC_EXIT[VEC_EVENTS] = {151.311, 151.084, 150.709, 151.759, 151.534, 151.204, 151.384, 151.084, 151.234, 151.084, 151.759, 151.114, 151.759, 151.759, 151.084, 151.271, 151.759, 151.084, 151.3, 151.384};
-const double VEC_DELTA[VEC_EVENTS] = {0.4321, -1.0592, 2.0615, 3.1605, 1.912, -0.295, -1.0592, -0.589, 0.0, -0.171, 0.1663, 0.0301, 0.41, 0.39, -0.18, 0.05, 0.29, -0.12, 0.01, -0.09};
+const double VEC_DELTA[VEC_EVENTS] = {0.4321, -3.0, 2.0615, 3.1605, 1.912, -0.295, -4.5, -0.589, 0.0, -0.171, 0.1663, 0.0301, 0.41, 3.39, -0.18, 0.05, 0.29, -2.0, 0.01, -9.0};
 const string VEC_DEALS[VEC_EVENTS] = {"50001000;50001001", "50001002;50001003", "-", "-", "50001008;50001009", "50001010;50001011", "50001012;50001013", "-", "-", "-", "-", "-", "50001024;50001025", "50001026;50001027", "50001028;50001029", "50001030;50001031", "50001032;50001033", "50001034;50001035", "-", "50001038;50001039"};
-const string VEC_HASH[VEC_EVENTS] = {"04207bf6db269c3f8efabd078ec0eb7a8e7fcb0bd05ac0bc0ced9a8a542a8325", "7538c2beb7d9b2db950006eeb3bbd01e4f3e9e3a16ac24a5fb3c22cd3d51aa08", "bdbcfb799143ef87eedf151d21ceeb5273adb9f02dc2a275d642dac66d264397", "d5652cc0387af2cc14ba4e2a72f1b463f7a3c509a29d2dcb7a3185e004ad4a2c", "016bc79b9410f47407420f4470994d2c9cd624b08fd76455be0afff9271b0655", "e690fd0a9b90f56ca9c8468fe6a3230016e08b08e6cd7c329888e38c035f4493", "ed04a156ea015defd53dcd9b3c7c181eff5353a53f44e06dcc69ebe00e39b561", "294f2b5b914bb91cc7fd9bd7d47292d299022b2d2eeb661676b2bd6ba8870b36", "f520e03ab683f318d45092d41a8874674950eba0a4857f704ab7c3afa4b36685", "5b964dc0bf3e346448187f07d51acb07ba6b5a521d0e649c019b44eb37593c25", "24e00cbb27fc6d1c7fa6043d7e34d95f6ea144182e098278ae2166fc7732f69b", "3ad82c94f6b446b9cd204623d701b42fb080edcd31907a2fdd7ccda7d0294a6b", "791579948587e958e54a1d4a1faa5a79ec3ff130d7e08a64cd64cd86cce194e4", "69d76669ae425dc7ed3805fe59fd48bd88ae1223d8f531424f36e8e8050c9395", "9014172829276b1ac95255b97910492a7a1330ad7b98d14acf870879d4a3ba29", "aad53792aceb37c20dc92fc7589e94814011b924498902435ce03221ab5c093f", "4fcedd575407fa0956cd6747c685f86e64e6f3d018cb7fa519666a37436ac772", "d8287536fc70707c162d3717393fb4b424afefd339ec04f928208fe29cff0f36", "3bac94dc99514486a8b4131086bd695c97dfa4a749de1786cc00eb6983c8fc03", "5e5b53b607430fb4150b7e8ed3197d1381d00fcc06ac124ac3fdae4490da8476"};
+const string VEC_HASH[VEC_EVENTS] = {"760a97cb414b48574b51c8d538c5661f7467500473cc4b8105bd972ca65b2370", "a7ef6e49d40cb0d2da7066f88710a5f3dece7e27e2a908483b64664afc449340", "efe27e3ed694409a927b2e080dc470e0b565a702146a0be6d36ba3c71ef42eaf", "aab3d166c643b042f6cd93007108a55d06c79bba1309b6f931787fa81b7c47a5", "990a7e8361aaed5e40f155c88cb07f3013f656f782094e5626e6a687f6d82022", "1102e034a4ead545aca454dc02015eaa2d91f88c49fcec7049f5ab15cd0fc281", "3d1c38e38bcb210cc85690664b022b0d525ab3b53b41e9fd8020887dbbfcccda", "dfaf73dbac9474cf32c3b376eba552dc9de4844b061e247e5340f43772dc9143", "96a8537b0b728ae48403acdb060fbe65f5035bd1f86dcbfca1d153c93c028ece", "022535c6f9945ccb1382621abaf140ad38f8cd040a1d97f696241849a7e3e459", "fc2e7779e8d08d3f7663a3870f6cec711ee1deb828bedbd30fb996212493c151", "edefe8cb998ffb963e4ce4b589feab730500ca40a51a5ed3b4c45670f0dcf281", "6bc147fa89250e4a1fa9d9cf395b676783718ae134c60b16a142e3e6cf845d25", "dd037483b2b2a22003472a5f4b3c8b68010d2dc59fe8a2f97609c0a888aa4b33", "910e09e69651aad0d95f9c2dda72160b16eccc5ea93629cea96b96f353a51200", "b2a4b8c5f4cd8c9155f1e448d922706c4dbca50ff6f3350e4715fb19d8ec0ad5", "ee2410b803555886c71439d3e51adb1ac3f10b4033d79de9df2d0f342bc4c19c", "7fbaab48169058a475a7b1b55e5276a191481f8a91b3b428518c46eaac5a2696", "c7e5b06f6de49e515b68d9d3d3aa717a30d156bbc09fff8f22a871d7c59fdfcd", "8a50bcaf13054a074ff82a9e799090fc7e9488c0a6da9daeb859a8c19fa3ea2a"};
 void GeneratedVectors(CSeesareTimingMatrix &m)
   {
    T_Str("sha256 abc", CSeesareSha256::Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
@@ -248,42 +242,83 @@ void GeneratedVectors(CSeesareTimingMatrix &m)
    T_Str("next WMR_FIX after 2026-10-30T15:45:00Z", NextWin(m, "WMR_FIX", CSeesareDst::Date(2026, 10, 30, 15, 45)), "2026-10-30T15:30:00Z");
    T_Str("active US_NFP at 2026-03-10T13:00:00Z", ActiveWin(m, "US_NFP", CSeesareDst::Date(2026, 3, 10, 13, 0)), "no");
    T_Str("next US_NFP after 2026-03-10T13:00:00Z", NextWin(m, "US_NFP", CSeesareDst::Date(2026, 3, 10, 13, 0)), "2026-03-13T12:30:00Z");
-   T_Str("multiplier 0.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(0.5), 4), 4), "0.0820");
-   T_Str("multiplier 1.00", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(1.0), 4), 4), "0.0820");
-   T_Str("multiplier 1.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(1.5), 4), 4), "0.1836");
-   T_Str("multiplier 2.00", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(2.0), 4), 4), "0.3265");
-   T_Str("multiplier 2.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(2.5), 4), 4), "0.5102");
-   T_Str("multiplier 3.00", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(3.0), 4), 4), "0.7346");
-   T_Str("multiplier 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(3.5), 4), 4), "1.0000");
-   T_Str("multiplier 4.00", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(4.0), 4), 4), "1.0500");
-   T_Str("multiplier 5.00", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(5.0), 4), 4), "1.1500");
-   T_Str("multiplier 8.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(8.5), 4), 4), "1.5000");
-   T_Str("multiplier 10.00", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(10.0), 4), 4), "1.5000");
-   T_Str("plan L0 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.144, 1.0, 0.05), 4), 4), "1.3680");
-   T_Str("plan L1 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.095, 1.0, 0.05), 4), 4), "0.9025");
-   T_Str("plan L2 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.062, 1.0, 0.05), 4), 4), "0.5890");
-   T_Str("plan L3 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.041, 1.0, 0.05), 4), 4), "0.3895");
-   T_Str("plan L4 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.027, 1.0, 0.05), 4), 4), "0.2565");
-   T_Str("plan L5 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.018, 1.0, 0.05), 4), 4), "0.1710");
-   T_Str("plan L6 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.012, 1.0, 0.05), 4), 4), "0.1140");
-   T_Str("plan L7 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.008, 1.0, 0.05), 4), 4), "0.0760");
-   T_Str("plan L8 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.005, 1.0, 0.05), 4), 4), "0.0475");
-   T_Str("plan L9 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0033, 1.0, 0.05), 4), 4), "0.0313");
-   T_Str("plan L10 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0022, 1.0, 0.05), 4), 4), "0.0209");
-   T_Str("plan L11 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0014, 1.0, 0.05), 4), 4), "0.0133");
-   T_Str("plan L12 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0009, 1.0, 0.05), 4), 4), "0.0085");
-   T_Str("plan L13 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0006, 1.0, 0.05), 4), 4), "0.0057");
-   T_Str("plan L14 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0004, 1.0, 0.05), 4), 4), "0.0038");
-   T_Str("plan L15 forex 3.50", CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(0.0003, 1.0, 0.05), 4), 4), "0.0028");
-   T_Str("ladder L0 run 0 POSITIVE", Transition(0, 0, 1), "0/0");
-   T_Str("ladder L0 run 0 NEGATIVE", Transition(0, 0, -1), "2/1");
-   T_Str("ladder L2 run 1 NEGATIVE", Transition(2, 1, -1), "5/2");
-   T_Str("ladder L5 run 2 NEGATIVE", Transition(5, 2, -1), "9/3");
-   T_Str("ladder L14 run 3 NEGATIVE", Transition(14, 3, -1), "15/4");
-   T_Str("ladder L15 run 4 NEGATIVE", Transition(15, 4, -1), "15/5");
-   T_Str("ladder L7 run 2 MANUAL", Transition(7, 2, 0), "7/2");
-   T_Str("ladder L7 run 2 POSITIVE", Transition(7, 2, 1), "6/0");
-   T_Str("ladder L0 run 5 POSITIVE", Transition(0, 5, 1), "0/0");
+   T_Int("level for drawdown 0.0", CSeesareLadder::LevelFromDrawdown(0.0), 0);
+   T_Int("level for drawdown 0.0001", CSeesareLadder::LevelFromDrawdown(0.0001), 0);
+   T_Int("level for drawdown 2.2499", CSeesareLadder::LevelFromDrawdown(2.2499), 0);
+   T_Int("level for drawdown 2.25", CSeesareLadder::LevelFromDrawdown(2.25), 1);
+   T_Int("level for drawdown 2.263", CSeesareLadder::LevelFromDrawdown(2.263), 1);
+   T_Int("level for drawdown 4.4999", CSeesareLadder::LevelFromDrawdown(4.4999), 1);
+   T_Int("level for drawdown 4.5", CSeesareLadder::LevelFromDrawdown(4.5), 2);
+   T_Int("level for drawdown 12.923", CSeesareLadder::LevelFromDrawdown(12.923), 5);
+   T_Int("level for drawdown 33.7499", CSeesareLadder::LevelFromDrawdown(33.7499), 14);
+   T_Int("level for drawdown 33.75", CSeesareLadder::LevelFromDrawdown(33.75), 15);
+   T_Int("level for drawdown 36.0", CSeesareLadder::LevelFromDrawdown(36.0), 15);
+   T_Int("level for drawdown 50.0", CSeesareLadder::LevelFromDrawdown(50.0), 15);
+   T_Int("level for drawdown -1.0", CSeesareLadder::LevelFromDrawdown(-1.0), 0);
+   T_Str("plan L0 weight 1.00", CSeesareLadder::PlanText(0, 1.0), "10.1250");
+   T_Str("plan L1 weight 1.00", CSeesareLadder::PlanText(1, 1.0), "9.4500");
+   T_Str("plan L2 weight 1.00", CSeesareLadder::PlanText(2, 1.0), "8.7750");
+   T_Str("plan L3 weight 1.00", CSeesareLadder::PlanText(3, 1.0), "8.1000");
+   T_Str("plan L4 weight 1.00", CSeesareLadder::PlanText(4, 1.0), "7.4250");
+   T_Str("plan L5 weight 1.00", CSeesareLadder::PlanText(5, 1.0), "6.7500");
+   T_Str("plan L6 weight 1.00", CSeesareLadder::PlanText(6, 1.0), "6.0750");
+   T_Str("plan L7 weight 1.00", CSeesareLadder::PlanText(7, 1.0), "5.4000");
+   T_Str("plan L8 weight 1.00", CSeesareLadder::PlanText(8, 1.0), "4.7250");
+   T_Str("plan L9 weight 1.00", CSeesareLadder::PlanText(9, 1.0), "4.0500");
+   T_Str("plan L10 weight 1.00", CSeesareLadder::PlanText(10, 1.0), "3.3750");
+   T_Str("plan L11 weight 1.00", CSeesareLadder::PlanText(11, 1.0), "2.7000");
+   T_Str("plan L12 weight 1.00", CSeesareLadder::PlanText(12, 1.0), "2.0250");
+   T_Str("plan L13 weight 1.00", CSeesareLadder::PlanText(13, 1.0), "1.3500");
+   T_Str("plan L14 weight 1.00", CSeesareLadder::PlanText(14, 1.0), "0.6750");
+   T_Str("plan L15 weight 1.00", CSeesareLadder::PlanText(15, 1.0), "0.0000");
+   T_Str("plan L0 weight 0.57", CSeesareLadder::PlanText(0, 0.57), "5.7712");
+   T_Str("plan L1 weight 0.57", CSeesareLadder::PlanText(1, 0.57), "5.3865");
+   T_Str("plan L2 weight 0.57", CSeesareLadder::PlanText(2, 0.57), "5.0017");
+   T_Str("plan L3 weight 0.57", CSeesareLadder::PlanText(3, 0.57), "4.6170");
+   T_Str("plan L4 weight 0.57", CSeesareLadder::PlanText(4, 0.57), "4.2322");
+   T_Str("plan L5 weight 0.57", CSeesareLadder::PlanText(5, 0.57), "3.8475");
+   T_Str("plan L6 weight 0.57", CSeesareLadder::PlanText(6, 0.57), "3.4627");
+   T_Str("plan L7 weight 0.57", CSeesareLadder::PlanText(7, 0.57), "3.0780");
+   T_Str("plan L8 weight 0.57", CSeesareLadder::PlanText(8, 0.57), "2.6932");
+   T_Str("plan L9 weight 0.57", CSeesareLadder::PlanText(9, 0.57), "2.3085");
+   T_Str("plan L10 weight 0.57", CSeesareLadder::PlanText(10, 0.57), "1.9237");
+   T_Str("plan L11 weight 0.57", CSeesareLadder::PlanText(11, 0.57), "1.5390");
+   T_Str("plan L12 weight 0.57", CSeesareLadder::PlanText(12, 0.57), "1.1542");
+   T_Str("plan L13 weight 0.57", CSeesareLadder::PlanText(13, 0.57), "0.7695");
+   T_Str("plan L14 weight 0.57", CSeesareLadder::PlanText(14, 0.57), "0.3847");
+   T_Str("plan L15 weight 0.57", CSeesareLadder::PlanText(15, 0.57), "0.0000");
+   T_Str("plan L0 weight 0.25", CSeesareLadder::PlanText(0, 0.25), "2.5312");
+   T_Str("plan L1 weight 0.25", CSeesareLadder::PlanText(1, 0.25), "2.3625");
+   T_Str("plan L2 weight 0.25", CSeesareLadder::PlanText(2, 0.25), "2.1937");
+   T_Str("plan L3 weight 0.25", CSeesareLadder::PlanText(3, 0.25), "2.0250");
+   T_Str("plan L4 weight 0.25", CSeesareLadder::PlanText(4, 0.25), "1.8562");
+   T_Str("plan L5 weight 0.25", CSeesareLadder::PlanText(5, 0.25), "1.6875");
+   T_Str("plan L6 weight 0.25", CSeesareLadder::PlanText(6, 0.25), "1.5187");
+   T_Str("plan L7 weight 0.25", CSeesareLadder::PlanText(7, 0.25), "1.3500");
+   T_Str("plan L8 weight 0.25", CSeesareLadder::PlanText(8, 0.25), "1.1812");
+   T_Str("plan L9 weight 0.25", CSeesareLadder::PlanText(9, 0.25), "1.0125");
+   T_Str("plan L10 weight 0.25", CSeesareLadder::PlanText(10, 0.25), "0.8437");
+   T_Str("plan L11 weight 0.25", CSeesareLadder::PlanText(11, 0.25), "0.6750");
+   T_Str("plan L12 weight 0.25", CSeesareLadder::PlanText(12, 0.25), "0.5062");
+   T_Str("plan L13 weight 0.25", CSeesareLadder::PlanText(13, 0.25), "0.3375");
+   T_Str("plan L14 weight 0.25", CSeesareLadder::PlanText(14, 0.25), "0.1687");
+   T_Str("plan L15 weight 0.25", CSeesareLadder::PlanText(15, 0.25), "0.0000");
+   T_Str("plan L0 weight 0.01", CSeesareLadder::PlanText(0, 0.01), "0.1012");
+   T_Str("plan L1 weight 0.01", CSeesareLadder::PlanText(1, 0.01), "0.0945");
+   T_Str("plan L2 weight 0.01", CSeesareLadder::PlanText(2, 0.01), "0.0877");
+   T_Str("plan L3 weight 0.01", CSeesareLadder::PlanText(3, 0.01), "0.0810");
+   T_Str("plan L4 weight 0.01", CSeesareLadder::PlanText(4, 0.01), "0.0742");
+   T_Str("plan L5 weight 0.01", CSeesareLadder::PlanText(5, 0.01), "0.0675");
+   T_Str("plan L6 weight 0.01", CSeesareLadder::PlanText(6, 0.01), "0.0607");
+   T_Str("plan L7 weight 0.01", CSeesareLadder::PlanText(7, 0.01), "0.0540");
+   T_Str("plan L8 weight 0.01", CSeesareLadder::PlanText(8, 0.01), "0.0472");
+   T_Str("plan L9 weight 0.01", CSeesareLadder::PlanText(9, 0.01), "0.0405");
+   T_Str("plan L10 weight 0.01", CSeesareLadder::PlanText(10, 0.01), "0.0337");
+   T_Str("plan L11 weight 0.01", CSeesareLadder::PlanText(11, 0.01), "0.0270");
+   T_Str("plan L12 weight 0.01", CSeesareLadder::PlanText(12, 0.01), "0.0202");
+   T_Str("plan L13 weight 0.01", CSeesareLadder::PlanText(13, 0.01), "0.0135");
+   T_Str("plan L14 weight 0.01", CSeesareLadder::PlanText(14, 0.01), "0.0067");
+   T_Str("plan L15 weight 0.01", CSeesareLadder::PlanText(15, 0.01), "0.0000");
    T_Int("classify STOP +0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.5, (ENUM_SEESARE_TIME_POLICY)0), -1);
    T_Int("classify STOP +0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.5, (ENUM_SEESARE_TIME_POLICY)1), -1);
    T_Int("classify STOP +0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.5, (ENUM_SEESARE_TIME_POLICY)2), -1);
@@ -359,7 +394,7 @@ void FillEvent(const int i, SSeesareEvent &e)
    e.utc_open   = (datetime)((long)CSeesareDst::Date(2026, 11, 4, 23, 0) + (long)i * 86400);
    e.utc_close  = (datetime)((long)e.utc_open + 115 * 60);
    e.close_by   = (ENUM_SEESARE_CLOSE)VEC_BY[i];
-   e.ratio      = VEC_RATIO[i];
+   e.weight     = VEC_WEIGHT[i];
    e.risk_usd   = VEC_RISK[i];
    e.volume     = VEC_VOL[i];
    e.entry      = 151.234;
@@ -384,7 +419,7 @@ void FillLockEvent(const int i, SSeesareEvent &e)
    e.utc_open   = (datetime)((long)CSeesareDst::Date(2027, 1, 4, 23, 0) + (long)i * 86400);
    e.utc_close  = (datetime)((long)e.utc_open + 3600);
    e.close_by   = (win ? SEESARE_BY_TARGET : SEESARE_BY_STOP);
-   e.ratio      = 3.5;
+   e.weight     = 1.0;
    e.risk_usd   = 1.06;
    e.volume     = 0.01;
    e.entry      = 151.234;
@@ -488,7 +523,9 @@ void LedgerTests(void)
    if(!ok)
       return;
    T_Str("ledger: genesis line", L.LineAt(0), VEC_GENESIS);
-   T_Str("ledger: planned delta at L0, forex, 3.5", CSeesareText::Fmt(L.PlanUsdAt(3.5, "forex"), 4), "1.3680");
+   T_Str("ledger: planned risk at L0, weight 1.00", CSeesareText::Fmt(L.PlanUsdAt(1.0), 4), "10.1250");
+   T_Str("ledger: planned risk at L0, weight 0.57", CSeesareText::Fmt(L.PlanUsdAt(0.57), 4), "5.7712");
+   T_Bool("ledger: weight 1.01 has no plan", L.PlanUsdAt(1.01) < 0.0, "");
    for(int i = 0; i < VEC_EVENTS; i++)
      {
       SSeesareEvent e;
@@ -504,7 +541,9 @@ void LedgerTests(void)
    T_Str("ledger: cycle 1 anchor", L.AnchorLine(0), VEC_ANCHOR1);
    T_Str("ledger: head", L.Head(), VEC_HEAD);
    T_Int("ledger: level", L.Level(), VEC_LEVEL);
-   T_Int("ledger: negative run", L.NegRun(), VEC_NEG_RUN);
+   T_Str("ledger: planned risk at the final level, weight 1.00", CSeesareText::Fmt(L.PlanUsdAt(1.0), 4),
+         CSeesareLadder::PlanText(VEC_LEVEL, 1.0));
+   T_Bool("ledger: not stopped", !L.Stopped(), "");
    T_Int("ledger: real events", L.RealCount(), VEC_REAL);
    T_Int("ledger: shadow events", L.ShadowCount(), VEC_SHADOW);
    T_Int("ledger: open cycle", L.Cycle(), VEC_CYCLE);
@@ -559,6 +598,20 @@ void LedgerTests(void)
    baddomain.domain = "fx";
    refused = !L.Record(baddomain, h2);
    T_Bool("refuse: unknown domain", refused && L.Head() == VEC_HEAD, L.LastError());
+   SSeesareEvent toobig;
+   FillEvent(VEC_EVENTS - 1, toobig);
+   toobig.utc_open  = nodeal.utc_open;
+   toobig.utc_close = nodeal.utc_close;
+   toobig.risk_usd  = L.PlanUsdAt(1.0) + 0.0001;
+   refused = !L.Record(toobig, h2);
+   T_Bool("refuse: real risk above the ladder's plan", refused && L.Head() == VEC_HEAD, L.LastError());
+   SSeesareEvent heavy;
+   FillEvent(VEC_EVENTS - 1, heavy);
+   heavy.utc_open  = nodeal.utc_open;
+   heavy.utc_close = nodeal.utc_close;
+   heavy.weight    = 1.01;
+   refused = !L.Record(heavy, h2);
+   T_Bool("refuse: weight above 1.00", refused && L.Head() == VEC_HEAD, L.LastError());
    T_Int("refuse: no outbox message for refused events", L.OutboxSeq(), VEC_MESSAGES);
 //--- restart
    CSeesareCycleLedger R;
@@ -569,12 +622,6 @@ void LedgerTests(void)
    T_Int("restart: same real count", R.RealCount(), VEC_REAL);
    T_Str("restart: same envelope room", CSeesareText::Fmt(R.EnvelopeRoomUSD(), 4), VEC_ROOM);
    T_Int("restart: no duplicate messages", R.OutboxSeq(), VEC_MESSAGES);
-   double other[];
-   CSeesareLadder::Defaults(other);
-   other[0] = 0.15;
-   CSeesareCycleLedger tuned;
-   bool tuned_refused = tuned.SetLadder(other) && !tuned.Open(g_root, VEC_LIFE, 0, false);
-   T_Bool("restart: a different ladder is refused", tuned_refused, tuned.LastError());
 //--- tamper, truncation, lost snapshot (the original ledger is restored after each case)
    string path = dir + "\\ledger.txt";
    string err = "";
@@ -610,6 +657,53 @@ void LedgerTests(void)
    ok = adopt.Open(g_root, VEC_LIFE, 0, true);
    T_Bool("snapshot: adopt_ledger reopens", ok && adopt.Head() == VEC_HEAD, adopt.LastError());
    T_Int("snapshot: adopting queues every message again under new numbers", adopt.OutboxSeq(), 2 * VEC_MESSAGES);
+  }
+
+//--- losses at full plan until the ladder has no room left (twin: stop_run): the lifecycle stops inside the cap
+void StopTest(void)
+  {
+   CSeesareCycleLedger L;
+   bool ok = L.Open(g_root, "SELFTEST_STOP", CSeesareDst::Date(2026, 11, 1), false);
+   T_Bool("stop: open", ok, L.LastError());
+   if(!ok)
+      return;
+   int i = 0;
+   while(!L.Stopped() && i < 200)
+     {
+      SSeesareEvent e;
+      e.Clear();
+      e.mode       = SEESARE_REAL;
+      e.module     = "STOPTEST";
+      e.domain     = "forex";
+      e.symbol     = "USDJPY";
+      e.side       = 1;
+      e.digits     = 3;
+      e.utc_open   = (datetime)((long)CSeesareDst::Date(2027, 6, 1, 23, 0) + (long)i * 86400);
+      e.utc_close  = (datetime)((long)e.utc_open + 3600);
+      e.close_by   = SEESARE_BY_STOP;
+      e.weight     = 1.0;
+      e.risk_usd   = L.PlanUsdAt(1.0);
+      e.volume     = 0.01;
+      e.entry      = 151.234;
+      e.lower      = 151.084;
+      e.upper      = 151.759;
+      e.exit_price = 151.084;
+      e.delta_usd  = -e.risk_usd;
+      e.deals      = IntegerToString(70000000 + i);
+      string h = "";
+      bool r = L.Record(e, h);
+      if(!r)
+        {
+         T_Bool("stop: record loss " + IntegerToString(i + 1), false, L.LastError());
+         return;
+        }
+      i++;
+     }
+   T_Int("stop: losses until the lifecycle stops", i, VEC_STOP_EVENTS);
+   T_Str("stop: drawdown when stopped", CSeesareText::Fmt(L.LifeDrawdownUSD(), 4), VEC_STOP_DD);
+   T_Str("stop: chain head", L.Head(), VEC_STOP_HEAD);
+   T_Bool("stop: inside the 3.6% envelope", L.LifeMaxDrawdownUSD() <= L.EnvelopeCapUSD() && L.EnvelopeViolations() == 0, "");
+   T_Bool("stop: stopped, no plan left", L.Stopped() && L.PlanUsdAt(1.0) == 0.0, "");
   }
 
 void LockTest(void)
@@ -702,6 +796,7 @@ void OnStart()
    GeneratedVectors(m);
    ClockObjectTests();
    LedgerTests();
+   StopTest();
    if(InpRunLock)
       LockTest();
    if(!InpKeepFiles)

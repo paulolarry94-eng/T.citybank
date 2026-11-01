@@ -103,25 +103,34 @@ class Clock(unittest.TestCase):
 
 
 class Ladder(unittest.TestCase):
-    def test_transitions(self):
-        self.assertEqual(S.ladder_next(0, 0, 1), (0, 0))
-        self.assertEqual(S.ladder_next(0, 0, -1), (2, 1))
-        self.assertEqual(S.ladder_next(2, 1, -1), (5, 2))
-        self.assertEqual(S.ladder_next(5, 2, -1), (9, 3))
-        self.assertEqual(S.ladder_next(14, 3, -1), (15, 4))
-        self.assertEqual(S.ladder_next(7, 2, 0), (7, 2))
-        self.assertEqual(S.ladder_next(7, 2, 1), (6, 0))
+    """Drawdown-keyed ladder (format 2): level = whole $2.25 bands of drawdown; plan = 0.30 x weight x room left."""
 
-    def test_planned_deltas_match_the_blueprint(self):
-        got = [float(S.num(S.floor_dp(S.plan_usd(p, 1.0, 0.05), 4), 4)) for p in S.LADDER[:4]]
-        self.assertEqual(got, [1.368, 0.9025, 0.589, 0.3895])
-        self.assertEqual(S.num(S.floor_dp(S.multiplier(1.0), 4), 4), "0.0820")       # SEESARE floor at 1:1
-        self.assertEqual(S.num(S.floor_dp(S.multiplier(10.0), 4), 4), "1.5000")      # cap
+    def test_levels_from_drawdown(self):
+        for dd, lv in ((0.0, 0), (2.2499, 0), (2.25, 1), (2.263, 1), (4.4999, 1), (4.5, 2), (12.923, 5), (33.7499, 14),
+                       (33.75, 15), (36.0, 15), (50.0, 15), (-1.0, 0)):
+            self.assertEqual(S.level_from_dd(dd), lv, dd)
+        self.assertEqual(S.level_from_dd(0.1 + 0.2 + 1.95), 1)       # 2.25 reached by a float sum lands in the next band
+
+    def test_plans(self):
+        for lv, w, want in ((0, 1.0, "10.1250"), (1, 1.0, "9.4500"), (14, 1.0, "0.6750"), (15, 1.0, "0.0000"),
+                            (0, 0.57, "5.7712"), (2, 0.25, "2.1937"), (0, 0.01, "0.1012")):
+            self.assertEqual(S.plan_text(lv, w), want, (lv, w))
+
+    def test_ladder_holds_the_envelope_by_construction(self):
+        """For any drawdown inside a level's band, drawdown + 10/3 x the plan at weight 1.00 stays within $36: a REAL event
+        (risk <= plan) can never open past the cap, and even a gap losing 3.33 times the plan cannot cross it."""
+        for lv in range(S.LEVELS - 1):
+            top = S.BAND_USD * (lv + 1) - 0.0001
+            for w in (0.01, 0.25, 0.57, 1.0):
+                plan = float(S.plan_text(lv, w))
+                self.assertLessEqual(top + plan, 36.0, (lv, w))
+                self.assertLessEqual(top + 3.33 * plan, 36.0, (lv, w))
+        self.assertEqual(S.plan_text(S.LEVELS - 1, 1.0), "0.0000")
 
     def test_floor_dp_is_exact_on_ties(self):
-        self.assertEqual(S.num(S.floor_dp(S.plan_usd(0.0033, 1.0, 0.05), 4), 4), "0.0313")   # 0.03135 exactly
+        self.assertEqual(S.num(S.floor_dp(S.plan_usd(2, 0.25), 4), 4), "2.1937")   # 2.19375 exactly
+        self.assertEqual(S.num(S.floor_dp(S.plan_usd(0, 1.0), 4), 4), "10.1250")   # 10.125 exactly
         self.assertEqual(S.num(S.floor_dp(1.368, 4), 4), "1.3680")
-        self.assertEqual(S.num(S.floor_dp(S.multiplier(2.45), 4), 4), "0.4900")             # (0.7)^2
 
     def test_classify(self):
         self.assertEqual(S.BUILD_POLICY, "GAIN_POSITIVE_LOSS_NEGATIVE")
@@ -161,9 +170,17 @@ class LedgerRules(unittest.TestCase):
 
     def test_replay_equals_recording(self):
         R = S.verify(self.lines, self.L.anchors)
-        for f in ("head", "level", "neg_run", "n", "shadow", "cycle", "l_net", "l_dd", "anchors"):
+        for f in ("head", "level", "n", "shadow", "cycle", "l_net", "l_dd", "anchors"):
             self.assertEqual(getattr(R, f), getattr(self.L, f), f)
-        self.assertEqual((R.level, R.neg_run, R.n, R.shadow, R.cycle), (14, 2, 12, 8, 2))   # ascension: L11 -> L14 at the end
+        self.assertEqual((R.level, R.n, R.shadow, R.cycle), (5, 12, 8, 2))   # the stop-out gap ends at drawdown 12.9230 = L5
+        self.assertEqual(S.num(R.drawdown(), 4), "12.9230")
+
+    def test_shadow_events_never_move_the_level(self):
+        for line in self.lines[1:]:
+            kv = S.parse(S.split_line(line)[0])[1]
+            if kv["mode"] == "SHADOW":
+                self.assertEqual(kv["lvl_before"], kv["lvl_after"])
+                self.assertEqual(kv["risk"], "0.0000")
 
     def test_changed_character_is_caught(self):
         bad = list(self.lines)
@@ -180,26 +197,35 @@ class LedgerRules(unittest.TestCase):
             S.verify(swapped)
 
     def test_full_rehash_passes_alone_but_changes_the_head(self):
-        forged = list(self.lines)
-        self.assertIn("by=STOP|res=NEGATIVE", forged[2])     # k=2: a stop; a smaller loss keeps every rule intact
-        forged[2] = forged[2].replace("delta=-1.0592", "delta=-0.0592")
-        forged = rehash_from(forged, 2)
-        R = S.verify(forged)                       # a keyless chain can be recomputed...
+        forger = S.Ledger(S.SELFTEST_LIFE)                 # a forger rebuilds the whole lifecycle with a smaller loss at k=2
+        forger.genesis_line(S.SELFTEST_CREATED)
+        for i in range(len(S.SAMPLE)):
+            e = S.sample_event(i)
+            if i == 1:
+                e["delta"] = -2.9
+            forger.record(e)
+        R = S.verify(forger.lines)                 # a keyless chain can be recomputed...
         self.assertNotEqual(R.head, self.L.head)   # ...so only a head published elsewhere exposes the forgery
         with self.assertRaises(S.LedgerError):     # the published anchors catch it
-            S.verify(forged, self.L.anchors)
+            S.verify(forger.lines, self.L.anchors)
+
+    def test_rehashed_amount_change_breaks_the_next_drawdown(self):
+        forged = list(self.lines)
+        forged[2] = forged[2].replace("delta=-3.0000", "delta=-2.9000")
+        with self.assertRaisesRegex(S.LedgerError, "dd is not the lifecycle drawdown"):
+            S.verify(rehash_from(forged, 2))
 
     def test_rehashed_ladder_cheat_is_still_caught(self):
         forged = list(self.lines)
-        forged[2] = forged[2].replace("lvl_after=2|neg_run=1", "lvl_after=0|neg_run=1")
-        with self.assertRaisesRegex(S.LedgerError, "ladder rule broken"):
+        self.assertIn("lvl_before=0|lvl_after=1|", forged[2])
+        forged[2] = forged[2].replace("lvl_before=0|lvl_after=1|", "lvl_before=0|lvl_after=0|")
+        with self.assertRaisesRegex(S.LedgerError, "drawdown level rule broken"):
             S.verify(rehash_from(forged, 2))
 
     def test_rehashed_resolution_cheat_is_still_caught(self):
         forged = list(self.lines)
-        self.assertIn("by=TIME|res=NEGATIVE", forged[6])     # k=6: the losing time exit
-        forged[6] = forged[6].replace("by=TIME|res=NEGATIVE|lvl_before=0|lvl_after=2|neg_run=1",
-                                      "by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0")
+        self.assertIn("by=TIME|res=NEGATIVE|", forged[6])     # k=6: the losing time exit
+        forged[6] = forged[6].replace("by=TIME|res=NEGATIVE|", "by=TIME|res=MANUAL|")
         with self.assertRaisesRegex(S.LedgerError, "exit rule"):
             S.verify(rehash_from(forged, 6))
 
@@ -215,16 +241,36 @@ class LedgerRules(unittest.TestCase):
 
     def test_a_line_written_under_the_old_rule_is_refused(self):
         forged = list(self.lines)
-        self.assertIn("by=TIME|res=POSITIVE|lvl_before=0|lvl_after=0|neg_run=0", forged[1])   # k=1: gain at L0
+        self.assertIn("by=TIME|res=POSITIVE|dd=0.0000|lvl_before=0|lvl_after=0|", forged[1])   # k=1: gain at L0
         forged[1] = forged[1].replace("by=TIME|res=POSITIVE", "by=TIME|res=MANUAL")
         with self.assertRaisesRegex(S.LedgerError, "exit rule"):
             S.verify(rehash_from(forged, 1))
 
     def test_rehashed_plan_cheat_is_still_caught(self):
         forged = list(self.lines)
-        forged[1] = forged[1].replace("plan=1.3680", "plan=2.7360")
-        with self.assertRaisesRegex(S.LedgerError, "planned delta"):
+        forged[1] = forged[1].replace("plan=10.1250", "plan=20.2500")
+        with self.assertRaisesRegex(S.LedgerError, "planned risk"):
             S.verify(rehash_from(forged, 1))
+
+    def test_real_risk_above_the_plan_is_refused(self):
+        L = S.Ledger("RISK")
+        L.genesis_line(S.date(2026, 11, 1))
+        e = S.sample_event(0)
+        e["risk"] = 10.1251
+        with self.assertRaisesRegex(S.LedgerError, "above the ladder's plan"):
+            L.record(e)
+        e["risk"] = 10.125
+        L.record(e)
+
+    def test_weight_outside_the_range_is_refused(self):
+        for w in (0.0, 1.01, 2.0):
+            L = S.Ledger("WEIGHT")
+            L.genesis_line(S.date(2026, 11, 1))
+            e = S.sample_event(0)
+            e["weight"], e["risk"] = w, 0.5
+            with self.assertRaisesRegex(S.LedgerError, "weight out of range"):
+                L.record(e)
+        self.assertEqual(L.plan_at(1.01), -1.0)
 
     def test_truncated_ledger_is_caught_by_anchors(self):
         with self.assertRaisesRegex(S.LedgerError, "more cycles"):
@@ -232,7 +278,8 @@ class LedgerRules(unittest.TestCase):
         S.verify(self.lines[:18], self.L.anchors)
 
     def test_changed_anchor_is_caught(self):
-        a = self.L.anchors[0].replace("net=0.8907", "net=9.8907")
+        self.assertIn("|net=-1.4909|", self.L.anchors[0])
+        a = self.L.anchors[0].replace("|net=-1.4909|", "|net=9.8907|")
         with self.assertRaisesRegex(S.LedgerError, "hash mismatch"):
             S.verify(self.lines, [a])
 
@@ -249,12 +296,19 @@ class LedgerRules(unittest.TestCase):
         with self.assertRaisesRegex(S.LedgerError, "time order"):
             L.record(S.sample_event(0))
 
-    def test_ladder_cannot_change_inside_a_lifecycle(self):
-        other = list(S.LADDER)
-        other[0] = 0.15
-        L = S.Ledger(S.SELFTEST_LIFE, ladder=other)
-        with self.assertRaisesRegex(S.LedgerError, "configured ladder differs"):
+    def test_room_mult_cannot_change_inside_a_lifecycle(self):
+        L = S.Ledger(S.SELFTEST_LIFE, room_mult=0.2)
+        with self.assertRaisesRegex(S.LedgerError, "room_mult differs"):
             L.apply_line(self.lines[0])
+        S.verify(self.lines)                       # the verifier reads the constants from the genesis line
+
+    def test_lifecycle_stops_inside_the_cap(self):
+        L, n = S.stop_run()
+        self.assertTrue(L.stopped())
+        self.assertEqual((n, L.level, S.num(L.drawdown(), 4)), (9, 15, "33.7500"))
+        self.assertLessEqual(L.l_dd, 36.0)
+        self.assertEqual(L.violations, [])
+        self.assertEqual(L.plan_at(1.0), 0.0)
 
     def test_lifecycle_locks_at_360(self):
         L = S.Ledger("LOCK")
@@ -268,83 +322,48 @@ class LedgerRules(unittest.TestCase):
         self.assertFalse(L.allows_real_risk(1.0))
 
 
-def bleed(policy_negative, guard):
-    """Owner's worst case for the time-exit mandate: every event exits on time at -0.6R (forex, ratio 3.5).
-    Returns (worst real drawdown in USD, real events, shadow events, envelope violations)."""
-    L = S.Ledger("BLEED", time_policy="LOSS_NEGATIVE" if policy_negative else "MANUAL")
-    L.genesis_line(S.date(2026, 11, 1))
-    worst = 0.0
-    for i in range(S.LIFECYCLE_EVENTS):
-        if L.locked:
-            break
-        plan = L.plan_at(3.5, "forex")
-        loss = round(0.6 * plan, 4)
-        real = (not guard) or L.allows_real_risk(plan)
-        t0 = S.date(2027, 1, 4, 23) + i * S.DAY
-        L.record(dict(mode="REAL" if real else "SHADOW", module="BLEED", domain="forex", symbol="USDJPY", side=1,
-                      digits=3, open=t0, close=t0 + 3600, by="TIME", ratio=3.5, risk=plan, vol=0.01,
-                      entry=151.234, lower=151.084, upper=151.759, exit=151.144, delta=-loss,
-                      deals=f"{i + 1}" if real else "-"))
-        worst = max(worst, L.drawdown())
-    return worst, L.n, L.shadow, len(L.violations)
-
-
-def pump(policy, guard, events=S.LIFECYCLE_EVENTS):
-    """Adversarial path for the time-exit ascension rule: a full stop, then two winning time exits of one cent each, repeated
-    (forex, ratio 3.5). With gains climbing, the two tiny wins put the ladder back at L0 before every stop.
-    Returns (worst real drawdown in USD, real events, shadow events, envelope violations)."""
-    L = S.Ledger("PUMP", time_policy=policy)
+def path(loss_of, guard, events=S.LIFECYCLE_EVENTS):
+    """Runs a lifecycle at weight 1.00 where event i loses loss_of(i, plan) (negative = a gain), risk = plan, until it locks
+    or stops. Returns (worst real drawdown in USD, real events, shadow events, envelope violations)."""
+    L = S.Ledger("PATH")
     L.genesis_line(S.date(2026, 11, 1))
     worst = 0.0
     for i in range(events):
-        if L.locked:
+        if L.locked or L.stopped():
             break
-        plan = L.plan_at(3.5, "forex")
-        stop = i % 3 == 0
+        plan = L.plan_at(1.0)
+        loss = round(loss_of(i, plan), 4)
         real = (not guard) or L.allows_real_risk(plan)
         t0 = S.date(2027, 1, 4, 23) + i * S.DAY
-        L.record(dict(mode="REAL" if real else "SHADOW", module="PUMP", domain="forex", symbol="USDJPY", side=1,
-                      digits=3, open=t0, close=t0 + 3600, by="STOP" if stop else "TIME", ratio=3.5, risk=plan, vol=0.01,
-                      entry=151.234, lower=151.084, upper=151.759, exit=151.084 if stop else 151.236,
-                      delta=-plan if stop else 0.01, deals=f"{i + 1}" if real else "-"))
+        L.record(dict(mode="REAL" if real else "SHADOW", module="PATH", domain="forex", symbol="USDJPY", side=1,
+                      digits=3, open=t0, close=t0 + 3600, by="STOP" if loss > 0 else "TIME", weight=1.0,
+                      risk=plan if real else 0.0, vol=0.01, entry=151.234, lower=151.084, upper=151.759, exit=151.144,
+                      delta=-loss, deals=f"{i + 1}" if real else "-"))
         worst = max(worst, L.drawdown())
     return worst, L.n, L.shadow, len(L.violations)
 
 
 class EnvelopeGuard(unittest.TestCase):
-    def test_ascension_without_guard_breaks_the_envelope(self):
-        worst, real, shadow, viol = pump("GAIN_POSITIVE_LOSS_NEGATIVE", guard=False)
-        self.assertAlmostEqual(worst, 120 * 1.368 - 119 * 0.02, places=4)    # 161.81 USD = 16.2% of $1,000
-        self.assertGreater(viol, 0)
+    """Paths that broke the retired win/loss ladder (P24), now run without the guard: the drawdown-keyed ladder alone holds."""
 
-    def test_guard_holds_the_envelope_under_ascension(self):
-        worst, real, shadow, viol = pump("GAIN_POSITIVE_LOSS_NEGATIVE", guard=True)
-        self.assertLessEqual(worst, 36.0 + 1e-9)
-        self.assertEqual(viol, 0)
-        self.assertGreater(shadow, 0)          # once the room is used up, stops at L0 are paper; small events stay real
-        self.assertEqual((real, shadow), (121, 239))
-
-    def test_same_path_under_the_phase2_rule_stays_small(self):
-        worst, real, shadow, viol = pump("LOSS_NEGATIVE", guard=True)
-        self.assertAlmostEqual(worst, 2.0993, places=4)   # 0.21%: tiny wins did not climb, so the ladder shrank instead
-        self.assertEqual(real, 360)
+    def test_bleeding_time_exits(self):
+        worst, real, shadow, viol = path(lambda i, plan: 0.6 * plan, guard=False)
+        self.assertLessEqual(worst, 36.0)
         self.assertEqual(viol, 0)
 
-    def test_mandate_without_guard_breaks_the_envelope(self):
-        worst, real, shadow, viol = bleed(policy_negative=False, guard=False)
-        self.assertAlmostEqual(worst, 360 * round(0.6 * 1.368, 4), places=6)    # 295.49 USD = 29.5%
-        self.assertGreater(viol, 0)
-
-    def test_guard_holds_the_envelope_under_the_mandate(self):
-        worst, real, shadow, viol = bleed(policy_negative=False, guard=True)
-        self.assertLessEqual(worst, 36.0 + 1e-9)
+    def test_stop_then_two_tiny_wins(self):
+        worst, real, shadow, viol = path(lambda i, plan: plan if i % 3 == 0 else -0.01, guard=False)
+        self.assertLessEqual(worst, 36.0)
         self.assertEqual(viol, 0)
-        self.assertGreater(shadow, 0)          # once the room is used up the events continue on paper only
 
-    def test_losing_time_exits_negative_keeps_drawdown_small(self):
-        worst, real, shadow, viol = bleed(policy_negative=True, guard=True)
-        self.assertLess(worst, 2.0)            # the ladder shrinks the size instead of running into the guard
-        self.assertEqual(viol, 0)
+    def test_gaps_up_to_three_point_three_times_the_plan(self):
+        worst, real, shadow, viol = path(lambda i, plan: 3.33 * plan, guard=False)
+        self.assertLessEqual(worst, 36.0)
+
+    def test_a_bigger_gap_at_the_band_edge_can_cross(self):
+        worst, real, shadow, viol = path(lambda i, plan: 2.2499 if i == 0 else 3.5 * plan, guard=False, events=2)
+        self.assertGreater(worst, 36.0)        # 2.2499 + 3.5 x 10.125: only a gap above 3.33 x the plan gets past the cap
+        self.assertEqual(viol, 0)              # no event opened past the cap: the excess is the gap itself
 
     def test_guard_matches_the_record_check(self):
         L = S.Ledger("EDGE")
@@ -364,15 +383,16 @@ class MqlSourceAgreement(unittest.TestCase):
         got = re.findall(r'Add\("(\w+)",\s*SEESARE_VENUE_(\w+),\s*"(\d\d:\d\d)",\s*"(\d\d:\d\d)",\s*SEESARE_MASK_(\w+)\)', src)
         self.assertEqual([tuple(x) for x in got], [tuple(w) for w in S.DEFAULT_WINDOWS])
 
-    def test_ladder_and_friction_match(self):
+    def test_ladder_constants_match(self):
         src = self.read("Include", "Seesare", "Ledger", "CycleLedger.mqh")
-        m = re.search(r"double d\[SEESARE_LEVELS\] = \{([^}]*)\}", src)
-        self.assertEqual([float(x) for x in m.group(1).split(",")], S.LADDER)
-        fr = dict((k, float(v)) for k, v in re.findall(r'if\(domain == "(\w+)"\)\s*return ([0-9.]+);', src))
-        self.assertEqual(fr, S.FRICTION)
+        self.assertEqual(re.search(r'#define SEESARE_FORMAT\s+"(\d+)"', src).group(1), S.FORMAT)
+        self.assertEqual(re.search(r'#define SEESARE_SIZING_NAME\s+"(\w+)"', src).group(1), S.SIZING)
+        self.assertEqual(set(re.findall(r'domain == "(\w+)"', src)), set(S.DOMAINS))
         for name, want in (("SEESARE_BASELINE_USD", S.BASELINE), ("SEESARE_ENVELOPE_PCT", S.ENVELOPE_PCT),
-                           ("SEESARE_EXPONENT", S.EXPONENT), ("SEESARE_CYCLE_EVENTS", S.CYCLE_EVENTS),
-                           ("SEESARE_LIFECYCLE_EVENTS", S.LIFECYCLE_EVENTS)):
+                           ("SEESARE_CYCLE_EVENTS", S.CYCLE_EVENTS), ("SEESARE_LIFECYCLE_EVENTS", S.LIFECYCLE_EVENTS),
+                           ("SEESARE_LEVELS", S.LEVELS), ("SEESARE_BAND_USD", S.BAND_USD),
+                           ("SEESARE_BAND_UNITS", S.BAND_UNITS), ("SEESARE_ROOM_MULT", S.ROOM_MULT),
+                           ("SEESARE_MAX_WEIGHT", S.MAX_WEIGHT)):
             self.assertEqual(float(re.search(rf"#define {name}\s+([0-9.]+)", src).group(1)), float(want), name)
         for name, keys in (("SEESARE_EVENT_KEYS", S.EVENT_KEYS), ("SEESARE_GENESIS_KEYS", S.GENESIS_KEYS),
                            ("SEESARE_AUDIT_KEYS", S.AUDIT_KEYS)):

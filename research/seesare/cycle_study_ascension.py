@@ -1,4 +1,7 @@
-"""SEESARE cycle-block study, Phase 4: the owner's time-exit ascension rule (fixed 2026-11-01 before any result).
+"""NOTE (2026-11-01): written for ledger format 1 (the retired win/loss ladder); it ran at commit 6624594. The current
+tools/seesare_verify.py writes format 2 (drawdown-keyed ladder), so this script no longer runs against it; its results file
+stands as recorded.
+SEESARE cycle-block study, Phase 4: the owner's time-exit ascension rule (fixed 2026-11-01 before any result).
 
 Question: with the new hardcoded rule (a time exit with a net gain is POSITIVE and climbs one level, a net loss NEGATIVE,
 exactly 0 MANUAL: time_policy=GAIN_POSITIVE_LOSS_NEGATIVE), does the only lab-verified flow (Tokyo gotobi fix) trade real money

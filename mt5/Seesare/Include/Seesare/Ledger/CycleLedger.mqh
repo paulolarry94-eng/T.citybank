@@ -9,19 +9,25 @@
 //|   line in <root>\<life>\ledger.txt, chained by keyless SHA-256:  |
 //|   each line carries the hash of the line before (prev=) and its  |
 //|   own hash (hash=). Deal tickets go into the hashed text.        |
-//| - Applies the SEESARE ladder itself (16 levels; +1 level on a    |
-//|   positive outcome; -2/-3/-4 for the 1st/2nd/3rd+ negative in a  |
-//|   row; a manual resolution changes nothing and keeps the run),   |
-//|   and derives each outcome from how the event closed: stop or    |
-//|   broker NEGATIVE, target POSITIVE, by hand MANUAL, time exit    |
-//|   POSITIVE on a net gain, NEGATIVE on a net loss, MANUAL at 0    |
-//|   (SEESARE_TIME_POLICY, Phase 4),                                |
-//|   and computes the multiplier (exponent 2.0), friction and the   |
-//|   planned delta on the fixed $1,000 baseline. The caller cannot  |
-//|   write a level or a plan that breaks these rules.               |
+//| - Sizes every event with the DRAWDOWN-KEYED LADDER (format 2,    |
+//|   owner's decision 2026-11-01; the SEESARE win/loss ladder is    |
+//|   retired): 16 levels, one per $2.25 band (0.225%) of lifecycle  |
+//|   drawdown; planned risk = 0.30 x weight x room left below the   |
+//|   band (3.6% - (level+1) x 0.225%); a REAL event may not risk    |
+//|   more than its plan. With weight <= 1.00, drawdown + plan stays |
+//|   below $36 at every level, so the ladder holds the envelope by  |
+//|   construction; at L15 nothing fits and the lifecycle is         |
+//|   stopped. Evidence: research/seesare/universe_lifecycle_study.py|
+//|   (11-leg book, 13 of 13 lifecycles completed 2011-22).          |
+//| - Labels each outcome from how the event closed (stop or broker  |
+//|   NEGATIVE, target POSITIVE, by hand MANUAL, time exit POSITIVE  |
+//|   on a net gain, NEGATIVE on a net loss, MANUAL at 0); labels    |
+//|   feed the counts and messages, not the size.                    |
+//|   The caller cannot write a level or a plan that breaks these    |
+//|   rules.                                                         |
 //| - Counts 10 REAL events per cycle, 36 cycles per lifecycle, and  |
-//|   locks at 360. SHADOW events move the ladder but do not count   |
-//|   and carry no money.                                            |
+//|   locks at 360. SHADOW events are paper: they carry no money,    |
+//|   never move the level and do not count.                         |
 //| - At each 10th REAL event writes the cycle audit (counts, net,   |
 //|   drawdown, levels, the root hash of the 10 events, the chain    |
 //|   head) to anchors.txt, chained to the previous audit.           |
@@ -46,15 +52,19 @@
 #include <Seesare\Ledger\StateStore.mqh>
 #include <Seesare\Ledger\Outbox.mqh>
 
-#define SEESARE_FORMAT            "1"
+#define SEESARE_FORMAT            "2"              // 2 = drawdown-keyed ladder; 1 was the retired win/loss ladder
 #define SEESARE_BASELINE_USD      1000.0
 #define SEESARE_CYCLE_EVENTS      10
 #define SEESARE_LIFECYCLE_EVENTS  360
 #define SEESARE_ENVELOPE_PCT      3.6
-#define SEESARE_EXPONENT          2.0
 #define SEESARE_LEVELS            16
-#define SEESARE_GENESIS_KEYS      "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,time_policy,ladder,created"
-#define SEESARE_EVENT_KEYS        "v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,lvl_before,lvl_after,neg_run,ratio,mult,fric,plan,risk,vol,entry,lower,upper,exit,delta,deals,prev"
+#define SEESARE_SIZING_NAME       "DRAWDOWN_KEYED"
+#define SEESARE_BAND_USD          2.25             // 3.6% of $1,000 / 16 levels
+#define SEESARE_BAND_UNITS        22500            // the band in ten-thousandths of a dollar
+#define SEESARE_ROOM_MULT         0.30             // share of the room left one event may risk at weight 1.00 (chosen on 2011-22)
+#define SEESARE_MAX_WEIGHT        1.0              // the largest weight any tested leg has
+#define SEESARE_GENESIS_KEYS      "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,sizing,levels,band,room_mult,max_weight,time_policy,created"
+#define SEESARE_EVENT_KEYS        "v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,dd,lvl_before,lvl_after,weight,plan,risk,vol,entry,lower,upper,exit,delta,deals,prev"
 #define SEESARE_AUDIT_KEYS        "v,life,audit,cycle,events,pos,neg,man,shadow,pos_rate,net,net_pct,max_dd,max_dd_pct,life_net,life_dd,lvl_start,lvl_end,root,head,prev"
 
 enum ENUM_SEESARE_MODE
@@ -92,31 +102,30 @@ enum ENUM_SEESARE_TIME_POLICY
 //--- resolution from the exit kind and the recorded net result (4 decimals, after commission and swap) with this rule,
 //--- declares it in the genesis line, and refuses a lifecycle (or a line) that follows another rule. Lifecycles written
 //--- under an earlier rule stay verifiable with tools/seesare_verify.py; this build does not continue them.
-//--- Consequence (research/truth/tests/test_seesare_phase1.py, EnvelopeGuard): with gains climbing, a stop at the top
-//--- followed by two tiny winning time exits returns the ladder to L0 every time, so the ladder alone no longer limits the
-//--- drawdown; the envelope guard (AllowsRealRisk) is what holds the 3.6% line.
+//--- Since format 2 the label no longer sizes anything (the drawdown-keyed ladder does); it is published in every line and
+//--- counted in the cycle audits.
 #define SEESARE_TIME_POLICY       SEESARE_TIME_GAIN_POSITIVE
 #define SEESARE_TIME_POLICY_NAME  "GAIN_POSITIVE_LOSS_NEGATIVE"
 
 //+------------------------------------------------------------------+
 //| One resolved event, as the router hands it to the ledger.        |
 //| The ledger adds k, n, cycle, step, the resolution (from close_by |
-//| and delta_usd under SEESARE_TIME_POLICY), the ladder levels, the |
-//| multiplier, friction, planned delta and the hashes.              |
+//| and delta_usd under SEESARE_TIME_POLICY), the drawdown, the      |
+//| drawdown levels, the planned risk and the hashes.                |
 //+------------------------------------------------------------------+
 struct SSeesareEvent
   {
    ENUM_SEESARE_MODE  mode;
    string             module;       // flow module id (token)
-   string             domain;       // forex, crypto, stocks, indices or commodities (SEESARE 8.2)
+   string             domain;       // forex, crypto, stocks, indices or commodities
    string             symbol;
    int                side;         // +1 buy, -1 sell
    int                digits;       // price decimals (SYMBOL_DIGITS)
    datetime           utc_open;
    datetime           utc_close;
    ENUM_SEESARE_CLOSE close_by;
-   double             ratio;        // declared ratio (target distance / stop distance); recorded with 2 decimals
-   double             risk_usd;     // REAL: all-in loss at the stop for the actual volume (+ commission, swap, slippage allowance)
+   double             weight;       // the module's weight, (0, 1.00], recorded with 2 decimals; plan = 0.30 x weight x room
+   double             risk_usd;     // REAL: all-in loss at the stop for the actual volume; may not exceed the plan
    double             volume;       // REAL: lots traded; SHADOW: the unrounded virtual lots
    double             entry;
    double             lower;        // lower boundary (BUY stop, SELL target)
@@ -135,7 +144,7 @@ struct SSeesareEvent
       utc_open = 0;
       utc_close = 0;
       close_by = SEESARE_BY_TIME;
-      ratio = 0.0;
+      weight = 0.0;
       risk_usd = 0.0;
       volume = 0.0;
       entry = 0.0;
@@ -148,119 +157,51 @@ struct SSeesareEvent
   };
 
 //+------------------------------------------------------------------+
-//| SEESARE arithmetic (static). Phase 2 sizing must use these same  |
-//| functions, through CSeesareCycleLedger::PlanUsdAt().             |
+//| Ladder arithmetic (static). Sizing must use these same functions,|
+//| through CSeesareCycleLedger::PlanUsdAt(). Twin: level_from_dd,   |
+//| room_usd, plan_usd, plan_text in tools/seesare_verify.py.        |
 //+------------------------------------------------------------------+
 class CSeesareLadder
   {
 public:
-   //--- SEESARE P26 section 5: % of the State Value per level
-   static void       Defaults(double &pct[])
+   //--- whole $2.25 bands of lifecycle drawdown, 0..15; computed in whole ten-thousandths (the drawdown is a sum of
+   //--- 4-decimal amounts), so no band edge depends on floating-point noise
+   static int        LevelFromDrawdown(const double dd_usd)
      {
-      double d[SEESARE_LEVELS] = {0.144, 0.095, 0.062, 0.041, 0.027, 0.018, 0.012, 0.008, 0.005, 0.0033, 0.0022, 0.0014, 0.0009, 0.0006, 0.0004, 0.0003};
-      ArrayResize(pct, SEESARE_LEVELS);
-      for(int i = 0; i < SEESARE_LEVELS; i++)
-         pct[i] = d[i];
+      long u = (long)MathRound(dd_usd * 10000.0);
+      if(u < 0)
+         u = 0;
+      long lv = u / SEESARE_BAND_UNITS;
+      if(lv > SEESARE_LEVELS - 1)
+         lv = SEESARE_LEVELS - 1;
+      return (int)lv;
      }
-   static bool       Valid(const double &pct[], string &why)
+   //--- room left below the bottom of the level's band: $36 - (level + 1) x $2.25; 0 at L15
+   static double     RoomUsd(const int level)
      {
-      if(ArraySize(pct) != SEESARE_LEVELS)
-        {
-         why = "the ladder needs 16 levels";
-         return false;
-        }
-      for(int i = 0; i < SEESARE_LEVELS; i++)
-        {
-         if(pct[i] <= 0.0 || pct[i] > 1.0)
-           {
-            why = "ladder levels must be in (0, 1] percent";
-            return false;
-           }
-         if(i > 0 && pct[i] >= pct[i - 1])
-           {
-            why = "ladder levels must strictly decrease";
-            return false;
-           }
-         if(MathAbs(StringToDouble(CSeesareText::Fmt(pct[i], 4)) - pct[i]) > 1e-12)
-           {
-            why = "ladder levels have at most 4 decimals";
-            return false;
-           }
-        }
-      return true;
+      if(level < 0 || level > SEESARE_LEVELS - 1)
+         return 0.0;
+      return SEESARE_BAND_USD * (double)(SEESARE_LEVELS - 1 - level);
      }
-   static string     Text(const double &pct[])
+   //--- planned risk of one event, unrounded (the ledger writes it rounded down to 4 decimals)
+   static double     PlanUsd(const int level, const double weight)
      {
-      string s = "";
-      for(int i = 0; i < ArraySize(pct); i++)
-        {
-         if(i > 0)
-            s += ",";
-         s += CSeesareText::Fmt(pct[i], 4);
-        }
-      return s;
+      return SEESARE_ROOM_MULT * weight * RoomUsd(level);
      }
-   static bool       Parse(const string text, double &pct[], string &why)
+   //--- the plan exactly as a ledger line carries it; the weight is taken as written (2 decimals)
+   static string     PlanText(const int level, const double weight)
      {
-      string parts[];
-      int n = StringSplit(text, ',', parts);
-      if(n != SEESARE_LEVELS)
-        {
-         why = "malformed ladder";
-         return false;
-        }
-      ArrayResize(pct, n);
-      for(int i = 0; i < n; i++)
-        {
-         if(!CSeesareText::IsDecimal(parts[i], 4))
-           {
-            why = "malformed ladder";
-            return false;
-           }
-         pct[i] = StringToDouble(parts[i]);
-        }
-      return Valid(pct, why);
+      double w = StringToDouble(CSeesareText::Fmt(weight, 2));
+      return CSeesareText::Fmt(CSeesareText::FloorDp(PlanUsd(level, w), 4), 4);
      }
-   //--- SEESARE 7.1 (twin: ladder_next)
-   static void       Next(const int level, const int neg_run, const ENUM_SEESARE_RES res, int &level_after, int &neg_after)
+   static bool       ValidWeight(const double weight)
      {
-      if(res == SEESARE_POSITIVE)
-        {
-         level_after = (level > 0 ? level - 1 : 0);
-         neg_after = 0;
-         return;
-        }
-      if(res == SEESARE_NEGATIVE)
-        {
-         int step = (neg_run <= 0 ? 2 : (neg_run == 1 ? 3 : 4));
-         level_after = (level + step < SEESARE_LEVELS - 1 ? level + step : SEESARE_LEVELS - 1);
-         neg_after = neg_run + 1;
-         return;
-        }
-      level_after = level;
-      neg_after = neg_run;
+      double w = StringToDouble(CSeesareText::Fmt(weight, 2));
+      return (w > 0.0 && w <= SEESARE_MAX_WEIGHT + 1e-12);
      }
-   //--- SEESARE 6.2 with the owner's exponent 2.0 below 3.5:1 (twin: multiplier)
-   static double     Multiplier(const double ratio)
+   static bool       ValidDomain(const string domain)
      {
-      if(ratio >= 3.5)
-         return MathMin(1.0 + 0.10 * (ratio - 3.5), 1.5);
-      return MathMax(MathPow(ratio / 3.5, SEESARE_EXPONENT), 0.082);
-     }
-   //--- SEESARE 8.2; -1 for an unknown domain
-   static double     Friction(const string domain)
-     {
-      if(domain == "forex")       return 0.05;
-      if(domain == "crypto")      return 0.08;
-      if(domain == "stocks")      return 0.03;
-      if(domain == "indices")     return 0.025;
-      if(domain == "commodities") return 0.04;
-      return -1.0;
-     }
-   //--- SEESARE 9.1: planned delta in USD on the fixed baseline (twin: plan_usd)
-   static double     PlanUsd(const double level_pct, const double mult, const double friction)
-     {
-      return SEESARE_BASELINE_USD * level_pct / 100.0 * mult * (1.0 - friction);
+      return (domain == "forex" || domain == "crypto" || domain == "stocks" || domain == "indices" || domain == "commodities");
      }
    //--- resolution of an automated exit (twin: classify)
    static ENUM_SEESARE_RES Classify(const ENUM_SEESARE_CLOSE by, const double delta_usd, const ENUM_SEESARE_TIME_POLICY policy)
@@ -341,8 +282,6 @@ private:
    string            m_ledger_path;
    string            m_anchor_path;
    string            m_state_path;
-   double            m_config[];         // the ladder this program wants (SEESARE default unless SetLadder)
-   double            m_ladder[];         // the ladder declared in the genesis line
    bool              m_open;
    bool              m_fault;
    string            m_error;
@@ -356,8 +295,7 @@ private:
    int               m_k;                // chain index of the last line (genesis = 0)
    int               m_n;                // REAL events
    int               m_shadow;           // SHADOW events
-   int               m_level;
-   int               m_neg_run;
+   int               m_level;            // drawdown level (0..15) after the last REAL event
    int               m_cycle;            // the open cycle (1..36; 37 after the lock)
    bool              m_locked;
    datetime          m_created;
@@ -410,12 +348,11 @@ private:
 
 public:
                      CSeesareCycleLedger(void);
-   bool              SetLadder(const double &pct[]);
    bool              Open(const string root, const string life, const datetime created_utc, const bool adopt_ledger = false);
    bool              Record(const SSeesareEvent &e, string &hash_out);
    bool              Retry(void);
    bool              AllowsRealRisk(const double risk_usd) const;
-   double            PlanUsdAt(const double ratio, const string domain) const;
+   double            PlanUsdAt(const double weight) const;
    //--- state
    bool              IsOpen(void) const              { return m_open; }
    bool              Fault(void) const               { return m_fault; }
@@ -424,8 +361,8 @@ public:
    string            Life(void) const                { return m_life; }
    string            Dir(void) const                 { return m_dir; }
    int               Level(void) const               { return m_level; }
-   int               NegRun(void) const              { return m_neg_run; }
-   double            LevelPct(void) const            { return (ArraySize(m_ladder) == SEESARE_LEVELS ? m_ladder[m_level] : -1.0); }
+   //--- drawdown in the last band: no REAL event can be recorded any more (a new lifecycle id is the owner's decision)
+   bool              Stopped(void) const             { return (m_open && m_level >= SEESARE_LEVELS - 1); }
    int               ChainIndex(void) const          { return m_k; }
    int               RealCount(void) const           { return m_n; }
    int               ShadowCount(void) const         { return m_shadow; }
@@ -453,7 +390,6 @@ public:
 
 CSeesareCycleLedger::CSeesareCycleLedger(void)
   {
-   CSeesareLadder::Defaults(m_config);
    m_root = "";
    m_life = "";
    m_dir = "";
@@ -469,7 +405,6 @@ CSeesareCycleLedger::CSeesareCycleLedger(void)
 
 void CSeesareCycleLedger::ResetState(void)
   {
-   ArrayResize(m_ladder, 0);
    ArrayResize(m_lines, 0);
    ArrayResize(m_hashes, 0);
    ArrayResize(m_line_utc, 0);
@@ -483,7 +418,6 @@ void CSeesareCycleLedger::ResetState(void)
    m_n = 0;
    m_shadow = 0;
    m_level = 0;
-   m_neg_run = 0;
    m_cycle = 1;
    m_locked = false;
    m_created = 0;
@@ -519,26 +453,6 @@ bool CSeesareCycleLedger::Fail(const string why)
    m_error = why;
    Print("SEESARE ledger FAULT [", m_life, "]: ", why);
    return false;
-  }
-
-//--- choose a tuned ladder before Open(); an existing lifecycle refuses a ladder that differs from its genesis
-bool CSeesareCycleLedger::SetLadder(const double &pct[])
-  {
-   string why = "";
-   if(m_open)
-     {
-      m_error = "set the ladder before Open()";
-      return false;
-     }
-   if(!CSeesareLadder::Valid(pct, why))
-     {
-      m_error = "ladder: " + why;
-      return false;
-     }
-   ArrayResize(m_config, ArraySize(pct));
-   for(int i = 0; i < ArraySize(pct); i++)
-      m_config[i] = pct[i];
-   return true;
   }
 
 void CSeesareCycleLedger::Remember(const string line, const string hash, const datetime utc)
@@ -620,9 +534,13 @@ bool CSeesareCycleLedger::ApplyGenesis(CSeesareKV &kv, const string hash, const 
       kv.Get("events") != IntegerToString(SEESARE_LIFECYCLE_EVENTS) ||
       kv.Get("cycle_size") != IntegerToString(SEESARE_CYCLE_EVENTS) ||
       kv.Get("envelope_pct") != CSeesareText::Fmt(SEESARE_ENVELOPE_PCT, 2) ||
-      kv.Get("exponent") != CSeesareText::Fmt(SEESARE_EXPONENT, 2))
+      kv.Get("sizing") != SEESARE_SIZING_NAME ||
+      kv.Get("levels") != IntegerToString(SEESARE_LEVELS) ||
+      kv.Get("band") != CSeesareText::Fmt(SEESARE_BAND_USD, 4) ||
+      kv.Get("room_mult") != CSeesareText::Fmt(SEESARE_ROOM_MULT, 2) ||
+      kv.Get("max_weight") != CSeesareText::Fmt(SEESARE_MAX_WEIGHT, 2))
      {
-      why = "genesis constants differ from this build";
+      why = "genesis constants differ from this build (format 2: drawdown-keyed ladder)";
       return false;
      }
    if(kv.Get("time_policy") != SEESARE_TIME_POLICY_NAME)
@@ -630,14 +548,6 @@ bool CSeesareCycleLedger::ApplyGenesis(CSeesareKV &kv, const string hash, const 
       why = "this build records only lifecycles with time_policy=";
       why += SEESARE_TIME_POLICY_NAME;
       why += " (gain climbs, loss descends); start a new lifecycle id";
-      return false;
-     }
-   double ladder[];
-   if(!CSeesareLadder::Parse(kv.Get("ladder"), ladder, why))
-      return false;
-   if(CSeesareLadder::Text(ladder) != CSeesareLadder::Text(m_config))
-     {
-      why = "the configured ladder differs from this lifecycle's genesis ladder (start a new lifecycle id to change it)";
       return false;
      }
    datetime created = 0;
@@ -648,9 +558,6 @@ bool CSeesareCycleLedger::ApplyGenesis(CSeesareKV &kv, const string hash, const 
      }
    if(dry)
       return true;
-   ArrayResize(m_ladder, SEESARE_LEVELS);
-   for(int i = 0; i < SEESARE_LEVELS; i++)
-      m_ladder[i] = ladder[i];
    m_created = created;
    m_genesis = hash;
    m_head = hash;
@@ -716,10 +623,9 @@ bool CSeesareCycleLedger::ApplyEvent(CSeesareKV &kv, const string hash, const st
       why = "bad module or symbol" + at;
       return false;
      }
-   double fric = CSeesareLadder::Friction(kv.Get("domain"));
-   if(fric < 0.0 || kv.Get("fric") != CSeesareText::Fmt(fric, 4))
+   if(!CSeesareLadder::ValidDomain(kv.Get("domain")))
      {
-      why = "domain or friction not in the SEESARE table" + at;
+      why = "unknown domain" + at;
       return false;
      }
    if(kv.Get("side") != "BUY" && kv.Get("side") != "SELL")
@@ -756,50 +662,58 @@ bool CSeesareCycleLedger::ApplyEvent(CSeesareKV &kv, const string hash, const st
       why = "resolution does not follow the exit rule" + at;
       return false;
      }
+   if(kv.Get("dd") != CSeesareText::Fmt(m_l_peak - m_l_net, 4))
+     {
+      why = "dd is not the lifecycle drawdown" + at;
+      return false;
+     }
    if(kv.Get("lvl_before") != IntegerToString(m_level))
      {
-      why = "lvl_before is not the ladder's level" + at;
+      why = "lvl_before is not the drawdown level" + at;
       return false;
      }
-   int la = 0;
-   int na = 0;
-   CSeesareLadder::Next(m_level, m_neg_run, (ENUM_SEESARE_RES)res, la, na);
-   if(kv.Get("lvl_after") != IntegerToString(la) || kv.Get("neg_run") != IntegerToString(na))
-     {
-      why = "ladder rule broken" + at;
-      return false;
-     }
-   if(!CSeesareText::IsDecimal(kv.Get("ratio"), 2) || !CSeesareText::IsDecimal(kv.Get("mult"), 4) ||
-      !CSeesareText::IsDecimal(kv.Get("plan"), 4) || !CSeesareText::IsDecimal(kv.Get("risk"), 4) ||
-      !CSeesareText::IsDecimal(kv.Get("vol"), 4) || !CSeesareText::IsDecimal(kv.Get("delta"), 4))
+   if(!CSeesareText::IsDecimal(kv.Get("weight"), 2) || !CSeesareText::IsDecimal(kv.Get("plan"), 4) ||
+      !CSeesareText::IsDecimal(kv.Get("risk"), 4) || !CSeesareText::IsDecimal(kv.Get("vol"), 4) ||
+      !CSeesareText::IsDecimal(kv.Get("delta"), 4))
      {
       why = "malformed number" + at;
       return false;
      }
-   double ratio = StringToDouble(kv.Get("ratio"));
-   double mult  = StringToDouble(kv.Get("mult"));
-   double plan  = StringToDouble(kv.Get("plan"));
-   double risk  = StringToDouble(kv.Get("risk"));
-   double vol   = StringToDouble(kv.Get("vol"));
-   double delta = StringToDouble(kv.Get("delta"));
-   if(ratio <= 0.0 || ratio > 100.0)
+   double weight = StringToDouble(kv.Get("weight"));
+   double plan   = StringToDouble(kv.Get("plan"));
+   double risk   = StringToDouble(kv.Get("risk"));
+   double vol    = StringToDouble(kv.Get("vol"));
+   double delta  = StringToDouble(kv.Get("delta"));
+   if(weight <= 0.0 || weight > SEESARE_MAX_WEIGHT + 1e-12)
      {
-      why = "declared ratio out of range" + at;
+      why = "weight out of range" + at;
       return false;
      }
-   if(MathAbs(mult - CSeesareLadder::Multiplier(ratio)) > 0.0001 + 1e-9)
+   if(MathAbs(plan - CSeesareLadder::PlanUsd(m_level, weight)) > 0.0001 + 1e-9)
      {
-      why = "multiplier does not match the declared ratio" + at;
-      return false;
-     }
-   if(MathAbs(plan - CSeesareLadder::PlanUsd(m_ladder[m_level], mult, fric)) > 0.0001 + 1e-9)
-     {
-      why = "planned delta does not match the ladder" + at;
+      why = "planned risk does not match the drawdown ladder" + at;
       return false;
      }
    if(risk < 0.0 || vol < 0.0)
      {
       why = "negative risk or volume" + at;
+      return false;
+     }
+   if(real && risk > plan + 1e-9)
+     {
+      why = "real risk above the ladder's plan" + at;
+      return false;
+     }
+   int la = m_level;
+   if(real)
+     {
+      double net2 = m_l_net + delta;
+      double peak2 = MathMax(m_l_peak, net2);
+      la = CSeesareLadder::LevelFromDrawdown(peak2 - net2);
+     }
+   if(kv.Get("lvl_after") != IntegerToString(la))
+     {
+      why = "drawdown level rule broken" + at;
       return false;
      }
    string deals = kv.Get("deals");
@@ -883,7 +797,6 @@ bool CSeesareCycleLedger::ApplyEvent(CSeesareKV &kv, const string hash, const st
       m_c_shadow++;
      }
    m_level = la;
-   m_neg_run = na;
    m_k = k;
    m_head = hash;
    m_last_open = t_open;
@@ -965,10 +878,14 @@ string CSeesareCycleLedger::GenesisContent(const datetime created) const
    g += "|events=" + IntegerToString(SEESARE_LIFECYCLE_EVENTS);
    g += "|cycle_size=" + IntegerToString(SEESARE_CYCLE_EVENTS);
    g += "|envelope_pct=" + CSeesareText::Fmt(SEESARE_ENVELOPE_PCT, 2);
-   g += "|exponent=" + CSeesareText::Fmt(SEESARE_EXPONENT, 2);
+   g += "|sizing=";
+   g += SEESARE_SIZING_NAME;
+   g += "|levels=" + IntegerToString(SEESARE_LEVELS);
+   g += "|band=" + CSeesareText::Fmt(SEESARE_BAND_USD, 4);
+   g += "|room_mult=" + CSeesareText::Fmt(SEESARE_ROOM_MULT, 2);
+   g += "|max_weight=" + CSeesareText::Fmt(SEESARE_MAX_WEIGHT, 2);
    g += "|time_policy=";
    g += SEESARE_TIME_POLICY_NAME;
-   g += "|ladder=" + CSeesareLadder::Text(m_config);
    g += "|created=" + CSeesareDst::IsoUtc(created);
    return g;
   }
@@ -988,8 +905,7 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
       why = "module and symbol must be tokens of 1-32 printable characters without | = ; ,";
       return false;
      }
-   double fric = CSeesareLadder::Friction(e.domain);
-   if(fric < 0.0)
+   if(!CSeesareLadder::ValidDomain(e.domain))
      {
       why = "domain must be forex, crypto, stocks, indices or commodities";
       return false;
@@ -1004,9 +920,9 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
       why = "digits must be 0-8";
       return false;
      }
-   if(e.ratio <= 0.0 || e.ratio > 100.0)
+   if(!CSeesareLadder::ValidWeight(e.weight))
      {
-      why = "the declared ratio must be in (0, 100]";
+      why = "the weight must be in (0, 1.00] (2 decimals)";
       return false;
      }
    string by = CSeesareLadder::CloseName(e.close_by);
@@ -1015,7 +931,8 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
       why = "bad exit kind";
       return false;
      }
-   ENUM_SEESARE_RES r = CSeesareLadder::Classify(e.close_by, StringToDouble(CSeesareText::Fmt(e.delta_usd, 4)), SEESARE_TIME_POLICY);
+   string s_delta = CSeesareText::Fmt(e.delta_usd, 4);
+   ENUM_SEESARE_RES r = CSeesareLadder::Classify(e.close_by, StringToDouble(s_delta), SEESARE_TIME_POLICY);
    string res = CSeesareLadder::ResName(r);
    string deals = "-";
    if(real)
@@ -1040,12 +957,15 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
    string side_name = "SELL";
    if(e.side > 0)
       side_name = "BUY";
-   string s_ratio = CSeesareText::Fmt(e.ratio, 2);
-   string s_mult  = CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(StringToDouble(s_ratio)), 4), 4);
-   string s_plan  = CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(m_ladder[m_level], StringToDouble(s_mult), fric), 4), 4);
-   int la = 0;
-   int na = 0;
-   CSeesareLadder::Next(m_level, m_neg_run, r, la, na);
+   string s_weight = CSeesareText::Fmt(e.weight, 2);
+   string s_plan   = CSeesareLadder::PlanText(m_level, StringToDouble(s_weight));
+   int la = m_level;
+   if(real)
+     {
+      double net2 = m_l_net + StringToDouble(s_delta);
+      double peak2 = MathMax(m_l_peak, net2);
+      la = CSeesareLadder::LevelFromDrawdown(peak2 - net2);
+     }
    string c = "v=";
    c += SEESARE_FORMAT;
    c += "|life=" + m_life;
@@ -1062,12 +982,10 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
    c += "|close=" + CSeesareDst::IsoUtc(e.utc_close);
    c += "|by=" + by;
    c += "|res=" + res;
+   c += "|dd=" + CSeesareText::Fmt(m_l_peak - m_l_net, 4);
    c += "|lvl_before=" + IntegerToString(m_level);
    c += "|lvl_after=" + IntegerToString(la);
-   c += "|neg_run=" + IntegerToString(na);
-   c += "|ratio=" + s_ratio;
-   c += "|mult=" + s_mult;
-   c += "|fric=" + CSeesareText::Fmt(fric, 4);
+   c += "|weight=" + s_weight;
    c += "|plan=" + s_plan;
    c += "|risk=" + CSeesareText::Fmt(risk, 4);
    c += "|vol=" + CSeesareText::Fmt(e.volume, 4);
@@ -1075,7 +993,7 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
    c += "|lower=" + CSeesareText::Fmt(e.lower, e.digits);
    c += "|upper=" + CSeesareText::Fmt(e.upper, e.digits);
    c += "|exit=" + CSeesareText::Fmt(e.exit_price, e.digits);
-   c += "|delta=" + CSeesareText::Fmt(e.delta_usd, 4);
+   c += "|delta=" + s_delta;
    c += "|deals=" + deals;
    c += "|prev=" + m_head;
    string h = CSeesareSha256::Hex(c);
@@ -1106,8 +1024,6 @@ bool CSeesareCycleLedger::Open(const string root, const string life, const datet
    if(!CSeesareText::IsLifeId(life))
       return Fail("the lifecycle id must be 1-32 letters, digits, '_' or '-'");
    string why = "";
-   if(!CSeesareLadder::Valid(m_config, why))
-      return Fail("ladder: " + why);
    if(CSeesareSha256::Hex("abc") != "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad")
       return Fail("the SHA-256 self-check failed in this terminal");
    m_root = root;
@@ -1297,7 +1213,6 @@ bool CSeesareCycleLedger::SaveState(void)
    kv.Set("n", IntegerToString(m_n));
    kv.Set("shadow", IntegerToString(m_shadow));
    kv.Set("level", IntegerToString(m_level));
-   kv.Set("neg_run", IntegerToString(m_neg_run));
    kv.Set("cycle", IntegerToString(m_cycle));
    kv.Set("locked", (m_locked ? "1" : "0"));
    kv.Set("out_next", IntegerToString(m_out_next));
@@ -1381,15 +1296,13 @@ bool CSeesareCycleLedger::AllowsRealRisk(const double risk_usd) const
    return (LifeDrawdownUSD() + r <= EnvelopeCapUSD() + 1e-9);
   }
 
-//--- the planned delta the ledger will write for an event at the current level (Phase 2 sizes from this); -1 if unknown
-double CSeesareCycleLedger::PlanUsdAt(const double ratio, const string domain) const
+//--- the planned risk the ledger will accept for a REAL event now (sizing uses this); 0 when stopped; -1 if not open or
+//--- the weight is outside (0, 1.00]
+double CSeesareCycleLedger::PlanUsdAt(const double weight) const
   {
-   double fric = CSeesareLadder::Friction(domain);
-   if(!m_open || fric < 0.0 || ratio <= 0.0 || ArraySize(m_ladder) != SEESARE_LEVELS)
+   if(!m_open || !CSeesareLadder::ValidWeight(weight))
       return -1.0;
-   double r = StringToDouble(CSeesareText::Fmt(ratio, 2));
-   double mult = StringToDouble(CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(r), 4), 4));
-   return StringToDouble(CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(m_ladder[m_level], mult, fric), 4), 4));
+   return StringToDouble(CSeesareLadder::PlanText(m_level, weight));
   }
 
 #endif
