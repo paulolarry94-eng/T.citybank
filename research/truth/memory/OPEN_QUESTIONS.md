@@ -109,6 +109,15 @@ last 10-15 minutes), the first minutes after scheduled data (CPI, NFP) using the
 first: the lab's index/oil/silver costs are estimates (US500 0.6 pt) while Exness Zero spreads measured ~0.003 pt; the
 index commission is unknown (owner: MT5 Specification). FAMILY: intraday, flow, fix, auction, news, m5.
 
+### Q16 An ML "gatekeeper" (meta-labeling) only on legs that already have an edge
+From advice the owner shared (2026-11-01): a model that blocks or sizes trades from market-state features. It can help a
+strategy with a real edge and overfits one without (P21: the 133-condition winner study failed; on gold Leg 34 blocking the
+lowest-25% volatility moved the win rate 21.6% -> 21.9% and stayed at -0.17R). Test only on the book's legs and the Tokyo fix,
+with purged walk-forward (fit on past years, apply to the next), few features, decided before results. The same advice's
+spread guard is Q10 follow-up (a); correlation-aware sizing is Q9/Q12; "ghost stops" are rejected without a hard backup stop.
+The three MQL5 GitHub repositories it named were not found by web search (kinorand/MQL5-ML-Framework,
+w-m/mql5-matrix-examples, shmuma/mql5-risk-management). FAMILY: ml, meta-labeling, filter, sizing.
+
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

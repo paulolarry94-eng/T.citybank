@@ -237,3 +237,12 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** add as a forward-test candidate (leg 12 of the book); test a spread-aware entry under a new name before live.
 - **Facts vs estimates:** commission is the high-end estimate; Japanese holidays from the `holidays` package; Oct 2026 had 6 gotobi
   trades (-8.5 pips) — too few to judge.
+
+## 2026-11-01 (evening) · "does all this help?" (owner shared AI-written advice on combined edges, ghost stops, ML, repos)
+- **Done:** checked each claim against our evidence; web-searched the three MQL5 GitHub repos it named (not found); one quick
+  check on our data: gold Leg 34 2011-19, blocking the lowest-25% volatility moves the win rate 21.6% -> 21.9%, mean R -0.177 ->
+  -0.168 after costs, before costs -0.018 vs -0.021 (no edge either way).
+- **Verdict:** already doing (3-way time split, real costs and spreads, delay stress, Python before MQL5); useful to test
+  (spread guard for the Tokyo fix, correlation-aware sizing Q9/Q12, meta-labeling on legs with an edge = new Q16); wrong or
+  risky (60% win rate as the goal (P16), filters that multiply a zero edge (P21), ghost stops without a hard stop, a
+  volatility percentile taken over all 15 years = look-ahead).
