@@ -471,3 +471,9 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   no queue: ~4.9%/yr at the same cap (P9 updated). Configurations: 16 + 1 baseline.
 - **Facts vs estimates:** Monte Carlo on 2011-19; the book is in-sample through 2025; only forward data is clean.
 - **Next:** owner decides whether the goal unit is per cycle or per year; forward-test the book (demo) to measure the real edge.
+
+## 2026-11-01 (late night, 12) · owner pasted a "Magnetic Distance Logic" plan (micro-stops, scratches, +0.83R, "certainty")
+- **Done:** arithmetic check only (no data): the claimed outcome split exceeds its own 3.2R "maximum" in 31% of 360-trade
+  simulations (3.6R in 16%, worst 8.5R); costs at 3-10 pip stops (0.1-0.3R per trade) push P(> 3.6R) to 36-92%. Every component
+  has rejected priors (ORB, PDH/PDL sweeps, London scanner, liquidity grabs, P1, P4). Logged as Q21; no lab run yet (owner to
+  decide, per learning rule 1).

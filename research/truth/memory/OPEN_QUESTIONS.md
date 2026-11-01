@@ -221,6 +221,17 @@ Daily queue (2026-11-01): one trade a day from the 13 validated strategies canno
 3.6-5% drawdown: every-day version +0.0-0.05% per cycle; top-3 legs +0.6% per cycle but a cycle takes ~5.5 months
 (research/results/seesare/daily_queue_study.json). Reaching 1% per daily cycle at this cap needs about +0.6R per trade, about
 8 times the book's +0.078R. Open: owner decides the goal unit (per cycle vs per year) and whether to forward-test the book.
+### Q21 "Magnetic Distance" momentum bursts with micro-stops and fast scratches (owner paste, 2026-11-01)
+Claim: entering at a velocity break of the 15-minute opening range toward a liquidity "magnet" (previous day high/low, session
+open), stop under the entry candle, scratch at -0.2R if no follow-through in 3 candles, gives 40% +2R / 25% +0.75R / 25% -0.2R /
+10% -1R (+0.83R per trade) and a maximum drawdown of 3.2R with "mathematical certainty". Checked (arithmetic only, no data): the
+split is assumed, not measured; on its own numbers 360 trades exceed 3.2R in 31% and 3.6R in 16% of simulations (worst 8.5R);
+round-trip costs at 3-10 pip stops are 0.1-0.3R per trade and raise P(> 3.6R) to 36-92%. Priors all rejected: ORB (2023-25 -0.12
+to -0.16R), daily sweeps of PDH/PDL (raw -0.02 to +0.06R), London best-setup scanner (raw +0.015R vs cost 0.076R), ~1,400
+liquidity variants, breakeven/scratch exits (P4), intraday costs (P1). Our cap is 3.6% of the account, not 3.6R. Testable with
+tick volume (M1 'v' field) in the lab if the owner wants; expected outcome from priors: rejection.
+FAMILY: breakout, orb, liquidity, momentum, intraday, scratch, micro-stop, owner-idea.
+
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
