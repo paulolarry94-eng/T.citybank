@@ -7,3 +7,5 @@ research/trades/crosses/*
 !research/trades/crosses/EURGBP_BB_D1_k1.5.npy
 # 28 MB, regenerate with research/hunter5m/winner_anatomy.py
 research/results/hunter5m/setups_m5.csv.gz
+# large, regenerate with research/hunter5m/pocket_scan.py
+research/results/hunter5m/pocket_trades.csv.gz
