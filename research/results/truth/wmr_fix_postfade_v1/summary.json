@@ -1,0 +1,446 @@
+{
+ "name": "wmr_fix_postfade_v1",
+ "hypothesis": "The push into the 16:00 London fix reverses once the fix orders are filled: fading it from 16:00 to 17:00 London earns more than the round-trip cost.",
+ "fingerprint": "51e801113a200227a45dd1ea15720244d9e541c56990a169f3b5a90f24d15c94",
+ "started": "2026-11-01 13:34:33 UTC",
+ "markets": [
+  "EURUSD",
+  "GBPUSD"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "stop": [
+   "catastrophe",
+   "structure"
+  ],
+  "days": [
+   "all",
+   "month_end"
+  ]
+ },
+ "management": {
+  "tgt": [
+   5.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 12,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily liquidity sweeps (Asian, PDH/PDL, PWH/PWL)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 4,
+  "passed_gate": 1,
+  "share_dev_positive": 0.5,
+  "median_dev_E": 0.020578808003276324,
+  "share_dev_and_val_positive": 0.25
+ },
+ "selection": {
+  "candidate": {
+   "tf": "M5",
+   "stop": "catastrophe",
+   "days": "month_end",
+   "tgt": 5.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 215,
+   "dev_E": 0.04554690900849777,
+   "dev_t": 1.2291728201827883,
+   "dev_Es": 0.033526570515290066,
+   "dev_fin": 0.0,
+   "dev_nL": 96,
+   "dev_EL": -0.06794857320183938,
+   "dev_nS": 119,
+   "dev_ES": 0.13710628961515628,
+   "e1_n": 120,
+   "e1_E": 0.018975217370399068,
+   "e1_t": 0.5205038188307437,
+   "e1_Es": 0.007775722603030849,
+   "e1_fin": 0.0,
+   "e1_nL": 60,
+   "e1_EL": -0.025339631576241844,
+   "e1_nS": 60,
+   "e1_ES": 0.06329006631703997,
+   "e2_n": 95,
+   "e2_E": 0.07911115107767507,
+   "e2_t": 1.1312063890845463,
+   "e2_Es": 0.06605395735182801,
+   "e2_fin": 0.0,
+   "e2_nL": 36,
+   "e2_EL": -0.1389634759111686,
+   "e2_nS": 59,
+   "e2_ES": 0.21217363534205422,
+   "val_n": 68,
+   "val_E": 0.09060392461839453,
+   "val_t": 1.4375293515628929,
+   "val_Es": 0.07737875870021103,
+   "val_fin": 0.0,
+   "val_nL": 29,
+   "val_EL": 0.10257187740551199,
+   "val_nS": 39,
+   "val_ES": 0.0817046776741277,
+   "devE_EURUSD": 0.03916435051293849,
+   "devE_GBPUSD": 0.05187036974020926,
+   "mk_pos": 2
+  },
+  "neighbours": [
+   {
+    "param": "stop",
+    "value": "structure",
+    "dev_E": 0.07542541079345201,
+    "dev_t": 0.5523268461196693,
+    "dev_n": 161
+   },
+   {
+    "param": "days",
+    "value": "all",
+    "dev_E": -0.004389293001945122,
+    "dev_t": -0.7538236607062686,
+    "dev_n": 4652
+   }
+  ],
+  "neighbours_all_pos": false,
+  "neighbours_median_t": -0.10074840729329965,
+  "walk_forward": {
+   "E": -0.036511982823572674,
+   "n": 1921,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": [
+      "M5",
+      "structure",
+      "all",
+      "5.0",
+      "0.0",
+      "0"
+     ],
+     "n": 367,
+     "E": -0.1715028823127474
+    },
+    {
+     "year": 2015,
+     "pick": null
+    },
+    {
+     "year": 2016,
+     "pick": null
+    },
+    {
+     "year": 2017,
+     "pick": [
+      "M5",
+      "catastrophe",
+      "all",
+      "5.0",
+      "0.0",
+      "0"
+     ],
+     "n": 518,
+     "E": -0.006666361196742068
+    },
+    {
+     "year": 2018,
+     "pick": [
+      "M5",
+      "catastrophe",
+      "all",
+      "5.0",
+      "0.0",
+      "0"
+     ],
+     "n": 516,
+     "E": -0.020265296310401498
+    },
+    {
+     "year": 2019,
+     "pick": null
+    },
+    {
+     "year": 2020,
+     "pick": null
+    },
+    {
+     "year": 2021,
+     "pick": null
+    },
+    {
+     "year": 2022,
+     "pick": [
+      "M5",
+      "catastrophe",
+      "all",
+      "5.0",
+      "0.0",
+      "0"
+     ],
+     "n": 520,
+     "E": 0.012907897693797602
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 215,
+   "E": 0.04554690900849776,
+   "t": 1.2263109471025946,
+   "PF": 1.2954415984141925,
+   "win": 0.5534883720930233
+  },
+  "val": {
+   "n": 68,
+   "E": 0.09060392461839453,
+   "t": 1.4269201338615507,
+   "PF": 1.551133302377754,
+   "win": 0.5735294117647058
+  },
+  "stress_dev_val": {
+   "n": 283,
+   "E": 0.04261879247030135,
+   "t": 1.4298957345804035,
+   "PF": 1.2657537463948274,
+   "win": 0.5300353356890459
+  },
+  "dsr": {
+   "sr_trade": 0.08363371243546448,
+   "sr0": 0.05159349575478582,
+   "dsr": 0.7009778816681044,
+   "n_trials": 4,
+   "T": 215
+  }
+ },
+ "final_look": {
+  "fingerprint": "51e801113a200227a45dd1ea15720244d9e541c56990a169f3b5a90f24d15c94",
+  "config": "{\"bias\": 0, \"days\": \"month_end\", \"stop\": \"catastrophe\", \"tf\": \"M5\", \"tgt\": 5.0, \"trail\": 0.0}",
+  "time": "2026-11-01 13:34:49 UTC",
+  "oos": {
+   "n": 72,
+   "E": 0.017851421388193546,
+   "t": 0.49792946015522294,
+   "PF": 1.1510410458705183,
+   "win": 0.5555555555555556
+  },
+  "per_market": {
+   "EURUSD": {
+    "n": 36,
+    "E": 0.04229138944730704,
+    "t": 0.8287441732405917,
+    "PF": 1.4084166671821976,
+    "win": 0.6111111111111112
+   },
+   "GBPUSD": {
+    "n": 36,
+    "E": -0.0065885466709199435,
+    "t": -0.1298012825628892,
+    "PF": 0.9503982054409252,
+    "win": 0.5
+   }
+  }
+ },
+ "tier": "Rejected",
+ "criteria": {
+  "1_E_pos_dev_val_oos": true,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": false,
+  "4_neighbours_stable": false,
+  "5_stress_dev_val_pos": true,
+  "6_oos_pos_2_markets": false
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 215,
+   "E": 0.05756724750170547,
+   "t": 1.5495940811273161,
+   "PF": 1.3865721142289118,
+   "win": 0.5674418604651162
+  },
+  "val": {
+   "n": 68,
+   "E": 0.10382909053657803,
+   "t": 1.6351853676759258,
+   "PF": 1.6543223542578749,
+   "win": 0.5735294117647058
+  },
+  "2023-25": {
+   "n": 72,
+   "E": 0.03128217509211777,
+   "t": 0.8725849777882191,
+   "PF": 1.2787709955663458,
+   "win": 0.5555555555555556
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": 0.18101146549245903,
+  "weights": {
+   "book": 0.317,
+   "cand": 0.683
+  },
+  "book_sharpe": 1.2128619857019274,
+  "cand_sharpe": 0.3871989344707539,
+  "combined_sharpe": 1.1824553298344758,
+  "book_sharpe_2017_on": 1.0349414170517213,
+  "combined_sharpe_2017_on": 1.0089279346860862
+ },
+ "verdict": "Rejected"
+}

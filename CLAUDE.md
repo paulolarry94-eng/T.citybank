@@ -73,6 +73,9 @@ Learning rules:
   guard, outbox) with a Python twin/verifier `tools/seesare_verify.py` (32 tests). The ladder alone does not hold the 3.6%
   envelope; the pre-trade drawdown + risk check does (P24, Q20). Regenerate the self-test vectors with
   `python3 tools/seesare_verify.py --mql` after any rule change.
+- SEESARE Phase 2 (2026-11-01, uncompiled): losing time exits = NEGATIVE hardcoded in the ledger; flow modules (Tokyo fix
+  CANDIDATE; London 4 pm fix REJECTED in the lab, wmr_fix_*; US close imbalance UNTESTED, no data), paper book, router EA with
+  no order gateway; twin `tools/seesare_flows.py` (`--mql`, `--holidays`). No flow has a verified 5:1-10:1 payoff.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

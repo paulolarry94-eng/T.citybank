@@ -33,7 +33,9 @@ FORMAT = "1"
 LADDER = [0.144, 0.095, 0.062, 0.041, 0.027, 0.018, 0.012, 0.008, 0.005, 0.0033, 0.0022, 0.0014, 0.0009, 0.0006,
           0.0004, 0.0003]    # SEESARE P26 section 5, % of State Value per level
 FRICTION = {"forex": 0.05, "crypto": 0.08, "stocks": 0.03, "indices": 0.025, "commodities": 0.04}   # SEESARE 8.2
-GENESIS_KEYS = "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,ladder,created".split(",")
+GENESIS_KEYS = "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,time_policy,ladder,created".split(",")
+POLICIES = ("LOSS_NEGATIVE", "MANUAL")   # time-exit rule declared in the genesis line; the MQL5 build writes LOSS_NEGATIVE only
+BUILD_POLICY = "LOSS_NEGATIVE"            # owner, 2026-11-01: losing time exits count as negative (hardcoded in the EA)
 EVENT_KEYS = ("v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,lvl_before,lvl_after,neg_run,"
               "ratio,mult,fric,plan,risk,vol,entry,lower,upper,exit,delta,deals,prev").split(",")
 AUDIT_KEYS = ("v,life,audit,cycle,events,pos,neg,man,shadow,pos_rate,net,net_pct,max_dd,max_dd_pct,life_net,life_dd,"
@@ -348,9 +350,9 @@ def plan_usd(level_pct, mult, fric):
     return BASELINE * level_pct / 100.0 * mult * (1.0 - fric)
 
 
-def classify(by, delta, time_loss_negative=False):
-    """CSeesareLadder::Classify. Default = owner's mandate: every time exit is MANUAL. Option: a losing time exit is
-    NEGATIVE (descends the ladder)."""
+def classify(by, delta, time_loss_negative=True):
+    """CSeesareLadder::Classify. The ledger derives every resolution with this rule; LOSS_NEGATIVE (the build's rule): a
+    losing time exit is NEGATIVE. MANUAL policy (the earlier mandate, kept for research): every time exit is MANUAL."""
     if by in ("STOP", "BROKER"):
         return -1
     if by == "TARGET":
@@ -383,12 +385,16 @@ def split_line(line):
 class Ledger:
     """Replays (or writes) a lifecycle exactly as CSeesareCycleLedger does: one code path, apply_line, for both."""
 
-    def __init__(self, life, ladder=None, adopt_ladder=False):
+    def __init__(self, life, ladder=None, adopt_ladder=False, time_policy=BUILD_POLICY):
         if not is_life(life):
             raise LedgerError("bad lifecycle id")
         self.life = life
         self.config = list(LADDER if ladder is None else ladder)
         self.adopt_ladder = adopt_ladder
+        if time_policy not in POLICIES:
+            raise LedgerError("unknown time-exit policy")
+        self.config_policy = time_policy
+        self.policy = None
         self.ladder = None
         self.lines, self.hashes, self.line_utc = [], [], []
         self.audits, self.anchors, self.anchor_k = [], [], []
@@ -437,12 +443,14 @@ class Ledger:
         lad = ladder_parse(kv["ladder"])
         if not self.adopt_ladder and ladder_text(lad) != ladder_text(self.config):
             raise LedgerError("the configured ladder differs from the lifecycle's genesis ladder")
+        if kv["time_policy"] not in POLICIES or (not self.adopt_ladder and kv["time_policy"] != self.config_policy):
+            raise LedgerError("time-exit policy differs from this build")
         created = iso_to_time(kv["created"])
         if created is None:
             raise LedgerError("bad genesis time")
         if dry:
             return
-        self.ladder, self.created = lad, created
+        self.ladder, self.created, self.policy = lad, created, kv["time_policy"]
         self.genesis = self.head = h
         self.k = 0
         self.last_close = created
@@ -484,6 +492,10 @@ class Ledger:
         if kv["by"] not in CLOSE_BY or kv["res"] not in RES_VALUE:
             raise LedgerError(f"bad exit kind or resolution at k={k}")
         res = RES_VALUE[kv["res"]]
+        if not is_decimal(kv["delta"], 4):
+            raise LedgerError(f"malformed delta at k={k}")
+        if res != classify(kv["by"], float(kv["delta"]), self.policy == "LOSS_NEGATIVE"):
+            raise LedgerError(f"resolution does not follow the exit rule at k={k}")
         if kv["lvl_before"] != str(self.level):
             raise LedgerError(f"lvl_before is not the ladder's level at k={k}")
         la, na = ladder_next(self.level, self.neg_run, res)
@@ -582,6 +594,7 @@ class Ledger:
     def genesis_line(self, created):
         g = (f"v={FORMAT}|life={self.life}|k=0|genesis|baseline={num(BASELINE, 2)}|events={LIFECYCLE_EVENTS}|"
              f"cycle_size={CYCLE_EVENTS}|envelope_pct={num(ENVELOPE_PCT, 2)}|exponent={num(EXPONENT, 2)}|"
+             f"time_policy={self.config_policy}|"
              f"ladder={ladder_text(self.config)}|created={iso(created)}")
         line = f"{g}|hash={sha(g)}"
         self.apply_line(line, dry=True)
@@ -594,14 +607,15 @@ class Ledger:
         s_ratio = num(e["ratio"], 2)
         s_mult = num(floor_dp(multiplier(float(s_ratio)), 4), 4)
         s_plan = num(floor_dp(plan_usd(self.ladder[self.level], float(s_mult), fric), 4), 4)
-        la, na = ladder_next(self.level, self.neg_run, e["res"])
+        res = classify(e["by"], float(num(e["delta"], 4)), self.policy == "LOSS_NEGATIVE")
+        la, na = ladder_next(self.level, self.neg_run, res)
         p = e["digits"]
         fields = [
             ("v", FORMAT), ("life", self.life), ("k", str(self.k + 1)), ("mode", "REAL" if real else "SHADOW"),
             ("n", str(self.n + 1 if real else self.n)), ("cycle", str(self.cycle)),
             ("step", str(self.n % CYCLE_EVENTS + 1) if real else "-"), ("module", e["module"]),
             ("domain", e["domain"]), ("symbol", e["symbol"]), ("side", "BUY" if e["side"] > 0 else "SELL"),
-            ("open", iso(e["open"])), ("close", iso(e["close"])), ("by", e["by"]), ("res", RES_NAME[e["res"]]),
+            ("open", iso(e["open"])), ("close", iso(e["close"])), ("by", e["by"]), ("res", RES_NAME[res]),
             ("lvl_before", str(self.level)), ("lvl_after", str(la)), ("neg_run", str(na)), ("ratio", s_ratio),
             ("mult", s_mult), ("fric", num(fric, 4)), ("plan", s_plan), ("risk", num(e["risk"] if real else 0.0, 4)),
             ("vol", num(e["vol"], 4)), ("entry", num(e["entry"], p)), ("lower", num(e["lower"], p)),
@@ -674,7 +688,8 @@ def verify(lines, anchor_lines=None):
     p = parse(c) if c else None
     if p is None or not is_life(p[1].get("life", "")):
         raise LedgerError("first line is not a genesis line")
-    L = Ledger(p[1]["life"], adopt_ladder=True)
+    L = Ledger(p[1]["life"], adopt_ladder=True, time_policy=p[1].get("time_policy", BUILD_POLICY)
+               if p[1].get("time_policy") in POLICIES else BUILD_POLICY)
     for line in lines:
         L.apply_line(line)
     if anchor_lines is not None:
@@ -695,38 +710,39 @@ def read_lines(path):
 SELFTEST_LIFE = "SELFTEST"
 SELFTEST_CREATED = date(2026, 11, 1)
 _B = ("USDJPY", 3, 151.234, 151.084)      # symbol, digits, entry, BUY stop (150 points)
-# mode, side, by, res, ratio, target, exit, delta, vol, risk. BUY: lower = stop, upper = target; SELL: mirrored.
+# mode, side, by, ratio, target, exit, delta, vol, risk. BUY: lower = stop, upper = target; SELL: mirrored.
+# The ledger derives each resolution (STOP/BROKER negative, TARGET positive, TIME negative if it lost, else manual).
 SAMPLE = [
-    ("REAL", 1, "TIME", 0, 3.5, 151.759, 151.311, 0.4321, 0.01, 1.06),     # time exit, small gain: MANUAL
-    ("REAL", 1, "STOP", -1, 3.5, 151.759, 151.084, -1.0592, 0.01, 1.06),   # L0 -> L2
-    ("SHADOW", -1, "TARGET", 1, 3.5, 150.709, 150.709, 2.0615, 0.0059, 0),  # L2 -> L1 on paper
-    ("SHADOW", 1, "TARGET", 1, 3.5, 151.759, 151.759, 3.1605, 0.0091, 0),   # L1 -> L0
-    ("REAL", 1, "TARGET", 1, 2.0, 151.534, 151.534, 1.912, 0.01, 1.06),     # ratio 2: multiplier 0.3265
-    ("REAL", 1, "TIME", 0, 5.0, 151.984, 151.204, -0.295, 0.01, 1.06),     # losing time exit: MANUAL (mandate)
-    ("REAL", -1, "STOP", -1, 3.5, 150.709, 151.384, -1.0592, 0.01, 1.06),  # L0 -> L2
-    ("SHADOW", 1, "STOP", -1, 3.5, 151.759, 151.084, -0.589, 0.0059, 0),   # 2nd negative: L2 -> L5
-    ("SHADOW", 1, "TIME", 0, 3.5, 151.759, 151.25, 0.0122, 0.0017, 0),     # manual keeps the run
-    ("SHADOW", 1, "STOP", -1, 3.5, 151.759, 151.084, -0.171, 0.0017, 0),   # 3rd negative: L5 -> L9
-    ("SHADOW", 1, "TARGET", 1, 3.5, 151.759, 151.759, 0.1663, 0.0005, 0),  # L9 -> L8
-    ("SHADOW", -1, "TARGET", 1, 0.8, 151.114, 151.114, 0.0301, 0.0003, 0),  # ratio 0.8: floor 0.082; L8 -> L7
-    ("REAL", 1, "TARGET", 1, 3.5, 151.759, 151.759, 0.41, 0.01, 1.06),     # L7 -> L6
-    ("REAL", 1, "TARGET", 1, 3.5, 151.759, 151.759, 0.39, 0.01, 1.06),     # L6 -> L5
-    ("REAL", 1, "STOP", -1, 3.5, 151.759, 151.084, -0.18, 0.01, 1.06),     # L5 -> L7
-    ("REAL", 1, "TIME", 0, 3.5, 151.759, 151.271, 0.05, 0.01, 1.06),       # manual keeps the run
-    ("REAL", 1, "TARGET", 1, 3.5, 151.759, 151.759, 0.29, 0.01, 1.06),     # 10th REAL: cycle 1 closes; L7 -> L6
-    ("REAL", 1, "STOP", -1, 3.5, 151.759, 151.084, -0.12, 0.01, 1.06),     # cycle 2 step 1: L6 -> L8
-    ("SHADOW", 1, "HUMAN", 0, 3.5, 151.759, 151.3, 0.01, 0.0006, 0),       # human close: MANUAL
-    ("REAL", -1, "BROKER", -1, 3.5, 150.709, 151.384, -0.09, 0.01, 1.06),  # stop-out: 2nd negative, L8 -> L11
+    ("REAL", 1, "TIME", 3.5, 151.759, 151.311, 0.4321, 0.01, 1.06),       # time exit with a gain: MANUAL, L0
+    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -1.0592, 0.01, 1.06),     # L0 -> L2
+    ("SHADOW", -1, "TARGET", 3.5, 150.709, 150.709, 2.0615, 0.0059, 0),   # L2 -> L1 on paper
+    ("SHADOW", 1, "TARGET", 3.5, 151.759, 151.759, 3.1605, 0.0091, 0),    # L1 -> L0
+    ("REAL", 1, "TARGET", 2.0, 151.534, 151.534, 1.912, 0.01, 1.06),      # ratio 2: multiplier 0.3265
+    ("REAL", 1, "TIME", 5.0, 151.984, 151.204, -0.295, 0.01, 1.06),       # losing time exit: NEGATIVE, L0 -> L2
+    ("REAL", -1, "STOP", 3.5, 150.709, 151.384, -1.0592, 0.01, 1.06),    # 2nd negative: L2 -> L5
+    ("SHADOW", 1, "STOP", 3.5, 151.759, 151.084, -0.589, 0.0059, 0),     # 3rd negative: L5 -> L9
+    ("SHADOW", 1, "TIME", 3.5, 151.759, 151.25, 0.0122, 0.0017, 0),       # time exit with a gain: MANUAL, run kept
+    ("SHADOW", 1, "STOP", 3.5, 151.759, 151.084, -0.171, 0.0017, 0),     # 4th negative: L9 -> L13
+    ("SHADOW", 1, "TARGET", 3.5, 151.759, 151.759, 0.1663, 0.0005, 0),    # L13 -> L12
+    ("SHADOW", -1, "TARGET", 0.8, 151.114, 151.114, 0.0301, 0.0003, 0),   # ratio 0.8: floor 0.082; L12 -> L11
+    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.41, 0.01, 1.06),       # L11 -> L10
+    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.39, 0.01, 1.06),       # L10 -> L9
+    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.18, 0.01, 1.06),       # L9 -> L11
+    ("REAL", 1, "TIME", 3.5, 151.759, 151.271, 0.05, 0.01, 1.06),         # gain: MANUAL, run kept
+    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.29, 0.01, 1.06),       # 10th REAL: cycle 1 closes; L11 -> L10
+    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.12, 0.01, 1.06),       # cycle 2 step 1: L10 -> L12
+    ("SHADOW", 1, "HUMAN", 3.5, 151.759, 151.3, 0.01, 0.0006, 0),         # human close: MANUAL
+    ("REAL", -1, "BROKER", 3.5, 150.709, 151.384, -0.09, 0.01, 1.06),    # stop-out: 2nd negative, L12 -> L15
 ]
 
 
 def sample_event(i):
-    mode, side, by, res, ratio, target, exitp, delta, vol, risk = SAMPLE[i]
+    mode, side, by, ratio, target, exitp, delta, vol, risk = SAMPLE[i]
     sym, digits, entry, stop = _B
     t0 = date(2026, 11, 4, 23, 0) + i * DAY
     lower, upper = (stop, target) if side > 0 else (target, round(2 * entry - stop, digits))
     return dict(mode=mode, module="TOKYO_FIX", domain="forex", symbol=sym, side=side, digits=digits, open=t0,
-                close=t0 + 115 * 60, by=by, res=res, ratio=ratio, risk=risk, vol=vol, entry=entry, lower=lower,
+                close=t0 + 115 * 60, by=by, ratio=ratio, risk=risk, vol=vol, entry=entry, lower=lower,
                 upper=upper, exit=exitp, delta=delta,
                 deals=f"{50001000 + 2 * i};{50001001 + 2 * i}" if mode == "REAL" else "-")
 
@@ -742,7 +758,7 @@ def lock_event(i):
     t0 = date(2027, 1, 4, 23, 0) + i * DAY
     win = i % 3 != 2
     return dict(mode="REAL", module="LOCKTEST", domain="forex", symbol="USDJPY", side=1, digits=3, open=t0,
-                close=t0 + 3600, by="TARGET" if win else "STOP", res=1 if win else -1, ratio=3.5, risk=1.06, vol=0.01,
+                close=t0 + 3600, by="TARGET" if win else "STOP", ratio=3.5, risk=1.06, vol=0.01,
                 entry=151.234, lower=151.084, upper=151.759, exit=151.759 if win else 151.084,
                 delta=0.25 if win else -0.4, deals=f"{60000000 + i}")
 
@@ -862,7 +878,6 @@ def mql_block():
     arr("VEC_MODE", "int", ["0" if e["mode"] == "REAL" else "1" for e in ev])
     arr("VEC_SIDE", "int", [str(e["side"]) for e in ev])
     arr("VEC_BY", "int", [str(CLOSE_BY.index(e["by"])) for e in ev])
-    arr("VEC_RES", "int", [str(e["res"]) for e in ev])
     for key, name in (("ratio", "VEC_RATIO"), ("risk", "VEC_RISK"), ("vol", "VEC_VOL"), ("lower", "VEC_LOWER"),
                       ("upper", "VEC_UPPER"), ("exit", "VEC_EXIT"), ("delta", "VEC_DELTA")):
         arr(name, "double", [_d(e[key]) for e in ev])

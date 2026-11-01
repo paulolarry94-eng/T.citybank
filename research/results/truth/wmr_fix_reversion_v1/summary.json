@@ -1,0 +1,201 @@
+{
+ "name": "wmr_fix_reversion_v1",
+ "hypothesis": "Hedge and rebalancing orders worked into the 16:00 London fix push EURUSD and GBPUSD one way; fading that push from 15:55 to 16:05 London earns more than the round-trip cost.",
+ "fingerprint": "962ff324765b0fc62823b723047ab0136baec7962c68a4675c5808555d1b0e38",
+ "started": "2026-11-01 13:34:08 UTC",
+ "markets": [
+  "EURUSD",
+  "GBPUSD"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "stop": [
+   "catastrophe",
+   "structure"
+  ],
+  "days": [
+   "all",
+   "month_end"
+  ]
+ },
+ "management": {
+  "tgt": [
+   5.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 2,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily liquidity sweeps (Asian, PDH/PDL, PWH/PWL)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "seesare_ladder_envelope_v1",
+   "verdict": "Rejected as a guarantee: ladder rules alone allow 29.55% (time exits at -0.6R, manual) and 14.96% (stop at 3.5:1 then two 1:1 wins); a pre-trade check (drawdown + all-in risk <= $36) holds 3.53% / 3.60%. With losing time exits counted NEGATIVE: 0.19%."
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 4,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.06430202791325378,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

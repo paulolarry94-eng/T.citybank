@@ -179,6 +179,13 @@ Python twin and 32 tests. Open: owner compiles and runs SeesarePhase1SelfTest.mq
 time-exit policy (mandate keeps the envelope only via the guard and stops real trading after ~43 bleeding events; counting
 losing time exits NEGATIVE keeps all 360 real at 0.19%); envelope vs return target; RoboForex costs and server scheme.
 
+Phase 2 (2026-11-01): owner hardcoded "losing time exits count as negative" (now enforced by the ledger and declared in the
+genesis line); flow modules coded (uncompiled): Tokyo fix (CANDIDATE, PAPER/LIVE), London 4 pm fix owner's rule (REJECTED in the
+lab: wmr_fix_reversion_v1, 0/4 configs; documented post-fix timing wmr_fix_postfade_v1 also rejected), US close imbalance
+(UNTESTED: no data). Router EA runs PAPER and SEESARE SHADOW only, sends no orders. Facts: no flow has a verified 5:1-10:1
+payoff; the Tokyo fix pays about 1:1, so SEESARE sizes it at 8.8% of a level and at $1,000 it is SHADOW only (one 0.01 lot at the
+0.3% stop risks $3.07 vs a $0.12 plan; even the 1.5x cap gives $2.05). Open: owner compiles and runs both self-tests; owner
+decides between SHADOW-only SEESARE at $1,000, a larger virtual baseline, or a cent account.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

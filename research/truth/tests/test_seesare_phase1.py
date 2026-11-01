@@ -124,8 +124,8 @@ class Ladder(unittest.TestCase):
         self.assertEqual(S.num(S.floor_dp(S.multiplier(2.45), 4), 4), "0.4900")             # (0.7)^2
 
     def test_classify(self):
-        self.assertEqual(S.classify("TIME", -0.3), 0)                       # owner's mandate
-        self.assertEqual(S.classify("TIME", -0.3, time_loss_negative=True), -1)
+        self.assertEqual(S.classify("TIME", -0.3, time_loss_negative=False), 0)   # earlier mandate (research only)
+        self.assertEqual(S.classify("TIME", -0.3), -1)                             # the build's rule
         self.assertEqual(S.classify("TIME", 0.3, time_loss_negative=True), 0)
         self.assertEqual(S.classify("STOP", 0.1), -1)
         self.assertEqual(S.classify("BROKER", -5), -1)
@@ -154,7 +154,7 @@ class LedgerRules(unittest.TestCase):
         R = S.verify(self.lines, self.L.anchors)
         for f in ("head", "level", "neg_run", "n", "shadow", "cycle", "l_net", "l_dd", "anchors"):
             self.assertEqual(getattr(R, f), getattr(self.L, f), f)
-        self.assertEqual((R.level, R.neg_run, R.n, R.shadow, R.cycle), (11, 2, 12, 8, 2))
+        self.assertEqual((R.level, R.neg_run, R.n, R.shadow, R.cycle), (15, 2, 12, 8, 2))
 
     def test_changed_character_is_caught(self):
         bad = list(self.lines)
@@ -172,9 +172,9 @@ class LedgerRules(unittest.TestCase):
 
     def test_full_rehash_passes_alone_but_changes_the_head(self):
         forged = list(self.lines)
-        self.assertIn("delta=-0.2950", forged[6])           # k=6: the losing time exit
-        forged[6] = forged[6].replace("delta=-0.2950", "delta=0.2950")
-        forged = rehash_from(forged, 6)
+        self.assertIn("by=STOP|res=NEGATIVE", forged[2])     # k=2: a stop; a smaller loss keeps every rule intact
+        forged[2] = forged[2].replace("delta=-1.0592", "delta=-0.0592")
+        forged = rehash_from(forged, 2)
         R = S.verify(forged)                       # a keyless chain can be recomputed...
         self.assertNotEqual(R.head, self.L.head)   # ...so only a head published elsewhere exposes the forgery
         with self.assertRaises(S.LedgerError):     # the published anchors catch it
@@ -185,6 +185,22 @@ class LedgerRules(unittest.TestCase):
         forged[2] = forged[2].replace("lvl_after=2|neg_run=1", "lvl_after=0|neg_run=1")
         with self.assertRaisesRegex(S.LedgerError, "ladder rule broken"):
             S.verify(rehash_from(forged, 2))
+
+    def test_rehashed_resolution_cheat_is_still_caught(self):
+        forged = list(self.lines)
+        self.assertIn("by=TIME|res=NEGATIVE", forged[6])     # k=6: the losing time exit
+        forged[6] = forged[6].replace("by=TIME|res=NEGATIVE|lvl_before=0|lvl_after=2|neg_run=1",
+                                      "by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0")
+        with self.assertRaisesRegex(S.LedgerError, "exit rule"):
+            S.verify(rehash_from(forged, 6))
+
+    def test_build_refuses_a_manual_time_policy_lifecycle(self):
+        M = S.Ledger("OLDRULE", time_policy="MANUAL")
+        g = M.genesis_line(S.date(2026, 11, 1))
+        self.assertIn("time_policy=MANUAL", g)
+        with self.assertRaisesRegex(S.LedgerError, "policy"):
+            S.Ledger("OLDRULE").apply_line(g)
+        S.verify([g])                                         # the public verifier still reads either rule
 
     def test_rehashed_plan_cheat_is_still_caught(self):
         forged = list(self.lines)
@@ -237,7 +253,7 @@ class LedgerRules(unittest.TestCase):
 def bleed(policy_negative, guard):
     """Owner's worst case for the time-exit mandate: every event exits on time at -0.6R (forex, ratio 3.5).
     Returns (worst real drawdown in USD, real events, shadow events, envelope violations)."""
-    L = S.Ledger("BLEED")
+    L = S.Ledger("BLEED", time_policy="LOSS_NEGATIVE" if policy_negative else "MANUAL")
     L.genesis_line(S.date(2026, 11, 1))
     worst = 0.0
     for i in range(S.LIFECYCLE_EVENTS):
@@ -247,9 +263,8 @@ def bleed(policy_negative, guard):
         loss = round(0.6 * plan, 4)
         real = (not guard) or L.allows_real_risk(plan)
         t0 = S.date(2027, 1, 4, 23) + i * S.DAY
-        res = S.classify("TIME", -loss, time_loss_negative=policy_negative)
         L.record(dict(mode="REAL" if real else "SHADOW", module="BLEED", domain="forex", symbol="USDJPY", side=1,
-                      digits=3, open=t0, close=t0 + 3600, by="TIME", res=res, ratio=3.5, risk=plan, vol=0.01,
+                      digits=3, open=t0, close=t0 + 3600, by="TIME", ratio=3.5, risk=plan, vol=0.01,
                       entry=151.234, lower=151.084, upper=151.759, exit=151.144, delta=-loss,
                       deals=f"{i + 1}" if real else "-"))
         worst = max(worst, L.drawdown())

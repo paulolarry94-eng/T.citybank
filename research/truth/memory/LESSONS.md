@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-63 ideas tested, about 303,352 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+66 ideas tested, about 303,376 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,29 +15,31 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| intraday | 15 | 1 | 182,543 |
+| intraday | 17 | 1 | 182,551 |
 | awesome-list | 13 | 0 | 147 |
 | index | 13 | 0 | 98 |
 | breadth | 12 | 0 | 697 |
+| calendar | 12 | 1 | 139 |
+| owner-idea | 12 | 0 | 1,660 |
 | trend | 12 | 4 | 102,718 |
-| owner-idea | 10 | 0 | 1,640 |
+| flow | 11 | 1 | 36 |
 | breakout | 9 | 0 | 119,432 |
-| calendar | 9 | 1 | 115 |
 | engulfing | 9 | 0 | 3,836 |
+| reversal | 9 | 1 | 105,852 |
 | seasonal | 9 | 2 | 23 |
 | daily | 8 | 1 | 172 |
-| flow | 8 | 1 | 12 |
 | structure | 8 | 0 | 1,634 |
 | repo-funnel | 7 | 0 | 222 |
 | retest | 7 | 0 | 10,308 |
-| reversal | 7 | 1 | 105,844 |
 | session | 7 | 0 | 183,863 |
 | ema | 5 | 0 | 996 |
+| fix | 5 | 1 | 30 |
 | futures | 5 | 1 | 138 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
 | mean-reversion | 5 | 0 | 47 |
 | smc | 5 | 0 | 14,988 |
+| eurusd | 4 | 1 | 155 |
 | monthly | 4 | 0 | 20 |
 | oil | 4 | 0 | 7 |
 | third-party-ea | 4 | 0 | 304 |
@@ -45,6 +47,7 @@
 | carry | 3 | 1 | 18 |
 | cross-asset | 3 | 0 | 4 |
 | filter-mining | 3 | 0 | 244 |
+| gbpusd | 3 | 0 | 152 |
 | grid | 3 | 0 | 196 |
 | liquidity | 3 | 0 | 1,376 |
 | macro | 3 | 0 | 4 |
@@ -58,16 +61,16 @@
 | sizing | 3 | 0 | 64 |
 | sweep | 3 | 0 | 1,376 |
 | turn-of-month | 3 | 0 | 4 |
+| usdjpy | 3 | 1 | 22 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | costs | 2 | 0 | 8 |
 | cross-sectional | 2 | 0 | 17 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
-| eurusd | 2 | 1 | 147 |
-| fix | 2 | 1 | 6 |
 | fvg | 2 | 0 | 9,312 |
 | rsi2 | 2 | 0 | 8 |
+| seesare | 2 | 0 | 20 |
 | short-vol | 2 | 0 | 17 |
 | sofus | 2 | 0 | 139 |
 | stop-entry | 2 | 1 | 6 |
@@ -75,7 +78,6 @@
 | time-filter | 2 | 0 | 144 |
 | trailing | 2 | 0 | 156 |
 | trustdan | 2 | 0 | 151 |
-| usdjpy | 2 | 1 | 6 |
 | winner-anatomy | 2 | 0 | 135 |
 | all-time-high | 1 | 0 | 2 |
 | breakeven | 1 | 0 | 102,260 |
@@ -88,7 +90,6 @@
 | factor | 1 | 0 | 1 |
 | forward-test | 1 | 1 | 1 |
 | fx | 1 | 0 | 16 |
-| gbpusd | 1 | 0 | 144 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
 | look-ahead | 1 | 0 | 16 |
@@ -97,6 +98,7 @@
 | out-of-sample | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
 | payday | 1 | 0 | 1 |
+| payoff | 1 | 0 | 16 |
 | payouts | 1 | 0 | 3 |
 | probability | 1 | 0 | 3 |
 | prop | 1 | 0 | 20 |
@@ -107,7 +109,6 @@
 | ranking | 1 | 0 | 61,787 |
 | scalping | 1 | 0 | 144 |
 | scanner | 1 | 0 | 61,787 |
-| seesare | 1 | 0 | 4 |
 | stat-arb | 1 | 0 | 1 |
 | supply-demand | 1 | 0 | 1,440 |
 | support-resistance | 1 | 0 | 2,202 |
@@ -139,6 +140,9 @@
 | 2026-11-01 | funnel_trustdan_v1 | trend, breakout, donchian, pyramiding, daily, breadth, repo-funnel, trustdan | 48 | Rejected: no configuration passed the development gate | All 48 trustdan Turtle/Seykota variants negative in 2011-19 pooled over 11 CFDs after costs and swaps (least bad -0.04R: alt20, whose source bug closes each trade the next day; then alt41 -0.21R; core -0.38R; their champion Alt10 -0.62R); <= 6 of 11 markets positive. Swap-free at half costs the core makes +0.20R (val -0.05R) and no rule has both eras positive; breadth max 8 of 11. Their stock-backtest ranking does not carry over. |
 | 2026-11-01 | funnel_sofus_v1 | swing, breakout, pullback, momentum, pattern, mean-reversion, daily, breadth, repo-funnel, sofus | 36 | Rejected: no configuration passed the development gate | 18 price-only translations x long/both: all negative 2011-19 except s10 triple RSI divergence both (+0.003R on 30 trades); least bad of the rest EMA 9/21 cross and RSI(2) reversion, about -0.02R. Patterns (VCP, cup and handle, bull flag, Qullamaggie, divergence) rare and negative; RSI pullback (s04) and strict cup and handle never trigger on daily CFD data. |
 | 2026-11-01 | seesare_ladder_envelope_v1 | risk, sizing, seesare, drawdown-cap, owner-idea | 4 | Rejected as a guarantee: ladder rules alone allow 29.55% (time exits at -0.6R, manual) and 14.96% (stop at 3.5:1 then two 1:1 wins); a pre-trade check (drawdown + all-in risk <= $36) holds 3.53% / 3.60%. With losing time exits counted NEGATIVE: 0.19%. | dd_mandate_no_guard_pct +29.550, dd_mandate_guard_pct +3.530, real_events_mandate_guard +43.000, dd_loss_negative_guard_pct +0.190, dd_low_ratio_no_guard_pct +14.960, dd_low_ratio_guard_pct +3.600 |
+| 2026-11-01 | wmr_fix_reversion_v1 | calendar, flow, fix, intraday, eurusd, gbpusd, reversal, owner-idea | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-11-01 | wmr_fix_postfade_v1 | calendar, flow, fix, intraday, eurusd, gbpusd, reversal | 4 | Rejected | dev_E +0.046, val_E +0.091, final_E +0.018, final_n +72.000, final_PF +1.151, dsr +0.701, share_dev_positive +0.500 |
+| 2026-11-01 | Tokyo fix payoff shape and declared-bracket study | calendar, flow, fix, usdjpy, payoff, seesare, owner-idea | 16 | Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection. |  |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |

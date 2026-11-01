@@ -49,7 +49,7 @@
 #define SEESARE_ENVELOPE_PCT      3.6
 #define SEESARE_EXPONENT          2.0
 #define SEESARE_LEVELS            16
-#define SEESARE_GENESIS_KEYS      "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,ladder,created"
+#define SEESARE_GENESIS_KEYS      "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,time_policy,ladder,created"
 #define SEESARE_EVENT_KEYS        "v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,lvl_before,lvl_after,neg_run,ratio,mult,fric,plan,risk,vol,entry,lower,upper,exit,delta,deals,prev"
 #define SEESARE_AUDIT_KEYS        "v,life,audit,cycle,events,pos,neg,man,shadow,pos_rate,net,net_pct,max_dd,max_dd_pct,life_net,life_dd,lvl_start,lvl_end,root,head,prev"
 
@@ -77,13 +77,20 @@ enum ENUM_SEESARE_CLOSE
 
 enum ENUM_SEESARE_TIME_POLICY
   {
-   SEESARE_TIME_EXIT_MANUAL   = 0,   // owner's mandate: every time exit is a manual resolution
+   SEESARE_TIME_EXIT_MANUAL   = 0,   // earlier mandate: every time exit is a manual resolution (research only)
    SEESARE_TIME_LOSS_NEGATIVE = 1    // a losing time exit is a negative outcome (descends the ladder)
   };
 
+//--- owner, 2026-11-01: "Losing Time Exits Count as Negative" = TRUE, hardcoded. The ledger derives every
+//--- resolution from the exit kind and the recorded result with this rule, declares it in the genesis line, and
+//--- refuses a lifecycle (or a line) that follows another rule.
+#define SEESARE_TIME_POLICY       SEESARE_TIME_LOSS_NEGATIVE
+#define SEESARE_TIME_POLICY_NAME  "LOSS_NEGATIVE"
+
 //+------------------------------------------------------------------+
 //| One resolved event, as the router hands it to the ledger.        |
-//| The ledger adds k, n, cycle, step, the ladder levels, the        |
+//| The ledger adds k, n, cycle, step, the resolution (from close_by |
+//| and delta_usd under SEESARE_TIME_POLICY), the ladder levels, the |
 //| multiplier, friction, planned delta and the hashes.              |
 //+------------------------------------------------------------------+
 struct SSeesareEvent
@@ -97,7 +104,6 @@ struct SSeesareEvent
    datetime           utc_open;
    datetime           utc_close;
    ENUM_SEESARE_CLOSE close_by;
-   ENUM_SEESARE_RES   resolution;   // use CSeesareLadder::Classify for automated exits
    double             ratio;        // declared ratio (target distance / stop distance); recorded with 2 decimals
    double             risk_usd;     // REAL: all-in loss at the stop for the actual volume (+ commission, swap, slippage allowance)
    double             volume;       // REAL: lots traded; SHADOW: the unrounded virtual lots
@@ -118,7 +124,6 @@ struct SSeesareEvent
       utc_open = 0;
       utc_close = 0;
       close_by = SEESARE_BY_TIME;
-      resolution = SEESARE_MANUAL;
       ratio = 0.0;
       risk_usd = 0.0;
       volume = 0.0;
@@ -604,6 +609,13 @@ bool CSeesareCycleLedger::ApplyGenesis(CSeesareKV &kv, const string hash, const 
       why = "genesis constants differ from this build";
       return false;
      }
+   if(kv.Get("time_policy") != SEESARE_TIME_POLICY_NAME)
+     {
+      why = "this build records only lifecycles where losing time exits count as negative (time_policy=";
+      why += SEESARE_TIME_POLICY_NAME;
+      why += ")";
+      return false;
+     }
    double ladder[];
    if(!CSeesareLadder::Parse(kv.Get("ladder"), ladder, why))
       return false;
@@ -716,6 +728,16 @@ bool CSeesareCycleLedger::ApplyEvent(CSeesareKV &kv, const string hash, const st
    if(by < 0 || res < -1)
      {
       why = "bad exit kind or resolution" + at;
+      return false;
+     }
+   if(!CSeesareText::IsDecimal(kv.Get("delta"), 4))
+     {
+      why = "malformed delta" + at;
+      return false;
+     }
+   if(res != (int)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)by, StringToDouble(kv.Get("delta")), SEESARE_TIME_POLICY))
+     {
+      why = "resolution does not follow the exit rule" + at;
       return false;
      }
    if(kv.Get("lvl_before") != IntegerToString(m_level))
@@ -928,6 +950,8 @@ string CSeesareCycleLedger::GenesisContent(const datetime created) const
    g += "|cycle_size=" + IntegerToString(SEESARE_CYCLE_EVENTS);
    g += "|envelope_pct=" + CSeesareText::Fmt(SEESARE_ENVELOPE_PCT, 2);
    g += "|exponent=" + CSeesareText::Fmt(SEESARE_EXPONENT, 2);
+   g += "|time_policy=";
+   g += SEESARE_TIME_POLICY_NAME;
    g += "|ladder=" + CSeesareLadder::Text(m_config);
    g += "|created=" + CSeesareDst::IsoUtc(created);
    return g;
@@ -970,12 +994,13 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
       return false;
      }
    string by = CSeesareLadder::CloseName(e.close_by);
-   string res = CSeesareLadder::ResName(e.resolution);
-   if(by == "" || res == "")
+   if(by == "")
      {
-      why = "bad exit kind or resolution";
+      why = "bad exit kind";
       return false;
      }
+   ENUM_SEESARE_RES r = CSeesareLadder::Classify(e.close_by, StringToDouble(CSeesareText::Fmt(e.delta_usd, 4)), SEESARE_TIME_POLICY);
+   string res = CSeesareLadder::ResName(r);
    string deals = "-";
    if(real)
       deals = e.deals;
@@ -1004,7 +1029,7 @@ bool CSeesareCycleLedger::BuildEventLine(const SSeesareEvent &e, string &line, s
    string s_plan  = CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(m_ladder[m_level], StringToDouble(s_mult), fric), 4), 4);
    int la = 0;
    int na = 0;
-   CSeesareLadder::Next(m_level, m_neg_run, e.resolution, la, na);
+   CSeesareLadder::Next(m_level, m_neg_run, r, la, na);
    string c = "v=";
    c += SEESARE_FORMAT;
    c += "|life=" + m_life;

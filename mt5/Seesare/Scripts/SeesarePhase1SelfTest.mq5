@@ -108,7 +108,7 @@ string Transition(const int level, const int neg_run, const int res)
 #define VEC_LIFE          "SELFTEST"
 #define VEC_EVENTS        20
 #define VEC_MESSAGES      22
-#define VEC_LEVEL         11
+#define VEC_LEVEL         15
 #define VEC_NEG_RUN       2
 #define VEC_REAL          12
 #define VEC_SHADOW        8
@@ -116,17 +116,16 @@ string Transition(const int level, const int neg_run, const int res)
 #define VEC_LIFE_NET      "0.6807"
 #define VEC_LIFE_DD       "1.3542"
 #define VEC_ROOM          "35.3958"
-#define VEC_GENESIS       "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=51e19595d75c44834c7502775c313767e58647ca377c58f34babd8ddf8e1ef56"
-#define VEC_EVENT1        "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=51e19595d75c44834c7502775c313767e58647ca377c58f34babd8ddf8e1ef56|hash=9f5db959c29fdf0f964eaacc578d131267e78eab14914acbe183a9c1002067b0"
-#define VEC_ANCHOR1       "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=4|neg=3|man=3|shadow=7|pos_rate=0.5714|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=6|root=8c577eee8985277d092018d2b72fb276d2b4ed3ba5f38850b0db5103931ef155|head=25131b79765b1aa1854c4647c66d0d4c0bdee1f212901fdd1c4f2d669aa797d2|prev=51e19595d75c44834c7502775c313767e58647ca377c58f34babd8ddf8e1ef56|hash=5d3d1fefb6340e527719020f282ee257064d0854a972f1b1e3bdb2aad329a557"
-#define VEC_HEAD          "9085047f58a6559aef96e066530a362f1ce2d151c5754ac43bd4632d974d9ca1"
+#define VEC_GENESIS       "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|time_policy=LOSS_NEGATIVE|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1"
+#define VEC_EVENT1        "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1|hash=c873280ea8ea9218aa4f72434e15a77d9d0e3109d08c127b073453a0fb1668ed"
+#define VEC_ANCHOR1       "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=4|neg=4|man=2|shadow=7|pos_rate=0.5000|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=10|root=e275b5aa5a5d76577343cc43a2335247b74d5b522ef262f836d3d20942d0354d|head=8b629e765fb3b941bc42d11ff93422e811e39693d5aeb83f9b181cf479623d97|prev=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1|hash=04165f75d5095815d53140c2dbf796f3f3a74a2125a69231c0148f4bd3aa7ece"
+#define VEC_HEAD          "d584c10d779670680fe1abc8dc0c74e186345e4224c05894d32cd8db204b8979"
 #define VEC_LOCK_MESSAGES 398
-#define VEC_LOCK_HEAD     "779aeed116a0f8ae98c02625e7661f2075a8963d38461d9c50d59eaf2be269ae"
-#define VEC_LOCK_ANCHOR36 "v=1|life=SELFTEST_LOCK|audit=cycle|cycle=36|events=351-360|pos=6|neg=4|man=0|shadow=0|pos_rate=0.6000|net=-0.1000|net_pct=-0.01000|max_dd=0.4000|max_dd_pct=0.04000|life_net=12.0000|life_dd=0.4000|lvl_start=0|lvl_end=2|root=9001e830a2f72bd57c31725acd3ee3af62304cbefacb8164436dd26c2880a03e|head=779aeed116a0f8ae98c02625e7661f2075a8963d38461d9c50d59eaf2be269ae|prev=9f926908def7ab8a9f726aae051dd94f851bf0532d58a8221484ffc5f26a005d|hash=589b7ea3d088aa52a5869fe6fa34d83ae835236d32339359d80f32487e95ee0b"
+#define VEC_LOCK_HEAD     "7b177c16dc5e957717ce1a50c47583e8ec1291a2c1724a4a47b7acd581ab11c8"
+#define VEC_LOCK_ANCHOR36 "v=1|life=SELFTEST_LOCK|audit=cycle|cycle=36|events=351-360|pos=6|neg=4|man=0|shadow=0|pos_rate=0.6000|net=-0.1000|net_pct=-0.01000|max_dd=0.4000|max_dd_pct=0.04000|life_net=12.0000|life_dd=0.4000|lvl_start=0|lvl_end=2|root=e1f240be3efedfa4510ed76a68746efb51f61bc8c19c501b8f8ffc7fa76b9116|head=7b177c16dc5e957717ce1a50c47583e8ec1291a2c1724a4a47b7acd581ab11c8|prev=8f6d02678820387a9b0a8b15f44dd996246aa94c5315f031813d95b4dbcaacff|hash=13e885b545ecbd44ea22efd27c8a21947ce6adf1ac5cbdedb98c1b819c84a3d2"
 const int VEC_MODE[VEC_EVENTS] = {0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0};
 const int VEC_SIDE[VEC_EVENTS] = {1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1};
 const int VEC_BY[VEC_EVENTS] = {2, 0, 1, 1, 1, 2, 0, 0, 2, 0, 1, 1, 1, 1, 0, 2, 1, 0, 3, 4};
-const int VEC_RES[VEC_EVENTS] = {0, -1, 1, 1, 1, 0, -1, -1, 0, -1, 1, 1, 1, 1, -1, 0, 1, -1, 0, -1};
 const double VEC_RATIO[VEC_EVENTS] = {3.5, 3.5, 3.5, 3.5, 2.0, 5.0, 3.5, 3.5, 3.5, 3.5, 3.5, 0.8, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5};
 const double VEC_RISK[VEC_EVENTS] = {1.06, 1.06, 0.0, 0.0, 1.06, 1.06, 1.06, 0.0, 0.0, 0.0, 0.0, 0.0, 1.06, 1.06, 1.06, 1.06, 1.06, 1.06, 0.0, 1.06};
 const double VEC_VOL[VEC_EVENTS] = {0.01, 0.01, 0.0059, 0.0091, 0.01, 0.01, 0.01, 0.0059, 0.0017, 0.0017, 0.0005, 0.0003, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.0006, 0.01};
@@ -135,7 +134,7 @@ const double VEC_UPPER[VEC_EVENTS] = {151.759, 151.759, 151.384, 151.759, 151.53
 const double VEC_EXIT[VEC_EVENTS] = {151.311, 151.084, 150.709, 151.759, 151.534, 151.204, 151.384, 151.084, 151.25, 151.084, 151.759, 151.114, 151.759, 151.759, 151.084, 151.271, 151.759, 151.084, 151.3, 151.384};
 const double VEC_DELTA[VEC_EVENTS] = {0.4321, -1.0592, 2.0615, 3.1605, 1.912, -0.295, -1.0592, -0.589, 0.0122, -0.171, 0.1663, 0.0301, 0.41, 0.39, -0.18, 0.05, 0.29, -0.12, 0.01, -0.09};
 const string VEC_DEALS[VEC_EVENTS] = {"50001000;50001001", "50001002;50001003", "-", "-", "50001008;50001009", "50001010;50001011", "50001012;50001013", "-", "-", "-", "-", "-", "50001024;50001025", "50001026;50001027", "50001028;50001029", "50001030;50001031", "50001032;50001033", "50001034;50001035", "-", "50001038;50001039"};
-const string VEC_HASH[VEC_EVENTS] = {"9f5db959c29fdf0f964eaacc578d131267e78eab14914acbe183a9c1002067b0", "8673fbe96323c3b96613b771b2a4fbc4905a4d0bb5434b7d10e7312f512fbbcb", "9fb3be56fd2ab394a9e47c63a6a7cf127d9025477609085e2555e6a2670fba4d", "a5ef29d998edfad50654871f602c0f57fd3a97155e6874d08e0bba1c664f128f", "2b77cb45654ca60bdcefa675957e03362b37c7ff207e10d6a3ee3c62b1f88b97", "08baa21882b1c5aa85d0e5aecfdc9c6739085388443b63d3553bb53bc7e0b98d", "03472a27b89d584aa44087c0bc409b8d103173464075dcd43505eff82a6bbe06", "003c00df8cd41d8a6414b6caa49659b97a2ec8f7025261b6843e679a759e1470", "52252111f01c4174a0434564116828e6aaed47ffa2b547daf9511af685007e03", "18da059b1ca97617d5abc1e68aacc2109155abb8a6606867d7023204fdaaeb83", "c7b6f9efde1fc159d7c9a6844e73a9e4ba240fd6528766e6cd186b904ea30f2e", "16ac507deb5abec00fcb599089144892bd782a18bd4273bfedda5391ebabf7af", "0f3c330649a4324ba4c6a5dba320fd55d80b894b220a7c095465564bc869da61", "1b6ac8f8602526fd8adf1dcbd3ecc06012c9d5dde477c70d401424e9a8a2b819", "7c182e71fc842da51afa73487926c86c573ac76ddd5130cf75c542731313bd04", "c8283d5e0bb985fc9036db7ec819d183ff2b800060a6e67dc510256aa9552427", "25131b79765b1aa1854c4647c66d0d4c0bdee1f212901fdd1c4f2d669aa797d2", "1a873a011ce10fa51535d540fa79c405104d009d65f772a26ff9e8794171190a", "18041c94e82df4fc3553f8c2fd3a35f3e2da34c11165a8b9d68dfa1553a9d4ff", "9085047f58a6559aef96e066530a362f1ce2d151c5754ac43bd4632d974d9ca1"};
+const string VEC_HASH[VEC_EVENTS] = {"c873280ea8ea9218aa4f72434e15a77d9d0e3109d08c127b073453a0fb1668ed", "78f5339e1e19d4d7740280264e9d7cfcdad2b54a778ae84d5681bba9ccf2cb0f", "c1529a51372a87b3ec8cc1203bfe17afc4c397f46dcd69bc572cf91d0daa901f", "d2f0cc0fdddb37c8a2c4483329d11e3fc9234073c02b195d1048bde670ac973f", "87f8338960a4464d37c4de1bf40d19c7a34a08312bb58d236a92bd11851ff39a", "68e7ba21a6b7b539f20bd61a3de6308e454426a2d671b171c190754372421a75", "8f4991dc6ebd05433ae633367e0dbd6c0e9a2ac4ec8a2dc6bc6dab31aba960b1", "2af3a420078700fc127a1874d26065ca75024d8f50694e4eff657ba851a591d6", "7797be63723e2cada31a35d5ffac619e98b6cb7f6db9f3087eb80dea798303b1", "fb74aa31c6c6ad5369da4fafb489214a1896e6ac6e441c4e5701ccd01a59e236", "cf6fb2e260072513de323209bee8e556b2811948136c3fcacdf83f8479005e7b", "049cef341de44035d8b8414e6681e226eb8541e82e4aadad9cd3137f3ef1b8d3", "7f94757b36240d0465fe4089070cb8b25fca8739059896690a288359a04b8e8a", "d134147ca4be1e3551c73941fb7c774d2dc8867812c4a5fec72f7c762d6638e6", "bc23c9eb995038799dcf1add06c8a5843556f0a3bbeaf9ac29b1583c1e838862", "9f3ef08b4653faf775fe630829d92306353d7c5f5abf752400bfa114ae0008ef", "8b629e765fb3b941bc42d11ff93422e811e39693d5aeb83f9b181cf479623d97", "abb05ff3390dc4b928188bb8303c2575adea9a632eeb0597751b46fc0fff0621", "c942e765e6a8829cbbac49594b3ab90828005845ffe99526d88e54a91ac6ea8f", "d584c10d779670680fe1abc8dc0c74e186345e4224c05894d32cd8db204b8979"};
 void GeneratedVectors(CSeesareTimingMatrix &m)
   {
    T_Str("sha256 abc", CSeesareSha256::Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
@@ -335,7 +334,6 @@ void FillEvent(const int i, SSeesareEvent &e)
    e.utc_open   = (datetime)((long)CSeesareDst::Date(2026, 11, 4, 23, 0) + (long)i * 86400);
    e.utc_close  = (datetime)((long)e.utc_open + 115 * 60);
    e.close_by   = (ENUM_SEESARE_CLOSE)VEC_BY[i];
-   e.resolution = (ENUM_SEESARE_RES)VEC_RES[i];
    e.ratio      = VEC_RATIO[i];
    e.risk_usd   = VEC_RISK[i];
    e.volume     = VEC_VOL[i];
@@ -361,7 +359,6 @@ void FillLockEvent(const int i, SSeesareEvent &e)
    e.utc_open   = (datetime)((long)CSeesareDst::Date(2027, 1, 4, 23, 0) + (long)i * 86400);
    e.utc_close  = (datetime)((long)e.utc_open + 3600);
    e.close_by   = (win ? SEESARE_BY_TARGET : SEESARE_BY_STOP);
-   e.resolution = (win ? SEESARE_POSITIVE : SEESARE_NEGATIVE);
    e.ratio      = 3.5;
    e.risk_usd   = 1.06;
    e.volume     = 0.01;
@@ -389,9 +386,9 @@ bool OpenWithLedger(const string path, const string &content[], const int conten
                     const bool adopt, string &error)
   {
    CSeesareFiles::WriteAll(path, JoinLines(content, content_n));
-   CSeesareCycleLedger probe;
-   bool ok = probe.Open(g_root, VEC_LIFE, 0, adopt);
-   error = probe.LastError();
+   CSeesareCycleLedger trial;
+   bool ok = trial.Open(g_root, VEC_LIFE, 0, adopt);
+   error = trial.LastError();
    CSeesareFiles::WriteAll(path, JoinLines(original, original_n));
    return ok;
   }

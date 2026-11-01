@@ -81,9 +81,55 @@ incomplete. Recomputed over 360 events with the twin:
 | Same, but a losing time exit counts as NEGATIVE | 0.19% | 0.19%; all 360 real |
 | Stop at 3.5:1, then two target hits at 1:1, repeated | 14.96% | 3.60%; real trading stops after 160 events |
 
-The time-exit policy is an input (`ENUM_SEESARE_TIME_POLICY`); the default follows the owner's mandate (`SEESARE_TIME_EXIT_MANUAL`).
+Owner's decision 2026-11-01 (Phase 2): losing time exits count as NEGATIVE, hardcoded (`SEESARE_TIME_POLICY` in
+`CycleLedger.mqh`). The ledger derives every resolution from how the event closed and its result, declares the rule in the
+genesis line (`time_policy=LOSS_NEGATIVE`), and both the ledger and `tools/seesare_verify.py` reject a line that breaks it.
+The 0.19% above is one pattern, not a bound: the guaranteed planned worst case is still the guard's 3.6%.
 
-## Not in Phase 1
+## Not in Phase 1 (Phase 2 status at the end of this file)
 
 Order execution, the flow modules and their calendars, sizing to broker volume, the relay service (Telegram), the SEESARE HMAC
 chain, an early-close record for a lifecycle stopped by the guard.
+
+## Phase 2 (2026-11-01): flow modules, sizing, paper execution, router EA
+
+| File | What it is |
+|---|---|
+| `Include/Seesare/Core/Calendar.mqh` | Tokyo business days (Japanese holiday table 2024-2035, generated), gotobi fix dates, last weekday of the month |
+| `Include/Seesare/Flows/FlowModule.mqh` | `CSeesareFlowModule`: the interface every flow implements (slot, decision, declared ratio); evidence gates status |
+| `Include/Seesare/Flows/FlowTokyoFix.mqh` | Module 1, Tokyo gotobi fix, USDJPY: buy 23:00 UTC, sell 00:55 UTC, stop 0.3%, ratio 1.04 (measured) |
+| `Include/Seesare/Flows/FlowUsClose.mqh` | Module 2, US close imbalance: reads `YYYY-MM-DD,HH:MM,net_usd` from a feed file; 15:50 -> 16:00 New York, 4:1 |
+| `Include/Seesare/Flows/FlowLondonFix.mqh` | Module 3, London 4 pm fix fade: owner's rule 15:55 -> 16:05 London, stop beyond the 15:30-15:55 extreme, 5:1 |
+| `Include/Seesare/Risk/Exposure.mqh` | Planned delta -> volume, rounded down; shadow lot when below the broker minimum or refused by the envelope guard |
+| `Include/Seesare/Exec/PaperBook.mqh` | Paper execution on live ticks (stop, target, time exit), restart file, journal per module |
+| `Experts/SeesareRouter.mq5` | The EA: 1-second clock, one SEESARE event per UTC day, PAPER and LIVE (SHADOW) modules. **Sends no orders.** |
+| `Scripts/SeesarePhase2SelfTest.mq5` | Calendar, module clocks (DST), sizing, evidence gate, feed parser, paper restart file |
+
+Twin and tests: `tools/seesare_flows.py`, `research/truth/tests/test_seesare_phase2.py` (14 tests): gotobi dates equal the
+research rule for every date 2024-2035; London and New York clocks equal the IANA database for every weekday 2024-2035;
+volumes never round up; the MQL5 constants match the lab files.
+
+### What the evidence says about each module
+
+| Module | Evidence | Status allowed | Why |
+|---|---|---|---|
+| Tokyo gotobi fix | CANDIDATE (Truth Lab Tier B) | PAPER or LIVE | 2023-25 +0.052R/trade, 214 trades; payoff ratio about 1:1 (avg win 11-18 pips, avg loss 11-20) |
+| London 4 pm fix (owner's rule) | REJECTED | PAPER at most | `wmr_fix_reversion_v1`: 0 of 4 configurations, -0.017R (t -4.7) to -0.12R; documented post-fix timing also rejected (`wmr_fix_postfade_v1`, 2023-25 +0.018R, t 0.5) |
+| US close imbalance | UNTESTED | PAPER at most | No imbalance data in MT5 or in our data; needs a paid feed written to the file |
+
+None of the three has a verified 5:1-10:1 payoff. On the Tokyo fix a declared 7:1 target is reached on 0.1-3.3% of mornings
+(stop 5-20 pips); declaring it would only raise the size by 35%. At $1,000 under SEESARE the Tokyo module is SHADOW only: its
+honest multiplier (0.0882) gives a $0.12 plan at L0, and even the 1.5x cap ($2.05) is below the $3.07 that one 0.01 lot risks at
+the 0.3% stop (incl. commission).
+
+### Run it
+
+Copy `Experts/SeesareRouter.mq5` to `MQL5\Experts`, compile, attach to any chart. Defaults: Tokyo PAPER, the other two OFF.
+Results: `Common\Files\seesare\<login>\paper\<module>.csv`. Set a module LIVE to run it through the SEESARE ledger
+(always SHADOW in this build).
+
+### Not in Phase 2
+
+The order gateway (real orders, stop attached in the same request, deal accounting, restart reconciliation), the relay
+service, the SEESARE HMAC chain. Real orders come after the self-tests compile and pass on the RoboForex terminal and a module
+has passed its forward test.

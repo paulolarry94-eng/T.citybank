@@ -326,3 +326,23 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   scheme unknown (the self-test measures it; EU vs US DST rules only distinguishable in March and late October).
 - **Next:** owner compiles and runs the self-test, sends compiler output and the summary line; owner picks the time-exit
   policy; then Phase 2 (calendar, exposure calculator, gateway, Tokyo fix in SHADOW, relay service).
+
+## 2026-11-01 (late night, 5) · owner: "Phase 2 execution core": hardcode losing time exits = negative, 3 high-convexity flow modules
+- **Asked:** (1) hardcode losing time exits as negative; (2) only flows with verified 5:1-10:1 payoffs, multiplier forced up
+  (+35-50% at L0); (3) independent legs; MQL5 for Tokyo gotobi fix, US close imbalance (MOC), London 4 pm WMR fix reversion.
+- **Corrected premises:** 0.19% was one bleed pattern, not a worst case (the guaranteed planned worst case is the guard's
+  3.6%); "un-blowupable" excludes gaps through stops.
+- **Tested (Truth Lab, rules fixed and committed before results):** owner's London rule wmr_fix_reversion_v1 (fade 15:30-15:55
+  drift, 15:55 -> 16:05, 5:1 or wide stop, all days or month-ends): rejected, 0/4, -0.017R (t -4.7) to -0.12R. Documented timing
+  wmr_fix_postfade_v1 (16:00 -> 17:00): rejected; best month-ends +0.046R dev, 2023-25 +0.018R t 0.5. Configurations: 8.
+  Prior (Hunt 2) reproduced: fade gross 0.38-0.45 costs on all days, 1.4-1.9 on month-ends (t 1.2-1.6).
+- **Studied:** Tokyo fix payoff about 1:1; a 7:1 target is reached on 0.1-3.3% of mornings (ledger entry). US close imbalance
+  data does not exist in MT5 or in our data: untested.
+- **Built (uncompiled):** ledger enforces the time-exit rule (twin + verifier + vectors, 34 Phase 1 tests); Calendar.mqh
+  (JP holidays 2024-35), FlowModule interface, 3 modules with evidence-gated status, Exposure (shadow lot), PaperBook, router EA
+  (no order gateway), Phase 2 self-test; twin tools/seesare_flows.py, 14 tests. All 48 twin tests pass.
+- **Decisions:** declared ratios come from measured payoffs (Tokyo 1.04), not forced; REJECTED/UNTESTED modules run on paper only;
+  no real-order code until the self-tests compile and a module passes its forward test.
+- **Next:** owner compiles and runs both self-tests and the router (Tokyo PAPER) on a RoboForex demo; owner chooses SEESARE at
+  $1,000 (SHADOW only) vs a larger baseline or a cent account; US close needs an imbalance feed or the momentum-into-the-close
+  variant (Q19, needs the lab's 20:30 UTC entry block handled for winter).
