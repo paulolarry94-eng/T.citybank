@@ -59,6 +59,9 @@ Learning rules:
 - Champion check (2026-10-31): on untouched Jan–Oct 2026 Exness data the book made −1.36% at 1% risk (+0.78% swap-free),
   +0.022R/trade vs +0.078R backtested: weaker than the backtest, consistent with P11, not yet proof either way. Report and
   dashboard: `research/champion/`, https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg.
+- New survivor (2026-11-01): **Tokyo fix on gotobi days** (USDJPY buy 23:00 -> sell 00:55 UTC), Tier B, correlation +0.03 with
+  the book, lifts its Sharpe 1.21 -> 1.38 in the lab's fit (`research/results/truth/tokyo_fix_gotobi_v1/`). Shapes at any timeframe
+  or session failed (Leg 34 pocket scan, P21); flows with a payer are where to hunt (P22, Q10/Q15).
 - Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 

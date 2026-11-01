@@ -1,0 +1,398 @@
+{
+ "name": "tokyo_fix_gotobi_v1",
+ "hypothesis": "Japanese importers' dollar buying at the 09:55 JST Tokyo fix on gotobi days lifts USDJPY into the fix (and it eases after), by more than the round-trip cost.",
+ "fingerprint": "84a2551837367f73102b23f4d655c6b7e4ce46423d9e79b8fceb03efdd2e4cb7",
+ "started": "2026-11-01 06:47:33 UTC",
+ "markets": [
+  "USDJPY"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "trade": [
+   "pre2300",
+   "pre0000",
+   "post0055"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 3,
+  "passed_gate": 1,
+  "share_dev_positive": 1.0,
+  "median_dev_E": 0.019342095754565844,
+  "share_dev_and_val_positive": 1.0
+ },
+ "selection": {
+  "candidate": {
+   "tf": "M5",
+   "trade": "pre2300",
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 644,
+   "dev_E": 0.04132491648016722,
+   "dev_t": 1.8778609586407289,
+   "dev_Es": 0.020009402883240802,
+   "dev_fin": 0.0,
+   "dev_nL": 644,
+   "dev_EL": 0.04132491648016722,
+   "dev_nS": 0,
+   "dev_ES": null,
+   "e1_n": 359,
+   "e1_E": 0.03892791128251798,
+   "e1_t": 1.2198432145157379,
+   "e1_Es": 0.01623915446428975,
+   "e1_fin": 0.0,
+   "e1_nL": 359,
+   "e1_EL": 0.03892791128251798,
+   "e1_nS": 0,
+   "e1_ES": null,
+   "e2_n": 285,
+   "e2_E": 0.04434430197474996,
+   "e2_t": 1.5149575950879834,
+   "e2_Es": 0.024758592996937036,
+   "e2_fin": 0.0,
+   "e2_nL": 285,
+   "e2_EL": 0.04434430197474996,
+   "e2_nS": 0,
+   "e2_ES": null,
+   "val_n": 214,
+   "val_E": 0.06391505207837911,
+   "val_t": 1.7906878795711134,
+   "val_Es": 0.04510662841793876,
+   "val_fin": 0.0,
+   "val_nL": 214,
+   "val_EL": 0.06391505207837911,
+   "val_nS": 0,
+   "val_ES": null,
+   "devE_USDJPY": 0.04132491648016722,
+   "mk_pos": 1
+  },
+  "neighbours": [
+   {
+    "param": "trade",
+    "value": "pre0000",
+    "dev_E": 0.019342095754565844,
+    "dev_t": 1.2290759426068385,
+    "dev_n": 646
+   }
+  ],
+  "neighbours_all_pos": true,
+  "neighbours_median_t": 1.2290759426068385,
+  "walk_forward": {
+   "E": 0.016038914286637056,
+   "n": 644,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": [
+      "M5",
+      "pre2300",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 71,
+     "E": -0.07713322190385954
+    },
+    {
+     "year": 2015,
+     "pick": [
+      "M5",
+      "pre2300",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 72,
+     "E": -0.009181924440625313
+    },
+    {
+     "year": 2016,
+     "pick": [
+      "M5",
+      "pre0000",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 72,
+     "E": 0.06811281314261888
+    },
+    {
+     "year": 2017,
+     "pick": [
+      "M5",
+      "post0055",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 72,
+     "E": 0.04676291190308319
+    },
+    {
+     "year": 2018,
+     "pick": [
+      "M5",
+      "pre0000",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 72,
+     "E": 0.0010998288566401726
+    },
+    {
+     "year": 2019,
+     "pick": [
+      "M5",
+      "pre0000",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 71,
+     "E": 0.015035233864690708
+    },
+    {
+     "year": 2020,
+     "pick": [
+      "M5",
+      "pre0000",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 71,
+     "E": 0.013070682409265287
+    },
+    {
+     "year": 2021,
+     "pick": [
+      "M5",
+      "post0055",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 71,
+     "E": 0.028868043744716472
+    },
+    {
+     "year": 2022,
+     "pick": [
+      "M5",
+      "pre2300",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 72,
+     "E": 0.056544820461096185
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 644,
+   "E": 0.04132491648016722,
+   "t": 1.8764024256372638,
+   "PF": 1.2704839932779837,
+   "win": 0.5450310559006211
+  },
+  "val": {
+   "n": 214,
+   "E": 0.06391505207837911,
+   "t": 1.7864991302564845,
+   "PF": 1.4365610535442062,
+   "win": 0.5233644859813084
+  },
+  "stress_dev_val": {
+   "n": 857,
+   "E": 0.02485126556510596,
+   "t": 1.3580120835031522,
+   "PF": 1.156622815986031,
+   "win": 0.5204200700116686
+  },
+  "dsr": {
+   "sr_trade": 0.07394061389685089,
+   "sr0": 0.011183827701115671,
+   "dsr": 0.9686503545961832,
+   "n_trials": 3,
+   "T": 644
+  }
+ },
+ "final_look": {
+  "fingerprint": "84a2551837367f73102b23f4d655c6b7e4ce46423d9e79b8fceb03efdd2e4cb7",
+  "config": "{\"bias\": 0, \"tf\": \"M5\", \"tgt\": 0.0, \"trade\": \"pre2300\", \"trail\": 0.0}",
+  "time": "2026-11-01 06:47:44 UTC",
+  "oos": {
+   "n": 214,
+   "E": 0.052274596569117884,
+   "t": 1.4450310387727536,
+   "PF": 1.2829193349068975,
+   "win": 0.5841121495327103
+  },
+  "per_market": {
+   "USDJPY": {
+    "n": 214,
+    "E": 0.052274596569117884,
+    "t": 1.4450310387727536,
+    "PF": 1.2829193349068975,
+    "win": 0.5841121495327103
+   }
+  }
+ },
+ "tier": "B",
+ "criteria": {
+  "1_E_pos_dev_val_oos": true,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": true,
+  "4_neighbours_stable": true,
+  "5_stress_dev_val_pos": true,
+  "6_oos_pos_2_markets": false
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 644,
+   "E": 0.06264043007709365,
+   "t": 2.84335777410808,
+   "PF": 1.4364627208033218,
+   "win": 0.5791925465838509
+  },
+  "val": {
+   "n": 214,
+   "E": 0.08272347573881945,
+   "t": 2.312223622900707,
+   "PF": 1.6011118152703543,
+   "win": 0.5607476635514018
+  },
+  "2023-25": {
+   "n": 214,
+   "E": 0.06708534276860682,
+   "t": 1.8545301836563797,
+   "PF": 1.3753903150176843,
+   "win": 0.602803738317757
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": 0.0310280103086157,
+  "weights": {
+   "book": 0.401,
+   "cand": 0.599
+  },
+  "book_sharpe": 1.2128619857019274,
+  "cand_sharpe": 0.7351284192805554,
+  "combined_sharpe": 1.3787529875447455,
+  "book_sharpe_2017_on": 1.0349414170517213,
+  "combined_sharpe_2017_on": 1.3857643180209505
+ },
+ "verdict": "Tier B: forward-test candidate"
+}

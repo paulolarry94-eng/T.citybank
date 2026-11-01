@@ -1,0 +1,321 @@
+{
+ "cost_pips_round_trip": 1.35,
+ "days": 3871,
+ "gotobi_days": 1135,
+ "moves": {
+  "pre2300": {
+   "2011-19": {
+    "gotobi": {
+     "n": 646,
+     "mean_pips": 2.72,
+     "t": 4.0,
+     "up_share": 0.602
+    },
+    "other days": {
+     "n": 1558,
+     "mean_pips": 0.3,
+     "t": 0.79,
+     "up_share": 0.518
+    }
+   },
+   "2020-22": {
+    "gotobi": {
+     "n": 214,
+     "mean_pips": 3.94,
+     "t": 3.03,
+     "up_share": 0.579
+    },
+    "other days": {
+     "n": 518,
+     "mean_pips": 1.32,
+     "t": 1.74,
+     "up_share": 0.56
+    }
+   },
+   "2023-25": {
+    "gotobi": {
+     "n": 214,
+     "mean_pips": 3.63,
+     "t": 2.07,
+     "up_share": 0.626
+    },
+    "other days": {
+     "n": 519,
+     "mean_pips": 1.07,
+     "t": 0.93,
+     "up_share": 0.518
+    }
+   },
+   "Jan-Sep 2026": {
+    "gotobi": {
+     "n": 54,
+     "mean_pips": 5.27,
+     "t": 1.6,
+     "up_share": 0.556
+    },
+    "other days": {
+     "n": 126,
+     "mean_pips": -0.55,
+     "t": -0.29,
+     "up_share": 0.587
+    }
+   },
+   "Oct 2026": {
+    "gotobi": {
+     "n": 6,
+     "mean_pips": -7.12,
+     "t": -0.95,
+     "up_share": 0.333
+    },
+    "other days": {
+     "n": 15,
+     "mean_pips": 7.59,
+     "t": 1.69,
+     "up_share": 0.733
+    }
+   }
+  },
+  "pre0000": {
+   "2011-19": {
+    "gotobi": {
+     "n": 646,
+     "mean_pips": 2.33,
+     "t": 3.83,
+     "up_share": 0.582
+    },
+    "other days": {
+     "n": 1558,
+     "mean_pips": 0.61,
+     "t": 1.95,
+     "up_share": 0.521
+    }
+   },
+   "2020-22": {
+    "gotobi": {
+     "n": 214,
+     "mean_pips": 2.93,
+     "t": 2.75,
+     "up_share": 0.556
+    },
+    "other days": {
+     "n": 518,
+     "mean_pips": 2.4,
+     "t": 3.51,
+     "up_share": 0.568
+    }
+   },
+   "2023-25": {
+    "gotobi": {
+     "n": 214,
+     "mean_pips": 1.22,
+     "t": 0.8,
+     "up_share": 0.556
+    },
+    "other days": {
+     "n": 519,
+     "mean_pips": 0.7,
+     "t": 0.75,
+     "up_share": 0.536
+    }
+   },
+   "Jan-Sep 2026": {
+    "gotobi": {
+     "n": 54,
+     "mean_pips": 0.64,
+     "t": 0.28,
+     "up_share": 0.5
+    },
+    "other days": {
+     "n": 126,
+     "mean_pips": -0.53,
+     "t": -0.28,
+     "up_share": 0.54
+    }
+   },
+   "Oct 2026": {
+    "gotobi": {
+     "n": 6,
+     "mean_pips": -7.4,
+     "t": -1.32,
+     "up_share": 0.333
+    },
+    "other days": {
+     "n": 15,
+     "mean_pips": 6.52,
+     "t": 1.58,
+     "up_share": 0.667
+    }
+   }
+  },
+  "post0055": {
+   "2011-19": {
+    "gotobi": {
+     "n": 645,
+     "mean_pips": -1.53,
+     "t": -2.32,
+     "up_share": 0.406
+    },
+    "other days": {
+     "n": 1558,
+     "mean_pips": -0.94,
+     "t": -2.81,
+     "up_share": 0.465
+    }
+   },
+   "2020-22": {
+    "gotobi": {
+     "n": 214,
+     "mean_pips": -3.87,
+     "t": -4.37,
+     "up_share": 0.346
+    },
+    "other days": {
+     "n": 518,
+     "mean_pips": -2.03,
+     "t": -2.68,
+     "up_share": 0.431
+    }
+   },
+   "2023-25": {
+    "gotobi": {
+     "n": 215,
+     "mean_pips": -4.77,
+     "t": -3.43,
+     "up_share": 0.414
+    },
+    "other days": {
+     "n": 519,
+     "mean_pips": -0.79,
+     "t": -0.89,
+     "up_share": 0.462
+    }
+   },
+   "Jan-Sep 2026": {
+    "gotobi": {
+     "n": 54,
+     "mean_pips": -0.03,
+     "t": -0.01,
+     "up_share": 0.537
+    },
+    "other days": {
+     "n": 126,
+     "mean_pips": -0.04,
+     "t": -0.03,
+     "up_share": 0.452
+    }
+   },
+   "Oct 2026": {
+    "gotobi": {
+     "n": 6,
+     "mean_pips": -4.37,
+     "t": -0.46,
+     "up_share": 0.167
+    },
+    "other days": {
+     "n": 15,
+     "mean_pips": -3.92,
+     "t": -0.99,
+     "up_share": 0.267
+    }
+   }
+  }
+ },
+ "trades_after_cost": {
+  "pre2300": {
+   "2011-19": {
+    "n": 646,
+    "mean_pips": 1.37,
+    "t": 2.02,
+    "up_share": 0.546
+   },
+   "2020-22": {
+    "n": 214,
+    "mean_pips": 2.59,
+    "t": 1.99,
+    "up_share": 0.523
+   },
+   "2023-25": {
+    "n": 214,
+    "mean_pips": 2.28,
+    "t": 1.3,
+    "up_share": 0.589
+   },
+   "Jan-Sep 2026": {
+    "n": 54,
+    "mean_pips": 3.92,
+    "t": 1.19,
+    "up_share": 0.519
+   },
+   "Oct 2026": {
+    "n": 6,
+    "mean_pips": -8.46,
+    "t": -1.13,
+    "up_share": 0.333
+   }
+  },
+  "pre0000": {
+   "2011-19": {
+    "n": 646,
+    "mean_pips": 0.98,
+    "t": 1.61,
+    "up_share": 0.528
+   },
+   "2020-22": {
+    "n": 214,
+    "mean_pips": 1.58,
+    "t": 1.49,
+    "up_share": 0.537
+   },
+   "2023-25": {
+    "n": 214,
+    "mean_pips": -0.12,
+    "t": -0.08,
+    "up_share": 0.537
+   },
+   "Jan-Sep 2026": {
+    "n": 54,
+    "mean_pips": -0.71,
+    "t": -0.31,
+    "up_share": 0.481
+   },
+   "Oct 2026": {
+    "n": 6,
+    "mean_pips": -8.75,
+    "t": -1.56,
+    "up_share": 0.333
+   }
+  },
+  "post0055": {
+   "2011-19": {
+    "n": 645,
+    "mean_pips": 0.18,
+    "t": 0.28,
+    "up_share": 0.538
+   },
+   "2020-22": {
+    "n": 214,
+    "mean_pips": 2.52,
+    "t": 2.85,
+    "up_share": 0.589
+   },
+   "2023-25": {
+    "n": 215,
+    "mean_pips": 3.42,
+    "t": 2.46,
+    "up_share": 0.563
+   },
+   "Jan-Sep 2026": {
+    "n": 54,
+    "mean_pips": -1.32,
+    "t": -0.58,
+    "up_share": 0.389
+   },
+   "Oct 2026": {
+    "n": 6,
+    "mean_pips": 3.02,
+    "t": 0.32,
+    "up_share": 0.833
+   }
+  }
+ }
+}

@@ -11,7 +11,8 @@ import os, sys, json, datetime as dt
 import numpy as np
 import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(HERE, "..")
-sys.path.insert(0, os.path.join(R, "truth", "strategies"))
+for _p in (R, os.path.join(R, "northstar"), os.path.join(R, "truth"), os.path.join(R, "truth", "strategies")):
+    sys.path.insert(0, _p)
 import tokyo_fix_gotobi_v1 as T
 
 DATA = os.path.join(R, "..", "data"); OUT = os.path.join(R, "results", "flows"); os.makedirs(OUT, exist_ok=True)

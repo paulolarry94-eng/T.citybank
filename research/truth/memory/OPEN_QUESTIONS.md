@@ -71,6 +71,10 @@ weights would have done better in 2026. Choosing weights from 2026 is hindsight,
 inverse-vol (current), equal risk, and inverse-vol capped by trade count. FAMILY: portfolio, weighting, sizing, book.
 
 ### Q10 Flow-driven calendar edges with a known payer (declare rules before loading data)
+PARTLY ANSWERED (2026-11-01): Tokyo fix on gotobi days, USDJPY buy 23:00 -> 00:55 UTC = Tier B (`research/results/truth/tokyo_fix_gotobi_v1/REPORT.md`, `research/results/flows/`). Open: turn of month and pre-FOMC in US500/GER40,
+Japanese fiscal year-end. Follow-ups for the Tokyo fix: (a) the 23:00 UTC spread in winter (Jan 2024 4.8 pips): an
+execution rule (enter when spread <= 0.5 pip, within 15 minutes) needs its own name and test; (b) add it to the book's
+forward test as leg 12; (c) the after-fix short (00:55 -> 02:00) was strong in 2020-25 but failed the 2011-19 gate: watch only.
 Candidates, each with someone who must trade regardless of price: USDJPY "Gotobi" days (Japanese importers buy dollars at
 the Tokyo fix on the 5th/10th/15th...; documented in research, untested here); turn of the month in US500/GER40 (salary and
 pension flows); the pre-FOMC drift in US500 (documented, weaker after 2015); Japanese fiscal year-end JPY flows (March).

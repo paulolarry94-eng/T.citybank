@@ -168,3 +168,11 @@ own learning halves. Winners are the tail of a noisy distribution, not a separat
 before costs can be filtered into a better one. Evidence: research/hunter5m/ (two pre-registered steps). Confidence: high.
 Evidence (2026-11-01): the same holds for pockets: of 396 market x timeframe x session cells, cells positive before
 costs in 2011-19 were positive in 2020-22 34% of the time, cells negative 32%: no persistence, so no pocket to pick.
+
+### P22 Edges with a payer survive where shapes do not
+After ~300,000 configurations of chart shapes rejected after costs, the first new survivor is a flow with a known payer:
+Japanese importers buying dollars at the Tokyo fix on gotobi days (USDJPY 23:00 -> 00:55 UTC): positive in every period
+2011-19, 2020-22, 2023-25 and Jan-Sep 2026, other days near zero, Tier B, correlation with the book +0.03, book Sharpe
+1.21 -> 1.38 in the lab's fit. Look for who must trade, when, and why, before looking at charts. Evidence:
+research/results/truth/tokyo_fix_gotobi_v1/, research/results/flows/. Confidence: medium (one flow, one market, small edge
+per trade: +1.4 to +3.9 pips after cost).

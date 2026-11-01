@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-45 ideas tested, about 303,111 configurations; 5 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+47 ideas tested, about 303,117 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -10,11 +10,12 @@
 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | Tier B: forward-test candidate |  | research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md |
 | Champion (11-leg book) untouched test, Jan-Oct 2026 + professional tearsheet | book, out-of-sample, forward-test, portfolio, trend, reversion | Survivor, weakened: 2026 below backtest, within a 30-50% live haircut | Legs regenerated with original code on Exness Zero 2026 ticks (entry parity 100% on 10 legs, 96% on XAU EMA). Jan-Oct 2026 at 1% risk: -1.36% with swaps (+0.78% swap-free), max DD 5.3%, 333 trades, +0.022R/trade vs +0.078R backtest (z -0.81, p 0.21; weighted p 0.07). At or below 4.1% of backtest 10-month stretches (median +8.2%); 13% if live edge 30% weaker, 23% if 50%. Backtest 2011-25 (corrected): Sharpe 1.36, 10.7%/yr, max DD 9.7%, 14/15 years; swap-free 1.74; stress (costs x1.5, swaps x2) 0.76. 2026 losses came from high-weight, rarely trading legs (S1 gold, JPY RSI2, JPY Donchian55) and GBPJPY; VBO and gold Donchian20 won. | research/champion/{regen_2026,tearsheet,dashboard_data}.py; research/results/champion/; dashboard https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg |
 | Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12. CORRECTED 2026-10-31 (Sunday-exit bug, P20): Sharpe 1.24 after research costs+swaps 2011-24Q1 (1.03 after 2016); Exness Zero 1.36 with swaps, 1.74 swap-free 2011-25; untouched Jan-Oct 2026 -1.36% | research/hunt/HUNT2_REPORT.md; research/northstar/NORTHSTAR_REPORT.md |
+| tokyo_fix_gotobi_v1 | calendar, flow, fix, intraday, usdjpy, seasonal | Tier B: forward-test candidate |  | research/results/truth/tokyo_fix_gotobi_v1/REPORT.md |
 
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| intraday | 13 | 0 | 182,537 |
+| intraday | 15 | 1 | 182,543 |
 | breadth | 9 | 0 | 611 |
 | engulfing | 9 | 0 | 3,836 |
 | owner-idea | 9 | 0 | 1,636 |
@@ -39,14 +40,18 @@
 | oscillator | 3 | 0 | 288 |
 | portfolio | 3 | 3 | 16 |
 | reversion | 3 | 3 | 16 |
+| seasonal | 3 | 2 | 17 |
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
+| calendar | 2 | 1 | 6 |
 | carry | 2 | 1 | 2 |
 | costs | 2 | 0 | 8 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
+| fix | 2 | 1 | 6 |
+| flow | 2 | 1 | 6 |
 | fvg | 2 | 0 | 9,312 |
 | pattern | 2 | 0 | 4,896 |
 | risk | 2 | 0 | 60 |
@@ -56,6 +61,7 @@
 | stop-entry | 2 | 1 | 6 |
 | time-filter | 2 | 0 | 144 |
 | trailing | 2 | 0 | 156 |
+| usdjpy | 2 | 1 | 6 |
 | winner-anatomy | 2 | 0 | 135 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
@@ -80,7 +86,6 @@
 | ranking | 1 | 0 | 61,787 |
 | scalping | 1 | 0 | 144 |
 | scanner | 1 | 0 | 61,787 |
-| seasonal | 1 | 1 | 11 |
 | stat-arb | 1 | 0 | 1 |
 | supply-demand | 1 | 0 | 1,440 |
 | support-resistance | 1 | 0 | 2,202 |
@@ -94,6 +99,8 @@
 | 2026-11-01 | 5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19) | engulfing, structure, intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 133 | Rejected: winners' attributes do not select winners | ~194,000 filled Leg 34 setups on M5, 11 markets, each simulated alone. Before costs about zero on every market (ladder -0.07 to +0.04R; silver/oil/indices costs are lab estimates). Gold 2011-19: 43% reach +1R, 13% +5R, 6% +10R, 1.5% +20R. Top 10% runners look like all trades (lifts 0.86-1.15); top 1% lean to quiet volatility, a quiet day, a strong 4h push, small structure. Best 2-condition rule (cost_R low & EMA slope mid, 133 conditions) failed its own halves (-0.04 / +0.04R), then -0.08R gold 2020-22, -0.06R 2023-25, -0.10R pooled other markets (9 of 10 negative), -0.02R Jan-Sep 2026. |
 | 2026-11-01 | 5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample) | intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 2 | Rejected: worse than taking every setup | Score = quiet volatility, quiet day, strong 4h push, small structure, deep Leg 2 (cut points gold 2011-19); trade score>=3. Ladder exit: gold 2011-19 -0.20R (all setups -0.15), 2020-22 -0.13, 2023-25 -0.12, other 10 markets -0.35 (all -0.31), Jan-Sep 2026 -0.14R. The profile concentrates runners and losers alike. |
 | 2026-11-01 | Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits | engulfing, structure, intraday, session, timeframe-scan, owner-idea, breadth | 396 | Rejected: no pocket survives | 396 cells (M5, M10, M15, M30, M45, H1; Asia/London/New York; t3 and ladder), selection on 2011-22 only. 1 cell passed discovery (GBPUSD H1 London t3, t 2.13; ~9 expected by luck) and lost in 2020-22 (-0.37R); 0 confirmed; no cell positive in 2011-19, 2020-22 and 2023-25. Before costs only 33% of cells positive in 2011-19 (medians -0.01 to -0.05R by timeframe); persistence before costs 34% vs 32% = luck. Higher timeframes cut the cost share (median after costs -0.27R M5 -> -0.20R H1) but the raw edge does not improve. Sessions alike (-0.23R). Past hint (sop_4leg_v1 EUR/GBP M30 16-20 UTC) negative on all 9 other markets (-0.04 to -0.51R). |
+| 2026-11-01 | tokyo_fix_gotobi_v1 | calendar, flow, fix, intraday, usdjpy, seasonal | 3 | Tier B: forward-test candidate | dev_E +0.041, val_E +0.064, final_E +0.052, final_n +214.000, final_PF +1.283, dsr +0.969, share_dev_positive +1.000 |
+| 2026-11-01 | Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days | calendar, flow, fix, intraday, usdjpy, seasonal | 3 | Study: informative (supports tokyo_fix_gotobi_v1) | Buy 23:00 -> 00:55 UTC on gotobi days: dollar +2.7 pips (2011-19, t 4.0, 646 days), +3.9 (2020-22), +3.6 (2023-25), +5.3 (Jan-Sep 2026, 54 days) vs other days +0.3/+1.3/+1.1/-0.6; after 1.35-pip cost +1.4/+2.6/+2.3/+3.9 pips. Oct 2026 -8.5 (6 days). After-fix short 00:55->02:00: -1.5/-3.9/-4.8 pips on gotobi days, flat in 2026. Exness Zero spread at 23:00 UTC ~0 in 6 of 8 sampled months, 0.65 pip (Mar 2021) and 4.8 pips (Jan 2024): about +0.7 pip average, winter months riskier. |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |

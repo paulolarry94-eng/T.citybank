@@ -222,3 +222,18 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Owner's US500 spec:** swap long -142.4 points, short 0; margin 0.25%; commission not in the Specification (Q1 note).
 - **Decisions:** the 4-leg / Leg 34 family is closed on every market, timeframe and session we hold. Next: flows with a payer
   (Q10/Q15, Tokyo fix first), the book's forward test and sizing (Q12/Q13).
+
+## 2026-11-01 (afternoon) · "what are the results of the 5-min hunter on Japan?" -> the Tokyo fix
+- **Asked:** results on Japan. The 5-min Leg 34 hunter on USDJPY and JP225 was already scanned: negative in every
+  timeframe x session cell 2011-22 (USDJPY M30 +0.20R in 2026 on 171 trades, but -0.15 to -0.23R in 2011-19).
+- **Done:** built the Tokyo-fix flow test (Q10/Q15) with rules from published research, committed before any result:
+  `truth/strategies/tokyo_fix_gotobi_v1.py` (3 configs, gotobi days, Japanese holidays via the `holidays` package, now in
+  requirements/bootstrap) and the companion pip study `research/flows/tokyo_fix_study.py`; measured Exness Zero spreads at
+  the trade minutes (`research/flows/tokyo_fix_spreads.py`).
+- **Learned:** Tier B forward-test candidate (buy 23:00 -> sell 00:55 UTC on gotobi days): 2011-19 +0.041R (t 1.88), 2020-22
+  +0.064R, 2023-25 +0.052R (t 1.45, PF 1.28, one logged look; the companion study read the same period with the same frozen
+  rules), stress +0.025R, deflated Sharpe 0.97, Jan-Sep 2026 +3.9 pips/trade after cost. Correlation with the book +0.03;
+  book Sharpe 1.21 -> 1.38 (2017 on 1.03 -> 1.39). New principle P22. Spread at 23:00 UTC usually ~0 but 4.8 pips in Jan 2024.
+- **Decisions:** add as a forward-test candidate (leg 12 of the book); test a spread-aware entry under a new name before live.
+- **Facts vs estimates:** commission is the high-end estimate; Japanese holidays from the `holidays` package; Oct 2026 had 6 gotobi
+  trades (-8.5 pips) — too few to judge.
