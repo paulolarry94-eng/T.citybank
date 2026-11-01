@@ -1,0 +1,7377 @@
+{
+ "design": "Strategy universe scored per LIFECYCLE (owner, 2026-11-01): fixed before any result of this study.\n\nOwner: \"backtest 360s as 1 unit, number of completed lifes, optimise for lifecycle alpha\" (not per year).\nSame universes, costs, sizing rules and settings as research/seesare/universe_cap_study.py (48 configurations); changed:\n  - a lifecycle = 360 REAL (taken) trades, then reset (SEESARE's lock), instead of 360 signals;\n  - a lifecycle that can no longer take any trade (no open trade of its own, and even the smallest trade its rule allows does\n    not fit under drawdown + risk <= 3.6%) is STOPPED: it counts as one unit and a new lifecycle starts at the next signal\n    (SEESARE: \"continuing means a new lifecycle id\");\n  - each trade's profit belongs to the lifecycle that opened it; a lifecycle's return = its trades' net / its starting equity;\n    its drawdown = the high-to-low of its own closed trades; equity compounds across lifecycles;\n  - objective: mean return per finished lifecycle (completed + stopped) on 2011-2022, among settings whose worst lifecycle\n    drawdown <= 3.6%; also reported: completed vs stopped, median, worst, best, share positive, days per lifecycle.\nEvaluation: settings chosen on 2011-2022 (run alone); then 2023-2025 (run alone) and the book's Jan-Oct 2026 for the chosen\nsettings. CAUTION written before running: 2023-25 and 2026 were already seen for this universe in universe_cap_study (v1), so\nthey are not a clean holdout for this study; forward data is the only clean test left.\nOutput: research/results/seesare/universe_lifecycle_study.json\n",
+ "dev": {
+  "U1/FIXED/0.0025": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.77,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 2.21,
+     "dd_pct": 0.51
+    }
+   ],
+   "mean_ret_pct": 2.55,
+   "median_ret_pct": 2.54,
+   "worst_ret_pct": -0.46,
+   "best_ret_pct": 5.43,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.05,
+     "dd_pct": 1.09,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.79,
+     "dd_pct": 1.51,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.88,
+     "dd_pct": 1.23,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.88,
+     "dd_pct": 1.46,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.43,
+     "dd_pct": 1.6,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.54,
+     "dd_pct": 1.15,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.42,
+     "dd_pct": 0.83,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.46,
+     "dd_pct": 1.55,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.67,
+     "dd_pct": 0.66,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.96,
+     "dd_pct": 0.75,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.9,
+     "dd_pct": 1.15,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.3,
+     "dd_pct": 1.77,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.89,
+     "dd_pct": 0.85,
+     "days": 324
+    }
+   ]
+  },
+  "U1/FIXED/0.00375": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 2.66,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 3.32,
+     "dd_pct": 0.77
+    }
+   ],
+   "mean_ret_pct": 3.82,
+   "median_ret_pct": 3.81,
+   "worst_ret_pct": -0.7,
+   "best_ret_pct": 8.15,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.08,
+     "dd_pct": 1.63,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.68,
+     "dd_pct": 2.27,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.82,
+     "dd_pct": 1.84,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.32,
+     "dd_pct": 2.18,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.15,
+     "dd_pct": 2.39,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.81,
+     "dd_pct": 1.73,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.12,
+     "dd_pct": 1.25,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.7,
+     "dd_pct": 2.32,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.0,
+     "dd_pct": 0.99,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.94,
+     "dd_pct": 1.12,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.85,
+     "dd_pct": 1.73,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.45,
+     "dd_pct": 2.66,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.33,
+     "dd_pct": 1.28,
+     "days": 324
+    }
+   ]
+  },
+  "U1/FIXED/0.005": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 3.54,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 4.43,
+     "dd_pct": 1.03
+    }
+   ],
+   "mean_ret_pct": 5.1,
+   "median_ret_pct": 5.08,
+   "worst_ret_pct": -0.93,
+   "best_ret_pct": 10.86,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.1,
+     "dd_pct": 2.18,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.57,
+     "dd_pct": 3.03,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.76,
+     "dd_pct": 2.46,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.76,
+     "dd_pct": 2.91,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.86,
+     "dd_pct": 3.19,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.08,
+     "dd_pct": 2.3,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.83,
+     "dd_pct": 1.67,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.93,
+     "dd_pct": 3.09,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.34,
+     "dd_pct": 1.32,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.92,
+     "dd_pct": 1.5,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.8,
+     "dd_pct": 2.31,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.6,
+     "dd_pct": 3.54,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.78,
+     "dd_pct": 1.71,
+     "days": 324
+    }
+   ]
+  },
+  "U1/FIXED/0.00625": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 4.43,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 5.54,
+     "dd_pct": 1.28
+    }
+   ],
+   "mean_ret_pct": 6.37,
+   "median_ret_pct": 6.35,
+   "worst_ret_pct": -1.16,
+   "best_ret_pct": 13.58,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.13,
+     "dd_pct": 2.72,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.47,
+     "dd_pct": 3.78,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.7,
+     "dd_pct": 3.07,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.2,
+     "dd_pct": 3.64,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.58,
+     "dd_pct": 3.99,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.35,
+     "dd_pct": 2.88,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.54,
+     "dd_pct": 2.08,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.16,
+     "dd_pct": 3.87,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.67,
+     "dd_pct": 1.65,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.9,
+     "dd_pct": 1.87,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.74,
+     "dd_pct": 2.89,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.75,
+     "dd_pct": 4.43,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.22,
+     "dd_pct": 2.14,
+     "days": 324
+    }
+   ]
+  },
+  "U1/FIXED/0.0075": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 5.32,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 6.64,
+     "dd_pct": 1.54
+    }
+   ],
+   "mean_ret_pct": 7.65,
+   "median_ret_pct": 7.62,
+   "worst_ret_pct": -1.39,
+   "best_ret_pct": 16.29,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.16,
+     "dd_pct": 3.27,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.36,
+     "dd_pct": 4.54,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.64,
+     "dd_pct": 3.69,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.64,
+     "dd_pct": 4.37,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 16.29,
+     "dd_pct": 4.79,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.62,
+     "dd_pct": 3.45,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.25,
+     "dd_pct": 2.5,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.39,
+     "dd_pct": 4.64,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 14.01,
+     "dd_pct": 1.99,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.88,
+     "dd_pct": 2.24,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.69,
+     "dd_pct": 3.46,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.9,
+     "dd_pct": 5.32,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 14.67,
+     "dd_pct": 2.56,
+     "days": 324
+    }
+   ]
+  },
+  "U1/FIXED/0.01": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 7.09,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 8.86,
+     "dd_pct": 2.05
+    }
+   ],
+   "mean_ret_pct": 10.2,
+   "median_ret_pct": 10.16,
+   "worst_ret_pct": -1.86,
+   "best_ret_pct": 21.72,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.21,
+     "dd_pct": 4.36,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.15,
+     "dd_pct": 6.05,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.52,
+     "dd_pct": 4.91,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.52,
+     "dd_pct": 5.83,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 21.72,
+     "dd_pct": 6.38,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.16,
+     "dd_pct": 4.6,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.66,
+     "dd_pct": 3.33,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.86,
+     "dd_pct": 6.19,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 18.68,
+     "dd_pct": 2.65,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.84,
+     "dd_pct": 2.99,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.59,
+     "dd_pct": 4.62,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.2,
+     "dd_pct": 7.09,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 19.56,
+     "dd_pct": 3.42,
+     "days": 324
+    }
+   ]
+  },
+  "U1/GUARD/0.0025": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.77,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 2.21,
+     "dd_pct": 0.51
+    }
+   ],
+   "mean_ret_pct": 2.55,
+   "median_ret_pct": 2.54,
+   "worst_ret_pct": -0.46,
+   "best_ret_pct": 5.43,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.05,
+     "dd_pct": 1.09,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.79,
+     "dd_pct": 1.51,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.88,
+     "dd_pct": 1.23,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.88,
+     "dd_pct": 1.46,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.43,
+     "dd_pct": 1.6,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.54,
+     "dd_pct": 1.15,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.42,
+     "dd_pct": 0.83,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.46,
+     "dd_pct": 1.55,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.67,
+     "dd_pct": 0.66,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.96,
+     "dd_pct": 0.75,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.9,
+     "dd_pct": 1.15,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.3,
+     "dd_pct": 1.77,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.89,
+     "dd_pct": 0.85,
+     "days": 324
+    }
+   ]
+  },
+  "U1/GUARD/0.00375": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 2.66,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 3.32,
+     "dd_pct": 0.77
+    }
+   ],
+   "mean_ret_pct": 3.82,
+   "median_ret_pct": 3.81,
+   "worst_ret_pct": -0.7,
+   "best_ret_pct": 8.15,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.08,
+     "dd_pct": 1.63,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.68,
+     "dd_pct": 2.27,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.82,
+     "dd_pct": 1.84,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.32,
+     "dd_pct": 2.18,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.15,
+     "dd_pct": 2.39,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.81,
+     "dd_pct": 1.73,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.12,
+     "dd_pct": 1.25,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.7,
+     "dd_pct": 2.32,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.0,
+     "dd_pct": 0.99,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.94,
+     "dd_pct": 1.12,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.85,
+     "dd_pct": 1.73,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.45,
+     "dd_pct": 2.66,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.33,
+     "dd_pct": 1.28,
+     "days": 324
+    }
+   ]
+  },
+  "U1/GUARD/0.005": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 3.37,
+   "partial": [
+    {
+     "taken": 151,
+     "ret_pct": 3.44,
+     "dd_pct": 1.13
+    }
+   ],
+   "mean_ret_pct": 5.02,
+   "median_ret_pct": 4.08,
+   "worst_ret_pct": -0.1,
+   "best_ret_pct": 10.13,
+   "positive": "12/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.1,
+     "dd_pct": 2.18,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.0,
+     "dd_pct": 3.11,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.92,
+     "dd_pct": 2.46,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.12,
+     "dd_pct": 2.91,
+     "days": 331
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.13,
+     "dd_pct": 3.37,
+     "days": 341
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.08,
+     "dd_pct": 2.3,
+     "days": 327
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.77,
+     "dd_pct": 1.67,
+     "days": 337
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.57,
+     "dd_pct": 2.6,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.34,
+     "dd_pct": 1.32,
+     "days": 363
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.78,
+     "dd_pct": 1.5,
+     "days": 370
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.3,
+     "dd_pct": 2.33,
+     "days": 331
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.4,
+     "dd_pct": 2.34,
+     "days": 345
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.89,
+     "dd_pct": 1.91,
+     "days": 342
+    }
+   ]
+  },
+  "U1/GUARD/0.00625": {
+   "finished": 14,
+   "completed": 12,
+   "stopped": 2,
+   "worst_dd_pct": 3.54,
+   "partial": [
+    {
+     "taken": 53,
+     "ret_pct": 0.86,
+     "dd_pct": 1.13
+    }
+   ],
+   "mean_ret_pct": 6.12,
+   "median_ret_pct": 6.44,
+   "worst_ret_pct": -3.53,
+   "best_ret_pct": 16.06,
+   "positive": "12/14",
+   "mean_days": 335.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.09,
+     "dd_pct": 2.72,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.94,
+     "dd_pct": 3.2,
+     "days": 382
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.25,
+     "dd_pct": 2.75,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.98,
+     "dd_pct": 3.08,
+     "days": 351
+    },
+    {
+     "status": "stopped",
+     "taken": 209,
+     "ret_pct": 4.81,
+     "dd_pct": 3.54,
+     "days": 205
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.73,
+     "dd_pct": 3.27,
+     "days": 383
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.21,
+     "dd_pct": 2.08,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.57,
+     "dd_pct": 3.37,
+     "days": 365
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.09,
+     "dd_pct": 1.65,
+     "days": 358
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.12,
+     "dd_pct": 1.87,
+     "days": 419
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.15,
+     "dd_pct": 2.89,
+     "days": 341
+    },
+    {
+     "status": "stopped",
+     "taken": 122,
+     "ret_pct": -3.53,
+     "dd_pct": 3.53,
+     "days": 134
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.42,
+     "dd_pct": 2.18,
+     "days": 328
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 16.06,
+     "dd_pct": 1.7,
+     "days": 395
+    }
+   ]
+  },
+  "U1/GUARD/0.0075": {
+   "finished": 14,
+   "completed": 9,
+   "stopped": 5,
+   "worst_dd_pct": 3.59,
+   "partial": [
+    {
+     "taken": 122,
+     "ret_pct": 4.28,
+     "dd_pct": 1.35
+    }
+   ],
+   "mean_ret_pct": 6.44,
+   "median_ret_pct": 7.62,
+   "worst_ret_pct": -3.06,
+   "best_ret_pct": 15.69,
+   "positive": "10/14",
+   "mean_days": 322.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 75,
+     "ret_pct": -3.06,
+     "dd_pct": 3.46,
+     "days": 85
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.26,
+     "dd_pct": 3.07,
+     "days": 363
+    },
+    {
+     "status": "stopped",
+     "taken": 220,
+     "ret_pct": -1.23,
+     "dd_pct": 3.52,
+     "days": 244
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.06,
+     "dd_pct": 2.88,
+     "days": 328
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.47,
+     "dd_pct": 3.13,
+     "days": 407
+    },
+    {
+     "status": "stopped",
+     "taken": 160,
+     "ret_pct": 2.77,
+     "dd_pct": 3.54,
+     "days": 165
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.24,
+     "dd_pct": 3.27,
+     "days": 383
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.44,
+     "dd_pct": 2.58,
+     "days": 353
+    },
+    {
+     "status": "stopped",
+     "taken": 240,
+     "ret_pct": -2.5,
+     "dd_pct": 3.59,
+     "days": 347
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.1,
+     "dd_pct": 1.99,
+     "days": 368
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.8,
+     "dd_pct": 2.24,
+     "days": 418
+    },
+    {
+     "status": "stopped",
+     "taken": 324,
+     "ret_pct": -0.25,
+     "dd_pct": 3.49,
+     "days": 365
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.34,
+     "dd_pct": 2.89,
+     "days": 352
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.69,
+     "dd_pct": 2.56,
+     "days": 330
+    }
+   ]
+  },
+  "U1/GUARD/0.01": {
+   "finished": 19,
+   "completed": 3,
+   "stopped": 16,
+   "worst_dd_pct": 3.75,
+   "partial": [
+    {
+     "taken": 283,
+     "ret_pct": 15.07,
+     "dd_pct": 2.55
+    }
+   ],
+   "mean_ret_pct": 4.5,
+   "median_ret_pct": 1.34,
+   "worst_ret_pct": -3.47,
+   "best_ret_pct": 19.58,
+   "positive": "11/19",
+   "mean_days": 216.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 66,
+     "ret_pct": -2.93,
+     "dd_pct": 3.46,
+     "days": 81
+    },
+    {
+     "status": "stopped",
+     "taken": 245,
+     "ret_pct": 2.54,
+     "dd_pct": 3.49,
+     "days": 256
+    },
+    {
+     "status": "stopped",
+     "taken": 259,
+     "ret_pct": 14.47,
+     "dd_pct": 3.49,
+     "days": 237
+    },
+    {
+     "status": "stopped",
+     "taken": 110,
+     "ret_pct": -1.74,
+     "dd_pct": 3.5,
+     "days": 117
+    },
+    {
+     "status": "stopped",
+     "taken": 81,
+     "ret_pct": -2.04,
+     "dd_pct": 3.64,
+     "days": 120
+    },
+    {
+     "status": "stopped",
+     "taken": 234,
+     "ret_pct": 10.21,
+     "dd_pct": 3.45,
+     "days": 224
+    },
+    {
+     "status": "stopped",
+     "taken": 176,
+     "ret_pct": 1.6,
+     "dd_pct": 3.61,
+     "days": 195
+    },
+    {
+     "status": "stopped",
+     "taken": 271,
+     "ret_pct": 13.24,
+     "dd_pct": 3.53,
+     "days": 292
+    },
+    {
+     "status": "stopped",
+     "taken": 62,
+     "ret_pct": -2.08,
+     "dd_pct": 3.58,
+     "days": 64
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 17.6,
+     "dd_pct": 3.14,
+     "days": 376
+    },
+    {
+     "status": "stopped",
+     "taken": 187,
+     "ret_pct": 6.46,
+     "dd_pct": 3.42,
+     "days": 178
+    },
+    {
+     "status": "stopped",
+     "taken": 190,
+     "ret_pct": 1.34,
+     "dd_pct": 3.46,
+     "days": 211
+    },
+    {
+     "status": "stopped",
+     "taken": 114,
+     "ret_pct": -1.69,
+     "dd_pct": 3.75,
+     "days": 220
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.66,
+     "dd_pct": 3.26,
+     "days": 408
+    },
+    {
+     "status": "stopped",
+     "taken": 146,
+     "ret_pct": -1.1,
+     "dd_pct": 3.49,
+     "days": 199
+    },
+    {
+     "status": "stopped",
+     "taken": 299,
+     "ret_pct": 0.83,
+     "dd_pct": 3.45,
+     "days": 427
+    },
+    {
+     "status": "stopped",
+     "taken": 42,
+     "ret_pct": -3.47,
+     "dd_pct": 3.6,
+     "days": 69
+    },
+    {
+     "status": "stopped",
+     "taken": 108,
+     "ret_pct": -1.0,
+     "dd_pct": 3.49,
+     "days": 107
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 19.58,
+     "dd_pct": 2.41,
+     "days": 327
+    }
+   ]
+  },
+  "U1/DDLADDER/0.05": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.08,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 1.43,
+     "dd_pct": 0.35
+    }
+   ],
+   "mean_ret_pct": 1.62,
+   "median_ret_pct": 1.59,
+   "worst_ret_pct": -0.38,
+   "best_ret_pct": 3.55,
+   "positive": "11/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.14,
+     "dd_pct": 0.69,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.52,
+     "dd_pct": 0.93,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.39,
+     "dd_pct": 0.78,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.6,
+     "dd_pct": 0.88,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.55,
+     "dd_pct": 0.98,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.59,
+     "dd_pct": 0.77,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.22,
+     "dd_pct": 0.57,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.38,
+     "dd_pct": 0.96,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.05,
+     "dd_pct": 0.43,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.31,
+     "dd_pct": 0.48,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.11,
+     "dd_pct": 0.72,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.01,
+     "dd_pct": 1.08,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.24,
+     "dd_pct": 0.56,
+     "days": 324
+    }
+   ]
+  },
+  "U1/DDLADDER/0.1": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.91,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 2.68,
+     "dd_pct": 0.64
+    }
+   ],
+   "mean_ret_pct": 2.93,
+   "median_ret_pct": 2.75,
+   "worst_ret_pct": -0.74,
+   "best_ret_pct": 6.85,
+   "positive": "10/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.4,
+     "dd_pct": 1.29,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.91,
+     "dd_pct": 1.66,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.32,
+     "dd_pct": 1.4,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.02,
+     "dd_pct": 1.63,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.85,
+     "dd_pct": 1.75,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.75,
+     "dd_pct": 1.46,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.95,
+     "dd_pct": 1.14,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.74,
+     "dd_pct": 1.68,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.68,
+     "dd_pct": 0.82,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.31,
+     "dd_pct": 0.93,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.87,
+     "dd_pct": 1.29,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.46,
+     "dd_pct": 1.91,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.1,
+     "dd_pct": 1.07,
+     "days": 324
+    }
+   ]
+  },
+  "U1/DDLADDER/0.15": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 2.56,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 3.88,
+     "dd_pct": 0.91
+    }
+   ],
+   "mean_ret_pct": 3.99,
+   "median_ret_pct": 3.71,
+   "worst_ret_pct": -1.12,
+   "best_ret_pct": 9.84,
+   "positive": "10/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.08,
+     "dd_pct": 1.79,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.15,
+     "dd_pct": 2.25,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.6,
+     "dd_pct": 1.93,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.42,
+     "dd_pct": 2.15,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.84,
+     "dd_pct": 2.34,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.71,
+     "dd_pct": 2.0,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.66,
+     "dd_pct": 1.6,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.07,
+     "dd_pct": 2.27,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.88,
+     "dd_pct": 1.17,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.02,
+     "dd_pct": 1.35,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.22,
+     "dd_pct": 1.75,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.12,
+     "dd_pct": 2.56,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.65,
+     "dd_pct": 1.51,
+     "days": 324
+    }
+   ]
+  },
+  "U1/DDLADDER/0.2": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 3.01,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 4.82,
+     "dd_pct": 1.19
+    }
+   ],
+   "mean_ret_pct": 4.98,
+   "median_ret_pct": 4.54,
+   "worst_ret_pct": -1.73,
+   "best_ret_pct": 12.99,
+   "positive": "10/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.45,
+     "dd_pct": 2.18,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.44,
+     "dd_pct": 2.66,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.7,
+     "dd_pct": 2.38,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.43,
+     "dd_pct": 2.6,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.99,
+     "dd_pct": 2.72,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.54,
+     "dd_pct": 2.42,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.87,
+     "dd_pct": 2.05,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.5,
+     "dd_pct": 2.72,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.9,
+     "dd_pct": 1.47,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.75,
+     "dd_pct": 1.7,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.53,
+     "dd_pct": 2.13,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.73,
+     "dd_pct": 3.01,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.25,
+     "dd_pct": 1.87,
+     "days": 324
+    }
+   ]
+  },
+  "U1/DDLADDER/0.3": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 3.2,
+   "partial": [
+    {
+     "taken": 170,
+     "ret_pct": 5.05,
+     "dd_pct": 1.63
+    }
+   ],
+   "mean_ret_pct": 6.06,
+   "median_ret_pct": 5.76,
+   "worst_ret_pct": -2.62,
+   "best_ret_pct": 18.26,
+   "positive": "10/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.26,
+     "dd_pct": 2.98,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.41,
+     "dd_pct": 3.18,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.03,
+     "dd_pct": 2.96,
+     "days": 327
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.6,
+     "dd_pct": 3.18,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 18.26,
+     "dd_pct": 3.18,
+     "days": 317
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.76,
+     "dd_pct": 3.11,
+     "days": 338
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.33,
+     "dd_pct": 2.77,
+     "days": 354
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.06,
+     "dd_pct": 3.19,
+     "days": 346
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.52,
+     "dd_pct": 2.32,
+     "days": 367
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.62,
+     "dd_pct": 2.34,
+     "days": 385
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.17,
+     "dd_pct": 2.6,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.62,
+     "dd_pct": 3.2,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.07,
+     "dd_pct": 2.53,
+     "days": 325
+    }
+   ]
+  },
+  "U1/DDLADDER/0.5": {
+   "finished": 16,
+   "completed": 7,
+   "stopped": 9,
+   "worst_dd_pct": 3.72,
+   "partial": [
+    {
+     "taken": 38,
+     "ret_pct": 1.06,
+     "dd_pct": 2.71
+    }
+   ],
+   "mean_ret_pct": 4.05,
+   "median_ret_pct": 1.21,
+   "worst_ret_pct": -3.22,
+   "best_ret_pct": 16.55,
+   "positive": "9/16",
+   "mean_days": 280.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 129,
+     "ret_pct": -2.54,
+     "dd_pct": 3.43,
+     "days": 144
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.3,
+     "dd_pct": 3.37,
+     "days": 372
+    },
+    {
+     "status": "stopped",
+     "taken": 144,
+     "ret_pct": 0.66,
+     "dd_pct": 3.44,
+     "days": 177
+    },
+    {
+     "status": "stopped",
+     "taken": 97,
+     "ret_pct": 1.77,
+     "dd_pct": 3.59,
+     "days": 143
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.97,
+     "dd_pct": 3.16,
+     "days": 363
+    },
+    {
+     "status": "stopped",
+     "taken": 53,
+     "ret_pct": -1.21,
+     "dd_pct": 3.48,
+     "days": 55
+    },
+    {
+     "status": "stopped",
+     "taken": 335,
+     "ret_pct": 14.89,
+     "dd_pct": 3.41,
+     "days": 344
+    },
+    {
+     "status": "stopped",
+     "taken": 194,
+     "ret_pct": 8.96,
+     "dd_pct": 3.72,
+     "days": 200
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.24,
+     "dd_pct": 3.47,
+     "days": 440
+    },
+    {
+     "status": "stopped",
+     "taken": 94,
+     "ret_pct": -3.12,
+     "dd_pct": 3.46,
+     "days": 110
+    },
+    {
+     "status": "stopped",
+     "taken": 194,
+     "ret_pct": -3.22,
+     "dd_pct": 3.71,
+     "days": 243
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 16.55,
+     "dd_pct": 3.08,
+     "days": 387
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.54,
+     "dd_pct": 3.38,
+     "days": 395
+    },
+    {
+     "status": "stopped",
+     "taken": 356,
+     "ret_pct": -1.83,
+     "dd_pct": 3.5,
+     "days": 323
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.01,
+     "dd_pct": 3.17,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.32,
+     "dd_pct": 3.24,
+     "days": 443
+    }
+   ]
+  },
+  "U1/SEESARE/0.005": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 0.51,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 0.03,
+     "dd_pct": 0.16
+    }
+   ],
+   "mean_ret_pct": -0.01,
+   "median_ret_pct": -0.03,
+   "worst_ret_pct": -0.36,
+   "best_ret_pct": 0.52,
+   "positive": "5/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.03,
+     "dd_pct": 0.3,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.52,
+     "dd_pct": 0.21,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.26,
+     "dd_pct": 0.31,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.25,
+     "dd_pct": 0.29,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.07,
+     "dd_pct": 0.21,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.04,
+     "dd_pct": 0.12,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.04,
+     "dd_pct": 0.2,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.41,
+     "dd_pct": 0.51,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.05,
+     "dd_pct": 0.11,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.36,
+     "dd_pct": 0.37,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.01,
+     "dd_pct": 0.14,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.05,
+     "dd_pct": 0.25,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.25,
+     "dd_pct": 0.35,
+     "days": 324
+    }
+   ]
+  },
+  "U1/SEESARE/0.0075": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 0.77,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 0.04,
+     "dd_pct": 0.24
+    }
+   ],
+   "mean_ret_pct": -0.02,
+   "median_ret_pct": -0.05,
+   "worst_ret_pct": -0.53,
+   "best_ret_pct": 0.77,
+   "positive": "5/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.05,
+     "dd_pct": 0.45,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.77,
+     "dd_pct": 0.31,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.39,
+     "dd_pct": 0.46,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.37,
+     "dd_pct": 0.44,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.11,
+     "dd_pct": 0.31,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.06,
+     "dd_pct": 0.18,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.06,
+     "dd_pct": 0.3,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.62,
+     "dd_pct": 0.77,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.08,
+     "dd_pct": 0.16,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.53,
+     "dd_pct": 0.56,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.01,
+     "dd_pct": 0.21,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.08,
+     "dd_pct": 0.37,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.38,
+     "dd_pct": 0.52,
+     "days": 324
+    }
+   ]
+  },
+  "U1/SEESARE/0.01": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.02,
+   "partial": [
+    {
+     "taken": 188,
+     "ret_pct": 0.05,
+     "dd_pct": 0.32
+    }
+   ],
+   "mean_ret_pct": -0.02,
+   "median_ret_pct": -0.07,
+   "worst_ret_pct": -0.71,
+   "best_ret_pct": 1.03,
+   "positive": "5/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.07,
+     "dd_pct": 0.59,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.03,
+     "dd_pct": 0.42,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.52,
+     "dd_pct": 0.61,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.49,
+     "dd_pct": 0.58,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.14,
+     "dd_pct": 0.42,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.08,
+     "dd_pct": 0.24,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.08,
+     "dd_pct": 0.4,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.83,
+     "dd_pct": 1.02,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.11,
+     "dd_pct": 0.21,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.71,
+     "dd_pct": 0.75,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.01,
+     "dd_pct": 0.28,
+     "days": 329
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.11,
+     "dd_pct": 0.49,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.51,
+     "dd_pct": 0.69,
+     "days": 324
+    }
+   ]
+  },
+  "U1/SEESARE/0.015": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.53,
+   "partial": [
+    {
+     "taken": 187,
+     "ret_pct": 0.03,
+     "dd_pct": 0.48
+    }
+   ],
+   "mean_ret_pct": 0.03,
+   "median_ret_pct": -0.11,
+   "worst_ret_pct": -0.81,
+   "best_ret_pct": 1.59,
+   "positive": "5/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.1,
+     "dd_pct": 0.89,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.55,
+     "dd_pct": 0.63,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.78,
+     "dd_pct": 0.92,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.74,
+     "dd_pct": 0.87,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.22,
+     "dd_pct": 0.62,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.12,
+     "dd_pct": 0.37,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.11,
+     "dd_pct": 0.61,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.59,
+     "dd_pct": 1.53,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.32,
+     "dd_pct": 0.24,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.81,
+     "dd_pct": 0.95,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.37,
+     "dd_pct": 0.43,
+     "days": 328
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.11,
+     "dd_pct": 0.74,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.31,
+     "dd_pct": 0.61,
+     "days": 324
+    }
+   ]
+  },
+  "U1/SEESARE/0.02": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.27,
+   "partial": [
+    {
+     "taken": 187,
+     "ret_pct": 0.04,
+     "dd_pct": 0.63
+    }
+   ],
+   "mean_ret_pct": 0.17,
+   "median_ret_pct": -0.14,
+   "worst_ret_pct": -1.07,
+   "best_ret_pct": 3.69,
+   "positive": "5/13",
+   "mean_days": 341.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.13,
+     "dd_pct": 1.19,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.06,
+     "dd_pct": 0.84,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.05,
+     "dd_pct": 1.22,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.99,
+     "dd_pct": 1.17,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.29,
+     "dd_pct": 0.83,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.16,
+     "dd_pct": 0.49,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.15,
+     "dd_pct": 0.81,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.69,
+     "dd_pct": 0.46,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.42,
+     "dd_pct": 0.32,
+     "days": 371
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.07,
+     "dd_pct": 1.27,
+     "days": 404
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.5,
+     "dd_pct": 0.57,
+     "days": 328
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.14,
+     "dd_pct": 0.98,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.42,
+     "dd_pct": 0.81,
+     "days": 324
+    }
+   ]
+  },
+  "U1/SEESARE/0.03": {
+   "finished": 13,
+   "completed": 13,
+   "stopped": 0,
+   "worst_dd_pct": 1.83,
+   "partial": [
+    {
+     "taken": 183,
+     "ret_pct": -0.33,
+     "dd_pct": 1.04
+    }
+   ],
+   "mean_ret_pct": 0.71,
+   "median_ret_pct": -0.2,
+   "worst_ret_pct": -1.57,
+   "best_ret_pct": 5.44,
+   "positive": "6/13",
+   "mean_days": 342.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.2,
+     "dd_pct": 1.78,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.09,
+     "dd_pct": 1.25,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.57,
+     "dd_pct": 1.83,
+     "days": 326
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.48,
+     "dd_pct": 1.75,
+     "days": 335
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.43,
+     "dd_pct": 1.25,
+     "days": 320
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.24,
+     "dd_pct": 0.73,
+     "days": 330
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.23,
+     "dd_pct": 1.21,
+     "days": 339
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.44,
+     "dd_pct": 0.17,
+     "days": 343
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.89,
+     "dd_pct": 0.74,
+     "days": 370
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.04,
+     "dd_pct": 1.13,
+     "days": 399
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.27,
+     "dd_pct": 1.49,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.82,
+     "dd_pct": 1.44,
+     "days": 327
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.38,
+     "dd_pct": 1.07,
+     "days": 339
+    }
+   ]
+  },
+  "U2/FIXED/0.0025": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 2.7,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 3.72,
+     "dd_pct": 0.92
+    }
+   ],
+   "mean_ret_pct": 2.6,
+   "median_ret_pct": 2.58,
+   "worst_ret_pct": -0.92,
+   "best_ret_pct": 5.24,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.97,
+     "dd_pct": 0.79,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.09,
+     "dd_pct": 0.53,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.95,
+     "dd_pct": 1.91,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.27,
+     "dd_pct": 0.84,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.19,
+     "dd_pct": 1.43,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.96,
+     "dd_pct": 1.35,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.22,
+     "dd_pct": 1.22,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.9,
+     "dd_pct": 0.68,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.15,
+     "dd_pct": 0.89,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.41,
+     "dd_pct": 1.14,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.93,
+     "dd_pct": 0.91,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.02,
+     "dd_pct": 1.39,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.39,
+     "dd_pct": 0.68,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.92,
+     "dd_pct": 2.7,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.87,
+     "dd_pct": 0.85,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.24,
+     "dd_pct": 0.8,
+     "days": 259
+    }
+   ]
+  },
+  "U2/FIXED/0.00375": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 4.05,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 5.57,
+     "dd_pct": 1.39
+    }
+   ],
+   "mean_ret_pct": 3.9,
+   "median_ret_pct": 3.86,
+   "worst_ret_pct": -1.39,
+   "best_ret_pct": 7.86,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.95,
+     "dd_pct": 1.19,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.64,
+     "dd_pct": 0.8,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.43,
+     "dd_pct": 2.86,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.91,
+     "dd_pct": 1.26,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.78,
+     "dd_pct": 2.15,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.45,
+     "dd_pct": 2.03,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.33,
+     "dd_pct": 1.83,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.85,
+     "dd_pct": 1.03,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.23,
+     "dd_pct": 1.34,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.61,
+     "dd_pct": 1.71,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.4,
+     "dd_pct": 1.37,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.53,
+     "dd_pct": 2.08,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.09,
+     "dd_pct": 1.02,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.39,
+     "dd_pct": 4.05,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.8,
+     "dd_pct": 1.27,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.86,
+     "dd_pct": 1.2,
+     "days": 259
+    }
+   ]
+  },
+  "U2/FIXED/0.005": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 5.4,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 7.43,
+     "dd_pct": 1.85
+    }
+   ],
+   "mean_ret_pct": 5.21,
+   "median_ret_pct": 5.15,
+   "worst_ret_pct": -1.85,
+   "best_ret_pct": 10.48,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.93,
+     "dd_pct": 1.58,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.18,
+     "dd_pct": 1.07,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.9,
+     "dd_pct": 3.81,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.55,
+     "dd_pct": 1.68,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.38,
+     "dd_pct": 2.87,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.93,
+     "dd_pct": 2.71,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.44,
+     "dd_pct": 2.44,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.8,
+     "dd_pct": 1.37,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.31,
+     "dd_pct": 1.79,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.82,
+     "dd_pct": 2.28,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.86,
+     "dd_pct": 1.82,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.04,
+     "dd_pct": 2.77,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.78,
+     "dd_pct": 1.35,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.85,
+     "dd_pct": 5.4,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.74,
+     "dd_pct": 1.69,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.48,
+     "dd_pct": 1.6,
+     "days": 259
+    }
+   ]
+  },
+  "U2/FIXED/0.00625": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 6.75,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 9.29,
+     "dd_pct": 2.31
+    }
+   ],
+   "mean_ret_pct": 6.51,
+   "median_ret_pct": 6.44,
+   "worst_ret_pct": -2.31,
+   "best_ret_pct": 13.1,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.91,
+     "dd_pct": 1.98,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.73,
+     "dd_pct": 1.33,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.38,
+     "dd_pct": 4.77,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.18,
+     "dd_pct": 2.1,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.97,
+     "dd_pct": 3.59,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.41,
+     "dd_pct": 3.38,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.55,
+     "dd_pct": 3.05,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.75,
+     "dd_pct": 1.71,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.38,
+     "dd_pct": 2.23,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.02,
+     "dd_pct": 2.85,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.33,
+     "dd_pct": 2.28,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.54,
+     "dd_pct": 3.46,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.48,
+     "dd_pct": 1.69,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.31,
+     "dd_pct": 6.75,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.67,
+     "dd_pct": 2.11,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.1,
+     "dd_pct": 2.0,
+     "days": 259
+    }
+   ]
+  },
+  "U2/FIXED/0.0075": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 8.1,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 11.15,
+     "dd_pct": 2.77
+    }
+   ],
+   "mean_ret_pct": 7.81,
+   "median_ret_pct": 7.73,
+   "worst_ret_pct": -2.77,
+   "best_ret_pct": 15.72,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.9,
+     "dd_pct": 2.37,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.27,
+     "dd_pct": 1.6,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.86,
+     "dd_pct": 5.72,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.82,
+     "dd_pct": 2.52,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.56,
+     "dd_pct": 4.3,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 14.89,
+     "dd_pct": 4.06,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.66,
+     "dd_pct": 3.66,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.7,
+     "dd_pct": 2.05,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.46,
+     "dd_pct": 2.68,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.23,
+     "dd_pct": 3.43,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.79,
+     "dd_pct": 2.73,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.05,
+     "dd_pct": 4.16,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.17,
+     "dd_pct": 2.03,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.77,
+     "dd_pct": 8.1,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.61,
+     "dd_pct": 2.54,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.72,
+     "dd_pct": 2.4,
+     "days": 259
+    }
+   ]
+  },
+  "U2/FIXED/0.01": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 10.8,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 14.86,
+     "dd_pct": 3.7
+    }
+   ],
+   "mean_ret_pct": 10.41,
+   "median_ret_pct": 10.3,
+   "worst_ret_pct": -3.69,
+   "best_ret_pct": 20.95,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.86,
+     "dd_pct": 3.16,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 20.36,
+     "dd_pct": 2.14,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.81,
+     "dd_pct": 7.63,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.09,
+     "dd_pct": 3.35,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.75,
+     "dd_pct": 5.74,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 19.85,
+     "dd_pct": 5.42,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.88,
+     "dd_pct": 4.88,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.6,
+     "dd_pct": 2.74,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.61,
+     "dd_pct": 3.57,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.64,
+     "dd_pct": 4.57,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.72,
+     "dd_pct": 3.64,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.07,
+     "dd_pct": 5.54,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.56,
+     "dd_pct": 2.71,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -3.69,
+     "dd_pct": 10.8,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.48,
+     "dd_pct": 3.38,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 20.95,
+     "dd_pct": 3.21,
+     "days": 259
+    }
+   ]
+  },
+  "U2/GUARD/0.0025": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 2.7,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 3.72,
+     "dd_pct": 0.92
+    }
+   ],
+   "mean_ret_pct": 2.6,
+   "median_ret_pct": 2.58,
+   "worst_ret_pct": -0.92,
+   "best_ret_pct": 5.24,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.97,
+     "dd_pct": 0.79,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.09,
+     "dd_pct": 0.53,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.95,
+     "dd_pct": 1.91,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.27,
+     "dd_pct": 0.84,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.19,
+     "dd_pct": 1.43,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.96,
+     "dd_pct": 1.35,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.22,
+     "dd_pct": 1.22,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.9,
+     "dd_pct": 0.68,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.15,
+     "dd_pct": 0.89,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.41,
+     "dd_pct": 1.14,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.93,
+     "dd_pct": 0.91,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.02,
+     "dd_pct": 1.39,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.39,
+     "dd_pct": 0.68,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.92,
+     "dd_pct": 2.7,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.87,
+     "dd_pct": 0.85,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.24,
+     "dd_pct": 0.8,
+     "days": 259
+    }
+   ]
+  },
+  "U2/GUARD/0.00375": {
+   "finished": 16,
+   "completed": 15,
+   "stopped": 1,
+   "worst_dd_pct": 3.59,
+   "partial": [
+    {
+     "taken": 342,
+     "ret_pct": 5.93,
+     "dd_pct": 1.34
+    }
+   ],
+   "mean_ret_pct": 3.88,
+   "median_ret_pct": 3.72,
+   "worst_ret_pct": -1.65,
+   "best_ret_pct": 7.64,
+   "positive": "15/16",
+   "mean_days": 275.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.95,
+     "dd_pct": 1.19,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.64,
+     "dd_pct": 0.8,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.25,
+     "dd_pct": 2.94,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.01,
+     "dd_pct": 1.26,
+     "days": 262
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.96,
+     "dd_pct": 2.15,
+     "days": 274
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.28,
+     "dd_pct": 2.03,
+     "days": 265
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.09,
+     "dd_pct": 1.83,
+     "days": 256
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.16,
+     "dd_pct": 1.03,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.05,
+     "dd_pct": 1.36,
+     "days": 303
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.94,
+     "dd_pct": 1.71,
+     "days": 272
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.46,
+     "dd_pct": 1.37,
+     "days": 332
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.23,
+     "dd_pct": 2.08,
+     "days": 270
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.15,
+     "dd_pct": 1.02,
+     "days": 283
+    },
+    {
+     "status": "stopped",
+     "taken": 314,
+     "ret_pct": -1.65,
+     "dd_pct": 3.59,
+     "days": 227
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.21,
+     "dd_pct": 1.31,
+     "days": 270
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.37,
+     "dd_pct": 1.2,
+     "days": 270
+    }
+   ]
+  },
+  "U2/GUARD/0.005": {
+   "finished": 16,
+   "completed": 14,
+   "stopped": 2,
+   "worst_dd_pct": 3.59,
+   "partial": [
+    {
+     "taken": 343,
+     "ret_pct": 8.23,
+     "dd_pct": 1.78
+    }
+   ],
+   "mean_ret_pct": 4.98,
+   "median_ret_pct": 4.23,
+   "worst_ret_pct": -0.54,
+   "best_ret_pct": 10.18,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.93,
+     "dd_pct": 1.58,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.18,
+     "dd_pct": 1.07,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.16,
+     "dd_pct": 3.28,
+     "days": 311
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.94,
+     "dd_pct": 1.68,
+     "days": 286
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.38,
+     "dd_pct": 2.84,
+     "days": 293
+    },
+    {
+     "status": "stopped",
+     "taken": 259,
+     "ret_pct": 3.3,
+     "dd_pct": 3.59,
+     "days": 204
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.98,
+     "dd_pct": 2.69,
+     "days": 266
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.36,
+     "dd_pct": 1.55,
+     "days": 295
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.53,
+     "dd_pct": 1.79,
+     "days": 294
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.47,
+     "dd_pct": 2.28,
+     "days": 276
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.46,
+     "dd_pct": 1.82,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.8,
+     "dd_pct": 3.17,
+     "days": 297
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.16,
+     "dd_pct": 2.11,
+     "days": 274
+    },
+    {
+     "status": "stopped",
+     "taken": 231,
+     "ret_pct": -0.54,
+     "dd_pct": 3.58,
+     "days": 184
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.29,
+     "dd_pct": 1.75,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.34,
+     "dd_pct": 1.6,
+     "days": 271
+    }
+   ]
+  },
+  "U2/GUARD/0.00625": {
+   "finished": 17,
+   "completed": 12,
+   "stopped": 5,
+   "worst_dd_pct": 3.59,
+   "partial": [
+    {
+     "taken": 291,
+     "ret_pct": 10.31,
+     "dd_pct": 1.76
+    }
+   ],
+   "mean_ret_pct": 5.68,
+   "median_ret_pct": 5.73,
+   "worst_ret_pct": -3.51,
+   "best_ret_pct": 12.73,
+   "positive": "15/17",
+   "mean_days": 259.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.91,
+     "dd_pct": 1.98,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.73,
+     "dd_pct": 1.33,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.8,
+     "dd_pct": 3.2,
+     "days": 346
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.73,
+     "dd_pct": 2.14,
+     "days": 272
+    },
+    {
+     "status": "stopped",
+     "taken": 238,
+     "ret_pct": -1.75,
+     "dd_pct": 3.49,
+     "days": 193
+    },
+    {
+     "status": "stopped",
+     "taken": 335,
+     "ret_pct": 11.03,
+     "dd_pct": 3.56,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.18,
+     "dd_pct": 2.99,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.15,
+     "dd_pct": 1.76,
+     "days": 302
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.96,
+     "dd_pct": 2.23,
+     "days": 301
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.94,
+     "dd_pct": 2.96,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.72,
+     "dd_pct": 2.28,
+     "days": 311
+    },
+    {
+     "status": "stopped",
+     "taken": 305,
+     "ret_pct": 4.59,
+     "dd_pct": 3.57,
+     "days": 274
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.24,
+     "dd_pct": 2.64,
+     "days": 273
+    },
+    {
+     "status": "stopped",
+     "taken": 211,
+     "ret_pct": 0.9,
+     "dd_pct": 3.53,
+     "days": 156
+    },
+    {
+     "status": "stopped",
+     "taken": 53,
+     "ret_pct": -3.51,
+     "dd_pct": 3.59,
+     "days": 69
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.07,
+     "dd_pct": 2.1,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.82,
+     "dd_pct": 2.07,
+     "days": 291
+    }
+   ]
+  },
+  "U2/GUARD/0.0075": {
+   "finished": 18,
+   "completed": 11,
+   "stopped": 7,
+   "worst_dd_pct": 3.63,
+   "partial": [
+    {
+     "taken": 226,
+     "ret_pct": 9.64,
+     "dd_pct": 1.53
+    }
+   ],
+   "mean_ret_pct": 6.02,
+   "median_ret_pct": 6.56,
+   "worst_ret_pct": -3.46,
+   "best_ret_pct": 15.32,
+   "positive": "15/18",
+   "mean_days": 246.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.25,
+     "dd_pct": 2.37,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.32,
+     "dd_pct": 1.6,
+     "days": 252
+    },
+    {
+     "status": "stopped",
+     "taken": 56,
+     "ret_pct": -3.46,
+     "dd_pct": 3.46,
+     "days": 45
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 10.76,
+     "dd_pct": 3.02,
+     "days": 305
+    },
+    {
+     "status": "stopped",
+     "taken": 204,
+     "ret_pct": 1.84,
+     "dd_pct": 3.63,
+     "days": 161
+    },
+    {
+     "status": "stopped",
+     "taken": 303,
+     "ret_pct": 2.64,
+     "dd_pct": 3.47,
+     "days": 253
+    },
+    {
+     "status": "stopped",
+     "taken": 330,
+     "ret_pct": 13.98,
+     "dd_pct": 3.52,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.26,
+     "dd_pct": 3.35,
+     "days": 344
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.59,
+     "dd_pct": 2.38,
+     "days": 291
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.02,
+     "dd_pct": 3.24,
+     "days": 432
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.78,
+     "dd_pct": 2.8,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 13.09,
+     "dd_pct": 2.73,
+     "days": 300
+    },
+    {
+     "status": "stopped",
+     "taken": 119,
+     "ret_pct": -2.1,
+     "dd_pct": 3.55,
+     "days": 151
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.82,
+     "dd_pct": 2.85,
+     "days": 276
+    },
+    {
+     "status": "stopped",
+     "taken": 205,
+     "ret_pct": 1.15,
+     "dd_pct": 3.55,
+     "days": 153
+    },
+    {
+     "status": "stopped",
+     "taken": 49,
+     "ret_pct": -3.45,
+     "dd_pct": 3.55,
+     "days": 69
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.53,
+     "dd_pct": 2.52,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.41,
+     "dd_pct": 2.86,
+     "days": 307
+    }
+   ]
+  },
+  "U2/GUARD/0.01": {
+   "finished": 20,
+   "completed": 4,
+   "stopped": 16,
+   "worst_dd_pct": 3.78,
+   "partial": [
+    {
+     "taken": 10,
+     "ret_pct": 0.2,
+     "dd_pct": 1.14
+    }
+   ],
+   "mean_ret_pct": 6.05,
+   "median_ret_pct": 4.9,
+   "worst_ret_pct": -3.35,
+   "best_ret_pct": 24.51,
+   "positive": "14/20",
+   "mean_days": 223.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 292,
+     "ret_pct": 1.07,
+     "dd_pct": 3.47,
+     "days": 259
+    },
+    {
+     "status": "stopped",
+     "taken": 51,
+     "ret_pct": -3.04,
+     "dd_pct": 3.42,
+     "days": 45
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 21.07,
+     "dd_pct": 2.88,
+     "days": 272
+    },
+    {
+     "status": "stopped",
+     "taken": 118,
+     "ret_pct": -1.44,
+     "dd_pct": 3.48,
+     "days": 112
+    },
+    {
+     "status": "stopped",
+     "taken": 343,
+     "ret_pct": 7.3,
+     "dd_pct": 3.56,
+     "days": 315
+    },
+    {
+     "status": "stopped",
+     "taken": 312,
+     "ret_pct": 5.47,
+     "dd_pct": 3.41,
+     "days": 313
+    },
+    {
+     "status": "stopped",
+     "taken": 261,
+     "ret_pct": 16.44,
+     "dd_pct": 3.43,
+     "days": 205
+    },
+    {
+     "status": "stopped",
+     "taken": 290,
+     "ret_pct": 4.32,
+     "dd_pct": 3.63,
+     "days": 244
+    },
+    {
+     "status": "stopped",
+     "taken": 100,
+     "ret_pct": -1.8,
+     "dd_pct": 3.58,
+     "days": 152
+    },
+    {
+     "status": "stopped",
+     "taken": 337,
+     "ret_pct": 7.21,
+     "dd_pct": 3.45,
+     "days": 377
+    },
+    {
+     "status": "stopped",
+     "taken": 56,
+     "ret_pct": -0.28,
+     "dd_pct": 3.67,
+     "days": 70
+    },
+    {
+     "status": "stopped",
+     "taken": 122,
+     "ret_pct": -1.96,
+     "dd_pct": 3.78,
+     "days": 202
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 14.67,
+     "dd_pct": 3.36,
+     "days": 352
+    },
+    {
+     "status": "stopped",
+     "taken": 301,
+     "ret_pct": 9.99,
+     "dd_pct": 3.48,
+     "days": 287
+    },
+    {
+     "status": "stopped",
+     "taken": 212,
+     "ret_pct": 5.49,
+     "dd_pct": 3.44,
+     "days": 268
+    },
+    {
+     "status": "stopped",
+     "taken": 172,
+     "ret_pct": 3.72,
+     "dd_pct": 3.46,
+     "days": 159
+    },
+    {
+     "status": "stopped",
+     "taken": 53,
+     "ret_pct": -3.35,
+     "dd_pct": 3.5,
+     "days": 94
+    },
+    {
+     "status": "stopped",
+     "taken": 108,
+     "ret_pct": 0.17,
+     "dd_pct": 3.44,
+     "days": 83
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.4,
+     "dd_pct": 2.79,
+     "days": 282
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 24.51,
+     "dd_pct": 3.13,
+     "days": 375
+    }
+   ]
+  },
+  "U2/DDLADDER/0.05": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 1.5,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 2.43,
+     "dd_pct": 0.6
+    }
+   ],
+   "mean_ret_pct": 1.69,
+   "median_ret_pct": 1.67,
+   "worst_ret_pct": -0.5,
+   "best_ret_pct": 3.47,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.17,
+     "dd_pct": 0.52,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.39,
+     "dd_pct": 0.35,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.43,
+     "dd_pct": 1.14,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.1,
+     "dd_pct": 0.56,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.8,
+     "dd_pct": 0.87,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.32,
+     "dd_pct": 0.87,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.42,
+     "dd_pct": 0.79,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.59,
+     "dd_pct": 0.46,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.38,
+     "dd_pct": 0.58,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.15,
+     "dd_pct": 0.74,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.91,
+     "dd_pct": 0.61,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.93,
+     "dd_pct": 0.85,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.25,
+     "dd_pct": 0.44,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.5,
+     "dd_pct": 1.5,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.18,
+     "dd_pct": 0.55,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.47,
+     "dd_pct": 0.53,
+     "days": 259
+    }
+   ]
+  },
+  "U2/DDLADDER/0.1": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 2.46,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 4.59,
+     "dd_pct": 1.12
+    }
+   ],
+   "mean_ret_pct": 3.12,
+   "median_ret_pct": 3.09,
+   "worst_ret_pct": -0.82,
+   "best_ret_pct": 6.62,
+   "positive": "15/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.04,
+     "dd_pct": 1.0,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.56,
+     "dd_pct": 0.69,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.22,
+     "dd_pct": 1.99,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.84,
+     "dd_pct": 1.07,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.49,
+     "dd_pct": 1.52,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.5,
+     "dd_pct": 1.59,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.74,
+     "dd_pct": 1.52,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.9,
+     "dd_pct": 0.89,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.49,
+     "dd_pct": 1.1,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.16,
+     "dd_pct": 1.35,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.51,
+     "dd_pct": 1.19,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.44,
+     "dd_pct": 1.52,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.16,
+     "dd_pct": 0.85,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.82,
+     "dd_pct": 2.46,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.99,
+     "dd_pct": 1.07,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.62,
+     "dd_pct": 1.02,
+     "days": 259
+    }
+   ]
+  },
+  "U2/DDLADDER/0.15": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 3.01,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 6.63,
+     "dd_pct": 1.53
+    }
+   ],
+   "mean_ret_pct": 4.35,
+   "median_ret_pct": 4.35,
+   "worst_ret_pct": -1.02,
+   "best_ret_pct": 9.63,
+   "positive": "14/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.54,
+     "dd_pct": 1.45,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.63,
+     "dd_pct": 1.07,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.25,
+     "dd_pct": 2.59,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.39,
+     "dd_pct": 1.51,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.01,
+     "dd_pct": 1.99,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.51,
+     "dd_pct": 2.1,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.07,
+     "dd_pct": 2.14,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.95,
+     "dd_pct": 1.28,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.26,
+     "dd_pct": 1.56,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.21,
+     "dd_pct": 1.85,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.86,
+     "dd_pct": 1.72,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.64,
+     "dd_pct": 2.07,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.85,
+     "dd_pct": 1.2,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.02,
+     "dd_pct": 3.01,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.58,
+     "dd_pct": 1.53,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 9.36,
+     "dd_pct": 1.46,
+     "days": 259
+    }
+   ]
+  },
+  "U2/DDLADDER/0.2": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 3.29,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": 8.27,
+     "dd_pct": 1.89
+    }
+   ],
+   "mean_ret_pct": 5.4,
+   "median_ret_pct": 5.45,
+   "worst_ret_pct": -0.98,
+   "best_ret_pct": 12.29,
+   "positive": "13/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.0,
+     "dd_pct": 1.85,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.29,
+     "dd_pct": 1.39,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.98,
+     "dd_pct": 2.94,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.54,
+     "dd_pct": 1.88,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.49,
+     "dd_pct": 2.45,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.24,
+     "dd_pct": 2.59,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.35,
+     "dd_pct": 2.72,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.81,
+     "dd_pct": 1.64,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.91,
+     "dd_pct": 1.96,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.13,
+     "dd_pct": 2.27,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.91,
+     "dd_pct": 2.19,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.54,
+     "dd_pct": 2.48,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.31,
+     "dd_pct": 1.57,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.98,
+     "dd_pct": 3.29,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.91,
+     "dd_pct": 1.98,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 12.15,
+     "dd_pct": 1.85,
+     "days": 259
+    }
+   ]
+  },
+  "U2/DDLADDER/0.3": {
+   "finished": 16,
+   "completed": 15,
+   "stopped": 1,
+   "worst_dd_pct": 3.61,
+   "partial": [
+    {
+     "taken": 334,
+     "ret_pct": 10.02,
+     "dd_pct": 2.69
+    }
+   ],
+   "mean_ret_pct": 6.55,
+   "median_ret_pct": 6.62,
+   "worst_ret_pct": -3.0,
+   "best_ret_pct": 17.1,
+   "positive": "13/16",
+   "mean_days": 279.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.3,
+     "dd_pct": 2.4,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 17.1,
+     "dd_pct": 2.05,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.61,
+     "dd_pct": 3.35,
+     "days": 266
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.65,
+     "dd_pct": 2.55,
+     "days": 266
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.58,
+     "dd_pct": 2.99,
+     "days": 275
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 15.51,
+     "dd_pct": 3.22,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.63,
+     "dd_pct": 3.61,
+     "days": 336
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.79,
+     "dd_pct": 2.85,
+     "days": 286
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.45,
+     "dd_pct": 2.83,
+     "days": 331
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -3.0,
+     "dd_pct": 3.24,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.37,
+     "dd_pct": 3.11,
+     "days": 302
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.7,
+     "dd_pct": 2.88,
+     "days": 324
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 11.18,
+     "dd_pct": 2.57,
+     "days": 301
+    },
+    {
+     "status": "stopped",
+     "taken": 188,
+     "ret_pct": -2.12,
+     "dd_pct": 3.42,
+     "days": 139
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.27,
+     "dd_pct": 2.59,
+     "days": 274
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 14.05,
+     "dd_pct": 2.48,
+     "days": 270
+    }
+   ]
+  },
+  "U2/DDLADDER/0.5": {
+   "finished": 18,
+   "completed": 5,
+   "stopped": 13,
+   "worst_dd_pct": 3.77,
+   "partial": [
+    {
+     "taken": 328,
+     "ret_pct": 27.43,
+     "dd_pct": 2.99
+    }
+   ],
+   "mean_ret_pct": 4.12,
+   "median_ret_pct": 2.47,
+   "worst_ret_pct": -3.23,
+   "best_ret_pct": 21.33,
+   "positive": "10/18",
+   "mean_days": 233.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 348,
+     "ret_pct": -2.77,
+     "dd_pct": 3.43,
+     "days": 295
+    },
+    {
+     "status": "stopped",
+     "taken": 293,
+     "ret_pct": 13.97,
+     "dd_pct": 3.41,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.02,
+     "dd_pct": 3.42,
+     "days": 332
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.43,
+     "dd_pct": 3.31,
+     "days": 321
+    },
+    {
+     "status": "stopped",
+     "taken": 85,
+     "ret_pct": 1.22,
+     "dd_pct": 3.48,
+     "days": 77
+    },
+    {
+     "status": "stopped",
+     "taken": 336,
+     "ret_pct": 21.33,
+     "dd_pct": 3.49,
+     "days": 300
+    },
+    {
+     "status": "stopped",
+     "taken": 278,
+     "ret_pct": 3.72,
+     "dd_pct": 3.75,
+     "days": 232
+    },
+    {
+     "status": "stopped",
+     "taken": 41,
+     "ret_pct": -0.67,
+     "dd_pct": 3.65,
+     "days": 46
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.82,
+     "dd_pct": 3.35,
+     "days": 394
+    },
+    {
+     "status": "stopped",
+     "taken": 171,
+     "ret_pct": -2.87,
+     "dd_pct": 3.6,
+     "days": 176
+    },
+    {
+     "status": "stopped",
+     "taken": 168,
+     "ret_pct": -1.11,
+     "dd_pct": 3.77,
+     "days": 202
+    },
+    {
+     "status": "stopped",
+     "taken": 209,
+     "ret_pct": 6.87,
+     "dd_pct": 3.6,
+     "days": 206
+    },
+    {
+     "status": "stopped",
+     "taken": 174,
+     "ret_pct": 8.26,
+     "dd_pct": 3.59,
+     "days": 161
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.17,
+     "dd_pct": 3.33,
+     "days": 403
+    },
+    {
+     "status": "stopped",
+     "taken": 302,
+     "ret_pct": 11.21,
+     "dd_pct": 3.44,
+     "days": 320
+    },
+    {
+     "status": "stopped",
+     "taken": 26,
+     "ret_pct": -1.33,
+     "dd_pct": 3.54,
+     "days": 21
+    },
+    {
+     "status": "stopped",
+     "taken": 209,
+     "ret_pct": -3.23,
+     "dd_pct": 3.44,
+     "days": 174
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.93,
+     "dd_pct": 3.26,
+     "days": 288
+    }
+   ]
+  },
+  "U2/SEESARE/0.005": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 0.38,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": -0.0,
+     "dd_pct": 0.16
+    }
+   ],
+   "mean_ret_pct": -0.04,
+   "median_ret_pct": -0.03,
+   "worst_ret_pct": -0.35,
+   "best_ret_pct": 0.48,
+   "positive": "6/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.22,
+     "dd_pct": 0.32,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.15,
+     "dd_pct": 0.19,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.35,
+     "dd_pct": 0.38,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.16,
+     "dd_pct": 0.2,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.12,
+     "dd_pct": 0.24,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.03,
+     "dd_pct": 0.18,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.3,
+     "dd_pct": 0.3,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.48,
+     "dd_pct": 0.28,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.1,
+     "dd_pct": 0.18,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.22,
+     "dd_pct": 0.22,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.0,
+     "dd_pct": 0.13,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.02,
+     "dd_pct": 0.18,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.08,
+     "dd_pct": 0.16,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.2,
+     "dd_pct": 0.38,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.04,
+     "dd_pct": 0.23,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.06,
+     "dd_pct": 0.12,
+     "days": 259
+    }
+   ]
+  },
+  "U2/SEESARE/0.0075": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 0.58,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": -0.0,
+     "dd_pct": 0.24
+    }
+   ],
+   "mean_ret_pct": -0.06,
+   "median_ret_pct": -0.04,
+   "worst_ret_pct": -0.53,
+   "best_ret_pct": 0.73,
+   "positive": "6/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.34,
+     "dd_pct": 0.48,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.22,
+     "dd_pct": 0.29,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.53,
+     "dd_pct": 0.58,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.24,
+     "dd_pct": 0.29,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.18,
+     "dd_pct": 0.36,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.05,
+     "dd_pct": 0.27,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.45,
+     "dd_pct": 0.46,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.73,
+     "dd_pct": 0.43,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.14,
+     "dd_pct": 0.26,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.32,
+     "dd_pct": 0.33,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.0,
+     "dd_pct": 0.2,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.03,
+     "dd_pct": 0.27,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.13,
+     "dd_pct": 0.24,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.3,
+     "dd_pct": 0.58,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.05,
+     "dd_pct": 0.34,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.1,
+     "dd_pct": 0.19,
+     "days": 259
+    }
+   ]
+  },
+  "U2/SEESARE/0.01": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 0.77,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": -0.0,
+     "dd_pct": 0.32
+    }
+   ],
+   "mean_ret_pct": -0.08,
+   "median_ret_pct": -0.06,
+   "worst_ret_pct": -0.7,
+   "best_ret_pct": 0.97,
+   "positive": "6/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.45,
+     "dd_pct": 0.63,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.3,
+     "dd_pct": 0.38,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.7,
+     "dd_pct": 0.77,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.32,
+     "dd_pct": 0.39,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.23,
+     "dd_pct": 0.47,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.06,
+     "dd_pct": 0.37,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.6,
+     "dd_pct": 0.61,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.97,
+     "dd_pct": 0.57,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.19,
+     "dd_pct": 0.35,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.43,
+     "dd_pct": 0.44,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.0,
+     "dd_pct": 0.27,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.04,
+     "dd_pct": 0.36,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.17,
+     "dd_pct": 0.32,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.41,
+     "dd_pct": 0.77,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.07,
+     "dd_pct": 0.45,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.13,
+     "dd_pct": 0.25,
+     "days": 259
+    }
+   ]
+  },
+  "U2/SEESARE/0.015": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 1.15,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": -0.0,
+     "dd_pct": 0.48
+    }
+   ],
+   "mean_ret_pct": -0.12,
+   "median_ret_pct": -0.09,
+   "worst_ret_pct": -1.06,
+   "best_ret_pct": 1.45,
+   "positive": "6/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.67,
+     "dd_pct": 0.95,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.45,
+     "dd_pct": 0.57,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.06,
+     "dd_pct": 1.15,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.49,
+     "dd_pct": 0.59,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.35,
+     "dd_pct": 0.71,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.1,
+     "dd_pct": 0.55,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.9,
+     "dd_pct": 0.91,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.45,
+     "dd_pct": 0.85,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.29,
+     "dd_pct": 0.53,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.65,
+     "dd_pct": 0.67,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.0,
+     "dd_pct": 0.4,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.06,
+     "dd_pct": 0.54,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.25,
+     "dd_pct": 0.48,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.61,
+     "dd_pct": 1.15,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.11,
+     "dd_pct": 0.68,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.19,
+     "dd_pct": 0.37,
+     "days": 259
+    }
+   ]
+  },
+  "U2/SEESARE/0.02": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 1.54,
+   "partial": [
+    {
+     "taken": 307,
+     "ret_pct": -0.01,
+     "dd_pct": 0.64
+    }
+   ],
+   "mean_ret_pct": -0.16,
+   "median_ret_pct": -0.11,
+   "worst_ret_pct": -1.41,
+   "best_ret_pct": 1.94,
+   "positive": "6/16",
+   "mean_days": 274.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.9,
+     "dd_pct": 1.27,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.6,
+     "dd_pct": 0.77,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.41,
+     "dd_pct": 1.54,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.65,
+     "dd_pct": 0.78,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.47,
+     "dd_pct": 0.95,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.13,
+     "dd_pct": 0.73,
+     "days": 260
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.2,
+     "dd_pct": 1.22,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.94,
+     "dd_pct": 1.14,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.38,
+     "dd_pct": 0.7,
+     "days": 306
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.86,
+     "dd_pct": 0.89,
+     "days": 278
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.01,
+     "dd_pct": 0.53,
+     "days": 288
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.08,
+     "dd_pct": 0.72,
+     "days": 273
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.34,
+     "dd_pct": 0.64,
+     "days": 287
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.81,
+     "dd_pct": 1.53,
+     "days": 269
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.14,
+     "dd_pct": 0.91,
+     "days": 255
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.26,
+     "dd_pct": 0.5,
+     "days": 259
+    }
+   ]
+  },
+  "U2/SEESARE/0.03": {
+   "finished": 16,
+   "completed": 16,
+   "stopped": 0,
+   "worst_dd_pct": 3.19,
+   "partial": [
+    {
+     "taken": 295,
+     "ret_pct": -1.12,
+     "dd_pct": 1.84
+    }
+   ],
+   "mean_ret_pct": 0.22,
+   "median_ret_pct": 0.06,
+   "worst_ret_pct": -2.62,
+   "best_ret_pct": 5.04,
+   "positive": "8/16",
+   "mean_days": 280.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.35,
+     "dd_pct": 1.9,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.9,
+     "dd_pct": 1.15,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.11,
+     "dd_pct": 2.3,
+     "days": 267
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.97,
+     "dd_pct": 1.17,
+     "days": 258
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.36,
+     "dd_pct": 1.42,
+     "days": 279
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.37,
+     "dd_pct": 0.97,
+     "days": 259
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.66,
+     "dd_pct": 1.14,
+     "days": 256
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.81,
+     "dd_pct": 1.71,
+     "days": 308
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.55,
+     "dd_pct": 2.17,
+     "days": 305
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -2.62,
+     "dd_pct": 3.19,
+     "days": 272
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.04,
+     "dd_pct": 0.34,
+     "days": 332
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.96,
+     "dd_pct": 0.08,
+     "days": 270
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.78,
+     "dd_pct": 0.94,
+     "days": 281
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.05,
+     "dd_pct": 1.36,
+     "days": 271
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.26,
+     "dd_pct": 1.31,
+     "days": 283
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.67,
+     "dd_pct": 0.54,
+     "days": 296
+    }
+   ]
+  }
+ },
+ "selected": {
+  "U1/FIXED": {
+   "setting": 0.005,
+   "within_cap": true
+  },
+  "U1/GUARD": {
+   "setting": 0.0075,
+   "within_cap": true
+  },
+  "U1/DDLADDER": {
+   "setting": 0.3,
+   "within_cap": true
+  },
+  "U1/SEESARE": {
+   "setting": 0.03,
+   "within_cap": true
+  },
+  "U2/FIXED": {
+   "setting": 0.0025,
+   "within_cap": true
+  },
+  "U2/GUARD": {
+   "setting": 0.00625,
+   "within_cap": true
+  },
+  "U2/DDLADDER": {
+   "setting": 0.2,
+   "within_cap": true
+  },
+  "U2/SEESARE": {
+   "setting": 0.03,
+   "within_cap": true
+  }
+ },
+ "after": {
+  "U1/FIXED/zero_swaps": {
+   "finished": 3,
+   "completed": 3,
+   "stopped": 0,
+   "worst_dd_pct": 4.71,
+   "partial": [
+    {
+     "taken": 152,
+     "ret_pct": 6.86,
+     "dd_pct": 1.03
+    }
+   ],
+   "mean_ret_pct": 1.14,
+   "median_ret_pct": 1.41,
+   "worst_ret_pct": 0.59,
+   "best_ret_pct": 1.42,
+   "positive": "3/3",
+   "mean_days": 320.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.42,
+     "dd_pct": 3.75,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.41,
+     "dd_pct": 2.56,
+     "days": 296
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.59,
+     "dd_pct": 4.71,
+     "days": 340
+    }
+   ]
+  },
+  "U1/FIXED/lab_swaps": {
+   "finished": 3,
+   "completed": 3,
+   "stopped": 0,
+   "worst_dd_pct": 4.95,
+   "partial": [
+    {
+     "taken": 152,
+     "ret_pct": 6.62,
+     "dd_pct": 1.07
+    }
+   ],
+   "mean_ret_pct": 0.55,
+   "median_ret_pct": 0.71,
+   "worst_ret_pct": 0.09,
+   "best_ret_pct": 0.86,
+   "positive": "3/3",
+   "mean_days": 320.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.86,
+     "dd_pct": 3.95,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.71,
+     "dd_pct": 2.79,
+     "days": 296
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.09,
+     "dd_pct": 4.95,
+     "days": 340
+    }
+   ]
+  },
+  "U1/FIXED/zero_swapfree": {
+   "finished": 3,
+   "completed": 3,
+   "stopped": 0,
+   "worst_dd_pct": 4.14,
+   "partial": [
+    {
+     "taken": 152,
+     "ret_pct": 7.45,
+     "dd_pct": 0.96
+    }
+   ],
+   "mean_ret_pct": 2.29,
+   "median_ret_pct": 2.6,
+   "worst_ret_pct": 1.63,
+   "best_ret_pct": 2.64,
+   "positive": "3/3",
+   "mean_days": 320.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.64,
+     "dd_pct": 3.36,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.6,
+     "dd_pct": 2.2,
+     "days": 296
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.63,
+     "dd_pct": 4.14,
+     "days": 340
+    }
+   ]
+  },
+  "U1/GUARD/zero_swaps": {
+   "finished": 3,
+   "completed": 1,
+   "stopped": 2,
+   "worst_dd_pct": 3.47,
+   "partial": [
+    {
+     "taken": 213,
+     "ret_pct": 8.97,
+     "dd_pct": 2.43
+    }
+   ],
+   "mean_ret_pct": 2.84,
+   "median_ret_pct": 4.53,
+   "worst_ret_pct": -2.75,
+   "best_ret_pct": 6.74,
+   "positive": "2/3",
+   "mean_days": 304.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.53,
+     "dd_pct": 3.31,
+     "days": 393
+    },
+    {
+     "status": "stopped",
+     "taken": 167,
+     "ret_pct": -2.75,
+     "dd_pct": 3.44,
+     "days": 155
+    },
+    {
+     "status": "stopped",
+     "taken": 353,
+     "ret_pct": 6.74,
+     "dd_pct": 3.47,
+     "days": 363
+    }
+   ]
+  },
+  "U1/GUARD/lab_swaps": {
+   "finished": 3,
+   "completed": 1,
+   "stopped": 2,
+   "worst_dd_pct": 3.52,
+   "partial": [
+    {
+     "taken": 207,
+     "ret_pct": 8.52,
+     "dd_pct": 2.58
+    }
+   ],
+   "mean_ret_pct": 2.11,
+   "median_ret_pct": 4.28,
+   "worst_ret_pct": -2.97,
+   "best_ret_pct": 5.01,
+   "positive": "2/3",
+   "mean_days": 302.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.28,
+     "dd_pct": 3.25,
+     "days": 393
+    },
+    {
+     "status": "stopped",
+     "taken": 128,
+     "ret_pct": -2.97,
+     "dd_pct": 3.52,
+     "days": 147
+    },
+    {
+     "status": "stopped",
+     "taken": 356,
+     "ret_pct": 5.01,
+     "dd_pct": 3.46,
+     "days": 366
+    }
+   ]
+  },
+  "U1/GUARD/zero_swapfree": {
+   "finished": 3,
+   "completed": 2,
+   "stopped": 1,
+   "worst_dd_pct": 3.53,
+   "partial": [
+    {
+     "taken": 205,
+     "ret_pct": 11.65,
+     "dd_pct": 1.79
+    }
+   ],
+   "mean_ret_pct": 3.83,
+   "median_ret_pct": 5.01,
+   "worst_ret_pct": -0.99,
+   "best_ret_pct": 7.47,
+   "positive": "2/3",
+   "mean_days": 305.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.01,
+     "dd_pct": 3.27,
+     "days": 366
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.47,
+     "dd_pct": 3.43,
+     "days": 358
+    },
+    {
+     "status": "stopped",
+     "taken": 154,
+     "ret_pct": -0.99,
+     "dd_pct": 3.53,
+     "days": 192
+    }
+   ]
+  },
+  "U1/DDLADDER/zero_swaps": {
+   "finished": 3,
+   "completed": 2,
+   "stopped": 1,
+   "worst_dd_pct": 3.43,
+   "partial": [
+    {
+     "taken": 186,
+     "ret_pct": 13.17,
+     "dd_pct": 2.02
+    }
+   ],
+   "mean_ret_pct": 1.56,
+   "median_ret_pct": 0.09,
+   "worst_ret_pct": -0.73,
+   "best_ret_pct": 5.32,
+   "positive": "2/3",
+   "mean_days": 307.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.09,
+     "dd_pct": 3.27,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.73,
+     "dd_pct": 3.23,
+     "days": 296
+    },
+    {
+     "status": "stopped",
+     "taken": 323,
+     "ret_pct": 5.32,
+     "dd_pct": 3.43,
+     "days": 300
+    }
+   ]
+  },
+  "U1/DDLADDER/lab_swaps": {
+   "finished": 3,
+   "completed": 2,
+   "stopped": 1,
+   "worst_dd_pct": 3.45,
+   "partial": [
+    {
+     "taken": 194,
+     "ret_pct": 10.33,
+     "dd_pct": 2.14
+    }
+   ],
+   "mean_ret_pct": 1.06,
+   "median_ret_pct": -0.76,
+   "worst_ret_pct": -0.96,
+   "best_ret_pct": 4.89,
+   "positive": "1/3",
+   "mean_days": 306.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.76,
+     "dd_pct": 3.29,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.96,
+     "dd_pct": 3.31,
+     "days": 296
+    },
+    {
+     "status": "stopped",
+     "taken": 306,
+     "ret_pct": 4.89,
+     "dd_pct": 3.45,
+     "days": 297
+    }
+   ]
+  },
+  "U1/DDLADDER/zero_swapfree": {
+   "finished": 3,
+   "completed": 2,
+   "stopped": 1,
+   "worst_dd_pct": 3.4,
+   "partial": [
+    {
+     "taken": 167,
+     "ret_pct": 15.21,
+     "dd_pct": 1.6
+    }
+   ],
+   "mean_ret_pct": 2.68,
+   "median_ret_pct": 1.6,
+   "worst_ret_pct": 0.08,
+   "best_ret_pct": 6.38,
+   "positive": "3/3",
+   "mean_days": 313.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.6,
+     "dd_pct": 3.23,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.08,
+     "dd_pct": 3.18,
+     "days": 296
+    },
+    {
+     "status": "stopped",
+     "taken": 325,
+     "ret_pct": 6.38,
+     "dd_pct": 3.4,
+     "days": 320
+    }
+   ]
+  },
+  "U1/SEESARE/zero_swaps": {
+   "finished": 3,
+   "completed": 3,
+   "stopped": 0,
+   "worst_dd_pct": 1.36,
+   "partial": [
+    {
+     "taken": 152,
+     "ret_pct": 1.88,
+     "dd_pct": 0.64
+    }
+   ],
+   "mean_ret_pct": -0.41,
+   "median_ret_pct": -0.1,
+   "worst_ret_pct": -1.25,
+   "best_ret_pct": 0.12,
+   "positive": "1/3",
+   "mean_days": 320.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.12,
+     "dd_pct": 1.07,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.1,
+     "dd_pct": 0.48,
+     "days": 296
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.25,
+     "dd_pct": 1.36,
+     "days": 340
+    }
+   ]
+  },
+  "U1/SEESARE/lab_swaps": {
+   "finished": 3,
+   "completed": 3,
+   "stopped": 0,
+   "worst_dd_pct": 1.37,
+   "partial": [
+    {
+     "taken": 152,
+     "ret_pct": 1.84,
+     "dd_pct": 0.64
+    }
+   ],
+   "mean_ret_pct": -0.47,
+   "median_ret_pct": -0.14,
+   "worst_ret_pct": -1.3,
+   "best_ret_pct": 0.05,
+   "positive": "1/3",
+   "mean_days": 320.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.05,
+     "dd_pct": 1.08,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.14,
+     "dd_pct": 0.51,
+     "days": 296
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.3,
+     "dd_pct": 1.37,
+     "days": 340
+    }
+   ]
+  },
+  "U1/SEESARE/zero_swapfree": {
+   "finished": 3,
+   "completed": 3,
+   "stopped": 0,
+   "worst_dd_pct": 1.35,
+   "partial": [
+    {
+     "taken": 152,
+     "ret_pct": 2.08,
+     "dd_pct": 0.64
+    }
+   ],
+   "mean_ret_pct": -0.32,
+   "median_ret_pct": 0.01,
+   "worst_ret_pct": -1.21,
+   "best_ret_pct": 0.24,
+   "positive": "2/3",
+   "mean_days": 320.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.24,
+     "dd_pct": 1.04,
+     "days": 325
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.01,
+     "dd_pct": 0.47,
+     "days": 296
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.21,
+     "dd_pct": 1.35,
+     "days": 340
+    }
+   ]
+  },
+  "U2/FIXED/zero_swaps": {
+   "finished": 4,
+   "completed": 4,
+   "stopped": 0,
+   "worst_dd_pct": 2.39,
+   "partial": [
+    {
+     "taken": 118,
+     "ret_pct": 1.38,
+     "dd_pct": 0.45
+    }
+   ],
+   "mean_ret_pct": 1.51,
+   "median_ret_pct": 1.67,
+   "worst_ret_pct": 0.25,
+   "best_ret_pct": 2.46,
+   "positive": "4/4",
+   "mean_days": 278.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.25,
+     "dd_pct": 1.99,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.46,
+     "dd_pct": 1.01,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.32,
+     "dd_pct": 1.01,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.01,
+     "dd_pct": 2.39,
+     "days": 281
+    }
+   ]
+  },
+  "U2/FIXED/lab_swaps": {
+   "finished": 4,
+   "completed": 4,
+   "stopped": 0,
+   "worst_dd_pct": 2.51,
+   "partial": [
+    {
+     "taken": 118,
+     "ret_pct": 1.28,
+     "dd_pct": 0.48
+    }
+   ],
+   "mean_ret_pct": 1.2,
+   "median_ret_pct": 1.36,
+   "worst_ret_pct": -0.06,
+   "best_ret_pct": 2.14,
+   "positive": "3/4",
+   "mean_days": 278.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.06,
+     "dd_pct": 2.06,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.14,
+     "dd_pct": 1.06,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.98,
+     "dd_pct": 1.08,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.74,
+     "dd_pct": 2.51,
+     "days": 281
+    }
+   ]
+  },
+  "U2/FIXED/zero_swapfree": {
+   "finished": 4,
+   "completed": 4,
+   "stopped": 0,
+   "worst_dd_pct": 2.22,
+   "partial": [
+    {
+     "taken": 118,
+     "ret_pct": 1.57,
+     "dd_pct": 0.41
+    }
+   ],
+   "mean_ret_pct": 2.04,
+   "median_ret_pct": 2.17,
+   "worst_ret_pct": 0.76,
+   "best_ret_pct": 3.06,
+   "positive": "4/4",
+   "mean_days": 278.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.76,
+     "dd_pct": 1.88,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.06,
+     "dd_pct": 0.9,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 2.84,
+     "dd_pct": 0.9,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.5,
+     "dd_pct": 2.22,
+     "days": 281
+    }
+   ]
+  },
+  "U2/GUARD/zero_swaps": {
+   "finished": 4,
+   "completed": 2,
+   "stopped": 2,
+   "worst_dd_pct": 3.53,
+   "partial": [
+    {
+     "taken": 253,
+     "ret_pct": 10.15,
+     "dd_pct": 1.39
+    }
+   ],
+   "mean_ret_pct": 2.13,
+   "median_ret_pct": 2.28,
+   "worst_ret_pct": -3.43,
+   "best_ret_pct": 7.38,
+   "positive": "2/4",
+   "mean_days": 229.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 246,
+     "ret_pct": -0.47,
+     "dd_pct": 3.52,
+     "days": 261
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 7.38,
+     "dd_pct": 2.52,
+     "days": 262
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 5.02,
+     "dd_pct": 2.53,
+     "days": 259
+    },
+    {
+     "status": "stopped",
+     "taken": 113,
+     "ret_pct": -3.43,
+     "dd_pct": 3.53,
+     "days": 133
+    }
+   ]
+  },
+  "U2/GUARD/lab_swaps": {
+   "finished": 4,
+   "completed": 2,
+   "stopped": 2,
+   "worst_dd_pct": 3.56,
+   "partial": [
+    {
+     "taken": 253,
+     "ret_pct": 9.63,
+     "dd_pct": 1.43
+    }
+   ],
+   "mean_ret_pct": 1.45,
+   "median_ret_pct": 1.22,
+   "worst_ret_pct": -3.46,
+   "best_ret_pct": 6.84,
+   "positive": "2/4",
+   "mean_days": 239.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 243,
+     "ret_pct": -0.81,
+     "dd_pct": 3.53,
+     "days": 261
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.84,
+     "dd_pct": 2.64,
+     "days": 262
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.24,
+     "dd_pct": 2.66,
+     "days": 309
+    },
+    {
+     "status": "stopped",
+     "taken": 129,
+     "ret_pct": -3.46,
+     "dd_pct": 3.56,
+     "days": 125
+    }
+   ]
+  },
+  "U2/GUARD/zero_swapfree": {
+   "finished": 4,
+   "completed": 3,
+   "stopped": 1,
+   "worst_dd_pct": 3.54,
+   "partial": [
+    {
+     "taken": 253,
+     "ret_pct": 11.16,
+     "dd_pct": 1.36
+    }
+   ],
+   "mean_ret_pct": 3.63,
+   "median_ret_pct": 4.98,
+   "worst_ret_pct": -3.48,
+   "best_ret_pct": 8.05,
+   "positive": "3/4",
+   "mean_days": 241.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.35,
+     "dd_pct": 3.16,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 8.05,
+     "dd_pct": 2.24,
+     "days": 252
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.62,
+     "dd_pct": 2.06,
+     "days": 266
+    },
+    {
+     "status": "stopped",
+     "taken": 136,
+     "ret_pct": -3.48,
+     "dd_pct": 3.54,
+     "days": 125
+    }
+   ]
+  },
+  "U2/DDLADDER/zero_swaps": {
+   "finished": 4,
+   "completed": 3,
+   "stopped": 1,
+   "worst_dd_pct": 3.59,
+   "partial": [
+    {
+     "taken": 245,
+     "ret_pct": 9.82,
+     "dd_pct": 1.33
+    }
+   ],
+   "mean_ret_pct": 1.54,
+   "median_ret_pct": 2.36,
+   "worst_ret_pct": -3.09,
+   "best_ret_pct": 4.52,
+   "positive": "3/4",
+   "mean_days": 249.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 0.29,
+     "dd_pct": 3.09,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.44,
+     "dd_pct": 2.17,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 4.52,
+     "dd_pct": 2.0,
+     "days": 257
+    },
+    {
+     "status": "stopped",
+     "taken": 220,
+     "ret_pct": -3.09,
+     "dd_pct": 3.59,
+     "days": 167
+    }
+   ]
+  },
+  "U2/DDLADDER/lab_swaps": {
+   "finished": 4,
+   "completed": 3,
+   "stopped": 1,
+   "worst_dd_pct": 3.55,
+   "partial": [
+    {
+     "taken": 245,
+     "ret_pct": 9.37,
+     "dd_pct": 1.4
+    }
+   ],
+   "mean_ret_pct": 0.86,
+   "median_ret_pct": 1.61,
+   "worst_ret_pct": -3.29,
+   "best_ret_pct": 3.5,
+   "positive": "2/4",
+   "mean_days": 249.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.15,
+     "dd_pct": 3.13,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.5,
+     "dd_pct": 2.27,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 3.38,
+     "dd_pct": 2.17,
+     "days": 257
+    },
+    {
+     "status": "stopped",
+     "taken": 223,
+     "ret_pct": -3.29,
+     "dd_pct": 3.55,
+     "days": 167
+    }
+   ]
+  },
+  "U2/DDLADDER/zero_swapfree": {
+   "finished": 4,
+   "completed": 3,
+   "stopped": 1,
+   "worst_dd_pct": 3.42,
+   "partial": [
+    {
+     "taken": 238,
+     "ret_pct": 12.03,
+     "dd_pct": 1.3
+    }
+   ],
+   "mean_ret_pct": 2.78,
+   "median_ret_pct": 3.75,
+   "worst_ret_pct": -2.44,
+   "best_ret_pct": 6.07,
+   "positive": "3/4",
+   "mean_days": 250.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 1.43,
+     "dd_pct": 2.97,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.07,
+     "dd_pct": 1.98,
+     "days": 251
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": 6.06,
+     "dd_pct": 1.86,
+     "days": 257
+    },
+    {
+     "status": "stopped",
+     "taken": 236,
+     "ret_pct": -2.44,
+     "dd_pct": 3.42,
+     "days": 169
+    }
+   ]
+  },
+  "U2/SEESARE/zero_swaps": {
+   "finished": 4,
+   "completed": 4,
+   "stopped": 0,
+   "worst_dd_pct": 2.54,
+   "partial": [
+    {
+     "taken": 114,
+     "ret_pct": 1.44,
+     "dd_pct": 0.73
+    }
+   ],
+   "mean_ret_pct": -0.83,
+   "median_ret_pct": -0.52,
+   "worst_ret_pct": -1.92,
+   "best_ret_pct": -0.37,
+   "positive": "0/4",
+   "mean_days": 276.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.92,
+     "dd_pct": 2.54,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.37,
+     "dd_pct": 0.72,
+     "days": 248
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.51,
+     "dd_pct": 1.8,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.54,
+     "dd_pct": 1.14,
+     "days": 276
+    }
+   ]
+  },
+  "U2/SEESARE/lab_swaps": {
+   "finished": 4,
+   "completed": 4,
+   "stopped": 0,
+   "worst_dd_pct": 2.58,
+   "partial": [
+    {
+     "taken": 114,
+     "ret_pct": 1.36,
+     "dd_pct": 0.73
+    }
+   ],
+   "mean_ret_pct": -0.91,
+   "median_ret_pct": -0.63,
+   "worst_ret_pct": -1.97,
+   "best_ret_pct": -0.42,
+   "positive": "0/4",
+   "mean_days": 276.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.97,
+     "dd_pct": 2.58,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.42,
+     "dd_pct": 0.73,
+     "days": 248
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.63,
+     "dd_pct": 1.82,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.63,
+     "dd_pct": 1.16,
+     "days": 276
+    }
+   ]
+  },
+  "U2/SEESARE/zero_swapfree": {
+   "finished": 4,
+   "completed": 4,
+   "stopped": 0,
+   "worst_dd_pct": 2.47,
+   "partial": [
+    {
+     "taken": 114,
+     "ret_pct": 1.71,
+     "dd_pct": 0.72
+    }
+   ],
+   "mean_ret_pct": -0.69,
+   "median_ret_pct": -0.35,
+   "worst_ret_pct": -1.79,
+   "best_ret_pct": -0.27,
+   "positive": "0/4",
+   "mean_days": 276.0,
+   "each": [
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -1.79,
+     "dd_pct": 2.47,
+     "days": 322
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.3,
+     "dd_pct": 0.72,
+     "days": 248
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.39,
+     "dd_pct": 1.69,
+     "days": 257
+    },
+    {
+     "status": "completed",
+     "taken": 360,
+     "ret_pct": -0.27,
+     "dd_pct": 1.14,
+     "days": 276
+    }
+   ]
+  }
+ },
+ "y2026": {
+  "U1/FIXED/zero_swaps": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 2.7,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": -0.6,
+     "dd_pct": 2.7
+    }
+   ]
+  },
+  "U1/FIXED/lab_swaps": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 2.77,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": -1.13,
+     "dd_pct": 2.77
+    }
+   ]
+  },
+  "U1/FIXED/zero_swapfree": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 2.62,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": 0.48,
+     "dd_pct": 2.62
+    }
+   ]
+  },
+  "U1/GUARD/zero_swaps": {
+   "finished": 2,
+   "completed": 0,
+   "stopped": 2,
+   "worst_dd_pct": 3.6,
+   "partial": [
+    {
+     "taken": 22,
+     "ret_pct": -0.03,
+     "dd_pct": 1.07
+    }
+   ],
+   "mean_ret_pct": -1.0,
+   "median_ret_pct": -1.0,
+   "worst_ret_pct": -2.34,
+   "best_ret_pct": 0.34,
+   "positive": "1/2",
+   "mean_days": 143.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 144,
+     "ret_pct": -2.34,
+     "dd_pct": 3.5,
+     "days": 154
+    },
+    {
+     "status": "stopped",
+     "taken": 153,
+     "ret_pct": 0.34,
+     "dd_pct": 3.6,
+     "days": 131
+    }
+   ]
+  },
+  "U1/GUARD/lab_swaps": {
+   "finished": 2,
+   "completed": 0,
+   "stopped": 2,
+   "worst_dd_pct": 3.53,
+   "partial": [
+    {
+     "taken": 23,
+     "ret_pct": -0.25,
+     "dd_pct": 1.09
+    }
+   ],
+   "mean_ret_pct": -1.14,
+   "median_ret_pct": -1.14,
+   "worst_ret_pct": -2.42,
+   "best_ret_pct": 0.14,
+   "positive": "1/2",
+   "mean_days": 143.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 142,
+     "ret_pct": -2.42,
+     "dd_pct": 3.53,
+     "days": 154
+    },
+    {
+     "status": "stopped",
+     "taken": 152,
+     "ret_pct": 0.14,
+     "dd_pct": 3.51,
+     "days": 131
+    }
+   ]
+  },
+  "U1/GUARD/zero_swapfree": {
+   "finished": 2,
+   "completed": 0,
+   "stopped": 2,
+   "worst_dd_pct": 3.49,
+   "partial": [
+    {
+     "taken": 22,
+     "ret_pct": 0.04,
+     "dd_pct": 1.02
+    }
+   ],
+   "mean_ret_pct": -0.55,
+   "median_ret_pct": -0.55,
+   "worst_ret_pct": -2.22,
+   "best_ret_pct": 1.12,
+   "positive": "1/2",
+   "mean_days": 143.0,
+   "each": [
+    {
+     "status": "stopped",
+     "taken": 151,
+     "ret_pct": -2.22,
+     "dd_pct": 3.45,
+     "days": 154
+    },
+    {
+     "status": "stopped",
+     "taken": 154,
+     "ret_pct": 1.12,
+     "dd_pct": 3.49,
+     "days": 131
+    }
+   ]
+  },
+  "U1/DDLADDER/zero_swaps": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 3.1,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": -1.52,
+     "dd_pct": 3.1
+    }
+   ]
+  },
+  "U1/DDLADDER/lab_swaps": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 3.24,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": -1.73,
+     "dd_pct": 3.24
+    }
+   ]
+  },
+  "U1/DDLADDER/zero_swapfree": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 2.98,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": -0.43,
+     "dd_pct": 2.98
+    }
+   ]
+  },
+  "U1/SEESARE/zero_swaps": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 0.64,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": 2.09,
+     "dd_pct": 0.64
+    }
+   ]
+  },
+  "U1/SEESARE/lab_swaps": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 0.64,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": 2.01,
+     "dd_pct": 0.64
+    }
+   ]
+  },
+  "U1/SEESARE/zero_swapfree": {
+   "finished": 0,
+   "completed": 0,
+   "stopped": 0,
+   "worst_dd_pct": 0.64,
+   "partial": [
+    {
+     "taken": 333,
+     "ret_pct": 2.28,
+     "dd_pct": 0.64
+    }
+   ]
+  }
+ }
+}

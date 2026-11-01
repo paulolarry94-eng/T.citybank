@@ -420,3 +420,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Learned:** P27.
 - **Facts vs estimates:** backtest only; live expected 30-50% weaker (P11); ProCent costs unmeasured (lab costs as proxy).
 - **Next:** owner decides on the drawdown-keyed ladder for CycleLedger.mqh and on whether this return is worth running.
+
+## 2026-11-01 (late night, 9) · owner: "score 360 trades as one unit, count completed lifecycles, optimise lifecycle alpha"
+- **Done (design committed 1901aeb before results):** research/seesare/universe_lifecycle_study.py. Lifecycle = 360 real trades
+  then reset; a lifecycle that cannot place any trade under the cap is STOPPED (counted as a unit); profit belongs to the
+  lifecycle that opened the trade; objective = mean return per lifecycle on 2011-22; 48 configurations. Stated before running:
+  2023-25 and 2026 were already seen in v1, so they are not a clean holdout here.
+- **Results (Exness Zero + swaps, book):** drawdown ladder m 0.3: 2011-22 13 completed / 0 stopped, mean +6.1%, median +5.8%,
+  10/13 positive, worst -2.6%, worst drawdown 3.2%; 2023-25 +0.1%, -0.7%, one stopped at +5.3%, unfinished +13.2%; 2026 unfinished
+  -1.5%. Guard 0.75%: 9 completed + 5 stopped, mean +6.4%; 2023-25 +4.5%, stopped -2.8% / +6.7%, unfinished +9.0%; 2026 two
+  stopped (-2.3%, +0.3%). Fixed 0.5%: +5.1% (2023-25 one lifecycle at 4.7%). SEESARE outcome ladder +0.7%. Book + Tokyo + EURUSD:
+  guard +5.7%, ladder +5.4%, weaker in 2023-25. One lifecycle = about 11 months (book), 9 months (with the two Tier B legs).
+- **Next:** owner decides on the drawdown-keyed ladder for CycleLedger.mqh.

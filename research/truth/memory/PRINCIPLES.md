@@ -252,3 +252,6 @@ lifecycles an investor still sees 4-6.5% drawdowns. On untouched Jan-Oct 2026 th
 fix and the EURUSD reversal helped 2011-22 and hurt 2023-25. Size by the room left under a cap; streak ladders add nothing
 (consistent with P8). Evidence: research/seesare/universe_cap_study.py, research/results/seesare/universe_cap_study.json
 (48 configurations). Confidence: medium (one universe, few lifecycles per era). Related: P8, P9, P11, P24, P26.
+Update 2026-11-01 (per-lifecycle scoring, 360 real trades = one unit, reset): book + drawdown ladder +6.1% mean per
+lifecycle (13 completed, 0 stopped, 2011-22), book + guard +6.4% (9 completed, 5 stopped); one lifecycle is about 11
+months, so the unit changes the count, not the money. Evidence: research/results/seesare/universe_lifecycle_study.json.

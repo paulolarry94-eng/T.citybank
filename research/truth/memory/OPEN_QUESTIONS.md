@@ -211,6 +211,8 @@ Universe under the cap (2026-11-01, P27): combining the survivors and choosing t
 at a 3.6% lifecycle cap (book + guard or book + drawdown-keyed ladder); 2026 untouched -0.6% to -2.3%; SEESARE's outcome ladder
 about 0. Open: owner decides whether to replace the outcome ladder in CycleLedger.mqh with the drawdown-keyed 16-level ladder
 (risk = 0.3 x room left x leg weight), and whether 6-7%/yr backtest (weaker live, P11) at this cap is worth running.
+Per lifecycle (360 real trades, reset): about +6% per lifecycle for the book (drawdown ladder: 13 of 13 completed in
+2011-22, none stopped); the owner's +2% per 10-trade cycle would be +72% per lifecycle.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
