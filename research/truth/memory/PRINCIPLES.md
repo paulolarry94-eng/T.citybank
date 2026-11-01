@@ -200,6 +200,10 @@ Japanese importers buying dollars at the Tokyo fix on gotobi days (USDJPY 23:00 
 1.21 -> 1.38 in the lab's fit. Look for who must trade, when, and why, before looking at charts. Evidence:
 research/results/truth/tokyo_fix_gotobi_v1/, research/results/flows/. Confidence: medium (one flow, one market, small edge
 per trade: +1.4 to +3.9 pips after cost).
+Update (2026-11-01): a fix time alone is not a payer. The ECB 14:10 CET reference rate (the ECB discourages trading at it;
+no known direction) shows no gross edge on EURUSD in either shape (ecb_fix_eurusd_v1, 4 configurations, gross -0.6 to +0.4
+pip per trade), like the London 4 pm fix (2 rejections). The survivor has a payer with a known DIRECTION (importers buy
+dollars). Hunt for who must trade AND which way. Confidence unchanged: medium.
 
 ### P23 A daily backtest across markets must trade one day after the signal
 Markets close at different hours (Hang Seng and Nikkei before Europe, Europe before the US) and holidays leave stale prices.

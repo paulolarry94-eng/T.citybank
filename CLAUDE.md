@@ -91,6 +91,9 @@ Learning rules:
   format 2: level = drawdown in $2.25 bands, plan = 0.30 x weight x room left, real risk <= plan, weight (0, 1.00]); holds 3.6%
   by construction (gaps up to 3.33x the plan); Tokyo weight 0.57 (1.00 mixed, 2.00 worse: `ddladder_weight_check.json`); the
   router can only trade the Tokyo fix today (one lifecycle about 5 years). Twin and 78 tests pass.
+- Q19 ECB fix (2026-11-01): ECB 14:10 CET reference rate on EURUSD REJECTED at RoboForex Prime costs (0.55 pip, published,
+  `research/truth/costs_roboforex_prime.json`); gross edge about zero, so costs are not the reason (P22 update: a payer needs a
+  known direction). Owner plans RoboForex Prime; its swap-free status is unsettled (Q1 note).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

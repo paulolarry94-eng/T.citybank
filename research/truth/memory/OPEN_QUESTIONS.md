@@ -15,6 +15,15 @@ Owner's MT5 Specification (2026-11-01, symbol assumed US500): contract size 1, m
 points and short 0 per night (Friday x3), trade sessions Sun 22:00-24:00, Mon-Thu 00:00-21:00 and 22:00-24:00, Fri to 20:55.
 Commission is not shown in the Specification: it appears in History after a trade (open/close 0.03 lot on demo).
 
+Broker change (owner, 2026-11-01): the owner now plans RoboForex Prime (raw spread from 0, commission, leverage 1:300).
+This does not answer Q1 (Q1 is the Exness account). RoboForex facts from its own pages: Prime commission "10 / mio" (read as
+10 USD per million USD per side, about 1 USD per lot per side; reviews agree); average Prime spreads EURUSD 0.1, USDJPY 0.2 pip;
+published Prime swaps EURUSD long -0.98 / short +0.19, USDJPY long +0.38 / short -2.1 pips per night. Swap-free is NOT settled:
+the Prime account page still lists "Swap-Free account: No", while RoboForex's March 2026 release says new accounts are
+swap-free on currencies and metals with no extra charge (one review says triple-swap days carry a tripled fee). Cost profile:
+research/truth/costs_roboforex_prime.json (published figures, not measured). Owner check, 2 minutes: on the Prime account,
+MT5 symbol Specification -> Swap long/short = 0? and the commission shown in History after a 0.01-lot EURUSD round trip.
+
 ### Q2 Does the TimelessCity EA trade like the research?
 Compile v2.42, Strategy Tester 2023–2025 (real ticks), compare with
 `research/results/northstar/parity/timelesscity/*.csv` using `tools/parity_check.py`.
@@ -157,6 +166,12 @@ Owner pasted an AI-written list of 24 "structural payer flows" for a 20-30-leg b
   (unscheduled, ~4 events in 15 years). Already tested: CTA trend breaks = trend following (P6).
 Expect 2-4 survivors from the ~11 testable rows. Only verified legs go into the EA's time/event router. FAMILY: calendar,
 flow, fix, intraday, owner-idea, payer.
+Tested 2026-11-01: ECB 14:10 CET reference rate on EURUSD at RoboForex Prime costs (ecb_fix_eurusd_v1, 4 configurations):
+REJECTED at the development gate; gross edge about zero in both shapes (into the fix -0.16 / -0.64 pip, fade after it +0.40 /
++0.14 pip, 2011-19 / 2020-22), so a cheaper account cannot rescue it (research/results/truth/ecb_fix_eurusd_v1/,
+research/results/q19/ecb_fix_costs.json). Fix rows so far: Tokyo (known payer and direction) Tier B; London 4 pm x2 and ECB
+(no known direction) rejected. Remaining rows need a direction from somewhere (month's equity returns for month-end
+rebalancing, US close imbalance) or data we lack.
 
 ### Q20 SEESARE P26 router (owner directive 2026-11-01): which constraint is the goal, and how does the ladder trade at $1,000?
 Owner directive: run the payer flows through an MQL5 "time and event router" sized by SEESARE P26 (16-level hierarchy,

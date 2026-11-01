@@ -1,0 +1,205 @@
+{
+ "design": "Q19 companion (declared in ecb_fix_eurusd_v1.py before the run): the same lab trades of all 4 configurations at other\ncost levels, descriptive only (no selection). Periods 2011-19 and 2020-22 only: the lab rejected the rule at the development\ngate, so the 2023-25 holdout was never opened and stays unopened here.\nCost levels (EURUSD round trip): gross 0; RoboForex Prime 0.55 pip (published, the lab's run); Exness Zero realistic 0.95 pip;\nlab standard 1.5 pips. Output: research/results/q19/ecb_fix_costs.json\n",
+ "configs": {
+  "into/all": {
+   "2011-19": {
+    "n": 2290,
+    "gross": {
+     "pips": -0.164,
+     "t": -1.22,
+     "win": 0.488
+    },
+    "roboforex_prime": {
+     "pips": -0.714,
+     "t": -5.32,
+     "win": 0.438
+    },
+    "exness_zero": {
+     "pips": -1.114,
+     "t": -8.3,
+     "win": 0.404
+    },
+    "lab_standard": {
+     "pips": -1.664,
+     "t": -12.39,
+     "win": 0.362
+    },
+    "avg_abs_move_pips": 4.58
+   },
+   "2020-22": {
+    "n": 764,
+    "gross": {
+     "pips": -0.642,
+     "t": -3.22,
+     "win": 0.418
+    },
+    "roboforex_prime": {
+     "pips": -1.192,
+     "t": -5.97,
+     "win": 0.373
+    },
+    "exness_zero": {
+     "pips": -1.592,
+     "t": -7.97,
+     "win": 0.346
+    },
+    "lab_standard": {
+     "pips": -2.142,
+     "t": -10.73,
+     "win": 0.305
+    },
+    "avg_abs_move_pips": 4.18
+   }
+  },
+  "into/month_end": {
+   "2011-19": {
+    "n": 108,
+    "gross": {
+     "pips": -1.601,
+     "t": -2.29,
+     "win": 0.417
+    },
+    "roboforex_prime": {
+     "pips": -2.151,
+     "t": -3.07,
+     "win": 0.398
+    },
+    "exness_zero": {
+     "pips": -2.551,
+     "t": -3.64,
+     "win": 0.37
+    },
+    "lab_standard": {
+     "pips": -3.101,
+     "t": -4.43,
+     "win": 0.37
+    },
+    "avg_abs_move_pips": 5.18
+   },
+   "2020-22": {
+    "n": 32,
+    "gross": {
+     "pips": -0.669,
+     "t": -0.89,
+     "win": 0.438
+    },
+    "roboforex_prime": {
+     "pips": -1.219,
+     "t": -1.61,
+     "win": 0.375
+    },
+    "exness_zero": {
+     "pips": -1.619,
+     "t": -2.14,
+     "win": 0.281
+    },
+    "lab_standard": {
+     "pips": -2.169,
+     "t": -2.87,
+     "win": 0.25
+    },
+    "avg_abs_move_pips": 3.18
+   }
+  },
+  "after/all": {
+   "2011-19": {
+    "n": 2281,
+    "gross": {
+     "pips": 0.399,
+     "t": 0.9,
+     "win": 0.499
+    },
+    "roboforex_prime": {
+     "pips": -0.151,
+     "t": -0.34,
+     "win": 0.485
+    },
+    "exness_zero": {
+     "pips": -0.551,
+     "t": -1.24,
+     "win": 0.471
+    },
+    "lab_standard": {
+     "pips": -1.101,
+     "t": -2.48,
+     "win": 0.456
+    },
+    "avg_abs_move_pips": 15.05
+   },
+   "2020-22": {
+    "n": 767,
+    "gross": {
+     "pips": 0.139,
+     "t": 0.22,
+     "win": 0.501
+    },
+    "roboforex_prime": {
+     "pips": -0.411,
+     "t": -0.66,
+     "win": 0.482
+    },
+    "exness_zero": {
+     "pips": -0.811,
+     "t": -1.3,
+     "win": 0.468
+    },
+    "lab_standard": {
+     "pips": -1.361,
+     "t": -2.19,
+     "win": 0.446
+    },
+    "avg_abs_move_pips": 12.53
+   }
+  },
+  "after/month_end": {
+   "2011-19": {
+    "n": 107,
+    "gross": {
+     "pips": 2.039,
+     "t": 1.02,
+     "win": 0.505
+    },
+    "roboforex_prime": {
+     "pips": 1.489,
+     "t": 0.75,
+     "win": 0.505
+    },
+    "exness_zero": {
+     "pips": 1.089,
+     "t": 0.55,
+     "win": 0.486
+    },
+    "lab_standard": {
+     "pips": 0.539,
+     "t": 0.27,
+     "win": 0.477
+    },
+    "avg_abs_move_pips": 14.32
+   },
+   "2020-22": {
+    "n": 32,
+    "gross": {
+     "pips": -2.628,
+     "t": -0.85,
+     "win": 0.438
+    },
+    "roboforex_prime": {
+     "pips": -3.178,
+     "t": -1.03,
+     "win": 0.406
+    },
+    "exness_zero": {
+     "pips": -3.578,
+     "t": -1.16,
+     "win": 0.406
+    },
+    "lab_standard": {
+     "pips": -4.128,
+     "t": -1.33,
+     "win": 0.406
+    },
+    "avg_abs_move_pips": 14.33
+   }
+  }
+ }
+}

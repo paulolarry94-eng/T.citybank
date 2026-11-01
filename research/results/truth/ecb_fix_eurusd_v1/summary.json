@@ -1,0 +1,252 @@
+{
+ "name": "ecb_fix_eurusd_v1",
+ "hypothesis": "Orders benchmarked to the ECB 14:10 CET concertation push EURUSD one way into the fix (continuation) and the push fades after it (reversal), by more than RoboForex Prime's round-trip cost.",
+ "fingerprint": "b96393341bd595f7861da550e2d9859b16868588393440e9c4bdf5bcba48f5dd",
+ "started": "2026-11-01 19:33:47 UTC",
+ "markets": [
+  "EURUSD"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "trade": [
+   "into",
+   "after"
+  ],
+  "days": [
+   "all",
+   "month_end"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily liquidity sweeps (Asian, PDH/PDL, PWH/PWL)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Cross-sectional momentum (12-1, within class)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel futures v2: 16 awesome-list cross-asset strategies (pysystemtrade futures, one-day execution lag)",
+   "verdict": "Rejected except time-series momentum (confirms the futures trend family) and four weak futures-only passes"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "funnel_sofus_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "seesare_ladder_envelope_v1",
+   "verdict": "Rejected as a guarantee: ladder rules alone allow 29.55% (time exits at -0.6R, manual) and 14.96% (stop at 3.5:1 then two 1:1 wins); a pre-trade check (drawdown + all-in risk <= $36) holds 3.53% / 3.60%. With losing time exits counted NEGATIVE: 0.19%."
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Tokyo fix payoff shape and declared-bracket study",
+   "verdict": "Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection."
+  },
+  {
+   "name": "SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules)",
+   "verdict": "Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R."
+  },
+  {
+   "name": "SEESARE time-exit ascension study (Tokyo fix, cent account)",
+   "verdict": "Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3."
+  },
+  {
+   "name": "Strategy universe under a 3.6% lifecycle drawdown cap (4 sizing rules)",
+   "verdict": "Study: the cap buys about 6-7% a year from the book in backtest, not great alpha. Chosen on 2011-22, one look at 2023-25 (Exness Zero + swaps): book + guard 0.75% +6.83%/yr (worst lifecycle 3.47%, across lifecycles 4.29%); book + drawdown-keyed 16-level ladder (m 0.3) +5.99%/yr (3.43%, 4.32%); book fixed 0.5% +3.41%/yr but 4.71% (cap broken); book + Tokyo fix + EURUSD reversal: guard +4.27%/yr, ladder +3.30%/yr (better 2011-22, worse 2023-25); SEESARE outcome ladder about 0 in every case. Untouched Jan-Oct 2026 (book): guard -2.34% and trading halted after about 5 months; drawdown ladder -1.52%; fixed -0.60%; SEESARE +2.09% at 0.64% drawdown."
+  },
+  {
+   "name": "Strategy universe scored per 360-trade lifecycle (4 sizing rules)",
+   "verdict": "Study: about +5-6% per lifecycle (one lifecycle = 360 trades = about 11 months for the book). 2011-22: book + drawdown ladder 13 completed, 0 stopped, mean +6.1%, median +5.8%, worst -2.6%, best +18.3%, worst drawdown 3.2%; book + guard 9 completed + 5 stopped, mean +6.4%; fixed 0.5% +5.1%; SEESARE outcome ladder +0.7%. 2023-25 (already seen in v1, not clean): ladder +0.1%, -0.7%, stopped +5.3%, unfinished +13.2%; guard +4.5%, stopped -2.8% and +6.7%, unfinished +9.0%. 2026 unfinished (333 trades): ladder -1.5%, guard two stopped lifecycles (-2.3%, +0.3%). Owner's +2% per 10-trade cycle = +72% per lifecycle; measured about +6% (0.17% per 10 trades)."
+  },
+  {
+   "name": "Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00",
+   "verdict": "Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen."
+  },
+  {
+   "name": "Daily one-trade queue over the 13 validated strategies (Monte Carlo, 3.6% / 5% drawdown sizing)",
+   "verdict": "Rejected for the target. Real-time queue (first signalling moment of the session day, best 2011-19 quality at that moment). Every-day version (all 13 legs, ~250 trades/yr): Monte Carlo median +0.00 to +0.05% per cycle at 3.6% sizing (~2.3-3.0%/yr). Best per cycle: top-3 legs (XAU EMA20-50 H4, XAU S1 reversion, JPY S2 Donchian), +0.59% median per cycle at 3.6% (+0.82% at 5%), 76% of cycles positive, but only ~22 trades a year (a cycle every ~5.5 months, ~1.3%/yr); actual 2020-22 / 2023-25 median cycles +0.15% / +0.20% (in-sample for the book); 2026 untouched: -0.10R/trade, -0.31% over 19 trades. Taking every signal (no queue) earns more per year (~4.9%) at the same cap: the queue throws away breadth."
+  },
+  {
+   "name": "Q21 diagnostic: tick-volume surge on opening-range breakouts vs range expansion and direction",
+   "verdict": "Study: activity predicts a little more movement in both directions, not direction. USDJPY 2011-25 (9,252 breakouts, Tokyo/London/New York): rank correlation with 60-min range expansion +0.05 / +0.07, with follow-through +0.001 / -0.008; top-quintile follow-through +0.0135 ATR_D in 2011-19 (t 2.4 of 5 quintiles) and +0.006 (t 0.8) in 2020-25, below the 0.0187 ATR_D round-trip cost. GER40 2020-25 (2,396): expansion +0.19, follow-through -0.009. Only USDJPY (all years) and GER40 (2020+) have tick volume in our data."
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 4,
+  "passed_gate": 0,
+  "share_dev_positive": 0.25,
+  "median_dev_E": -0.011858619472735967,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

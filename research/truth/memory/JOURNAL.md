@@ -488,3 +488,19 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts:** only USDJPY (all years) and GER40 (2020+) have tick volume; the earlier "-0.12 to -0.16R" was the ORB finalists,
   not the liquidity variants (best liquidity variant -0.185R 2023-25).
 - **Next:** nothing is running; next lab work proposed: Q19 payer flows (ECB reference rate first), rules fixed before data.
+
+## 2026-11-01 (late night, 14) · owner moved to RoboForex Prime and asked for the Q19 payer-flow test at Prime costs
+- **Asked:** simulate RoboForex Prime's commission-plus-raw-spread pricing; run the Q19 (ECB reference-rate fix) test under
+  fixed rules. Owner also said Q1 swap-free is verified from a RoboForex screenshot.
+- **Done:** cost profile research/truth/costs_roboforex_prime.json from RoboForex's published figures (EURUSD 0.1 pip average
+  spread + 10 USD per million per side = 0.25 pip round trip at 1.25 + 0.2 pip slippage = 0.55 pip; USDJPY 0.65 pip). Strategy
+  ecb_fix_eurusd_v1 (into the 14:10 CET fix with the drift / fade after it; all days / month-end; 4 configurations) and the
+  cost-ladder companion research/q19/ecb_fix_costs.py committed 092436f before any result.
+- **Learned (Truth Lab):** REJECTED at the development gate (1 of 4 positive in 2011-19, none in both periods). Gross edge about
+  zero: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (2011-19 / 2020-22); Prime costs turn both negative. The 2023-25
+  holdout was not opened. P22 updated: a fix time alone is not a payer; the survivor has a known direction.
+- **Facts vs estimates:** RoboForex costs are published, not measured (no tick archive). Swap-free on Prime is not settled
+  (account page "No"; March 2026 release says new accounts swap-free on FX and metals). Q1 is the Exness account and stays
+  open; the RoboForex check is logged under Q1. The ECB test is intraday and pays no swap either way.
+- **Next:** remaining Q19 rows need a direction source (month-end rebalancing conditional on the month's equity move) or data
+  we lack (US close imbalance). Owner: check swap and commission on the Prime account in MT5.

@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-73 ideas tested, about 303,508 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+75 ideas tested, about 303,512 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,28 +15,29 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 19 | 0 | 1,792 |
-| intraday | 18 | 1 | 182,551 |
-| flow | 14 | 1 | 56 |
+| owner-idea | 21 | 0 | 1,796 |
+| intraday | 20 | 1 | 182,555 |
+| flow | 16 | 1 | 60 |
+| calendar | 14 | 1 | 143 |
 | awesome-list | 13 | 0 | 147 |
 | index | 13 | 0 | 98 |
 | breadth | 12 | 0 | 697 |
-| calendar | 12 | 1 | 139 |
 | trend | 12 | 4 | 102,718 |
 | breakout | 10 | 0 | 119,432 |
+| fix | 10 | 1 | 54 |
+| reversal | 10 | 1 | 105,856 |
 | engulfing | 9 | 0 | 3,836 |
-| reversal | 9 | 1 | 105,852 |
 | seasonal | 9 | 2 | 23 |
 | session | 9 | 0 | 183,879 |
 | sizing | 9 | 0 | 196 |
 | daily | 8 | 1 | 172 |
-| fix | 8 | 1 | 50 |
 | seesare | 8 | 0 | 152 |
 | structure | 8 | 0 | 1,634 |
 | portfolio | 7 | 3 | 136 |
 | repo-funnel | 7 | 0 | 222 |
 | retest | 7 | 0 | 10,308 |
 | risk | 7 | 0 | 172 |
+| eurusd | 6 | 1 | 159 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
 | drawdown-cap | 5 | 0 | 124 |
@@ -45,13 +46,13 @@
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
 | mean-reversion | 5 | 0 | 47 |
+| momentum | 5 | 0 | 57 |
 | smc | 5 | 0 | 14,988 |
-| eurusd | 4 | 1 | 155 |
-| momentum | 4 | 0 | 53 |
 | monthly | 4 | 0 | 20 |
 | oil | 4 | 0 | 7 |
 | third-party-ea | 4 | 0 | 304 |
 | carry | 3 | 1 | 18 |
+| costs | 3 | 0 | 8 |
 | cross-asset | 3 | 0 | 4 |
 | filter-mining | 3 | 0 | 244 |
 | gbpusd | 3 | 0 | 152 |
@@ -67,11 +68,11 @@
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | cent-account | 2 | 0 | 12 |
-| costs | 2 | 0 | 8 |
 | cross-sectional | 2 | 0 | 17 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | fvg | 2 | 0 | 9,312 |
+| payer | 2 | 0 | 4 |
 | rsi2 | 2 | 0 | 8 |
 | scanner | 2 | 0 | 61,803 |
 | short-vol | 2 | 0 | 17 |
@@ -111,6 +112,7 @@
 | quasimodo | 1 | 0 | 3,456 |
 | random | 1 | 0 | 48 |
 | ranking | 1 | 0 | 61,787 |
+| roboforex | 1 | 0 | 0 |
 | scalping | 1 | 0 | 144 |
 | selection | 1 | 0 | 16 |
 | stat-arb | 1 | 0 | 1 |
@@ -155,6 +157,8 @@
 | 2026-11-01 | Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00 | seesare, sizing, drawdown-cap, flow, fix, usdjpy, portfolio, owner-idea | 8 | Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen. | tokyo_only_per_life +11.830, tokyo_only_days_per_life +1835.000, w057_dev +6.560, w100_dev +6.840, w200_dev +5.780, w057_2325 +2.180, w100_2325 +2.620, w200_2325 +1.190, w057_dev_lab +5.970, w100_dev_lab +5.220 |
 | 2026-11-01 | Daily one-trade queue over the 13 validated strategies (Monte Carlo, 3.6% / 5% drawdown sizing) | scanner, selection, best-setup, session, portfolio, sizing, drawdown-cap, seesare, owner-idea | 16 | Rejected for the target. Real-time queue (first signalling moment of the session day, best 2011-19 quality at that moment). Every-day version (all 13 legs, ~250 trades/yr): Monte Carlo median +0.00 to +0.05% per cycle at 3.6% sizing (~2.3-3.0%/yr). Best per cycle: top-3 legs (XAU EMA20-50 H4, XAU S1 reversion, JPY S2 Donchian), +0.59% median per cycle at 3.6% (+0.82% at 5%), 76% of cycles positive, but only ~22 trades a year (a cycle every ~5.5 months, ~1.3%/yr); actual 2020-22 / 2023-25 median cycles +0.15% / +0.20% (in-sample for the book); 2026 untouched: -0.10R/trade, -0.31% over 19 trades. Taking every signal (no queue) earns more per year (~4.9%) at the same cap: the queue throws away breadth. | top13_h7_cycle_median +0.049, top13_h7_per_year +3.030, top3_h13_cycle_median_3_6 +0.594, top3_h13_cycle_median_5 +0.824, top3_h13_trades_per_year +22.100, top3_h13_per_year +1.280, baseline_all_per_year +4.900, top3_2020_22_cycle_median +0.146, top3_2023_25_cycle_median +0.203, top3_2026_r -0.096 |
 | 2026-11-01 | Q21 diagnostic: tick-volume surge on opening-range breakouts vs range expansion and direction | breakout, orb, volume, momentum, intraday, session, owner-idea | — | Study: activity predicts a little more movement in both directions, not direction. USDJPY 2011-25 (9,252 breakouts, Tokyo/London/New York): rank correlation with 60-min range expansion +0.05 / +0.07, with follow-through +0.001 / -0.008; top-quintile follow-through +0.0135 ATR_D in 2011-19 (t 2.4 of 5 quintiles) and +0.006 (t 0.8) in 2020-25, below the 0.0187 ATR_D round-trip cost. GER40 2020-25 (2,396): expansion +0.19, follow-through -0.009. Only USDJPY (all years) and GER40 (2020+) have tick volume in our data. | usdjpy_rho_expansion_dev +0.051, usdjpy_rho_expansion_late +0.070, usdjpy_rho_follow_dev +0.001, usdjpy_rho_follow_late -0.008, usdjpy_q5_follow_dev +0.013, usdjpy_q5_follow_late +0.006, usdjpy_cost_atr +0.019, ger40_rho_expansion +0.193, ger40_rho_follow -0.009 |
+| 2026-11-01 | ecb_fix_eurusd_v1 | calendar, flow, fix, intraday, eurusd, reversal, momentum, payer, owner-idea | 4 | Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for. | into_all_dev_E -0.020, into_all_dev_t -5.470, into_all_val_E -0.035, after_all_dev_E -0.004, after_all_dev_t -0.330, after_all_val_E -0.013, after_me_dev_E +0.035, after_me_val_E -0.110, into_me_dev_E -0.056, into_me_val_E -0.038, gross_pips_into_dev -0.164, gross_pips_into_val -0.642, gross_pips_after_dev +0.399, gross_pips_after_val +0.139, share_dev_positive +0.250, cost_pips +0.550 |
+| 2026-11-01 | Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard) | calendar, flow, fix, intraday, eurusd, costs, roboforex, payer, owner-idea | — | Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened. | into_all_gross_dev -0.164, into_all_gross_val -0.642, after_all_gross_dev +0.399, after_all_gross_val +0.139, after_all_prime_dev -0.151, after_all_prime_val -0.411, after_me_gross_dev +2.039, after_me_gross_val -2.628 |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |
