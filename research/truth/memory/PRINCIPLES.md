@@ -241,3 +241,14 @@ winning mornings): mean level 13.1-13.5, 15-191 real trades in 15 years dependin
 Before sizing a flow with this ladder, check its win rate, not only its edge; a 1:1 flow near 50% belongs on fixed small size
 (P8). Evidence: research/seesare/cycle_study_ascension.py, research/results/seesare/cycle_study_ascension.json (Markov table
 in the 2026-11-01 journal entry). Confidence: high (arithmetic + replay). Related: P25, P24, P8.
+
+### P27 A 3.6% drawdown cap per lifecycle buys about 6-7% a year from the book, not great alpha
+A drawdown cap limits losses; it does not create returns. Return = edge x size x trades, and the cap limits size. With the
+11-leg book (Exness Zero + swaps), settings chosen on 2011-22 and one look at 2023-25: fixed risk + the pre-trade guard
+(0.75% x leg weight) made +7.2% / +6.8% a year (worst lifecycle 3.6% / 3.5%); a 16-level ladder keyed to drawdown instead of
+win/loss streaks (risk = 0.3 x room left) +7.0% / +6.0%, kept trading where the guard froze; plain fixed risk had to be cut to
+0.5% to respect the cap and still broke it in 2023-25 (4.7%); SEESARE's outcome ladder earned about 0 (P26). Across
+lifecycles an investor still sees 4-6.5% drawdowns. On untouched Jan-Oct 2026 the capped book lost 0.6-2.3%. Adding the Tokyo
+fix and the EURUSD reversal helped 2011-22 and hurt 2023-25. Size by the room left under a cap; streak ladders add nothing
+(consistent with P8). Evidence: research/seesare/universe_cap_study.py, research/results/seesare/universe_cap_study.json
+(48 configurations). Confidence: medium (one universe, few lifecycles per era). Related: P8, P9, P11, P24, P26.

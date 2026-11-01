@@ -1,0 +1,1673 @@
+{
+ "design": "Strategy universe under a 3.6% drawdown cap per lifecycle (owner, 2026-11-01): fixed before any result.\n\nQuestion: combining every surviving strategy and choosing the sizing rule (including a reconfigured ladder), how much return\ncan be had while each 360-trade lifecycle stays within about 3.6% drawdown?\n\nUniverses (survivors only; rejected strategies have no edge after costs; TimelessCity is left out because its three legs are\nbook legs already):\n  U1  the 11-leg book, frozen weights (research/results/book_v3.json, inverse 2011-19 monthly-vol weights)\n  U2  U1 + Tokyo gotobi fix + EURUSD close-beyond reversal (both Tier B; trades = the lab's parity_trades.csv), each weighted\n      by the book's own rule: (1 / 2011-19 monthly R vol) / the book's largest (1 / vol), capped at 1\nCosts: primary profile Exness Zero realistic costs + swaps (the champion tearsheet's formula); also reported: lab costs + swaps\n(a higher-cost proxy; RoboForex ProCent costs are unmeasured) and Exness Zero swap-free (separately, never instead).\nLifecycle: 360 consecutive signals of the universe (taken or skipped), by entry time. Sizes, drawdown and the cap are % of the\nlifecycle's starting equity; equity compounds from one lifecycle to the next. Drawdown = closed-trade equity below the\nlifecycle's high. \"Guard\" = a trade is taken only if drawdown + open risk + its risk <= 3.6%.\nSizing rules (each risk is x the leg weight):\n  FIXED(r)    risk r per trade, no guard                               r in 0.25, 0.375, 0.5, 0.625, 0.75, 1.0 %\n  GUARD(r)    risk r per trade + guard                                 same grid\n  DDLADDER(m) reconfigured ladder: 16 levels keyed to drawdown, not to wins and losses: level k = floor(drawdown / 0.225%),\n              risk = m x (3.6% - (k+1) x 0.225%) (m x the room left at the bottom of the band), + guard\n                                                                       m in 0.05, 0.1, 0.15, 0.2, 0.3, 0.5\n  SEESARE(s)  SEESARE outcome ladder (default proportions, +1 per win, -2/-3/-4 per loss, ascension rule: a trade's sign is\n              its outcome; skipped trades move the ladder as SHADOW), L0 risk s, reset to L0 each lifecycle, + guard\n                                                                       s in 0.5, 0.75, 1.0, 1.5, 2.0, 3.0 %\nConfigurations: 4 rules x 6 settings x 2 universes = 48.\nSelection (development only, entries 2011-2022, run on its own): per rule and universe, the setting with the highest annual\nreturn among those whose worst development lifecycle drawdown <= 3.6%. Then ONE look: 2023-2025 (entries 2023-2025, run on\nits own from a fresh lifecycle) for the 8 selected configurations only; and the book's untouched Jan-Oct 2026 trades\n(research/trades/champion_2026/, book legs only: no 2026 trades exist for the two Tier B legs) for the U1 selections.\nOutput: research/results/seesare/universe_cap_study.json\n",
+ "weights": {
+  "U1": {
+   "EUR_EuroHours_short_TueThu": 0.3292,
+   "XAU_S1_reversion_H1M30M20": 0.6333,
+   "JPY_VolBreakout_D1_k0.7": 0.2118,
+   "XAU_Donchian20_H4_turtle": 0.2103,
+   "JPY_S2_Donchian20_H4_long": 0.366,
+   "XAU_EMA20-50_H4": 0.3356,
+   "GBP_WeeklySweep_FollowThrough": 0.9253,
+   "JPY_Donchian55_D1_trail": 0.4205,
+   "JPY_RSI2_D1_lo5": 1.0,
+   "GBPJPY_Donchian20_H4_trail": 0.2458,
+   "EURGBP_Bollinger_D1_k1.5": 0.5591
+  },
+  "U2": {
+   "EUR_EuroHours_short_TueThu": 0.3292,
+   "XAU_S1_reversion_H1M30M20": 0.6333,
+   "JPY_VolBreakout_D1_k0.7": 0.2118,
+   "XAU_Donchian20_H4_turtle": 0.2103,
+   "JPY_S2_Donchian20_H4_long": 0.366,
+   "XAU_EMA20-50_H4": 0.3356,
+   "GBP_WeeklySweep_FollowThrough": 0.9253,
+   "JPY_Donchian55_D1_trail": 0.4205,
+   "JPY_RSI2_D1_lo5": 1.0,
+   "GBPJPY_Donchian20_H4_trail": 0.2458,
+   "EURGBP_Bollinger_D1_k1.5": 0.5591,
+   "tokyo_fix_gotobi_v1": 0.5732,
+   "eurusd_close_beyond_reversal_v1": 1.0
+  }
+ },
+ "dev": {
+  "U1/FIXED/0.0025": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 2.9,
+   "total_pct": 41.41,
+   "worst_life_dd_pct": 1.77,
+   "median_life_dd_pct": 1.15,
+   "worst_planned_pct": 2.35,
+   "life_ret_pct": {
+    "mean": 2.52,
+    "median": 2.52,
+    "worst": -0.49,
+    "best": 4.98,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 2.0,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/0.00375": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 4.34,
+   "total_pct": 67.31,
+   "worst_life_dd_pct": 2.66,
+   "median_life_dd_pct": 1.73,
+   "worst_planned_pct": 3.53,
+   "life_ret_pct": {
+    "mean": 3.78,
+    "median": 3.77,
+    "worst": -0.74,
+    "best": 7.47,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 2.98,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/0.005": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 5.77,
+   "total_pct": 97.34,
+   "worst_life_dd_pct": 3.54,
+   "median_life_dd_pct": 2.31,
+   "worst_planned_pct": 4.7,
+   "life_ret_pct": {
+    "mean": 5.04,
+    "median": 5.01,
+    "worst": -0.99,
+    "best": 9.96,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 3.96,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/0.00625": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 7.19,
+   "total_pct": 132.04,
+   "worst_life_dd_pct": 4.43,
+   "median_life_dd_pct": 2.88,
+   "worst_planned_pct": 5.88,
+   "life_ret_pct": {
+    "mean": 6.3,
+    "median": 6.25,
+    "worst": -1.24,
+    "best": 12.45,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 4.92,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/0.0075": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 8.61,
+   "total_pct": 172.05,
+   "worst_life_dd_pct": 5.32,
+   "median_life_dd_pct": 3.46,
+   "worst_planned_pct": 7.05,
+   "life_ret_pct": {
+    "mean": 7.55,
+    "median": 7.49,
+    "worst": -1.5,
+    "best": 14.94,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 5.88,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/0.01": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 11.42,
+   "total_pct": 270.86,
+   "worst_life_dd_pct": 7.09,
+   "median_life_dd_pct": 4.61,
+   "worst_planned_pct": 9.4,
+   "life_ret_pct": {
+    "mean": 10.06,
+    "median": 9.94,
+    "worst": -2.02,
+    "best": 19.93,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 7.76,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/GUARD/0.0025": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 2.9,
+   "total_pct": 41.41,
+   "worst_life_dd_pct": 1.77,
+   "median_life_dd_pct": 1.15,
+   "worst_planned_pct": 2.35,
+   "life_ret_pct": {
+    "mean": 2.52,
+    "median": 2.52,
+    "worst": -0.49,
+    "best": 4.98,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 2.0,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/GUARD/0.00375": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 4.34,
+   "total_pct": 67.31,
+   "worst_life_dd_pct": 2.66,
+   "median_life_dd_pct": 1.73,
+   "worst_planned_pct": 3.53,
+   "life_ret_pct": {
+    "mean": 3.78,
+    "median": 3.77,
+    "worst": -0.74,
+    "best": 7.47,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 2.98,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/GUARD/0.005": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 5.5,
+   "total_pct": 91.25,
+   "worst_life_dd_pct": 3.59,
+   "median_life_dd_pct": 2.31,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 4.81,
+    "median": 4.75,
+    "worst": -2.72,
+    "best": 9.87,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 3.74,
+   "taken_share": 0.978,
+   "lives_with_skips": 5
+  },
+  "U1/GUARD/0.00625": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 6.64,
+   "total_pct": 117.87,
+   "worst_life_dd_pct": 3.65,
+   "median_life_dd_pct": 2.81,
+   "worst_planned_pct": 3.59,
+   "life_ret_pct": {
+    "mean": 5.84,
+    "median": 5.54,
+    "worst": -2.58,
+    "best": 12.16,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 4.75,
+   "taken_share": 0.891,
+   "lives_with_skips": 9
+  },
+  "U1/GUARD/0.0075": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 7.18,
+   "total_pct": 131.61,
+   "worst_life_dd_pct": 3.59,
+   "median_life_dd_pct": 3.2,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 6.36,
+    "median": 7.33,
+    "worst": -3.06,
+    "best": 14.66,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 6.5,
+   "taken_share": 0.794,
+   "lives_with_skips": 12
+  },
+  "U1/GUARD/0.01": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 7.65,
+   "total_pct": 144.24,
+   "worst_life_dd_pct": 3.61,
+   "median_life_dd_pct": 3.42,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 6.84,
+    "median": 7.32,
+    "worst": -2.93,
+    "best": 20.26,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 6.25,
+   "taken_share": 0.615,
+   "lives_with_skips": 14
+  },
+  "U1/DDLADDER/0.05": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 1.85,
+   "total_pct": 24.82,
+   "worst_life_dd_pct": 1.08,
+   "median_life_dd_pct": 0.74,
+   "worst_planned_pct": 1.37,
+   "life_ret_pct": {
+    "mean": 1.6,
+    "median": 1.58,
+    "worst": -0.39,
+    "best": 3.31,
+    "positive": "12/14"
+   },
+   "full_path_dd_pct": 1.24,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/DDLADDER/0.1": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 3.33,
+   "total_pct": 48.8,
+   "worst_life_dd_pct": 1.91,
+   "median_life_dd_pct": 1.35,
+   "worst_planned_pct": 2.29,
+   "life_ret_pct": {
+    "mean": 2.91,
+    "median": 2.81,
+    "worst": -0.77,
+    "best": 6.51,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 2.22,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/DDLADDER/0.15": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 4.52,
+   "total_pct": 70.89,
+   "worst_life_dd_pct": 2.56,
+   "median_life_dd_pct": 1.86,
+   "worst_planned_pct": 2.89,
+   "life_ret_pct": {
+    "mean": 3.96,
+    "median": 3.87,
+    "worst": -1.12,
+    "best": 9.51,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 3.02,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/DDLADDER/0.2": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 5.61,
+   "total_pct": 93.66,
+   "worst_life_dd_pct": 3.01,
+   "median_life_dd_pct": 2.28,
+   "worst_planned_pct": 3.25,
+   "life_ret_pct": {
+    "mean": 4.94,
+    "median": 4.75,
+    "worst": -1.56,
+    "best": 12.67,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 3.85,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/DDLADDER/0.3": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 7.04,
+   "total_pct": 128.09,
+   "worst_life_dd_pct": 3.41,
+   "median_life_dd_pct": 2.97,
+   "worst_planned_pct": 3.59,
+   "life_ret_pct": {
+    "mean": 6.25,
+    "median": 6.18,
+    "worst": -2.32,
+    "best": 18.05,
+    "positive": "11/14"
+   },
+   "full_path_dd_pct": 5.92,
+   "taken_share": 0.966,
+   "lives_with_skips": 5
+  },
+  "U1/DDLADDER/0.5": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 5.83,
+   "total_pct": 98.63,
+   "worst_life_dd_pct": 3.72,
+   "median_life_dd_pct": 3.41,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 5.3,
+    "median": 5.34,
+    "worst": -3.39,
+    "best": 19.72,
+    "positive": "8/14"
+   },
+   "full_path_dd_pct": 10.18,
+   "taken_share": 0.671,
+   "lives_with_skips": 14
+  },
+  "U1/SEESARE/0.005": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": -0.01,
+   "total_pct": -0.17,
+   "worst_life_dd_pct": 0.51,
+   "median_life_dd_pct": 0.23,
+   "worst_planned_pct": 1.26,
+   "life_ret_pct": {
+    "mean": -0.01,
+    "median": -0.02,
+    "worst": -0.36,
+    "best": 0.4,
+    "positive": "6/14"
+   },
+   "full_path_dd_pct": 0.93,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/0.0075": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": -0.02,
+   "total_pct": -0.26,
+   "worst_life_dd_pct": 0.77,
+   "median_life_dd_pct": 0.34,
+   "worst_planned_pct": 1.88,
+   "life_ret_pct": {
+    "mean": -0.02,
+    "median": -0.03,
+    "worst": -0.54,
+    "best": 0.6,
+    "positive": "6/14"
+   },
+   "full_path_dd_pct": 1.39,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/0.01": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": -0.03,
+   "total_pct": -0.34,
+   "worst_life_dd_pct": 1.02,
+   "median_life_dd_pct": 0.45,
+   "worst_planned_pct": 2.51,
+   "life_ret_pct": {
+    "mean": -0.02,
+    "median": -0.04,
+    "worst": -0.72,
+    "best": 0.79,
+    "positive": "6/14"
+   },
+   "full_path_dd_pct": 1.85,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/0.015": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": -0.02,
+   "total_pct": -0.19,
+   "worst_life_dd_pct": 1.53,
+   "median_life_dd_pct": 0.68,
+   "worst_planned_pct": 3.42,
+   "life_ret_pct": {
+    "mean": -0.01,
+    "median": -0.05,
+    "worst": -1.08,
+    "best": 1.54,
+    "positive": "6/14"
+   },
+   "full_path_dd_pct": 2.76,
+   "taken_share": 1.0,
+   "lives_with_skips": 1
+  },
+  "U1/SEESARE/0.02": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 0.11,
+   "total_pct": 1.34,
+   "worst_life_dd_pct": 1.42,
+   "median_life_dd_pct": 0.82,
+   "worst_planned_pct": 3.59,
+   "life_ret_pct": {
+    "mean": 0.1,
+    "median": -0.07,
+    "worst": -1.38,
+    "best": 3.62,
+    "positive": "6/14"
+   },
+   "full_path_dd_pct": 2.68,
+   "taken_share": 0.999,
+   "lives_with_skips": 2
+  },
+  "U1/SEESARE/0.03": {
+   "lifecycles": 14,
+   "years": 12.12,
+   "annual_pct": 0.29,
+   "total_pct": 3.6,
+   "worst_life_dd_pct": 2.09,
+   "median_life_dd_pct": 1.0,
+   "worst_planned_pct": 3.42,
+   "life_ret_pct": {
+    "mean": 0.27,
+    "median": -0.11,
+    "worst": -1.57,
+    "best": 5.34,
+    "positive": "6/14"
+   },
+   "full_path_dd_pct": 3.52,
+   "taken_share": 0.999,
+   "lives_with_skips": 2
+  },
+  "U2/FIXED/0.0025": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 3.74,
+   "total_pct": 56.05,
+   "worst_life_dd_pct": 2.7,
+   "median_life_dd_pct": 0.89,
+   "worst_planned_pct": 3.04,
+   "life_ret_pct": {
+    "mean": 2.67,
+    "median": 3.03,
+    "worst": -1.0,
+    "best": 5.04,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 2.76,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/0.00375": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 5.61,
+   "total_pct": 93.74,
+   "worst_life_dd_pct": 4.05,
+   "median_life_dd_pct": 1.34,
+   "worst_planned_pct": 4.56,
+   "life_ret_pct": {
+    "mean": 4.0,
+    "median": 4.54,
+    "worst": -1.5,
+    "best": 7.56,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 4.11,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/0.005": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 7.48,
+   "total_pct": 139.59,
+   "worst_life_dd_pct": 5.4,
+   "median_life_dd_pct": 1.79,
+   "worst_planned_pct": 6.09,
+   "life_ret_pct": {
+    "mean": 5.34,
+    "median": 6.05,
+    "worst": -1.99,
+    "best": 10.08,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 5.44,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/0.00625": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 9.35,
+   "total_pct": 195.18,
+   "worst_life_dd_pct": 6.75,
+   "median_life_dd_pct": 2.23,
+   "worst_planned_pct": 7.61,
+   "life_ret_pct": {
+    "mean": 6.67,
+    "median": 7.56,
+    "worst": -2.49,
+    "best": 12.61,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 6.75,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/0.0075": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 11.21,
+   "total_pct": 262.36,
+   "worst_life_dd_pct": 8.1,
+   "median_life_dd_pct": 2.68,
+   "worst_planned_pct": 9.13,
+   "life_ret_pct": {
+    "mean": 8.01,
+    "median": 9.07,
+    "worst": -2.98,
+    "best": 15.13,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 8.04,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/0.01": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 14.94,
+   "total_pct": 440.44,
+   "worst_life_dd_pct": 10.8,
+   "median_life_dd_pct": 3.57,
+   "worst_planned_pct": 12.17,
+   "life_ret_pct": {
+    "mean": 10.68,
+    "median": 12.08,
+    "worst": -3.97,
+    "best": 20.18,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 10.57,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/GUARD/0.0025": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 3.74,
+   "total_pct": 56.05,
+   "worst_life_dd_pct": 2.7,
+   "median_life_dd_pct": 0.89,
+   "worst_planned_pct": 3.04,
+   "life_ret_pct": {
+    "mean": 2.67,
+    "median": 3.03,
+    "worst": -1.0,
+    "best": 5.04,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 2.76,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/GUARD/0.00375": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 5.54,
+   "total_pct": 92.21,
+   "worst_life_dd_pct": 3.59,
+   "median_life_dd_pct": 1.34,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 3.96,
+    "median": 4.54,
+    "worst": -1.65,
+    "best": 7.56,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 4.27,
+   "taken_share": 0.986,
+   "lives_with_skips": 2
+  },
+  "U2/GUARD/0.005": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 7.2,
+   "total_pct": 132.2,
+   "worst_life_dd_pct": 3.58,
+   "median_life_dd_pct": 1.79,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 5.14,
+    "median": 4.85,
+    "worst": -1.0,
+    "best": 10.08,
+    "positive": "15/17"
+   },
+   "full_path_dd_pct": 4.5,
+   "taken_share": 0.967,
+   "lives_with_skips": 7
+  },
+  "U2/GUARD/0.00625": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 9.15,
+   "total_pct": 188.87,
+   "worst_life_dd_pct": 3.56,
+   "median_life_dd_pct": 2.23,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 6.52,
+    "median": 5.98,
+    "worst": -1.05,
+    "best": 12.61,
+    "positive": "15/17"
+   },
+   "full_path_dd_pct": 4.74,
+   "taken_share": 0.939,
+   "lives_with_skips": 11
+  },
+  "U2/GUARD/0.0075": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 9.51,
+   "total_pct": 200.57,
+   "worst_life_dd_pct": 3.55,
+   "median_life_dd_pct": 2.86,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 6.82,
+    "median": 7.53,
+    "worst": -3.55,
+    "best": 14.33,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 4.96,
+   "taken_share": 0.85,
+   "lives_with_skips": 17
+  },
+  "U2/GUARD/0.01": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 6.7,
+   "total_pct": 119.27,
+   "worst_life_dd_pct": 3.78,
+   "median_life_dd_pct": 3.43,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 4.94,
+    "median": 3.25,
+    "worst": -3.57,
+    "best": 16.91,
+    "positive": "11/17"
+   },
+   "full_path_dd_pct": 11.23,
+   "taken_share": 0.593,
+   "lives_with_skips": 17
+  },
+  "U2/DDLADDER/0.05": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 2.42,
+   "total_pct": 33.66,
+   "worst_life_dd_pct": 1.5,
+   "median_life_dd_pct": 0.58,
+   "worst_planned_pct": 1.63,
+   "life_ret_pct": {
+    "mean": 1.73,
+    "median": 1.93,
+    "worst": -0.57,
+    "best": 3.35,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 1.66,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/DDLADDER/0.1": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 4.49,
+   "total_pct": 70.18,
+   "worst_life_dd_pct": 2.46,
+   "median_life_dd_pct": 1.1,
+   "worst_planned_pct": 2.62,
+   "life_ret_pct": {
+    "mean": 3.2,
+    "median": 3.46,
+    "worst": -0.94,
+    "best": 6.55,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 2.86,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/DDLADDER/0.15": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 6.24,
+   "total_pct": 108.12,
+   "worst_life_dd_pct": 3.01,
+   "median_life_dd_pct": 1.56,
+   "worst_planned_pct": 3.11,
+   "life_ret_pct": {
+    "mean": 4.46,
+    "median": 4.62,
+    "worst": -1.68,
+    "best": 9.54,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 3.67,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/DDLADDER/0.2": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 7.75,
+   "total_pct": 147.14,
+   "worst_life_dd_pct": 3.29,
+   "median_life_dd_pct": 1.97,
+   "worst_planned_pct": 3.55,
+   "life_ret_pct": {
+    "mean": 5.56,
+    "median": 5.6,
+    "worst": -2.01,
+    "best": 12.22,
+    "positive": "14/17"
+   },
+   "full_path_dd_pct": 4.23,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/DDLADDER/0.3": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 10.03,
+   "total_pct": 218.2,
+   "worst_life_dd_pct": 3.61,
+   "median_life_dd_pct": 2.67,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 7.21,
+    "median": 7.31,
+    "worst": -3.07,
+    "best": 17.5,
+    "positive": "15/17"
+   },
+   "full_path_dd_pct": 4.64,
+   "taken_share": 0.97,
+   "lives_with_skips": 15
+  },
+  "U2/DDLADDER/0.5": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": 7.11,
+   "total_pct": 129.94,
+   "worst_life_dd_pct": 3.72,
+   "median_life_dd_pct": 3.38,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 5.25,
+    "median": 3.74,
+    "worst": -3.4,
+    "best": 25.28,
+    "positive": "13/17"
+   },
+   "full_path_dd_pct": 6.41,
+   "taken_share": 0.623,
+   "lives_with_skips": 17
+  },
+  "U2/SEESARE/0.005": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": -0.04,
+   "total_pct": -0.45,
+   "worst_life_dd_pct": 0.42,
+   "median_life_dd_pct": 0.18,
+   "worst_planned_pct": 0.75,
+   "life_ret_pct": {
+    "mean": -0.03,
+    "median": -0.09,
+    "worst": -0.37,
+    "best": 0.49,
+    "positive": "7/17"
+   },
+   "full_path_dd_pct": 0.85,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/0.0075": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": -0.06,
+   "total_pct": -0.67,
+   "worst_life_dd_pct": 0.63,
+   "median_life_dd_pct": 0.28,
+   "worst_planned_pct": 1.13,
+   "life_ret_pct": {
+    "mean": -0.04,
+    "median": -0.13,
+    "worst": -0.55,
+    "best": 0.74,
+    "positive": "7/17"
+   },
+   "full_path_dd_pct": 1.28,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/0.01": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": -0.07,
+   "total_pct": -0.9,
+   "worst_life_dd_pct": 0.84,
+   "median_life_dd_pct": 0.37,
+   "worst_planned_pct": 1.51,
+   "life_ret_pct": {
+    "mean": -0.05,
+    "median": -0.17,
+    "worst": -0.73,
+    "best": 0.99,
+    "positive": "7/17"
+   },
+   "full_path_dd_pct": 1.7,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/0.015": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": -0.11,
+   "total_pct": -1.36,
+   "worst_life_dd_pct": 1.26,
+   "median_life_dd_pct": 0.55,
+   "worst_planned_pct": 2.26,
+   "life_ret_pct": {
+    "mean": -0.08,
+    "median": -0.26,
+    "worst": -1.1,
+    "best": 1.48,
+    "positive": "7/17"
+   },
+   "full_path_dd_pct": 2.54,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/0.02": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": -0.15,
+   "total_pct": -1.82,
+   "worst_life_dd_pct": 1.68,
+   "median_life_dd_pct": 0.73,
+   "worst_planned_pct": 3.02,
+   "life_ret_pct": {
+    "mean": -0.1,
+    "median": -0.34,
+    "worst": -1.46,
+    "best": 1.98,
+    "positive": "7/17"
+   },
+   "full_path_dd_pct": 3.38,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/0.03": {
+   "lifecycles": 17,
+   "years": 12.12,
+   "annual_pct": -0.31,
+   "total_pct": -3.69,
+   "worst_life_dd_pct": 2.52,
+   "median_life_dd_pct": 1.1,
+   "worst_planned_pct": 3.58,
+   "life_ret_pct": {
+    "mean": -0.21,
+    "median": -0.58,
+    "worst": -2.2,
+    "best": 2.96,
+    "positive": "7/17"
+   },
+   "full_path_dd_pct": 5.17,
+   "taken_share": 1.0,
+   "lives_with_skips": 2
+  }
+ },
+ "selected": {
+  "U1/FIXED": {
+   "setting": 0.005,
+   "within_cap": true
+  },
+  "U1/GUARD": {
+   "setting": 0.0075,
+   "within_cap": true
+  },
+  "U1/DDLADDER": {
+   "setting": 0.3,
+   "within_cap": true
+  },
+  "U1/SEESARE": {
+   "setting": 0.03,
+   "within_cap": true
+  },
+  "U2/FIXED": {
+   "setting": 0.0025,
+   "within_cap": true
+  },
+  "U2/GUARD": {
+   "setting": 0.0075,
+   "within_cap": true
+  },
+  "U2/DDLADDER": {
+   "setting": 0.2,
+   "within_cap": true
+  },
+  "U2/SEESARE": {
+   "setting": 0.005,
+   "within_cap": true
+  }
+ },
+ "holdout": {
+  "U1/FIXED/zero_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 3.41,
+   "total_pct": 10.56,
+   "worst_life_dd_pct": 4.71,
+   "median_life_dd_pct": 3.15,
+   "worst_planned_pct": 5.23,
+   "life_ret_pct": {
+    "mean": 2.57,
+    "median": 1.38,
+    "worst": 0.82,
+    "best": 6.7,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 4.83,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/lab_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 2.73,
+   "total_pct": 8.4,
+   "worst_life_dd_pct": 4.95,
+   "median_life_dd_pct": 3.37,
+   "worst_planned_pct": 5.46,
+   "life_ret_pct": {
+    "mean": 2.07,
+    "median": 0.76,
+    "worst": 0.3,
+    "best": 6.45,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 5.17,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/zero_swapfree": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 4.78,
+   "total_pct": 15.01,
+   "worst_life_dd_pct": 4.14,
+   "median_life_dd_pct": 2.78,
+   "worst_planned_pct": 4.73,
+   "life_ret_pct": {
+    "mean": 3.58,
+    "median": 2.56,
+    "worst": 1.89,
+    "best": 7.3,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 4.1,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/GUARD/zero_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 6.83,
+   "total_pct": 21.88,
+   "worst_life_dd_pct": 3.47,
+   "median_life_dd_pct": 3.33,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 5.11,
+    "median": 3.7,
+    "worst": 2.75,
+    "best": 10.3,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 4.29,
+   "taken_share": 0.818,
+   "lives_with_skips": 3
+  },
+  "U1/GUARD/lab_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 5.96,
+   "total_pct": 18.93,
+   "worst_life_dd_pct": 3.46,
+   "median_life_dd_pct": 3.3,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 4.48,
+    "median": 3.14,
+    "worst": 1.7,
+    "best": 9.93,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 4.37,
+   "taken_share": 0.789,
+   "lives_with_skips": 3
+  },
+  "U1/GUARD/zero_swapfree": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 7.94,
+   "total_pct": 25.74,
+   "worst_life_dd_pct": 3.53,
+   "median_life_dd_pct": 3.35,
+   "worst_planned_pct": 3.59,
+   "life_ret_pct": {
+    "mean": 5.94,
+    "median": 4.5,
+    "worst": 3.57,
+    "best": 11.18,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 4.23,
+   "taken_share": 0.834,
+   "lives_with_skips": 3
+  },
+  "U1/DDLADDER/zero_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 5.99,
+   "total_pct": 19.03,
+   "worst_life_dd_pct": 3.43,
+   "median_life_dd_pct": 3.25,
+   "worst_planned_pct": 3.54,
+   "life_ret_pct": {
+    "mean": 4.61,
+    "median": 2.47,
+    "worst": -0.4,
+    "best": 13.89,
+    "positive": "2/4"
+   },
+   "full_path_dd_pct": 4.32,
+   "taken_share": 0.97,
+   "lives_with_skips": 2
+  },
+  "U1/DDLADDER/lab_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 5.22,
+   "total_pct": 16.47,
+   "worst_life_dd_pct": 3.45,
+   "median_life_dd_pct": 3.3,
+   "worst_planned_pct": 3.55,
+   "life_ret_pct": {
+    "mean": 4.04,
+    "median": 1.96,
+    "worst": -1.05,
+    "best": 13.3,
+    "positive": "2/4"
+   },
+   "full_path_dd_pct": 4.67,
+   "taken_share": 0.956,
+   "lives_with_skips": 2
+  },
+  "U1/DDLADDER/zero_swapfree": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 7.47,
+   "total_pct": 24.08,
+   "worst_life_dd_pct": 3.4,
+   "median_life_dd_pct": 3.2,
+   "worst_planned_pct": 3.55,
+   "life_ret_pct": {
+    "mean": 5.7,
+    "median": 3.51,
+    "worst": 0.79,
+    "best": 14.97,
+    "positive": "4/4"
+   },
+   "full_path_dd_pct": 4.17,
+   "taken_share": 0.972,
+   "lives_with_skips": 2
+  },
+  "U1/SEESARE/zero_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": -0.11,
+   "total_pct": -0.33,
+   "worst_life_dd_pct": 1.07,
+   "median_life_dd_pct": 0.73,
+   "worst_planned_pct": 2.28,
+   "life_ret_pct": {
+    "mean": -0.08,
+    "median": -0.08,
+    "worst": -0.61,
+    "best": 0.45,
+    "positive": "2/4"
+   },
+   "full_path_dd_pct": 1.94,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/lab_swaps": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": -0.19,
+   "total_pct": -0.56,
+   "worst_life_dd_pct": 1.08,
+   "median_life_dd_pct": 0.76,
+   "worst_planned_pct": 2.3,
+   "life_ret_pct": {
+    "mean": -0.14,
+    "median": -0.16,
+    "worst": -0.66,
+    "best": 0.43,
+    "positive": "2/4"
+   },
+   "full_path_dd_pct": 2.11,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/zero_swapfree": {
+   "lifecycles": 4,
+   "years": 3.0,
+   "annual_pct": 0.01,
+   "total_pct": 0.03,
+   "worst_life_dd_pct": 1.04,
+   "median_life_dd_pct": 0.71,
+   "worst_planned_pct": 2.26,
+   "life_ret_pct": {
+    "mean": 0.01,
+    "median": 0.04,
+    "worst": -0.56,
+    "best": 0.51,
+    "positive": "2/4"
+   },
+   "full_path_dd_pct": 1.7,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/zero_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 2.47,
+   "total_pct": 7.59,
+   "worst_life_dd_pct": 2.39,
+   "median_life_dd_pct": 1.01,
+   "worst_planned_pct": 3.05,
+   "life_ret_pct": {
+    "mean": 1.49,
+    "median": 2.27,
+    "worst": -1.22,
+    "best": 3.53,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 2.38,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/lab_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 2.02,
+   "total_pct": 6.17,
+   "worst_life_dd_pct": 2.51,
+   "median_life_dd_pct": 1.08,
+   "worst_planned_pct": 3.17,
+   "life_ret_pct": {
+    "mean": 1.22,
+    "median": 1.92,
+    "worst": -1.5,
+    "best": 3.44,
+    "positive": "3/5"
+   },
+   "full_path_dd_pct": 2.5,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/FIXED/zero_swapfree": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 3.25,
+   "total_pct": 10.05,
+   "worst_life_dd_pct": 2.22,
+   "median_life_dd_pct": 0.9,
+   "worst_planned_pct": 2.89,
+   "life_ret_pct": {
+    "mean": 1.95,
+    "median": 2.78,
+    "worst": -0.75,
+    "best": 3.75,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 2.21,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/GUARD/zero_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 4.27,
+   "total_pct": 13.33,
+   "worst_life_dd_pct": 3.5,
+   "median_life_dd_pct": 3.1,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 2.6,
+    "median": 4.03,
+    "worst": -2.91,
+    "best": 7.47,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 5.12,
+   "taken_share": 0.73,
+   "lives_with_skips": 4
+  },
+  "U2/GUARD/lab_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 4.93,
+   "total_pct": 15.5,
+   "worst_life_dd_pct": 3.52,
+   "median_life_dd_pct": 3.25,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 2.98,
+    "median": 3.49,
+    "worst": -2.95,
+    "best": 7.39,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 3.69,
+   "taken_share": 0.748,
+   "lives_with_skips": 4
+  },
+  "U2/GUARD/zero_swapfree": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 6.14,
+   "total_pct": 19.54,
+   "worst_life_dd_pct": 3.49,
+   "median_life_dd_pct": 3.01,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 3.7,
+    "median": 4.33,
+    "worst": -2.89,
+    "best": 8.24,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 3.6,
+   "taken_share": 0.778,
+   "lives_with_skips": 4
+  },
+  "U2/DDLADDER/zero_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 3.3,
+   "total_pct": 10.2,
+   "worst_life_dd_pct": 3.46,
+   "median_life_dd_pct": 2.17,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 2.01,
+    "median": 3.41,
+    "worst": -2.96,
+    "best": 4.73,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 3.62,
+   "taken_share": 0.917,
+   "lives_with_skips": 1
+  },
+  "U2/DDLADDER/lab_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 2.34,
+   "total_pct": 7.18,
+   "worst_life_dd_pct": 3.51,
+   "median_life_dd_pct": 2.27,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 1.43,
+    "median": 3.16,
+    "worst": -3.04,
+    "best": 3.76,
+    "positive": "3/5"
+   },
+   "full_path_dd_pct": 3.79,
+   "taken_share": 0.913,
+   "lives_with_skips": 1
+  },
+  "U2/DDLADDER/zero_swapfree": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 4.86,
+   "total_pct": 15.29,
+   "worst_life_dd_pct": 3.46,
+   "median_life_dd_pct": 1.98,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": 2.95,
+    "median": 3.89,
+    "worst": -2.96,
+    "best": 6.4,
+    "positive": "4/5"
+   },
+   "full_path_dd_pct": 3.56,
+   "taken_share": 0.915,
+   "lives_with_skips": 1
+  },
+  "U2/SEESARE/zero_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 0.15,
+   "total_pct": 0.44,
+   "worst_life_dd_pct": 0.44,
+   "median_life_dd_pct": 0.3,
+   "worst_planned_pct": 1.12,
+   "life_ret_pct": {
+    "mean": 0.09,
+    "median": -0.08,
+    "worst": -0.34,
+    "best": 0.69,
+    "positive": "2/5"
+   },
+   "full_path_dd_pct": 0.65,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/lab_swaps": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 0.12,
+   "total_pct": 0.36,
+   "worst_life_dd_pct": 0.45,
+   "median_life_dd_pct": 0.31,
+   "worst_planned_pct": 1.12,
+   "life_ret_pct": {
+    "mean": 0.07,
+    "median": -0.09,
+    "worst": -0.35,
+    "best": 0.66,
+    "positive": "2/5"
+   },
+   "full_path_dd_pct": 0.66,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U2/SEESARE/zero_swapfree": {
+   "lifecycles": 5,
+   "years": 3.0,
+   "annual_pct": 0.19,
+   "total_pct": 0.58,
+   "worst_life_dd_pct": 0.43,
+   "median_life_dd_pct": 0.28,
+   "worst_planned_pct": 1.12,
+   "life_ret_pct": {
+    "mean": 0.12,
+    "median": -0.04,
+    "worst": -0.32,
+    "best": 0.74,
+    "positive": "2/5"
+   },
+   "full_path_dd_pct": 0.63,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  }
+ },
+ "y2026": {
+  "U1/FIXED/zero_swaps": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": -0.73,
+   "total_pct": -0.6,
+   "worst_life_dd_pct": 2.7,
+   "median_life_dd_pct": 2.7,
+   "worst_planned_pct": 3.29,
+   "life_ret_pct": {
+    "mean": -0.6,
+    "median": -0.6,
+    "worst": -0.6,
+    "best": -0.6,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 2.65,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/lab_swaps": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": -1.36,
+   "total_pct": -1.13,
+   "worst_life_dd_pct": 2.77,
+   "median_life_dd_pct": 2.77,
+   "worst_planned_pct": 3.43,
+   "life_ret_pct": {
+    "mean": -1.13,
+    "median": -1.13,
+    "worst": -1.13,
+    "best": -1.13,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 2.73,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/FIXED/zero_swapfree": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": 0.58,
+   "total_pct": 0.48,
+   "worst_life_dd_pct": 2.62,
+   "median_life_dd_pct": 2.62,
+   "worst_planned_pct": 3.2,
+   "life_ret_pct": {
+    "mean": 0.48,
+    "median": 0.48,
+    "worst": 0.48,
+    "best": 0.48,
+    "positive": "1/1"
+   },
+   "full_path_dd_pct": 2.55,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/GUARD/zero_swaps": {
+   "lifecycles": 1,
+   "years": 0.42,
+   "annual_pct": -5.45,
+   "total_pct": -2.34,
+   "worst_life_dd_pct": 3.5,
+   "median_life_dd_pct": 3.5,
+   "worst_planned_pct": 3.57,
+   "life_ret_pct": {
+    "mean": -2.34,
+    "median": -2.34,
+    "worst": -2.34,
+    "best": -2.34,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 3.46,
+   "taken_share": 0.432,
+   "lives_with_skips": 1
+  },
+  "U1/GUARD/lab_swaps": {
+   "lifecycles": 1,
+   "years": 0.42,
+   "annual_pct": -5.62,
+   "total_pct": -2.42,
+   "worst_life_dd_pct": 3.53,
+   "median_life_dd_pct": 3.53,
+   "worst_planned_pct": 3.6,
+   "life_ret_pct": {
+    "mean": -2.42,
+    "median": -2.42,
+    "worst": -2.42,
+    "best": -2.42,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 3.49,
+   "taken_share": 0.426,
+   "lives_with_skips": 1
+  },
+  "U1/GUARD/zero_swapfree": {
+   "lifecycles": 1,
+   "years": 0.42,
+   "annual_pct": -5.16,
+   "total_pct": -2.22,
+   "worst_life_dd_pct": 3.45,
+   "median_life_dd_pct": 3.45,
+   "worst_planned_pct": 3.45,
+   "life_ret_pct": {
+    "mean": -2.22,
+    "median": -2.22,
+    "worst": -2.22,
+    "best": -2.22,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 3.4,
+   "taken_share": 0.453,
+   "lives_with_skips": 1
+  },
+  "U1/DDLADDER/zero_swaps": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": -1.84,
+   "total_pct": -1.52,
+   "worst_life_dd_pct": 3.1,
+   "median_life_dd_pct": 3.1,
+   "worst_planned_pct": 3.45,
+   "life_ret_pct": {
+    "mean": -1.52,
+    "median": -1.52,
+    "worst": -1.52,
+    "best": -1.52,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 3.05,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/DDLADDER/lab_swaps": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": -2.09,
+   "total_pct": -1.73,
+   "worst_life_dd_pct": 3.24,
+   "median_life_dd_pct": 3.24,
+   "worst_planned_pct": 3.42,
+   "life_ret_pct": {
+    "mean": -1.73,
+    "median": -1.73,
+    "worst": -1.73,
+    "best": -1.73,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 3.19,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/DDLADDER/zero_swapfree": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": -0.52,
+   "total_pct": -0.43,
+   "worst_life_dd_pct": 2.98,
+   "median_life_dd_pct": 2.98,
+   "worst_planned_pct": 3.38,
+   "life_ret_pct": {
+    "mean": -0.43,
+    "median": -0.43,
+    "worst": -0.43,
+    "best": -0.43,
+    "positive": "0/1"
+   },
+   "full_path_dd_pct": 2.91,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/zero_swaps": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": 2.53,
+   "total_pct": 2.09,
+   "worst_life_dd_pct": 0.64,
+   "median_life_dd_pct": 0.64,
+   "worst_planned_pct": 2.06,
+   "life_ret_pct": {
+    "mean": 2.09,
+    "median": 2.09,
+    "worst": 2.09,
+    "best": 2.09,
+    "positive": "1/1"
+   },
+   "full_path_dd_pct": 0.64,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/lab_swaps": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": 2.44,
+   "total_pct": 2.01,
+   "worst_life_dd_pct": 0.64,
+   "median_life_dd_pct": 0.64,
+   "worst_planned_pct": 2.05,
+   "life_ret_pct": {
+    "mean": 2.01,
+    "median": 2.01,
+    "worst": 2.01,
+    "best": 2.01,
+    "positive": "1/1"
+   },
+   "full_path_dd_pct": 0.64,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  },
+  "U1/SEESARE/zero_swapfree": {
+   "lifecycles": 1,
+   "years": 0.83,
+   "annual_pct": 2.76,
+   "total_pct": 2.28,
+   "worst_life_dd_pct": 0.64,
+   "median_life_dd_pct": 0.64,
+   "worst_planned_pct": 2.06,
+   "life_ret_pct": {
+    "mean": 2.28,
+    "median": 2.28,
+    "worst": 2.28,
+    "best": 2.28,
+    "positive": "1/1"
+   },
+   "full_path_dd_pct": 0.64,
+   "taken_share": 1.0,
+   "lives_with_skips": 0
+  }
+ },
+ "signals_per_year": {
+  "U1": 406.7,
+  "U2": 508.3
+ }
+}

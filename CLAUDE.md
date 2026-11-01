@@ -84,6 +84,9 @@ Learning rules:
   GAIN_POSITIVE_LOSS_NEGATIVE) hardcoded; router InpLadder. Study: the ladder still sinks (Tokyo fix wins 52.6%; the ladder needs
   ~75% to stay near the top, P26); best variant 191 real trades, cycles +0.021% mean (`cycle_study_ascension.json`). The
   guard, not the ladder, holds 3.6% under this rule (16.2% ladder-only path, P24).
+- Universe under a 3.6% lifecycle cap (2026-11-01, P27, `research/results/seesare/universe_cap_study.json`): book + guard or
+  book + drawdown-keyed ladder about +6-7%/yr in backtest (2023-25 +6.8% / +6.0%), 2026 untouched -2.3% / -1.5%; SEESARE outcome
+  ladder about 0; adding Tokyo fix + EURUSD reversal hurt 2023-25.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

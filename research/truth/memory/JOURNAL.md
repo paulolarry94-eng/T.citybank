@@ -402,3 +402,21 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** nothing compiled; ProCent spread is the published average (real spread at 23:00 UTC unmeasured).
 - **Next:** owner decides: fixed small size for the Tokyo fix (P8), a SEESARE step-size redesign (own study), or wait for a
   high-win-rate flow; owner compiles and runs the three self-tests on the RoboForex terminal.
+
+## 2026-11-01 (late night, 8) · owner: "combine the strategy universe, reconfigure the ladder, ~3.6% drawdown, great alpha"
+- **Asked:** use every strategy, not one flow; reconfigure ladder rules, figures and level count; drawdown close to 3.6% per
+  lifecycle with great alpha ("since drawdown is capped the only way should be up"). Then: "so what's the results like".
+- **Corrected premise:** a cap limits losses, it does not create returns; return = edge x size x trades.
+- **Priors:** sizing states were rejected before (P8, GREEN/AMBER/RED); every SEESARE ladder study rejected (P24-P26). Said so.
+- **Studied (design committed 18aa444 before results):** research/seesare/universe_cap_study.py. Universes: book (U1) and book +
+  Tokyo fix + EURUSD reversal (U2). Rules: fixed, fixed + guard, drawdown-keyed 16-level ladder, SEESARE outcome ladder; 6
+  settings each; 48 configurations. Lifecycle = 360 signals (about 10 months for U1, 8.5 for U2). Settings chosen on 2011-22
+  (run alone), one look 2023-25 (run alone), book's untouched Jan-Oct 2026. A loader bug (wrong time unit for the two lab legs)
+  was caught by a smoke test before the design commit.
+- **Results (Exness Zero + swaps; dev / 2023-25 / 2026):** U1 guard 0.75%: +7.18 / +6.83%/yr / -2.34% (halted after ~5 months);
+  U1 drawdown ladder m 0.3: +7.04 / +5.99 / -1.52%; U1 fixed 0.5%: +5.77 / +3.41 (worst lifecycle 4.71%, cap broken) / -0.60%;
+  U1 SEESARE 3%: +0.29 / -0.11 / +2.09%; U2 guard +9.51 / +4.27; U2 ladder +7.75 / +3.30; U2 fixed 0.25% +3.74 / +2.47; U2
+  SEESARE about 0. Swap-free adds about 1-1.5%/yr. Across lifecycles drawdowns reach 4.3-6.5%.
+- **Learned:** P27.
+- **Facts vs estimates:** backtest only; live expected 30-50% weaker (P11); ProCent costs unmeasured (lab costs as proxy).
+- **Next:** owner decides on the drawdown-keyed ladder for CycleLedger.mqh and on whether this return is worth running.

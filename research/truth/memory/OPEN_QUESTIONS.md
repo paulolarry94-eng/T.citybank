@@ -206,6 +206,11 @@ ladder needs about 75% to stay near the top. Real trades in 15 years: 15 (defaul
 the guard, not the ladder, the only drawdown limit again (16.2% ladder-only on the pump path, P24). Open: owner decides between
 (a) fixed small size for the Tokyo fix outside the ladder (P8), (b) changing SEESARE's step sizes (a SEESARE redesign, needs its
 own study), (c) waiting for a flow with a verified high win rate; owner compiles and runs the self-tests.
+
+Universe under the cap (2026-11-01, P27): combining the survivors and choosing the sizing rule gives about 6-7%/yr in backtest
+at a 3.6% lifecycle cap (book + guard or book + drawdown-keyed ladder); 2026 untouched -0.6% to -2.3%; SEESARE's outcome ladder
+about 0. Open: owner decides whether to replace the outcome ladder in CycleLedger.mqh with the drawdown-keyed 16-level ladder
+(risk = 0.3 x room left x leg weight), and whether 6-7%/yr backtest (weaker live, P11) at this cap is worth running.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
