@@ -1,0 +1,35 @@
+data: 70 instruments, 1998-01-02 -> 2024-03-29  (3s)
+F1   Time-series momentum                     gate PASS  2000-09 SR +1.12  2010-19 SR +0.61  2020-22 SR +0.98  (3s)
+F2   Commodity momentum                       gate fail  2000-09 SR +0.65  2010-19 SR -0.35  2020-22 SR -0.45  (1s)
+F3   Commodity term structure                 gate fail  2000-09 SR +1.00  2010-19 SR -0.26  2020-22 SR -0.22  (1s)
+F4   Commodity skewness                       gate PASS  2000-09 SR +0.32  2010-19 SR +0.67  2020-22 SR +0.88  (2s)
+F5   Commodity return asymmetry               gate PASS  2000-09 SR +0.16  2010-19 SR +0.40  2020-22 SR +0.27  (2s)
+F6   Currency momentum                        gate fail  2000-09 SR +0.43  2010-19 SR -0.01  2020-22 SR +0.93  (1s)
+F7   FX carry                                 gate PASS  2000-09 SR +0.70  2010-19 SR +0.02  2020-22 SR +1.07  (0s)
+F8   Dollar carry                             gate fail  2000-09 SR +0.61  2010-19 SR -0.02  2020-22 SR -0.10  (0s)
+F9   Short-term reversal (simplified)         gate fail  2000-09 SR -0.08  2010-19 SR -0.55  2020-22 SR +0.82  (4s)
+F10  Paired switching (vs 50/50)              gate PASS  2000-09 SR +0.10  2010-19 SR +0.09  2020-22 SR +0.58  (0s)
+F11  Country index pairs                      gate fail  2000-09 SR +0.38  2010-19 SR -0.35  2020-22 SR -1.37  (11s)
+F12  Country betting-against-beta             gate fail  2000-09 SR +0.26  2010-19 SR +0.56  2020-22 SR -0.38  (2s)
+F13  WTI-Brent spread                         gate fail  2000-09 SR -0.62  2010-19 SR -0.55  2020-22 SR +0.03  (0s)
+F14  January barometer (vs buy-and-hold)      gate fail  2000-09 SR -0.06  2010-19 SR -0.72  2020-22 SR -0.23  (0s)
+F15  Asset-class trend (vs equal weight)      gate fail  2000-09 SR +0.28  2010-19 SR -0.17  2020-22 SR +0.60  (0s)
+F16  Asset-class momentum (vs equal weight)   gate PASS  2000-09 SR +0.69  2010-19 SR +0.28  2020-22 SR +0.01  (0s)
+
+verdicts:
+  F1   Time-series momentum                     Candidate (futures only)  final +0.10%/month SR +0.44
+  F2   Commodity momentum                       Rejected: failed the development/validation gate
+  F3   Commodity term structure                 Rejected: failed the development/validation gate
+  F4   Commodity skewness                       Candidate (futures only)  final +0.46%/month SR +0.25
+  F5   Commodity return asymmetry               Rejected: negative final look  final -1.32%/month SR -0.79
+  F6   Currency momentum                        Rejected: failed the development/validation gate
+  F7   FX carry                                 Candidate (futures only)  final +1.37%/month SR +2.91
+  F8   Dollar carry                             Rejected: failed the development/validation gate
+  F9   Short-term reversal (simplified)         Rejected: failed the development/validation gate
+  F10  Paired switching (vs 50/50)              Candidate (futures only)  final +1.02%/month SR +2.46
+  F11  Country index pairs                      Rejected: failed the development/validation gate
+  F12  Country betting-against-beta             Rejected: failed the development/validation gate
+  F13  WTI-Brent spread                         Rejected: failed the development/validation gate
+  F14  January barometer (vs buy-and-hold)      Rejected: failed the development/validation gate
+  F15  Asset-class trend (vs equal weight)      Rejected: failed the development/validation gate
+  F16  Asset-class momentum (vs equal weight)   Candidate (futures only)  final +0.11%/month SR +0.73

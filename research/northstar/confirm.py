@@ -58,7 +58,9 @@ def deflated_sharpe(r, sr_trials, n_trials):
     sk = ((r - r.mean()) ** 3).mean() / r.std() ** 3
     ku = ((r - r.mean()) ** 4).mean() / r.std() ** 4
     v = np.nanvar(sr_trials); g = 0.5772156649; N = NormalDist()
-    sr0 = math.sqrt(v) * ((1 - g) * N.inv_cdf(1 - 1 / n_trials) + g * N.inv_cdf(1 - 1 / (n_trials * math.e)))
+    # one trial: nothing to deflate, the benchmark Sharpe is 0 (probabilistic Sharpe ratio)
+    sr0 = 0.0 if n_trials <= 1 or not np.isfinite(v) else \
+        math.sqrt(v) * ((1 - g) * N.inv_cdf(1 - 1 / n_trials) + g * N.inv_cdf(1 - 1 / (n_trials * math.e)))
     z = (sr - sr0) * math.sqrt(T - 1) / math.sqrt(max(1 - sk * sr + (ku - 1) / 4 * sr ** 2, 1e-12))
     return dict(sr_trade=float(sr), sr0=float(sr0), dsr=float(N.cdf(z)), n_trials=int(n_trials), T=T)
 

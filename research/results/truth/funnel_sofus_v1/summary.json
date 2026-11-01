@@ -1,0 +1,186 @@
+{
+ "name": "funnel_sofus_v1",
+ "hypothesis": "The sofus-nl swing setups (breakouts, pullbacks, momentum, RSI reversion, patterns) earn after costs on our markets.",
+ "fingerprint": "1ba482475d50746a2e682dab87b2051262b6d53bc7e6852a43ad1bdacbeaf213",
+ "started": "2026-11-01 08:09:43 UTC",
+ "markets": [
+  "XAUUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225",
+  "WTI",
+  "XAGUSD"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "rule": [
+   "s01_vcp",
+   "s02_cup_handle",
+   "s03_ema_cross",
+   "s04_rsi_pullback",
+   "s07_stage2",
+   "s08_bull_flag",
+   "s10_triple_rsi_div",
+   "s11_qullamaggie",
+   "s12_multi_period",
+   "s13_ma_stack",
+   "s14_adx_trend",
+   "s16_trend_template",
+   "s18_roc_breakout",
+   "s19_hhv_breakout",
+   "s20_frog_pan",
+   "s21_proximity_pullback",
+   "s22_rsi2_reversion",
+   "s23_trend_pullback"
+  ],
+  "side": [
+   "long",
+   "both"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "North Star supply/demand (RBR/DBD/DBR/RBD)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "North Star Quasimodo (+FVG)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Cross-sectional momentum (12-1, within class)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Pairs stat-arb (10 linked pairs)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "donchian_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "donchian_trend_v2_room_to_run",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "wti_trend_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book)",
+   "verdict": "Study: informative"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "funnel_trustdan_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 6,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 36,
+  "passed_gate": 0,
+  "share_dev_positive": 0.027777777777777776,
+  "median_dev_E": -0.243316172329191,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

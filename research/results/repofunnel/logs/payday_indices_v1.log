@@ -1,0 +1,19 @@
+[0] payday_indices_v1  fingerprint 360f43f984ad  markets ['US500', 'NAS100', 'GER40', 'UK100', 'JP225']
+    priors for ['calendar', 'flow', 'seasonal', 'index', 'payday', 'repo-funnel', 'awesome-list']: 17 earlier ideas, 2 survived
+      - breadth_trend_v1: Rejected: no configuration passed the development gate
+      - index_rsi2_v1: Rejected
+      - index_rsi2_breadth_v1: Rejected: no configuration passed the development gate
+      - Hunt 2 / 11-leg book: Survivor: Tier B forward-test candidate
+      - tokyo_fix_gotobi_v1: Tier B: forward-test candidate
+      - Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days: Study: informative (supports tokyo_fix_gotobi_v1)
+      - tom_indices_v1: Rejected: look-ahead (signals change when future bars are removed)
+      - opex_week_indices_v1: Rejected: look-ahead (signals change when future bars are removed)
+[1] look-ahead check: PASS
+[2] grid: 1 configurations x 5 markets in 4s
+[3] gate: 1 of 1 pass; 100% positive in development
+    candidate {'tf': 'H1', 'day': 'payday', 'tgt': 0.0, 'trail': 0.0, 'bias': 0}  dev E +0.016 t 2.11  val E -0.010
+[4] stress (costs x1.5, swaps x2, +1 min) 2011-22 E -0.0038754185194061967; deflated Sharpe 0.98
+[5] 2023-25 (look logged 2026-11-01 08:14:22 UTC): {'n': 151, 'E': -0.006276819521271405, 't': -0.4462637662939487, 'PF': 0.9019654512034965, 'win': 0.5033112582781457}
+[6] verdict: Rejected  {'1_E_pos_dev_val_oos': False, '2_oos_PF110_t2_n100': False, '3_walk_forward_E_pos': True, '4_neighbours_stable': False, '5_stress_dev_val_pos': False, '6_oos_pos_2_markets': True}
+[10] memory: ledger + LESSONS.md updated (record what you learned in research/truth/memory/JOURNAL.md)
+[9] report: research/results/truth/payday_indices_v1/REPORT.md

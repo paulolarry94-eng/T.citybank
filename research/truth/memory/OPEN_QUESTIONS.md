@@ -51,6 +51,10 @@ data and a pre-registered Truth Lab run.
 
 ### Q6 Futures route for trend + carry
 Works only on real futures (P12). Owner decision: an MT5 futures broker (CME micros) or IBKR.
+Update (2026-11-01, repo funnel v2): on the same futures data, time-series momentum passes every period (Sharpe 1.12 / 0.61 /
+0.98, t 3.9, deflated Sharpe 0.88) and commodity skewness is the one new candidate with every period positive (0.32 / 0.67 /
+0.88, t 2.2, deflated Sharpe 0.28 after 16 tries). FX carry, asset-class momentum and paired switching pass only weakly.
+A futures account would carry trend + carry (+ skewness to test as a sleeve). research/results/repofunnel/REPORT.md.
 
 ### Q7 Prop accounts (FTMO-style): which per-phase risk and which guard maximise pass x payout?
 Replay (`research/prop/ftmo_sim.py`) says the book passes both phases in 33-54% of 12-month windows at 1-1.5% risk
@@ -126,6 +130,14 @@ costs.json charges e.g. NAS100 3.0 points a night whatever the price (about 5%/y
 so early years are overcharged. Exness's real US500 swap is -142.4 points long / 0 short (owner's MT5 spec, ~7.6%/yr at
 ~6,800). Did not change today's verdicts (each idea failed before financing too), but would bias any future multi-day index
 test. FAMILY: costs, financing, index, methods.
+Update (2026-11-01): now the gating item for trend on CFDs (repo funnel: Turtle core -0.38R with swaps vs +0.20R swap-free).
+
+### Q18 Re-test the 10-year-high trend once financing is settled (Q1 swap-free status, Q17 index financing as a rate)
+ath_trend_v1 (awesome list) failed with the lab's swaps (+0.006R/trade, 7 of 11 markets) but swap-free at half costs made
++0.25R in 2011-19 (+0.20 and +0.34 in the two eras), +0.12R in 2020-22 and 10 of 11 markets positive. That swap-free view was
+seen AFTER the run, so it is a hunch, not a result: a re-test needs a new name, the owner's confirmed swap terms (or rate-based
+index financing) fixed in advance, and a single configuration. Its 2023-25 look has not been taken. FAMILY: trend,
+all-time-high, financing, breadth.
 
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone

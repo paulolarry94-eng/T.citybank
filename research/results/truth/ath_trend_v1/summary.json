@@ -1,0 +1,206 @@
+{
+ "name": "ath_trend_v1",
+ "hypothesis": "Buying a 10-year closing high with a 1-ATR trailing stop earns after costs on our markets.",
+ "fingerprint": "05b5d6f3093790c738807e4b88ddaec6f270633307b41f18322ed4d84db228c2",
+ "started": "2026-11-01 08:10:49 UTC",
+ "markets": [
+  "XAUUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225",
+  "WTI",
+  "XAGUSD"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "side": [
+   "long",
+   "both"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Futures trend + carry (pysystemtrade data, Carver defaults)",
+   "verdict": "Survivor (futures only)"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold)",
+   "verdict": "Survivor: deployed EA (demo gate pending)"
+  },
+  {
+   "name": "donchian_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "donchian_trend_v2_room_to_run",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "wti_trend_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book)",
+   "verdict": "Study: informative"
+  },
+  {
+   "name": "Champion (11-leg book) untouched test, Jan-Oct 2026 + professional tearsheet",
+   "verdict": "Survivor, weakened: 2026 below backtest, within a 30-50% live haircut"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "oil_equity_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "oil_equity_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024)",
+   "verdict": "Rejected: the effect faded after publication"
+  },
+  {
+   "name": "funnel_trustdan_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "funnel_sofus_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 2,
+  "passed_gate": 0,
+  "share_dev_positive": 0.5,
+  "median_dev_E": -0.03893299113726549,
+  "share_dev_and_val_positive": 0.5
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

@@ -44,6 +44,9 @@ vs +0.78% swap-free. Swap-free status is the single largest cost lever left (+0.
 Evidence: research/exness/EXNESS_COSTS.md, research/results/champion/. Commission and swap-free status still unconfirmed.
 History: first written as 1.15 / 1.51 (2023–25: 0.75 / 1.06); those daily series dropped trades closing at the Sunday open
 (bug fixed 2026-10-31, see JOURNAL). The earlier "1.00 → 1.64" figures came from the same kind of series and are understated too.
+Evidence (2026-11-01, repo funnel): trustdan's Turtle core on our 11 CFDs makes -0.38R per trade 2011-19 with the lab's swaps
+and +0.20R swap-free at half costs; the 10-year-high trend (awesome list) +0.006R vs +0.25R (10 of 11 markets positive
+swap-free, 7 with swaps). Every multi-day trend verdict on CFDs is a verdict on financing. research/results/repofunnel/.
 
 ### P6 Trend persistence is market-specific
 Gold and USDJPY trend; EURUSD and GBPUSD don't (Donchian lab: gold +0.14–0.21R, JPY +0.15–0.28R, EUR/GBP
@@ -55,6 +58,9 @@ More evidence (2026-10-31, breadth): before costs, trend at H4–D1 is positive 
 on US500 (−0.05R) and GER40 (−0.04R); equity indices instead revert after short dips (RSI(2) +0.02 to +0.09R raw on 5 indices).
 Commodities and JPY trend; equity indices and EUR mean-revert. Evidence: research/results/truth/breadth_trend_v1/,
 index_rsi2_v1/, index_rsi2_breadth_v1/.
+More evidence (2026-11-01, repo funnel): all 48 trustdan Donchian variants (pyramiding, targets, ADX/RSI filters, SAR,
+chandelier, time exits) fail the 9-of-11-markets rule: with swaps at most 6 markets positive, swap-free at most 8. Exits and
+filters do not change where trend lives. research/results/truth/funnel_trustdan_v1/.
 
 ### P7 After a liquidity grab, continuation beats reversal
 About 1,400 sweep/grab variants: fading the grab has no edge; the only survivor is a continuation
@@ -85,6 +91,10 @@ Evidence (2026-11-01): three published calendar/macro effects from the awesome-s
 turn of the month (1987-88 papers) and option-expiry week show no effect beyond drift in 2011-25; oil predicting equities
 (2008 paper) was +1.15%/month in 2000-2010 on futures and -0.03% in 2011-2024. Published edges fade; a paper's Sharpe is
 an upper bound.
+Evidence (2026-11-01, repo funnel): payday (S&P 500 on the day after the 15th) +0.016R/trade 2011-19 (t 2.1), then negative
+2020-22 and 2023-25; on futures, commodity momentum and term structure made +17-18%/yr in 2000-09 and lost money after 2010,
+country betting-against-beta +16%/+30%/yr then -24%/yr in 2020-22. Public repos rank backtests on other assets with no costs
+or holdout: trustdan's champion (Alt10, "76% success" on US stocks) is -0.62R/trade on our markets.
 
 ### P12 CFD financing kills high-notional strategies
 Trend + carry needs about 4x notional; CFD markups make it Sharpe 0.06 versus 0.50 on futures. Bonds are
@@ -105,6 +115,9 @@ More evidence (2026-10-31): the owner's 4-leg engulfing SOP (calibrated on their
 pass the gate and then fail; 0 of 72 on gold H4/D1; February–October 2026, untouched: −0.09 to −0.35R per trade.
 Evidence (2026-10-31): the owner's Leg 34 on gold M5 (3R/4R targets, breakeven, R-ladder and EMA trails): 0 of 144 positive in
 2011-19; owner's settings -0.06 to -0.20R per trade on untouched Jan-Sep 2026. research/results/truth/leg34_gold_v1/.
+Evidence (2026-11-01, repo funnel): mechanical versions of sofus-nl's VCP, cup and handle, bull flag, Qullamaggie breakout and
+triple RSI divergence on 11 CFDs are rare and negative (best: divergence both sides +0.003R on 30 trades in 2011-19);
+the strict cup and handle never triggers. research/results/truth/funnel_sofus_v1/.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
@@ -183,3 +196,13 @@ Japanese importers buying dollars at the Tokyo fix on gotobi days (USDJPY 23:00 
 1.21 -> 1.38 in the lab's fit. Look for who must trade, when, and why, before looking at charts. Evidence:
 research/results/truth/tokyo_fix_gotobi_v1/, research/results/flows/. Confidence: medium (one flow, one market, small edge
 per trade: +1.4 to +3.9 pips after cost).
+
+### P23 A daily backtest across markets must trade one day after the signal
+Markets close at different hours (Hang Seng and Nikkei before Europe, Europe before the US) and holidays leave stale prices.
+A rule that decides at "today's close" from all markets and earns each market's next close-to-close return is using
+information the earlier-closing markets had not priced yet: a look-ahead that no prefix test catches. In the repo funnel's
+first futures run, country-index pairs showed Sharpe +1.4 in every period and the WTI-Brent spread +2 to +3; trading one
+day later turns them into -0.35/-1.37 and -0.6/0, while monthly strategies barely change. Use a one-day lag (or intraday
+fills at a common time) for any multi-market daily or weekly rule. Evidence: research/results/repofunnel/
+(futures_funnel_v1_lookahead.json vs futures_funnel_v2.json), PREREG.md section E2. Confidence: high (known mechanism,
+reproduced here).

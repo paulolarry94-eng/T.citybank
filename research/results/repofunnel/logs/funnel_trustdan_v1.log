@@ -1,0 +1,15 @@
+[0] funnel_trustdan_v1  fingerprint 3a38f0db76ca  markets ['XAUUSD', 'EURUSD', 'GBPUSD', 'USDJPY', 'US500', 'NAS100', 'GER40', 'UK100', 'JP225', 'WTI', 'XAGUSD']
+    priors for ['trend', 'breakout', 'donchian', 'pyramiding', 'daily', 'breadth', 'repo-funnel', 'trustdan']: 21 earlier ideas, 5 survived
+      - ORB 50 study: Rejected
+      - Four strategies (trend continuation, failed breakout, vol contraction/expansion): Rejected (as a set)
+      - Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7): Rejected
+      - Futures trend + carry (pysystemtrade data, Carver defaults): Survivor (futures only)
+      - RSI(2) / Bollinger mean reversion on 56 markets: Rejected (equity-index RSI2 on watch)
+      - TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold): Survivor: deployed EA (demo gate pending)
+      - donchian_trend_v1: Rejected: no configuration passed the development gate
+      - donchian_trend_v2_room_to_run: Rejected: no configuration passed the development gate
+[1] look-ahead check: PASS
+[2] grid: 48 configurations x 11 markets in 12s
+[3] gate: 0 of 48 pass; 0% positive in development
+[10] memory: ledger + LESSONS.md updated (record what you learned in research/truth/memory/JOURNAL.md)
+[9] report: research/results/truth/funnel_trustdan_v1/REPORT.md

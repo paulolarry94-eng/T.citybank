@@ -1,0 +1,98 @@
+[
+ {
+  "strategy": "F1",
+  "fingerprint": "7c965c34bf0bf7c5d3819efe84189e12909cda6414c25d15cc022c7a8f4f318f",
+  "time": "2026-11-01 08:15:07 UTC",
+  "months": 15,
+  "mean_pct": 0.08368344313520737,
+  "sharpe": 0.3575271939231085
+ },
+ {
+  "strategy": "F4",
+  "fingerprint": "7c965c34bf0bf7c5d3819efe84189e12909cda6414c25d15cc022c7a8f4f318f",
+  "time": "2026-11-01 08:15:07 UTC",
+  "months": 15,
+  "mean_pct": 0.4517653095419901,
+  "sharpe": 0.2428575892026504
+ },
+ {
+  "strategy": "F5",
+  "fingerprint": "7c965c34bf0bf7c5d3819efe84189e12909cda6414c25d15cc022c7a8f4f318f",
+  "time": "2026-11-01 08:15:07 UTC",
+  "months": 15,
+  "mean_pct": -1.0975656744148652,
+  "sharpe": -0.6594693850111081
+ },
+ {
+  "strategy": "F10",
+  "fingerprint": "7c965c34bf0bf7c5d3819efe84189e12909cda6414c25d15cc022c7a8f4f318f",
+  "time": "2026-11-01 08:15:07 UTC",
+  "months": 15,
+  "mean_pct": 1.0196451489564147,
+  "sharpe": 2.4562788776740767
+ },
+ {
+  "strategy": "F11",
+  "fingerprint": "7c965c34bf0bf7c5d3819efe84189e12909cda6414c25d15cc022c7a8f4f318f",
+  "time": "2026-11-01 08:15:07 UTC",
+  "months": 15,
+  "mean_pct": 0.26541666875581943,
+  "sharpe": 0.8473628470091682
+ },
+ {
+  "strategy": "F13",
+  "fingerprint": "7c965c34bf0bf7c5d3819efe84189e12909cda6414c25d15cc022c7a8f4f318f",
+  "time": "2026-11-01 08:15:07 UTC",
+  "months": 15,
+  "mean_pct": 5.924166860996109,
+  "sharpe": 3.0655689416745373
+ },
+ {
+  "strategy": "F1",
+  "fingerprint": "0c6704523be6457c4cead4208b7024c7c24234ac8c9c45a5380af831b9aa2f97",
+  "time": "2026-11-01 08:17:33 UTC",
+  "months": 15,
+  "mean_pct": 0.10262972748734887,
+  "sharpe": 0.43741163847359454
+ },
+ {
+  "strategy": "F4",
+  "fingerprint": "0c6704523be6457c4cead4208b7024c7c24234ac8c9c45a5380af831b9aa2f97",
+  "time": "2026-11-01 08:17:33 UTC",
+  "months": 15,
+  "mean_pct": 0.4621468044052287,
+  "sharpe": 0.2513763421716353
+ },
+ {
+  "strategy": "F5",
+  "fingerprint": "0c6704523be6457c4cead4208b7024c7c24234ac8c9c45a5380af831b9aa2f97",
+  "time": "2026-11-01 08:17:33 UTC",
+  "months": 15,
+  "mean_pct": -1.322280393563035,
+  "sharpe": -0.7926421120527755
+ },
+ {
+  "strategy": "F7",
+  "fingerprint": "0c6704523be6457c4cead4208b7024c7c24234ac8c9c45a5380af831b9aa2f97",
+  "time": "2026-11-01 08:17:33 UTC",
+  "months": 15,
+  "mean_pct": 1.370435741471543,
+  "sharpe": 2.907236290434719
+ },
+ {
+  "strategy": "F10",
+  "fingerprint": "0c6704523be6457c4cead4208b7024c7c24234ac8c9c45a5380af831b9aa2f97",
+  "time": "2026-11-01 08:17:33 UTC",
+  "months": 15,
+  "mean_pct": 1.0196451489564147,
+  "sharpe": 2.4562788776740767
+ },
+ {
+  "strategy": "F16",
+  "fingerprint": "0c6704523be6457c4cead4208b7024c7c24234ac8c9c45a5380af831b9aa2f97",
+  "time": "2026-11-01 08:17:33 UTC",
+  "months": 15,
+  "mean_pct": 0.11308462451197802,
+  "sharpe": 0.7307951493272453
+ }
+]

@@ -62,6 +62,10 @@ Learning rules:
 - New survivor (2026-11-01): **Tokyo fix on gotobi days** (USDJPY buy 23:00 -> sell 00:55 UTC), Tier B, correlation +0.03 with
   the book, lifts its Sharpe 1.21 -> 1.38 in the lab's fit (`research/results/truth/tokyo_fix_gotobi_v1/`). Shapes at any timeframe
   or session failed (Leg 34 pocket scan, P21); flows with a payer are where to hunt (P22, Q10/Q15).
+- Repo funnel (2026-11-01): 132 strategies from trustdan, sofus-nl, awesome-systematic-trading (`research/repofunnel/`,
+  report `research/results/repofunnel/REPORT.md`): 0 of 87 CFD configurations survive; trend lives or dies on swaps (Q1, Q17,
+  Q18); futures: time-series momentum strong, commodity skewness a moderate new candidate. Multi-market daily backtests must
+  trade one day after the signal (P23).
 - Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
 

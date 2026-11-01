@@ -155,3 +155,15 @@ look is positive; else rejected. Deflated Sharpe against all 16. Universes (pysy
 One table per source with every strategy: trades, R per trade and t-statistic 2011–19 and 2020–22, markets positive,
 gate pass/fail, final look where earned, the swap-free view, and the number of configurations tried. The futures table
 gives Sharpe per period. Rejections are reported plainly. Everything is recorded in the research memory.
+
+## E2. Addendum 2026-11-01 (after the v1 futures run): one-day execution lag
+
+The v1 futures run let a decision taken at a day's close earn the next close-to-close return of every instrument. With
+markets that close at different hours (Hang Seng and Nikkei before Europe, Europe before the US) and with stale prices on
+holidays, that is a look-ahead: the decision already used the US close, then earned, say, the Hang Seng's move measured
+from its own earlier close. The two strategies that looked best in v1 were exactly the daily multi-market ones (country
+pairs: Sharpe +1.4 in every period; WTI-Brent: +2 to +3) and both collapse when the trade is placed one day later
+(country pairs -0.4 to +0.4; WTI-Brent -0.6 to 0); the monthly strategies barely change. v2 therefore holds every
+weight from the close AFTER the decision day, for all 16 strategies, with no other change. v1's final look (2023-01 to
+2024-03) was logged for F1, F4, F5, F10, F11 and F13, so for those six the v2 final look is not fresh; the report says so.
+v1 output is kept as results/repofunnel/futures_funnel_v1_lookahead.json.

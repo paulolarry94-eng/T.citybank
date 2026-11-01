@@ -1,0 +1,420 @@
+{
+ "name": "payday_indices_v1",
+ "hypothesis": "Salary money arriving around the 15th lifts equity indexes on the next trading day.",
+ "fingerprint": "360f43f984ad4995fd41f015db8fdc638e077c0a6857208c31c79aea3618939e",
+ "started": "2026-11-01 08:14:08 UTC",
+ "markets": [
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225"
+ ],
+ "timeframes": [
+  "H1"
+ ],
+ "params": {
+  "day": [
+   "payday"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "oil_equity_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "oil_equity_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024)",
+   "verdict": "Rejected: the effect faded after publication"
+  },
+  {
+   "name": "funnel_trustdan_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "funnel_sofus_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ath_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "H1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 1,
+  "passed_gate": 1,
+  "share_dev_positive": 1.0,
+  "median_dev_E": 0.016301802956425165,
+  "share_dev_and_val_positive": 0.0
+ },
+ "selection": {
+  "candidate": {
+   "tf": "H1",
+   "day": "payday",
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 529,
+   "dev_E": 0.016301802956425165,
+   "dev_t": 2.11409662251071,
+   "dev_Es": 0.0023558553042249517,
+   "dev_fin": 0.010076995678828384,
+   "dev_nL": 529,
+   "dev_EL": 0.016301802956425165,
+   "dev_nS": 0,
+   "dev_ES": null,
+   "e1_n": 300,
+   "e1_E": 0.02216291360522155,
+   "e1_t": 1.9853214850554983,
+   "e1_Es": 0.00538853783482677,
+   "e1_fin": 0.012141786549693077,
+   "e1_nL": 300,
+   "e1_EL": 0.02216291360522155,
+   "e1_nS": 0,
+   "e1_ES": null,
+   "e2_n": 229,
+   "e2_E": 0.008623492062805452,
+   "e2_t": 0.8498490135562732,
+   "e2_Es": -0.001617091242414983,
+   "e2_fin": 0.007372029472455428,
+   "e2_nL": 229,
+   "e2_EL": 0.008623492062805452,
+   "e2_nS": 0,
+   "e2_ES": null,
+   "val_n": 152,
+   "val_E": -0.010083889278468702,
+   "val_t": -0.3436661678376876,
+   "val_Es": -0.01779609768465363,
+   "val_fin": 0.005483212842989161,
+   "val_nL": 152,
+   "val_EL": -0.010083889278468702,
+   "val_nS": 0,
+   "val_ES": null,
+   "devE_US500": 0.024583322040595823,
+   "devE_NAS100": 0.014238027551562065,
+   "devE_GER40": 0.01574986354196367,
+   "devE_UK100": 0.008678040649494456,
+   "devE_JP225": 0.01841548865034585,
+   "mk_pos": 5
+  },
+  "neighbours": [],
+  "neighbours_all_pos": false,
+  "neighbours_median_t": null,
+  "walk_forward": {
+   "E": 0.00783190302326092,
+   "n": 381,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": null
+    },
+    {
+     "year": 2015,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 60,
+     "E": 0.10478260439851232
+    },
+    {
+     "year": 2016,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 57,
+     "E": -0.038754445427684095
+    },
+    {
+     "year": 2017,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 55,
+     "E": 0.015243226205062115
+    },
+    {
+     "year": 2018,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 57,
+     "E": -0.007010949010903659
+    },
+    {
+     "year": 2019,
+     "pick": null
+    },
+    {
+     "year": 2020,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 54,
+     "E": 0.024017909795980345
+    },
+    {
+     "year": 2021,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 50,
+     "E": -0.017327055325025306
+    },
+    {
+     "year": 2022,
+     "pick": [
+      "H1",
+      "payday",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 48,
+     "E": -0.040903448605394084
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 529,
+   "E": 0.016301802956425165,
+   "t": 2.1120974763212574,
+   "PF": 1.2731805976565367,
+   "win": 0.555765595463138
+  },
+  "val": {
+   "n": 152,
+   "E": -0.010083889278468705,
+   "t": -0.3425338215374592,
+   "PF": 0.9080132324074219,
+   "win": 0.5328947368421053
+  },
+  "stress_dev_val": {
+   "n": 681,
+   "E": -0.0038754185194061967,
+   "t": -0.43107515965847487,
+   "PF": 0.9499043469338412,
+   "win": 0.527165932452276
+  },
+  "dsr": {
+   "sr_trade": 0.09183032505744598,
+   "sr0": 0.0,
+   "dsr": 0.979929944105524,
+   "n_trials": 1,
+   "T": 529
+  }
+ },
+ "final_look": {
+  "fingerprint": "360f43f984ad4995fd41f015db8fdc638e077c0a6857208c31c79aea3618939e",
+  "config": "{\"bias\": 0, \"day\": \"payday\", \"tf\": \"H1\", \"tgt\": 0.0, \"trail\": 0.0}",
+  "time": "2026-11-01 08:14:22 UTC",
+  "oos": {
+   "n": 151,
+   "E": -0.006276819521271405,
+   "t": -0.4462637662939487,
+   "PF": 0.9019654512034965,
+   "win": 0.5033112582781457
+  },
+  "per_market": {
+   "US500": {
+    "n": 34,
+    "E": 0.0003703569821086618,
+    "t": 0.013513467532668388,
+    "PF": 1.006783721765765,
+    "win": 0.5882352941176471
+   },
+   "NAS100": {
+    "n": 31,
+    "E": -0.010073773351143903,
+    "t": -0.25312196455645514,
+    "PF": 0.8703282603111462,
+    "win": 0.5161290322580645
+   },
+   "GER40": {
+    "n": 24,
+    "E": -0.04700465510672461,
+    "t": -1.6009505786967264,
+    "PF": 0.3787300602699359,
+    "win": 0.3333333333333333
+   },
+   "UK100": {
+    "n": 32,
+    "E": -0.0026290953737359013,
+    "t": -0.11292291119591627,
+    "PF": 0.9528889188755727,
+    "win": 0.53125
+   },
+   "JP225": {
+    "n": 30,
+    "E": 0.01880459544342412,
+    "t": 0.5311438692485523,
+    "PF": 1.31308238944308,
+    "win": 0.5
+   }
+  }
+ },
+ "tier": "Rejected",
+ "criteria": {
+  "1_E_pos_dev_val_oos": false,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": true,
+  "4_neighbours_stable": false,
+  "5_stress_dev_val_pos": false,
+  "6_oos_pos_2_markets": true
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 529,
+   "E": 0.03024775060862538,
+   "t": 3.924389288182414,
+   "PF": 1.5645608996013032,
+   "win": 0.5897920604914934
+  },
+  "val": {
+   "n": 152,
+   "E": -0.002371680872283773,
+   "t": -0.08069344457752686,
+   "PF": 0.9776389099064046,
+   "win": 0.5657894736842105
+  },
+  "2023-25": {
+   "n": 151,
+   "E": -0.0004776555982320698,
+   "t": -0.03403395175568285,
+   "PF": 0.9921765099569062,
+   "win": 0.5231788079470199
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": 0.07533334772949114,
+  "weights": {
+   "book": 0.256,
+   "cand": 0.744
+  },
+  "book_sharpe": 1.2128619857019274,
+  "cand_sharpe": 0.133307941949926,
+  "combined_sharpe": 0.8941306906608575,
+  "book_sharpe_2017_on": 1.0349414170517213,
+  "combined_sharpe_2017_on": 0.6965293829647932
+ },
+ "verdict": "Rejected"
+}

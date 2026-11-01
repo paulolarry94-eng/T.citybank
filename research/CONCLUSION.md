@@ -1,5 +1,13 @@
 # Conclusion of the research phase (2026-10-31)
 
+## Update 2026-11-01 (late night): three public strategy collections, funnelled
+**132 strategies from trustdan, sofus-nl and awesome-systematic-trading: nothing new for Exness CFDs.** 84 were testable (68 on
+our 11 CFDs, 16 on futures); 0 of 87 CFD configurations survive (payday passed 2011-19, then failed). The trend variants lose
+with swaps and earn swap-free (Turtle core +0.20R/trade, 10-year-high trend +0.25R with 10 of 11 markets): financing decides,
+so swap-free status (Q1) and index financing (Q17) come first, then one re-test (Q18). On futures, time-series momentum
+(our known trend family) is strong and commodity skewness is a new, moderate candidate. Two futures "winners" were a
+look-ahead from markets closing at different hours (P23). Report: `research/results/repofunnel/REPORT.md`.
+
 ## Update 2026-10-31 (late night): the champion's untouched test
 **The 11-leg book is still the champion, but the first clean test came in weak.** On January–October 2026 Exness Zero prices,
 which no selection or test had seen, the book made **−1.36%** at 1% risk with swaps (**+0.78%** swap-free), max drawdown 5.3%,

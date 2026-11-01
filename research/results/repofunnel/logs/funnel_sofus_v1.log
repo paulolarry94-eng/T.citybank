@@ -1,0 +1,15 @@
+[0] funnel_sofus_v1  fingerprint 1ba482475d50  markets ['XAUUSD', 'EURUSD', 'GBPUSD', 'USDJPY', 'US500', 'NAS100', 'GER40', 'UK100', 'JP225', 'WTI', 'XAGUSD']
+    priors for ['swing', 'breakout', 'pullback', 'momentum', 'pattern', 'mean-reversion', 'daily', 'breadth', 'repo-funnel', 'sofus']: 21 earlier ideas, 1 survived
+      - ORB 50 study: Rejected
+      - Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7): Rejected
+      - North Star supply/demand (RBR/DBD/DBR/RBD): Rejected
+      - North Star Quasimodo (+FVG): Rejected
+      - Cross-sectional momentum (12-1, within class): Rejected
+      - Pairs stat-arb (10 linked pairs): Rejected
+      - RSI(2) / Bollinger mean reversion on 56 markets: Rejected (equity-index RSI2 on watch)
+      - donchian_trend_v1: Rejected: no configuration passed the development gate
+[1] look-ahead check: PASS
+[2] grid: 36 configurations x 11 markets in 16s
+[3] gate: 0 of 36 pass; 3% positive in development
+[10] memory: ledger + LESSONS.md updated (record what you learned in research/truth/memory/JOURNAL.md)
+[9] report: research/results/truth/funnel_sofus_v1/REPORT.md

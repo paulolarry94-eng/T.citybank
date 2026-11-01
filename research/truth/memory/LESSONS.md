@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-55 ideas tested, about 303,126 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+62 ideas tested, about 303,348 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,78 +16,91 @@
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
 | intraday | 15 | 1 | 182,543 |
-| index | 11 | 0 | 81 |
-| breadth | 9 | 0 | 611 |
+| awesome-list | 13 | 0 | 147 |
+| index | 13 | 0 | 98 |
+| breadth | 12 | 0 | 697 |
+| trend | 12 | 4 | 102,718 |
+| breakout | 9 | 0 | 119,432 |
+| calendar | 9 | 1 | 115 |
 | engulfing | 9 | 0 | 3,836 |
 | owner-idea | 9 | 0 | 1,636 |
-| trend | 9 | 4 | 102,565 |
-| awesome-list | 8 | 0 | 9 |
-| seasonal | 8 | 2 | 22 |
+| seasonal | 9 | 2 | 23 |
+| daily | 8 | 1 | 172 |
+| flow | 8 | 1 | 12 |
 | structure | 8 | 0 | 1,634 |
-| calendar | 7 | 1 | 11 |
-| flow | 7 | 1 | 11 |
+| repo-funnel | 7 | 0 | 222 |
 | retest | 7 | 0 | 10,308 |
 | reversal | 7 | 1 | 105,844 |
 | session | 7 | 0 | 183,863 |
-| breakout | 6 | 0 | 119,346 |
-| daily | 5 | 1 | 86 |
 | ema | 5 | 0 | 996 |
+| futures | 5 | 1 | 138 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
+| mean-reversion | 5 | 0 | 47 |
 | smc | 5 | 0 | 14,988 |
-| mean-reversion | 4 | 0 | 11 |
+| monthly | 4 | 0 | 20 |
 | oil | 4 | 0 | 7 |
 | third-party-ea | 4 | 0 | 304 |
 | book | 3 | 1 | 9 |
+| carry | 3 | 1 | 18 |
 | cross-asset | 3 | 0 | 4 |
 | filter-mining | 3 | 0 | 244 |
 | grid | 3 | 0 | 196 |
 | liquidity | 3 | 0 | 1,376 |
 | macro | 3 | 0 | 4 |
-| monthly | 3 | 0 | 4 |
+| momentum | 3 | 0 | 53 |
 | options-expiry | 3 | 0 | 4 |
 | oscillator | 3 | 0 | 288 |
+| pattern | 3 | 0 | 4,932 |
 | portfolio | 3 | 3 | 16 |
 | reversion | 3 | 3 | 16 |
 | sweep | 3 | 0 | 1,376 |
 | turn-of-month | 3 | 0 | 4 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
-| carry | 2 | 1 | 2 |
 | costs | 2 | 0 | 8 |
+| cross-sectional | 2 | 0 | 17 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
 | fix | 2 | 1 | 6 |
-| futures | 2 | 1 | 3 |
 | fvg | 2 | 0 | 9,312 |
-| pattern | 2 | 0 | 4,896 |
 | risk | 2 | 0 | 60 |
 | rsi2 | 2 | 0 | 8 |
 | short-vol | 2 | 0 | 17 |
 | sizing | 2 | 0 | 60 |
+| sofus | 2 | 0 | 139 |
 | stop-entry | 2 | 1 | 6 |
+| swing | 2 | 0 | 139 |
 | time-filter | 2 | 0 | 144 |
 | trailing | 2 | 0 | 156 |
+| trustdan | 2 | 0 | 151 |
 | usdjpy | 2 | 1 | 6 |
 | winner-anatomy | 2 | 0 | 135 |
+| all-time-high | 1 | 0 | 2 |
 | breakeven | 1 | 0 | 102,260 |
+| commodities | 1 | 0 | 16 |
 | control | 1 | 0 | 48 |
-| cross-sectional | 1 | 0 | 1 |
 | diversified | 1 | 1 | 1 |
+| donchian | 1 | 0 | 48 |
 | exness | 1 | 0 | 5 |
 | factor | 1 | 0 | 1 |
 | forward-test | 1 | 1 | 1 |
+| fx | 1 | 0 | 16 |
 | gbpusd | 1 | 0 | 144 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
+| look-ahead | 1 | 0 | 16 |
 | metals | 1 | 0 | 64 |
-| momentum | 1 | 0 | 1 |
+| methods | 1 | 0 | 16 |
 | out-of-sample | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
+| payday | 1 | 0 | 1 |
 | payouts | 1 | 0 | 3 |
 | probability | 1 | 0 | 3 |
 | prop | 1 | 0 | 20 |
+| pullback | 1 | 0 | 36 |
+| pyramiding | 1 | 0 | 48 |
 | quasimodo | 1 | 0 | 3,456 |
 | random | 1 | 0 | 48 |
 | ranking | 1 | 0 | 61,787 |
@@ -116,6 +129,13 @@
 | 2026-11-01 | oil_equity_v2 | macro, cross-asset, oil, index, monthly, awesome-list | 2 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-01 | Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled) | calendar, flow, seasonal, index, turn-of-month, options-expiry, oil, awesome-list | 3 | Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent | Window-day minus other-day daily return, 2011-19 / 2020-22 / 2023-25: TOM -9.6 to +0.2 bp (4/5 indexes negative), then positive, then negative; OPEX week flips sign (US500 +2.5 bp, -28 bp t -2.1, -1.9 bp). Oil: next month after oil fell minus rose +96 bp (5/5 positive), -13 bp (1/5), +142 bp (4/5), t <= 1.7 everywhere. |
 | 2026-11-01 | Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024) | macro, cross-asset, oil, index, monthly, futures, awesome-list | 2 | Rejected: the effect faded after publication | Basket of SP500, NASDAQ, DAX, FTSE100 (+NIKKEI, EUROSTX from 2011): next month after oil fell minus rose +1.15%/month in 2000-2010 (t 1.15, fresh years), -0.03% in 2011-2024 (t -0.05); long/short Sharpe 0.35 then -0.09; long/cash Sharpe 0.49 vs buy-and-hold 0.88 in 2011-2024. Paper published 2008. |
+| 2026-11-01 | funnel_trustdan_v1 | trend, breakout, donchian, pyramiding, daily, breadth, repo-funnel, trustdan | 48 | Rejected: no configuration passed the development gate | All 48 trustdan Turtle/Seykota variants negative in 2011-19 pooled over 11 CFDs after costs and swaps (best -0.24R/trade, core -0.38R, their champion Alt10 -0.62R); <= 6 of 11 markets positive. Swap-free at half costs the core makes +0.20R (val -0.05R) and no rule has both eras positive; breadth max 8 of 11. Their stock-backtest ranking does not carry over. |
+| 2026-11-01 | funnel_sofus_v1 | swing, breakout, pullback, momentum, pattern, mean-reversion, daily, breadth, repo-funnel, sofus | 36 | Rejected: no configuration passed the development gate | 18 price-only translations x long/both: all negative 2011-19 except s10 triple RSI divergence both (+0.003R on 30 trades); least bad RSI(2) reversion -0.02R. Patterns (VCP, cup and handle, bull flag, Qullamaggie, divergence) rare and negative; RSI pullback (s04) and strict cup and handle never trigger on daily CFD data. |
+| 2026-11-01 | ath_trend_v1 | trend, breakout, all-time-high, daily, breadth, repo-funnel, awesome-list | 2 | Rejected: no configuration passed the development gate | 10-year closing high + 1xATR10 trail. With swaps: both sides +0.006R/trade 2011-19 (2011-15 -0.03R), 7 of 11 markets; fails. Swap-free at half costs: +0.25R (2011-15 +0.20, 2016-19 +0.34), 2020-22 +0.12R, 10 of 11 markets positive -> the trend family hinges on financing (Q1, Q17, Q18). |
+| 2026-11-01 | payday_indices_v1 | calendar, flow, seasonal, index, payday, repo-funnel, awesome-list | 1 | Rejected | Payday (day after the 15th) on 5 index CFDs: 2011-19 +0.016R/trade (R = 5% of price, t 2.1, swap-free +0.030 t 3.9), 2020-22 -0.010R, stress negative, 2023-25 151 trades -0.006R (t -0.45): faded (P11). |
+| 2026-11-01 | Repo funnel futures v2: 16 awesome-list cross-asset strategies (pysystemtrade futures, one-day execution lag) | momentum, carry, cross-sectional, futures, monthly, commodities, fx, index, repo-funnel, awesome-list | 16 | Rejected except time-series momentum (confirms the futures trend family) and four weak futures-only passes | Pre-registered gate (Sharpe > 0 in 2000-09, 2010-19, 2020-22) passed by: time-series momentum (1.12/0.61/0.98, t 3.9, deflated Sharpe 0.88, 2023-24Q1 +0.10%/month), commodity skewness (0.32/0.67/0.88, t 2.2, DSR 0.28, +0.46%/month), FX carry (0.70/0.02/1.07, t 1.8, DSR 0.17, +1.37%/month), asset-class momentum vs equal weight (0.69/0.28/0.01, t 2.3, DSR 0.33) and paired switching vs 50/50 (t 0.4, DSR 0.01). Failed: commodity momentum and term structure (+17-18%/yr in 2000-09, negative after), currency momentum, dollar carry, short-term reversal (simplified), country pairs, country BAB (+16%/+30%/yr then -24%/yr 2020-22), WTI-Brent, January barometer, asset-class trend; return asymmetry passed the gate but lost in 2023-24. Futures only (needs ~28 commodities / FX futures). |
+| 2026-11-01 | Repo funnel futures v1 (same-day execution) | futures, methods, look-ahead, repo-funnel, awesome-list | 16 | Invalid: look-ahead through markets closing at different hours (and stale holiday prices) | Country-index pairs looked like Sharpe +1.4 in every period and WTI-Brent +2 to +3; placing the trade one day after the signal turns them into -0.35/-1.37 and -0.6/0, while monthly strategies barely change. Superseded by v2 (P23). v1 logged the 2023-24 look for F1, F4, F5, F10, F11, F13. |
+| 2026-11-01 | Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading | repo-funnel, trustdan, sofus, awesome-list, trend, swing, calendar, futures | 103 | Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family) | Inventory: 84 testable (68 on our 11 CFDs, 16 on futures), 3 tested earlier, 45 need data we lack (stock cross-sections, company accounts, real volume, options, macro series). CFD configurations: 48 trustdan + 36 sofus + 2 ATH trend + 1 payday = 87; futures 16. Lesson: public repo rankings are backtests on other assets without costs, swaps or holdout; on our markets the order changes and signs flip. Trend lives or dies on financing. |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |

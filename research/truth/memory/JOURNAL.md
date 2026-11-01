@@ -258,3 +258,26 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   and nothing since 2011: faded after the 2008 paper (P11 evidence). CFD financing (P12 evidence). New Q17 (index swaps in points).
 - **Decisions:** no list strategy added. The flow that works for us (Tokyo fix) came from a payer we identified ourselves.
 - **Facts vs estimates:** index costs and swaps are lab estimates; futures returns exclude commissions (tiny monthly).
+
+## 2026-11-01 (late night) · "before we hunt more ... funnel all their strategies" (trustdan, sofus-nl, awesome-systematic-trading)
+- **Asked:** treat every strategy in three public collections as a fresh idea and run it through our universe and protocol
+  before hunting more payer flows.
+- **Done:** inventory of all 132 (`research/repofunnel/INVENTORY.csv`) and pre-registration committed before any result
+  (`PREREG.md`); a daily engine that replays Pine/prose rules on M1 data (`d1.py`, `trustdan.py`, `sofus.py`, `awesome_cfd.py`;
+  11 tests incl. no-peeking on truncated data); four lab files (48 + 36 + 2 + 1 configurations on 11 CFDs / 5 index CFDs) and a
+  futures funnel for 16 cross-asset rules. Fixed a lab bug: the deflated Sharpe crashed for a one-configuration grid (now the
+  probabilistic Sharpe with benchmark 0). Report: `research/results/repofunnel/REPORT.md`.
+- **Learned:** no CFD survivor (0 of 87 configurations; payday passed 2011-19 then failed 2020-22, stress and its 2023-25 look).
+  trustdan's ranking (from US stocks without costs or holdout) inverts on our markets: their Alt10 is -0.62R/trade. Swaps decide
+  trend: Turtle core -0.38R with swaps vs +0.20R swap-free; the 10-year-high trend +0.006R vs +0.25R with 10 of 11 markets
+  positive (P5 evidence, new Q18). Futures: time-series momentum strong (t 3.9, deflated Sharpe 0.88) = our known futures trend
+  family; commodity skewness the one new futures candidate (t 2.2, deflated 0.28); FX carry, asset-class momentum, paired
+  switching pass only weakly. The first futures run had a look-ahead through markets closing at different hours: country pairs
+  (Sharpe +1.4) and WTI-Brent (+2 to +3) vanished with a one-day lag (new P23; v2 is the version of record, PREREG E2).
+- **Decisions:** nothing added to the book. Index financing as a rate (Q17) and the owner's swap-free answer (Q1) now gate any
+  further trend work on CFDs; one pre-registered re-test of the 10-year-high trend afterwards (Q18). Futures route (Q6) gains
+  commodity skewness as a sleeve to test.
+- **Facts vs estimates:** CFD costs and index swaps are lab estimates (index swaps in points overcharge early years, Q17);
+  futures costs from pysystemtrade's spread table; futures data end 2024-03-28 and exclude interest on cash; for six futures
+  strategies the 2023-24 look was first taken in the flawed v1 run (disclosed). Configurations tried this session: 103.
+- **Next:** owner: confirm swap-free status. Then Q17 (rate-based index financing) and Q18; back to payer flows (Q10/Q15).

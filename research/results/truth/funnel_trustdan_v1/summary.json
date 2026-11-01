@@ -1,0 +1,212 @@
+{
+ "name": "funnel_trustdan_v1",
+ "hypothesis": "The trustdan Turtle/Seykota trend variants (Donchian breakouts with pyramiding, targets and filters) earn after costs on our markets.",
+ "fingerprint": "3a38f0db76ca3fdf1ee2cd769d3fadef6164a4d3858429b9be3487a8adeb784b",
+ "started": "2026-11-01 08:04:26 UTC",
+ "markets": [
+  "XAUUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225",
+  "WTI",
+  "XAGUSD"
+ ],
+ "timeframes": [
+  "D1"
+ ],
+ "params": {
+  "rule": [
+   "core",
+   "alt1",
+   "alt2",
+   "alt3",
+   "alt4",
+   "alt5",
+   "alt6",
+   "alt7",
+   "alt8",
+   "alt9",
+   "alt10",
+   "alt11",
+   "alt12",
+   "alt13",
+   "alt14",
+   "alt15",
+   "alt16",
+   "alt17",
+   "alt18",
+   "alt19",
+   "alt20",
+   "alt21",
+   "alt22",
+   "alt23",
+   "alt24",
+   "alt25",
+   "alt26",
+   "alt27",
+   "alt28",
+   "alt29",
+   "alt30",
+   "alt31",
+   "alt32",
+   "alt33",
+   "alt34",
+   "alt35",
+   "alt36",
+   "alt37",
+   "alt38",
+   "alt39",
+   "alt40",
+   "alt41",
+   "alt42",
+   "alt43",
+   "alt44",
+   "alt45",
+   "alt46",
+   "alt47"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily structure round 2 (candle sweeps, Turtle Soup, NR4/NR7)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Futures trend + carry (pysystemtrade data, Carver defaults)",
+   "verdict": "Survivor (futures only)"
+  },
+  {
+   "name": "RSI(2) / Bollinger mean reversion on 56 markets",
+   "verdict": "Rejected (equity-index RSI2 on watch)"
+  },
+  {
+   "name": "TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold)",
+   "verdict": "Survivor: deployed EA (demo gate pending)"
+  },
+  {
+   "name": "donchian_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "donchian_trend_v2_room_to_run",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "eurusd_close_beyond_reversal_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "wti_trend_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Probability ladder: what raises the odds of a profitable fortnight/month/year (11-leg book)",
+   "verdict": "Study: informative"
+  },
+  {
+   "name": "Champion (11-leg book) untouched test, Jan-Oct 2026 + professional tearsheet",
+   "verdict": "Survivor, weakened: 2026 below backtest, within a 30-50% live haircut"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "D1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "D1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 48,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.5484779759463088,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}
