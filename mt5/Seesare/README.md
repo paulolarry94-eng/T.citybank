@@ -85,6 +85,7 @@ Owner's decision 2026-11-01 (Phase 2): losing time exits count as NEGATIVE, hard
 `CycleLedger.mqh`). The ledger derives every resolution from how the event closed and its result, declares the rule in the
 genesis line (`time_policy=LOSS_NEGATIVE`), and both the ledger and `tools/seesare_verify.py` reject a line that breaks it.
 The 0.19% above is one pattern, not a bound: the guaranteed planned worst case is still the guard's 3.6%.
+Superseded the same day by Phase 4 (time-exit ascension: a winning time exit climbs; see the end of this file).
 
 ## Not in Phase 1 (Phase 2 status at the end of this file)
 
@@ -154,7 +155,7 @@ A REAL event as the relay will post it (the self-test's cent example):
 SEESARE P26 | P3SELFTEST | Cycle 1/36 | Step 1/10 | REAL
 TOKYO_FIX USDJPY BUY
 Open 2026-11-04T23:00:00Z | Close 2026-11-05T00:55:00Z | by TIME
-Result MANUAL | +0.3080 USD | level L0 -> L0 | negative run 0
+Result POSITIVE | +0.3080 USD | level L0 -> L0 | negative run 0
 Entry 151.234 | Lower 150.780 | Upper 151.706 | Exit 151.311
 Ratio 1.04 | multiplier 0.0882 | planned 0.1206 USD | risk 0.1200 USD | volume 0.0400
 Deals 50001000, 50001001
@@ -181,3 +182,42 @@ spread): with losing time exits NEGATIVE the ladder can only descend for a flow 
 time exit does not climb. It reached L15 at event 13 and stayed there for 98.8% of events: 6 real trades in 15 years, 0 cycles
 closed, max drawdown 0.005%. With time exits MANUAL: 25 real trades, 2 cycles (+0.003%, +0.116%). The box holds because real
 trading stops. +2% per 10-event cycle would need +1.46R per event at L0; the Tokyo fix earns about +0.05R.
+
+## Phase 4 (2026-11-01): time-exit ascension
+
+**Rule (owner's decision, hardcoded):** a time or exhaustion exit with a net gain (after commission and swap, 4 decimals) is
+POSITIVE and climbs one level; a net loss is NEGATIVE; exactly 0.0000 is MANUAL. Stops and broker stop-outs stay NEGATIVE,
+targets POSITIVE, hand closes MANUAL. `CycleLedger.mqh`: `SEESARE_TIME_GAIN_POSITIVE`, genesis `time_policy=GAIN_POSITIVE_LOSS_NEGATIVE`.
+This build refuses to continue a lifecycle started under an earlier rule (start a new lifecycle id); `tools/seesare_verify.py`
+still verifies all three rules. The router has a new input `InpLadder` (16 level %, 4 decimals, decreasing; empty = SEESARE
+default), published in the genesis line and fixed for the lifecycle. `SpreadGate.mqh` is unchanged: it works in price points,
+the same on cent and standard accounts, and the rule lives in the ledger.
+
+**What the rule does to the envelope:** with gains climbing, a stop at L0 followed by two winning time exits of one cent puts
+the ladder back at L0 every time. Over 360 events the ladder alone loses 16.2%; the envelope guard holds 3.60% (121 real, 239
+paper). The guard is again the only thing holding the 3.6% line (planned losses; a gap through a stop can exceed it).
+
+**What it does for the Tokyo fix** (`research/seesare/cycle_study_ascension.py`, design committed before results; 1,071 gotobi
+mornings 2011-2025, ProCent cent account):
+
+| Variant | Spread | Real trades | Cycles closed | Cycle net, mean / median | Positive cycles | Max drawdown |
+|---|---|---|---|---|---|---|
+| D SEESARE ladder, ratio 1.04 (measured) | 1.9 pips | 15 | 1 | -0.001% | 0% | 0.005% |
+| E ladder x2.44 (owner's -0.35% at L0), ratio 1.04 | 1.9 pips | 22 | 2 | +0.012% / +0.012% | 50% | 0.010% |
+| F ladder x2.44, declared 4:1 (not measured) | 1.9 pips | 191 | 19 | +0.021% / -0.003% | 26% | 0.24% |
+| F, stress | 2.85 pips | 130 | 13 | -0.018% / -0.007% | 8% | 0.24% |
+
+The ladder still sinks (mean level 13.1-13.9) because the flow wins 52.6% of mornings and the ladder falls 2-4 levels per loss
+but climbs 1 per win. Its long-run position for independent outcomes:
+
+| Win rate | Mean level | Time in L0-L3 |
+|---|---|---|
+| 50% | 13.5 | 0.2% |
+| 52.6% (Tokyo fix, 1.9 pips) | 13.2 | 0.4% |
+| 60% | 11.8 | 3.6% |
+| 70% | 7.1 | 30% |
+| 75% | 4.3 | 54% |
+| 80% | 2.3 | 76% |
+
+Scaling the level sizes changes what each level risks, not where the ladder sits.
+

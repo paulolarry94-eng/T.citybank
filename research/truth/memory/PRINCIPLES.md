@@ -215,6 +215,9 @@ back for free and loses 14.96%. Checking before every real trade that current dr
 within the cap holds the cap under any sequence (3.53% and 3.60% here); gaps through the stop are the only way past it.
 Evidence: research/truth/tests/test_seesare_phase1.py (EnvelopeGuard), tools/seesare_verify.py, mt5/Seesare/README.md.
 Confidence: high (arithmetic, reproducible). Related: P8 (sizing states add nothing), P13.
+Update 2026-11-01 (Phase 4): under the owner's time-exit ascension rule a stop at L0 followed by two winning time exits
+of one cent puts the ladder back at L0 every time: ladder alone 16.2% over 360 events, with the guard 3.60% (121 real,
+239 paper); under the Phase 2 rule the same path cost 0.21%. Evidence: research/truth/tests/test_seesare_phase1.py (pump).
 
 ### P25 A ladder that climbs only on target hits sinks to its floor when the edge is paid at the time exit
 SEESARE moves up one level only on a POSITIVE outcome (a target hit) and down 2-4 levels on a NEGATIVE one. A flow whose
@@ -226,3 +229,15 @@ counting time exits as manual only delayed it (L15 from event 54, 2 cycles). The
 because the flow is good. Before sizing a flow with an outcome ladder, check which outcome pays the flow and whether that
 outcome moves the ladder. Evidence: research/seesare/cycle_study.py, research/results/seesare/cycle_study.json.
 Confidence: high (mechanism + replay). Related: P24, P8.
+Update 2026-11-01 (Phase 4): counting winning time exits as positive (owner's rule) removes this mechanism but not the
+sinking: a flow near 50% winners still settles near L13 (P26).
+
+### P26 The SEESARE ladder needs a flow that wins about 3 times in 4 to stay near the top
+The ladder climbs one level per positive outcome and falls 2, 3 or 4 per negative one. For independent outcomes with win rate
+p, its long-run position (exact Markov arithmetic on the ladder rules) is: p = 0.53 mean level 13.2, 0.4% of the time in
+L0-L3; p = 0.65 level 9.9, 12%; p = 0.75 level 4.3, 54%; p = 0.80 level 2.3, 76%. Scaling the level sizes changes how much each
+level risks, not where the ladder sits. Replay (owner's time-exit ascension rule, Tokyo fix, cent account, 1.9-pip spread, 52.6%
+winning mornings): mean level 13.1-13.5, 15-191 real trades in 15 years depending on the ladder, cycles +0.02% mean at best.
+Before sizing a flow with this ladder, check its win rate, not only its edge; a 1:1 flow near 50% belongs on fixed small size
+(P8). Evidence: research/seesare/cycle_study_ascension.py, research/results/seesare/cycle_study_ascension.json (Markov table
+in the 2026-11-01 journal entry). Confidence: high (arithmetic + replay). Related: P25, P24, P8.

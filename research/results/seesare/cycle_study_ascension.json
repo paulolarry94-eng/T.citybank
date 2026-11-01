@@ -1,0 +1,868 @@
+{
+ "policy": "GAIN_POSITIVE_LOSS_NEGATIVE",
+ "owner_ladder": [
+  "0.3508",
+  "0.2314",
+  "0.1510",
+  "0.0999",
+  "0.0657",
+  "0.0438",
+  "0.0292",
+  "0.0194",
+  "0.0121",
+  "0.0080",
+  "0.0053",
+  "0.0034",
+  "0.0021",
+  "0.0014",
+  "0.0009",
+  "0.0007"
+ ],
+ "runs": {
+  "procent_1.9pip/D_default_ladder_ratio_1.04": {
+   "summary": {
+    "2011-15": {
+     "events": 359,
+     "real": 15,
+     "real_share": 0.042,
+     "mean_level": 12.97,
+     "real_pnl_usd": -0.06,
+     "real_R": -0.054,
+     "refused_min_lot": 344,
+     "refused_guard": 0
+    },
+    "2016-19": {
+     "events": 287,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.89,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 287,
+     "refused_guard": 0
+    },
+    "2020-22": {
+     "events": 214,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 14.1,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 214,
+     "refused_guard": 0
+    },
+    "2023-25": {
+     "events": 211,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.39,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 211,
+     "refused_guard": 0
+    },
+    "all": {
+     "events": 1071,
+     "real": 15,
+     "lifecycles": 1,
+     "locked": 0,
+     "cycles_closed": 1,
+     "cycle_net_pct_mean": -0.00137,
+     "cycle_net_pct_median": -0.00137,
+     "cycle_net_pct_best": -0.00137,
+     "cycle_net_pct_worst": -0.00137,
+     "positive_cycles_share": 0.0,
+     "five_cycle_sums_pct": null,
+     "ten_cycle_sums_pct": null,
+     "real_pnl_usd": -0.06,
+     "real_R_per_trade": -0.0537,
+     "max_life_dd_usd": 0.055,
+     "max_life_dd_pct": 0.0055,
+     "violations": 0,
+     "refused_min_lot": 1056,
+     "refused_guard": 0,
+     "share_events_at_L0": 0.005,
+     "share_events_at_L15": 0.434,
+     "mean_level": 13.52
+    },
+    "lifecycles": [
+     {
+      "life": "ASC1",
+      "real": 15,
+      "shadow": 1056,
+      "locked": false,
+      "net_usd": -0.06,
+      "net_pct": -0.005,
+      "max_dd_pct": 0.005,
+      "room_left_usd": 35.95
+     }
+    ]
+   },
+   "cycles": [
+    {
+     "life": "ASC1",
+     "cycle": 1,
+     "net": -0.0137,
+     "net_pct": -0.00137,
+     "dd": 0.0463,
+     "lvl_start": 0,
+     "lvl_end": 1
+    }
+   ]
+  },
+  "procent_1.9pip/E_owner_ladder_ratio_1.04": {
+   "summary": {
+    "2011-15": {
+     "events": 359,
+     "real": 21,
+     "real_share": 0.058,
+     "mean_level": 12.81,
+     "real_pnl_usd": 0.21,
+     "real_R": 0.073,
+     "refused_min_lot": 338,
+     "refused_guard": 0
+    },
+    "2016-19": {
+     "events": 287,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.42,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 287,
+     "refused_guard": 0
+    },
+    "2020-22": {
+     "events": 214,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.63,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 214,
+     "refused_guard": 0
+    },
+    "2023-25": {
+     "events": 211,
+     "real": 1,
+     "real_share": 0.005,
+     "mean_level": 13.0,
+     "real_pnl_usd": -0.01,
+     "real_R": -0.326,
+     "refused_min_lot": 210,
+     "refused_guard": 0
+    },
+    "all": {
+     "events": 1071,
+     "real": 22,
+     "lifecycles": 1,
+     "locked": 0,
+     "cycles_closed": 2,
+     "cycle_net_pct_mean": 0.01176,
+     "cycle_net_pct_median": 0.01176,
+     "cycle_net_pct_best": 0.02368,
+     "cycle_net_pct_worst": -0.00015,
+     "positive_cycles_share": 0.5,
+     "five_cycle_sums_pct": null,
+     "ten_cycle_sums_pct": null,
+     "real_pnl_usd": 0.2,
+     "real_R_per_trade": 0.069,
+     "max_life_dd_usd": 0.1043,
+     "max_life_dd_pct": 0.0104,
+     "violations": 0,
+     "refused_min_lot": 1049,
+     "refused_guard": 0,
+     "share_events_at_L0": 0.005,
+     "share_events_at_L15": 0.373,
+     "mean_level": 13.17
+    },
+    "lifecycles": [
+     {
+      "life": "ASC1",
+      "real": 22,
+      "shadow": 1049,
+      "locked": false,
+      "net_usd": 0.2,
+      "net_pct": 0.02,
+      "max_dd_pct": 0.01,
+      "room_left_usd": 35.9
+     }
+    ]
+   },
+   "cycles": [
+    {
+     "life": "ASC1",
+     "cycle": 1,
+     "net": -0.0015,
+     "net_pct": -0.00015,
+     "dd": 0.1043,
+     "lvl_start": 0,
+     "lvl_end": 1
+    },
+    {
+     "life": "ASC1",
+     "cycle": 2,
+     "net": 0.2368,
+     "net_pct": 0.02368,
+     "dd": 0.0607,
+     "lvl_start": 1,
+     "lvl_end": 5
+    }
+   ]
+  },
+  "procent_1.9pip/F_owner_ladder_declared_4.0": {
+   "summary": {
+    "2011-15": {
+     "events": 359,
+     "real": 72,
+     "real_share": 0.201,
+     "mean_level": 12.78,
+     "real_pnl_usd": 4.64,
+     "real_R": 0.116,
+     "refused_min_lot": 287,
+     "refused_guard": 0
+    },
+    "2016-19": {
+     "events": 287,
+     "real": 40,
+     "real_share": 0.139,
+     "mean_level": 13.34,
+     "real_pnl_usd": 0.01,
+     "real_R": 0.004,
+     "refused_min_lot": 247,
+     "refused_guard": 0
+    },
+    "2020-22": {
+     "events": 214,
+     "real": 31,
+     "real_share": 0.145,
+     "mean_level": 13.47,
+     "real_pnl_usd": -0.1,
+     "real_R": -0.056,
+     "refused_min_lot": 183,
+     "refused_guard": 0
+    },
+    "2023-25": {
+     "events": 211,
+     "real": 48,
+     "real_share": 0.227,
+     "mean_level": 12.87,
+     "real_pnl_usd": -0.57,
+     "real_R": -0.2,
+     "refused_min_lot": 163,
+     "refused_guard": 0
+    },
+    "all": {
+     "events": 1071,
+     "real": 191,
+     "lifecycles": 1,
+     "locked": 0,
+     "cycles_closed": 19,
+     "cycle_net_pct_mean": 0.02097,
+     "cycle_net_pct_median": -0.00324,
+     "cycle_net_pct_best": 0.52985,
+     "cycle_net_pct_worst": -0.04814,
+     "positive_cycles_share": 0.263,
+     "five_cycle_sums_pct": {
+      "count": 15,
+      "min": -0.06022,
+      "median": -0.01312,
+      "max": 0.46589
+     },
+     "ten_cycle_sums_pct": {
+      "count": 10,
+      "min": -0.06342,
+      "median": -0.01718,
+      "max": 0.46989
+     },
+     "real_pnl_usd": 3.98,
+     "real_R_per_trade": 0.0838,
+     "max_life_dd_usd": 2.3843,
+     "max_life_dd_pct": 0.2384,
+     "violations": 0,
+     "refused_min_lot": 880,
+     "refused_guard": 0,
+     "share_events_at_L0": 0.005,
+     "share_events_at_L15": 0.344,
+     "mean_level": 13.09
+    },
+    "lifecycles": [
+     {
+      "life": "ASC1",
+      "real": 191,
+      "shadow": 880,
+      "locked": false,
+      "net_usd": 3.98,
+      "net_pct": 0.398,
+      "max_dd_pct": 0.238,
+      "room_left_usd": 33.62
+     }
+    ]
+   },
+   "cycles": [
+    {
+     "life": "ASC1",
+     "cycle": 1,
+     "net": -0.0444,
+     "net_pct": -0.00444,
+     "dd": 1.3437,
+     "lvl_start": 0,
+     "lvl_end": 1
+    },
+    {
+     "life": "ASC1",
+     "cycle": 2,
+     "net": 5.2985,
+     "net_pct": 0.52985,
+     "dd": 0.3469,
+     "lvl_start": 1,
+     "lvl_end": 6
+    },
+    {
+     "life": "ASC1",
+     "cycle": 3,
+     "net": -0.3514,
+     "net_pct": -0.03514,
+     "dd": 1.4626,
+     "lvl_start": 6,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 4,
+     "net": -0.1489,
+     "net_pct": -0.01489,
+     "dd": 0.1549,
+     "lvl_start": 9,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 5,
+     "net": -0.1132,
+     "net_pct": -0.01132,
+     "dd": 0.133,
+     "lvl_start": 9,
+     "lvl_end": 13
+    },
+    {
+     "life": "ASC1",
+     "cycle": 6,
+     "net": -0.0261,
+     "net_pct": -0.00261,
+     "dd": 0.057,
+     "lvl_start": 13,
+     "lvl_end": 12
+    },
+    {
+     "life": "ASC1",
+     "cycle": 7,
+     "net": 0.0374,
+     "net_pct": 0.00374,
+     "dd": 0.0062,
+     "lvl_start": 12,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 8,
+     "net": -0.0893,
+     "net_pct": -0.00893,
+     "dd": 0.0893,
+     "lvl_start": 9,
+     "lvl_end": 13
+    },
+    {
+     "life": "ASC1",
+     "cycle": 9,
+     "net": -0.0208,
+     "net_pct": -0.00208,
+     "dd": 0.0938,
+     "lvl_start": 13,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 10,
+     "net": -0.0324,
+     "net_pct": -0.00324,
+     "dd": 0.0358,
+     "lvl_start": 9,
+     "lvl_end": 13
+    },
+    {
+     "life": "ASC1",
+     "cycle": 11,
+     "net": 0.1451,
+     "net_pct": 0.01451,
+     "dd": 0.0068,
+     "lvl_start": 13,
+     "lvl_end": 8
+    },
+    {
+     "life": "ASC1",
+     "cycle": 12,
+     "net": -0.0346,
+     "net_pct": -0.00346,
+     "dd": 0.0624,
+     "lvl_start": 8,
+     "lvl_end": 13
+    },
+    {
+     "life": "ASC1",
+     "cycle": 13,
+     "net": 0.0018,
+     "net_pct": 0.00018,
+     "dd": 0.1198,
+     "lvl_start": 13,
+     "lvl_end": 12
+    },
+    {
+     "life": "ASC1",
+     "cycle": 14,
+     "net": -0.0522,
+     "net_pct": -0.00522,
+     "dd": 0.0809,
+     "lvl_start": 12,
+     "lvl_end": 11
+    },
+    {
+     "life": "ASC1",
+     "cycle": 15,
+     "net": -0.0886,
+     "net_pct": -0.00886,
+     "dd": 0.1561,
+     "lvl_start": 11,
+     "lvl_end": 10
+    },
+    {
+     "life": "ASC1",
+     "cycle": 16,
+     "net": -0.0243,
+     "net_pct": -0.00243,
+     "dd": 0.0461,
+     "lvl_start": 10,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 17,
+     "net": 0.0114,
+     "net_pct": 0.00114,
+     "dd": 0.0135,
+     "lvl_start": 9,
+     "lvl_end": 12
+    },
+    {
+     "life": "ASC1",
+     "cycle": 18,
+     "net": -0.0028,
+     "net_pct": -0.00028,
+     "dd": 0.088,
+     "lvl_start": 12,
+     "lvl_end": 7
+    },
+    {
+     "life": "ASC1",
+     "cycle": 19,
+     "net": -0.4814,
+     "net_pct": -0.04814,
+     "dd": 0.4834,
+     "lvl_start": 7,
+     "lvl_end": 14
+    }
+   ]
+  },
+  "stress_2.85pip/D_default_ladder_ratio_1.04": {
+   "summary": {
+    "2011-15": {
+     "events": 359,
+     "real": 10,
+     "real_share": 0.028,
+     "mean_level": 13.91,
+     "real_pnl_usd": -0.05,
+     "real_R": -0.111,
+     "refused_min_lot": 349,
+     "refused_guard": 0
+    },
+    "2016-19": {
+     "events": 287,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.96,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 287,
+     "refused_guard": 0
+    },
+    "2020-22": {
+     "events": 214,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 14.19,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 214,
+     "refused_guard": 0
+    },
+    "2023-25": {
+     "events": 211,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.44,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 211,
+     "refused_guard": 0
+    },
+    "all": {
+     "events": 1071,
+     "real": 10,
+     "lifecycles": 1,
+     "locked": 0,
+     "cycles_closed": 1,
+     "cycle_net_pct_mean": -0.00533,
+     "cycle_net_pct_median": -0.00533,
+     "cycle_net_pct_best": -0.00533,
+     "cycle_net_pct_worst": -0.00533,
+     "positive_cycles_share": 0.0,
+     "five_cycle_sums_pct": null,
+     "ten_cycle_sums_pct": null,
+     "real_pnl_usd": -0.05,
+     "real_R_per_trade": -0.1107,
+     "max_life_dd_usd": 0.0597,
+     "max_life_dd_pct": 0.006,
+     "violations": 0,
+     "refused_min_lot": 1061,
+     "refused_guard": 0,
+     "share_events_at_L0": 0.001,
+     "share_events_at_L15": 0.503,
+     "mean_level": 13.88
+    },
+    "lifecycles": [
+     {
+      "life": "ASC1",
+      "real": 10,
+      "shadow": 1061,
+      "locked": false,
+      "net_usd": -0.05,
+      "net_pct": -0.005,
+      "max_dd_pct": 0.006,
+      "room_left_usd": 35.95
+     }
+    ]
+   },
+   "cycles": [
+    {
+     "life": "ASC1",
+     "cycle": 1,
+     "net": -0.0533,
+     "net_pct": -0.00533,
+     "dd": 0.0597,
+     "lvl_start": 0,
+     "lvl_end": 6
+    }
+   ]
+  },
+  "stress_2.85pip/E_owner_ladder_ratio_1.04": {
+   "summary": {
+    "2011-15": {
+     "events": 359,
+     "real": 10,
+     "real_share": 0.028,
+     "mean_level": 13.59,
+     "real_pnl_usd": -0.11,
+     "real_R": -0.078,
+     "refused_min_lot": 349,
+     "refused_guard": 0
+    },
+    "2016-19": {
+     "events": 287,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.8,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 287,
+     "refused_guard": 0
+    },
+    "2020-22": {
+     "events": 214,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.85,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 214,
+     "refused_guard": 0
+    },
+    "2023-25": {
+     "events": 211,
+     "real": 0,
+     "real_share": 0.0,
+     "mean_level": 13.23,
+     "real_pnl_usd": 0,
+     "real_R": null,
+     "refused_min_lot": 211,
+     "refused_guard": 0
+    },
+    "all": {
+     "events": 1071,
+     "real": 10,
+     "lifecycles": 1,
+     "locked": 0,
+     "cycles_closed": 1,
+     "cycle_net_pct_mean": -0.01058,
+     "cycle_net_pct_median": -0.01058,
+     "cycle_net_pct_best": -0.01058,
+     "cycle_net_pct_worst": -0.01058,
+     "positive_cycles_share": 0.0,
+     "five_cycle_sums_pct": null,
+     "ten_cycle_sums_pct": null,
+     "real_pnl_usd": -0.11,
+     "real_R_per_trade": -0.0781,
+     "max_life_dd_usd": 0.1349,
+     "max_life_dd_pct": 0.0135,
+     "violations": 0,
+     "refused_min_lot": 1061,
+     "refused_guard": 0,
+     "share_events_at_L0": 0.001,
+     "share_events_at_L15": 0.443,
+     "mean_level": 13.63
+    },
+    "lifecycles": [
+     {
+      "life": "ASC1",
+      "real": 10,
+      "shadow": 1061,
+      "locked": false,
+      "net_usd": -0.11,
+      "net_pct": -0.011,
+      "max_dd_pct": 0.013,
+      "room_left_usd": 35.89
+     }
+    ]
+   },
+   "cycles": [
+    {
+     "life": "ASC1",
+     "cycle": 1,
+     "net": -0.1058,
+     "net_pct": -0.01058,
+     "dd": 0.1349,
+     "lvl_start": 0,
+     "lvl_end": 6
+    }
+   ]
+  },
+  "stress_2.85pip/F_owner_ladder_declared_4.0": {
+   "summary": {
+    "2011-15": {
+     "events": 359,
+     "real": 38,
+     "real_share": 0.106,
+     "mean_level": 13.52,
+     "real_pnl_usd": -1.55,
+     "real_R": -0.081,
+     "refused_min_lot": 321,
+     "refused_guard": 0
+    },
+    "2016-19": {
+     "events": 287,
+     "real": 29,
+     "real_share": 0.101,
+     "mean_level": 13.67,
+     "real_pnl_usd": -0.14,
+     "real_R": -0.106,
+     "refused_min_lot": 258,
+     "refused_guard": 0
+    },
+    "2020-22": {
+     "events": 214,
+     "real": 27,
+     "real_share": 0.126,
+     "mean_level": 13.64,
+     "real_pnl_usd": -0.12,
+     "real_R": -0.12,
+     "refused_min_lot": 187,
+     "refused_guard": 0
+    },
+    "2023-25": {
+     "events": 211,
+     "real": 36,
+     "real_share": 0.171,
+     "mean_level": 13.22,
+     "real_pnl_usd": -0.57,
+     "real_R": -0.265,
+     "refused_min_lot": 175,
+     "refused_guard": 0
+    },
+    "all": {
+     "events": 1071,
+     "real": 130,
+     "lifecycles": 1,
+     "locked": 0,
+     "cycles_closed": 13,
+     "cycle_net_pct_mean": -0.01839,
+     "cycle_net_pct_median": -0.00712,
+     "cycle_net_pct_best": 0.00124,
+     "cycle_net_pct_worst": -0.13617,
+     "positive_cycles_share": 0.077,
+     "five_cycle_sums_pct": {
+      "count": 9,
+      "min": -0.16044,
+      "median": -0.02562,
+      "max": -0.01944
+     },
+     "ten_cycle_sums_pct": {
+      "count": 4,
+      "min": -0.18606,
+      "median": -0.0709,
+      "max": -0.05083
+     },
+     "real_pnl_usd": -2.39,
+     "real_R_per_trade": -0.1012,
+     "max_life_dd_usd": 2.3906,
+     "max_life_dd_pct": 0.2391,
+     "violations": 0,
+     "refused_min_lot": 941,
+     "refused_guard": 0,
+     "share_events_at_L0": 0.001,
+     "share_events_at_L15": 0.406,
+     "mean_level": 13.53
+    },
+    "lifecycles": [
+     {
+      "life": "ASC1",
+      "real": 130,
+      "shadow": 941,
+      "locked": false,
+      "net_usd": -2.39,
+      "net_pct": -0.239,
+      "max_dd_pct": 0.239,
+      "room_left_usd": 33.61
+     }
+    ]
+   },
+   "cycles": [
+    {
+     "life": "ASC1",
+     "cycle": 1,
+     "net": -1.3617,
+     "net_pct": -0.13617,
+     "dd": 1.7257,
+     "lvl_start": 0,
+     "lvl_end": 6
+    },
+    {
+     "life": "ASC1",
+     "cycle": 2,
+     "net": -0.0982,
+     "net_pct": -0.00982,
+     "dd": 0.1181,
+     "lvl_start": 6,
+     "lvl_end": 13
+    },
+    {
+     "life": "ASC1",
+     "cycle": 3,
+     "net": -0.0368,
+     "net_pct": -0.00368,
+     "dd": 0.0492,
+     "lvl_start": 13,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 4,
+     "net": -0.0833,
+     "net_pct": -0.00833,
+     "dd": 0.0917,
+     "lvl_start": 9,
+     "lvl_end": 10
+    },
+    {
+     "life": "ASC1",
+     "cycle": 5,
+     "net": -0.0244,
+     "net_pct": -0.00244,
+     "dd": 0.0659,
+     "lvl_start": 10,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 6,
+     "net": -0.0712,
+     "net_pct": -0.00712,
+     "dd": 0.1097,
+     "lvl_start": 9,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 7,
+     "net": 0.0124,
+     "net_pct": 0.00124,
+     "dd": 0.0238,
+     "lvl_start": 9,
+     "lvl_end": 8
+    },
+    {
+     "life": "ASC1",
+     "cycle": 8,
+     "net": -0.0756,
+     "net_pct": -0.00756,
+     "dd": 0.0803,
+     "lvl_start": 8,
+     "lvl_end": 10
+    },
+    {
+     "life": "ASC1",
+     "cycle": 9,
+     "net": -0.0522,
+     "net_pct": -0.00522,
+     "dd": 0.0914,
+     "lvl_start": 10,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 10,
+     "net": -0.0696,
+     "net_pct": -0.00696,
+     "dd": 0.1099,
+     "lvl_start": 9,
+     "lvl_end": 12
+    },
+    {
+     "life": "ASC1",
+     "cycle": 11,
+     "net": -0.0094,
+     "net_pct": -0.00094,
+     "dd": 0.0371,
+     "lvl_start": 12,
+     "lvl_end": 10
+    },
+    {
+     "life": "ASC1",
+     "cycle": 12,
+     "net": -0.1141,
+     "net_pct": -0.01141,
+     "dd": 0.1355,
+     "lvl_start": 10,
+     "lvl_end": 9
+    },
+    {
+     "life": "ASC1",
+     "cycle": 13,
+     "net": -0.4065,
+     "net_pct": -0.04065,
+     "dd": 0.4238,
+     "lvl_start": 9,
+     "lvl_end": 13
+    }
+   ]
+  }
+ }
+}

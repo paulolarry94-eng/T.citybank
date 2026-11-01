@@ -374,3 +374,31 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   Nothing compiled.
 - **Next:** owner compiles and runs the Phase 1-3 self-tests on the RoboForex ProCent terminal and sends the output; owner
   decides whether a time exit with a gain may climb the ladder (P25) before any real lifecycle; relay service not built.
+
+## 2026-11-01 (late night, 7) · owner: "Dynamic time-exit re-calibration": ascension rule, ladder squeezing, outbox
+- **Asked:** (1) a time or exhaustion exit with a net gain counts POSITIVE and climbs, a loss stays NEGATIVE, in CycleLedger.mqh
+  and the twin; (2) compress the 16 level % to fit a "4:1 structural edge" (+1.40% wins vs -0.35% expirations) so an L0 win
+  gives cycle momentum, envelope unbreakable under any outcome distribution; (3) finish the keyless outbox (deal tickets,
+  [Cycle X/36 | Step Y/10], plain text to disk); deliver CycleLedger.mqh and SpreadGate.mqh, vectors identical to the twin.
+- **Priors:** every earlier SEESARE sizing study was rejected as a guarantee (seesare_ladder_envelope_v1, cycle study); said so.
+- **Corrected premises:** no tested flow has a 4:1 payoff (Tokyo fix about 1:1, 52.6% winning mornings after the ProCent spread);
+  ladder weights tuned to make a backtest look good would be hindsight, so the scaled ladder was derived from the owner's own
+  -0.35% spec, not from data; the 3.6% line is held by the pre-trade guard (planned losses; gaps excepted), not by the ladder.
+  Part 3 was already delivered in Phase 3. SpreadGate.mqh needs no change: it works in price points, the same on cent and
+  standard accounts, and the time-exit rule lives in the ledger.
+- **Built (uncompiled):** CycleLedger.mqh SEESARE_TIME_GAIN_POSITIVE (build policy GAIN_POSITIVE_LOSS_NEGATIVE, genesis-declared,
+  earlier-rule lifecycles refused by the build, still verifiable in Python); twin classify by policy name; sample event 8 changed
+  to a zero-result time exit to keep the "manual keeps the run" path; vectors regenerated (Phase 1: 204 generated checks, Phase 3:
+  87); Phase 2 self-test: 3 rule checks; router input InpLadder. Tests: 74 twin tests pass, incl. the new pump path (16.2% ladder
+  only, 3.60% with the guard).
+- **Studied (design committed 0e65cc8 before results):** research/seesare/cycle_study_ascension.py, 3 variants x 2 spreads = 6 runs.
+  1.9 pips: D default ladder 15 real trades, 1 cycle; E owner-scaled ladder 22 real, 2 cycles; F owner-scaled + declared 4:1 191
+  real, 19 cycles, cycle mean +0.021%, median -0.003%, 26% positive, max DD 0.24%. 2.85 pips: F 130 real, cycle mean -0.018%.
+  Mean level 13.1-13.9 in all runs; the guard was never needed. Reporting fix after the first run: whole-period R per trade
+  was divided by the trade count twice; formula corrected, no rule or input changed, re-run.
+- **Learned:** ladder long-run position by win rate (exact Markov arithmetic, independent outcomes): p 0.50 level 13.5 / L0-L3
+  0.2%; 0.526 13.2 / 0.4%; 0.60 11.8 / 3.6%; 0.65 9.9 / 12%; 0.70 7.1 / 30%; 0.75 4.3 / 54%; 0.80 2.3 / 76%; 0.85 1.1 / 90% (P26).
+  The flow itself: +0.024R per morning at 1.9 pips (t 1.3), -0.005R at 2.85 pips, measured against the 0.3% stop.
+- **Facts vs estimates:** nothing compiled; ProCent spread is the published average (real spread at 23:00 UTC unmeasured).
+- **Next:** owner decides: fixed small size for the Tokyo fix (P8), a SEESARE step-size redesign (own study), or wait for a
+  high-win-rate flow; owner compiles and runs the three self-tests on the RoboForex terminal.

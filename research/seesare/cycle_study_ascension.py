@@ -101,8 +101,8 @@ def summary(rows, lives):
                       positive_cycles_share=round(sum(p > 0 for p in pct) / len(pct), 3) if pct else None,
                       five_cycle_sums_pct=windows(pct, 5), ten_cycle_sums_pct=windows(pct, 10),
                       real_pnl_usd=round(sum(x["pnl"] for x in real), 2),
-                      real_R_per_trade=round(sum(x["pnl"] for x in real) / sum(x["risk"] for x in real) / len(real), 4)
-                      if real else None,
+                      # risk-weighted mean R per real trade (fixed after the first run: it was divided by the count twice)
+                      real_R_per_trade=round(sum(x["pnl"] for x in real) / sum(x["risk"] for x in real), 4) if real else None,
                       max_life_dd_usd=round(max(L.l_dd for L in lives), 4),
                       max_life_dd_pct=round(max(L.l_dd for L in lives) / 10.0, 4),
                       violations=sum(len(L.violations) for L in lives),

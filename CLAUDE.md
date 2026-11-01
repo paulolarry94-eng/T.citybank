@@ -80,6 +80,10 @@ Learning rules:
   formatter + outbox format 2 ([Cycle X/36, Step Y/10], deal tickets, record, checksum), read-only DealReader; twin
   `tools/seesare_outbox.py` (`--mql`), 22 tests. Cent account: Tokyo fix REAL only at L0-L3. Cycle study: the ladder sinks to L15
   for time-exit flows (P25): 6 real trades in 15 years, 0 cycles (`research/results/seesare/cycle_study.json`).
+- SEESARE Phase 4 (2026-11-01, uncompiled): owner's time-exit ascension (gain climbs, loss descends; time_policy
+  GAIN_POSITIVE_LOSS_NEGATIVE) hardcoded; router InpLadder. Study: the ladder still sinks (Tokyo fix wins 52.6%; the ladder needs
+  ~75% to stay near the top, P26); best variant 191 real trades, cycles +0.021% mean (`cycle_study_ascension.json`). The
+  guard, not the ladder, holds 3.6% under this rule (16.2% ladder-only path, P24).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

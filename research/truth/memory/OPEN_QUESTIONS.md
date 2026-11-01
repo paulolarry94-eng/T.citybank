@@ -197,6 +197,15 @@ L15 by event 13, 6 real trades in 15 years, 0 cycles; +2% per cycle needs +1.46R
 Open: owner compiles and runs the three self-tests on the RoboForex terminal (the Phase 3 one prints the real minimum lot and
 level table); owner decides whether a time exit with a gain may climb the ladder (changes P25's mechanism; would need a new
 lifecycle rule and its own study); minimum lot on ProCent (0.01 per most reviews, 0.1 per one) measured on the terminal.
+
+Phase 4 (2026-11-01): owner chose "time-exit ascension": a time exit with a net gain is POSITIVE (climbs), a net loss NEGATIVE,
+exactly 0 MANUAL; hardcoded (time_policy=GAIN_POSITIVE_LOSS_NEGATIVE), twin and vectors updated; router input InpLadder (16
+level %, declared in genesis). Study (pre-registered): the ladder still sinks (P26): the Tokyo fix wins 52.6% of mornings, the
+ladder needs about 75% to stay near the top. Real trades in 15 years: 15 (default ladder), 22 (owner-scaled x2.44), 191
+(owner-scaled + declared 4:1, which the flow does not have); best cycles +0.021% mean, median -0.003%. The ascension rule makes
+the guard, not the ladder, the only drawdown limit again (16.2% ladder-only on the pump path, P24). Open: owner decides between
+(a) fixed small size for the Tokyo fix outside the ladder (P8), (b) changing SEESARE's step sizes (a SEESARE redesign, needs its
+own study), (c) waiting for a flow with a verified high win rate; owner compiles and runs the self-tests.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
