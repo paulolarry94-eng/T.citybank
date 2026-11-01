@@ -1,0 +1,77 @@
+{
+ "name": "opex_week_indices_v1",
+ "hypothesis": "Option dealers' hedging flows lift equity indexes in the week of the monthly option expiry.",
+ "fingerprint": "236c482837588193d36b0813000f6ccb7296336fa8e93af31570b207fdb32bf2",
+ "started": "2026-11-01 07:20:42 UTC",
+ "markets": [
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225"
+ ],
+ "timeframes": [
+  "H1"
+ ],
+ "params": {
+  "week": [
+   "opex"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  }
+ ],
+ "lookahead": {
+  "ok": false,
+  "checks": [
+   {
+    "tf": "H1",
+    "test": "real-time decision",
+    "bar": 10414,
+    "full": "[(10414, 1, 1393.175)]",
+    "live": "[]",
+    "ok": false
+   }
+  ]
+ },
+ "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+}

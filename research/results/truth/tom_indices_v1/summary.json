@@ -1,0 +1,73 @@
+{
+ "name": "tom_indices_v1",
+ "hypothesis": "Month-end and month-start money flows lift equity indexes on the last trading day and the first three.",
+ "fingerprint": "297782478c82b85a9462d94994d51dfdda18a1c7995f69de3a12cc7fea29dcdd",
+ "started": "2026-11-01 07:20:38 UTC",
+ "markets": [
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225"
+ ],
+ "timeframes": [
+  "H1"
+ ],
+ "params": {
+  "window": [
+   "d-1_d+3"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Hunt 2 / 11-leg book",
+   "verdict": "Survivor: Tier B forward-test candidate"
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  }
+ ],
+ "lookahead": {
+  "ok": false,
+  "checks": [
+   {
+    "tf": "H1",
+    "test": "real-time decision",
+    "bar": 10628,
+    "full": "[(10628, 1, 1369.9)]",
+    "live": "[]",
+    "ok": false
+   }
+  ]
+ },
+ "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+}

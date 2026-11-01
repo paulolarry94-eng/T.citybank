@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-47 ideas tested, about 303,117 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+50 ideas tested, about 303,117 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -25,33 +25,34 @@
 | reversal | 7 | 1 | 105,844 |
 | session | 7 | 0 | 183,863 |
 | breakout | 6 | 0 | 119,346 |
+| index | 6 | 0 | 72 |
 | daily | 5 | 1 | 86 |
 | ema | 5 | 0 | 996 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
+| seasonal | 5 | 2 | 17 |
 | smc | 5 | 0 | 14,988 |
+| calendar | 4 | 1 | 6 |
+| flow | 4 | 1 | 6 |
 | mean-reversion | 4 | 0 | 11 |
 | third-party-ea | 4 | 0 | 304 |
+| awesome-list | 3 | 0 | 0 |
 | book | 3 | 1 | 9 |
 | filter-mining | 3 | 0 | 244 |
 | grid | 3 | 0 | 196 |
-| index | 3 | 0 | 72 |
 | liquidity | 3 | 0 | 1,376 |
 | oscillator | 3 | 0 | 288 |
 | portfolio | 3 | 3 | 16 |
 | reversion | 3 | 3 | 16 |
-| seasonal | 3 | 2 | 17 |
 | sweep | 3 | 0 | 1,376 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
-| calendar | 2 | 1 | 6 |
 | carry | 2 | 1 | 2 |
 | costs | 2 | 0 | 8 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
 | fix | 2 | 1 | 6 |
-| flow | 2 | 1 | 6 |
 | fvg | 2 | 0 | 9,312 |
 | pattern | 2 | 0 | 4,896 |
 | risk | 2 | 0 | 60 |
@@ -65,6 +66,7 @@
 | winner-anatomy | 2 | 0 | 135 |
 | breakeven | 1 | 0 | 102,260 |
 | control | 1 | 0 | 48 |
+| cross-asset | 1 | 0 | 0 |
 | cross-sectional | 1 | 0 | 1 |
 | diversified | 1 | 1 | 1 |
 | exness | 1 | 0 | 5 |
@@ -74,8 +76,12 @@
 | gbpusd | 1 | 0 | 144 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
+| macro | 1 | 0 | 0 |
 | metals | 1 | 0 | 64 |
 | momentum | 1 | 0 | 1 |
+| monthly | 1 | 0 | 0 |
+| oil | 1 | 0 | 0 |
+| options-expiry | 1 | 0 | 0 |
 | out-of-sample | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
 | payouts | 1 | 0 | 3 |
@@ -91,6 +97,7 @@
 | support-resistance | 1 | 0 | 2,202 |
 | swap-free | 1 | 0 | 5 |
 | timeframe-scan | 1 | 0 | 396 |
+| turn-of-month | 1 | 0 | 0 |
 | volatility | 1 | 0 | 102,260 |
 
 ## Every idea tested (newest first)
@@ -101,6 +108,9 @@
 | 2026-11-01 | Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits | engulfing, structure, intraday, session, timeframe-scan, owner-idea, breadth | 396 | Rejected: no pocket survives | 396 cells (M5, M10, M15, M30, M45, H1; Asia/London/New York; t3 and ladder), selection on 2011-22 only. 1 cell passed discovery (GBPUSD H1 London t3, t 2.13; ~9 expected by luck) and lost in 2020-22 (-0.37R); 0 confirmed; no cell positive in 2011-19, 2020-22 and 2023-25. Before costs only 33% of cells positive in 2011-19 (medians -0.01 to -0.05R by timeframe); persistence before costs 34% vs 32% = luck. Higher timeframes cut the cost share (median after costs -0.27R M5 -> -0.20R H1) but the raw edge does not improve. Sessions alike (-0.23R). Past hint (sop_4leg_v1 EUR/GBP M30 16-20 UTC) negative on all 9 other markets (-0.04 to -0.51R). |
 | 2026-11-01 | tokyo_fix_gotobi_v1 | calendar, flow, fix, intraday, usdjpy, seasonal | 3 | Tier B: forward-test candidate | dev_E +0.041, val_E +0.064, final_E +0.052, final_n +214.000, final_PF +1.283, dsr +0.969, share_dev_positive +1.000 |
 | 2026-11-01 | Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days | calendar, flow, fix, intraday, usdjpy, seasonal | 3 | Study: informative (supports tokyo_fix_gotobi_v1) | Buy 23:00 -> 00:55 UTC on gotobi days: dollar +2.7 pips (2011-19, t 4.0, 646 days), +3.9 (2020-22), +3.6 (2023-25), +5.3 (Jan-Sep 2026, 54 days) vs other days +0.3/+1.3/+1.1/-0.6; after 1.35-pip cost +1.4/+2.6/+2.3/+3.9 pips. Oct 2026 -8.5 (6 days). After-fix short 00:55->02:00: -1.5/-3.9/-4.8 pips on gotobi days, flat in 2026. Exness Zero spread at 23:00 UTC ~0 in 6 of 8 sampled months, 0.65 pip (Mar 2021) and 4.8 pips (Jan 2024): about +0.7 pip average, winter months riskier. |
+| 2026-11-01 | tom_indices_v1 | calendar, flow, seasonal, index, turn-of-month, awesome-list | — | Rejected: look-ahead (signals change when future bars are removed) |  |
+| 2026-11-01 | opex_week_indices_v1 | calendar, flow, seasonal, index, options-expiry, awesome-list | — | Rejected: look-ahead (signals change when future bars are removed) |  |
+| 2026-11-01 | oil_equity_v1 | macro, cross-asset, oil, index, monthly, awesome-list | — | Rejected: look-ahead (signals change when future bars are removed) |  |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |
