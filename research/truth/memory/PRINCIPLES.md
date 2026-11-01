@@ -81,12 +81,19 @@ on untouched January–October 2026 Exness data made +0.022R per trade against +
 weaker per trade, though within noise: z −0.81 on 333 trades), −1.36% at 1% risk vs a typical +8.2% for 10 months.
 A stretch that bad has a 4% chance under the full backtest edge, 13% if the edge is 30% weaker, 23% if 50% weaker.
 Evidence: research/results/champion/ (dashboard_data.py). Confidence: medium (one short out-of-sample period, no live fills yet).
+Evidence (2026-11-01): three published calendar/macro effects from the awesome-systematic-trading list failed on our data:
+turn of the month (1987-88 papers) and option-expiry week show no effect beyond drift in 2011-25; oil predicting equities
+(2008 paper) was +1.15%/month in 2000-2010 on futures and -0.03% in 2011-2024. Published edges fade; a paper's Sharpe is
+an upper bound.
 
 ### P12 CFD financing kills high-notional strategies
 Trend + carry needs about 4x notional; CFD markups make it Sharpe 0.06 versus 0.50 on futures. Bonds are
 impossible as CFDs. Evidence: multiasset study. Confidence: high.
 More evidence (2026-10-31): single-market trend trades on index and commodity CFDs pay 0.06–0.33R financing per trade
 (US500 0.33R, GER40 0.26R, silver 0.12R, oil 0.06R at the lab's estimates), more than the raw edge on indices and silver.
+Evidence (2026-11-01): month-long index CFD holds pay about 0.5%/month in financing at today's rates (the lab's fixed-point
+index swaps charge more in early years, up to ~1.2%/month); oil->equity on CFDs turned +0.42%/month before financing into
+-0.74% after. Multi-day index ideas belong on futures (Q6).
 
 ### P13 Short volatility hides ruin
 VIX carry: good years, then −97%. Evidence: multiasset study. Confidence: high.

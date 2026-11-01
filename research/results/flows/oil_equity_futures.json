@@ -1,0 +1,192 @@
+{
+ "first_month": "1990-11-30",
+ "last_month": "2024-03-31",
+ "by_period": {
+  "2000-2010 (fresh)": {
+   "SP500": {
+    "n_fell": 49,
+    "n_rose": 83,
+    "diff_pct": 0.57,
+    "t": 0.64
+   },
+   "NASDAQ": {
+    "n_fell": 49,
+    "n_rose": 83,
+    "diff_pct": 1.41,
+    "t": 0.93
+   },
+   "DAX": {
+    "n_fell": 49,
+    "n_rose": 81,
+    "diff_pct": 1.42,
+    "t": 1.21
+   },
+   "FTSE100": {
+    "n_fell": 49,
+    "n_rose": 83,
+    "diff_pct": 1.22,
+    "t": 1.54
+   },
+   "NIKKEI": {
+    "n_fell": 0,
+    "n_rose": 0,
+    "diff_pct": NaN,
+    "t": NaN
+   },
+   "EUROSTX": {
+    "n_fell": 0,
+    "n_rose": 0,
+    "diff_pct": NaN,
+    "t": NaN
+   },
+   "basket": {
+    "n_fell": 49,
+    "n_rose": 83,
+    "diff_pct": 1.15,
+    "t": 1.15
+   },
+   "trade long_short basket": {
+    "n": 132,
+    "mean_pct": 0.55,
+    "t": 1.15,
+    "sharpe_ann": 0.35
+   },
+   "trade long_cash basket": {
+    "n": 132,
+    "mean_pct": 0.25,
+    "t": 0.84,
+    "sharpe_ann": 0.25
+   },
+   "buy_and_hold basket": {
+    "n": 132,
+    "mean_pct": -0.05,
+    "t": -0.11,
+    "sharpe_ann": -0.03
+   }
+  },
+  "2011-latest": {
+   "SP500": {
+    "n_fell": 72,
+    "n_rose": 87,
+    "diff_pct": 0.16,
+    "t": 0.23
+   },
+   "NASDAQ": {
+    "n_fell": 72,
+    "n_rose": 87,
+    "diff_pct": -0.03,
+    "t": -0.03
+   },
+   "DAX": {
+    "n_fell": 72,
+    "n_rose": 87,
+    "diff_pct": -0.18,
+    "t": -0.2
+   },
+   "FTSE100": {
+    "n_fell": 72,
+    "n_rose": 87,
+    "diff_pct": -0.51,
+    "t": -0.86
+   },
+   "NIKKEI": {
+    "n_fell": 72,
+    "n_rose": 82,
+    "diff_pct": 0.44,
+    "t": 0.54
+   },
+   "EUROSTX": {
+    "n_fell": 55,
+    "n_rose": 66,
+    "diff_pct": 0.06,
+    "t": 0.07
+   },
+   "basket": {
+    "n_fell": 72,
+    "n_rose": 87,
+    "diff_pct": -0.03,
+    "t": -0.05
+   },
+   "trade long_short basket": {
+    "n": 159,
+    "mean_pct": -0.11,
+    "t": -0.34,
+    "sharpe_ann": -0.09
+   },
+   "trade long_cash basket": {
+    "n": 159,
+    "mean_pct": 0.45,
+    "t": 1.77,
+    "sharpe_ann": 0.49
+   },
+   "buy_and_hold basket": {
+    "n": 159,
+    "mean_pct": 1.0,
+    "t": 3.19,
+    "sharpe_ann": 0.88
+   }
+  },
+  "all": {
+   "SP500": {
+    "n_fell": 174,
+    "n_rose": 227,
+    "diff_pct": 0.59,
+    "t": 1.35
+   },
+   "NASDAQ": {
+    "n_fell": 122,
+    "n_rose": 170,
+    "diff_pct": 0.85,
+    "t": 1.05
+   },
+   "DAX": {
+    "n_fell": 121,
+    "n_rose": 168,
+    "diff_pct": 0.58,
+    "t": 0.81
+   },
+   "FTSE100": {
+    "n_fell": 174,
+    "n_rose": 227,
+    "diff_pct": 0.64,
+    "t": 1.56
+   },
+   "NIKKEI": {
+    "n_fell": 72,
+    "n_rose": 82,
+    "diff_pct": 0.44,
+    "t": 0.54
+   },
+   "EUROSTX": {
+    "n_fell": 55,
+    "n_rose": 66,
+    "diff_pct": 0.06,
+    "t": 0.07
+   },
+   "basket": {
+    "n_fell": 174,
+    "n_rose": 227,
+    "diff_pct": 0.79,
+    "t": 1.73
+   },
+   "trade long_short basket": {
+    "n": 401,
+    "mean_pct": 0.29,
+    "t": 1.31,
+    "sharpe_ann": 0.23
+   },
+   "trade long_cash basket": {
+    "n": 401,
+    "mean_pct": 0.49,
+    "t": 3.13,
+    "sharpe_ann": 0.54
+   },
+   "buy_and_hold basket": {
+    "n": 401,
+    "mean_pct": 0.69,
+    "t": 3.1,
+    "sharpe_ann": 0.54
+   }
+  }
+ }
+}

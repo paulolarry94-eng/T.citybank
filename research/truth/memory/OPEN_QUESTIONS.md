@@ -71,6 +71,9 @@ weights would have done better in 2026. Choosing weights from 2026 is hindsight,
 inverse-vol (current), equal risk, and inverse-vol capped by trade count. FAMILY: portfolio, weighting, sizing, book.
 
 ### Q10 Flow-driven calendar edges with a known payer (declare rules before loading data)
+TESTED 2026-11-01 from the awesome-systematic-trading list (owner's choice): turn of the month and option-expiry week in 5
+indexes (no effect beyond drift; tom_indices_v2 / opex_week_indices_v2 rejected) and oil -> equity (rejected on CFDs and on
+futures: gone since 2011). `research/results/flows/calendar_study.json`, `oil_equity_futures.json`.
 PARTLY ANSWERED (2026-11-01): Tokyo fix on gotobi days, USDJPY buy 23:00 -> 00:55 UTC = Tier B (`research/results/truth/tokyo_fix_gotobi_v1/REPORT.md`, `research/results/flows/`). Open: turn of month and pre-FOMC in US500/GER40,
 Japanese fiscal year-end. Follow-ups for the Tokyo fix: (a) the 23:00 UTC spread in winter (Jan 2024 4.8 pips): an
 execution rule (enter when spread <= 0.5 pip, within 15 minutes) needs its own name and test; (b) add it to the book's
@@ -117,6 +120,12 @@ with purged walk-forward (fit on past years, apply to the next), few features, d
 spread guard is Q10 follow-up (a); correlation-aware sizing is Q9/Q12; "ghost stops" are rejected without a hard backup stop.
 The three MQL5 GitHub repositories it named were not found by web search (kinorand/MQL5-ML-Framework,
 w-m/mql5-matrix-examples, shmuma/mql5-risk-management). FAMILY: ml, meta-labeling, filter, sizing.
+
+### Q17 Index financing in the lab is fixed in points; make it a rate (percent of price) before testing multi-day index holds
+costs.json charges e.g. NAS100 3.0 points a night whatever the price (about 5%/yr at 20,000, over 40%/yr at 2011's 2,500),
+so early years are overcharged. Exness's real US500 swap is -142.4 points long / 0 short (owner's MT5 spec, ~7.6%/yr at
+~6,800). Did not change today's verdicts (each idea failed before financing too), but would bias any future multi-day index
+test. FAMILY: costs, financing, index, methods.
 
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone

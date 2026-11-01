@@ -246,3 +246,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   (spread guard for the Tokyo fix, correlation-aware sizing Q9/Q12, meta-labeling on legs with an edge = new Q16); wrong or
   risky (60% win rate as the goal (P16), filters that multiply a zero edge (P21), ghost stops without a hard stop, a
   volatility percentile taken over all 15 years = look-ahead).
+
+## 2026-11-01 (night) · "3 ... the best ideas" (test the best ideas from the awesome-systematic-trading list)
+- **Done:** read the list's free strategy table (PyPI copy of the README, ~70 strategies); picked those that fit our markets and
+  have a payer: turn of the month and option-expiry week (5 index CFDs), oil predicts equities (paper Sharpe 0.31, 0.45, 0.60).
+  Skipped: FX/dollar carry (needs rate history; a swap-free account removes carry), bitcoin overnight (no data), stock factors.
+  Pre-registered lab strategies; v1 failed the lab's look-ahead check (month-end found from later bars), v2 uses the calendar
+  (new names; the companion study had already seen 2011-25, disclosed). Drift-controlled study; futures check of oil 1990-2024.
+- **Learned:** all three rejected. TOM and OPEX: no effect beyond drift; negative after costs even before financing (TOM).
+  Oil -> equity: +0.42%/month before financing on CFDs (2011-19) but -0.74% after; on futures +1.15%/month in 2000-2010 (t 1.15)
+  and nothing since 2011: faded after the 2008 paper (P11 evidence). CFD financing (P12 evidence). New Q17 (index swaps in points).
+- **Decisions:** no list strategy added. The flow that works for us (Tokyo fix) came from a payer we identified ourselves.
+- **Facts vs estimates:** index costs and swaps are lab estimates; futures returns exclude commissions (tiny monthly).

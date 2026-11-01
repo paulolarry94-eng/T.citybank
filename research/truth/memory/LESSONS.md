@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-53 ideas tested, about 303,121 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+55 ideas tested, about 303,126 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,49 +16,51 @@
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
 | intraday | 15 | 1 | 182,543 |
+| index | 11 | 0 | 81 |
 | breadth | 9 | 0 | 611 |
 | engulfing | 9 | 0 | 3,836 |
-| index | 9 | 0 | 76 |
 | owner-idea | 9 | 0 | 1,636 |
 | trend | 9 | 4 | 102,565 |
+| awesome-list | 8 | 0 | 9 |
+| seasonal | 8 | 2 | 22 |
 | structure | 8 | 0 | 1,634 |
+| calendar | 7 | 1 | 11 |
+| flow | 7 | 1 | 11 |
 | retest | 7 | 0 | 10,308 |
 | reversal | 7 | 1 | 105,844 |
-| seasonal | 7 | 2 | 19 |
 | session | 7 | 0 | 183,863 |
-| awesome-list | 6 | 0 | 4 |
 | breakout | 6 | 0 | 119,346 |
-| calendar | 6 | 1 | 8 |
-| flow | 6 | 1 | 8 |
 | daily | 5 | 1 | 86 |
 | ema | 5 | 0 | 996 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
 | smc | 5 | 0 | 14,988 |
 | mean-reversion | 4 | 0 | 11 |
+| oil | 4 | 0 | 7 |
 | third-party-ea | 4 | 0 | 304 |
 | book | 3 | 1 | 9 |
+| cross-asset | 3 | 0 | 4 |
 | filter-mining | 3 | 0 | 244 |
 | grid | 3 | 0 | 196 |
 | liquidity | 3 | 0 | 1,376 |
+| macro | 3 | 0 | 4 |
+| monthly | 3 | 0 | 4 |
+| options-expiry | 3 | 0 | 4 |
 | oscillator | 3 | 0 | 288 |
 | portfolio | 3 | 3 | 16 |
 | reversion | 3 | 3 | 16 |
 | sweep | 3 | 0 | 1,376 |
+| turn-of-month | 3 | 0 | 4 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | carry | 2 | 1 | 2 |
 | costs | 2 | 0 | 8 |
-| cross-asset | 2 | 0 | 2 |
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | eurusd | 2 | 1 | 147 |
 | fix | 2 | 1 | 6 |
+| futures | 2 | 1 | 3 |
 | fvg | 2 | 0 | 9,312 |
-| macro | 2 | 0 | 2 |
-| monthly | 2 | 0 | 2 |
-| oil | 2 | 0 | 2 |
-| options-expiry | 2 | 0 | 1 |
 | pattern | 2 | 0 | 4,896 |
 | risk | 2 | 0 | 60 |
 | rsi2 | 2 | 0 | 8 |
@@ -67,7 +69,6 @@
 | stop-entry | 2 | 1 | 6 |
 | time-filter | 2 | 0 | 144 |
 | trailing | 2 | 0 | 156 |
-| turn-of-month | 2 | 0 | 1 |
 | usdjpy | 2 | 1 | 6 |
 | winner-anatomy | 2 | 0 | 135 |
 | breakeven | 1 | 0 | 102,260 |
@@ -77,7 +78,6 @@
 | exness | 1 | 0 | 5 |
 | factor | 1 | 0 | 1 |
 | forward-test | 1 | 1 | 1 |
-| futures | 1 | 1 | 1 |
 | gbpusd | 1 | 0 | 144 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
@@ -114,6 +114,8 @@
 | 2026-11-01 | tom_indices_v2 | calendar, flow, seasonal, index, turn-of-month, awesome-list | 1 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-01 | opex_week_indices_v2 | calendar, flow, seasonal, index, options-expiry, awesome-list | 1 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-01 | oil_equity_v2 | macro, cross-asset, oil, index, monthly, awesome-list | 2 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-11-01 | Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled) | calendar, flow, seasonal, index, turn-of-month, options-expiry, oil, awesome-list | 3 | Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent | Window-day minus other-day daily return, 2011-19 / 2020-22 / 2023-25: TOM -9.6 to +0.2 bp (4/5 indexes negative), then positive, then negative; OPEX week flips sign (US500 +2.5 bp, -28 bp t -2.1, -1.9 bp). Oil: next month after oil fell minus rose +96 bp (5/5 positive), -13 bp (1/5), +142 bp (4/5), t <= 1.7 everywhere. |
+| 2026-11-01 | Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024) | macro, cross-asset, oil, index, monthly, futures, awesome-list | 2 | Rejected: the effect faded after publication | Basket of SP500, NASDAQ, DAX, FTSE100 (+NIKKEI, EUROSTX from 2011): next month after oil fell minus rose +1.15%/month in 2000-2010 (t 1.15, fresh years), -0.03% in 2011-2024 (t -0.05); long/short Sharpe 0.35 then -0.09; long/cash Sharpe 0.49 vs buy-and-hold 0.88 in 2011-2024. Paper published 2008. |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |
