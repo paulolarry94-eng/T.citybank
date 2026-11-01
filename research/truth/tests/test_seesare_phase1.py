@@ -124,13 +124,22 @@ class Ladder(unittest.TestCase):
         self.assertEqual(S.num(S.floor_dp(S.multiplier(2.45), 4), 4), "0.4900")             # (0.7)^2
 
     def test_classify(self):
-        self.assertEqual(S.classify("TIME", -0.3, time_loss_negative=False), 0)   # earlier mandate (research only)
-        self.assertEqual(S.classify("TIME", -0.3), -1)                             # the build's rule
-        self.assertEqual(S.classify("TIME", 0.3, time_loss_negative=True), 0)
-        self.assertEqual(S.classify("STOP", 0.1), -1)
-        self.assertEqual(S.classify("BROKER", -5), -1)
-        self.assertEqual(S.classify("TARGET", 0.5), 1)
-        self.assertEqual(S.classify("HUMAN", -0.5), 0)
+        self.assertEqual(S.BUILD_POLICY, "GAIN_POSITIVE_LOSS_NEGATIVE")
+        self.assertEqual(S.classify("TIME", 0.3), 1)                               # the build's rule: a gain climbs
+        self.assertEqual(S.classify("TIME", -0.3), -1)                             # a loss descends
+        self.assertEqual(S.classify("TIME", 0.0), 0)                               # exactly 0: manual
+        self.assertEqual(S.classify("TIME", 0.3, "LOSS_NEGATIVE"), 0)              # Phase 2 rule (research, old lifecycles)
+        self.assertEqual(S.classify("TIME", -0.3, "LOSS_NEGATIVE"), -1)
+        self.assertEqual(S.classify("TIME", -0.3, "MANUAL"), 0)                    # Phase 1 mandate
+        self.assertEqual(S.classify("TIME", 0.3, "MANUAL"), 0)
+        for pol in S.POLICIES:
+            self.assertEqual(S.classify("STOP", 0.1, pol), -1)
+            self.assertEqual(S.classify("BROKER", -5, pol), -1)
+            self.assertEqual(S.classify("TARGET", 0.5, pol), 1)
+            self.assertEqual(S.classify("HUMAN", -0.5, pol), 0)
+            self.assertEqual(S.classify("HUMAN", 0.5, pol), 0)
+        with self.assertRaises(ValueError):
+            S.classify("TIME", 0.3, "ASCEND")
 
 
 def rehash_from(lines, start):
@@ -154,7 +163,7 @@ class LedgerRules(unittest.TestCase):
         R = S.verify(self.lines, self.L.anchors)
         for f in ("head", "level", "neg_run", "n", "shadow", "cycle", "l_net", "l_dd", "anchors"):
             self.assertEqual(getattr(R, f), getattr(self.L, f), f)
-        self.assertEqual((R.level, R.neg_run, R.n, R.shadow, R.cycle), (15, 2, 12, 8, 2))
+        self.assertEqual((R.level, R.neg_run, R.n, R.shadow, R.cycle), (14, 2, 12, 8, 2))   # ascension: L11 -> L14 at the end
 
     def test_changed_character_is_caught(self):
         bad = list(self.lines)
@@ -194,13 +203,22 @@ class LedgerRules(unittest.TestCase):
         with self.assertRaisesRegex(S.LedgerError, "exit rule"):
             S.verify(rehash_from(forged, 6))
 
-    def test_build_refuses_a_manual_time_policy_lifecycle(self):
-        M = S.Ledger("OLDRULE", time_policy="MANUAL")
-        g = M.genesis_line(S.date(2026, 11, 1))
-        self.assertIn("time_policy=MANUAL", g)
-        with self.assertRaisesRegex(S.LedgerError, "policy"):
-            S.Ledger("OLDRULE").apply_line(g)
-        S.verify([g])                                         # the public verifier still reads either rule
+    def test_build_refuses_lifecycles_under_an_earlier_time_rule(self):
+        for old in ("MANUAL", "LOSS_NEGATIVE"):
+            M = S.Ledger("OLDRULE", time_policy=old)
+            g = M.genesis_line(S.date(2026, 11, 1))
+            self.assertIn(f"time_policy={old}|", g)
+            with self.assertRaisesRegex(S.LedgerError, "policy"):
+                S.Ledger("OLDRULE").apply_line(g)
+            S.verify([g])                                     # the public verifier still reads every rule
+        self.assertIn("time_policy=GAIN_POSITIVE_LOSS_NEGATIVE|", self.lines[0])
+
+    def test_a_line_written_under_the_old_rule_is_refused(self):
+        forged = list(self.lines)
+        self.assertIn("by=TIME|res=POSITIVE|lvl_before=0|lvl_after=0|neg_run=0", forged[1])   # k=1: gain at L0
+        forged[1] = forged[1].replace("by=TIME|res=POSITIVE", "by=TIME|res=MANUAL")
+        with self.assertRaisesRegex(S.LedgerError, "exit rule"):
+            S.verify(rehash_from(forged, 1))
 
     def test_rehashed_plan_cheat_is_still_caught(self):
         forged = list(self.lines)
@@ -271,7 +289,47 @@ def bleed(policy_negative, guard):
     return worst, L.n, L.shadow, len(L.violations)
 
 
+def pump(policy, guard, events=S.LIFECYCLE_EVENTS):
+    """Adversarial path for the time-exit ascension rule: a full stop, then two winning time exits of one cent each, repeated
+    (forex, ratio 3.5). With gains climbing, the two tiny wins put the ladder back at L0 before every stop.
+    Returns (worst real drawdown in USD, real events, shadow events, envelope violations)."""
+    L = S.Ledger("PUMP", time_policy=policy)
+    L.genesis_line(S.date(2026, 11, 1))
+    worst = 0.0
+    for i in range(events):
+        if L.locked:
+            break
+        plan = L.plan_at(3.5, "forex")
+        stop = i % 3 == 0
+        real = (not guard) or L.allows_real_risk(plan)
+        t0 = S.date(2027, 1, 4, 23) + i * S.DAY
+        L.record(dict(mode="REAL" if real else "SHADOW", module="PUMP", domain="forex", symbol="USDJPY", side=1,
+                      digits=3, open=t0, close=t0 + 3600, by="STOP" if stop else "TIME", ratio=3.5, risk=plan, vol=0.01,
+                      entry=151.234, lower=151.084, upper=151.759, exit=151.084 if stop else 151.236,
+                      delta=-plan if stop else 0.01, deals=f"{i + 1}" if real else "-"))
+        worst = max(worst, L.drawdown())
+    return worst, L.n, L.shadow, len(L.violations)
+
+
 class EnvelopeGuard(unittest.TestCase):
+    def test_ascension_without_guard_breaks_the_envelope(self):
+        worst, real, shadow, viol = pump("GAIN_POSITIVE_LOSS_NEGATIVE", guard=False)
+        self.assertAlmostEqual(worst, 120 * 1.368 - 119 * 0.02, places=4)    # 161.81 USD = 16.2% of $1,000
+        self.assertGreater(viol, 0)
+
+    def test_guard_holds_the_envelope_under_ascension(self):
+        worst, real, shadow, viol = pump("GAIN_POSITIVE_LOSS_NEGATIVE", guard=True)
+        self.assertLessEqual(worst, 36.0 + 1e-9)
+        self.assertEqual(viol, 0)
+        self.assertGreater(shadow, 0)          # once the room is used up, stops at L0 are paper; small events stay real
+        self.assertEqual((real, shadow), (121, 239))
+
+    def test_same_path_under_the_phase2_rule_stays_small(self):
+        worst, real, shadow, viol = pump("LOSS_NEGATIVE", guard=True)
+        self.assertAlmostEqual(worst, 2.0993, places=4)   # 0.21%: tiny wins did not climb, so the ladder shrank instead
+        self.assertEqual(real, 360)
+        self.assertEqual(viol, 0)
+
     def test_mandate_without_guard_breaks_the_envelope(self):
         worst, real, shadow, viol = bleed(policy_negative=False, guard=False)
         self.assertAlmostEqual(worst, 360 * round(0.6 * 1.368, 4), places=6)    # 295.49 USD = 29.5%

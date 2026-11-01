@@ -30,6 +30,7 @@
 #include <Seesare\Flows\FlowUsClose.mqh>
 
 input string                     InpLifecycle     = "P26-001";                         // SEESARE lifecycle id (used by LIVE modules)
+input string                     InpLadder        = "";                                // 16 level % "0.1440,...,0.0003" (4 decimals, decreasing); empty = SEESARE P26 default. Published in the genesis line; fixed for the lifecycle
 input ENUM_SEESARE_SERVER_SCHEME InpScheme        = SEESARE_SERVER_GMT2_EU;            // broker server time scheme (Phase 1 self-test)
 input ENUM_SEESARE_STATUS        InpTokyoStatus   = SEESARE_STATUS_PAPER;              // Module 1 Tokyo gotobi fix (CANDIDATE)
 input string                     InpTokyoSymbol   = "USDJPY";
@@ -120,6 +121,22 @@ int OnInit()
    AddModule(new CSeesareFlowUsClose(InpUsSymbol, InpUsFeed, InpUsMinUsd, InpUsMaxSpread), InpUsStatus);
    if(g_live)
      {
+      if(InpLadder != "")
+        {
+         double pct[];
+         string why = "";
+         if(!CSeesareLadder::Parse(InpLadder, pct, why))
+           {
+            Log("ladder: " + why);
+            return INIT_PARAMETERS_INCORRECT;
+           }
+         if(!g_ledger.SetLadder(pct))
+           {
+            Log(g_ledger.LastError());
+            return INIT_PARAMETERS_INCORRECT;
+           }
+         Log("ladder " + CSeesareLadder::Text(pct) + " (declared in the genesis line)");
+        }
       if(!g_ledger.Open(g_root, InpLifecycle, g_clock.UtcNow(), false))
         {
          Log("ledger: " + g_ledger.LastError());

@@ -193,6 +193,9 @@ void HandWrittenTests(void)
    delete usclose;
 //--- the hardcoded time-exit rule
    T_Int("rule: a losing time exit is NEGATIVE", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, -0.10, SEESARE_TIME_POLICY), -1);
+   T_Int("rule: a winning time exit is POSITIVE (time-exit ascension)", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, 0.10, SEESARE_TIME_POLICY), 1);
+   T_Int("rule: a time exit at exactly 0 is MANUAL", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, 0.0, SEESARE_TIME_POLICY), 0);
+   T_Int("rule: a winning hand close stays MANUAL", (long)CSeesareLadder::Classify(SEESARE_BY_HUMAN, 0.10, SEESARE_TIME_POLICY), 0);
    T_Int("rule: a winning time exit is MANUAL", (long)CSeesareLadder::Classify(SEESARE_BY_TIME, 0.10, SEESARE_TIME_POLICY), 0);
 //--- US close feed lines
    datetime d = 0;

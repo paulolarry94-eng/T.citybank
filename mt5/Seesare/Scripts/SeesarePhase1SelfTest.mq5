@@ -108,7 +108,7 @@ string Transition(const int level, const int neg_run, const int res)
 #define VEC_LIFE          "SELFTEST"
 #define VEC_EVENTS        20
 #define VEC_MESSAGES      22
-#define VEC_LEVEL         15
+#define VEC_LEVEL         14
 #define VEC_NEG_RUN       2
 #define VEC_REAL          12
 #define VEC_SHADOW        8
@@ -116,13 +116,13 @@ string Transition(const int level, const int neg_run, const int res)
 #define VEC_LIFE_NET      "0.6807"
 #define VEC_LIFE_DD       "1.3542"
 #define VEC_ROOM          "35.3958"
-#define VEC_GENESIS       "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|time_policy=LOSS_NEGATIVE|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1"
-#define VEC_EVENT1        "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1|hash=c873280ea8ea9218aa4f72434e15a77d9d0e3109d08c127b073453a0fb1668ed"
-#define VEC_ANCHOR1       "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=4|neg=4|man=2|shadow=7|pos_rate=0.5000|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=10|root=e275b5aa5a5d76577343cc43a2335247b74d5b522ef262f836d3d20942d0354d|head=8b629e765fb3b941bc42d11ff93422e811e39693d5aeb83f9b181cf479623d97|prev=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1|hash=04165f75d5095815d53140c2dbf796f3f3a74a2125a69231c0148f4bd3aa7ece"
-#define VEC_HEAD          "d584c10d779670680fe1abc8dc0c74e186345e4224c05894d32cd8db204b8979"
+#define VEC_GENESIS       "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|time_policy=GAIN_POSITIVE_LOSS_NEGATIVE|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d"
+#define VEC_EVENT1        "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=POSITIVE|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d|hash=04207bf6db269c3f8efabd078ec0eb7a8e7fcb0bd05ac0bc0ced9a8a542a8325"
+#define VEC_ANCHOR1       "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=6|neg=4|man=0|shadow=7|pos_rate=0.6000|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=9|root=7bf0c38789f86e5c592834cd7300228a23b062b46bb82feb6684826f316da0ae|head=4fcedd575407fa0956cd6747c685f86e64e6f3d018cb7fa519666a37436ac772|prev=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d|hash=28e51a232c795264106b40fd8c08ed6cb85846a475293a31454d05070791583b"
+#define VEC_HEAD          "5e5b53b607430fb4150b7e8ed3197d1381d00fcc06ac124ac3fdae4490da8476"
 #define VEC_LOCK_MESSAGES 398
-#define VEC_LOCK_HEAD     "7b177c16dc5e957717ce1a50c47583e8ec1291a2c1724a4a47b7acd581ab11c8"
-#define VEC_LOCK_ANCHOR36 "v=1|life=SELFTEST_LOCK|audit=cycle|cycle=36|events=351-360|pos=6|neg=4|man=0|shadow=0|pos_rate=0.6000|net=-0.1000|net_pct=-0.01000|max_dd=0.4000|max_dd_pct=0.04000|life_net=12.0000|life_dd=0.4000|lvl_start=0|lvl_end=2|root=e1f240be3efedfa4510ed76a68746efb51f61bc8c19c501b8f8ffc7fa76b9116|head=7b177c16dc5e957717ce1a50c47583e8ec1291a2c1724a4a47b7acd581ab11c8|prev=8f6d02678820387a9b0a8b15f44dd996246aa94c5315f031813d95b4dbcaacff|hash=13e885b545ecbd44ea22efd27c8a21947ce6adf1ac5cbdedb98c1b819c84a3d2"
+#define VEC_LOCK_HEAD     "b67c17981de7ba26e9a4d62fe5ad3fe04357d2565b702bf9381d5449525514ba"
+#define VEC_LOCK_ANCHOR36 "v=1|life=SELFTEST_LOCK|audit=cycle|cycle=36|events=351-360|pos=6|neg=4|man=0|shadow=0|pos_rate=0.6000|net=-0.1000|net_pct=-0.01000|max_dd=0.4000|max_dd_pct=0.04000|life_net=12.0000|life_dd=0.4000|lvl_start=0|lvl_end=2|root=e635486b1219689f06b6061abbc728c843af877e751b9f82686ae7ac43ee4205|head=b67c17981de7ba26e9a4d62fe5ad3fe04357d2565b702bf9381d5449525514ba|prev=e66a6aabaaf2cca22865c22927c61238b49dd687dedf3bf2e914cd51a0d63ac8|hash=b0cd7cc017192c667f76dc1a1f9c43acb495b2fd3456c85b2ac637a78ffcd0e3"
 const int VEC_MODE[VEC_EVENTS] = {0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0};
 const int VEC_SIDE[VEC_EVENTS] = {1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1};
 const int VEC_BY[VEC_EVENTS] = {2, 0, 1, 1, 1, 2, 0, 0, 2, 0, 1, 1, 1, 1, 0, 2, 1, 0, 3, 4};
@@ -131,10 +131,10 @@ const double VEC_RISK[VEC_EVENTS] = {1.06, 1.06, 0.0, 0.0, 1.06, 1.06, 1.06, 0.0
 const double VEC_VOL[VEC_EVENTS] = {0.01, 0.01, 0.0059, 0.0091, 0.01, 0.01, 0.01, 0.0059, 0.0017, 0.0017, 0.0005, 0.0003, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.0006, 0.01};
 const double VEC_LOWER[VEC_EVENTS] = {151.084, 151.084, 150.709, 151.084, 151.084, 151.084, 150.709, 151.084, 151.084, 151.084, 151.084, 151.114, 151.084, 151.084, 151.084, 151.084, 151.084, 151.084, 151.084, 150.709};
 const double VEC_UPPER[VEC_EVENTS] = {151.759, 151.759, 151.384, 151.759, 151.534, 151.984, 151.384, 151.759, 151.759, 151.759, 151.759, 151.384, 151.759, 151.759, 151.759, 151.759, 151.759, 151.759, 151.759, 151.384};
-const double VEC_EXIT[VEC_EVENTS] = {151.311, 151.084, 150.709, 151.759, 151.534, 151.204, 151.384, 151.084, 151.25, 151.084, 151.759, 151.114, 151.759, 151.759, 151.084, 151.271, 151.759, 151.084, 151.3, 151.384};
-const double VEC_DELTA[VEC_EVENTS] = {0.4321, -1.0592, 2.0615, 3.1605, 1.912, -0.295, -1.0592, -0.589, 0.0122, -0.171, 0.1663, 0.0301, 0.41, 0.39, -0.18, 0.05, 0.29, -0.12, 0.01, -0.09};
+const double VEC_EXIT[VEC_EVENTS] = {151.311, 151.084, 150.709, 151.759, 151.534, 151.204, 151.384, 151.084, 151.234, 151.084, 151.759, 151.114, 151.759, 151.759, 151.084, 151.271, 151.759, 151.084, 151.3, 151.384};
+const double VEC_DELTA[VEC_EVENTS] = {0.4321, -1.0592, 2.0615, 3.1605, 1.912, -0.295, -1.0592, -0.589, 0.0, -0.171, 0.1663, 0.0301, 0.41, 0.39, -0.18, 0.05, 0.29, -0.12, 0.01, -0.09};
 const string VEC_DEALS[VEC_EVENTS] = {"50001000;50001001", "50001002;50001003", "-", "-", "50001008;50001009", "50001010;50001011", "50001012;50001013", "-", "-", "-", "-", "-", "50001024;50001025", "50001026;50001027", "50001028;50001029", "50001030;50001031", "50001032;50001033", "50001034;50001035", "-", "50001038;50001039"};
-const string VEC_HASH[VEC_EVENTS] = {"c873280ea8ea9218aa4f72434e15a77d9d0e3109d08c127b073453a0fb1668ed", "78f5339e1e19d4d7740280264e9d7cfcdad2b54a778ae84d5681bba9ccf2cb0f", "c1529a51372a87b3ec8cc1203bfe17afc4c397f46dcd69bc572cf91d0daa901f", "d2f0cc0fdddb37c8a2c4483329d11e3fc9234073c02b195d1048bde670ac973f", "87f8338960a4464d37c4de1bf40d19c7a34a08312bb58d236a92bd11851ff39a", "68e7ba21a6b7b539f20bd61a3de6308e454426a2d671b171c190754372421a75", "8f4991dc6ebd05433ae633367e0dbd6c0e9a2ac4ec8a2dc6bc6dab31aba960b1", "2af3a420078700fc127a1874d26065ca75024d8f50694e4eff657ba851a591d6", "7797be63723e2cada31a35d5ffac619e98b6cb7f6db9f3087eb80dea798303b1", "fb74aa31c6c6ad5369da4fafb489214a1896e6ac6e441c4e5701ccd01a59e236", "cf6fb2e260072513de323209bee8e556b2811948136c3fcacdf83f8479005e7b", "049cef341de44035d8b8414e6681e226eb8541e82e4aadad9cd3137f3ef1b8d3", "7f94757b36240d0465fe4089070cb8b25fca8739059896690a288359a04b8e8a", "d134147ca4be1e3551c73941fb7c774d2dc8867812c4a5fec72f7c762d6638e6", "bc23c9eb995038799dcf1add06c8a5843556f0a3bbeaf9ac29b1583c1e838862", "9f3ef08b4653faf775fe630829d92306353d7c5f5abf752400bfa114ae0008ef", "8b629e765fb3b941bc42d11ff93422e811e39693d5aeb83f9b181cf479623d97", "abb05ff3390dc4b928188bb8303c2575adea9a632eeb0597751b46fc0fff0621", "c942e765e6a8829cbbac49594b3ab90828005845ffe99526d88e54a91ac6ea8f", "d584c10d779670680fe1abc8dc0c74e186345e4224c05894d32cd8db204b8979"};
+const string VEC_HASH[VEC_EVENTS] = {"04207bf6db269c3f8efabd078ec0eb7a8e7fcb0bd05ac0bc0ced9a8a542a8325", "7538c2beb7d9b2db950006eeb3bbd01e4f3e9e3a16ac24a5fb3c22cd3d51aa08", "bdbcfb799143ef87eedf151d21ceeb5273adb9f02dc2a275d642dac66d264397", "d5652cc0387af2cc14ba4e2a72f1b463f7a3c509a29d2dcb7a3185e004ad4a2c", "016bc79b9410f47407420f4470994d2c9cd624b08fd76455be0afff9271b0655", "e690fd0a9b90f56ca9c8468fe6a3230016e08b08e6cd7c329888e38c035f4493", "ed04a156ea015defd53dcd9b3c7c181eff5353a53f44e06dcc69ebe00e39b561", "294f2b5b914bb91cc7fd9bd7d47292d299022b2d2eeb661676b2bd6ba8870b36", "f520e03ab683f318d45092d41a8874674950eba0a4857f704ab7c3afa4b36685", "5b964dc0bf3e346448187f07d51acb07ba6b5a521d0e649c019b44eb37593c25", "24e00cbb27fc6d1c7fa6043d7e34d95f6ea144182e098278ae2166fc7732f69b", "3ad82c94f6b446b9cd204623d701b42fb080edcd31907a2fdd7ccda7d0294a6b", "791579948587e958e54a1d4a1faa5a79ec3ff130d7e08a64cd64cd86cce194e4", "69d76669ae425dc7ed3805fe59fd48bd88ae1223d8f531424f36e8e8050c9395", "9014172829276b1ac95255b97910492a7a1330ad7b98d14acf870879d4a3ba29", "aad53792aceb37c20dc92fc7589e94814011b924498902435ce03221ab5c093f", "4fcedd575407fa0956cd6747c685f86e64e6f3d018cb7fa519666a37436ac772", "d8287536fc70707c162d3717393fb4b424afefd339ec04f928208fe29cff0f36", "3bac94dc99514486a8b4131086bd695c97dfa4a749de1786cc00eb6983c8fc03", "5e5b53b607430fb4150b7e8ed3197d1381d00fcc06ac124ac3fdae4490da8476"};
 void GeneratedVectors(CSeesareTimingMatrix &m)
   {
    T_Str("sha256 abc", CSeesareSha256::Hex("abc"), "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
@@ -286,24 +286,49 @@ void GeneratedVectors(CSeesareTimingMatrix &m)
    T_Str("ladder L0 run 5 POSITIVE", Transition(0, 5, 1), "0/0");
    T_Int("classify STOP +0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.5, (ENUM_SEESARE_TIME_POLICY)0), -1);
    T_Int("classify STOP +0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.5, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify STOP +0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.5, (ENUM_SEESARE_TIME_POLICY)2), -1);
    T_Int("classify STOP -0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, -0.5, (ENUM_SEESARE_TIME_POLICY)0), -1);
    T_Int("classify STOP -0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, -0.5, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify STOP -0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, -0.5, (ENUM_SEESARE_TIME_POLICY)2), -1);
+   T_Int("classify STOP +0.0 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.0, (ENUM_SEESARE_TIME_POLICY)0), -1);
+   T_Int("classify STOP +0.0 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.0, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify STOP +0.0 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)0, 0.0, (ENUM_SEESARE_TIME_POLICY)2), -1);
    T_Int("classify TARGET +0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, 0.5, (ENUM_SEESARE_TIME_POLICY)0), 1);
    T_Int("classify TARGET +0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, 0.5, (ENUM_SEESARE_TIME_POLICY)1), 1);
+   T_Int("classify TARGET +0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, 0.5, (ENUM_SEESARE_TIME_POLICY)2), 1);
    T_Int("classify TARGET -0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, -0.5, (ENUM_SEESARE_TIME_POLICY)0), 1);
    T_Int("classify TARGET -0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, -0.5, (ENUM_SEESARE_TIME_POLICY)1), 1);
+   T_Int("classify TARGET -0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, -0.5, (ENUM_SEESARE_TIME_POLICY)2), 1);
+   T_Int("classify TARGET +0.0 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, 0.0, (ENUM_SEESARE_TIME_POLICY)0), 1);
+   T_Int("classify TARGET +0.0 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, 0.0, (ENUM_SEESARE_TIME_POLICY)1), 1);
+   T_Int("classify TARGET +0.0 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)1, 0.0, (ENUM_SEESARE_TIME_POLICY)2), 1);
    T_Int("classify TIME +0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, 0.5, (ENUM_SEESARE_TIME_POLICY)0), 0);
    T_Int("classify TIME +0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, 0.5, (ENUM_SEESARE_TIME_POLICY)1), 0);
+   T_Int("classify TIME +0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, 0.5, (ENUM_SEESARE_TIME_POLICY)2), 1);
    T_Int("classify TIME -0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, -0.5, (ENUM_SEESARE_TIME_POLICY)0), 0);
    T_Int("classify TIME -0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, -0.5, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify TIME -0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, -0.5, (ENUM_SEESARE_TIME_POLICY)2), -1);
+   T_Int("classify TIME +0.0 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, 0.0, (ENUM_SEESARE_TIME_POLICY)0), 0);
+   T_Int("classify TIME +0.0 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, 0.0, (ENUM_SEESARE_TIME_POLICY)1), 0);
+   T_Int("classify TIME +0.0 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)2, 0.0, (ENUM_SEESARE_TIME_POLICY)2), 0);
    T_Int("classify HUMAN +0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, 0.5, (ENUM_SEESARE_TIME_POLICY)0), 0);
    T_Int("classify HUMAN +0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, 0.5, (ENUM_SEESARE_TIME_POLICY)1), 0);
+   T_Int("classify HUMAN +0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, 0.5, (ENUM_SEESARE_TIME_POLICY)2), 0);
    T_Int("classify HUMAN -0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, -0.5, (ENUM_SEESARE_TIME_POLICY)0), 0);
    T_Int("classify HUMAN -0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, -0.5, (ENUM_SEESARE_TIME_POLICY)1), 0);
+   T_Int("classify HUMAN -0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, -0.5, (ENUM_SEESARE_TIME_POLICY)2), 0);
+   T_Int("classify HUMAN +0.0 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, 0.0, (ENUM_SEESARE_TIME_POLICY)0), 0);
+   T_Int("classify HUMAN +0.0 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, 0.0, (ENUM_SEESARE_TIME_POLICY)1), 0);
+   T_Int("classify HUMAN +0.0 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)3, 0.0, (ENUM_SEESARE_TIME_POLICY)2), 0);
    T_Int("classify BROKER +0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, 0.5, (ENUM_SEESARE_TIME_POLICY)0), -1);
    T_Int("classify BROKER +0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, 0.5, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify BROKER +0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, 0.5, (ENUM_SEESARE_TIME_POLICY)2), -1);
    T_Int("classify BROKER -0.5 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, -0.5, (ENUM_SEESARE_TIME_POLICY)0), -1);
    T_Int("classify BROKER -0.5 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, -0.5, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify BROKER -0.5 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, -0.5, (ENUM_SEESARE_TIME_POLICY)2), -1);
+   T_Int("classify BROKER +0.0 policy 0", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, 0.0, (ENUM_SEESARE_TIME_POLICY)0), -1);
+   T_Int("classify BROKER +0.0 policy 1", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, 0.0, (ENUM_SEESARE_TIME_POLICY)1), -1);
+   T_Int("classify BROKER +0.0 policy 2", (long)CSeesareLadder::Classify((ENUM_SEESARE_CLOSE)4, 0.0, (ENUM_SEESARE_TIME_POLICY)2), -1);
    T_Bool("decimal [0.4321] with 4 places is valid", CSeesareText::IsDecimal("0.4321", 4) == true, "");
    T_Bool("decimal [-0.4321] with 4 places is valid", CSeesareText::IsDecimal("-0.4321", 4) == true, "");
    T_Bool("decimal [-0.0000] with 4 places is invalid", CSeesareText::IsDecimal("-0.0000", 4) == false, "");

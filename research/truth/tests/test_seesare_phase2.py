@@ -144,9 +144,18 @@ class MqlSourceAgreement(unittest.TestCase):
 
     def test_time_policy_is_hardcoded(self):
         src = read(INC, "Ledger", "CycleLedger.mqh")
-        self.assertIn("#define SEESARE_TIME_POLICY       SEESARE_TIME_LOSS_NEGATIVE", src)
-        self.assertIn('#define SEESARE_TIME_POLICY_NAME  "LOSS_NEGATIVE"', src)
-        self.assertEqual(S.BUILD_POLICY, "LOSS_NEGATIVE")
+        self.assertIn("#define SEESARE_TIME_POLICY       SEESARE_TIME_GAIN_POSITIVE", src)
+        self.assertIn('#define SEESARE_TIME_POLICY_NAME  "GAIN_POSITIVE_LOSS_NEGATIVE"', src)
+        self.assertEqual(S.BUILD_POLICY, "GAIN_POSITIVE_LOSS_NEGATIVE")
+        enum = src[src.index("enum ENUM_SEESARE_TIME_POLICY"):src.index("};", src.index("enum ENUM_SEESARE_TIME_POLICY"))]
+        self.assertEqual(re.findall(r"SEESARE_TIME_[A-Z_]+\s*=\s*(\d)", enum), ["0", "1", "2"])
+        self.assertEqual(len(S.POLICIES), 3)
+        st = read(MQL, "Scripts", "SeesarePhase2SelfTest.mq5")
+        self.assertIn("Classify(SEESARE_BY_TIME, 0.10, SEESARE_TIME_POLICY), 1);", st)
+        self.assertIn("Classify(SEESARE_BY_TIME, 0.0, SEESARE_TIME_POLICY), 0);", st)
+        self.assertEqual(S.classify("TIME", 0.10), 1)
+        self.assertEqual(S.classify("TIME", 0.0), 0)
+        self.assertEqual(S.classify("HUMAN", 0.10), 0)
 
     def test_router_sends_no_orders(self):
         src = read(MQL, "Experts", "SeesareRouter.mq5")

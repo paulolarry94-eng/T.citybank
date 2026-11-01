@@ -12,6 +12,10 @@
 //| - Applies the SEESARE ladder itself (16 levels; +1 level on a    |
 //|   positive outcome; -2/-3/-4 for the 1st/2nd/3rd+ negative in a  |
 //|   row; a manual resolution changes nothing and keeps the run),   |
+//|   and derives each outcome from how the event closed: stop or    |
+//|   broker NEGATIVE, target POSITIVE, by hand MANUAL, time exit    |
+//|   POSITIVE on a net gain, NEGATIVE on a net loss, MANUAL at 0    |
+//|   (SEESARE_TIME_POLICY, Phase 4),                                |
 //|   and computes the multiplier (exponent 2.0), friction and the   |
 //|   planned delta on the fixed $1,000 baseline. The caller cannot  |
 //|   write a level or a plan that breaks these rules.               |
@@ -77,15 +81,22 @@ enum ENUM_SEESARE_CLOSE
 
 enum ENUM_SEESARE_TIME_POLICY
   {
-   SEESARE_TIME_EXIT_MANUAL   = 0,   // earlier mandate: every time exit is a manual resolution (research only)
-   SEESARE_TIME_LOSS_NEGATIVE = 1    // a losing time exit is a negative outcome (descends the ladder)
+   SEESARE_TIME_EXIT_MANUAL   = 0,   // Phase 1 mandate: every time exit is a manual resolution (research only)
+   SEESARE_TIME_LOSS_NEGATIVE = 1,   // Phase 2: a losing time exit is negative, any other time exit manual
+   SEESARE_TIME_GAIN_POSITIVE = 2    // Phase 4: a time exit with a net gain is positive (climbs), with a net loss negative,
+                                     // exactly 0.0000 manual
   };
 
-//--- owner, 2026-11-01: "Losing Time Exits Count as Negative" = TRUE, hardcoded. The ledger derives every
-//--- resolution from the exit kind and the recorded result with this rule, declares it in the genesis line, and
-//--- refuses a lifecycle (or a line) that follows another rule.
-#define SEESARE_TIME_POLICY       SEESARE_TIME_LOSS_NEGATIVE
-#define SEESARE_TIME_POLICY_NAME  "LOSS_NEGATIVE"
+//--- Owner decisions, 2026-11-01: Phase 2 "losing time exits count as negative"; Phase 4 "time-exit ascension": a time or
+//--- exhaustion exit with a net gain counts as a positive outcome and climbs one level. Hardcoded: the ledger derives every
+//--- resolution from the exit kind and the recorded net result (4 decimals, after commission and swap) with this rule,
+//--- declares it in the genesis line, and refuses a lifecycle (or a line) that follows another rule. Lifecycles written
+//--- under an earlier rule stay verifiable with tools/seesare_verify.py; this build does not continue them.
+//--- Consequence (research/truth/tests/test_seesare_phase1.py, EnvelopeGuard): with gains climbing, a stop at the top
+//--- followed by two tiny winning time exits returns the ladder to L0 every time, so the ladder alone no longer limits the
+//--- drawdown; the envelope guard (AllowsRealRisk) is what holds the 3.6% line.
+#define SEESARE_TIME_POLICY       SEESARE_TIME_GAIN_POSITIVE
+#define SEESARE_TIME_POLICY_NAME  "GAIN_POSITIVE_LOSS_NEGATIVE"
 
 //+------------------------------------------------------------------+
 //| One resolved event, as the router hands it to the ledger.        |
@@ -258,8 +269,13 @@ public:
          return SEESARE_NEGATIVE;
       if(by == SEESARE_BY_TARGET)
          return SEESARE_POSITIVE;
-      if(by == SEESARE_BY_TIME && policy == SEESARE_TIME_LOSS_NEGATIVE && delta_usd < 0.0)
-         return SEESARE_NEGATIVE;
+      if(by == SEESARE_BY_TIME)
+        {
+         if(policy != SEESARE_TIME_EXIT_MANUAL && delta_usd < 0.0)
+            return SEESARE_NEGATIVE;
+         if(policy == SEESARE_TIME_GAIN_POSITIVE && delta_usd > 0.0)
+            return SEESARE_POSITIVE;
+        }
       return SEESARE_MANUAL;
      }
    static string     CloseName(const ENUM_SEESARE_CLOSE by)
@@ -611,9 +627,9 @@ bool CSeesareCycleLedger::ApplyGenesis(CSeesareKV &kv, const string hash, const 
      }
    if(kv.Get("time_policy") != SEESARE_TIME_POLICY_NAME)
      {
-      why = "this build records only lifecycles where losing time exits count as negative (time_policy=";
+      why = "this build records only lifecycles with time_policy=";
       why += SEESARE_TIME_POLICY_NAME;
-      why += ")";
+      why += " (gain climbs, loss descends); start a new lifecycle id";
       return false;
      }
    double ladder[];

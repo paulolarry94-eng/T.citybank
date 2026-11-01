@@ -34,8 +34,11 @@ LADDER = [0.144, 0.095, 0.062, 0.041, 0.027, 0.018, 0.012, 0.008, 0.005, 0.0033,
           0.0004, 0.0003]    # SEESARE P26 section 5, % of State Value per level
 FRICTION = {"forex": 0.05, "crypto": 0.08, "stocks": 0.03, "indices": 0.025, "commodities": 0.04}   # SEESARE 8.2
 GENESIS_KEYS = "v,life,k,genesis,baseline,events,cycle_size,envelope_pct,exponent,time_policy,ladder,created".split(",")
-POLICIES = ("LOSS_NEGATIVE", "MANUAL")   # time-exit rule declared in the genesis line; the MQL5 build writes LOSS_NEGATIVE only
-BUILD_POLICY = "LOSS_NEGATIVE"            # owner, 2026-11-01: losing time exits count as negative (hardcoded in the EA)
+# Time-exit rule, declared in the genesis line (ENUM_SEESARE_TIME_POLICY order). The verifier reads all three; the MQL5 build
+# writes only BUILD_POLICY. History (owner decisions, 2026-11-01): MANUAL (Phase 1 mandate) -> LOSS_NEGATIVE (Phase 2: a losing
+# time exit descends) -> GAIN_POSITIVE_LOSS_NEGATIVE (Phase 4 "time-exit ascension": a time exit with a net gain also climbs).
+POLICIES = ("MANUAL", "LOSS_NEGATIVE", "GAIN_POSITIVE_LOSS_NEGATIVE")
+BUILD_POLICY = "GAIN_POSITIVE_LOSS_NEGATIVE"
 EVENT_KEYS = ("v,life,k,mode,n,cycle,step,module,domain,symbol,side,open,close,by,res,lvl_before,lvl_after,neg_run,"
               "ratio,mult,fric,plan,risk,vol,entry,lower,upper,exit,delta,deals,prev").split(",")
 AUDIT_KEYS = ("v,life,audit,cycle,events,pos,neg,man,shadow,pos_rate,net,net_pct,max_dd,max_dd_pct,life_net,life_dd,"
@@ -350,15 +353,23 @@ def plan_usd(level_pct, mult, fric):
     return BASELINE * level_pct / 100.0 * mult * (1.0 - fric)
 
 
-def classify(by, delta, time_loss_negative=True):
-    """CSeesareLadder::Classify. The ledger derives every resolution with this rule; LOSS_NEGATIVE (the build's rule): a
-    losing time exit is NEGATIVE. MANUAL policy (the earlier mandate, kept for research): every time exit is MANUAL."""
+def classify(by, delta, policy=BUILD_POLICY):
+    """CSeesareLadder::Classify. The ledger derives every resolution with this rule (delta = net result, 4 decimals).
+    STOP and BROKER are NEGATIVE, TARGET is POSITIVE, HUMAN is MANUAL. A TIME exit (window end or exhaustion) depends on the
+    lifecycle's policy: GAIN_POSITIVE_LOSS_NEGATIVE (the build's rule): gain POSITIVE, loss NEGATIVE, exactly 0 MANUAL;
+    LOSS_NEGATIVE: loss NEGATIVE, otherwise MANUAL; MANUAL: always MANUAL (both kept for research and old lifecycles)."""
+    if policy not in POLICIES:
+        raise ValueError(f"unknown time-exit policy {policy}")
     if by in ("STOP", "BROKER"):
         return -1
     if by == "TARGET":
         return 1
     if by == "TIME":
-        return -1 if (time_loss_negative and delta < 0) else 0
+        if policy != "MANUAL" and delta < 0:
+            return -1
+        if policy == "GAIN_POSITIVE_LOSS_NEGATIVE" and delta > 0:
+            return 1
+        return 0
     return 0
 
 
@@ -494,7 +505,7 @@ class Ledger:
         res = RES_VALUE[kv["res"]]
         if not is_decimal(kv["delta"], 4):
             raise LedgerError(f"malformed delta at k={k}")
-        if res != classify(kv["by"], float(kv["delta"]), self.policy == "LOSS_NEGATIVE"):
+        if res != classify(kv["by"], float(kv["delta"]), self.policy):
             raise LedgerError(f"resolution does not follow the exit rule at k={k}")
         if kv["lvl_before"] != str(self.level):
             raise LedgerError(f"lvl_before is not the ladder's level at k={k}")
@@ -607,7 +618,7 @@ class Ledger:
         s_ratio = num(e["ratio"], 2)
         s_mult = num(floor_dp(multiplier(float(s_ratio)), 4), 4)
         s_plan = num(floor_dp(plan_usd(self.ladder[self.level], float(s_mult), fric), 4), 4)
-        res = classify(e["by"], float(num(e["delta"], 4)), self.policy == "LOSS_NEGATIVE")
+        res = classify(e["by"], float(num(e["delta"], 4)), self.policy)
         la, na = ladder_next(self.level, self.neg_run, res)
         p = e["digits"]
         fields = [
@@ -711,9 +722,10 @@ SELFTEST_LIFE = "SELFTEST"
 SELFTEST_CREATED = date(2026, 11, 1)
 _B = ("USDJPY", 3, 151.234, 151.084)      # symbol, digits, entry, BUY stop (150 points)
 # mode, side, by, ratio, target, exit, delta, vol, risk. BUY: lower = stop, upper = target; SELL: mirrored.
-# The ledger derives each resolution (STOP/BROKER negative, TARGET positive, TIME negative if it lost, else manual).
+# The ledger derives each resolution (STOP/BROKER negative, TARGET positive, TIME positive on a gain, negative on a loss,
+# manual at exactly 0; HUMAN manual). Comments give the path under the build's rule GAIN_POSITIVE_LOSS_NEGATIVE.
 SAMPLE = [
-    ("REAL", 1, "TIME", 3.5, 151.759, 151.311, 0.4321, 0.01, 1.06),       # time exit with a gain: MANUAL, L0
+    ("REAL", 1, "TIME", 3.5, 151.759, 151.311, 0.4321, 0.01, 1.06),       # time exit with a gain: POSITIVE, stays L0
     ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -1.0592, 0.01, 1.06),     # L0 -> L2
     ("SHADOW", -1, "TARGET", 3.5, 150.709, 150.709, 2.0615, 0.0059, 0),   # L2 -> L1 on paper
     ("SHADOW", 1, "TARGET", 3.5, 151.759, 151.759, 3.1605, 0.0091, 0),    # L1 -> L0
@@ -721,18 +733,18 @@ SAMPLE = [
     ("REAL", 1, "TIME", 5.0, 151.984, 151.204, -0.295, 0.01, 1.06),       # losing time exit: NEGATIVE, L0 -> L2
     ("REAL", -1, "STOP", 3.5, 150.709, 151.384, -1.0592, 0.01, 1.06),    # 2nd negative: L2 -> L5
     ("SHADOW", 1, "STOP", 3.5, 151.759, 151.084, -0.589, 0.0059, 0),     # 3rd negative: L5 -> L9
-    ("SHADOW", 1, "TIME", 3.5, 151.759, 151.25, 0.0122, 0.0017, 0),       # time exit with a gain: MANUAL, run kept
+    ("SHADOW", 1, "TIME", 3.5, 151.759, 151.234, 0.0, 0.0017, 0),         # time exit at exactly 0: MANUAL, run kept
     ("SHADOW", 1, "STOP", 3.5, 151.759, 151.084, -0.171, 0.0017, 0),     # 4th negative: L9 -> L13
     ("SHADOW", 1, "TARGET", 3.5, 151.759, 151.759, 0.1663, 0.0005, 0),    # L13 -> L12
     ("SHADOW", -1, "TARGET", 0.8, 151.114, 151.114, 0.0301, 0.0003, 0),   # ratio 0.8: floor 0.082; L12 -> L11
     ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.41, 0.01, 1.06),       # L11 -> L10
     ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.39, 0.01, 1.06),       # L10 -> L9
     ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.18, 0.01, 1.06),       # L9 -> L11
-    ("REAL", 1, "TIME", 3.5, 151.759, 151.271, 0.05, 0.01, 1.06),         # gain: MANUAL, run kept
-    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.29, 0.01, 1.06),       # 10th REAL: cycle 1 closes; L11 -> L10
-    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.12, 0.01, 1.06),       # cycle 2 step 1: L10 -> L12
-    ("SHADOW", 1, "HUMAN", 3.5, 151.759, 151.3, 0.01, 0.0006, 0),         # human close: MANUAL
-    ("REAL", -1, "BROKER", 3.5, 150.709, 151.384, -0.09, 0.01, 1.06),    # stop-out: 2nd negative, L12 -> L15
+    ("REAL", 1, "TIME", 3.5, 151.759, 151.271, 0.05, 0.01, 1.06),         # time exit with a gain: POSITIVE, L11 -> L10
+    ("REAL", 1, "TARGET", 3.5, 151.759, 151.759, 0.29, 0.01, 1.06),       # 10th REAL: cycle 1 closes; L10 -> L9
+    ("REAL", 1, "STOP", 3.5, 151.759, 151.084, -0.12, 0.01, 1.06),       # cycle 2 step 1: L9 -> L11
+    ("SHADOW", 1, "HUMAN", 3.5, 151.759, 151.3, 0.01, 0.0006, 0),         # human close: MANUAL, run kept
+    ("REAL", -1, "BROKER", 3.5, 150.709, 151.384, -0.09, 0.01, 1.06),    # stop-out: 2nd negative, L11 -> L14
 ]
 
 
@@ -930,10 +942,13 @@ def mql_block():
         t(f"   T_Str(\"ladder L{lv} run {nr} {RES_NAME[res]}\", Transition({lv}, {nr}, {res}), \"{la}/{na}\");")
     for by in CLOSE_BY:
         for delta in (0.5, -0.5):
-            for pol in (0, 1):
+            for pol, name in enumerate(POLICIES):
                 t(f"   T_Int(\"classify {by} {delta:+.1f} policy {pol}\", (long)CSeesareLadder::Classify("
                   f"(ENUM_SEESARE_CLOSE){CLOSE_BY.index(by)}, {_d(delta)}, (ENUM_SEESARE_TIME_POLICY){pol}), "
-                  f"{classify(by, delta, pol == 1)});")
+                  f"{classify(by, delta, name)});")
+        for pol, name in enumerate(POLICIES):
+            t(f"   T_Int(\"classify {by} +0.0 policy {pol}\", (long)CSeesareLadder::Classify("
+              f"(ENUM_SEESARE_CLOSE){CLOSE_BY.index(by)}, 0.0, (ENUM_SEESARE_TIME_POLICY){pol}), {classify(by, 0.0, name)});")
     for s, d, ok in DECIMAL_CASES:
         t(f"   T_Bool(\"decimal [{s}] with {d} places is {'valid' if ok else 'invalid'}\", "
           f"CSeesareText::IsDecimal({_q(s)}, {d}) == {'true' if ok else 'false'}, \"\");")

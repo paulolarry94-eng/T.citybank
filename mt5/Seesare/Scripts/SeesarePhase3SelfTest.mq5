@@ -142,37 +142,37 @@ void DeleteTree(const string folder)
 //| GENERATED: do not edit between the markers                       |
 //+------------------------------------------------------------------+
 //--- BEGIN GENERATED VECTORS: python3 tools/seesare_outbox.py --mql  (do not edit by hand)
-#define VEC3_GENESIS "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|time_policy=LOSS_NEGATIVE|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1"
-#define VEC3_EVENT_REAL "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1|hash=c873280ea8ea9218aa4f72434e15a77d9d0e3109d08c127b073453a0fb1668ed"
-#define VEC3_EVENT_SHADOW "v=1|life=SELFTEST|k=3|mode=SHADOW|n=2|cycle=1|step=-|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=SELL|open=2026-11-06T23:00:00Z|close=2026-11-07T00:55:00Z|by=TARGET|res=POSITIVE|lvl_before=2|lvl_after=1|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=0.5890|risk=0.0000|vol=0.0059|entry=151.234|lower=150.709|upper=151.384|exit=150.709|delta=2.0615|deals=-|prev=78f5339e1e19d4d7740280264e9d7cfcdad2b54a778ae84d5681bba9ccf2cb0f|hash=c1529a51372a87b3ec8cc1203bfe17afc4c397f46dcd69bc572cf91d0daa901f"
-#define VEC3_ANCHOR "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=4|neg=4|man=2|shadow=7|pos_rate=0.5000|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=10|root=e275b5aa5a5d76577343cc43a2335247b74d5b522ef262f836d3d20942d0354d|head=8b629e765fb3b941bc42d11ff93422e811e39693d5aeb83f9b181cf479623d97|prev=01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1|hash=04165f75d5095815d53140c2dbf796f3f3a74a2125a69231c0148f4bd3aa7ece"
-#define VEC3_LIFECYCLE "v=1|life=SELFTEST_LOCK|audit=lifecycle|events=360|cycles=36|shadow=0|pos=240|neg=120|man=0|net=12.0000|net_pct=1.20000|max_dd=0.4000|max_dd_pct=0.04000|violations=0|head=7b177c16dc5e957717ce1a50c47583e8ec1291a2c1724a4a47b7acd581ab11c8"
+#define VEC3_GENESIS "v=1|life=SELFTEST|k=0|genesis|baseline=1000.00|events=360|cycle_size=10|envelope_pct=3.60|exponent=2.00|time_policy=GAIN_POSITIVE_LOSS_NEGATIVE|ladder=0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003|created=2026-11-01T00:00:00Z|hash=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d"
+#define VEC3_EVENT_REAL "v=1|life=SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=POSITIVE|lvl_before=0|lvl_after=0|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=1.3680|risk=1.0600|vol=0.0100|entry=151.234|lower=151.084|upper=151.759|exit=151.311|delta=0.4321|deals=50001000;50001001|prev=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d|hash=04207bf6db269c3f8efabd078ec0eb7a8e7fcb0bd05ac0bc0ced9a8a542a8325"
+#define VEC3_EVENT_SHADOW "v=1|life=SELFTEST|k=3|mode=SHADOW|n=2|cycle=1|step=-|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=SELL|open=2026-11-06T23:00:00Z|close=2026-11-07T00:55:00Z|by=TARGET|res=POSITIVE|lvl_before=2|lvl_after=1|neg_run=0|ratio=3.50|mult=1.0000|fric=0.0500|plan=0.5890|risk=0.0000|vol=0.0059|entry=151.234|lower=150.709|upper=151.384|exit=150.709|delta=2.0615|deals=-|prev=7538c2beb7d9b2db950006eeb3bbd01e4f3e9e3a16ac24a5fb3c22cd3d51aa08|hash=bdbcfb799143ef87eedf151d21ceeb5273adb9f02dc2a275d642dac66d264397"
+#define VEC3_ANCHOR "v=1|life=SELFTEST|audit=cycle|cycle=1|events=1-10|pos=6|neg=4|man=0|shadow=7|pos_rate=0.6000|net=0.8907|net_pct=0.08907|max_dd=1.3542|max_dd_pct=0.13542|life_net=0.8907|life_dd=1.3542|lvl_start=0|lvl_end=9|root=7bf0c38789f86e5c592834cd7300228a23b062b46bb82feb6684826f316da0ae|head=4fcedd575407fa0956cd6747c685f86e64e6f3d018cb7fa519666a37436ac772|prev=7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d|hash=28e51a232c795264106b40fd8c08ed6cb85846a475293a31454d05070791583b"
+#define VEC3_LIFECYCLE "v=1|life=SELFTEST_LOCK|audit=lifecycle|events=360|cycles=36|shadow=0|pos=240|neg=120|man=0|net=12.0000|net_pct=1.20000|max_dd=0.4000|max_dd_pct=0.04000|violations=0|head=b67c17981de7ba26e9a4d62fe5ad3fe04357d2565b702bf9381d5449525514ba"
 #define VEC3_OUTBOX_LINES 18
-#define VEC3_OUTBOX_SUM "sum=7f24a5d048bd42062b21d05ba824892cc9f18cec6479bc7c5206509cce398412"
-#define VEC3_CENT_RECORD "v=1|life=P3SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=MANUAL|lvl_before=0|lvl_after=0|neg_run=0|ratio=1.04|mult=0.0882|fric=0.0500|plan=0.1206|risk=0.1200|vol=0.0400|entry=151.234|lower=150.780|upper=151.706|exit=151.311|delta=0.3080|deals=50001000;50001001|prev=8030586feaabf98ec930fe665575b9f6c51134d93632d2983fe2cf9a100aae05|hash=5b51bea4f02aa36b6b4131eb41d3719e70815e6c293b53620bff4fb39946d1e7"
+#define VEC3_OUTBOX_SUM "sum=577d8fbffe1401400551586d5fdf2af9453ddd32b0a47ea69db05d09e9a300f8"
+#define VEC3_CENT_RECORD "v=1|life=P3SELFTEST|k=1|mode=REAL|n=1|cycle=1|step=1|module=TOKYO_FIX|domain=forex|symbol=USDJPY|side=BUY|open=2026-11-04T23:00:00Z|close=2026-11-05T00:55:00Z|by=TIME|res=POSITIVE|lvl_before=0|lvl_after=0|neg_run=0|ratio=1.04|mult=0.0882|fric=0.0500|plan=0.1206|risk=0.1200|vol=0.0400|entry=151.234|lower=150.780|upper=151.706|exit=151.311|delta=0.3080|deals=50001000;50001001|prev=f027dd224b8723ef1ec53dbfffd5b32f52bdc917800359f1e62c5b7a5e3b3300|hash=e0c1822148a16aacc96e5fc0cf5d9091a5463a1504a0be798a4347cfc6952ec7"
 #define VEC3_CENT_LINES 18
 #define VEC3_CENT_HEAD "SEESARE P26 | P3SELFTEST | Cycle 1/36 | Step 1/10 | REAL"
-#define VEC3_CENT_RESULT "Result MANUAL | +0.3080 USD | level L0 -> L0 | negative run 0"
+#define VEC3_CENT_RESULT "Result POSITIVE | +0.3080 USD | level L0 -> L0 | negative run 0"
 #define VEC3_CENT_DEALS "Deals 50001000, 50001001"
-#define VEC3_CENT_SUM "sum=0f30077939418b1cd350f5c228169aa60a67d76a3cad0b1584ae6f104a9799f6"
+#define VEC3_CENT_SUM "sum=d97118323b39f2f6cd488038f4a57eaaa3c97d1e4a2d043aaab93160af65f8a1"
 void GeneratedVectors(void)
   {
    T_Int("telegram genesis: lines", LineCount(CSeesareTelegram::Genesis(VEC3_GENESIS)), 5);
    T_Str("telegram genesis: line 1", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 0), "SEESARE P26 | SELFTEST | lifecycle opened 2026-11-01T00:00:00Z");
    T_Str("telegram genesis: line 2", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 1), "Baseline 1000.00 USD | 360 events in cycles of 10 | envelope 3.60%");
-   T_Str("telegram genesis: line 3", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 2), "Time exits LOSS_NEGATIVE | exponent 2.00");
+   T_Str("telegram genesis: line 3", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 2), "Time exits GAIN_POSITIVE_LOSS_NEGATIVE | exponent 2.00");
    T_Str("telegram genesis: line 4", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 3), "Ladder % 0.1440,0.0950,0.0620,0.0410,0.0270,0.0180,0.0120,0.0080,0.0050,0.0033,0.0022,0.0014,0.0009,0.0006,0.0004,0.0003");
-   T_Str("telegram genesis: line 5", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 4), "Genesis hash 01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1");
+   T_Str("telegram genesis: line 5", Line(CSeesareTelegram::Genesis(VEC3_GENESIS), 4), "Genesis hash 7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d");
    T_Int("telegram real event: lines", LineCount(CSeesareTelegram::Event(VEC3_EVENT_REAL)), 9);
    T_Str("telegram real event: line 1", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 0), "SEESARE P26 | SELFTEST | Cycle 1/36 | Step 1/10 | REAL");
    T_Str("telegram real event: line 2", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 1), "TOKYO_FIX USDJPY BUY");
    T_Str("telegram real event: line 3", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 2), "Open 2026-11-04T23:00:00Z | Close 2026-11-05T00:55:00Z | by TIME");
-   T_Str("telegram real event: line 4", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 3), "Result MANUAL | +0.4321 USD | level L0 -> L0 | negative run 0");
+   T_Str("telegram real event: line 4", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 3), "Result POSITIVE | +0.4321 USD | level L0 -> L0 | negative run 0");
    T_Str("telegram real event: line 5", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 4), "Entry 151.234 | Lower 151.084 | Upper 151.759 | Exit 151.311");
    T_Str("telegram real event: line 6", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 5), "Ratio 3.50 | multiplier 1.0000 | planned 1.3680 USD | risk 1.0600 USD | volume 0.0100");
    T_Str("telegram real event: line 7", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 6), "Deals 50001000, 50001001");
-   T_Str("telegram real event: line 8", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 7), "Chain k=1 | hash c873280ea8ea9218aa4f72434e15a77d9d0e3109d08c127b073453a0fb1668ed");
-   T_Str("telegram real event: line 9", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 8), "Prev 01523b82b69a8f5d986a2f650bc070a00c43d43dddb0e178a32652bfc6e973b1");
+   T_Str("telegram real event: line 8", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 7), "Chain k=1 | hash 04207bf6db269c3f8efabd078ec0eb7a8e7fcb0bd05ac0bc0ced9a8a542a8325");
+   T_Str("telegram real event: line 9", Line(CSeesareTelegram::Event(VEC3_EVENT_REAL), 8), "Prev 7199f7e80ec123689e434596ab178b4413d13f5055d90a60e00020430219d07d");
    T_Int("telegram shadow event: lines", LineCount(CSeesareTelegram::Event(VEC3_EVENT_SHADOW)), 9);
    T_Str("telegram shadow event: line 1", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 0), "SEESARE P26 | SELFTEST | Cycle 1/36 | SHADOW (paper, not counted)");
    T_Str("telegram shadow event: line 2", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 1), "TOKYO_FIX USDJPY SELL");
@@ -181,35 +181,35 @@ void GeneratedVectors(void)
    T_Str("telegram shadow event: line 5", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 4), "Entry 151.234 | Lower 150.709 | Upper 151.384 | Exit 150.709");
    T_Str("telegram shadow event: line 6", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 5), "Ratio 3.50 | multiplier 1.0000 | planned 0.5890 USD | risk 0.0000 USD | volume 0.0059");
    T_Str("telegram shadow event: line 7", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 6), "Deals none (paper)");
-   T_Str("telegram shadow event: line 8", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 7), "Chain k=3 | hash c1529a51372a87b3ec8cc1203bfe17afc4c397f46dcd69bc572cf91d0daa901f");
-   T_Str("telegram shadow event: line 9", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 8), "Prev 78f5339e1e19d4d7740280264e9d7cfcdad2b54a778ae84d5681bba9ccf2cb0f");
+   T_Str("telegram shadow event: line 8", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 7), "Chain k=3 | hash bdbcfb799143ef87eedf151d21ceeb5273adb9f02dc2a275d642dac66d264397");
+   T_Str("telegram shadow event: line 9", Line(CSeesareTelegram::Event(VEC3_EVENT_SHADOW), 8), "Prev 7538c2beb7d9b2db950006eeb3bbd01e4f3e9e3a16ac24a5fb3c22cd3d51aa08");
    T_Int("telegram cycle audit: lines", LineCount(CSeesareTelegram::Audit(VEC3_ANCHOR)), 8);
    T_Str("telegram cycle audit: line 1", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 0), "SEESARE P26 | SELFTEST | Cycle 1/36 closed | events 1-10");
-   T_Str("telegram cycle audit: line 2", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 1), "Positive 4 | negative 4 | manual 2 | shadow 7 | positive rate 0.5000");
+   T_Str("telegram cycle audit: line 2", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 1), "Positive 6 | negative 4 | manual 0 | shadow 7 | positive rate 0.6000");
    T_Str("telegram cycle audit: line 3", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 2), "Cycle net +0.8907 USD (+0.08907%) | cycle max drawdown 1.3542 USD (0.13542%)");
    T_Str("telegram cycle audit: line 4", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 3), "Lifecycle net +0.8907 USD | lifecycle max drawdown 1.3542 USD");
-   T_Str("telegram cycle audit: line 5", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 4), "Level L0 -> L10");
-   T_Str("telegram cycle audit: line 6", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 5), "Block root e275b5aa5a5d76577343cc43a2335247b74d5b522ef262f836d3d20942d0354d");
-   T_Str("telegram cycle audit: line 7", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 6), "Chain head 8b629e765fb3b941bc42d11ff93422e811e39693d5aeb83f9b181cf479623d97");
-   T_Str("telegram cycle audit: line 8", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 7), "Anchor 04165f75d5095815d53140c2dbf796f3f3a74a2125a69231c0148f4bd3aa7ece");
+   T_Str("telegram cycle audit: line 5", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 4), "Level L0 -> L9");
+   T_Str("telegram cycle audit: line 6", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 5), "Block root 7bf0c38789f86e5c592834cd7300228a23b062b46bb82feb6684826f316da0ae");
+   T_Str("telegram cycle audit: line 7", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 6), "Chain head 4fcedd575407fa0956cd6747c685f86e64e6f3d018cb7fa519666a37436ac772");
+   T_Str("telegram cycle audit: line 8", Line(CSeesareTelegram::Audit(VEC3_ANCHOR), 7), "Anchor 28e51a232c795264106b40fd8c08ed6cb85846a475293a31454d05070791583b");
    T_Int("telegram lifecycle: lines", LineCount(CSeesareTelegram::Lifecycle(VEC3_LIFECYCLE)), 4);
    T_Str("telegram lifecycle: line 1", Line(CSeesareTelegram::Lifecycle(VEC3_LIFECYCLE), 0), "SEESARE P26 | SELFTEST_LOCK | lifecycle complete: 360 events in 36 cycles");
    T_Str("telegram lifecycle: line 2", Line(CSeesareTelegram::Lifecycle(VEC3_LIFECYCLE), 1), "Positive 240 | negative 120 | manual 0 | shadow 0");
    T_Str("telegram lifecycle: line 3", Line(CSeesareTelegram::Lifecycle(VEC3_LIFECYCLE), 2), "Net +12.0000 USD (+1.20000%) | max drawdown 0.4000 USD (0.04000%) | envelope violations 0");
-   T_Str("telegram lifecycle: line 4", Line(CSeesareTelegram::Lifecycle(VEC3_LIFECYCLE), 3), "Final head 7b177c16dc5e957717ce1a50c47583e8ec1291a2c1724a4a47b7acd581ab11c8");
-   T_Str("outbox body genesis: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("GENESIS", VEC3_GENESIS)), "94e92edae669a925ad8ad79cfff52cebb92cc7a169c3c9668f1f3a30d762e3e2");
-   T_Int("outbox body genesis: length", StringLen(CSeesareTelegram::Body("GENESIS", VEC3_GENESIS)), 725);
+   T_Str("telegram lifecycle: line 4", Line(CSeesareTelegram::Lifecycle(VEC3_LIFECYCLE), 3), "Final head b67c17981de7ba26e9a4d62fe5ad3fe04357d2565b702bf9381d5449525514ba");
+   T_Str("outbox body genesis: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("GENESIS", VEC3_GENESIS)), "30793f937feaea12c7aed6189b987b82d75fdc63054503576c307399483ce0c3");
+   T_Int("outbox body genesis: length", StringLen(CSeesareTelegram::Body("GENESIS", VEC3_GENESIS)), 753);
    T_Str("outbox body genesis: record line", Line(CSeesareTelegram::Body("GENESIS", VEC3_GENESIS), 5), RecordLine(VEC3_GENESIS));
-   T_Str("outbox body event_real: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("EVENT", VEC3_EVENT_REAL)), "fdd18cf66068461075f61b8eaa70484b0ae97f4a62be92eccbf412a12fa19643");
-   T_Int("outbox body event_real: length", StringLen(CSeesareTelegram::Body("EVENT", VEC3_EVENT_REAL)), 1047);
+   T_Str("outbox body event_real: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("EVENT", VEC3_EVENT_REAL)), "3709be3b4317aa136bf2202cf8188af772345bd9c2cbd2717acdd324031903fb");
+   T_Int("outbox body event_real: length", StringLen(CSeesareTelegram::Body("EVENT", VEC3_EVENT_REAL)), 1051);
    T_Str("outbox body event_real: record line", Line(CSeesareTelegram::Body("EVENT", VEC3_EVENT_REAL), 9), RecordLine(VEC3_EVENT_REAL));
-   T_Str("outbox body event_shadow: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("EVENT", VEC3_EVENT_SHADOW)), "ba30744e77469cc0e0d637883c1b28312b70691a9813ae8c8d56f28d648a7d82");
+   T_Str("outbox body event_shadow: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("EVENT", VEC3_EVENT_SHADOW)), "6ffcf2957aaad377773379601cd2e343216613cc6df7db2f3c6386303ef5ccde");
    T_Int("outbox body event_shadow: length", StringLen(CSeesareTelegram::Body("EVENT", VEC3_EVENT_SHADOW)), 1048);
    T_Str("outbox body event_shadow: record line", Line(CSeesareTelegram::Body("EVENT", VEC3_EVENT_SHADOW), 9), RecordLine(VEC3_EVENT_SHADOW));
-   T_Str("outbox body anchor: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("AUDIT", VEC3_ANCHOR)), "ba9659f452108f67767a98ddc0cf79ee61325a0b273486a4c3b88f042577edc4");
-   T_Int("outbox body anchor: length", StringLen(CSeesareTelegram::Body("AUDIT", VEC3_ANCHOR)), 999);
+   T_Str("outbox body anchor: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("AUDIT", VEC3_ANCHOR)), "c19b73d46f3fe5aacbbf2e9856d080a832fe09b53a45e268f03693df0b04882e");
+   T_Int("outbox body anchor: length", StringLen(CSeesareTelegram::Body("AUDIT", VEC3_ANCHOR)), 997);
    T_Str("outbox body anchor: record line", Line(CSeesareTelegram::Body("AUDIT", VEC3_ANCHOR), 8), RecordLine(VEC3_ANCHOR));
-   T_Str("outbox body lifecycle: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("LIFECYCLE", VEC3_LIFECYCLE)), "6007856caddce0cf337187af7b8e2e5a351b8452fe1bcc46f29b103a2c0b3ece");
+   T_Str("outbox body lifecycle: SHA-256", CSeesareSha256::Hex(CSeesareTelegram::Body("LIFECYCLE", VEC3_LIFECYCLE)), "90ea5de1e7864e34afafa3423ec59aac28b265a0e8ca29b3dede669c0cdb5a39");
    T_Int("outbox body lifecycle: length", StringLen(CSeesareTelegram::Body("LIFECYCLE", VEC3_LIFECYCLE)), 532);
    T_Str("outbox body lifecycle: record line", Line(CSeesareTelegram::Body("LIFECYCLE", VEC3_LIFECYCLE), 4), RecordLine(VEC3_LIFECYCLE));
    T_Str("outbox body for a malformed record", CSeesareTelegram::Body("EVENT", "v=1||k=2"), "");

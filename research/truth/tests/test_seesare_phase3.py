@@ -147,7 +147,7 @@ class OutboxMessage(unittest.TestCase):
         line, msg = O.cent_case()
         lines = msg.rstrip("\n").split("\n")
         self.assertEqual(lines[7], "SEESARE P26 | P3SELFTEST | Cycle 1/36 | Step 1/10 | REAL")
-        self.assertEqual(lines[10], "Result MANUAL | +0.3080 USD | level L0 -> L0 | negative run 0")
+        self.assertEqual(lines[10], "Result POSITIVE | +0.3080 USD | level L0 -> L0 | negative run 0")
         self.assertEqual(lines[13], "Deals 50001000, 50001001")
         self.assertIn("|delta=0.3080|deals=50001000;50001001|", line)
 
