@@ -206,3 +206,12 @@ day later turns them into -0.35/-1.37 and -0.6/0, while monthly strategies barel
 fills at a common time) for any multi-market daily or weekly rule. Evidence: research/results/repofunnel/
 (futures_funnel_v1_lookahead.json vs futures_funnel_v2.json), PREREG.md section E2. Confidence: high (known mechanism,
 reproduced here).
+
+### P24 A drawdown cap needs a pre-trade check, not a sizing ladder
+A ladder that shrinks size after losses and grows it after wins (SEESARE P26's 16 levels) bounds each loss, not the sum of
+losses: if the outcomes that move the ladder are not the ones that lose money, it never shrinks. Over 360 events, time exits
+at -0.6R that count as manual resolutions lose 29.55% at the top level; a 3.5:1 stop followed by two 1:1 target hits climbs
+back for free and loses 14.96%. Checking before every real trade that current drawdown + the trade's all-in risk stays
+within the cap holds the cap under any sequence (3.53% and 3.60% here); gaps through the stop are the only way past it.
+Evidence: research/truth/tests/test_seesare_phase1.py (EnvelopeGuard), tools/seesare_verify.py, mt5/Seesare/README.md.
+Confidence: high (arithmetic, reproducible). Related: P8 (sizing states add nothing), P13.

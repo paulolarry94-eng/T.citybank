@@ -68,6 +68,11 @@ Learning rules:
   trade one day after the signal (P23).
 - Third-party EAs reviewed and rejected: Gold Hunter V9 (grid), Dark Mimas (oscillator scalper + grid). Method:
   reconstruct from the .set, replay on M1, judge by equity (`research/gridbot/`).
+- SEESARE P26 router (owner directive, 2026-11-01): blueprint `mt5/SEESARE_ROUTER_BLUEPRINT.md`; Phase 1 built as uncompiled
+  MQL5 in `mt5/Seesare/` (clock + DST + timing matrix, spread gate, 360-event cycle ledger with keyless SHA-256 chain, envelope
+  guard, outbox) with a Python twin/verifier `tools/seesare_verify.py` (32 tests). The ladder alone does not hold the 3.6%
+  envelope; the pre-trade drawdown + risk check does (P24, Q20). Regenerate the self-test vectors with
+  `python3 tools/seesare_verify.py --mql` after any rule change.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
@@ -77,6 +82,7 @@ Learning rules:
   report; the lab builds on it.
 - `research/truth/`: the Truth Lab. `research/results/truth/<NAME>/` holds its reports.
 - `research/multiasset/`: trend+carry on pysystemtrade futures data; Kelly/Monte Carlo frontier; PROJECT.md.
+- `mt5/Seesare/`: SEESARE router Phase 1 modules + self-test (uncompiled; README there).
 - `mt5/`: TimelessCity.mq5 + presets, NorthStarGovernor.mq5 + NorthStarRisk.mqh, TruthEA.mq5 template,
   NorthStarExport.mq5 (exports broker specs, M1 bars with spread, and the economic calendar). All MQL5 except
   TimelessCity is uncompiled.

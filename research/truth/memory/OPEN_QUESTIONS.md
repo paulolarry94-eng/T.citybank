@@ -165,11 +165,19 @@ HMAC-chained Telegram attestation. Blueprint: mt5/SEESARE_ROUTER_BLUEPRINT.md. F
 (1) at $1,000 only L0-L1 are tradeable on EURUSD at 0.01 lot (lower boundary <= 13.7 / 9.0 pips), gold at none, so after one
 Negative Outcome the ladder deadlocks unless SHADOW (paper) resolutions drive it; (2) with time-expiry exits counted as
 Positive Outcomes, (Negative, small Positive x2) x 120 breaks the ~3.6% envelope (16.2% drawdown at +0.01R wins); counted as
-MANUAL resolutions (SEESARE 7.1) the same path costs 0.25%; (3) L0 caps returns near +1.7% a year at +0.05R/event and +3.4% at
+MANUAL resolutions (SEESARE 7.1) the same path costs 0.25%. CORRECTED 2026-11-01 (Phase 1 build): that was incomplete; losing
+time exits that never move the ladder lose 29.55% (360 x -0.6R) and a 3.5:1 stop followed by two 1:1 target hits loses 14.96%;
+only a pre-trade check (drawdown + all-in risk <= $36) holds the envelope (3.53% / 3.60%), now coded in
+mt5/Seesare (CSeesareCycleLedger::AllowsRealRisk; evidence research/truth/tests/test_seesare_phase1.py, P24); (3) L0 caps returns near +1.7% a year at +0.05R/event and +3.4% at
 +0.10R, so the envelope and the 60-120% goal exclude each other; (4) the multiplier formula (^2.5) and SEESARE's own table
 (about ^2) disagree below 3.5:1; (5) a license-keyed HMAC chain cannot be verified by the public. Open decisions for the owner:
 shadow vs bigger state vs cent account; envelope vs return target; formula vs table; RoboForex cost measurement; legal opinion
 before followers (SEESARE classifies itself as non-executing software). FAMILY: risk, sizing, seesare, architecture, mt5, owner-idea.
+Status 2026-11-01: owner chose SHADOW-driven ladder, time exits = MANUAL, exponent 2.0, keyless chain, dual-service outbox.
+Phase 1 delivered as uncompiled MQL5 (clock, timing matrix, spread gate, cycle ledger, outbox; mt5/Seesare/README.md) with a
+Python twin and 32 tests. Open: owner compiles and runs SeesarePhase1SelfTest.mq5 on the RoboForex terminal; owner decides the
+time-exit policy (mandate keeps the envelope only via the guard and stops real trading after ~43 bleeding events; counting
+losing time exits NEGATIVE keeps all 360 real at 0.19%); envelope vs return target; RoboForex costs and server scheme.
 
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone

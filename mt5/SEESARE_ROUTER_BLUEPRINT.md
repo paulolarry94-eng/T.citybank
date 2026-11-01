@@ -1,7 +1,8 @@
 # SEESARE P26 x Payer-Flow Router: MQL5 object blueprint
 
-Design document, 2026-11-01. Nothing here is compiled or tested yet: every MQL5 unit named below will be "uncompiled source"
-until it is built in MetaEditor. Sources: the owner's directive (24 flows, $1,000 virtual baseline, RoboForex ECN, 1 event a
+Design document, 2026-11-01. Phase 1 (clock, timing matrix, spread gate, cycle ledger, outbox) now exists as uncompiled
+source in `mt5/Seesare/` with a tested Python twin (`mt5/Seesare/README.md`); where this document and that code differ, the
+code and its README are current (record format, envelope guard). Everything else here is still design. Sources: the owner's directive (24 flows, $1,000 virtual baseline, RoboForex ECN, 1 event a
 day, 360-event lifecycle, Telegram attestation) and SEESARE P26 parts 1-2 (constraint hierarchy section 5, Structural Response
 Multiplier 6.2, descent rules 7.1, friction 8.2, exposure formula 9.1, lifecycle 16, HMAC chain 18, terminology 48). Numbers in
 section 0 were recomputed for this document (script output in the session log, reproducible from the formulas below).
@@ -14,7 +15,7 @@ Event Resolution (trade), Declared Ratio (reward:risk), Lower/Upper Boundary (st
 | # | Finding | Evidence | Design consequence |
 |---|---|---|---|
 | F1 | At a $1,000 State Value most levels cannot be traded. Constraint Delta = 1,000 x level% x multiplier x (1 - friction). Forex, ratio 3.5: L0 $1.368, L1 $0.903, L2 $0.589, L3 $0.390 ... L15 $0.003. One 0.01 lot of EURUSD moves $0.10 per pip, so L0 allows a lower boundary of at most 13.7 pips, L1 9.0, L2 5.9, L3 3.9. Gold (0.01 lot = $1 per $1 move) is untradeable at every level except a sub-$1.37 boundary at L0. | SEESARE 9.1 formula; standard contract sizes | After the first Negative Outcome (L0 -> L2) the real Exposure Unit falls below the broker minimum for any realistic boundary, and SEESARE 9.3 says "await constraint ascent", which needs resolutions that can no longer happen: a deadlock. The router adds Shadow Resolution (section 6.4). |
-| F2 | The ~3.6% envelope holds only when Positive Outcomes pay about their Declared Ratio. With time-expiry exits, a pattern of (Negative, small Positive, small Positive) x 120 keeps the ladder at L0 and loses 16.2% over 360 events (wins worth 0.01R) or 11.1% (wins worth 0.3R). | Recomputed with the section 5 hierarchy, 7.1 rules, forex friction | Exits between the boundaries (time expiry, structural exhaustion) are MANUAL RESOLUTIONS, exactly as SEESARE 7.1 defines discretionary exits: no level change, negative counter kept. The same pattern then costs 0.25%. A realized Envelope Guard backs this up (section 7.5). |
+| F2 | The ~3.6% envelope holds only when Positive Outcomes pay about their Declared Ratio. With time-expiry exits, a pattern of (Negative, small Positive, small Positive) x 120 keeps the ladder at L0 and loses 16.2% over 360 events (wins worth 0.01R) or 11.1% (wins worth 0.3R). | Recomputed with the section 5 hierarchy, 7.1 rules, forex friction | Exits between the boundaries (time expiry, structural exhaustion) are MANUAL RESOLUTIONS, exactly as SEESARE 7.1 defines discretionary exits: no level change, negative counter kept. The same pattern then costs 0.25%. **Corrected 2026-11-01 (Phase 1): this was incomplete.** Losing time exits that never move the ladder lose 29.55% over 360 events (-0.6R each), and a stop at 3.5:1 followed by two 1:1 target hits loses 14.96%. No ladder classification holds the envelope alone; the pre-trade Envelope Guard in section 7.3 does. |
 | F3 | The planned-risk arithmetic is right: 20 straight Negative Outcomes cost 0.221% and 100 cost 0.244% (forex friction included). But it bounds planned risk only; gaps fill beyond the Lower Boundary (this project's own 2026 data contains a -13.7R weekend gap). | Recomputed; research/results/champion | Envelope Guard on realized State Value; weekend and holiday flat rule; no "guarantee" wording (SEESARE part 1, priority 4, already says so). |
 | F4 | The ladder caps the return. L0 risks 0.137% of the $1,000 per event; 250 events a year at +0.05R each is +1.7% a year, at +0.10R +3.4% a year, before any time spent below L0. The 3.6% envelope and a 60-120% target cannot both hold. | Arithmetic | The owner chooses which governs. This blueprint implements SEESARE as written. |
 | F5 | The SEESARE HMAC chain (section 18) is keyed with the license key, so the public cannot verify it, and publishing the key would let anyone forge it. A VM snapshot restore does not change the hardware ID, so local rollback is not detected locally. | SEESARE 18.1-18.2 | Two chains: a keyless SHA-256 chain for public verification plus the SEESARE HMAC chain for license integrity. Chain heads are published as they happen (external anchor), and every record carries the broker's deal IDs, which the broker statement confirms independently. |
@@ -153,6 +154,8 @@ lifecycle locks (SEESARE 16; renewal = new genesis and license).
 
 ### 6.2 Record (canonical form: fixed field order, fixed decimals, UTC ISO-8601, `|`-separated)
 
+Superseded by the Phase 1 format: field list `SEESARE_EVENT_KEYS` in `mt5/Seesare/Include/Seesare/Ledger/CycleLedger.mqh`, hash = SHA-256 of the line text that ends with `prev=<previous hash>`. The sketch below is the original design.
+
 ```
 v=1|n=117|cycle=12|step=7|mode=REAL|module=WMR01|domain=forex|symbol=EURUSD|side=SELL|
 utc_open=2027-03-03T15:30:00Z|utc_close=2027-03-03T16:01:00Z|level_before=2|level_after=2|neg_run=1|
@@ -210,15 +213,21 @@ use a cent account. Without one of these, the engine stops trading after its fir
 With time exits the Upper Boundary is rarely reached, so a declared 10:1 would raise exposure 1.5x without changing the payoff.
 The ratio for each module is therefore fixed in the registry from its measured research payoff, not chosen per event.
 
-### 7.3 Envelope Guard (realized, finding F3)
+### 7.3 Envelope Guard (pre-trade; implemented in Phase 1, findings F2 and F3)
 
-Peak-to-trough on the realized virtual State Value across the lifecycle: >= 3.0% -> AMBER (level forced to 15, SHADOW only);
->= 3.6% -> RED (halt, attest "envelope breach"). No positions over weekends or exchange holidays.
+A REAL event may open only if the lifecycle's current peak-to-trough drawdown of real P&L + the event's all-in risk (loss at the
+stop for the rounded-down volume, commission, swap and slippage allowances) <= 3.6% of $1,000 = $36
+(`CSeesareCycleLedger::AllowsRealRisk`); otherwise the event runs as SHADOW. The ledger re-checks the rule when it records the
+event and the public verifier checks it too. This bounds planned losses under any sequence of outcomes, whatever the ladder
+does; a gap through the stop can still exceed it (no positions over weekends or exchange holidays). Recomputed over 360 events:
+time exits = MANUAL with every exit at -0.6R: 29.55% without the guard, 3.53% with it (real trading stops after 43 events);
+losing time exits = NEGATIVE: 0.19% with all 360 real. Once the room is smaller than one event's risk, real trading stops for
+the lifecycle; starting a new lifecycle is the owner's decision.
 
 ## 8. Attestation stream
 
 ```
-EventLedger.Append -> HashChain.Link -> COutbox.Push  (file Common/Files/seesare/outbox/<seq>.msg, written to .tmp then FileMove)
+EventLedger.Append -> HashChain.Link -> COutbox.Push  (Phase 1: Common/Files/seesare/<login>/<lifecycle>/outbox/<seq>.msg, written to .tmp then FileMove)
 SeesareRelay (service, separate program): every 2 s take the lowest <seq> ->
    WebRequest("POST", "https://api.telegram.org/bot<token>/sendMessage", chat_id, text <= 4,096 chars, plain text)
    200 + ok:true -> move to sent/ with Telegram message_id;  429 -> wait retry_after;  network error -> backoff 5 s ... 10 min
@@ -269,6 +278,12 @@ per module.
 
 ## 13. Decisions for the owner before code
 
+Owner's answers (2026-11-01): SHADOW drives the ladder (Shadow-Lot Engine; Phase 1 writes shadow events to disk, not RAM only, so
+a restart cannot lose the ladder); time exits are MANUAL resolutions (kept as the default; a losing-time-exit-NEGATIVE option
+exists and is recommended, section 7.3); exponent 2.0; keyless SHA-256 chain; dual-service outbox; the hierarchy may be tuned
+only if the envelope cannot breach 3.6% under any sequence (the pre-trade guard gives this for any hierarchy; a tuned ladder is
+declared in the genesis line and cannot change inside a lifecycle). Still open: 2 and 3 below, and 4 before followers.
+
 1. Infeasible levels: SHADOW drives the ladder (recommended), a larger State Value, or a cent account (section 6.4).
 2. Which governs if they conflict: the 3.6% envelope (returns of a few % a year) or the 60-120% target (finding F4).
 3. RoboForex: measure its spreads at the flow times, commission and server time scheme before sizing anything
@@ -277,6 +292,11 @@ per module.
 5. Multiplier below 3.5:1: the formula (^2.5) or the reference table (about ^2) (finding F7).
 
 ## 14. Build order
+
+Phase 1 delivered (uncompiled source, 2026-11-01): clock, DST rules, timing matrix, spread gate, cycle ledger with keyless chain,
+anchors, envelope guard, state snapshot and outbox writer, plus the self-test script (`mt5/Seesare/`). Next: compile and run the
+self-test on the RoboForex terminal; then CVenueCalendar, the exposure calculator (volume from `PlanUsdAt`), the gateway, the
+Tokyo fix module in SHADOW, and the relay service.
 
 1. CClock, CDst, CVenueCalendar with test vectors (time is the most common source of bugs here); 2. CHashChain + CHmacSha256
 matching tools/seesare_verify.py vectors; 3. CConstraintEngine + CStructuralMultiplier + CExposureCalculator with the tables

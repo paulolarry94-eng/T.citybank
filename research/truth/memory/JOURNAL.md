@@ -304,3 +304,25 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** time-expiry exits = MANUAL resolutions; Shadow Resolution proposed for infeasible levels; keyless public hash
   chain + SEESARE HMAC; WebRequest in a separate MQL5 service; per-cycle in-sample optimisation (directive Part V) not used.
 - **Next:** owner's five decisions (blueprint section 13); then build order step 1 (clock and calendars with test vectors).
+
+## 2026-11-01 (late night, 4) · owner: "deliver the concrete, production-ready code modules for Phase 1"
+- **Asked:** MQL5 code for (1) the dynamic clock and timing matrix (server time sync, London/New York/Tokyo windows in UTC,
+  DST handoffs, spread-aware entry filter) and (2) the cycle ledger and outbox writer (10-event cycles, keyless SHA-256 chain,
+  disk persistence that survives restarts, numbered outbox files for a separate relay service).
+- **Done:** `mt5/Seesare/` (uncompiled source): Text, Clock (CSeesareDst, CSeesareClock, CSeesareTimingMatrix), SpreadGate,
+  Sha256, StateStore, Outbox, CycleLedger (ladder, cycles, chain, anchors, envelope guard, restart checks), and
+  `Scripts/SeesarePhase1SelfTest.mq5` (~290 checks). Python twin and public verifier `tools/seesare_verify.py`; tests
+  `research/truth/tests/test_seesare_phase1.py` (32, all pass): DST rules equal the IANA database for every hour 2011-2035 in
+  4 venues both ways; tamper, deletion, swap, truncation and ladder/plan forgeries are caught; the MQL5 source carries the
+  twin's tables and the self-test's vectors are the twin's (test fails on drift).
+- **Learned (verified here):** my earlier claim (time exits = manual holds the envelope, 0.25%) was incomplete: 29.55% and
+  14.96% paths exist; a pre-trade drawdown + risk check holds 3.6% under any sequence (P24, ledger entry
+  seesare_ladder_envelope_v1). SEESARE's planned deltas at levels 9, 13, 15 sit on exact 4-decimal rounding ties ($0.03135),
+  so the ledger rounds multiplier and plan down by a fixed rule to keep MQL5 and Python text identical.
+- **Decisions:** time-exit policy is an input, default = owner's mandate (MANUAL), option losing-time-exit = NEGATIVE
+  (recommended); shadow events are written to disk (RAM-only would lose the ladder on a VPS restart); cycles count REAL events
+  only; tuned ladders are declared in the genesis line and cannot change inside a lifecycle.
+- **Facts vs estimates:** nothing compiled; MQL5 file and CryptEncode behaviour taken from the documentation; RoboForex server
+  scheme unknown (the self-test measures it; EU vs US DST rules only distinguishable in March and late October).
+- **Next:** owner compiles and runs the self-test, sends compiler output and the summary line; owner picks the time-exit
+  policy; then Phase 2 (calendar, exposure calculator, gateway, Tokyo fix in SHADOW, relay service).
