@@ -3,7 +3,7 @@
 # (needed only for research/multiasset). Usage: bash tools/bootstrap.sh [--with-futures-data]
 set -e
 cd "$(dirname "$0")/.."
-python3 -c "import numpy, pandas, numba" 2>/dev/null || pip install -q -r requirements.txt
+python3 -c "import numpy, pandas, numba, holidays" 2>/dev/null || pip install -q -r requirements.txt
 python3 -c "import numpy, pandas, numba; print('python packages ok')"
 echo "market data files: $(ls data/*_M1_bid_*.npz 2>/dev/null | wc -l)"
 if [ "$1" = "--with-futures-data" ] && [ ! -d /home/user/robcarver17/pysystemtrade/data/futures ]; then
