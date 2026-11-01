@@ -133,3 +133,51 @@ Results: `Common\Files\seesare\<login>\paper\<module>.csv`. Set a module LIVE to
 The order gateway (real orders, stop attached in the same request, deal accounting, restart reconciliation), the relay
 service, the SEESARE HMAC chain. Real orders come after the self-tests compile and pass on the RoboForex terminal and a module
 has passed its forward test.
+
+## Phase 3 (2026-11-01): cent-account sizing, Telegram outbox, deal reader
+
+| File | What it is |
+|---|---|
+| `Include/Seesare/Risk/Exposure.mqh` | Cent accounts: `UnitsPerUsd` (USD 1, USC 100, anything else refused), `PlanAtLevel`, `LowestFeasibleLevel`; OrderCalcProfit's answer (account money) is divided by units per USD, so plans, risk and the envelope stay in dollars of the $1,000 baseline |
+| `Include/Seesare/Ledger/Telegram.mqh` | `CSeesareTelegram`: plain-text message for each GENESIS, EVENT, AUDIT and LIFECYCLE record; copies fields, prints no number again |
+| `Include/Seesare/Ledger/Outbox.mqh` | Format `SEESARE-OUTBOX/2`: header, `---`, the Telegram text, `Record: <line>`, `sum=<SHA-256>`; a record it cannot format is refused |
+| `Include/Seesare/Exec/DealReader.mqh` | Read only: a position's deals from the history -> tickets `t1;t2`, net (profit + commission + swap + fee) in USD, VWAP prices, UTC times, close reason; a closed position -> a REAL ledger event |
+| `Scripts/SeesarePhase3SelfTest.mq5` | Telegram texts line by line, outbox file byte-exact (through its checksum), cent level tables, deal reasons, one cent position end to end (deals -> ledger -> outbox); INFO: this account's currency, the symbol's contract, minimum lot and live level table |
+
+Twin and tests: `tools/seesare_outbox.py` (`--vectors`, `--mql`), `research/truth/tests/test_seesare_phase3.py` (22 tests).
+The router has a new input `InpUnitsPerUsd` (0 = from the account currency) and stops at start-up on a currency it cannot
+convert. On ProCent set `InpCommissionLot = 0`.
+
+A REAL event as the relay will post it (the self-test's cent example):
+
+```
+SEESARE P26 | P3SELFTEST | Cycle 1/36 | Step 1/10 | REAL
+TOKYO_FIX USDJPY BUY
+Open 2026-11-04T23:00:00Z | Close 2026-11-05T00:55:00Z | by TIME
+Result MANUAL | +0.3080 USD | level L0 -> L0 | negative run 0
+Entry 151.234 | Lower 150.780 | Upper 151.706 | Exit 151.311
+Ratio 1.04 | multiplier 0.0882 | planned 0.1206 USD | risk 0.1200 USD | volume 0.0400
+Deals 50001000, 50001001
+Chain k=1 | hash 5b51bea4...
+Prev 8030586f...
+Record: v=1|life=P3SELFTEST|k=1|mode=REAL|...|hash=5b51bea4...
+```
+
+The relay (not built) checks `sum=`, posts the lines between `---` and `sum=`, then moves the file to `outbox\sent\`. Anyone can
+check the chain from the posts: the `Record:` lines are the ledger lines (`python3 tools/seesare_verify.py`).
+
+### What the cent account does and does not change
+
+| | Standard account | ProCent (cent) account |
+|---|---|---|
+| One 0.01 lot of USDJPY at the Tokyo 0.3% stop risks | about $3.00 | about $0.03 |
+| Levels that can trade REAL, Tokyo fix at its measured ratio 1.04 | none | L0-L3 |
+| Same at a declared ratio 3.5 (not verified for any flow) | none | L0-L9 |
+| USDJPY average spread (RoboForex specifications page) | | 1.9 pips, no commission |
+| Index CFDs (US close module) | | not offered |
+
+Cycle study (`research/seesare/cycle_study.py`, design committed before results; 1,071 gotobi mornings 2011-2025, 1.9-pip
+spread): with losing time exits NEGATIVE the ladder can only descend for a flow that pays at its time exit, because a winning
+time exit does not climb. It reached L15 at event 13 and stayed there for 98.8% of events: 6 real trades in 15 years, 0 cycles
+closed, max drawdown 0.005%. With time exits MANUAL: 25 real trades, 2 cycles (+0.003%, +0.116%). The box holds because real
+trading stops. +2% per 10-event cycle would need +1.46R per event at L0; the Tokyo fix earns about +0.05R.

@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-66 ideas tested, about 303,376 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+67 ideas tested, about 303,382 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -18,11 +18,11 @@
 | intraday | 17 | 1 | 182,551 |
 | awesome-list | 13 | 0 | 147 |
 | index | 13 | 0 | 98 |
+| owner-idea | 13 | 0 | 1,666 |
 | breadth | 12 | 0 | 697 |
 | calendar | 12 | 1 | 139 |
-| owner-idea | 12 | 0 | 1,660 |
+| flow | 12 | 1 | 42 |
 | trend | 12 | 4 | 102,718 |
-| flow | 11 | 1 | 36 |
 | breakout | 9 | 0 | 119,432 |
 | engulfing | 9 | 0 | 3,836 |
 | reversal | 9 | 1 | 105,852 |
@@ -32,8 +32,8 @@
 | repo-funnel | 7 | 0 | 222 |
 | retest | 7 | 0 | 10,308 |
 | session | 7 | 0 | 183,863 |
+| fix | 6 | 1 | 36 |
 | ema | 5 | 0 | 996 |
-| fix | 5 | 1 | 30 |
 | futures | 5 | 1 | 138 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
@@ -42,7 +42,10 @@
 | eurusd | 4 | 1 | 155 |
 | monthly | 4 | 0 | 20 |
 | oil | 4 | 0 | 7 |
+| risk | 4 | 0 | 70 |
+| sizing | 4 | 0 | 70 |
 | third-party-ea | 4 | 0 | 304 |
+| usdjpy | 4 | 1 | 28 |
 | book | 3 | 1 | 9 |
 | carry | 3 | 1 | 18 |
 | cross-asset | 3 | 0 | 4 |
@@ -57,11 +60,9 @@
 | pattern | 3 | 0 | 4,932 |
 | portfolio | 3 | 3 | 16 |
 | reversion | 3 | 3 | 16 |
-| risk | 3 | 0 | 64 |
-| sizing | 3 | 0 | 64 |
+| seesare | 3 | 0 | 26 |
 | sweep | 3 | 0 | 1,376 |
 | turn-of-month | 3 | 0 | 4 |
-| usdjpy | 3 | 1 | 22 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | costs | 2 | 0 | 8 |
@@ -70,7 +71,6 @@
 | energy | 2 | 0 | 128 |
 | fvg | 2 | 0 | 9,312 |
 | rsi2 | 2 | 0 | 8 |
-| seesare | 2 | 0 | 20 |
 | short-vol | 2 | 0 | 17 |
 | sofus | 2 | 0 | 139 |
 | stop-entry | 2 | 1 | 6 |
@@ -81,6 +81,7 @@
 | winner-anatomy | 2 | 0 | 135 |
 | all-time-high | 1 | 0 | 2 |
 | breakeven | 1 | 0 | 102,260 |
+| cent-account | 1 | 0 | 6 |
 | commodities | 1 | 0 | 16 |
 | control | 1 | 0 | 48 |
 | diversified | 1 | 1 | 1 |
@@ -143,6 +144,7 @@
 | 2026-11-01 | wmr_fix_reversion_v1 | calendar, flow, fix, intraday, eurusd, gbpusd, reversal, owner-idea | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-01 | wmr_fix_postfade_v1 | calendar, flow, fix, intraday, eurusd, gbpusd, reversal | 4 | Rejected | dev_E +0.046, val_E +0.091, final_E +0.018, final_n +72.000, final_PF +1.151, dsr +0.701, share_dev_positive +0.500 |
 | 2026-11-01 | Tokyo fix payoff shape and declared-bracket study | calendar, flow, fix, usdjpy, payoff, seesare, owner-idea | 16 | Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection. |  |
+| 2026-11-01 | SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules) | seesare, sizing, risk, cent-account, usdjpy, flow, fix, owner-idea | 6 | Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R. | events +1071.000, real_A +6.000, real_C +25.000, cycles_A +0.000, cycles_C +2.000, share_L15_A +0.988, share_L15_B +0.887, share_L15_C +0.950, first_L15_A +13.000, cycle_mean_pct_C +0.060, max_dd_pct_C +0.015, spread_pips +1.900, stress_spread_pips +2.850, lowest_real_level_ratio_1_04 +3.000, lowest_real_level_ratio_3_5 +9.000 |
 | 2026-10-31 | TimelessCity v2.42 re-score (S1 gold/EUR, S2 USDJPY, S3 gold) | trend, reversion, portfolio | 4 | Survivor: deployed EA (demo gate pending) | Sharpe 0.67 with swaps, 1.04 low-cost swap-free; S1 EUR -0.06R 2023-25 (watch) |
 | 2026-10-31 | Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London) | liquidity, sweep, smc, ict, reversal | 780 | Rejected | best (sweep+MSS H1) 2023-25 -0.185R; ~1,400 liquidity variants tested in total |
 | 2026-10-31 | donchian_trend_v1 | trend, breakout | 96 | Rejected: no configuration passed the development gate | 50-bar time stop; gold/JPY positive, EUR/GBP negative |

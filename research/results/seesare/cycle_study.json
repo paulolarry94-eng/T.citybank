@@ -1,0 +1,406 @@
+{
+ "procent_1.9pip/A_as_coded": {
+  "summary": {
+   "2011-15": {
+    "events": 359,
+    "real": 6,
+    "real_share": 0.017,
+    "mean_level": 14.64,
+    "real_pnl_usd": -0.04,
+    "gross_pips_per_event": 0.21,
+    "stops": 19,
+    "targets": 0
+   },
+   "2016-19": {
+    "events": 287,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.57,
+    "stops": 24,
+    "targets": 0
+   },
+   "2020-22": {
+    "events": 214,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 1.72,
+    "stops": 12,
+    "targets": 0
+   },
+   "2023-25": {
+    "events": 211,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.94,
+    "stops": 21,
+    "targets": 0
+   },
+   "all": {
+    "events": 1071,
+    "real": 6,
+    "lifecycles": 1,
+    "cycles_closed": 0,
+    "real_pnl_usd": -0.04,
+    "max_life_dd_usd": 0.0463,
+    "max_life_dd_pct": 0.0046,
+    "cycle_net_pct_mean": null,
+    "cycle_net_pct_best": null,
+    "cycle_net_pct_worst": null,
+    "positive_cycles": 0,
+    "first_event_at_L15": 13,
+    "share_events_at_L15": 0.988,
+    "violations": 0
+   }
+  },
+  "cycles": []
+ },
+ "procent_1.9pip/B_target_1.04": {
+  "summary": {
+   "2011-15": {
+    "events": 359,
+    "real": 6,
+    "real_share": 0.017,
+    "mean_level": 14.53,
+    "real_pnl_usd": -0.04,
+    "gross_pips_per_event": -0.24,
+    "stops": 19,
+    "targets": 17
+   },
+   "2016-19": {
+    "events": 287,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 14.89,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.29,
+    "stops": 24,
+    "targets": 13
+   },
+   "2020-22": {
+    "events": 214,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 14.87,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 1.08,
+    "stops": 12,
+    "targets": 13
+   },
+   "2023-25": {
+    "events": 211,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 14.82,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 1.0,
+    "stops": 21,
+    "targets": 12
+   },
+   "all": {
+    "events": 1071,
+    "real": 6,
+    "lifecycles": 1,
+    "cycles_closed": 0,
+    "real_pnl_usd": -0.04,
+    "max_life_dd_usd": 0.0463,
+    "max_life_dd_pct": 0.0046,
+    "cycle_net_pct_mean": null,
+    "cycle_net_pct_best": null,
+    "cycle_net_pct_worst": null,
+    "positive_cycles": 0,
+    "first_event_at_L15": 13,
+    "share_events_at_L15": 0.887,
+    "violations": 0
+   }
+  },
+  "cycles": []
+ },
+ "procent_1.9pip/C_time_exits_manual": {
+  "summary": {
+   "2011-15": {
+    "events": 359,
+    "real": 25,
+    "real_share": 0.07,
+    "mean_level": 13.44,
+    "real_pnl_usd": 1.3,
+    "gross_pips_per_event": 0.21,
+    "stops": 19,
+    "targets": 0
+   },
+   "2016-19": {
+    "events": 287,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.57,
+    "stops": 24,
+    "targets": 0
+   },
+   "2020-22": {
+    "events": 214,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 1.72,
+    "stops": 12,
+    "targets": 0
+   },
+   "2023-25": {
+    "events": 211,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.94,
+    "stops": 21,
+    "targets": 0
+   },
+   "all": {
+    "events": 1071,
+    "real": 25,
+    "lifecycles": 1,
+    "cycles_closed": 2,
+    "real_pnl_usd": 1.3,
+    "max_life_dd_usd": 0.1517,
+    "max_life_dd_pct": 0.0152,
+    "cycle_net_pct_mean": 0.05965,
+    "cycle_net_pct_best": 0.11631,
+    "cycle_net_pct_worst": 0.003,
+    "positive_cycles": 2,
+    "first_event_at_L15": 54,
+    "share_events_at_L15": 0.95,
+    "violations": 0
+   }
+  },
+  "cycles": [
+   {
+    "life": "STUDY1",
+    "cycle": 1,
+    "net": 0.03,
+    "net_pct": 0.003,
+    "dd": 0.0463,
+    "lvl_start": 0,
+    "lvl_end": 0
+   },
+   {
+    "life": "STUDY1",
+    "cycle": 2,
+    "net": 1.1631,
+    "net_pct": 0.11631,
+    "dd": 0.0369,
+    "lvl_start": 0,
+    "lvl_end": 0
+   }
+  ]
+ },
+ "stress_2.85pip/A_as_coded": {
+  "summary": {
+   "2011-15": {
+    "events": 359,
+    "real": 3,
+    "real_share": 0.008,
+    "mean_level": 14.73,
+    "real_pnl_usd": -0.05,
+    "gross_pips_per_event": -0.74,
+    "stops": 20,
+    "targets": 0
+   },
+   "2016-19": {
+    "events": 287,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": -0.39,
+    "stops": 25,
+    "targets": 0
+   },
+   "2020-22": {
+    "events": 214,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.82,
+    "stops": 12,
+    "targets": 0
+   },
+   "2023-25": {
+    "events": 211,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": -0.07,
+    "stops": 22,
+    "targets": 0
+   },
+   "all": {
+    "events": 1071,
+    "real": 3,
+    "lifecycles": 1,
+    "cycles_closed": 0,
+    "real_pnl_usd": -0.05,
+    "max_life_dd_usd": 0.051,
+    "max_life_dd_pct": 0.0051,
+    "cycle_net_pct_mean": null,
+    "cycle_net_pct_best": null,
+    "cycle_net_pct_worst": null,
+    "positive_cycles": 0,
+    "first_event_at_L15": 13,
+    "share_events_at_L15": 0.988,
+    "violations": 0
+   }
+  },
+  "cycles": []
+ },
+ "stress_2.85pip/B_target_1.04": {
+  "summary": {
+   "2011-15": {
+    "events": 359,
+    "real": 3,
+    "real_share": 0.008,
+    "mean_level": 14.63,
+    "real_pnl_usd": -0.05,
+    "gross_pips_per_event": -1.15,
+    "stops": 20,
+    "targets": 17
+   },
+   "2016-19": {
+    "events": 287,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 14.91,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": -0.62,
+    "stops": 25,
+    "targets": 13
+   },
+   "2020-22": {
+    "events": 214,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 14.87,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.24,
+    "stops": 12,
+    "targets": 13
+   },
+   "2023-25": {
+    "events": 211,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 14.83,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.04,
+    "stops": 22,
+    "targets": 12
+   },
+   "all": {
+    "events": 1071,
+    "real": 3,
+    "lifecycles": 1,
+    "cycles_closed": 0,
+    "real_pnl_usd": -0.05,
+    "max_life_dd_usd": 0.051,
+    "max_life_dd_pct": 0.0051,
+    "cycle_net_pct_mean": null,
+    "cycle_net_pct_best": null,
+    "cycle_net_pct_worst": null,
+    "positive_cycles": 0,
+    "first_event_at_L15": 13,
+    "share_events_at_L15": 0.894,
+    "violations": 0
+   }
+  },
+  "cycles": []
+ },
+ "stress_2.85pip/C_time_exits_manual": {
+  "summary": {
+   "2011-15": {
+    "events": 359,
+    "real": 25,
+    "real_share": 0.07,
+    "mean_level": 13.68,
+    "real_pnl_usd": 1.19,
+    "gross_pips_per_event": -0.74,
+    "stops": 20,
+    "targets": 0
+   },
+   "2016-19": {
+    "events": 287,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": -0.39,
+    "stops": 25,
+    "targets": 0
+   },
+   "2020-22": {
+    "events": 214,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": 0.82,
+    "stops": 12,
+    "targets": 0
+   },
+   "2023-25": {
+    "events": 211,
+    "real": 0,
+    "real_share": 0.0,
+    "mean_level": 15.0,
+    "real_pnl_usd": 0,
+    "gross_pips_per_event": -0.07,
+    "stops": 22,
+    "targets": 0
+   },
+   "all": {
+    "events": 1071,
+    "real": 25,
+    "lifecycles": 1,
+    "cycles_closed": 2,
+    "real_pnl_usd": 1.19,
+    "max_life_dd_usd": 0.157,
+    "max_life_dd_pct": 0.0157,
+    "cycle_net_pct_mean": 0.05506,
+    "cycle_net_pct_best": 0.11173,
+    "cycle_net_pct_worst": -0.00161,
+    "positive_cycles": 1,
+    "first_event_at_L15": 43,
+    "share_events_at_L15": 0.96,
+    "violations": 0
+   }
+  },
+  "cycles": [
+   {
+    "life": "STUDY1",
+    "cycle": 1,
+    "net": -0.0161,
+    "net_pct": -0.00161,
+    "dd": 0.051,
+    "lvl_start": 0,
+    "lvl_end": 0
+   },
+   {
+    "life": "STUDY1",
+    "cycle": 2,
+    "net": 1.1173,
+    "net_pct": 0.11173,
+    "dd": 0.0508,
+    "lvl_start": 0,
+    "lvl_end": 0
+   }
+  ]
+ }
+}

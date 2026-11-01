@@ -41,7 +41,8 @@ input string                     InpUsSymbol      = "US500";
 input string                     InpUsFeed        = "seesare\\feeds\\moc_imbalance.csv"; // Common\Files: YYYY-MM-DD,HH:MM,net_usd (New York)
 input double                     InpUsMinUsd      = 1000000000.0;                      // |net imbalance| needed to trade, USD
 input double                     InpUsMaxSpread   = 50.0;                              // US close spread cap, points
-input double                     InpCommissionLot = 7.0;                               // commission per lot, round trip, USD
+input double                     InpCommissionLot = 7.0;                               // commission per lot of this broker's contract, round trip, USD (RoboForex ProCent: 0)
+input double                     InpUnitsPerUsd   = 0.0;                               // account money per USD: 0 = from the account currency (USD 1, USC 100)
 input int                        InpPatienceSec   = 300;                               // wait this long after the entry time for a normal spread
 
 CSeesareClock        g_clock;
@@ -57,6 +58,7 @@ datetime             g_day = 0;
 datetime             g_last_retry = 0;
 bool                 g_live = false;
 string               g_root = "";
+double               g_units = 0.0;
 
 //+------------------------------------------------------------------+
 void Log(const string text)
@@ -98,6 +100,16 @@ int OnInit()
      }
    if(!g_clock.Healthy())
       Log("clock not healthy yet (entries wait for it): " + g_clock.LastError());
+   g_units = InpUnitsPerUsd;
+   if(g_units <= 0.0)
+      g_units = CSeesareExposure::AccountUnitsPerUsd();
+   if(g_units <= 0.0)
+     {
+      Log("account currency " + AccountInfoString(ACCOUNT_CURRENCY) + " is neither USD nor US cents: set InpUnitsPerUsd");
+      return INIT_PARAMETERS_INCORRECT;
+     }
+   Log("account currency " + AccountInfoString(ACCOUNT_CURRENCY) + ": " + CSeesareText::Fmt(g_units, 0) +
+       " account units per USD; plans, risk and the envelope are kept in USD");
    string base = "seesare\\";
    if(MQLInfoInteger(MQL_TESTER) != 0)
       base = "seesare_tester\\";
@@ -116,7 +128,7 @@ int OnInit()
       Log("lifecycle " + InpLifecycle + ": " + IntegerToString(g_ledger.RealCount()) + " real events, level " +
           IntegerToString(g_ledger.Level()) + ", envelope room " + CSeesareText::Fmt(g_ledger.EnvelopeRoomUSD(), 2) + " USD");
      }
-   if(!g_paper.Init(g_root))
+   if(!g_paper.Init(g_root, g_units))
       Log("paper book: " + g_paper.LastError());
    Log("no order gateway in this build: nothing is ever sent to the broker");
    EventSetTimer(1);
@@ -252,7 +264,7 @@ void TryEntry(const int i, const datetime now)
    double stop = (plan.side > 0 ? entry - plan.stop_distance : entry + plan.stop_distance);
    double target_dist = plan.ratio * plan.stop_distance;
    double loss_per_lot = 0.0;
-   if(!CSeesareExposure::LossPerLot(m.Market(), plan.side, entry, stop, loss_per_lot))
+   if(!CSeesareExposure::LossPerLot(m.Market(), plan.side, entry, stop, g_units, loss_per_lot))
      {
       Skip(i, "cannot price the stop for " + m.Market());
       return;
@@ -261,7 +273,7 @@ void TryEntry(const int i, const datetime now)
    if(live)
      {
       SSeesareSizing sz;
-      CSeesareExposure::Size(g_ledger, m.Market(), m.Domain(), plan.side, entry, stop, plan.ratio, InpCommissionLot, sz);
+      CSeesareExposure::Size(g_ledger, m.Market(), m.Domain(), plan.side, entry, stop, plan.ratio, InpCommissionLot, g_units, sz);
       volume = sz.virtual_volume;
       if(sz.feasible)
          Log(m.Id() + ": REAL would be feasible (" + sz.why + ") but this build has no order gateway: SHADOW");

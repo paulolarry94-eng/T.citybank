@@ -2,7 +2,9 @@
 //|                                       Seesare/Ledger/Outbox.mqh  |
 //| SEESARE P26 router, Phase 1: numbered outbox files for the relay |
 //| service (dual-service design: the EA never calls the network).   |
-//| UNCOMPILED SOURCE.                                               |
+//| Phase 3: the body is the plain-text Telegram message             |
+//| (Telegram.mqh) followed by "Record: <line>". UNCOMPILED SOURCE.  |
+//| Twin: tools/seesare_outbox.py outbox_message().                  |
 //|                                                                  |
 //| <lifecycle folder>\outbox\0000000001.msg, 0000000002.msg, ...    |
 //| Each message is written to NNNNNNNNNN.tmp and then renamed to    |
@@ -12,15 +14,20 @@
 //| moves it to outbox\sent\ and never deletes it.                   |
 //|                                                                  |
 //| Message:                                                         |
-//|   SEESARE-OUTBOX/1                                               |
+//|   SEESARE-OUTBOX/2                                               |
 //|   seq=0000000001                                                 |
 //|   kind=GENESIS | EVENT | AUDIT | LIFECYCLE                       |
 //|   life=<lifecycle id>                                            |
 //|   ref=<chain index k | cycle number | real events>               |
 //|   utc=<event time, ISO-8601>                                     |
 //|   ---                                                            |
-//|   <body: the ledger or anchor line>                              |
+//|   <body: Telegram text, several lines, no empty line>            |
+//|   Record: <the ledger, anchor or lifecycle line>                 |
 //|   sum=<SHA-256 of all lines above, each followed by "\n">        |
+//| The relay checks sum=, then posts the lines between "---" and    |
+//| "sum=" as one plain-text message (at most 4096 characters; an    |
+//| event message is about 1,300).                                   |
+//| Files are written with CRLF line ends; the checksum is over LF.  |
 //| Delivery is at least once (a crash between writing a message and |
 //| saving state.dat queues it again); the relay drops duplicates by |
 //| (life, kind, ref).                                               |
@@ -31,6 +38,9 @@
 #include <Seesare\Core\Clock.mqh>
 #include <Seesare\Ledger\Sha256.mqh>
 #include <Seesare\Ledger\StateStore.mqh>
+#include <Seesare\Ledger\Telegram.mqh>
+
+#define SEESARE_OUTBOX_FORMAT "SEESARE-OUTBOX/2"
 
 class CSeesareOutbox
   {
@@ -42,7 +52,7 @@ private:
 public:
                      CSeesareOutbox(void) { m_dir = ""; m_seq = 0; m_error = ""; }
    bool              Init(const string dir, const long last_seq);
-   bool              Push(const string kind, const string life, const long ref, const datetime utc, const string body);
+   bool              Push(const string kind, const string life, const long ref, const datetime utc, const string record);
    long              LastSeq(void) const { return m_seq; }
    string            Dir(void) const { return m_dir; }
    string            LastError(void) const { return m_error; }
@@ -58,11 +68,17 @@ bool CSeesareOutbox::Init(const string dir, const long last_seq)
    return true;
   }
 
-bool CSeesareOutbox::Push(const string kind, const string life, const long ref, const datetime utc, const string body)
+bool CSeesareOutbox::Push(const string kind, const string life, const long ref, const datetime utc, const string record)
   {
    if(m_dir == "")
      {
       m_error = "outbox not initialised";
+      return false;
+     }
+   string body = CSeesareTelegram::Body(kind, record);
+   if(body == "")
+     {
+      m_error = "cannot format the " + kind + " record for the relay";
       return false;
      }
    for(int attempt = 0; attempt < 1000; attempt++)
@@ -76,7 +92,8 @@ bool CSeesareOutbox::Push(const string kind, const string life, const long ref, 
          m_seq = seq;
          continue;
         }
-      string text = "SEESARE-OUTBOX/1\n";
+      string text = SEESARE_OUTBOX_FORMAT;
+      text += "\n";
       text += "seq=" + name + "\n";
       text += "kind=" + kind + "\n";
       text += "life=" + life + "\n";

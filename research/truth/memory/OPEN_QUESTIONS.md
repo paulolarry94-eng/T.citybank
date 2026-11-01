@@ -186,6 +186,17 @@ lab: wmr_fix_reversion_v1, 0/4 configs; documented post-fix timing wmr_fix_postf
 payoff; the Tokyo fix pays about 1:1, so SEESARE sizes it at 8.8% of a level and at $1,000 it is SHADOW only (one 0.01 lot at the
 0.3% stop risks $3.07 vs a $0.12 plan; even the 1.5x cap gives $2.05). Open: owner compiles and runs both self-tests; owner
 decides between SHADOW-only SEESARE at $1,000, a larger virtual baseline, or a cent account.
+
+Phase 3 (2026-11-01, owner chose a RoboForex ProCent cent account): built (uncompiled) the cent-account sizer (Exposure.mqh:
+account money per USD, USD 1 / USC 100; plan -> cent lots rounded down; lowest real level), Telegram outbox formatter
+(Telegram.mqh + Outbox.mqh format 2: plain text with [Cycle X/36, Step Y/10] and broker deal tickets, then the record, SHA-256
+checksum) and a read-only deal reader (DealReader.mqh). Twin tools/seesare_outbox.py, 22 tests. Facts: the cent account makes the
+Tokyo fix REAL only at L0-L3 (ratio 1.04) or L0-L9 (3.5), not at all 16 levels; ProCent USDJPY spread 1.9 pips (official
+page), no index CFDs on ProCent (US close module cannot run there); cycle study (P25): with the hardcoded rule the ladder sinks to
+L15 by event 13, 6 real trades in 15 years, 0 cycles; +2% per cycle needs +1.46R per event at L0 vs about +0.05R measured.
+Open: owner compiles and runs the three self-tests on the RoboForex terminal (the Phase 3 one prints the real minimum lot and
+level table); owner decides whether a time exit with a gain may climb the ladder (changes P25's mechanism; would need a new
+lifecycle rule and its own study); minimum lot on ProCent (0.01 per most reviews, 0.1 per one) measured on the terminal.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

@@ -210,7 +210,7 @@ void HandWrittenTests(void)
 //--- paper book restart file
    string root = "seesare_selftest\\paper" + IntegerToString((long)TimeLocal());
    CSeesarePaperBook book;
-   bool opened = book.Init(root);
+   bool opened = book.Init(root, 1.0);
    T_Bool("paper: empty book opens", opened && book.Count() == 0, book.LastError());
    SSeesarePaper p;
    p.key = "TOKYO_FIX@2026-11-04T23:00:00Z";
@@ -237,7 +237,7 @@ void HandWrittenTests(void)
    T_Bool("paper: open a position", opened, book.LastError());
    T_Bool("paper: the same slot is refused", !book.Open(p), "");
    CSeesarePaperBook again;
-   opened = again.Init(root);
+   opened = again.Init(root, 1.0);
    T_Bool("paper: the position survives a restart", opened && again.Count() == 1 && again.Seen(p.key) && again.HasLive(),
           again.LastError());
    FileDelete(root + "\\paper\\open.dat", FILE_COMMON);
@@ -257,10 +257,12 @@ void LiveSizingReport(void)
       return;
      }
    double stop = tick.ask * (1.0 - SEESARE_TOKYO_STOP_PCT);
+   double units = CSeesareExposure::AccountUnitsPerUsd();
    double loss = 0.0;
-   if(!CSeesareExposure::LossPerLot(sym, 1, tick.ask, stop, loss))
+   if(!CSeesareExposure::LossPerLot(sym, 1, tick.ask, stop, units, loss))
      {
-      Print("INFO  OrderCalcProfit failed for ", sym);
+      Print("INFO  cannot price the stop for ", sym, " (account currency ", AccountInfoString(ACCOUNT_CURRENCY),
+            ": only USD and US cents are converted)");
       return;
      }
    double mult = CSeesareText::FloorDp(CSeesareLadder::Multiplier(SEESARE_TOKYO_RATIO), 4);

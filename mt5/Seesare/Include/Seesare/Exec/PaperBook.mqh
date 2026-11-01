@@ -131,6 +131,7 @@ private:
    string            m_dir;
    string            m_state;
    string            m_error;
+   double            m_units;
    bool              Save(void);
    void              Remember(const string key);
    void              RemoveAt(const int i);
@@ -139,8 +140,8 @@ private:
    static string     Num(const double v) { return DoubleToString(v, 10); }
 
 public:
-                     CSeesarePaperBook(void) { m_dir = ""; m_state = ""; m_error = ""; }
-   bool              Init(const string root_dir);
+                     CSeesarePaperBook(void) { m_dir = ""; m_state = ""; m_error = ""; m_units = 1.0; }
+   bool              Init(const string root_dir, const double units_per_usd);
    int               Count(void) const { return ArraySize(m_pos); }
    bool              Seen(const string key) const;
    bool              HasLive(void) const;
@@ -149,24 +150,28 @@ public:
    bool              Journal(const SSeesarePaperResult &r);
    string            LastError(void) const { return m_error; }
    static bool       PnlPerLot(const string symbol, const int side, const double entry, const double exit_price,
-                               const double commission, double &pnl);
+                               const double commission, const double units_per_usd, double &pnl);
   };
 
+//--- USD per lot after commission (USD); OrderCalcProfit answers in account money, divided by units_per_usd
 bool CSeesarePaperBook::PnlPerLot(const string symbol, const int side, const double entry, const double exit_price,
-                                  const double commission, double &pnl)
+                                  const double commission, const double units_per_usd, double &pnl)
   {
    pnl = 0.0;
+   if(units_per_usd <= 0.0)
+      return false;
    double profit = 0.0;
    ENUM_ORDER_TYPE type = (side > 0 ? ORDER_TYPE_BUY : ORDER_TYPE_SELL);
    if(!OrderCalcProfit(type, symbol, 1.0, entry, exit_price, profit))
       return false;
-   pnl = profit - commission;
+   pnl = profit / units_per_usd - commission;
    return true;
   }
 
-bool CSeesarePaperBook::Init(const string root_dir)
+bool CSeesarePaperBook::Init(const string root_dir, const double units_per_usd)
   {
    m_error = "";
+   m_units = (units_per_usd > 0.0 ? units_per_usd : 1.0);
    m_dir = root_dir + "\\paper";
    m_state = m_dir + "\\open.dat";
    ArrayResize(m_pos, 0);
@@ -345,7 +350,7 @@ void CSeesarePaperBook::Fill(const int i, const double price, const datetime utc
    res.by            = by;
    res.late          = late;
    double pnl = 0.0;
-   if(!PnlPerLot(m_pos[i].symbol, m_pos[i].side, m_pos[i].entry, price, m_pos[i].commission, pnl))
+   if(!PnlPerLot(m_pos[i].symbol, m_pos[i].side, m_pos[i].entry, price, m_pos[i].commission, m_units, pnl))
       pnl = 0.0;
    res.pnl_per_lot = pnl;
    res.pnl_usd     = pnl * m_pos[i].volume;

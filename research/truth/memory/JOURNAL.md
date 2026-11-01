@@ -346,3 +346,31 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Next:** owner compiles and runs both self-tests and the router (Tokyo PAPER) on a RoboForex demo; owner chooses SEESARE at
   $1,000 (SHADOW only) vs a larger baseline or a cent account; US close needs an imbalance feed or the momentum-into-the-close
   variant (Q19, needs the lab's 20:30 UTC entry block handled for winter).
+
+## 2026-11-01 (late night, 6) · owner: "Cycle-centric axis": cent account, +2% per cycle, era cycle study, cent sizer + Telegram outbox
+- **Asked:** (Part I) a RoboForex ProCent cent account ($1,000 = 100,000 cent units) so all 16 levels place real micro-orders
+  inside the 3.6% envelope; multi-leg cycles giving +2% or more per cycle (law of large numbers). (Part II) replay 2011-2025 by
+  era, 5-10 cycle sequences, show the drawdown stays in the box. (Code) cent-account position sizer; Telegram outbox formatter
+  with the keyless SHA-256 chain, real deal tickets and [Cycle X/36, Step Y/10], written to a folder for the relay.
+- **Corrected premises:** a cent account lowers the smallest real trade 100x but not to zero: for the Tokyo fix (0.3% stop,
+  about $3.00 per cent lot) levels L0-L3 are real at its measured ratio 1.04 and L0-L9 at 3.5; the rest stay SHADOW. +2% per
+  10-event cycle is $2 per event = +1.46R at L0 (multiplier 1.0); the Tokyo fix earns about +0.05R. The law of large numbers makes
+  results converge to the edge per trade; it does not make the edge bigger. ProCent has no index CFDs, so the US close module
+  cannot run there.
+- **Studied (design committed before results, research/seesare/cycle_study.py):** Tokyo fix through the real ledger rules on a
+  cent account, 1,071 gotobi mornings, 1.9-pip spread (stress 2.85), 3 variants, 6 runs in all. Hardcoded rule: L15 from event 13,
+  98.8% of events at L15, 6 real trades, -$0.04, 0 cycles. Target at 1.04: same 6 real. Time exits MANUAL: 25 real, 2 cycles
+  (+0.003%, +0.116%), then L15. Max drawdown 0.005-0.016%: inside the box because real trading stopped (new P25). Descriptive
+  study of sizing mechanics on an already-looked strategy; no rule was chosen from it, 2023-25 not used to select anything.
+- **Built (uncompiled):** Exposure.mqh cent support (UnitsPerUsd, PlanAtLevel, LowestFeasibleLevel, currency conversion in
+  LossPerLot/Size), PaperBook and router pass account units (router refuses unknown currencies), Telegram.mqh (formatter),
+  Outbox.mqh format 2 (text + "Record:" line + sum), DealReader.mqh (read-only: deals, net in USD, close reason -> STOP/TARGET/
+  TIME/HUMAN/BROKER, closed position -> REAL event), Phase 3 self-test (generated vectors, outbox file byte-exact through its
+  checksum, cent end-to-end deals -> ledger -> outbox). Twin tools/seesare_outbox.py; 22 new tests; all 70 twin tests pass.
+- **Decisions:** volumes still round down, never up; an unknown account currency stops the router instead of guessing; a
+  record the formatter cannot read is refused by the outbox; unknown deal reasons count as BROKER (negative).
+- **Facts vs estimates:** ProCent USDJPY spread 1.9 pips and no commission from RoboForex's specifications page; minimum lot
+  0.01 per most reviews (one says 0.1); cent lot = 1/100 of a standard lot per reviews; the self-test prints the real values.
+  Nothing compiled.
+- **Next:** owner compiles and runs the Phase 1-3 self-tests on the RoboForex ProCent terminal and sends the output; owner
+  decides whether a time exit with a gain may climb the ladder (P25) before any real lifecycle; relay service not built.

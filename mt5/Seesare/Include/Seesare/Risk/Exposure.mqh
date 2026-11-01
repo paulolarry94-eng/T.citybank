@@ -12,6 +12,17 @@
 //| feasible = volume >= broker minimum AND the envelope guard       |
 //|            allows volume x per lot; otherwise the event runs as  |
 //|            SHADOW with the unrounded "shadow lot" plan / per lot.|
+//|                                                                  |
+//| Cent accounts (Phase 3, e.g. RoboForex ProCent): the account is  |
+//| kept in US cents (USC) and one lot is 1/100 of a standard lot.   |
+//| Nothing here assumes a contract size: OrderCalcProfit uses the   |
+//| broker's own contract, and its result (in account money) is      |
+//| divided by UnitsPerUsd (USD 1, USC 100) so the plan, the risk    |
+//| and the envelope stay in dollars of the $1,000 virtual baseline. |
+//| A cent account lowers the smallest tradeable risk 100x, but a    |
+//| plan below 0.01 lot of the cent contract is still SHADOW (USDJPY |
+//| at a 0.3% stop: L0-L3 real with the measured ratio 1.04, L0-L9   |
+//| with ratio 3.5; twin: tools/seesare_outbox.py level_table).      |
 //+------------------------------------------------------------------+
 #ifndef SEESARE_RISK_EXPOSURE_MQH
 #define SEESARE_RISK_EXPOSURE_MQH
@@ -33,6 +44,30 @@ struct SSeesareSizing
 class CSeesareExposure
   {
 public:
+   //--- account money units per US dollar: USD 1, US cents 100, anything else 0 (refuse: no conversion is guessed)
+   static double     UnitsPerUsd(const string currency)
+     {
+      string c = currency;
+      StringTrimLeft(c);
+      StringTrimRight(c);
+      StringToUpper(c);
+      if(c == "USD")
+         return 1.0;
+      if(c == "USC" || c == "USX" || c == "USCENT" || c == "US CENT" || c == "CENT")
+         return 100.0;
+      return 0.0;
+     }
+   static double     AccountUnitsPerUsd(void)
+     {
+      return UnitsPerUsd(AccountInfoString(ACCOUNT_CURRENCY));
+     }
+   //--- planned delta at a level, rounded exactly as the ledger writes it (PlanUsdAt)
+   static double     PlanAtLevel(const double level_pct, const double ratio, const double friction)
+     {
+      double r = StringToDouble(CSeesareText::Fmt(ratio, 2));
+      double mult = StringToDouble(CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::Multiplier(r), 4), 4));
+      return StringToDouble(CSeesareText::Fmt(CSeesareText::FloorDp(CSeesareLadder::PlanUsd(level_pct, mult, friction), 4), 4));
+     }
    //--- lots = floor((plan / per lot) / step) x step, capped at vmax; feasible if >= vmin
    static double     Volume(const double plan_usd, const double per_lot_usd, const double step, const double vmin,
                             const double vmax, double &virtual_volume, bool &feasible)
@@ -48,20 +83,46 @@ public:
       feasible = (vol >= vmin - 1e-12);
       return vol;
      }
-   //--- USD lost by 1.0 lot between entry and stop (positive), from the broker's own contract maths
-   static bool       LossPerLot(const string symbol, const int side, const double entry, const double stop, double &loss)
+   //--- deepest level (0-15) whose plan still buys the broker minimum; -1 if none
+   static int        LowestFeasibleLevelFor(const double &pct[], const double ratio, const double friction,
+                                            const double per_lot_usd, const double step, const double vmin)
+     {
+      int lowest = -1;
+      for(int lv = 0; lv < ArraySize(pct); lv++)
+        {
+         double virtual_volume = 0.0;
+         bool ok = false;
+         Volume(PlanAtLevel(pct[lv], ratio, friction), per_lot_usd, step, vmin, DBL_MAX, virtual_volume, ok);
+         if(ok)
+            lowest = lv;
+        }
+      return lowest;
+     }
+   static int        LowestFeasibleLevel(const double ratio, const double friction, const double per_lot_usd,
+                                         const double step, const double vmin)
+     {
+      double pct[];
+      CSeesareLadder::Defaults(pct);
+      return LowestFeasibleLevelFor(pct, ratio, friction, per_lot_usd, step, vmin);
+     }
+   //--- USD lost by 1.0 lot between entry and stop (positive), from the broker's own contract maths;
+   //--- units_per_usd converts the account money (USD 1, US cents 100) back to dollars
+   static bool       LossPerLot(const string symbol, const int side, const double entry, const double stop,
+                                const double units_per_usd, double &loss)
      {
       loss = 0.0;
+      if(units_per_usd <= 0.0)
+         return false;
       double profit = 0.0;
       ENUM_ORDER_TYPE type = (side > 0 ? ORDER_TYPE_BUY : ORDER_TYPE_SELL);
       if(!OrderCalcProfit(type, symbol, 1.0, entry, stop, profit))
          return false;
-      loss = -profit;
+      loss = -profit / units_per_usd;
       return (loss > 0.0);
      }
    static bool       Size(const CSeesareCycleLedger &ledger, const string symbol, const string domain, const int side,
                           const double entry, const double stop, const double ratio, const double commission_per_lot,
-                          SSeesareSizing &out)
+                          const double units_per_usd, SSeesareSizing &out)
      {
       out.feasible       = false;
       out.plan_usd       = ledger.PlanUsdAt(ratio, domain);
@@ -76,9 +137,9 @@ public:
          out.why = "the ledger is not open or the domain is unknown";
          return false;
         }
-      if(!LossPerLot(symbol, side, entry, stop, out.loss_per_lot))
+      if(!LossPerLot(symbol, side, entry, stop, units_per_usd, out.loss_per_lot))
         {
-         out.why = "OrderCalcProfit failed for " + symbol;
+         out.why = "OrderCalcProfit failed for " + symbol + " or the account currency is not USD or US cents";
          return false;
         }
       out.per_lot = out.loss_per_lot + (commission_per_lot > 0.0 ? commission_per_lot : 0.0);

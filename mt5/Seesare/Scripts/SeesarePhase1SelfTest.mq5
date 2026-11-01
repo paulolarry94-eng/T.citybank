@@ -503,7 +503,10 @@ void LedgerTests(void)
    T_Bool("outbox: nothing beyond the last", !CSeesareFiles::Exists(dir + "\\outbox\\" + CSeesareOutbox::Name(VEC_MESSAGES + 1) + ".msg"), "");
    string msg[];
    int nm = CSeesareFiles::ReadLines(dir + "\\outbox\\0000000002.msg", msg);
-   T_Str("outbox: message 2 carries event 1", (nm > 7 ? msg[7] : ""), VEC_EVENT1);
+   string want_record = "Record: ";
+   want_record += VEC_EVENT1;
+   T_Str("outbox: message 2 format", (nm > 0 ? msg[0] : ""), "SEESARE-OUTBOX/2");
+   T_Str("outbox: message 2 carries event 1", (nm > 8 ? msg[nm - 2] : ""), want_record);
    string body = "";
    for(int i = 0; i < nm - 1; i++)
       body += msg[i] + "\n";

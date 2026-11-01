@@ -76,6 +76,10 @@ Learning rules:
 - SEESARE Phase 2 (2026-11-01, uncompiled): losing time exits = NEGATIVE hardcoded in the ledger; flow modules (Tokyo fix
   CANDIDATE; London 4 pm fix REJECTED in the lab, wmr_fix_*; US close imbalance UNTESTED, no data), paper book, router EA with
   no order gateway; twin `tools/seesare_flows.py` (`--mql`, `--holidays`). No flow has a verified 5:1-10:1 payoff.
+- SEESARE Phase 3 (2026-11-01, uncompiled): RoboForex ProCent cent account. Cent sizer (Exposure: USD 1 / USC 100), Telegram
+  formatter + outbox format 2 ([Cycle X/36, Step Y/10], deal tickets, record, checksum), read-only DealReader; twin
+  `tools/seesare_outbox.py` (`--mql`), 22 tests. Cent account: Tokyo fix REAL only at L0-L3. Cycle study: the ladder sinks to L15
+  for time-exit flows (P25): 6 real trades in 15 years, 0 cycles (`research/results/seesare/cycle_study.json`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

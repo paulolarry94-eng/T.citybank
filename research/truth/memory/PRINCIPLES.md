@@ -215,3 +215,14 @@ back for free and loses 14.96%. Checking before every real trade that current dr
 within the cap holds the cap under any sequence (3.53% and 3.60% here); gaps through the stop are the only way past it.
 Evidence: research/truth/tests/test_seesare_phase1.py (EnvelopeGuard), tools/seesare_verify.py, mt5/Seesare/README.md.
 Confidence: high (arithmetic, reproducible). Related: P8 (sizing states add nothing), P13.
+
+### P25 A ladder that climbs only on target hits sinks to its floor when the edge is paid at the time exit
+SEESARE moves up one level only on a POSITIVE outcome (a target hit) and down 2-4 levels on a NEGATIVE one. A flow whose
+profit arrives at a fixed exit time (the Tokyo fix: buy 23:00, sell 00:55 UTC) has winners that are time exits, which never
+climb, while its stops and losing time exits descend. Replayed through the real ledger rules on USDJPY 2011-2025 (1,071 gotobi
+mornings, cent account, 1.9-pip spread): the ladder reached L15 at event 13 and stayed there for 98.8% of events; 6 trades in 15
+years were large enough to be real, 0 cycles closed. Placing a target at the measured 1:1 ratio did not help (88.7% at L15);
+counting time exits as manual only delayed it (L15 from event 54, 2 cycles). The drawdown box held because trading stopped, not
+because the flow is good. Before sizing a flow with an outcome ladder, check which outcome pays the flow and whether that
+outcome moves the ladder. Evidence: research/seesare/cycle_study.py, research/results/seesare/cycle_study.json.
+Confidence: high (mechanism + replay). Related: P24, P8.
