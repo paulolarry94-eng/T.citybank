@@ -211,3 +211,14 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** stop mining shapes at M5; logged Q15 (a 5-min hunter must hunt flows with a payer: Tokyo fix, US close
   auction, data releases) and the index-cost check. The 28 MB setups file is regenerable and not committed.
 - **Facts vs estimates:** costs for XAGUSD, WTI and the five indices are lab estimates (likely high for indices).
+
+## 2026-11-01 (later) · "check all timeframes, all markets, Asia/London/New York, and the configs tried before"
+- **Done:** mined every past Truth Lab grid for configurations positive in 2011-19 and 2020-22 (lead: sop_4leg_v1 EUR/GBP M30
+  16-20 UTC, n 17-82). Pre-registered pocket scan (`research/hunter5m/pocket_scan.py`): Leg 34 on 11 markets x M5, M10, M15, M30,
+  M45, H1 x Asia/London/New York x 2 exits = 396 cells; selection on 2011-22 only; hint tested on the 9 other markets.
+- **Learned:** 1 cell passed discovery (fewer than luck predicts) and failed confirmation; 0 survivors; no cell positive in all
+  three periods; before costs the setup is slightly negative at every timeframe and session and positive cells do not persist
+  (34% vs 32%). The M30 New-York pocket was luck (negative on 9 of 9 other markets). Evidence added to P3, P17, P21.
+- **Owner's US500 spec:** swap long -142.4 points, short 0; margin 0.25%; commission not in the Specification (Q1 note).
+- **Decisions:** the 4-leg / Leg 34 family is closed on every market, timeframe and session we hold. Next: flows with a payer
+  (Q10/Q15, Tokyo fix first), the book's forward test and sizing (Q12/Q13).

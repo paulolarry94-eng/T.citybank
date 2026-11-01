@@ -11,6 +11,10 @@ to Sharpe 1.36 with swaps and 1.74 swap-free (corrected 2026-10-31 from 1.15 / 1
 check on a phone (2 minutes): (a) MT5 app → symbol Specification → Swap long/short = 0? (swap-free status, worth
 +0.38 Sharpe); (b) commission shown in History after a 0.01-lot EURUSD and XAUUSD round trip.
 
+Owner's MT5 Specification (2026-11-01, symbol assumed US500): contract size 1, margin 0.25% (1:400), swap long -142.4
+points and short 0 per night (Friday x3), trade sessions Sun 22:00-24:00, Mon-Thu 00:00-21:00 and 22:00-24:00, Fri to 20:55.
+Commission is not shown in the Specification: it appears in History after a trade (open/close 0.03 lot on demo).
+
 ### Q2 Does the TimelessCity EA trade like the research?
 Compile v2.42, Strategy Tester 2023–2025 (real ticks), compare with
 `research/results/northstar/parity/timelesscity/*.csv` using `tools/parity_check.py`.

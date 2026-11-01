@@ -23,6 +23,9 @@ Evidence: North Star ablation. Confidence: high.
 ### P3 Higher timeframes beat lower ones
 Costs per unit of risk shrink and noise falls. FVG M5→H1 +0.15R in every paired setting; QM M15→H1 +0.05R.
 Evidence: North Star ablation. Confidence: high.
+Evidence (2026-11-01, Leg 34 pocket scan, 11 markets): moving from M5 to H1 cuts the cost share (median -0.27R -> -0.20R
+after costs) but does not create a raw edge (before costs -0.01 to -0.05R at every timeframe). Higher timeframes help only
+an idea that already has an edge.
 
 ### P4 Breakeven stops are a backtest mirage
 They add no out-of-sample edge; small targets hurt. Evidence: four-strategy study (mgmt_oos, exit_eras).
@@ -122,6 +125,8 @@ Choosing a strategy's best trading hours on past data mostly selects luck. Dark 
 same (−0.04 to −0.05R). The big winners of high-frequency bots are trend days that start near the London or New York
 open, and a trend day is known only after it ends. A time filter must survive a learn-then-check split before anyone
 trusts it. Evidence: research/gridbot/DARK_MIMAS_REPORT.md, research/results/truth/osc_turn_sessions_v1/. Confidence: medium-high.
+Evidence (2026-11-01): Leg 34 by session (Asia, London, New York) x 6 timeframes x 11 markets: no session differs
+(median -0.23R); the past M30 16-20 UTC pocket (EUR/GBP) lost on all 9 other markets.
 
 ### P18 Case studies select winners; only a coded scan of every setup shows the hit rate
 The owner's 4-leg SOP documents showed mostly wins. Coded so that it reproduces the owner's own cases (same legs, entry and
@@ -161,3 +166,5 @@ top 1% lean to quiet conditions and a strong 4-hour push, but a filter that keep
 -0.20R vs -0.15R for every setup, worse again on 10 other markets and in 2026. The best rule from 133 conditions failed its
 own learning halves. Winners are the tail of a noisy distribution, not a separate kind of trade; only a positive mean
 before costs can be filtered into a better one. Evidence: research/hunter5m/ (two pre-registered steps). Confidence: high.
+Evidence (2026-11-01): the same holds for pockets: of 396 market x timeframe x session cells, cells positive before
+costs in 2011-19 were positive in 2020-22 34% of the time, cells negative 32%: no persistence, so no pocket to pick.
