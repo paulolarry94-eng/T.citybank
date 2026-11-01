@@ -16,8 +16,10 @@ What the numbers say, in plain words:
 
 1. **Their headline winners lose on our markets.** trustdan's champion Alt10 ("76% success" on US stocks) loses
    0.62R per trade 2011–19 after costs and swaps; their #2, Alt45, loses 0.62R. All 48 variants are negative in
-   development pooled over the 11 markets; the best is still -0.24R. sofus's setups (claimed profit factors 1.7–4.5 on
-   stocks) are all negative too; the least bad is RSI(2) reversion at -0.02R.
+   development pooled over the 11 markets; the least bad is alt20 at -0.04R (its source bug closes every trade the next
+   day), then alt41 at -0.21R. sofus's setups (claimed profit factors 1.7–4.5 on stocks) are negative too, except the
+   triple RSI divergence on both sides (+0.003R on only 30 trades); the least bad of the rest, EMA 9/21 cross and RSI(2)
+   reversion, lose about 0.02R.
 2. **Swaps decide trend on CFDs.** With our swap estimates every trend rule loses; swap-free and at half our costs the
    Turtle core makes +0.20R per trade 2011–19 and the 10-year-high trend (awesome list) makes +0.25R with 10 of 11
    markets positive and +0.12R in 2020–22. As pre-registered, the verdict uses costs with swaps, so these are not
