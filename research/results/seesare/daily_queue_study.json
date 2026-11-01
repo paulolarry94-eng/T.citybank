@@ -1,0 +1,932 @@
+{
+ "design": "One high-quality trade a day from a queue of validated strategies (owner, 2026-11-01). Fixed before any result.\n\nOwner: 10 trades = 1 cycle; every day one session; across all markets a queue picks the day's highest-quality setup by\nbacktest; a combination of independent strategies that survives a Monte Carlo with a median of 1-3% per cycle or more, at a\ndrawdown closest to 3.6% (about 5%).\n\nCandidates: the 13 strategies that passed the lab (11-leg book, Tokyo gotobi fix, EURUSD close-beyond reversal), their own\ntrades, Exness Zero costs + swaps (primary; lab costs + swaps and Exness swap-free reported too). No new, untested strategy is\nadded (a \"just sell\" bot is a bet on drift, not a tested edge). Note: the book's legs were chosen in Oct 2026 on data through\n2025, so every year before 2026 is in-sample for them; 2020-25 has also been seen in earlier studies. Only forward data is clean.\n\nQuality of a leg = its 2011-2019 R per trade after costs, shrunk toward zero for small samples: sum(R) / (n + 30).\nQueue (real time, no look-ahead): each day starts at the session hour H (UTC); signals are taken in time order; at the first\nmoment an allowed leg signals, the highest-quality leg signalling at that moment is taken; then nothing else that day.\n\"Best of the whole day\" would need the day's later signals (look-ahead) and is not tested.\nGrid (16 configurations): allowed legs = the top k by quality, k in 3, 5, 8, 13; session start H in 0 (Tokyo day),\n7 (London), 13 (New York), 21 (daily close). Reported alongside, not selected: every signal of all 13 legs (no queue).\nSizing: the same risk r per trade. Monte Carlo per configuration on 2011-2019 taken trades: 5,000 lifecycles of 36 cycles,\neach cycle a block of 10 consecutive taken trades drawn with replacement; r set so the 95th percentile of lifecycle drawdown\n(closed trades in order) is 3.6% (primary) or 5.0%. Reported: per-cycle return median, mean, 10th / 90th percentile, share\npositive; lifecycle median return; chance the lifecycle drawdown exceeds 3.6% and 5%.\nSelection: the configuration with the highest Monte Carlo median per-cycle return at the 3.6% sizing on 2011-2019.\nThen, same sizing, actual sequences: 2020-22, 2023-25 and the book-only Jan-Oct 2026 (no 2026 trades exist for the two Tier B\nlegs): per-cycle returns, lifecycle drawdowns, and the same Monte Carlo on each period. Most open positions at once is reported.\nOutput: research/results/seesare/daily_queue_study.json\n",
+ "quality": {
+  "XAU_EMA20-50_H4": 0.2483,
+  "XAU_S1_reversion_H1M30M20": 0.2005,
+  "JPY_S2_Donchian20_H4_long": 0.1494,
+  "GBP_WeeklySweep_FollowThrough": 0.1421,
+  "GBPJPY_Donchian20_H4_trail": 0.0966,
+  "JPY_RSI2_D1_lo5": 0.0854,
+  "XAU_Donchian20_H4_turtle": 0.0764,
+  "JPY_Donchian55_D1_trail": 0.0743,
+  "EUR_EuroHours_short_TueThu": 0.0671,
+  "JPY_VolBreakout_D1_k0.7": 0.0651,
+  "eurusd_close_beyond_reversal_v1": 0.0467,
+  "tokyo_fix_gotobi_v1": 0.0395,
+  "EURGBP_Bollinger_D1_k1.5": -0.0005
+ },
+ "dev": {
+  "top3/h0": {
+   "trades": 196,
+   "per_year": 21.8,
+   "r_per_trade": 0.2435,
+   "risk_3_6": 0.153,
+   "risk_5": 0.213,
+   "mc_3_6": {
+    "cycle_median": 0.39,
+    "cycle_mean": 0.414,
+    "cycle_p10": -0.481,
+    "cycle_p90": 1.546,
+    "cycle_positive": 0.675,
+    "lifecycle_median": 14.93,
+    "lifecycle_p10": 8.84,
+    "dd_median": 2.01,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.005
+   },
+   "mc_5": {
+    "cycle_median": 0.541,
+    "cycle_mean": 0.575,
+    "cycle_p10": -0.669,
+    "cycle_p90": 2.147,
+    "cycle_positive": 0.675,
+    "lifecycle_median": 20.74,
+    "lifecycle_p10": 12.28,
+    "dd_median": 2.79,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.229,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 3
+  },
+  "top3/h7": {
+   "trades": 194,
+   "per_year": 21.6,
+   "r_per_trade": 0.3037,
+   "risk_3_6": 0.162,
+   "risk_5": 0.225,
+   "mc_3_6": {
+    "cycle_median": 0.515,
+    "cycle_mean": 0.542,
+    "cycle_p10": -0.495,
+    "cycle_p90": 1.732,
+    "cycle_positive": 0.725,
+    "lifecycle_median": 19.54,
+    "lifecycle_p10": 12.76,
+    "dd_median": 2.06,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.006
+   },
+   "mc_5": {
+    "cycle_median": 0.715,
+    "cycle_mean": 0.753,
+    "cycle_p10": -0.687,
+    "cycle_p90": 2.405,
+    "cycle_positive": 0.725,
+    "lifecycle_median": 27.15,
+    "lifecycle_p10": 17.72,
+    "dd_median": 2.86,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.245,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 3
+  },
+  "top3/h13": {
+   "trades": 199,
+   "per_year": 22.1,
+   "r_per_trade": 0.3074,
+   "risk_3_6": 0.172,
+   "risk_5": 0.238,
+   "mc_3_6": {
+    "cycle_median": 0.594,
+    "cycle_mean": 0.578,
+    "cycle_p10": -0.512,
+    "cycle_p90": 1.732,
+    "cycle_positive": 0.764,
+    "lifecycle_median": 20.84,
+    "lifecycle_p10": 14.16,
+    "dd_median": 2.07,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.006
+   },
+   "mc_5": {
+    "cycle_median": 0.824,
+    "cycle_mean": 0.803,
+    "cycle_p10": -0.71,
+    "cycle_p90": 2.405,
+    "cycle_positive": 0.764,
+    "lifecycle_median": 28.95,
+    "lifecycle_p10": 19.66,
+    "dd_median": 2.87,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.24,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 3
+  },
+  "top3/h21": {
+   "trades": 195,
+   "per_year": 21.7,
+   "r_per_trade": 0.2689,
+   "risk_3_6": 0.162,
+   "risk_5": 0.226,
+   "mc_3_6": {
+    "cycle_median": 0.424,
+    "cycle_mean": 0.484,
+    "cycle_p10": -0.484,
+    "cycle_p90": 1.66,
+    "cycle_positive": 0.705,
+    "lifecycle_median": 17.44,
+    "lifecycle_p10": 11.03,
+    "dd_median": 2.01,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.006
+   },
+   "mc_5": {
+    "cycle_median": 0.589,
+    "cycle_mean": 0.672,
+    "cycle_p10": -0.673,
+    "cycle_p90": 2.305,
+    "cycle_positive": 0.705,
+    "lifecycle_median": 24.22,
+    "lifecycle_p10": 15.32,
+    "dd_median": 2.8,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.226,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 3
+  },
+  "top5/h0": {
+   "trades": 561,
+   "per_year": 62.3,
+   "r_per_trade": 0.1557,
+   "risk_3_6": 0.115,
+   "risk_5": 0.16,
+   "mc_3_6": {
+    "cycle_median": 0.119,
+    "cycle_mean": 0.187,
+    "cycle_p10": -0.532,
+    "cycle_p90": 0.938,
+    "cycle_positive": 0.574,
+    "lifecycle_median": 6.64,
+    "lifecycle_p10": 2.06,
+    "dd_median": 2.01,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.007
+   },
+   "mc_5": {
+    "cycle_median": 0.165,
+    "cycle_mean": 0.259,
+    "cycle_p10": -0.739,
+    "cycle_p90": 1.302,
+    "cycle_positive": 0.574,
+    "lifecycle_median": 9.22,
+    "lifecycle_p10": 2.87,
+    "dd_median": 2.8,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.23,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 4
+  },
+  "top5/h7": {
+   "trades": 563,
+   "per_year": 62.6,
+   "r_per_trade": 0.1608,
+   "risk_3_6": 0.113,
+   "risk_5": 0.157,
+   "mc_3_6": {
+    "cycle_median": 0.118,
+    "cycle_mean": 0.189,
+    "cycle_p10": -0.506,
+    "cycle_p90": 0.915,
+    "cycle_positive": 0.564,
+    "lifecycle_median": 6.72,
+    "lifecycle_p10": 2.13,
+    "dd_median": 1.97,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.005
+   },
+   "mc_5": {
+    "cycle_median": 0.164,
+    "cycle_mean": 0.263,
+    "cycle_p10": -0.703,
+    "cycle_p90": 1.27,
+    "cycle_positive": 0.564,
+    "lifecycle_median": 9.33,
+    "lifecycle_p10": 2.96,
+    "dd_median": 2.74,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.221,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 4
+  },
+  "top5/h13": {
+   "trades": 562,
+   "per_year": 62.4,
+   "r_per_trade": 0.1815,
+   "risk_3_6": 0.117,
+   "risk_5": 0.162,
+   "mc_3_6": {
+    "cycle_median": 0.15,
+    "cycle_mean": 0.221,
+    "cycle_p10": -0.51,
+    "cycle_p90": 1.025,
+    "cycle_positive": 0.595,
+    "lifecycle_median": 7.85,
+    "lifecycle_p10": 3.16,
+    "dd_median": 2.02,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.004
+   },
+   "mc_5": {
+    "cycle_median": 0.208,
+    "cycle_mean": 0.307,
+    "cycle_p10": -0.709,
+    "cycle_p90": 1.423,
+    "cycle_positive": 0.595,
+    "lifecycle_median": 10.9,
+    "lifecycle_p10": 4.39,
+    "dd_median": 2.8,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.229,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 4
+  },
+  "top5/h21": {
+   "trades": 560,
+   "per_year": 62.2,
+   "r_per_trade": 0.1603,
+   "risk_3_6": 0.112,
+   "risk_5": 0.156,
+   "mc_3_6": {
+    "cycle_median": 0.131,
+    "cycle_mean": 0.187,
+    "cycle_p10": -0.53,
+    "cycle_p90": 0.939,
+    "cycle_positive": 0.601,
+    "lifecycle_median": 6.7,
+    "lifecycle_p10": 2.12,
+    "dd_median": 1.97,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.004
+   },
+   "mc_5": {
+    "cycle_median": 0.182,
+    "cycle_mean": 0.259,
+    "cycle_p10": -0.737,
+    "cycle_p90": 1.304,
+    "cycle_positive": 0.601,
+    "lifecycle_median": 9.3,
+    "lifecycle_p10": 2.94,
+    "dd_median": 2.74,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.212,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 4
+  },
+  "top8/h0": {
+   "trades": 925,
+   "per_year": 102.8,
+   "r_per_trade": 0.1467,
+   "risk_3_6": 0.103,
+   "risk_5": 0.142,
+   "mc_3_6": {
+    "cycle_median": 0.072,
+    "cycle_mean": 0.148,
+    "cycle_p10": -0.463,
+    "cycle_p90": 0.846,
+    "cycle_positive": 0.555,
+    "lifecycle_median": 5.26,
+    "lifecycle_p10": 1.13,
+    "dd_median": 1.93,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.006
+   },
+   "mc_5": {
+    "cycle_median": 0.1,
+    "cycle_mean": 0.205,
+    "cycle_p10": -0.643,
+    "cycle_p90": 1.175,
+    "cycle_positive": 0.555,
+    "lifecycle_median": 7.3,
+    "lifecycle_p10": 1.56,
+    "dd_median": 2.68,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.205,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 5
+  },
+  "top8/h7": {
+   "trades": 921,
+   "per_year": 102.3,
+   "r_per_trade": 0.136,
+   "risk_3_6": 0.1,
+   "risk_5": 0.138,
+   "mc_3_6": {
+    "cycle_median": 0.05,
+    "cycle_mean": 0.133,
+    "cycle_p10": -0.468,
+    "cycle_p90": 0.869,
+    "cycle_positive": 0.535,
+    "lifecycle_median": 4.75,
+    "lifecycle_p10": 0.71,
+    "dd_median": 1.94,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.007
+   },
+   "mc_5": {
+    "cycle_median": 0.07,
+    "cycle_mean": 0.185,
+    "cycle_p10": -0.651,
+    "cycle_p90": 1.207,
+    "cycle_positive": 0.535,
+    "lifecycle_median": 6.6,
+    "lifecycle_p10": 0.99,
+    "dd_median": 2.69,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.213,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 5
+  },
+  "top8/h13": {
+   "trades": 919,
+   "per_year": 102.1,
+   "r_per_trade": 0.1545,
+   "risk_3_6": 0.103,
+   "risk_5": 0.143,
+   "mc_3_6": {
+    "cycle_median": 0.071,
+    "cycle_mean": 0.159,
+    "cycle_p10": -0.493,
+    "cycle_p90": 0.9,
+    "cycle_positive": 0.548,
+    "lifecycle_median": 5.66,
+    "lifecycle_p10": 1.35,
+    "dd_median": 1.93,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.005
+   },
+   "mc_5": {
+    "cycle_median": 0.099,
+    "cycle_mean": 0.221,
+    "cycle_p10": -0.685,
+    "cycle_p90": 1.249,
+    "cycle_positive": 0.548,
+    "lifecycle_median": 7.86,
+    "lifecycle_p10": 1.87,
+    "dd_median": 2.69,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.219,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 5
+  },
+  "top8/h21": {
+   "trades": 912,
+   "per_year": 101.3,
+   "r_per_trade": 0.1657,
+   "risk_3_6": 0.109,
+   "risk_5": 0.151,
+   "mc_3_6": {
+    "cycle_median": 0.09,
+    "cycle_mean": 0.178,
+    "cycle_p10": -0.491,
+    "cycle_p90": 0.96,
+    "cycle_positive": 0.563,
+    "lifecycle_median": 6.32,
+    "lifecycle_p10": 1.9,
+    "dd_median": 1.97,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.005
+   },
+   "mc_5": {
+    "cycle_median": 0.124,
+    "cycle_mean": 0.247,
+    "cycle_p10": -0.682,
+    "cycle_p90": 1.334,
+    "cycle_positive": 0.563,
+    "lifecycle_median": 8.77,
+    "lifecycle_p10": 2.64,
+    "dd_median": 2.74,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.218,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 5
+  },
+  "top13/h0": {
+   "trades": 2257,
+   "per_year": 250.8,
+   "r_per_trade": 0.075,
+   "risk_3_6": 0.133,
+   "risk_5": 0.184,
+   "mc_3_6": {
+    "cycle_median": 0.015,
+    "cycle_mean": 0.095,
+    "cycle_p10": -0.428,
+    "cycle_p90": 0.675,
+    "cycle_positive": 0.518,
+    "lifecycle_median": 3.34,
+    "lifecycle_p10": -0.16,
+    "dd_median": 1.85,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.005
+   },
+   "mc_5": {
+    "cycle_median": 0.021,
+    "cycle_mean": 0.132,
+    "cycle_p10": -0.594,
+    "cycle_p90": 0.937,
+    "cycle_positive": 0.518,
+    "lifecycle_median": 4.64,
+    "lifecycle_p10": -0.22,
+    "dd_median": 2.57,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.198,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 6
+  },
+  "top13/h7": {
+   "trades": 2242,
+   "per_year": 249.1,
+   "r_per_trade": 0.0791,
+   "risk_3_6": 0.163,
+   "risk_5": 0.227,
+   "mc_3_6": {
+    "cycle_median": 0.049,
+    "cycle_mean": 0.125,
+    "cycle_p10": -0.445,
+    "cycle_p90": 0.781,
+    "cycle_positive": 0.541,
+    "lifecycle_median": 4.38,
+    "lifecycle_p10": 0.6,
+    "dd_median": 1.87,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.004
+   },
+   "mc_5": {
+    "cycle_median": 0.068,
+    "cycle_mean": 0.174,
+    "cycle_p10": -0.618,
+    "cycle_p90": 1.084,
+    "cycle_positive": 0.541,
+    "lifecycle_median": 6.09,
+    "lifecycle_p10": 0.83,
+    "dd_median": 2.6,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.203,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 5
+  },
+  "top13/h13": {
+   "trades": 2318,
+   "per_year": 257.6,
+   "r_per_trade": 0.0792,
+   "risk_3_6": 0.121,
+   "risk_5": 0.169,
+   "mc_3_6": {
+    "cycle_median": 0.004,
+    "cycle_mean": 0.094,
+    "cycle_p10": -0.425,
+    "cycle_p90": 0.726,
+    "cycle_positive": 0.503,
+    "lifecycle_median": 3.28,
+    "lifecycle_p10": -0.25,
+    "dd_median": 1.85,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.005
+   },
+   "mc_5": {
+    "cycle_median": 0.005,
+    "cycle_mean": 0.131,
+    "cycle_p10": -0.59,
+    "cycle_p90": 1.008,
+    "cycle_positive": 0.503,
+    "lifecycle_median": 4.56,
+    "lifecycle_p10": -0.35,
+    "dd_median": 2.58,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.198,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 6
+  },
+  "top13/h21": {
+   "trades": 2203,
+   "per_year": 244.8,
+   "r_per_trade": 0.0777,
+   "risk_3_6": 0.16,
+   "risk_5": 0.222,
+   "mc_3_6": {
+    "cycle_median": 0.045,
+    "cycle_mean": 0.122,
+    "cycle_p10": -0.436,
+    "cycle_p90": 0.775,
+    "cycle_positive": 0.539,
+    "lifecycle_median": 4.31,
+    "lifecycle_p10": 0.47,
+    "dd_median": 1.88,
+    "dd_p95": 3.6,
+    "p_dd_over_3_6": 0.05,
+    "p_dd_over_5": 0.006
+   },
+   "mc_5": {
+    "cycle_median": 0.063,
+    "cycle_mean": 0.169,
+    "cycle_p10": -0.605,
+    "cycle_p90": 1.077,
+    "cycle_positive": 0.539,
+    "lifecycle_median": 5.98,
+    "lifecycle_p10": 0.66,
+    "dd_median": 2.62,
+    "dd_p95": 5.0,
+    "p_dd_over_3_6": 0.203,
+    "p_dd_over_5": 0.05
+   },
+   "max_open": 5
+  }
+ },
+ "selected": "top3/h13",
+ "after": {
+  "2020-22/zero_swaps": {
+   "actual_3_6": {
+    "trades": 66,
+    "cycles": 6,
+    "cycle_median": 0.146,
+    "cycle_mean": 0.429,
+    "cycle_positive": 0.667,
+    "lifecycle_dd": [
+     1.09
+    ],
+    "lifecycle_ret": [
+     4.89
+    ],
+    "r_per_trade": 0.431
+   },
+   "actual_5": {
+    "trades": 66,
+    "cycles": 6,
+    "cycle_median": 0.202,
+    "cycle_mean": 0.593,
+    "cycle_positive": 0.667,
+    "lifecycle_dd": [
+     1.51
+    ],
+    "lifecycle_ret": [
+     6.77
+    ],
+    "r_per_trade": 0.431
+   },
+   "mc_3_6": {
+    "cycle_median": 0.529,
+    "cycle_mean": 0.697,
+    "cycle_p10": -0.348,
+    "cycle_p90": 2.349,
+    "cycle_positive": 0.772,
+    "lifecycle_median": 24.98,
+    "lifecycle_p10": 18.15,
+    "dd_median": 1.76,
+    "dd_p95": 2.79,
+    "p_dd_over_3_6": 0.006,
+    "p_dd_over_5": 0.0
+   }
+  },
+  "2023-25/zero_swaps": {
+   "actual_3_6": {
+    "trades": 59,
+    "cycles": 5,
+    "cycle_median": 0.203,
+    "cycle_mean": 0.233,
+    "cycle_positive": 0.8,
+    "lifecycle_dd": [
+     0.94
+    ],
+    "lifecycle_ret": [
+     4.99
+    ],
+    "r_per_trade": 0.4918
+   },
+   "actual_5": {
+    "trades": 59,
+    "cycles": 5,
+    "cycle_median": 0.282,
+    "cycle_mean": 0.322,
+    "cycle_positive": 0.8,
+    "lifecycle_dd": [
+     1.3
+    ],
+    "lifecycle_ret": [
+     6.91
+    ],
+    "r_per_trade": 0.4918
+   },
+   "mc_3_6": {
+    "cycle_median": 0.53,
+    "cycle_mean": 0.796,
+    "cycle_p10": -0.139,
+    "cycle_p90": 3.238,
+    "cycle_positive": 0.821,
+    "lifecycle_median": 28.41,
+    "lifecycle_p10": 19.68,
+    "dd_median": 1.45,
+    "dd_p95": 2.29,
+    "p_dd_over_3_6": 0.002,
+    "p_dd_over_5": 0.0
+   }
+  },
+  "2026_book_only/zero_swaps": {
+   "actual_3_6": {
+    "trades": 19,
+    "cycles": 1,
+    "cycle_median": 0.333,
+    "cycle_mean": 0.333,
+    "cycle_positive": 1.0,
+    "lifecycle_dd": [
+     1.0
+    ],
+    "lifecycle_ret": [
+     -0.31
+    ],
+    "r_per_trade": -0.0959
+   },
+   "actual_5": {
+    "trades": 19,
+    "cycles": 1,
+    "cycle_median": 0.461,
+    "cycle_mean": 0.461,
+    "cycle_positive": 1.0,
+    "lifecycle_dd": [
+     1.38
+    ],
+    "lifecycle_ret": [
+     -0.43
+    ],
+    "r_per_trade": -0.0959
+   }
+  },
+  "2020-22/lab_swaps": {
+   "actual_3_6": {
+    "trades": 66,
+    "cycles": 6,
+    "cycle_median": 0.12,
+    "cycle_mean": 0.398,
+    "cycle_positive": 0.667,
+    "lifecycle_dd": [
+     1.11
+    ],
+    "lifecycle_ret": [
+     4.69
+    ],
+    "r_per_trade": 0.4132
+   },
+   "actual_5": {
+    "trades": 66,
+    "cycles": 6,
+    "cycle_median": 0.166,
+    "cycle_mean": 0.55,
+    "cycle_positive": 0.667,
+    "lifecycle_dd": [
+     1.54
+    ],
+    "lifecycle_ret": [
+     6.49
+    ],
+    "r_per_trade": 0.4132
+   },
+   "mc_3_6": {
+    "cycle_median": 0.51,
+    "cycle_mean": 0.665,
+    "cycle_p10": -0.363,
+    "cycle_p90": 2.334,
+    "cycle_positive": 0.772,
+    "lifecycle_median": 23.82,
+    "lifecycle_p10": 17.04,
+    "dd_median": 1.81,
+    "dd_p95": 2.89,
+    "p_dd_over_3_6": 0.008,
+    "p_dd_over_5": 0.001
+   }
+  },
+  "2023-25/lab_swaps": {
+   "actual_3_6": {
+    "trades": 59,
+    "cycles": 5,
+    "cycle_median": 0.186,
+    "cycle_mean": 0.209,
+    "cycle_positive": 0.8,
+    "lifecycle_dd": [
+     0.96
+    ],
+    "lifecycle_ret": [
+     4.86
+    ],
+    "r_per_trade": 0.4793
+   },
+   "actual_5": {
+    "trades": 59,
+    "cycles": 5,
+    "cycle_median": 0.258,
+    "cycle_mean": 0.289,
+    "cycle_positive": 0.8,
+    "lifecycle_dd": [
+     1.33
+    ],
+    "lifecycle_ret": [
+     6.73
+    ],
+    "r_per_trade": 0.4793
+   },
+   "mc_3_6": {
+    "cycle_median": 0.515,
+    "cycle_mean": 0.773,
+    "cycle_p10": -0.158,
+    "cycle_p90": 3.222,
+    "cycle_positive": 0.821,
+    "lifecycle_median": 27.58,
+    "lifecycle_p10": 18.84,
+    "dd_median": 1.5,
+    "dd_p95": 2.39,
+    "p_dd_over_3_6": 0.002,
+    "p_dd_over_5": 0.0
+   }
+  },
+  "2026_book_only/lab_swaps": {
+   "actual_3_6": {
+    "trades": 19,
+    "cycles": 1,
+    "cycle_median": 0.331,
+    "cycle_mean": 0.331,
+    "cycle_positive": 1.0,
+    "lifecycle_dd": [
+     1.0
+    ],
+    "lifecycle_ret": [
+     -0.32
+    ],
+    "r_per_trade": -0.0976
+   },
+   "actual_5": {
+    "trades": 19,
+    "cycles": 1,
+    "cycle_median": 0.458,
+    "cycle_mean": 0.458,
+    "cycle_positive": 1.0,
+    "lifecycle_dd": [
+     1.39
+    ],
+    "lifecycle_ret": [
+     -0.44
+    ],
+    "r_per_trade": -0.0976
+   }
+  },
+  "2020-22/zero_swapfree": {
+   "actual_3_6": {
+    "trades": 66,
+    "cycles": 6,
+    "cycle_median": 0.24,
+    "cycle_mean": 0.513,
+    "cycle_positive": 0.667,
+    "lifecycle_dd": [
+     1.07
+    ],
+    "lifecycle_ret": [
+     5.52
+    ],
+    "r_per_trade": 0.486
+   },
+   "actual_5": {
+    "trades": 66,
+    "cycles": 6,
+    "cycle_median": 0.332,
+    "cycle_mean": 0.71,
+    "cycle_positive": 0.667,
+    "lifecycle_dd": [
+     1.48
+    ],
+    "lifecycle_ret": [
+     7.63
+    ],
+    "r_per_trade": 0.486
+   },
+   "mc_3_6": {
+    "cycle_median": 0.655,
+    "cycle_mean": 0.784,
+    "cycle_p10": -0.261,
+    "cycle_p90": 2.453,
+    "cycle_positive": 0.789,
+    "lifecycle_median": 28.16,
+    "lifecycle_p10": 21.25,
+    "dd_median": 1.64,
+    "dd_p95": 2.59,
+    "p_dd_over_3_6": 0.003,
+    "p_dd_over_5": 0.0
+   }
+  },
+  "2023-25/zero_swapfree": {
+   "actual_3_6": {
+    "trades": 59,
+    "cycles": 5,
+    "cycle_median": 0.265,
+    "cycle_mean": 0.294,
+    "cycle_positive": 0.8,
+    "lifecycle_dd": [
+     0.9
+    ],
+    "lifecycle_ret": [
+     5.4
+    ],
+    "r_per_trade": 0.532
+   },
+   "actual_5": {
+    "trades": 59,
+    "cycles": 5,
+    "cycle_median": 0.366,
+    "cycle_mean": 0.406,
+    "cycle_positive": 0.8,
+    "lifecycle_dd": [
+     1.25
+    ],
+    "lifecycle_ret": [
+     7.47
+    ],
+    "r_per_trade": 0.532
+   },
+   "mc_3_6": {
+    "cycle_median": 0.584,
+    "cycle_mean": 0.863,
+    "cycle_p10": -0.078,
+    "cycle_p90": 3.306,
+    "cycle_positive": 0.841,
+    "lifecycle_median": 30.88,
+    "lifecycle_p10": 22.05,
+    "dd_median": 1.36,
+    "dd_p95": 2.07,
+    "p_dd_over_3_6": 0.001,
+    "p_dd_over_5": 0.0
+   }
+  },
+  "2026_book_only/zero_swapfree": {
+   "actual_3_6": {
+    "trades": 19,
+    "cycles": 1,
+    "cycle_median": 0.39,
+    "cycle_mean": 0.39,
+    "cycle_positive": 1.0,
+    "lifecycle_dd": [
+     0.94
+    ],
+    "lifecycle_ret": [
+     -0.21
+    ],
+    "r_per_trade": -0.0632
+   },
+   "actual_5": {
+    "trades": 19,
+    "cycles": 1,
+    "cycle_median": 0.539,
+    "cycle_mean": 0.539,
+    "cycle_positive": 1.0,
+    "lifecycle_dd": [
+     1.3
+    ],
+    "lifecycle_ret": [
+     -0.29
+    ],
+    "r_per_trade": -0.0632
+   }
+  }
+ },
+ "baseline_all_signals": {
+  "trades": 4524,
+  "risk_3_6": 0.132,
+  "mc_3_6": {
+   "cycle_median": 0.033,
+   "cycle_mean": 0.099,
+   "cycle_p10": -0.44,
+   "cycle_p90": 0.721,
+   "cycle_positive": 0.535,
+   "lifecycle_median": 3.51,
+   "lifecycle_p10": -0.21,
+   "dd_median": 1.89,
+   "dd_p95": 3.6,
+   "p_dd_over_3_6": 0.05,
+   "p_dd_over_5": 0.005
+  }
+ }
+}

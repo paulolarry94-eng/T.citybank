@@ -455,3 +455,19 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Tests:** 78 twin tests pass (Phase 1: 42, Phase 2: 14, Phase 3: 22); MQL5 not compiled.
 - **Next:** owner compiles and runs the three self-tests; port the 11 book legs as router modules (the evidence for +6% per
   lifecycle is theirs); record the plan at entry before allowing concurrent positions; test the ECB fix flow in the lab (Q19).
+
+## 2026-11-01 (late night, 11) · owner: "one high-quality trade a day from a queue across all markets; median 1-3% per cycle"
+- **Asked:** not just port the 11 legs: a portfolio where each day one session's queue across all markets takes the highest-
+  quality setup by backtest; any strategy with an edge; survive a Monte Carlo with a median of 1-3% per 10-trade cycle at a
+  drawdown closest to 3.6% (about 5%).
+- **Priors told first:** best-setup scanners (2 rejected), active hours (P17), winner anatomy (P18, P21). This one differs: it
+  ranks validated strategies, not patterns. Arithmetic told first: 1% per 10 trades at 5% drawdown needs a far stronger edge.
+- **Studied (design committed 3a21fa4 before results):** research/seesare/daily_queue_study.py, 16 configurations (top 3/5/8/13
+  legs by shrunk 2011-19 R per trade x session start 00/07/13/21 UTC), real-time queue (no look-ahead; "best of the whole day"
+  needs later signals), Monte Carlo of 10-trade blocks, sizing so the 95th-percentile lifecycle drawdown is 3.6% or 5%.
+- **Results:** every-day queue (~250 trades/yr) median +0.00 to +0.05% per cycle (~2.3-3.0%/yr). Best per cycle: top-3 legs at the
+  New York session, +0.59% median per cycle at 3.6% (+0.82% at 5%), 76% of cycles positive, but 22 trades a year; actual 2020-22
+  and 2023-25 median cycles +0.15% / +0.20% (in-sample for the book); 2026 untouched -0.10R per trade over 19 trades. Every signal,
+  no queue: ~4.9%/yr at the same cap (P9 updated). Configurations: 16 + 1 baseline.
+- **Facts vs estimates:** Monte Carlo on 2011-19; the book is in-sample through 2025; only forward data is clean.
+- **Next:** owner decides whether the goal unit is per cycle or per year; forward-test the book (demo) to measure the real edge.

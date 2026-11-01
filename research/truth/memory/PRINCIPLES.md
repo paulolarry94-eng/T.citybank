@@ -73,6 +73,10 @@ tail risk. Keep only a hard circuit breaker (RED). Evidence: North Star risk com
 ### P9 Breadth of independent edges is the only free lunch
 11 legs of about Sharpe 0.3 each with near-zero correlation make Sharpe 1.0. Sharpe ≈ s·√(N/(1+(N−1)ρ)):
 correlation sets the ceiling. Evidence: book, multiasset combination. Confidence: high.
+Update 2026-11-01: taking only one trade a day from a queue of the 13 validated strategies (best backtest quality first)
+earns less per year at the same 3.6% drawdown cap than taking every signal (Monte Carlo 2011-19: ~2.3-3.0%/yr vs ~4.9%);
+restricting to the 3 best legs raises the median per 10-trade cycle (+0.6%) but leaves ~22 trades a year (~1.3%/yr).
+Evidence: research/results/seesare/daily_queue_study.json.
 
 ### P10 A single gate lets luck through
 The coin-flip control passed the development gate and was positive in all three periods; only neighbours,

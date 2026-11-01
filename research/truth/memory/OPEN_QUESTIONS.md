@@ -217,6 +217,10 @@ Phase 5 (2026-11-01): owner adopted the drawdown-keyed ladder; built into CycleL
 Tokyo weight 0.57 by default, 1.00 the cap ("maximised" was mixed, 2.00 worse). Open: the 11 book legs are not router modules
 (only the Tokyo fix can trade: one lifecycle about 5 years); concurrent positions need the plan recorded at entry; the ECB
 reference-rate flow is untested (Q19); owner compiles and runs the three self-tests.
+Daily queue (2026-11-01): one trade a day from the 13 validated strategies cannot reach a median 1-3% per 10-trade cycle at
+3.6-5% drawdown: every-day version +0.0-0.05% per cycle; top-3 legs +0.6% per cycle but a cycle takes ~5.5 months
+(research/results/seesare/daily_queue_study.json). Reaching 1% per daily cycle at this cap needs about +0.6R per trade, about
+8 times the book's +0.078R. Open: owner decides the goal unit (per cycle vs per year) and whether to forward-test the book.
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
