@@ -158,6 +158,19 @@ Owner pasted an AI-written list of 24 "structural payer flows" for a 20-30-leg b
 Expect 2-4 survivors from the ~11 testable rows. Only verified legs go into the EA's time/event router. FAMILY: calendar,
 flow, fix, intraday, owner-idea, payer.
 
+### Q20 SEESARE P26 router (owner directive 2026-11-01): which constraint is the goal, and how does the ladder trade at $1,000?
+Owner directive: run the payer flows through an MQL5 "time and event router" sized by SEESARE P26 (16-level hierarchy,
+0.144% ... 0.0003% of a fixed $1,000 virtual State Value), one event a day, 360-event lifecycle, RoboForex ECN, copy trading,
+HMAC-chained Telegram attestation. Blueprint: mt5/SEESARE_ROUTER_BLUEPRINT.md. Facts computed from the SEESARE formulas:
+(1) at $1,000 only L0-L1 are tradeable on EURUSD at 0.01 lot (lower boundary <= 13.7 / 9.0 pips), gold at none, so after one
+Negative Outcome the ladder deadlocks unless SHADOW (paper) resolutions drive it; (2) with time-expiry exits counted as
+Positive Outcomes, (Negative, small Positive x2) x 120 breaks the ~3.6% envelope (16.2% drawdown at +0.01R wins); counted as
+MANUAL resolutions (SEESARE 7.1) the same path costs 0.25%; (3) L0 caps returns near +1.7% a year at +0.05R/event and +3.4% at
++0.10R, so the envelope and the 60-120% goal exclude each other; (4) the multiplier formula (^2.5) and SEESARE's own table
+(about ^2) disagree below 3.5:1; (5) a license-keyed HMAC chain cannot be verified by the public. Open decisions for the owner:
+shadow vs bigger state vs cent account; envelope vs return target; formula vs table; RoboForex cost measurement; legal opinion
+before followers (SEESARE classifies itself as non-executing software). FAMILY: risk, sizing, seesare, architecture, mt5, owner-idea.
+
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

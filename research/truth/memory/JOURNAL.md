@@ -292,3 +292,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   conditional month/quarter-end rebalancing), 7 later, 6 not payer flows, 6 no data or too rare, 1 already tested.
 - **Decisions:** no MQL5 for untested flows; next test = London 4 pm month-end fix, rules fixed before loading data, on the
   owner's go. Swap-free status (Q1) still open.
+
+## 2026-11-01 (late night, 3) · owner directive: SEESARE P26 x 24-payer-flow router, MQL5 object blueprint
+- **Asked:** the object design of an MQL5 master router (time-zone sync, 360-event ledger, $1,000 virtual sizing, HMAC
+  Telegram attestation) built on the owner's SEESARE P26 documents (parts 1-2, 177 pages, read in full where relevant).
+- **Done:** `mt5/SEESARE_ROUTER_BLUEPRINT.md` (design only; no MQL5 written or compiled). Recomputed the SEESARE numbers.
+- **Learned (arithmetic, reproducible from the SEESARE formulas):** planned-risk claims check out (20 losses 0.221%, 100 losses
+  0.244%), but at $1,000 most levels are below the 0.01-lot minimum (deadlock after one loss), time-expiry wins can break the
+  envelope (16.2%) unless classified as SEESARE manual resolutions (0.25%), the top level caps returns at a few % a year, the
+  multiplier formula and table disagree, and the public cannot verify a license-keyed HMAC. Recorded as Q20.
+- **Decisions:** time-expiry exits = MANUAL resolutions; Shadow Resolution proposed for infeasible levels; keyless public hash
+  chain + SEESARE HMAC; WebRequest in a separate MQL5 service; per-cycle in-sample optimisation (directive Part V) not used.
+- **Next:** owner's five decisions (blueprint section 13); then build order step 1 (clock and calendars with test vectors).
