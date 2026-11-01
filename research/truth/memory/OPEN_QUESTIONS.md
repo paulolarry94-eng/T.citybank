@@ -139,6 +139,25 @@ seen AFTER the run, so it is a hunch, not a result: a re-test needs a new name, 
 index financing) fixed in advance, and a single configuration. Its 2023-25 look has not been taken. FAMILY: trend,
 all-time-high, financing, breadth.
 
+### Q19 Owner's 24-flow "payer matrix" (2026-11-01): which rows are real, testable payer flows?
+Owner pasted an AI-written list of 24 "structural payer flows" for a 20-30-leg bot. Triage against our data (11 markets M1
+2011-2025) and memory, before any test:
+- Test first (payer known, data in hand): WM/R 4 pm London fix at month-end with the direction from the month's US-vs-rest
+  equity returns (EURUSD, GBPUSD, USDJPY; Hunt 2 already saw the month-end fix move at 1.4-1.9x our research costs, 12 a
+  year per pair: disclose); the last 30 minutes into the US cash close (leveraged-ETF and dealer rebalancing; US500, NAS100;
+  folds in MOC and ETF NAV rows); month-end and quarter-end pension rebalancing CONDITIONAL on the month's equity move
+  (US500, NAS100, GER40, UK100; the unconditional turn of month already failed).
+- Later, weaker or thinner: ECB 14:15 CET reference rate (EURUSD); FOMC days and NFP Fridays (~70-100 events 2011-19, need
+  exact dates); commodity option-expiry pinning (WTI, gold; needs an expiry calendar); triple-witching intraday; Treasury
+  settlement days; Sunday-open gap (a shape, low prior). Owner-side additions from Claude: gold London PM auction, oil index roll.
+- Not payer flows / not directional: TOCOM close for FX, market-on-open gaps without imbalance data, VIX roll (ETPs roll
+  daily), London/NY overlap (liquidity, not direction), ETF NAV arbitrage, "retail margin liquidation hour".
+- No data or too rare: option-gamma strikes (open interest), crypto funding (no crypto prices), Golden Week (HK50/AUD
+  missing), dividend repatriation (15 observations per month), Lunar New Year (CNH/HKD), central-bank intervention
+  (unscheduled, ~4 events in 15 years). Already tested: CTA trend breaks = trend following (P6).
+Expect 2-4 survivors from the ~11 testable rows. Only verified legs go into the EA's time/event router. FAMILY: calendar,
+flow, fix, intraday, owner-idea, payer.
+
 ## Answered
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals

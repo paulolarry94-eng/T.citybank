@@ -281,3 +281,14 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   futures costs from pysystemtrade's spread table; futures data end 2024-03-28 and exclude interest on cash; for six futures
   strategies the 2023-24 look was first taken in the flawed v1 run (disclosed). Configurations tried this session: 103.
 - **Next:** owner: confirm swap-free status. Then Q17 (rate-based index financing) and Q18; back to payer flows (Q10/Q15).
+
+## 2026-11-01 (late night, 2) · "can we have 20-30 payer flows in a bot? ... which would you choose" + owner's 24-flow list
+- **Answered plainly before building:** 20-30 independent payer-flow edges are not available on our 11 markets; breadth math
+  is right (s x sqrt(N)) but the limit is independent edges. Realistic bot: 11-leg book + Tokyo fix + 2-4 new flows (~15-20 legs,
+  6-9 truly independent); ~12-18%/yr at 1% risk, 60%/yr only with 3-4x the risk and 30-40% drawdowns, 120% unsupported.
+  VPS + triple state: yes as a circuit breaker (hard broker stops, restart reconciliation, spread guard, heartbeat), not as a
+  sizing booster (P8).
+- **Owner's 24-flow list triaged** (new Q19): 4 rows to test now (London month-end fix, last 30 min into the US close,
+  conditional month/quarter-end rebalancing), 7 later, 6 not payer flows, 6 no data or too rare, 1 already tested.
+- **Decisions:** no MQL5 for untested flows; next test = London 4 pm month-end fix, rules fixed before loading data, on the
+  owner's go. Swap-free status (Q1) still open.
