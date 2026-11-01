@@ -477,3 +477,14 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   simulations (3.6R in 16%, worst 8.5R); costs at 3-10 pip stops (0.1-0.3R per trade) push P(> 3.6R) to 36-92%. Every component
   has rejected priors (ORB, PDH/PDL sweeps, London scanner, liquidity grabs, P1, P4). Logged as Q21; no lab run yet (owner to
   decide, per learning rule 1).
+
+## 2026-11-01 (late night, 13) · owner parked Q21, asked where the breakout family failed (sessions) and whether volume surges mean anything
+- **Answered from stored results:** ORB by session and the 396-cell pocket scan by session: every session negative after costs,
+  London least bad, raw edge about zero everywhere (the failure is uniform; sessions change the size, not the sign).
+- **Measured (design committed 5678ef1 before results):** research/q21/velocity_diagnostic.py: tick-volume surge on the breakout
+  minute vs the next 60 minutes. USDJPY (9,252 events) and GER40 2020-25 (2,396): more movement in both directions (rank
+  correlation +0.05 to +0.19), no direction (-0.01 to +0.00); USDJPY top quintile follow-through below the round-trip cost.
+  Computational fix after the first run: scipy is not installed; Spearman computed as Pearson on ranks (same statistic).
+- **Facts:** only USDJPY (all years) and GER40 (2020+) have tick volume; the earlier "-0.12 to -0.16R" was the ORB finalists,
+  not the liquidity variants (best liquidity variant -0.185R 2023-25).
+- **Next:** nothing is running; next lab work proposed: Q19 payer flows (ECB reference rate first), rules fixed before data.

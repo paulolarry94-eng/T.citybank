@@ -230,6 +230,15 @@ round-trip costs at 3-10 pip stops are 0.1-0.3R per trade and raise P(> 3.6R) to
 to -0.16R), daily sweeps of PDH/PDL (raw -0.02 to +0.06R), London best-setup scanner (raw +0.015R vs cost 0.076R), ~1,400
 liquidity variants, breakeven/scratch exits (P4), intraday costs (P1). Our cap is 3.6% of the account, not 3.6R. Testable with
 tick volume (M1 'v' field) in the lab if the owner wants; expected outcome from priors: rejection.
+Diagnostics (2026-11-01, owner parked Q21): (1) sessions: no session reaches zero after costs. ORB canonical by session
+(2011-19 after / before costs): London -0.068 / +0.056R, New York 08:00 (in the London-NY overlap) -0.123 / -0.003, New York
+09:30 -0.110 / -0.002, Tokyo -0.142 / -0.004 (research/orb/ORB_REPORT.md); 396-cell pocket scan 2023-25 median after / before
+costs: Asia -0.183 / -0.031, London -0.158 / -0.009, New York -0.151 / -0.014R; 2 of 396 cells positive in both 2011-19 and
+2020-22, both negative in 2023-25. The failure is uniform: raw edge about zero everywhere, costs make it negative.
+(2) tick-volume surge: predicts slightly more movement in both directions, not direction (research/results/q21/
+velocity_diagnostic.json; USDJPY rank correlation with follow-through +0.001 / -0.008; top quintile below the cost). In the ORB
+study the activity filter was neutral in development and negative in validation (USDJPY only: the only market with tick
+volume every year).
 FAMILY: breakout, orb, liquidity, momentum, intraday, scratch, micro-stop, owner-idea.
 
 ## Answered

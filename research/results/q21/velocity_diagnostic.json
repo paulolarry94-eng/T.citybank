@@ -1,0 +1,667 @@
+{
+ "design": "Q21 diagnostic: does a tick-volume surge on an opening-range breakout predict range expansion, and does it predict\ndirection? Descriptive only (no strategy is selected). Fixed 2026-11-01 before any result.\n\nMarkets: the only ones with tick volume every year: USDJPY 2011-2025; GER40 2020-2025 (no tick volume before 2020).\nSessions (local time, daylight saving handled): Tokyo 09:00, London 08:00, New York 08:00 (inside the London-New York overlap);\nGER40: London and New York only.\nEvent: the 15-minute opening range; the first M1 close beyond its high (up) or low (down) within 180 minutes; one per session day.\nActivity (\"velocity surge\"): tick volume of the breakout minute / mean tick volume of the 60 minutes before it.\nOutcomes over the next 60 minutes, in units of the 14-day average daily range (ATR_D, prior days only):\n  expansion      = (highest high - lowest low) / ATR_D        (range expansion, either direction)\n  follow_through = (close after 60 min - breakout close) x direction / ATR_D   (direction: does it keep going?)\n  mfe, mae       = largest move with / against the breakout / ATR_D\nReported for 2011-2019 and 2020-2025 separately: Spearman rank correlation of activity with each outcome, and the mean of each\noutcome by activity quintile (quintile edges from the same period). Cost for scale: Exness Zero all-in round trip\n(USDJPY 0.013465), shown in ATR_D units.\nOutput: research/results/q21/velocity_diagnostic.json\n",
+ "results": {
+  "USDJPY": {
+   "cost_in_atr_d": 0.0187,
+   "all_sessions": {
+    "2011-2019": {
+     "n": 5537,
+     "spearman": {
+      "expansion": 0.051,
+      "follow_through": 0.001,
+      "mfe": 0.028,
+      "mae": 0.021
+     },
+     "by_quintile": {
+      "1": {
+       "activity": 0.7704,
+       "expansion": 0.2575,
+       "follow_through": 0.0019,
+       "mfe": 0.1312,
+       "mae": 0.1263,
+       "n": 1108
+      },
+      "2": {
+       "activity": 1.1543,
+       "expansion": 0.2753,
+       "follow_through": -0.0012,
+       "mfe": 0.1416,
+       "mae": 0.1336,
+       "n": 1107
+      },
+      "3": {
+       "activity": 1.4644,
+       "expansion": 0.2681,
+       "follow_through": -0.0003,
+       "mfe": 0.1385,
+       "mae": 0.1296,
+       "n": 1107
+      },
+      "4": {
+       "activity": 1.8689,
+       "expansion": 0.2763,
+       "follow_through": -0.0045,
+       "mfe": 0.1411,
+       "mae": 0.1353,
+       "n": 1107
+      },
+      "5": {
+       "activity": 3.1256,
+       "expansion": 0.2744,
+       "follow_through": 0.0135,
+       "mfe": 0.1494,
+       "mae": 0.125,
+       "n": 1108
+      }
+     },
+     "follow_through_t": {
+      "1": 0.34,
+      "2": -0.19,
+      "3": -0.06,
+      "4": -0.79,
+      "5": 2.38
+     }
+    },
+    "2020-2025": {
+     "n": 3715,
+     "spearman": {
+      "expansion": 0.07,
+      "follow_through": -0.008,
+      "mfe": 0.032,
+      "mae": 0.047
+     },
+     "by_quintile": {
+      "1": {
+       "activity": 0.7114,
+       "expansion": 0.2719,
+       "follow_through": 0.0024,
+       "mfe": 0.1383,
+       "mae": 0.1335,
+       "n": 743
+      },
+      "2": {
+       "activity": 1.0598,
+       "expansion": 0.2861,
+       "follow_through": 0.0054,
+       "mfe": 0.1496,
+       "mae": 0.1364,
+       "n": 743
+      },
+      "3": {
+       "activity": 1.3294,
+       "expansion": 0.2906,
+       "follow_through": -0.0056,
+       "mfe": 0.1409,
+       "mae": 0.1497,
+       "n": 743
+      },
+      "4": {
+       "activity": 1.7082,
+       "expansion": 0.2839,
+       "follow_through": 0.0034,
+       "mfe": 0.146,
+       "mae": 0.1379,
+       "n": 743
+      },
+      "5": {
+       "activity": 3.1183,
+       "expansion": 0.3071,
+       "follow_through": 0.0064,
+       "mfe": 0.1609,
+       "mae": 0.1462,
+       "n": 743
+      }
+     },
+     "follow_through_t": {
+      "1": 0.32,
+      "2": 0.71,
+      "3": -0.59,
+      "4": 0.46,
+      "5": 0.81
+     }
+    }
+   },
+   "by_session": {
+    "tokyo_0900": {
+     "2011-2019": {
+      "n": 1845,
+      "spearman": {
+       "expansion": -0.024,
+       "follow_through": -0.013,
+       "mfe": -0.016,
+       "mae": 0.008
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.834,
+        "expansion": 0.2597,
+        "follow_through": 0.0089,
+        "mfe": 0.1386,
+        "mae": 0.1211,
+        "n": 369
+       },
+       "2": {
+        "activity": 1.3096,
+        "expansion": 0.2657,
+        "follow_through": 0.0024,
+        "mfe": 0.1373,
+        "mae": 0.1285,
+        "n": 369
+       },
+       "3": {
+        "activity": 1.671,
+        "expansion": 0.2663,
+        "follow_through": 0.0031,
+        "mfe": 0.1389,
+        "mae": 0.1274,
+        "n": 369
+       },
+       "4": {
+        "activity": 2.1182,
+        "expansion": 0.2508,
+        "follow_through": -0.0062,
+        "mfe": 0.1292,
+        "mae": 0.1216,
+        "n": 369
+       },
+       "5": {
+        "activity": 3.2116,
+        "expansion": 0.2544,
+        "follow_through": 0.017,
+        "mfe": 0.139,
+        "mae": 0.1154,
+        "n": 369
+       }
+      },
+      "follow_through_t": {
+       "1": 0.95,
+       "2": 0.26,
+       "3": 0.33,
+       "4": -0.74,
+       "5": 1.9
+      }
+     },
+     "2020-2025": {
+      "n": 1233,
+      "spearman": {
+       "expansion": -0.011,
+       "follow_through": -0.039,
+       "mfe": -0.039,
+       "mae": 0.052
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.7597,
+        "expansion": 0.2781,
+        "follow_through": 0.0035,
+        "mfe": 0.1459,
+        "mae": 0.1322,
+        "n": 247
+       },
+       "2": {
+        "activity": 1.1777,
+        "expansion": 0.2568,
+        "follow_through": 0.0081,
+        "mfe": 0.1378,
+        "mae": 0.119,
+        "n": 246
+       },
+       "3": {
+        "activity": 1.5211,
+        "expansion": 0.2759,
+        "follow_through": 0.0023,
+        "mfe": 0.1436,
+        "mae": 0.1323,
+        "n": 247
+       },
+       "4": {
+        "activity": 2.0087,
+        "expansion": 0.2586,
+        "follow_through": -0.0035,
+        "mfe": 0.1313,
+        "mae": 0.1273,
+        "n": 246
+       },
+       "5": {
+        "activity": 3.2949,
+        "expansion": 0.2718,
+        "follow_through": -0.0061,
+        "mfe": 0.1374,
+        "mae": 0.1344,
+        "n": 247
+       }
+      },
+      "follow_through_t": {
+       "1": 0.26,
+       "2": 0.79,
+       "3": 0.2,
+       "4": -0.33,
+       "5": -0.55
+      }
+     }
+    },
+    "london_0800": {
+     "2011-2019": {
+      "n": 1846,
+      "spearman": {
+       "expansion": 0.072,
+       "follow_through": -0.02,
+       "mfe": 0.006,
+       "mae": 0.04
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.719,
+        "expansion": 0.2295,
+        "follow_through": -0.0045,
+        "mfe": 0.1128,
+        "mae": 0.1167,
+        "n": 370
+       },
+       "2": {
+        "activity": 1.0671,
+        "expansion": 0.2422,
+        "follow_through": 0.004,
+        "mfe": 0.1296,
+        "mae": 0.1125,
+        "n": 369
+       },
+       "3": {
+        "activity": 1.3256,
+        "expansion": 0.2351,
+        "follow_through": 0.0046,
+        "mfe": 0.1254,
+        "mae": 0.1097,
+        "n": 369
+       },
+       "4": {
+        "activity": 1.6411,
+        "expansion": 0.2477,
+        "follow_through": 0.0163,
+        "mfe": 0.1333,
+        "mae": 0.1144,
+        "n": 369
+       },
+       "5": {
+        "activity": 2.3789,
+        "expansion": 0.2679,
+        "follow_through": 0.0021,
+        "mfe": 0.1415,
+        "mae": 0.1264,
+        "n": 369
+       }
+      },
+      "follow_through_t": {
+       "1": -0.54,
+       "2": 0.47,
+       "3": 0.56,
+       "4": 1.82,
+       "5": 0.2
+      }
+     },
+     "2020-2025": {
+      "n": 1241,
+      "spearman": {
+       "expansion": 0.034,
+       "follow_through": 0.02,
+       "mfe": 0.069,
+       "mae": -0.018
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.6695,
+        "expansion": 0.2356,
+        "follow_through": 0.0046,
+        "mfe": 0.1184,
+        "mae": 0.1172,
+        "n": 249
+       },
+       "2": {
+        "activity": 0.9691,
+        "expansion": 0.2578,
+        "follow_through": 0.0035,
+        "mfe": 0.1313,
+        "mae": 0.1265,
+        "n": 248
+       },
+       "3": {
+        "activity": 1.1762,
+        "expansion": 0.2632,
+        "follow_through": -0.0051,
+        "mfe": 0.1312,
+        "mae": 0.132,
+        "n": 248
+       },
+       "4": {
+        "activity": 1.4327,
+        "expansion": 0.2611,
+        "follow_through": 0.0238,
+        "mfe": 0.1424,
+        "mae": 0.1187,
+        "n": 248
+       },
+       "5": {
+        "activity": 2.1713,
+        "expansion": 0.2596,
+        "follow_through": 0.0139,
+        "mfe": 0.1457,
+        "mae": 0.1139,
+        "n": 248
+       }
+      },
+      "follow_through_t": {
+       "1": 0.45,
+       "2": 0.31,
+       "3": -0.4,
+       "4": 2.06,
+       "5": 1.2
+      }
+     }
+    },
+    "newyork_0800": {
+     "2011-2019": {
+      "n": 1846,
+      "spearman": {
+       "expansion": 0.065,
+       "follow_through": 0.031,
+       "mfe": 0.065,
+       "mae": 0.001
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.7855,
+        "expansion": 0.2993,
+        "follow_through": -0.0016,
+        "mfe": 0.1473,
+        "mae": 0.1519,
+        "n": 370
+       },
+       "2": {
+        "activity": 1.137,
+        "expansion": 0.3057,
+        "follow_through": -0.0137,
+        "mfe": 0.15,
+        "mae": 0.1557,
+        "n": 369
+       },
+       "3": {
+        "activity": 1.4335,
+        "expansion": 0.304,
+        "follow_through": -0.0038,
+        "mfe": 0.1551,
+        "mae": 0.1488,
+        "n": 369
+       },
+       "4": {
+        "activity": 1.8722,
+        "expansion": 0.3061,
+        "follow_through": -0.029,
+        "mfe": 0.145,
+        "mae": 0.161,
+        "n": 369
+       },
+       "5": {
+        "activity": 3.653,
+        "expansion": 0.3204,
+        "follow_through": 0.0287,
+        "mfe": 0.1823,
+        "mae": 0.1381,
+        "n": 369
+       }
+      },
+      "follow_through_t": {
+       "1": -0.14,
+       "2": -0.97,
+       "3": -0.35,
+       "4": -2.68,
+       "5": 2.51
+      }
+     },
+     "2020-2025": {
+      "n": 1241,
+      "spearman": {
+       "expansion": 0.127,
+       "follow_through": 0.002,
+       "mfe": 0.039,
+       "mae": 0.078
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.725,
+        "expansion": 0.3104,
+        "follow_through": 0.0051,
+        "mfe": 0.1608,
+        "mae": 0.1496,
+        "n": 249
+       },
+       "2": {
+        "activity": 1.089,
+        "expansion": 0.3259,
+        "follow_through": 0.0,
+        "mfe": 0.1642,
+        "mae": 0.1617,
+        "n": 248
+       },
+       "3": {
+        "activity": 1.3609,
+        "expansion": 0.3496,
+        "follow_through": -0.0288,
+        "mfe": 0.1557,
+        "mae": 0.1939,
+        "n": 248
+       },
+       "4": {
+        "activity": 1.7668,
+        "expansion": 0.3332,
+        "follow_through": -0.0031,
+        "mfe": 0.1655,
+        "mae": 0.1677,
+        "n": 248
+       },
+       "5": {
+        "activity": 3.6692,
+        "expansion": 0.3804,
+        "follow_through": 0.0176,
+        "mfe": 0.1959,
+        "mae": 0.1845,
+        "n": 248
+       }
+      },
+      "follow_through_t": {
+       "1": 0.34,
+       "2": 0.0,
+       "3": -1.22,
+       "4": -0.2,
+       "5": 1.0
+      }
+     }
+    }
+   }
+  },
+  "GER40": {
+   "cost_in_atr_d": null,
+   "all_sessions": {
+    "2020-2025": {
+     "n": 2396,
+     "spearman": {
+      "expansion": 0.193,
+      "follow_through": -0.009,
+      "mfe": 0.094,
+      "mae": 0.083
+     },
+     "by_quintile": {
+      "1": {
+       "activity": 0.7733,
+       "expansion": 0.2894,
+       "follow_through": -0.0097,
+       "mfe": 0.1395,
+       "mae": 0.1499,
+       "n": 480
+      },
+      "2": {
+       "activity": 1.0715,
+       "expansion": 0.3119,
+       "follow_through": 0.008,
+       "mfe": 0.1659,
+       "mae": 0.146,
+       "n": 479
+      },
+      "3": {
+       "activity": 1.3041,
+       "expansion": 0.3172,
+       "follow_through": 0.0168,
+       "mfe": 0.1696,
+       "mae": 0.1476,
+       "n": 479
+      },
+      "4": {
+       "activity": 1.5871,
+       "expansion": 0.3526,
+       "follow_through": 0.0072,
+       "mfe": 0.187,
+       "mae": 0.1656,
+       "n": 479
+      },
+      "5": {
+       "activity": 2.3259,
+       "expansion": 0.3773,
+       "follow_through": -0.0077,
+       "mfe": 0.1896,
+       "mae": 0.1877,
+       "n": 479
+      }
+     },
+     "follow_through_t": {
+      "1": -1.03,
+      "2": 0.85,
+      "3": 1.77,
+      "4": 0.64,
+      "5": -0.64
+     }
+    }
+   },
+   "by_session": {
+    "london_0800": {
+     "2020-2025": {
+      "n": 1188,
+      "spearman": {
+       "expansion": 0.152,
+       "follow_through": -0.022,
+       "mfe": 0.059,
+       "mae": 0.053
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.8867,
+        "expansion": 0.331,
+        "follow_through": -0.0024,
+        "mfe": 0.1641,
+        "mae": 0.1669,
+        "n": 238
+       },
+       "2": {
+        "activity": 1.2166,
+        "expansion": 0.3534,
+        "follow_through": 0.0074,
+        "mfe": 0.1839,
+        "mae": 0.1695,
+        "n": 237
+       },
+       "3": {
+        "activity": 1.4802,
+        "expansion": 0.3754,
+        "follow_through": 0.0178,
+        "mfe": 0.2045,
+        "mae": 0.1709,
+        "n": 238
+       },
+       "4": {
+        "activity": 1.7433,
+        "expansion": 0.4032,
+        "follow_through": 0.0012,
+        "mfe": 0.2078,
+        "mae": 0.1955,
+        "n": 237
+       },
+       "5": {
+        "activity": 2.3124,
+        "expansion": 0.4012,
+        "follow_through": -0.0093,
+        "mfe": 0.2039,
+        "mae": 0.1973,
+        "n": 238
+       }
+      },
+      "follow_through_t": {
+       "1": -0.17,
+       "2": 0.51,
+       "3": 1.07,
+       "4": 0.07,
+       "5": -0.54
+      }
+     }
+    },
+    "newyork_0800": {
+     "2020-2025": {
+      "n": 1208,
+      "spearman": {
+       "expansion": 0.057,
+       "follow_through": 0.003,
+       "mfe": 0.038,
+       "mae": 0.03
+      },
+      "by_quintile": {
+       "1": {
+        "activity": 0.7046,
+        "expansion": 0.2705,
+        "follow_through": 0.0049,
+        "mfe": 0.1408,
+        "mae": 0.1297,
+        "n": 242
+       },
+       "2": {
+        "activity": 0.9732,
+        "expansion": 0.2901,
+        "follow_through": -0.0093,
+        "mfe": 0.1431,
+        "mae": 0.147,
+        "n": 241
+       },
+       "3": {
+        "activity": 1.1643,
+        "expansion": 0.2846,
+        "follow_through": 0.0052,
+        "mfe": 0.1479,
+        "mae": 0.1367,
+        "n": 242
+       },
+       "4": {
+        "activity": 1.3848,
+        "expansion": 0.2789,
+        "follow_through": 0.0153,
+        "mfe": 0.1509,
+        "mae": 0.1281,
+        "n": 241
+       },
+       "5": {
+        "activity": 2.2632,
+        "expansion": 0.312,
+        "follow_through": -0.0016,
+        "mfe": 0.1584,
+        "mae": 0.1536,
+        "n": 242
+       }
+      },
+      "follow_through_t": {
+       "1": 0.39,
+       "2": -0.67,
+       "3": 0.43,
+       "4": 1.32,
+       "5": -0.11
+      }
+     }
+    }
+   }
+  }
+ }
+}

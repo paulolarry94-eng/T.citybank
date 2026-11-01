@@ -96,7 +96,7 @@ def summarize(df):
             continue
         q = pd.qcut(x.activity.rank(method="first"), 5, labels=[1, 2, 3, 4, 5])
         res[name] = dict(n=len(x),
-                         spearman={k: round(float(x.activity.corr(x[k], method="spearman")), 3)
+                         spearman={k: round(float(x.activity.rank().corr(x[k].rank())), 3)
                                    for k in ("expansion", "follow_through", "mfe", "mae")},
                          by_quintile={int(k): {m: round(float(g[m].mean()), 4) for m in ("activity", "expansion", "follow_through",
                                                                                            "mfe", "mae")} | {"n": len(g)}
