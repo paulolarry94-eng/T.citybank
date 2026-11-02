@@ -102,6 +102,8 @@ Learning rules:
   downloads; running it needs the owner's OK.
 - Batch 01 (2026-11-02, Q23): 13 owner payer-flow candidates; 11 untestable here (data or not tradeable on MT5 Prime); month-end
   rebalancing and the US close flow REJECTED (`research/results/batch01/BATCH01_REPORT.md`). Known direction is not enough (P22).
+- SSR sweep-and-shift reversal (2026-11-02, Q24): XAUUSD + EURUSD, 4 configurations, REJECTED (best +0.107R 2011-19, -0.087R
+  2020-22). Lab tools added: `executors.bracket_prices` (per-trade target, min R) and `research/truth/controls.py` (controls).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

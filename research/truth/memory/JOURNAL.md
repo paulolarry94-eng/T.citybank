@@ -546,3 +546,16 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** RoboForex index costs are published averages, not measured; index swaps are the lab's estimates.
 - **Next:** the owner's suggested first three (1, 2, 10) need data we do not have: daily front/second futures prices per
   contract (e.g. a paid futures history) and option open interest by strike. Owner decides whether to source data.
+
+## 2026-11-02 (4) · owner: "help me test this edge": Sweep-and-Shift Reversal (SSR) on XAUUSD and EURUSD
+- **Priors told:** ~1,400 liquidity variants rejected (P7); the closest (LG3 sweep + MSS, H1) failed 2020-22 and 2023-25, so
+  this family's 2023-25 had been seen: the final look is not clean.
+- **Done:** strategy ssr_sweep_shift_v1 (4 configurations; ambiguities resolved in the grid and marked), RoboForex Prime gold
+  costs added (published), lab executor bracket_prices (per-trade target price with a 2R floor; tests), generic
+  research/truth/controls.py (control differential, owner's rule, side split, Prime side-specific swaps). Pre-registered
+  93a2269 before results. A worker restart interrupted the turn mid-build; nothing had run; resumed.
+- **Learned (Truth Lab):** rejected. Best config +0.107R (t 2.1) 2011-19, -0.087R 2020-22, +0.057R 2023-25; stress negative;
+  neighbours unstable; deflated Sharpe 0.81; adding it lowers the book's Sharpe (1.21 -> 1.08). Edge quality 0.094 vs 0.42
+  needed. P7 updated (confidence medium-high).
+- **Facts vs estimates:** Prime costs and swaps are published, not measured.
+- **Next:** EURUSD-only is hindsight with too few 2026 trades to judge; Q24 closed unless the owner wants a paper forward test.

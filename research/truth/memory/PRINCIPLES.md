@@ -65,6 +65,11 @@ filters do not change where trend lives. research/results/truth/funnel_trustdan_
 ### P7 After a liquidity grab, continuation beats reversal
 About 1,400 sweep/grab variants: fading the grab has no edge; the only survivor is a continuation
 (GBP weekly follow-through). Evidence: liquidity studies, LG study. Confidence: medium.
+Update (2026-11-02, owner's Sweep-and-Shift Reversal, ssr_sweep_shift_v1): a 0.5-ATR sweep of the 20-bar extreme, reclaimed
+within 3 H1 bars and confirmed by an M15 structure break, faded to the opposite 20-bar extreme (min 2R), on XAUUSD and
+EURUSD at RoboForex Prime costs: 4 configurations, the best +0.107R (t 2.1) in 2011-19, -0.087R in 2020-22, +0.057R in
+2023-25 (gold negative in both later periods), stress negative: rejected. Near-miss controls (same break, no sweep) lost
+in every cell. Confidence raised to medium-high: about 1,400 earlier variants plus this one.
 
 ### P8 Simple sizing beats clever risk states
 Halving size after a 10% drawdown slows recovery; plain fixed-fractional at lower risk dominates at equal

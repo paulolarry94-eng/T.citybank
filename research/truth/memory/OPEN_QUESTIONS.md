@@ -241,6 +241,13 @@ Daily queue (2026-11-01): one trade a day from the 13 validated strategies canno
 Cycle math (2026-11-02, P28, research/results/seesare/cycle_math_study.json): +2% per 10-trade cycle inside 3.6% (95% of
 lifecycles) needs a per-trade Sharpe of about 0.42 (0.36 at 5%, 0.32 at 6%, 0.28 at 8%); ours is 0.06-0.13. The book at a 5%
 cap makes about +0.12% per cycle. Open: owner chooses between the target (needs an edge we do not have) and the cap.
+### Q24 Sweep-and-Shift Reversal (owner spec, 2026-11-02) — TESTED, rejected
+XAUUSD + EURUSD, H1 sweep of the 20-bar extreme by 0.5 ATR, reclaim within 3 bars, M15 structure break, fade to the prior
+swing (min 2R), near-miss control. Lab: rejected (research/results/truth/ssr_sweep_shift_v1/REPORT.md, controls.json).
+EURUSD alone looked better in all three periods (+0.151 / -0.017 / +0.194R) but choosing it now is hindsight, and Jan-Oct
+2026 holds only about 30 such EURUSD trades: too few to decide (an edge of s 0.1 needs about 900 trades to show). Not
+pursued unless the owner wants a EURUSD-only forward paper test. FAMILY: liquidity, sweep, mss, smc, reversal, owner-idea.
+
 ### Q23 Owner's Batch 01: 13 payer-flow candidates (2026-11-02)
 Pre-registered with controls and a stricter batch rule (t >= 3, beats its control, replicates): research/batch01/. Tested 9
 (month-end rebalancing) and 11 (leveraged/vol-target flow into the US close): both REJECTED (research/results/batch01/
