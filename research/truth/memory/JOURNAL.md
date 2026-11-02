@@ -559,3 +559,27 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   needed. P7 updated (confidence medium-high).
 - **Facts vs estimates:** Prime costs and swaps are published, not measured.
 - **Next:** EURUSD-only is hindsight with too few 2026 trades to judge; Q24 closed unless the owner wants a paper forward test.
+
+## 2026-11-02 (5) · owner: "I have my personal trading edge": the 3:30 EMA retest, taught through 20 charts; "test all markets, cycle-centric, go"
+- **Priors told:** intraday session patterns rejected after costs (ORB, London scanner, Leg 34 pocket scan; P1, P14, P21);
+  expectation was rejection. The owner's answers settled the rules; unspecified choices fixed and written down before results.
+- **Done:** strategy owner330_ema_retest_v1 (48 configurations: anchor 15:30 WAT / 9:30 New York x entries A, B3, B6, B12 x
+  2R/3R/4R x breakeven), numba executor, 13 unit tests, NFP/CPI/FOMC calendar from BLS and Fed archives, EURGBP data,
+  pre-registration (e888de6, e68f660). Replay of the owner's ten example days: 9 of 10 match. Lab additions (635f065, before
+  results): cycle-centric selection (SELECT_BY = "s"), trades scored in time order (cycles, lifecycles), cycle league tool;
+  controls.py now pools markets. Studies: 2026 on two data feeds (HistData 2026 downloaded as a second feed), season split,
+  random audit charts from executed trades.
+- **Found on the way (data):** HistData's M1 clock was one hour late in daylight-saving periods (US rules 2011-18, UK rules
+  from 2019) on all eight HistData markets. Measured week by week, fixed in the data, converter corrected. P29 (new, high).
+  Batch 01 re-run on fixed data: verdicts unchanged, one 2020-22 slice was a clock artifact. Other intraday studies queued (Q26).
+- **Learned (Truth Lab):** REJECTED. 0 of 48 configurations positive in 2011-19 or 2020-22 (−0.16 to −0.22R a trade, t −4 to
+  −9; every year negative); before costs about 0; a one-candle stop makes costs about 0.17R. In cycles: edge quality −0.18 to
+  −0.08 (needed +0.42), average 10-trade cycle −1.4 to −1.8R, 22-37% of cycles positive, every lifecycle negative. The 2-hour
+  later control lost more in 2011-19 but not in 2020-22. P1, P4, P14, P17, P18 gained evidence.
+- **Open (Q25):** Jan-Oct 2026 was positive for the owner's 15:30 WAT anchor on both feeds, all of it in US summer time (15:30
+  WAT = 10:30 New York): +0.23R / +0.42R on 73 / 65 trades (t 1.1 / 1.8), while the same timing was the worst in 2011-22.
+- **Decisions:** the 2023-25 holdout was NOT opened (no configuration passed the gate). A single look to test whether the
+  summer pattern began before 2026 is pre-registered and waits for the owner's word.
+- **Facts vs estimates:** Prime costs are published averages; 2026 is in-sample for the owner; the season-split difference
+  (t about 2.4-3.0) is before allowing for the owner's choice of timing and markets.
+- **Next:** owner decides (a) the one 2023-25 look and/or (b) a paper forward test from mid-March 2027; Q26 re-runs.

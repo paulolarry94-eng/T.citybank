@@ -2,7 +2,7 @@
  "name": "us_close_flow_v1",
  "hypothesis": "Leveraged and vol-target funds rebalance into the US cash close in the direction of the day's move, so the last 15-30 minutes continue big moves by more than RoboForex Prime's cost.",
  "fingerprint": "1495b4bfca9e8c332d43f417f8981ce6fd0c067a1bdc008b35a1c431a83535a8",
- "started": "2026-11-02 08:55:10 UTC",
+ "started": "2026-11-02 12:40:46 UTC",
  "markets": [
   "US500",
   "NAS100"
@@ -192,6 +192,22 @@
   {
    "name": "tokyo_fix_gotobi_v1",
    "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "monthend_rebalance_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule)",
+   "verdict": "Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened."
+  },
+  {
+   "name": "ssr_sweep_shift_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "owner330_ema_retest_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
   }
  ],
  "lookahead": {
@@ -230,7 +246,7 @@
   "configs": 4,
   "passed_gate": 0,
   "share_dev_positive": 0.0,
-  "median_dev_E": -0.04005524458790449,
+  "median_dev_E": -0.03194325694371125,
   "share_dev_and_val_positive": 0.0
  },
  "verdict": "Rejected: no configuration passed the development gate"

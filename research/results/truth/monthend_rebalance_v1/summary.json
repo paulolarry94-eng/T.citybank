@@ -2,7 +2,7 @@
  "name": "monthend_rebalance_v1",
  "hypothesis": "Fixed-weight funds rebalance against the month's equity move in the last days of the month, so index CFDs reverse the month-to-date move into month-end by more than costs and swaps.",
  "fingerprint": "5d4589f42bcd472ae9a66821a64691ebd142a7a26bdfde580dbcd9b4ac5ffd8a",
- "started": "2026-11-02 08:57:10 UTC",
+ "started": "2026-11-02 12:41:08 UTC",
  "markets": [
   "US500",
   "NAS100",
@@ -160,6 +160,18 @@
    "verdict": "Tier B: forward-test candidate"
   },
   {
+   "name": "Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule)",
+   "verdict": "Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened."
+  },
+  {
+   "name": "ssr_sweep_shift_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SSR controls: sweep-and-shift vs near-miss control, by market and side",
+   "verdict": "Rejected by the owner's rule: selected config (5 x M15 shift window, confirmation entry) 2011-19 +0.107R t 2.09 (493 trades) vs near-miss control -0.088R (differential +0.19R, t 3.2), but 2020-22 -0.087R and stress negative. By market 2011-19 / 2020-22 / 2023-25: XAUUSD +0.044 / -0.160 / -0.077R, EURUSD +0.151 / -0.017 / +0.194R. Gold longs +0.16R, shorts -0.08R (2011-19). Near-miss controls lost in every 2011-19 cell (-0.02 to -0.20R): fading a failed approach to the 20-bar extreme loses. EURUSD-only would be chosen after seeing results (hindsight). Edge quality s 0.094 (2011-19), needed 0.42."
+  },
+  {
    "name": "us_close_flow_v1",
    "verdict": "Rejected: no configuration passed the development gate"
   }
@@ -199,8 +211,8 @@
  "grid_summary": {
   "configs": 4,
   "passed_gate": 0,
-  "share_dev_positive": 0.75,
-  "median_dev_E": 0.018823415341642315,
+  "share_dev_positive": 0.5,
+  "median_dev_E": -0.000759395940829089,
   "share_dev_and_val_positive": 0.0
  },
  "verdict": "Rejected: no configuration passed the development gate"

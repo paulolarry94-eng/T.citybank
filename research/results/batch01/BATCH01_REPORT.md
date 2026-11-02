@@ -49,3 +49,24 @@ Evidence: `research/results/truth/us_close_flow_v1/`, `research/results/truth/mo
 A grid setting named `n_before` crashed the lab (setting names starting with `n_` were read as the lab's own trade-count
 columns). Fixed in `research/truth/protocol.py`; test `TestPooledColumns` fails without the fix. No results existed when it
 crashed.
+
+## Re-run after the HistData clock fix (2026-11-02, later the same day)
+Both strategies used HistData index data (US500, NAS100, UK100; GER40 to Jan 2020), which was found to be one hour late in
+daylight-saving periods (`tools/histdata_clock.py`, P29). The data were corrected and both strategies re-run unchanged (same
+fingerprints, no 2023-25 look was ever made). The tables above are the first run, kept as history. **Verdicts unchanged:
+both rejected at the development gate.**
+
+| Configuration | 2011–19 net R (t) | before costs (t) | 2020–22 net R (t) | before costs |
+|---|---|---|---|---|
+| US close: prev close, 15:30 | −0.036 (−3.9) | +0.006 (0.6) | −0.011 (−0.6) | +0.001 |
+| US close: prev close, 15:45 | −0.034 (−4.9) | +0.008 (1.2) | +0.010 (+0.6) | +0.021 |
+| US close: open, 15:30 | −0.030 (−3.1) | +0.013 (1.4) | −0.028 (−1.7) | −0.017 |
+| US close: open, 15:45 | −0.029 (−4.1) | +0.014 (2.0) | −0.009 (−0.7) | +0.002 |
+| Month-end: 3 days, all | −0.003 (−0.1) | +0.106 (2.4) | −0.143 (−1.9) | −0.103 |
+| Month-end: 3 days, strong | +0.066 (0.9) | +0.167 (2.3) | −0.290 (−4.2) | −0.253 |
+| Month-end: 1 day, all | +0.001 (0.0) | +0.046 (1.8) | −0.086 (−2.1) | −0.070 |
+| Month-end: 1 day, strong | −0.003 (−0.1) | +0.041 (1.1) | −0.102 (−1.8) | −0.086 |
+
+What changed: the one US close slice that looked positive in 2020–22 (prev close, 15:30: +0.031R, t 2.1; +0.043R before
+costs, t 2.8) was a clock artifact; on corrected data it is −0.011R (+0.001R before costs). The month-end results (daily
+holds) barely moved. `research/batch01/gross.py` now reproduces `gross.json` (it was computed inline the first time).

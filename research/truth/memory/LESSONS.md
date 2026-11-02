@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-82 ideas tested, about 303,612 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+87 ideas tested, about 303,717 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,73 +15,77 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 26 | 0 | 1,888 |
-| intraday | 22 | 1 | 182,563 |
-| flow | 19 | 1 | 76 |
-| calendar | 17 | 1 | 159 |
-| index | 16 | 0 | 114 |
+| owner-idea | 29 | 0 | 1,985 |
+| intraday | 25 | 1 | 182,660 |
+| flow | 20 | 1 | 84 |
+| calendar | 18 | 1 | 167 |
+| index | 17 | 0 | 122 |
 | awesome-list | 13 | 0 | 147 |
 | breadth | 13 | 0 | 697 |
 | reversal | 13 | 1 | 105,864 |
+| session | 12 | 0 | 183,976 |
 | trend | 12 | 4 | 102,718 |
+| breakout | 11 | 0 | 119,480 |
 | sizing | 11 | 0 | 276 |
-| breakout | 10 | 0 | 119,432 |
 | fix | 10 | 1 | 54 |
+| retest | 10 | 0 | 10,405 |
 | seesare | 10 | 0 | 232 |
 | engulfing | 9 | 0 | 3,836 |
 | seasonal | 9 | 2 | 23 |
-| session | 9 | 0 | 183,879 |
 | daily | 8 | 1 | 172 |
+| ema | 8 | 0 | 1,093 |
 | structure | 8 | 0 | 1,634 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
 | portfolio | 7 | 3 | 136 |
 | repo-funnel | 7 | 0 | 222 |
-| retest | 7 | 0 | 10,308 |
 | risk | 7 | 0 | 172 |
 | smc | 7 | 0 | 14,992 |
 | momentum | 6 | 0 | 61 |
+| payer | 6 | 0 | 28 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
-| ema | 5 | 0 | 996 |
 | futures | 5 | 1 | 138 |
 | gold | 5 | 0 | 363 |
 | limit-entry | 5 | 0 | 996 |
 | liquidity | 5 | 0 | 1,380 |
 | mean-reversion | 5 | 0 | 47 |
-| payer | 5 | 0 | 20 |
 | sweep | 5 | 0 | 1,380 |
+| batch01 | 4 | 0 | 24 |
 | monthly | 4 | 0 | 20 |
 | oil | 4 | 0 | 7 |
+| rebalancing | 4 | 0 | 24 |
 | third-party-ea | 4 | 0 | 304 |
-| batch01 | 3 | 0 | 16 |
 | carry | 3 | 1 | 18 |
+| close | 3 | 0 | 20 |
+| control | 3 | 0 | 96 |
 | costs | 3 | 0 | 8 |
 | cross-asset | 3 | 0 | 4 |
 | filter-mining | 3 | 0 | 244 |
 | gbpusd | 3 | 0 | 152 |
 | grid | 3 | 0 | 196 |
 | macro | 3 | 0 | 4 |
+| month-end | 3 | 0 | 20 |
 | options-expiry | 3 | 0 | 4 |
 | oscillator | 3 | 0 | 288 |
 | pattern | 3 | 0 | 4,932 |
-| rebalancing | 3 | 0 | 16 |
 | reversion | 3 | 3 | 16 |
 | turn-of-month | 3 | 0 | 4 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | cent-account | 2 | 0 | 12 |
-| close | 2 | 0 | 12 |
-| control | 2 | 0 | 48 |
+| clock | 2 | 0 | 8 |
 | cross-sectional | 2 | 0 | 17 |
+| data | 2 | 0 | 8 |
 | dip-buying | 2 | 0 | 8 |
+| dst | 2 | 0 | 48 |
 | energy | 2 | 0 | 128 |
 | fvg | 2 | 0 | 9,312 |
 | ict | 2 | 0 | 784 |
 | lifecycle | 2 | 0 | 80 |
 | math | 2 | 0 | 80 |
-| month-end | 2 | 0 | 12 |
 | mss | 2 | 0 | 4 |
+| ny-open | 2 | 0 | 96 |
 | rsi2 | 2 | 0 | 8 |
 | scanner | 2 | 0 | 61,803 |
 | short-vol | 2 | 0 | 17 |
@@ -103,10 +107,14 @@
 | forward-test | 1 | 1 | 1 |
 | fx | 1 | 0 | 16 |
 | hindsight-market-choice | 1 | 0 | 64 |
+| histdata | 1 | 0 | 0 |
+| implementation-check | 1 | 0 | 1 |
+| infrastructure | 1 | 0 | 0 |
 | look-ahead | 1 | 0 | 16 |
 | metals | 1 | 0 | 64 |
 | methods | 1 | 0 | 16 |
 | monte-carlo | 1 | 0 | 80 |
+| multi-market | 1 | 0 | 48 |
 | orb | 1 | 0 | 0 |
 | out-of-sample | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
@@ -129,6 +137,7 @@
 | support-resistance | 1 | 0 | 2,202 |
 | swap-free | 1 | 0 | 5 |
 | timeframe-scan | 1 | 0 | 396 |
+| timezone | 1 | 0 | 0 |
 | volatility | 1 | 0 | 102,260 |
 | volume | 1 | 0 | 0 |
 | xauusd | 1 | 0 | 4 |
@@ -138,11 +147,16 @@
 |---|---|---|---|---|---|
 | 2026-11-02 | Cycle math: what +2% per 10-trade cycle needs vs the 360-trade lifecycle drawdown | seesare, sizing, drawdown-cap, math, monte-carlo, lifecycle, owner-idea | 80 | Study (model: independent trades, fixed risk, after costs): +2% per 10-trade cycle needs a per-trade Sharpe of about 0.42 for a 95th-percentile lifecycle drawdown of 3.6%, 0.36 for 5%, 0.32 for 6%, 0.28 for 8% (fit DD95 = 0.69% x s^-1.91 over 80 cells). Examples inside 3.6%: 70% wins at 1:1 gives 4.0%; 55% at 2:1 3.4%; 45% at 3:1 3.5%; 40% at 4:1 3.2%. Ours per trade after Exness costs + swaps: book 0.062, Tokyo fix 0.088, EURUSD reversal 0.125, all 13 0.063, book Jan-Oct 2026 0.020: about +0.09 / +0.12 / +0.20% per cycle for the book at a 3.6 / 5 / 8% drawdown; forcing +2% needs 2.6% risk and an 80% drawdown. Combining strategies leaves the per-trade Sharpe unchanged (all 13: 0.063). The drawdown-keyed ladder at weight 1.00 never passes 3.6% but stops lifecycles at the wall: median +2% needs about s 0.41 AND a high win rate (75% at 0.75:1: median +1.99%, 4.7% stopped; 40% at 4:1: 95% stopped). | s_needed_3_6 +0.421, s_needed_5 +0.355, s_needed_6 +0.322, s_needed_8 +0.277, s_needed_10 +0.246, closed_form_s_3_6_p5 +0.288, book_s +0.062, tokyo_s +0.088, eurusd_rev_s +0.125, all13_s +0.062, book2026_s +0.020, book_cycle_at_3_6 +0.090, book_cycle_at_5 +0.124, book_cycle_at_8 +0.199, book_risk_for_2pct +2.565, book_dd95_at_2pct +80.200 |
 | 2026-11-02 | Cycle goal by trades per cycle (quality x breadth) | seesare, sizing, drawdown-cap, math, breadth, lifecycle, owner-idea | — | Study: edge quality x sqrt(independent trades per cycle) stays about 1.4 for +2% inside 3.6% (1.38-1.47 for n = 10-160) and about 2.8 for +7% inside 3.6%. Needed s for +2%/3.6%: n 10 0.43, 20 0.32, 40 0.23, 80 0.16, 160 0.12; the book (s 0.062) would need about 530 independent trades per cycle. | s_needed_2_3.6_n10 +0.435, s_needed_2_3.6_n20 +0.316, s_needed_2_3.6_n40 +0.228, s_needed_2_3.6_n80 +0.162, s_needed_2_3.6_n160 +0.116 |
-| 2026-11-02 | us_close_flow_v1 | calendar, flow, payer, intraday, index, close, rebalancing, momentum, batch01 | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
-| 2026-11-02 | monthend_rebalance_v1 | calendar, flow, payer, index, month-end, rebalancing, reversal, batch01 | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.750 |
 | 2026-11-02 | Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule) | calendar, flow, payer, index, month-end, close, rebalancing, roll, batch01, owner-idea | 8 | Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened. |  |
 | 2026-11-02 | ssr_sweep_shift_v1 | liquidity, sweep, mss, smc, ict, reversal, intraday, xauusd, eurusd, owner-idea | 4 | Rejected | dev_E +0.107, val_E -0.087, final_E +0.057, final_n +208.000, final_PF +1.129, dsr +0.806, share_dev_positive +0.250 |
 | 2026-11-02 | SSR controls: sweep-and-shift vs near-miss control, by market and side | liquidity, sweep, mss, smc, reversal, control, owner-idea | — | Rejected by the owner's rule: selected config (5 x M15 shift window, confirmation entry) 2011-19 +0.107R t 2.09 (493 trades) vs near-miss control -0.088R (differential +0.19R, t 3.2), but 2020-22 -0.087R and stress negative. By market 2011-19 / 2020-22 / 2023-25: XAUUSD +0.044 / -0.160 / -0.077R, EURUSD +0.151 / -0.017 / +0.194R. Gold longs +0.16R, shorts -0.08R (2011-19). Near-miss controls lost in every 2011-19 cell (-0.02 to -0.20R): fading a failed approach to the 20-bar extreme loses. EURUSD-only would be chosen after seeing results (hindsight). Edge quality s 0.094 (2011-19), needed 0.42. |  |
+| 2026-11-02 | owner330_ema_retest_v1 | session, ema, retest, intraday, ny-open, breakout, multi-market, owner-idea | 48 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-11-02 | us_close_flow_v1 | calendar, flow, payer, intraday, index, close, rebalancing, momentum, batch01 | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-11-02 | monthend_rebalance_v1 | calendar, flow, payer, index, month-end, rebalancing, reversal, batch01 | 4 | Rejected: no configuration passed the development gate | share_dev_positive +0.500 |
+| 2026-11-02 | HistData clock check and fix (8 markets, 2011-2026) | data, clock, timezone, dst, histdata, infrastructure | — | Fixed: the stamps are New York local time with US daylight saving in 2011-2018 and follow UK daylight saving from 2019, so the data were one hour late in daylight-saving periods. Week by week (1-minute returns vs correctly timed reference markets, shifts -60/0/+60 min): before the fix 305-516 weeks per market were best at -60 min; after the fix EURGBP 832/833 and XAGUSD 743/743 weeks align, indices 701-765 of 785 (residuals are thin holiday weeks), index opens land on the exchange open minute in summer and winter. All HistData files corrected (GER40 to 2020-01-29, WTI to 2023-12-01; the rest of those files is Exness data). The four reference markets (XAUUSD, EURUSD, GBPUSD, USDJPY) and the Exness 2026 holdout were never affected. Intraday studies on these markets before 2026-11-02 used shifted session times (see Q26). |  |
+| 2026-11-02 | Owner 3:30 replay: scanner vs the owner's ten example days (Oct 2026) | session, ema, retest, intraday, owner-idea, implementation-check | 1 | Implementation check passed: 9 of 10 days match the owner's call (references within one M5 candle, entry and stop within cents / 0.4 pip). Miss: EURGBP 27 Oct, the owner's reference closed exactly on the M5 EMA in our data (sub-pip feed difference). Led to two changes before any backtest: the HistData clock fix and 'within the range' = the reference candle touches the range. Not evidence of an edge (P18). |  |
+| 2026-11-02 | Owner 3:30 follow-up: cycle league, 2-hour control, 2026 on two feeds, season split, audit charts | session, ema, retest, intraday, ny-open, owner-idea, control, dst | 48 | Rejected for 2011-22; 2026 is an open lead. Cycles (12 markets, 2011-19): edge quality -0.18 to -0.08 (needed +0.42), an average 10-trade cycle -1.4R to -1.8R, 22-37% of cycles positive, every 360-trade lifecycle negative (best config: -10R to -116R). Before costs about 0 (-0.03 to +0.02R); costs 0.17R a trade (one-candle stop). Control (2 h later) lost more in 2011-19 (diff +0.08R, t up to 2.9) but not in 2020-22 (t about 0). 2026 Jan-Oct, 5 markets: 15:30 WAT anchor 23/24 configs positive (median +0.17R) on Exness data and 24/24 (+0.19R) on HistData; 9:30 NY 0/24. All of it in US summer time (15:30 WAT = 10:30 NY): A 3R +0.23R (73 trades, t 1.1), B3 3R +0.42R (65, t 1.8), while the same timing was the worst in 2011-22 (-0.27R, 1,106 trades, t -6.2; every year negative). Owner chose this timing in 2026 (selection). Even at face value s 0.13-0.23 < 0.42. |  |
+| 2026-11-02 | Batch 01 re-run on clock-fixed HistData (US close flow, month-end rebalancing) | calendar, flow, payer, index, month-end, close, rebalancing, batch01, data, clock | 8 | Verdicts unchanged (both rejected at the gate). US close flow 2011-19 net -0.029 to -0.036R, before costs +0.006 to +0.014R; the one 2020-22 slice that looked positive before (prev close 15:30: +0.031R, t 2.1) was a clock artifact (now -0.011R). Month-end barely moved (2011-19 before costs +0.04 to +0.17R, 2020-22 negative even before costs). |  |
 | 2026-11-01 | 5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19) | engulfing, structure, intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 133 | Rejected: winners' attributes do not select winners | ~194,000 filled Leg 34 setups on M5, 11 markets, each simulated alone. Before costs about zero on every market (ladder -0.07 to +0.04R; silver/oil/indices costs are lab estimates). Gold 2011-19: 43% reach +1R, 13% +5R, 6% +10R, 1.5% +20R. Top 10% runners look like all trades (lifts 0.86-1.15); top 1% lean to quiet volatility, a quiet day, a strong 4h push, small structure. Best 2-condition rule (cost_R low & EMA slope mid, 133 conditions) failed its own halves (-0.04 / +0.04R), then -0.08R gold 2020-22, -0.06R 2023-25, -0.10R pooled other markets (9 of 10 negative), -0.02R Jan-Sep 2026. |
 | 2026-11-01 | 5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample) | intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 2 | Rejected: worse than taking every setup | Score = quiet volatility, quiet day, strong 4h push, small structure, deep Leg 2 (cut points gold 2011-19); trade score>=3. Ladder exit: gold 2011-19 -0.20R (all setups -0.15), 2020-22 -0.13, 2023-25 -0.12, other 10 markets -0.35 (all -0.31), Jan-Sep 2026 -0.14R. The profile concentrates runners and losers alike. |
 | 2026-11-01 | Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits | engulfing, structure, intraday, session, timeframe-scan, owner-idea, breadth | 396 | Rejected: no pocket survives | 396 cells (M5, M10, M15, M30, M45, H1; Asia/London/New York; t3 and ladder), selection on 2011-22 only. 1 cell passed discovery (GBPUSD H1 London t3, t 2.13; ~9 expected by luck) and lost in 2020-22 (-0.37R); 0 confirmed; no cell positive in 2011-19, 2020-22 and 2023-25. Before costs only 33% of cells positive in 2011-19 (medians -0.01 to -0.05R by timeframe); persistence before costs 34% vs 32% = luck. Higher timeframes cut the cost share (median after costs -0.27R M5 -> -0.20R H1) but the raw edge does not improve. Sessions alike (-0.23R). Past hint (sop_4leg_v1 EUR/GBP M30 16-20 UTC) negative on all 9 other markets (-0.04 to -0.51R). |

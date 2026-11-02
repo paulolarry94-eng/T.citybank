@@ -43,9 +43,10 @@ EXAMPLES = [
 
 class Market2026:
     """Minute data for 2025-2026 with the lab's cleaning (duplicates and flat filler minutes dropped)."""
-    def __init__(self, sym, cost):
+    def __init__(self, sym, cost, path2026=None):
         parts = []
-        for f in (os.path.join(ROOT, "data", f"{sym}_M1_bid_2025.npz"), os.path.join(ROOT, "data", "holdout", f"{sym}_M1_bid_2026.npz")):
+        for f in (os.path.join(ROOT, "data", f"{sym}_M1_bid_2025.npz"),
+                  path2026 or os.path.join(ROOT, "data", "holdout", f"{sym}_M1_bid_2026.npz")):
             d = np.load(f); parts.append((d["ts"] // 1000, d["o"], d["h"], d["l"], d["c"]))
         ts = np.concatenate([p[0] for p in parts]).astype(np.int64)
         o, h, l, c = (np.concatenate([p[i] for p in parts]).astype(float) for i in (1, 2, 3, 4))

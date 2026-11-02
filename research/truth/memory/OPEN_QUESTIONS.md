@@ -53,6 +53,11 @@ Exness DE30 Zero (HistData's GRXEUR is a different index from 2020-06-15 to 2023
 → 2023-12-01, then Exness USOIL Zero; XAGUSD HistData 2011–25 (2025 surge to ~$64–84 confirmed against Exness). Seams
 match within 0.3%. No monthly roll-gap pattern in WTI; the April 2020 negative-oil episode is in the data. Next: declare the
 families (book families: trend, dip reversion) before the first run; costs for these markets are still estimates.
+CLOCK FIX (2026-11-02): HistData's stamps were one hour late in daylight-saving periods (New York rules 2011-2018, UK rules
+from 2019), although documented as EST without daylight saving. All HistData files (EURGBP, XAGUSD, US500, NAS100, UK100,
+JP225, GER40 to 2020-01-29, WTI to 2023-12-01) corrected in place; tools/histdata_m1.py converts correctly for new downloads.
+Evidence and method: tools/histdata_clock.py, research/results/data/histdata_clock.json, P29. Intraday studies before the fix
+are listed for a re-run in Q26.
 
 ### Q5 Equity-index RSI(2) mean reversion (watch-list) — TESTED 2026-10-31, see Answered
 +0.41 Sharpe on stock indices in the daily futures data (`research/multiasset/mr_breadth.py`). Needs index
@@ -241,6 +246,28 @@ Daily queue (2026-11-01): one trade a day from the 13 validated strategies canno
 Cycle math (2026-11-02, P28, research/results/seesare/cycle_math_study.json): +2% per 10-trade cycle inside 3.6% (95% of
 lifecycles) needs a per-trade Sharpe of about 0.42 (0.36 at 5%, 0.32 at 6%, 0.28 at 8%); ours is 0.06-0.13. The book at a 5%
 cap makes about +0.12% per cycle. Open: owner chooses between the target (needs an edge we do not have) and the cap.
+### Q25 Owner's 3:30 EMA retest (2026-11-02): rejected for 2011-22; is the 2026 summer result a new regime?
+Rules from the owner's 20 charts and answers, coded and checked (9 of 10 of the owner's example days match): M30 candle at
+the anchor opens one side of the 10 EMA and closes the other; the first fresh M5 EMA cross touching its range is the
+reference; stop entry at its far side (or pullback B3/B6/B12, or 50% of a displaced candle); 2R/3R/4R, breakeven on/off;
+out at 16:00 New York; NFP/CPI/FOMC days skipped. Lab: REJECTED, 0 of 48 configurations positive in 2011-19 or 2020-22 on 12
+markets; before costs about 0 (research/results/owner330/RESULT.md). Open: Jan-Oct 2026 was positive for the owner's 15:30
+WAT anchor (both data feeds), entirely in US summer time when 15:30 WAT = 10:30 New York (+0.23R / +0.42R, t 1.1 / 1.8),
+the timing that was worst in 2011-22 (-0.27R, every year negative). The owner chose the timing in 2026 (selection). Ways to
+settle it: (a) paper forward test of the exact scanner from mid-March 2027 (US summer; from Nov 2026 to mid-March 15:30 WAT is
+the 9:30 New York candle again), about 12 trades a month on 5 markets, ~40 trades to tell 2026-like from history-like; (b) the
+one 2023-25 look, pre-registered in research/owner330/PREREGISTRATION.md ("Proposed look"), waits for the owner's word. Even
+at the 2026 level, edge quality 0.13-0.23 is below the 0.42 the +2%-per-cycle goal needs. FAMILY: session, ema, retest,
+intraday, ny-open, owner-idea.
+
+### Q26 Re-run the intraday studies that used HistData markets before the clock fix (2026-11-02)
+HistData's stamps were one hour late in daylight-saving periods (P29; fixed in the data 2026-11-02). Re-run and compare:
+the Leg 34 pocket scan (research/hunter5m/pocket_scan.py; 11 markets x 6 timeframes x 3 sessions), the winner anatomy and
+runner profile (research/hunter5m/), the Q21 GER40 opening-range diagnostic (research/results/q21/), and the H1 index
+calendar studies (tom_indices_v2, opex_week_indices_v2, oil_equity_v2, payday_indices_v1: multi-day holds, so small effect
+expected). Done already: Batch 01 (verdicts unchanged; the US close 2020-22 'positive' slice was an artifact). Daily studies
+(breadth trend, index RSI2, funnels, ath_trend) shift only the day boundary by an hour: low priority. FAMILY: data, clock.
+
 ### Q24 Sweep-and-Shift Reversal (owner spec, 2026-11-02) — TESTED, rejected
 XAUUSD + EURUSD, H1 sweep of the 20-bar extreme by 0.5 ATR, reclaim within 3 bars, M15 structure break, fade to the prior
 swing (min 2R), near-miss control. Lab: rejected (research/results/truth/ssr_sweep_shift_v1/REPORT.md, controls.json).
@@ -257,6 +284,8 @@ roll sizes (no VIX on Prime); 4 and 12 too few events (owner pre-flagged); 5 nee
 6 EM FX and coupon calendars; 7 new-issue cash bonds (no bonds on Prime); 8 cross-currency basis; 10 option open interest
 by strike. Any of these can be reopened if the owner supplies the data source. FAMILY: calendar, flow, payer, batch01,
 owner-idea.
+Re-run 2026-11-02 after the HistData clock fix (P29): verdicts unchanged; the one US close slice that was positive in 2020-22
+(+0.031R, t 2.1) was a clock artifact (-0.011R on corrected data). BATCH01_REPORT.md, re-run section.
 
 ### Q22 Build and verify the MQL5 code here (owner, 2026-11-02): compile, self-tests, Strategy Tester, parity
 Checked in the cloud session: Wine 9.0 installs from Ubuntu's archive; MetaQuotes' mt5setup.exe (64-bit) downloads. Running

@@ -104,10 +104,18 @@ Learning rules:
   rebalancing and the US close flow REJECTED (`research/results/batch01/BATCH01_REPORT.md`). Known direction is not enough (P22).
 - SSR sweep-and-shift reversal (2026-11-02, Q24): XAUUSD + EURUSD, 4 configurations, REJECTED (best +0.107R 2011-19, -0.087R
   2020-22). Lab tools added: `executors.bracket_prices` (per-trade target, min R) and `research/truth/controls.py` (controls).
+- HistData clock fix (2026-11-02, P29): HistData M1 stamps were one hour late in daylight-saving periods (US rules 2011-18, UK
+  from 2019) on EURGBP, XAGUSD, US500, NAS100, UK100, JP225, GER40 (to 2020-01), WTI (to 2023-12). Data corrected in place
+  (`tools/histdata_clock.py`); `tools/histdata_m1.py` converts correctly. Intraday studies on these markets before the fix: Q26.
+- Owner's 3:30 EMA retest (2026-11-02, Q25): 48 configurations x 12 markets REJECTED (−0.16 to −0.22R a trade in 2011-19 and
+  2020-22, about 0 before costs; edge quality −0.18 to −0.08). Jan-Oct 2026 positive for the 15:30 WAT anchor only in US summer
+  (= 10:30 New York), the timing that was worst in 2011-22; 2023-25 not opened (a look is pre-registered, owner decides).
+  Report: `research/results/owner330/RESULT.md`. Lab: `SELECT_BY = "s"`, trades scored in time order, `research/truth/cycles_league.py`.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
-  GER40, WTI, XAGUSD from HistData + Exness ticks (sources and seams in OPEN_QUESTIONS Q4).
+  GER40, WTI, XAGUSD, NAS100, UK100, JP225, EURGBP from HistData (clock-fixed) + Exness ticks (sources and seams in OPEN_QUESTIONS
+  Q4). `data/holdout/`: Jan-Oct 2026 (Exness ticks; EURGBP HistData); `data/holdout/histdata/`: a second 2026 feed for the four.
 - `research/engine.py`, `research/gold_lab.py`: loaders and early engines.
 - `research/northstar/`: execution core (`core.py`), pattern modules, pre-registration, risk manager, weekly
   report; the lab builds on it.

@@ -1,0 +1,269 @@
+{
+ "note": "Where did the 2026 profit come from? The 3:30 trades split by US daylight-saving season.\n\n    python3 research/owner330/season_split.py      # writes research/results/owner330/season_split.json\n\n15:30 Nigerian time (WAT) = 14:30 UTC = 09:30 New York in US winter time but 10:30 New York in US summer time (mid-March to\nearly November). So the owner's anchor (wat1530) and the New York open anchor (ny0930) are the SAME candle in winter and an\nhour apart in summer. For both anchors, entries A and B3, 3R target, no breakeven: trades in 2011-2022 (lab data, fills\nbefore 2023; the 2023-25 holdout is not opened) and Jan-Oct 2026 (the five markets with 2026 data, Exness ticks + HistData\nEURGBP), split by season at the entry time. Net R after RoboForex Prime published costs; gross = before costs.\n",
+ "rows": [
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "ny0930/A/3R",
+   "season": "winter (anchors identical)",
+   "n": 1261,
+   "net_R": -0.131,
+   "gross_R": 0.0247,
+   "t": -2.76,
+   "s": -0.0777
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "ny0930/A/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 2642,
+   "net_R": -0.1799,
+   "gross_R": -0.0259,
+   "t": -5.93,
+   "s": -0.1153
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "ny0930/B3/3R",
+   "season": "winter (anchors identical)",
+   "n": 976,
+   "net_R": -0.1828,
+   "gross_R": -0.0272,
+   "t": -3.6,
+   "s": -0.1151
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "ny0930/B3/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 2085,
+   "net_R": -0.2037,
+   "gross_R": -0.0501,
+   "t": -6.03,
+   "s": -0.132
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "wat1530/A/3R",
+   "season": "winter (anchors identical)",
+   "n": 1261,
+   "net_R": -0.131,
+   "gross_R": 0.0247,
+   "t": -2.76,
+   "s": -0.0777
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "wat1530/A/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 2134,
+   "net_R": -0.2081,
+   "gross_R": -0.0389,
+   "t": -6.24,
+   "s": -0.1352
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "wat1530/B3/3R",
+   "season": "winter (anchors identical)",
+   "n": 976,
+   "net_R": -0.1828,
+   "gross_R": -0.0272,
+   "t": -3.6,
+   "s": -0.1151
+  },
+  {
+   "period": "2011-22",
+   "markets": "12 markets",
+   "config": "wat1530/B3/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 1633,
+   "net_R": -0.2166,
+   "gross_R": -0.049,
+   "t": -5.72,
+   "s": -0.1416
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "ny0930/A/3R",
+   "season": "winter (anchors identical)",
+   "n": 460,
+   "net_R": -0.0839,
+   "gross_R": 0.0516,
+   "t": -1.11,
+   "s": -0.0516
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "ny0930/A/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 1090,
+   "net_R": -0.1547,
+   "gross_R": -0.0199,
+   "t": -3.26,
+   "s": -0.0987
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "ny0930/B3/3R",
+   "season": "winter (anchors identical)",
+   "n": 376,
+   "net_R": -0.1554,
+   "gross_R": -0.0119,
+   "t": -1.9,
+   "s": -0.098
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "ny0930/B3/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 923,
+   "net_R": -0.1947,
+   "gross_R": -0.0559,
+   "t": -3.84,
+   "s": -0.1263
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "wat1530/A/3R",
+   "season": "winter (anchors identical)",
+   "n": 460,
+   "net_R": -0.0839,
+   "gross_R": 0.0516,
+   "t": -1.11,
+   "s": -0.0516
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "wat1530/A/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 1106,
+   "net_R": -0.2723,
+   "gross_R": -0.1131,
+   "t": -6.22,
+   "s": -0.1871
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "wat1530/B3/3R",
+   "season": "winter (anchors identical)",
+   "n": 376,
+   "net_R": -0.1554,
+   "gross_R": -0.0119,
+   "t": -1.9,
+   "s": -0.098
+  },
+  {
+   "period": "2011-22",
+   "markets": "5 markets",
+   "config": "wat1530/B3/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 887,
+   "net_R": -0.2685,
+   "gross_R": -0.1066,
+   "t": -5.52,
+   "s": -0.1852
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "ny0930/A/3R",
+   "season": "winter (anchors identical)",
+   "n": 20,
+   "net_R": -0.0839,
+   "gross_R": 0.0148,
+   "t": -0.24,
+   "s": -0.0528
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "ny0930/A/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 106,
+   "net_R": -0.1523,
+   "gross_R": -0.0205,
+   "t": -1.01,
+   "s": -0.0979
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "ny0930/B3/3R",
+   "season": "winter (anchors identical)",
+   "n": 18,
+   "net_R": -0.2026,
+   "gross_R": -0.0996,
+   "t": -0.58,
+   "s": -0.1365
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "ny0930/B3/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 94,
+   "net_R": -0.0836,
+   "gross_R": 0.0572,
+   "t": -0.49,
+   "s": -0.0507
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "wat1530/A/3R",
+   "season": "winter (anchors identical)",
+   "n": 20,
+   "net_R": -0.0839,
+   "gross_R": 0.0148,
+   "t": -0.24,
+   "s": -0.0528
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "wat1530/A/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 73,
+   "net_R": 0.2288,
+   "gross_R": 0.3872,
+   "t": 1.1,
+   "s": 0.1292
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "wat1530/B3/3R",
+   "season": "winter (anchors identical)",
+   "n": 18,
+   "net_R": -0.2026,
+   "gross_R": -0.0996,
+   "t": -0.58,
+   "s": -0.1365
+  },
+  {
+   "period": "2026",
+   "markets": "5 markets",
+   "config": "wat1530/B3/3R",
+   "season": "summer (wat1530 = 10:30 New York)",
+   "n": 65,
+   "net_R": 0.4234,
+   "gross_R": 0.5815,
+   "t": 1.84,
+   "s": 0.2287
+  }
+ ]
+}

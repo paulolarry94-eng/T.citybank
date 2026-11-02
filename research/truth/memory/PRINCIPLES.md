@@ -12,8 +12,9 @@ More evidence (2026-10-31): Exness Zero spreads measured at about 0 (the cost is
 the Dark Mimas oscillator scalper still loses 1.2–1.9 pips per trade there, and loses before costs too.
 Evidence (2026-10-31, Leg 34 on gold M5, 144 configs): before costs +0.00 to +0.02R per trade; Exness Zero costs are 10-17% of a
 $1-1.60 five-minute stop (6% in 2025), so every version loses -0.11 to -0.13R. research/results/sop/leg34_diag.json.
-Evidence (2026-11-01, 5-min hunter): Leg 34 on M5 across 11 markets is about zero before costs on every market (-0.07 to
-+0.04R) and negative after costs on all of them. research/results/hunter5m/winner_anatomy.json.
+Evidence (2026-11-02, owner's 3:30 EMA retest, 48 configurations x 12 markets): before costs -0.03 to +0.02R per trade; a
+one-M5-candle stop makes RoboForex Prime's published costs 0.10-0.25R of risk (0.17R on average), so every configuration
+loses -0.16 to -0.22R in 2011-19 and again in 2020-22. research/results/owner330/RESULT.md.
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -33,6 +34,7 @@ Confidence: medium-high.
 
 More evidence (2026-10-31): owner's SOP: breakeven at 1:1 added +0.01 to +0.02R in 2011–22, then cost money in
 February–October 2026 (M30 +0.02R → −0.16R). It is not an edge.
+Evidence (2026-11-02, owner's 3:30 EMA retest): breakeven at +1R was worse in 16 of 24 paired settings (-0.004R on average).
 
 ### P5 Overnight swaps matter for multi-day trades
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
@@ -127,6 +129,9 @@ Evidence (2026-10-31): the owner's Leg 34 on gold M5 (3R/4R targets, breakeven, 
 Evidence (2026-11-01, repo funnel): mechanical versions of sofus-nl's VCP, cup and handle, bull flag, Qullamaggie breakout and
 triple RSI divergence on 11 CFDs are rare and negative (best: divergence both sides +0.003R on 30 trades in 2011-19);
 the strict cup and handle never triggers. research/results/truth/funnel_sofus_v1/.
+Evidence (2026-11-02): the owner's 3:30 EMA retest (M30 anchor candle crossing the 10 EMA at the New York session, first M5
+EMA cross inside its range, 2R/3R/4R, breakeven, 4 entries, 2 anchors): 0 of 48 configurations positive in 2011-19 or
+2020-22 on 12 markets; every year 2011-2022 negative. research/results/truth/owner330_ema_retest_v1/.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
@@ -156,6 +161,10 @@ open, and a trend day is known only after it ends. A time filter must survive a 
 trusts it. Evidence: research/gridbot/DARK_MIMAS_REPORT.md, research/results/truth/osc_turn_sessions_v1/. Confidence: medium-high.
 Evidence (2026-11-01): Leg 34 by session (Asia, London, New York) x 6 timeframes x 11 markets: no session differs
 (median -0.23R); the past M30 16-20 UTC pocket (EUR/GBP) lost on all 9 other markets.
+Evidence (2026-11-02): a time picked from recent LIVE experience behaves the same way so far. The owner's 3:30 anchor (15:30
+Nigerian time = 10:30 New York in US summer) made money in Jan-Oct 2026 (summer: +0.23R / +0.42R on 73 / 65 trades, t 1.1 /
+1.8, two data feeds agree), but that exact timing was the worst variant in 2011-22 (-0.27R on 1,106 trades, every year
+negative). Whether 2026 started something new is untested (Q25). research/results/owner330/season_split.json.
 
 ### P18 Case studies select winners; only a coded scan of every setup shows the hit rate
 The owner's 4-leg SOP documents showed mostly wins. Coded so that it reproduces the owner's own cases (same legs, entry and
@@ -171,6 +180,9 @@ Evidence (2026-10-31, Leg 34 gold M5): the month the owner's screenshots come fr
 slope did not separate winners (thirds by steepness: -0.14 / -0.16 / -0.13R).
 Evidence (2026-11-01): studying the biggest winners instead of case studies does not help either: rules built from the
 attributes of Leg 34's top runners lost out of sample on gold and on 9-10 of 10 other markets (P21).
+Evidence (2026-11-02, owner's 3:30 EMA retest): the coded scanner made the owner's call on 9 of 10 of the owner's own example
+days (same reference candle, entry and stop within cents), so the rules were captured; scanned over every day of 2011-2022 on
+12 markets they lose -0.16 to -0.22R a trade in all 48 settings. research/results/owner330/REPLAY.md, RESULT.md.
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
@@ -293,3 +305,15 @@ Update 2026-11-02 (breadth): edge quality x sqrt(independent trades per cycle) m
 (about 2.8 for +7%), whatever the number of trades per cycle (simulated n = 10-160: 1.38-1.47). With 10 trades per cycle
 that is s >= 0.43; with 40 independent trades, 0.23. Evidence: research/results/goal/breadth.json; summary for the owner:
 research/goal/CYCLE_GOAL_MATH.pdf.
+
+### P29 Check every data source's clock against a correctly timed reference before testing a time-of-day rule
+HistData's free M1 files are documented as "EST without daylight saving", but measured week by week against correctly timed
+markets they are New York local time with US daylight saving in 2011-2018 and follow UK daylight saving from 2019: one hour
+late for about two thirds of every year. Nothing in the bars looks wrong (prices, ranges and daily results are fine); only an
+intraday time rule exposes it, and it was found because one of the owner's charts did not match our data. Effects: the one
+"positive" 2020-22 slice of the US close flow (+0.031R, t 2.1) was a clock artifact (-0.011R after the fix); intraday session
+studies on HistData markets before 2026-11-02 used shifted times (Q26). Rule: align each new source's 1-minute returns with a
+trusted reference at -60/0/+60 minutes, week by week, across daylight-saving changes (tools/histdata_clock.py), and check that
+exchange opens land on the open minute in summer and in winter. Evidence: research/results/data/histdata_clock.json (8 markets,
+2011-2026, 98-100% of weeks agree; after the fix EURGBP 832/833 and XAGUSD 743/743 weeks align), the 2026 HistData feed vs
+Exness (43/43 weeks). Confidence: high.

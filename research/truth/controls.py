@@ -8,7 +8,8 @@ For the configuration the lab selected (if any): long/short split, the trades at
 swaps (where published), and 2023-25 only if the lab already logged its one look for this fingerprint.
 Owner's rule (stricter than the lab): REAL only if (1) lab Tier A/B, (2) 2011-19 t >= 3 after costs, (3) beats its control
 in 2011-19 (differential > 0, Welch t >= 2), (4) replicates (2020-22 > 0 and every market > 0 in 2011-19).
-Tier B failing 2-4 = MONITOR; otherwise REJECTED. Output: research/results/truth/<NAME>/controls.json
+Tier B failing 2-4 = MONITOR; otherwise REJECTED. Also every configuration pooled across markets (flow vs control, per
+period). Output: research/results/truth/<NAME>/controls.json
 """
 import os, sys, json, math
 import numpy as np
@@ -56,6 +57,7 @@ def run(name):
     looked = bool(summ.get("final_look")) and summ.get("fingerprint") == S.FINGERPRINT
     res = dict(name=name, fingerprint=S.FINGERPRINT, verdict=summ.get("verdict"), selected=sel, configs={})
     fs, cs, per_mkt = [], [], {}
+    pool = {}                                                    # config -> period -> ([flow R], [control R]) across markets
     for sym in S.MARKETS:
         M = P.market(sym, S)
         for p in P.param_sets(S):
@@ -67,6 +69,8 @@ def run(name):
             for per, a, b in PERIODS:
                 mf, mc = (yf >= a) & (yf <= b), (yc >= a) & (yc <= b)
                 row.setdefault(per, {})[sym] = dict(flow=stats(f[mf, 3]), control=stats(c[mc, 3]), diff=welch(f[mf, 3], c[mc, 3]))
+                pf, pc = pool.setdefault(key, {}).setdefault(per, ([], []))
+                pf.append(f[mf, 3]); pc.append(c[mc, 3])
             if sel and all(sel.get(k) == p.get(k) for k in S.GRID):
                 fs.append((sym, f)); cs.append(c)
                 per_mkt[sym] = stats(f[yf <= 2019, 3])
@@ -80,6 +84,9 @@ def run(name):
                     F = P.run_config(S, M, p, 0.0, 0.0, 0, cut=0); Cc = P.run_config(S, M, dict(p, sample="control"), 0.0, 0.0, 0, cut=0)
                     lf, lc = year_index(F[:, 0]) >= 2023, year_index(Cc[:, 0]) >= 2023
                     res.setdefault("late_2023_25", {})[sym] = dict(flow=stats(F[lf, 3]), control=stats(Cc[lc, 3]), diff=welch(F[lf, 3], Cc[lc, 3]))
+    res["pooled"] = {k: {per: dict(flow=stats(np.concatenate(pf)), control=stats(np.concatenate(pc)),
+                                   diff=welch(np.concatenate(pf), np.concatenate(pc))) for per, (pf, pc) in v.items()}
+                     for k, v in pool.items()}
     if sel:
         f = np.vstack([x for _, x in fs]); c = np.vstack(cs)
         yf, yc = year_index(f[:, 0]), year_index(c[:, 0])

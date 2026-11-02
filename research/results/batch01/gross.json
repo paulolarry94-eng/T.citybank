@@ -1,129 +1,129 @@
 {
  "us_close_flow_v1 {\"anchor\": \"prev_close\", \"entry\": \"15:30\"}": {
   "2011-19": {
-   "n": 1495,
-   "net": -0.0319,
-   "gross_no_cost_no_swap": 0.0109,
-   "t_gross": 1.57,
+   "n": 1501,
+   "net": -0.0365,
+   "gross_no_cost_no_swap": 0.0059,
+   "t_gross": 0.63,
    "cost_R": 0.0424
   },
   "2020-22": {
-   "n": 493,
-   "net": 0.0313,
-   "gross_no_cost_no_swap": 0.0429,
-   "t_gross": 2.84,
-   "cost_R": 0.0116
+   "n": 484,
+   "net": -0.0105,
+   "gross_no_cost_no_swap": 0.0008,
+   "t_gross": 0.05,
+   "cost_R": 0.0114
   }
  },
  "us_close_flow_v1 {\"anchor\": \"prev_close\", \"entry\": \"15:45\"}": {
   "2011-19": {
-   "n": 1481,
-   "net": -0.0401,
-   "gross_no_cost_no_swap": 0.0023,
-   "t_gross": 0.43,
-   "cost_R": 0.0424
+   "n": 1495,
+   "net": -0.034,
+   "gross_no_cost_no_swap": 0.0081,
+   "t_gross": 1.16,
+   "cost_R": 0.0421
   },
   "2020-22": {
-   "n": 490,
-   "net": 0.0015,
-   "gross_no_cost_no_swap": 0.013,
-   "t_gross": 1.04,
-   "cost_R": 0.0115
+   "n": 492,
+   "net": 0.01,
+   "gross_no_cost_no_swap": 0.0215,
+   "t_gross": 1.41,
+   "cost_R": 0.0116
   }
  },
  "us_close_flow_v1 {\"anchor\": \"open\", \"entry\": \"15:30\"}": {
   "2011-19": {
-   "n": 1498,
-   "net": -0.04,
-   "gross_no_cost_no_swap": 0.0025,
-   "t_gross": 0.38,
-   "cost_R": 0.0426
+   "n": 1457,
+   "net": -0.0299,
+   "gross_no_cost_no_swap": 0.013,
+   "t_gross": 1.35,
+   "cost_R": 0.0429
   },
   "2020-22": {
-   "n": 481,
-   "net": -0.0077,
-   "gross_no_cost_no_swap": 0.0038,
-   "t_gross": 0.27,
+   "n": 487,
+   "net": -0.0284,
+   "gross_no_cost_no_swap": -0.0169,
+   "t_gross": -1.04,
    "cost_R": 0.0115
   }
  },
  "us_close_flow_v1 {\"anchor\": \"open\", \"entry\": \"15:45\"}": {
   "2011-19": {
-   "n": 1464,
-   "net": -0.0532,
-   "gross_no_cost_no_swap": -0.0106,
-   "t_gross": -1.93,
-   "cost_R": 0.0426
+   "n": 1476,
+   "net": -0.0286,
+   "gross_no_cost_no_swap": 0.0141,
+   "t_gross": 2.04,
+   "cost_R": 0.0427
   },
   "2020-22": {
-   "n": 492,
-   "net": -0.0242,
-   "gross_no_cost_no_swap": -0.013,
-   "t_gross": -1.22,
-   "cost_R": 0.0112
+   "n": 493,
+   "net": -0.0092,
+   "gross_no_cost_no_swap": 0.0022,
+   "t_gross": 0.17,
+   "cost_R": 0.0114
   }
  },
  "monthend_rebalance_v1 {\"n_before\": 3, \"filter\": \"all\"}": {
   "2011-19": {
    "n": 323,
-   "net": -0.0057,
-   "gross_no_cost_no_swap": 0.1029,
-   "t_gross": 2.31,
+   "net": -0.0033,
+   "gross_no_cost_no_swap": 0.1059,
+   "t_gross": 2.36,
    "cost_R": 0.0114
   },
   "2020-22": {
    "n": 116,
-   "net": -0.1471,
-   "gross_no_cost_no_swap": -0.1079,
-   "t_gross": -1.46,
+   "net": -0.1428,
+   "gross_no_cost_no_swap": -0.1035,
+   "t_gross": -1.39,
    "cost_R": 0.0053
   }
  },
  "monthend_rebalance_v1 {\"n_before\": 3, \"filter\": \"strong\"}": {
   "2011-19": {
-   "n": 114,
-   "net": 0.0714,
-   "gross_no_cost_no_swap": 0.1721,
-   "t_gross": 2.28,
-   "cost_R": 0.0108
+   "n": 115,
+   "net": 0.0662,
+   "gross_no_cost_no_swap": 0.1667,
+   "t_gross": 2.25,
+   "cost_R": 0.0107
   },
   "2020-22": {
-   "n": 61,
-   "net": -0.2613,
-   "gross_no_cost_no_swap": -0.2237,
-   "t_gross": -3.02,
-   "cost_R": 0.0046
+   "n": 55,
+   "net": -0.29,
+   "gross_no_cost_no_swap": -0.2531,
+   "t_gross": -3.59,
+   "cost_R": 0.0044
   }
  },
  "monthend_rebalance_v1 {\"n_before\": 1, \"filter\": \"all\"}": {
   "2011-19": {
    "n": 341,
-   "net": 0.0,
-   "gross_no_cost_no_swap": 0.0455,
-   "t_gross": 1.73,
+   "net": 0.001,
+   "gross_no_cost_no_swap": 0.0465,
+   "t_gross": 1.8,
    "cost_R": 0.0114
   },
   "2020-22": {
    "n": 117,
-   "net": -0.0688,
-   "gross_no_cost_no_swap": -0.0527,
-   "t_gross": -1.31,
+   "net": -0.0857,
+   "gross_no_cost_no_swap": -0.0697,
+   "t_gross": -1.7,
    "cost_R": 0.0053
   }
  },
  "monthend_rebalance_v1 {\"n_before\": 1, \"filter\": \"strong\"}": {
   "2011-19": {
-   "n": 133,
-   "net": 0.0376,
-   "gross_no_cost_no_swap": 0.0806,
-   "t_gross": 2.05,
+   "n": 131,
+   "net": -0.0025,
+   "gross_no_cost_no_swap": 0.0406,
+   "t_gross": 1.09,
    "cost_R": 0.0109
   },
   "2020-22": {
-   "n": 69,
-   "net": -0.088,
-   "gross_no_cost_no_swap": -0.0726,
-   "t_gross": -1.35,
+   "n": 71,
+   "net": -0.1015,
+   "gross_no_cost_no_swap": -0.0863,
+   "t_gross": -1.55,
    "cost_R": 0.0046
   }
  }

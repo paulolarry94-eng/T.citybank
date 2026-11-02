@@ -80,3 +80,21 @@ Replay result after the changes: the scanner makes the owner's call on 9 of 10 d
 and stop levels within cents/0.4 pip of the owner's). The miss: EURGBP 27 Oct, where the owner's 16:00 reference closed
 exactly on the M5 EMA in our data (0.83664 vs 0.83664): a sub-pip feed difference. Note: 28 Oct 2026 was an FOMC day; the
 backtest skips such days as the owner asked.
+
+## Result (2026-11-02) and a proposed look (NOT made; it waits for the owner's word)
+The lab rejected the strategy at the development gate: all 48 configurations lost after costs in 2011-19 and 2020-22
+(`research/results/owner330/RESULT.md`). No configuration was selected, so the lab made no 2023-25 look. Jan-Oct 2026 (the
+owner's own period, not a clean test) was positive for the 15:30 WAT anchor, only in US summer time, when 15:30 WAT is 10:30
+New York (`season_split.json`). Written down now, before anyone sees 2023-25 for this strategy:
+
+**Proposed one look at 2023-25.** Question: did the 15:30 WAT anchor in US summer time turn positive before 2026?
+- Computed exactly: this strategy file as fingerprinted (7a93770f7272...), anchor wat1530, entries A and B3, target 3R,
+  breakeven off; trades from 2023-01-01 to 2025-12-31 split by US daylight-saving season at the entry time (summer is the
+  question, winter is reported too); the five markets with 2026 data (XAUUSD, EURUSD, GBPUSD, USDJPY, EURGBP) as the test,
+  all twelve markets reported alongside; RoboForex Prime published costs; mean R, t and trades per year.
+- Decision rule: **shift began before 2026** if the five-market 2023-25 summer mean is above 0 for both entries and t >= 2
+  for at least one: then a forward test from mid-March 2027 is worth running. **No shift** if the summer mean is <= 0 for
+  both entries: 2026 is treated as noise plus selection and Q25 is closed as rejected. Anything else: unclear, forward test
+  only.
+- One look, logged (date, fingerprint, this rule) in `research/results/owner330/look_2023_25.json`. Changing any rule after
+  it requires a new strategy name.
