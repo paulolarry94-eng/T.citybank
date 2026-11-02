@@ -2,7 +2,7 @@
  "name": "eurusd_close_beyond_reversal_v1",
  "hypothesis": "A daily close beyond the prior day's range is an exhaustion move; a stop entry back through the bar's far extreme catches the snap-back, and banking the first profitable New York close harvests it.",
  "fingerprint": "0fe044ee85982c535c611c382478f1604bba92f95f75e6ff26dedc31e5c46526",
- "started": "2026-10-31 15:45:12 UTC",
+ "started": "2026-11-02 02:00:56 UTC",
  "markets": [
   "EURUSD"
  ],
@@ -48,6 +48,54 @@
   {
    "name": "Liquidity grabs at swing points (SFP, equal highs, sweep+MSS, NY-sweeps-London)",
    "verdict": "Rejected"
+  },
+  {
+   "name": "close_beyond_reversal_4mkt_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ath_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "funnel_trustdan_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "funnel_sofus_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "ecb_fix_eurusd_v1",
+   "verdict": "Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for."
+  },
+  {
+   "name": "Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard)",
+   "verdict": "Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened."
   }
  ],
  "lookahead": {
@@ -244,6 +292,264 @@
    "T": 252
   }
  },
+ "cycle_goal": {
+  "2011-19": {
+   "trades": 252,
+   "mean_R": 0.04,
+   "sd_R": 0.3595,
+   "s": 0.1114,
+   "win_rate": 0.881,
+   "trades_to_prove_t3": 726,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.212,
+    "5": 0.294,
+    "6": 0.353,
+    "8": 0.471
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.5365,
+    "5": 0.7451,
+    "6": 0.8941,
+    "8": 1.1921
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 4.994,
+     "dd95_pct": 33.5
+    },
+    "3": {
+     "risk_pct": 7.492,
+     "dd95_pct": 50.3
+    },
+    "4": {
+     "risk_pct": 9.989,
+     "dd95_pct": 67.0
+    },
+    "5": {
+     "risk_pct": 12.486,
+     "dd95_pct": 83.8
+    },
+    "6": {
+     "risk_pct": 14.983,
+     "dd95_pct": 100.5
+    },
+    "7": {
+     "risk_pct": 17.481,
+     "dd95_pct": 117.3
+    }
+   },
+   "gap_2pct_at_3.6": 3.8,
+   "meets": []
+  },
+  "2020-22": {
+   "trades": 89,
+   "mean_R": 0.0302,
+   "sd_R": 0.3321,
+   "s": 0.0909,
+   "win_rate": 0.91,
+   "trades_to_prove_t3": 1090,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.092,
+    "5": 0.128,
+    "6": 0.154,
+    "8": 0.205
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.3693,
+    "5": 0.513,
+    "6": 0.6156,
+    "8": 0.8207
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 6.624,
+     "dd95_pct": 64.6
+    },
+    "3": {
+     "risk_pct": 9.936,
+     "dd95_pct": 96.8
+    },
+    "4": {
+     "risk_pct": 13.248,
+     "dd95_pct": 129.1
+    },
+    "5": {
+     "risk_pct": 16.56,
+     "dd95_pct": 161.4
+    },
+    "6": {
+     "risk_pct": 19.872,
+     "dd95_pct": 193.7
+    },
+    "7": {
+     "risk_pct": 23.184,
+     "dd95_pct": 226.0
+    }
+   },
+   "gap_2pct_at_3.6": 4.6,
+   "meets": []
+  },
+  "2023-25": {
+   "trades": 112,
+   "mean_R": 0.0117,
+   "sd_R": 0.3282,
+   "s": 0.0355,
+   "win_rate": 0.848,
+   "trades_to_prove_t3": 7137,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.021,
+    "5": 0.029,
+    "6": 0.035,
+    "8": 0.046
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.2915,
+    "5": 0.4049,
+    "6": 0.4859,
+    "8": 0.6479
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 17.157,
+     "dd95_pct": 211.9
+    },
+    "3": {
+     "risk_pct": 25.735,
+     "dd95_pct": 317.8
+    },
+    "4": {
+     "risk_pct": 34.314,
+     "dd95_pct": 423.7
+    },
+    "5": {
+     "risk_pct": 42.892,
+     "dd95_pct": 529.6
+    },
+    "6": {
+     "risk_pct": 51.471,
+     "dd95_pct": 635.6
+    },
+    "7": {
+     "risk_pct": 60.049,
+     "dd95_pct": 741.5
+    }
+   },
+   "gap_2pct_at_3.6": 11.9,
+   "meets": []
+  }
+ },
+ "cost_ladder": {
+  "gross": {
+   "2011-19": {
+    "n": 252,
+    "E": 0.056,
+    "t": 2.47
+   },
+   "2020-22": {
+    "n": 89,
+    "E": 0.0462,
+    "t": 1.31
+   },
+   "2023-25": {
+    "n": 112,
+    "E": 0.0277,
+    "t": 0.89
+   }
+  },
+  "roboforex_prime": {
+   "2011-19": {
+    "n": 252,
+    "E": 0.0538,
+    "t": 2.38
+   },
+   "2020-22": {
+    "n": 89,
+    "E": 0.044,
+    "t": 1.25
+   },
+   "2023-25": {
+    "n": 112,
+    "E": 0.0255,
+    "t": 0.82
+   }
+  },
+  "exness_zero": {
+   "2011-19": {
+    "n": 252,
+    "E": 0.0522,
+    "t": 2.31
+   },
+   "2020-22": {
+    "n": 89,
+    "E": 0.0424,
+    "t": 1.2
+   },
+   "2023-25": {
+    "n": 112,
+    "E": 0.0239,
+    "t": 0.77
+   }
+  },
+  "lab_standard": {
+   "2011-19": {
+    "n": 252,
+    "E": 0.05,
+    "t": 2.21
+   },
+   "2020-22": {
+    "n": 89,
+    "E": 0.0402,
+    "t": 1.14
+   },
+   "2023-25": {
+    "n": 112,
+    "E": 0.0217,
+    "t": 0.7
+   }
+  }
+ },
  "final_look": {
   "fingerprint": "0fe044ee85982c535c611c382478f1604bba92f95f75e6ff26dedc31e5c46526",
   "config": "{\"bias\": 0, \"stop_pips\": 250, \"tf\": \"D1\", \"tgt\": 0.0, \"trail\": 0.0}",
@@ -298,16 +604,16 @@
   }
  },
  "portfolio_fit": {
-  "corr_monthly": 0.11160151659861826,
+  "corr_monthly": 0.1311350763584769,
   "weights": {
-   "book": 0.206,
-   "cand": 0.794
+   "book": 0.202,
+   "cand": 0.798
   },
-  "book_sharpe": 0.9966979649236697,
+  "book_sharpe": 1.2128619857019274,
   "cand_sharpe": 0.4903558700453972,
-  "combined_sharpe": 1.078301014383684,
-  "book_sharpe_2017_on": 0.8410009720694611,
-  "combined_sharpe_2017_on": 0.7626339843723237
+  "combined_sharpe": 1.2347761907696473,
+  "book_sharpe_2017_on": 1.0349414170517213,
+  "combined_sharpe_2017_on": 0.9036843626065075
  },
  "verdict": "Tier B: forward-test candidate"
 }

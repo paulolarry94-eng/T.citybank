@@ -33,6 +33,7 @@ from grid import agg, year_index
 from analyze import summ, jsonable
 from confirm import stats, deflated_sharpe
 from oos import tier
+import cyclegoal
 
 RES = os.path.join(ROOT, "results", "truth")
 COSTS = json.load(open(os.path.join(HERE, "costs.json")))
@@ -334,6 +335,11 @@ def run(path, look=True, markets=None, procs=4):
                 dsr=deflated_sharpe(Bt[dev, 3], srt.values, len(R)) if dev.sum() > 2 else None)
     rec["confirmation"] = conf
     print(f"[4] stress (costs x1.5, swaps x2, +1 min) 2011-22 E {conf['stress_dev_val'].get('E')}; deflated Sharpe {conf['dsr'] and round(conf['dsr']['dsr'], 3)}", flush=True)
+    # cycle goal (owner: +2..7% per 10-trade cycle inside a 360-trade lifecycle drawdown cap) and the cost ladder, 2011-22
+    rec["cycle_goal"] = {"2011-19": cyclegoal.score(Bt[dev, 3]), "2020-22": cyclegoal.score(Bt[val, 3])}
+    rec["cost_ladder"] = cyclegoal.cost_ladder(Bt, S.MARKETS, {"2011-19": dev, "2020-22": val})
+    print(f"    cycle goal: edge quality s {rec['cycle_goal']['2011-19'].get('s')} (2011-19) / {rec['cycle_goal']['2020-22'].get('s')} (2020-22); "
+          f"+2% per cycle inside 3.6% needs {cyclegoal.needed_s(0.02, 0.036):.2f}", flush=True)
     if not look:
         rec["verdict"] = "Stopped before the final look (--no-look)"
         return finish(S, rec, out)
@@ -351,6 +357,10 @@ def run(path, look=True, markets=None, procs=4):
     # 7 cost profile
     low = lambda Z: Z[:, 3] + 0.5 * Z[:, 5] + Z[:, 7]
     yf = year_index(F[:, 0])
+    late = yf >= 2023
+    rec["cycle_goal"]["2023-25"] = cyclegoal.score(F[late, 3])
+    for prof, v in cyclegoal.cost_ladder(F, S.MARKETS, {"2023-25": late}).items():
+        rec["cost_ladder"][prof].update(v)
     rec["low_cost_swap_free"] = {k: stats(low(F[m])) for k, m in (("dev", yf <= 2019), ("val", (yf >= 2020) & (yf <= 2022)), ("2023-25", yf >= 2023))}
     # 8 portfolio fit
     rec["portfolio_fit"] = portfolio_fit(daily(F))
@@ -434,8 +444,33 @@ def report_md(S, r):
         pf = r["portfolio_fit"]
         L += [f"8. Portfolio fit: monthly correlation with the 11-leg book {pf['corr_monthly']:+.2f}; Sharpe book {_f(pf['book_sharpe'], 2)} → "
               f"book + this {_f(pf['combined_sharpe'], 2)} (2017 on: {_f(pf['book_sharpe_2017_on'], 2)} → {_f(pf['combined_sharpe_2017_on'], 2)})."]
+    L += _goal_lines(r)
     L += ["", "Rules: research/northstar/PREREGISTRATION.md (tiers, costs, fills). Raw data: grid.csv.gz, pooled.csv.gz, summary.json, oos_log.json."]
     return "\n".join(L) + "\n"
+
+
+def _goal_lines(r):
+    """Cycle goal and cost ladder sections (selected configuration only)."""
+    g, c = r.get("cycle_goal"), r.get("cost_ladder")
+    if not g:
+        return []
+    L = ["", "## Cycle goal (owner: +2% to +7% per 10-trade cycle, 95% of 360-trade lifecycles inside the drawdown cap)",
+         f"Edge quality s = mean R / spread of R per trade (after costs). Needed: +2% inside 3.6% {cyclegoal.needed_s(0.02, 0.036):.2f}, "
+         f"inside 5% {cyclegoal.needed_s(0.02, 0.05):.2f}; +7% inside 3.6% {cyclegoal.needed_s(0.07, 0.036):.2f}, inside 5% {cyclegoal.needed_s(0.07, 0.05):.2f}.", "",
+         "| Period | Trades | Win rate | Edge quality s | Cycle at 3.6% cap | at 5% | at 8% | Gap to +2% at 3.6% |", "|---|---|---|---|---|---|---|---|"]
+    for per, v in g.items():
+        if "s" not in v:
+            L.append(f"| {per} | {v.get('trades')} | – | – | – | – | – | – |"); continue
+        cm = v["cycle_mean_pct_at_cap"]
+        L.append(f"| {per} | {v['trades']} | {v['win_rate']:.0%} | {v['s']:.3f} | {cm['3.6']:+.2f}% | {cm['5']:+.2f}% | {cm['8']:+.2f}% | "
+                 f"{'x' + str(v['gap_2pct_at_3.6']) if v.get('gap_2pct_at_3.6') else 'no edge'} |")
+    if c:
+        pers = list(next(iter(c.values())).keys())
+        L += ["", "## Cost ladder (same trades, other prices; swaps unchanged): mean R per trade (t)",
+              "| Prices | " + " | ".join(pers) + " |", "|---|" + "---|" * len(pers)]
+        for prof, v in c.items():
+            L.append(f"| {prof} | " + " | ".join(f"{_f(v[p]['E'])} ({_f(v[p]['t'], 1)})" for p in pers) + " |")
+    return L
 
 
 def ea_spec_md(S, r):

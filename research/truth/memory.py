@@ -40,7 +40,10 @@ def record(entry):
             prev = e                                         # same idea, same rules: update, keep curated fields
         else:
             rows.append(e)
-    rows.append({**prev, **{k: v for k, v in entry.items() if v not in (None, [], "", {})}})
+    new = {k: v for k, v in entry.items() if v not in (None, [], "", {})}
+    if prev.get("date") and new.get("date") and new["date"] != prev["date"]:    # a re-run keeps the first test date
+        new["last_run"] = new.pop("date")
+    rows.append({**prev, **new})
     with open(LEDGER, "w") as f:
         for e in rows:
             f.write(json.dumps(e, default=float) + "\n")

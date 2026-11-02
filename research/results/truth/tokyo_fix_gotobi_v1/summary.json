@@ -2,7 +2,7 @@
  "name": "tokyo_fix_gotobi_v1",
  "hypothesis": "Japanese importers' dollar buying at the 09:55 JST Tokyo fix on gotobi days lifts USDJPY into the fix (and it eases after), by more than the round-trip cost.",
  "fingerprint": "84a2551837367f73102b23f4d655c6b7e4ce46423d9e79b8fceb03efdd2e4cb7",
- "started": "2026-11-01 06:47:33 UTC",
+ "started": "2026-11-02 02:00:23 UTC",
  "markets": [
   "USDJPY"
  ],
@@ -84,6 +84,74 @@
   {
    "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
    "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Tokyo fix payoff shape and declared-bracket study",
+   "verdict": "Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection."
+  },
+  {
+   "name": "SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules)",
+   "verdict": "Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R."
+  },
+  {
+   "name": "SEESARE time-exit ascension study (Tokyo fix, cent account)",
+   "verdict": "Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3."
+  },
+  {
+   "name": "Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00",
+   "verdict": "Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen."
+  },
+  {
+   "name": "Q21 diagnostic: tick-volume surge on opening-range breakouts vs range expansion and direction",
+   "verdict": "Study: activity predicts a little more movement in both directions, not direction. USDJPY 2011-25 (9,252 breakouts, Tokyo/London/New York): rank correlation with 60-min range expansion +0.05 / +0.07, with follow-through +0.001 / -0.008; top-quintile follow-through +0.0135 ATR_D in 2011-19 (t 2.4 of 5 quintiles) and +0.006 (t 0.8) in 2020-25, below the 0.0187 ATR_D round-trip cost. GER40 2020-25 (2,396): expansion +0.19, follow-through -0.009. Only USDJPY (all years) and GER40 (2020+) have tick volume in our data."
+  },
+  {
+   "name": "ecb_fix_eurusd_v1",
+   "verdict": "Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for."
+  },
+  {
+   "name": "Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard)",
+   "verdict": "Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened."
   }
  ],
  "lookahead": {
@@ -327,6 +395,264 @@
    "dsr": 0.9686503545961832,
    "n_trials": 3,
    "T": 644
+  }
+ },
+ "cycle_goal": {
+  "2011-19": {
+   "trades": 644,
+   "mean_R": 0.0413,
+   "sd_R": 0.5589,
+   "s": 0.0739,
+   "win_rate": 0.545,
+   "trades_to_prove_t3": 1647,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.132,
+    "5": 0.184,
+    "6": 0.22,
+    "8": 0.294
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.319,
+    "5": 0.443,
+    "6": 0.5316,
+    "8": 0.7088
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 4.84,
+     "dd95_pct": 54.6
+    },
+    "3": {
+     "risk_pct": 7.26,
+     "dd95_pct": 81.9
+    },
+    "4": {
+     "risk_pct": 9.679,
+     "dd95_pct": 109.2
+    },
+    "5": {
+     "risk_pct": 12.099,
+     "dd95_pct": 136.6
+    },
+    "6": {
+     "risk_pct": 14.519,
+     "dd95_pct": 163.9
+    },
+    "7": {
+     "risk_pct": 16.939,
+     "dd95_pct": 191.2
+    }
+   },
+   "gap_2pct_at_3.6": 5.7,
+   "meets": []
+  },
+  "2020-22": {
+   "trades": 214,
+   "mean_R": 0.0639,
+   "sd_R": 0.5234,
+   "s": 0.1221,
+   "win_rate": 0.523,
+   "trades_to_prove_t3": 604,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.237,
+    "5": 0.329,
+    "6": 0.395,
+    "8": 0.527
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.3846,
+    "5": 0.5341,
+    "6": 0.6409,
+    "8": 0.8546
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 3.129,
+     "dd95_pct": 29.3
+    },
+    "3": {
+     "risk_pct": 4.694,
+     "dd95_pct": 43.9
+    },
+    "4": {
+     "risk_pct": 6.258,
+     "dd95_pct": 58.6
+    },
+    "5": {
+     "risk_pct": 7.823,
+     "dd95_pct": 73.2
+    },
+    "6": {
+     "risk_pct": 9.387,
+     "dd95_pct": 87.9
+    },
+    "7": {
+     "risk_pct": 10.952,
+     "dd95_pct": 102.5
+    }
+   },
+   "gap_2pct_at_3.6": 3.4,
+   "meets": []
+  },
+  "2023-25": {
+   "trades": 214,
+   "mean_R": 0.0523,
+   "sd_R": 0.5292,
+   "s": 0.0988,
+   "win_rate": 0.584,
+   "trades_to_prove_t3": 923,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.132,
+    "5": 0.184,
+    "6": 0.22,
+    "8": 0.294
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.2464,
+    "5": 0.3422,
+    "6": 0.4106,
+    "8": 0.5475
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 3.826,
+     "dd95_pct": 55.9
+    },
+    "3": {
+     "risk_pct": 5.739,
+     "dd95_pct": 83.9
+    },
+    "4": {
+     "risk_pct": 7.652,
+     "dd95_pct": 111.8
+    },
+    "5": {
+     "risk_pct": 9.565,
+     "dd95_pct": 139.8
+    },
+    "6": {
+     "risk_pct": 11.478,
+     "dd95_pct": 167.7
+    },
+    "7": {
+     "risk_pct": 13.391,
+     "dd95_pct": 195.7
+    }
+   },
+   "gap_2pct_at_3.6": 4.3,
+   "meets": []
+  }
+ },
+ "cost_ladder": {
+  "gross": {
+   "2011-19": {
+    "n": 644,
+    "E": 0.084,
+    "t": 3.81
+   },
+   "2020-22": {
+    "n": 214,
+    "E": 0.1015,
+    "t": 2.84
+   },
+   "2023-25": {
+    "n": 214,
+    "E": 0.0819,
+    "t": 2.26
+   }
+  },
+  "roboforex_prime": {
+   "2011-19": {
+    "n": 644,
+    "E": 0.0634,
+    "t": 2.88
+   },
+   "2020-22": {
+    "n": 214,
+    "E": 0.0834,
+    "t": 2.33
+   },
+   "2023-25": {
+    "n": 214,
+    "E": 0.0676,
+    "t": 1.87
+   }
+  },
+  "exness_zero": {
+   "2011-19": {
+    "n": 644,
+    "E": 0.0413,
+    "t": 1.88
+   },
+   "2020-22": {
+    "n": 214,
+    "E": 0.0639,
+    "t": 1.79
+   },
+   "2023-25": {
+    "n": 214,
+    "E": 0.0523,
+    "t": 1.45
+   }
+  },
+  "lab_standard": {
+   "2011-19": {
+    "n": 644,
+    "E": 0.046,
+    "t": 2.09
+   },
+   "2020-22": {
+    "n": 214,
+    "E": 0.068,
+    "t": 1.9
+   },
+   "2023-25": {
+    "n": 214,
+    "E": 0.0555,
+    "t": 1.53
+   }
   }
  },
  "final_look": {

@@ -26,6 +26,14 @@ Results land in `research/results/truth/<NAME>/`: `REPORT.md` (read this), `summ
 | 6 | Tier A (deploy) / Tier B (forward-test) / Rejected | the criteria in `research/northstar/PREREGISTRATION.md` §5 |
 | 7 | low-cost swap-free profile | what a raw-spread, swap-free account would change |
 | 8 | portfolio fit vs the 11-leg book | does it add, or duplicate what you already have? |
+| 9 | cycle goal: edge quality s (mean R / spread of R) and the cycle at 3.6 / 5 / 8% lifecycle drawdown | how far is it from +2-7% per 10-trade cycle? (`cyclegoal.py`, P28) |
+| 10 | cost ladder: the same trades at gross, RoboForex Prime, Exness Zero and lab prices | is the edge in the market or only in the price list? |
+
+## The cycle goal in one line
++2% per 10-trade cycle with 95% of 360-trade lifecycles inside a 3.6% drawdown needs edge quality s of about 0.42 after
+costs (0.35 inside 5%; +7% needs 0.81 / 0.68). `python3 research/truth/cyclegoal.py --table` prints the full table;
+`--trades <csv>` scores any trade list; `--survivors` scores the verified strategies
+(`research/results/truth/cycle_goal_survivors.json`). Our best so far: 0.06-0.13.
 
 ## Rules that keep it honest
 - Decide MARKETS, TIMEFRAMES and GRID before running. Choosing markets after seeing which worked is hindsight.
