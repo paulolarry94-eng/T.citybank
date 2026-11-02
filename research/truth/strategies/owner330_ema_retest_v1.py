@@ -11,7 +11,8 @@ Every market, every New York business day:
  2 WATCH (M5). From the first M5 candle after the anchor closes. Cancel the day if an M5 candle CLOSES beyond the
    opposite end of the range (above it on a sell day); a wick through it does not cancel.
  3 REFERENCE (M5). The first M5 candle that crosses the M5 10 EMA in the bias direction (previous close on the other side,
-   this close on the bias side) and closes inside the range. One reference per day.
+   this close on the bias side) and trades inside the range (its high-low touches the range; the owner's gold 29 Oct
+   reference closed below the range but its high reached into it). One reference per day.
  4 ENTRY (sell; buy is the mirror). Stop at the reference high.
    displaced reference (range >= 1.5 x the average range of the 10 M5 candles before it): sell limit at its 50% level;
    otherwise entry = A:  sell stop at the reference low (fills when price trades through it);
@@ -125,7 +126,7 @@ def setups(B, p, M):
                                     break                               # closed beyond the opposite end: cancel
                                 cross = (side < 0 and c5[j - 1] > e5[j - 1] and c5[j] < e5[j]) or \
                                         (side > 0 and c5[j - 1] < e5[j - 1] and c5[j] > e5[j])
-                                if cross and L <= c5[j] <= H:
+                                if cross and l5[j] <= H and h5[j] >= L:       # the candle touches the range
                                     ref = j; break
                                 j += 1
                             if ref >= 0:
@@ -152,13 +153,13 @@ def signals(B, p, M):
     return [(int(j), int(s), float(hi if s < 0 else lo)) for j, s, hi, lo in zip(S_["j"], S_["side"], S_["rhi"], S_["rlo"])]
 
 
-@njit(cache=True)
+@njit(cache=False)
 def _blocked(t, blo, bhi):
     s = t % 86400
     return blo <= s < bhi
 
 
-@njit(cache=True)
+@njit(cache=False)
 def simulate(o, h, l, ts, gaps, kdec, side, rhi, rlo, disp, kcancel, ktime, win, tgt, be, cost, cut, delay, blo, bhi, min_r):
     """Orders and exits minute by minute. Returns rows: t_in, t_out, side, net R, stop distance, cost R, nights, financing R,
     entry, stop, target, exit price, exit reason (1 stop, 2 target, 3 time, 4 breakeven), displaced, setup index."""

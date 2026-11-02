@@ -10,7 +10,7 @@ it); tests: `research/truth/tests/test_owner330.py`.
 | Anchor | "at 3:30 a candle breaks the 10 EMA"; "opens one side, closes the other"; "always 9:30 New York ... open to optimisation" | M30 candle at the anchor time; SELL if open > EMA > close, BUY if open < EMA < close, EMA = 10-period EMA of M30 closes as it stood when the candle opened. Anchors tested: `wat1530` (15:30 Nigerian time = 14:30 UTC, as in the owner's October charts) and `ny0930` (09:30 New York, moves with US daylight saving). In October the two differ by an hour. |
 | Range | "wick to wick, full high to low" | The anchor candle's high and low. |
 | Retest | "just the next candle after 3:30 ... you're in the retest" | No extra condition: the M5 search starts with the first M5 candle after the anchor closes. |
-| Reference | "price finally breaks out of the EMA, within the 3:30 candle range"; previous M5 close on the other side | First M5 candle with previous close on the other side of the M5 10 EMA and this close on the bias side, closing inside the range. One per day. |
+| Reference | "price finally breaks out of the EMA, within the 3:30 candle range"; previous M5 close on the other side | First M5 candle with previous close on the other side of the M5 10 EMA and this close on the bias side, whose high-low touches the range (changed after the replay, see below). One per day. |
 | Cancel | "if the M5 just wicks the range and does not close above, it's valid" | An M5 CLOSE beyond the opposite end of the range cancels the day (also a pending order). Wicks don't. |
 | Entry | "entry at candle low (sell) / high (buy), SL at the other end"; "after it breaks ... next candle is entry, correction but test both"; "test for the optimal" waiting time | A: stop order at the reference low (sell). B3/B6/B12: price first trades through the low, then a limit at the low catches the pullback within 3/6/12 M5 candles. |
 | Big candle | "50% of a candle if it's more displaced than previous ones" ; "1.5x average size" | Reference range ≥ 1.5 × average range of the 10 M5 candles before it → limit at its 50% level, stop at its far end (both A and B). |
@@ -58,3 +58,25 @@ the return per 10-trade cycle at a 3.6% / 5% lifecycle drawdown cap, share of po
 Intraday session patterns on these markets were rejected after costs: ORB at the New York open, the London best-setup
 scanner, the Leg 34 pocket scan across 11 markets × 6 timeframes × 3 sessions (P1, P14, P21). This idea differs in using
 the owner's specific anchor + EMA + retest sequence and a fixed R target; the expectation from priors is rejection.
+
+## Changes made after the replay check, before any backtest (2026-11-02)
+The replay (`research/owner330/replay.py`, `research/results/owner330/REPLAY.md`, charts in `research/results/owner330/charts/`)
+ran the scanner on the owner's ten example days (Oct 2026). Two things changed because of it; no 2011-2025 result had been
+produced.
+1. **Data: HistData's clock was one hour late in daylight-saving periods.** The owner's EURGBP 23 Oct chart did not match our
+   data; measured week by week against independent, correctly timed data, every HistData market (EURGBP, XAGUSD, US500,
+   NAS100, UK100, JP225, GER40 to Jan 2020, WTI to Dec 2023) was stamped New York local time with US daylight saving in
+   2011-2018 and with UK daylight saving from 2019, although documented as EST without daylight saving. Fixed in the data
+   files (`tools/histdata_clock.py --fix`; after the fix 832/833 EURGBP weeks and 743/743 XAGUSD weeks align; index opens land
+   on the exchange open minute in summer and winter). `tools/histdata_m1.py` now converts correctly.
+2. **"Within the range" = the reference candle touches the range.** The owner's gold 29 Oct reference (16:40) closed below the
+   range low, but its high reached into it, and the owner took it. Requiring the close inside the range rejected it;
+   requiring the candle to touch the range matches all ten examples. The owner's GBPUSD 28 Oct "16:00 no setup" is explained
+   by the fresh-cross rule (every M5 close from 16:00 to 16:40 was already above the EMA).
+3. Technical: the scanner's compiled functions no longer use numba's file cache (it failed when the lab loads strategy files
+   under another module name).
+
+Replay result after the changes: the scanner makes the owner's call on 9 of 10 days (references within one M5 candle, entry
+and stop levels within cents/0.4 pip of the owner's). The miss: EURGBP 27 Oct, where the owner's 16:00 reference closed
+exactly on the M5 EMA in our data (0.83664 vs 0.83664): a sub-pip feed difference. Note: 28 Oct 2026 was an FOMC day; the
+backtest skips such days as the owner asked.

@@ -90,6 +90,17 @@ class TestSetups(unittest.TestCase):
         self.assertIn(nfp, S.NEWS)
         self.assertEqual(len(S.setups(B, p(), M)["j"]), 0)
 
+    def test_reference_touching_the_range_counts(self):
+        # crosses below the EMA and closes below the range low (99.4), but its high reaches into the range: valid
+        st, _ = run(base_day([RALLY, (99.6, 99.62, 99.3, 99.35)] + FALL + QUIET))
+        self.assertEqual(len(st["j"]), 1)
+
+    def test_reference_outside_the_range_does_not_count(self):
+        # first cross below happens entirely under the range (high 99.38 < low 99.4): not a reference
+        bars = base_day([(99.5, 99.55, 99.3, 99.32), (99.32, 99.36, 99.2, 99.36), (99.36, 99.38, 99.1, 99.12)] + QUIET)
+        st, _ = run(bars)
+        self.assertEqual(len(st["j"]), 0)
+
 
 class TestOrders(unittest.TestCase):
     def test_entry_a_hits_target(self):

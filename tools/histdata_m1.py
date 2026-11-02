@@ -3,7 +3,9 @@ data/{SYM}_M1_bid_{YEAR}.npz (ts in ms UTC, o, h, l, c, v).
 
     python3 tools/histdata_m1.py US500,GER40,WTI,XAGUSD 2011 2025
 
-HistData's ASCII timestamps are EST WITHOUT daylight saving (UTC-5 all year), so UTC = stamp + 5 h.
+HistData says its ASCII timestamps are EST without daylight saving (UTC-5 all year). MEASURED (2026-11-02,
+tools/histdata_clock.py): they are one hour late whenever daylight saving is on - New York rules for 2011-2018, UK rules
+from 2019. parse() therefore converts with UTC = stamp + 5 h - 1 h during those periods.
 Instruments: US500 = SPXUSD, GER40 = GRXEUR, WTI = WTIUSD, XAGUSD = XAGUSD, NAS100 = NSXUSD, BRENT = BCOUSD,
 UK100 = UKXGBP, JP225 = JPXJPY; FX pairs use their own names. One request at a time, a short pause between files.
 A year that is still in progress is published by HistData month by month; this tool fetches whole years only.
@@ -47,7 +49,10 @@ def parse(raw):
     a = np.genfromtxt(io.StringIO(txt), delimiter=";", dtype=None, encoding=None,
                       names=["t", "o", "h", "l", "c", "v"])
     stamps = np.array([dt.datetime.strptime(s, "%Y%m%d %H%M%S").replace(tzinfo=dt.timezone.utc).timestamp() for s in a["t"]])
-    ts = ((stamps + 5 * 3600) * 1000).astype(np.int64)        # EST (no DST) -> UTC
+    sec = (stamps + 5 * 3600).astype(np.int64)                 # documented EST -> UTC ...
+    import histdata_clock
+    sec = sec - 3600 * histdata_clock.dst_flags(sec)          # ... minus the measured daylight-saving hour
+    ts = (sec * 1000).astype(np.int64)
     return ts, a["o"].astype(float), a["h"].astype(float), a["l"].astype(float), a["c"].astype(float), a["v"].astype(np.float32)
 
 

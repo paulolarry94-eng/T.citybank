@@ -1,0 +1,432 @@
+[
+ {
+  "sym": "XAUUSD",
+  "date": "2026-10-20",
+  "owner": "no trade: the 15:30 candle does not cross the EMA",
+  "anchor": {
+   "open": 4153.319,
+   "close": 4142.937,
+   "high": 4155.662,
+   "low": 4136.854,
+   "ema_before": 4128.52968356911,
+   "ema_on_candle": 4131.149195647453
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": null,
+    "trade": null
+   },
+   "B6": {
+    "setup": null,
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "XAUUSD",
+  "date": "2026-10-21",
+  "owner": "invalid: the 15:30 body stays above the EMA",
+  "anchor": {
+   "open": 4133.334,
+   "close": 4130.375,
+   "high": 4135.16,
+   "low": 4127.617,
+   "ema_before": 4130.14186273803,
+   "ema_on_candle": 4130.184251331115
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": null,
+    "trade": null
+   },
+   "B6": {
+    "setup": null,
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "XAUUSD",
+  "date": "2026-10-29",
+  "owner": "SELL; reference M5 16:40; entry 4022.67 (low), stop 4025.98 (high), 3R hit ~17:30",
+  "side": -1,
+  "ref": "16:40",
+  "entry": 4022.67,
+  "stop": 4025.98,
+  "anchor": {
+   "open": 4029.919,
+   "close": 4026.561,
+   "high": 4037.568,
+   "low": 4026.099,
+   "ema_before": 4026.576980220436,
+   "ema_on_candle": 4026.5740747258114
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": {
+     "side": -1,
+     "ref_time": "16:40",
+     "ref_high": 4026.158,
+     "ref_low": 4022.709,
+     "displaced": false,
+     "range_high": 4037.568,
+     "range_low": 4026.099
+    },
+    "trade": {
+     "entry_time": "16:45",
+     "entry": 4022.709,
+     "stop": 4026.158,
+     "target": 4012.3619999999996,
+     "exit_time": "17:12",
+     "exit": 4012.3619999999996,
+     "reason": "target",
+     "R": 3.0
+    }
+   },
+   "B6": {
+    "setup": {
+     "side": -1,
+     "ref_time": "16:40",
+     "ref_high": 4026.158,
+     "ref_low": 4022.709,
+     "displaced": false,
+     "range_high": 4037.568,
+     "range_low": 4026.099
+    },
+    "trade": {
+     "entry_time": "16:51",
+     "entry": 4022.709,
+     "stop": 4026.158,
+     "target": 4012.3619999999996,
+     "exit_time": "17:12",
+     "exit": 4012.3619999999996,
+     "reason": "target",
+     "R": 3.0
+    }
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "GBPUSD",
+  "date": "2026-10-28",
+  "owner": "BUY; 16:00 no setup (closed above the range); reference 16:55; entry 1.3302, stop 1.3298, 4R 1.3318 hit",
+  "side": 1,
+  "ref": "16:55",
+  "entry": 1.3302,
+  "stop": 1.3298,
+  "anchor": {
+   "open": 1.32893,
+   "close": 1.32999,
+   "high": 1.3302,
+   "low": 1.3289,
+   "ema_before": 1.3289421696091048,
+   "ema_on_candle": 1.3291326842256312
+  },
+  "news_day": true,
+  "configs": {
+   "A": {
+    "setup": {
+     "side": 1,
+     "ref_time": "16:55",
+     "ref_high": 1.3302800000000001,
+     "ref_low": 1.3298,
+     "displaced": false,
+     "range_high": 1.3302,
+     "range_low": 1.3289
+    },
+    "trade": {
+     "entry_time": "17:03",
+     "entry": 1.3302800000000001,
+     "stop": 1.3298,
+     "target": 1.3322000000000003,
+     "exit_time": "19:21",
+     "exit": 1.3298,
+     "reason": "stop",
+     "R": -1.0
+    }
+   },
+   "B6": {
+    "setup": {
+     "side": 1,
+     "ref_time": "16:55",
+     "ref_high": 1.3302800000000001,
+     "ref_low": 1.3298,
+     "displaced": false,
+     "range_high": 1.3302,
+     "range_low": 1.3289
+    },
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "GBPUSD",
+  "date": "2026-10-27",
+  "owner": "SELL; displaced reference 16:05, entry at its 50% 1.3321, stop 1.3325, 4R 1.3305",
+  "side": -1,
+  "ref": "16:05",
+  "entry": 1.3321,
+  "stop": 1.3325,
+  "anchor": {
+   "open": 1.33296,
+   "close": 1.33237,
+   "high": 1.33317,
+   "low": 1.33171,
+   "ema_before": 1.3324693235866119,
+   "ema_on_candle": 1.3324512647526823
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": {
+     "side": -1,
+     "ref_time": "16:05",
+     "ref_high": 1.33253,
+     "ref_low": 1.33167,
+     "displaced": true,
+     "range_high": 1.33317,
+     "range_low": 1.33171
+    },
+    "trade": {
+     "entry_time": "16:32",
+     "entry": 1.3321,
+     "stop": 1.33253,
+     "target": 1.3303800000000003,
+     "exit_time": "21:00",
+     "exit": 1.331669,
+     "reason": "time",
+     "R": 1.0
+    }
+   },
+   "B6": {
+    "setup": {
+     "side": -1,
+     "ref_time": "16:05",
+     "ref_high": 1.33253,
+     "ref_low": 1.33167,
+     "displaced": true,
+     "range_high": 1.33317,
+     "range_low": 1.33171
+    },
+    "trade": {
+     "entry_time": "16:32",
+     "entry": 1.3321,
+     "stop": 1.33253,
+     "target": 1.3303800000000003,
+     "exit_time": "21:00",
+     "exit": 1.331669,
+     "reason": "time",
+     "R": 1.0
+    }
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "GBPUSD",
+  "date": "2026-10-23",
+  "owner": "reference formed but price never broke it: no entry",
+  "side": 1,
+  "anchor": {
+   "open": 1.33739,
+   "close": 1.33852,
+   "high": 1.33876,
+   "low": 1.33719,
+   "ema_before": 1.337596670961317,
+   "ema_on_candle": 1.33776454896835
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": {
+     "side": 1,
+     "ref_time": "16:10",
+     "ref_high": 1.33825,
+     "ref_low": 1.3376000000000001,
+     "displaced": false,
+     "range_high": 1.33876,
+     "range_low": 1.33719
+    },
+    "trade": null
+   },
+   "B6": {
+    "setup": {
+     "side": 1,
+     "ref_time": "16:10",
+     "ref_high": 1.33825,
+     "ref_low": 1.3376000000000001,
+     "displaced": false,
+     "range_high": 1.33876,
+     "range_low": 1.33719
+    },
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "GBPUSD",
+  "date": "2026-10-15",
+  "owner": "SELL; entry about 17:20 at 1.3252, stop 1.3258, target 1.3243 (a loss)",
+  "side": -1,
+  "entry": 1.3252,
+  "stop": 1.3258,
+  "anchor": {
+   "open": 1.32598,
+   "close": 1.32528,
+   "high": 1.32738,
+   "low": 1.32496,
+   "ema_before": 1.3254298086583292,
+   "ema_on_candle": 1.325402570720451
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": {
+     "side": -1,
+     "ref_time": "16:45",
+     "ref_high": 1.32564,
+     "ref_low": 1.32516,
+     "displaced": false,
+     "range_high": 1.32738,
+     "range_low": 1.32496
+    },
+    "trade": {
+     "entry_time": "17:03",
+     "entry": 1.32516,
+     "stop": 1.32564,
+     "target": 1.3232399999999997,
+     "exit_time": "17:26",
+     "exit": 1.32564,
+     "reason": "stop",
+     "R": -1.0
+    }
+   },
+   "B6": {
+    "setup": {
+     "side": -1,
+     "ref_time": "16:45",
+     "ref_high": 1.32564,
+     "ref_low": 1.32516,
+     "displaced": false,
+     "range_high": 1.32738,
+     "range_low": 1.32496
+    },
+    "trade": {
+     "entry_time": "17:16",
+     "entry": 1.32516,
+     "stop": 1.32564,
+     "target": 1.3232399999999997,
+     "exit_time": "17:26",
+     "exit": 1.32564,
+     "reason": "stop",
+     "R": -1.0
+    }
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "EURGBP",
+  "date": "2026-10-23",
+  "owner": "SELL bias; M5 broke above the range: no trade",
+  "side": -1,
+  "anchor": {
+   "open": 0.83736,
+   "close": 0.83697,
+   "high": 0.83738,
+   "low": 0.83681,
+   "ema_before": 0.8371883631012547,
+   "ema_on_candle": 0.8371486607192083
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": null,
+    "trade": null
+   },
+   "B6": {
+    "setup": null,
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "EURGBP",
+  "date": "2026-10-27",
+  "owner": "BUY; reference 16:00 (high 0.83674, low 0.83647); entered on the pullback ~16:35",
+  "side": 1,
+  "ref": "16:00",
+  "entry": 0.83674,
+  "stop": 0.83647,
+  "anchor": {
+   "open": 0.83657,
+   "close": 0.83673,
+   "high": 0.83686,
+   "low": 0.83627,
+   "ema_before": 0.8367048601622042,
+   "ema_on_candle": 0.8367094310418035
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": {
+     "side": 1,
+     "ref_time": "18:45",
+     "ref_high": 0.83663,
+     "ref_low": 0.83652,
+     "displaced": false,
+     "range_high": 0.83686,
+     "range_low": 0.83627
+    },
+    "trade": null
+   },
+   "B6": {
+    "setup": {
+     "side": 1,
+     "ref_time": "18:45",
+     "ref_high": 0.83663,
+     "ref_low": 0.83652,
+     "displaced": false,
+     "range_high": 0.83686,
+     "range_low": 0.83627
+    },
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ },
+ {
+  "sym": "USDJPY",
+  "date": "2026-10-27",
+  "owner": "owner's test; my answer: invalid anchor (opened on/below the EMA), no trade",
+  "anchor": {
+   "open": 157.77,
+   "close": 157.724,
+   "high": 157.815,
+   "low": 157.702,
+   "ema_before": 157.77841558171787,
+   "ema_on_candle": 157.76852183958732
+  },
+  "news_day": false,
+  "configs": {
+   "A": {
+    "setup": null,
+    "trade": null
+   },
+   "B6": {
+    "setup": null,
+    "trade": null
+   }
+  },
+  "news_day_skipped": false
+ }
+]
