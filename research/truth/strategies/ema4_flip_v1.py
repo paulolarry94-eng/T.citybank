@@ -79,7 +79,6 @@ def setups(B, p, M):
         return _CACHE[key]
     P = SC.detect(B["o"], B["h"], B["l"], B["c"])
     keep = (P["grade"] == 0) if sample == "control" else (P["grade"] > 0)
-    keep &= P["i4"] < len(t) - 1
     t4 = t[P["i4"]] + int(B["minutes"]) * 60                       # the 4th candle's close
     nyd = [dt.datetime.fromtimestamp(int(x) - 1, NY).date() for x in t4]
     keep &= np.array([d not in NEWS for d in nyd], bool)
