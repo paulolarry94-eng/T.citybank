@@ -1,0 +1,2628 @@
+[
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.5,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 3083,
+   "mean_R": -0.0779,
+   "sd_R": 0.9816,
+   "s": -0.0794,
+   "win_rate": 0.458,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.04,
+    "5": -0.056,
+    "6": -0.067,
+    "8": -0.089
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0522,
+    "5": 0.0725,
+    "6": 0.087,
+    "8": 0.1159
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0522,
+    "trades_per_year": 342.9,
+    "cycles_per_year": 34.29,
+    "months_per_lifecycle": 12.6,
+    "cycles": 308,
+    "cycles_positive": 0.36,
+    "cycle_median_pct": -0.056,
+    "cycle_mean_pct": -0.041,
+    "cycle_worst_pct": -0.526,
+    "cycle_best_pct": 0.533,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -0.83,
+     -1.4,
+     -1.76,
+     -2.41,
+     -1.18,
+     -1.57,
+     -3.41,
+     0.18
+    ],
+    "lifecycle_dd_pct": [
+     1.53,
+     2.32,
+     2.24,
+     2.64,
+     1.86,
+     2.12,
+     3.41,
+     1.44
+    ],
+    "lifecycle_worst_dd_pct": 3.41
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0282,
+    "XAGUSD": -0.2487,
+    "EURUSD": -0.0393,
+    "GBPUSD": -0.1116,
+    "USDJPY": -0.0318,
+    "EURGBP": -0.1348,
+    "WTI": -0.0938,
+    "US500": -0.1341,
+    "NAS100": -0.0613,
+    "GER40": 0.1035,
+    "UK100": -0.1531,
+    "JP225": -0.1775
+   }
+  },
+  "2020-22": {
+   "trades": 1087,
+   "mean_R": -0.1311,
+   "sd_R": 0.9524,
+   "s": -0.1376,
+   "win_rate": 0.433,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.054,
+    "5": -0.075,
+    "6": -0.09,
+    "8": -0.12
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.042,
+    "5": 0.0583,
+    "6": 0.07,
+    "8": 0.0934
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.042,
+    "trades_per_year": 364.2,
+    "cycles_per_year": 36.42,
+    "months_per_lifecycle": 11.9,
+    "cycles": 108,
+    "cycles_positive": 0.333,
+    "cycle_median_pct": -0.041,
+    "cycle_mean_pct": -0.054,
+    "cycle_worst_pct": -0.409,
+    "cycle_best_pct": 0.252,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -3.12,
+     -0.3,
+     -2.44
+    ],
+    "lifecycle_dd_pct": [
+     3.2,
+     0.88,
+     2.63
+    ],
+    "lifecycle_worst_dd_pct": 3.2
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": 0.0256,
+    "XAGUSD": -0.1317,
+    "EURUSD": -0.3226,
+    "GBPUSD": 0.0234,
+    "USDJPY": -0.0661,
+    "EURGBP": -0.2327,
+    "WTI": -0.0285,
+    "US500": -0.0967,
+    "NAS100": -0.0724,
+    "GER40": -0.1356,
+    "UK100": -0.2107,
+    "JP225": -0.2836
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.5,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 3442,
+   "mean_R": -0.0975,
+   "sd_R": 0.9697,
+   "s": -0.1006,
+   "win_rate": 0.453,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.046,
+    "5": -0.063,
+    "6": -0.076,
+    "8": -0.102
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0471,
+    "5": 0.0655,
+    "6": 0.0786,
+    "8": 0.1048
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0471,
+    "trades_per_year": 382.8,
+    "cycles_per_year": 38.28,
+    "months_per_lifecycle": 11.3,
+    "cycles": 344,
+    "cycles_positive": 0.331,
+    "cycle_median_pct": -0.044,
+    "cycle_mean_pct": -0.046,
+    "cycle_worst_pct": -0.473,
+    "cycle_best_pct": 0.471,
+    "lifecycles": 9,
+    "lifecycle_returns_pct": [
+     -1.31,
+     -0.46,
+     -2.7,
+     -2.75,
+     -2.62,
+     -1.57,
+     -1.58,
+     -1.32,
+     -0.77
+    ],
+    "lifecycle_dd_pct": [
+     2.0,
+     1.16,
+     2.75,
+     3.83,
+     3.05,
+     2.12,
+     2.29,
+     1.46,
+     1.63
+    ],
+    "lifecycle_worst_dd_pct": 3.83
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0305,
+    "XAGUSD": -0.1821,
+    "EURUSD": 0.033,
+    "GBPUSD": -0.0922,
+    "USDJPY": 0.083,
+    "EURGBP": -0.1665,
+    "WTI": -0.217,
+    "US500": -0.1923,
+    "NAS100": -0.138,
+    "GER40": 0.0006,
+    "UK100": -0.0757,
+    "JP225": -0.2188
+   }
+  },
+  "2020-22": {
+   "trades": 1291,
+   "mean_R": -0.0982,
+   "sd_R": 0.9708,
+   "s": -0.1011,
+   "win_rate": 0.451,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.044,
+    "5": -0.061,
+    "6": -0.073,
+    "8": -0.097
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0456,
+    "5": 0.0633,
+    "6": 0.076,
+    "8": 0.1013
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0456,
+    "trades_per_year": 432.6,
+    "cycles_per_year": 43.26,
+    "months_per_lifecycle": 10.0,
+    "cycles": 129,
+    "cycles_positive": 0.364,
+    "cycle_median_pct": -0.036,
+    "cycle_mean_pct": -0.044,
+    "cycle_worst_pct": -0.444,
+    "cycle_best_pct": 0.456,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -2.31,
+     -1.81,
+     -2.05
+    ],
+    "lifecycle_dd_pct": [
+     3.76,
+     1.94,
+     2.8
+    ],
+    "lifecycle_worst_dd_pct": 3.76
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": 0.0114,
+    "XAGUSD": -0.2244,
+    "EURUSD": 0.0371,
+    "GBPUSD": 0.0214,
+    "USDJPY": -0.1093,
+    "EURGBP": -0.213,
+    "WTI": -0.1412,
+    "US500": -0.097,
+    "NAS100": -0.0721,
+    "GER40": -0.0876,
+    "UK100": -0.0888,
+    "JP225": -0.1732
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.25,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 3005,
+   "mean_R": -0.1015,
+   "sd_R": 0.9888,
+   "s": -0.1026,
+   "win_rate": 0.447,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.047,
+    "5": -0.065,
+    "6": -0.078,
+    "8": -0.104
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0468,
+    "5": 0.065,
+    "6": 0.078,
+    "8": 0.1039
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0468,
+    "trades_per_year": 334.2,
+    "cycles_per_year": 33.42,
+    "months_per_lifecycle": 12.9,
+    "cycles": 300,
+    "cycles_positive": 0.327,
+    "cycle_median_pct": -0.049,
+    "cycle_mean_pct": -0.047,
+    "cycle_worst_pct": -0.379,
+    "cycle_best_pct": 0.468,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -1.95,
+     -1.62,
+     -1.61,
+     -1.36,
+     -1.7,
+     -2.46,
+     -2.24,
+     -0.8
+    ],
+    "lifecycle_dd_pct": [
+     2.28,
+     1.91,
+     2.22,
+     1.91,
+     2.41,
+     2.56,
+     2.66,
+     1.29
+    ],
+    "lifecycle_worst_dd_pct": 2.66
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0652,
+    "XAGUSD": -0.2175,
+    "EURUSD": -0.0587,
+    "GBPUSD": -0.1023,
+    "USDJPY": -0.0009,
+    "EURGBP": -0.1642,
+    "WTI": -0.056,
+    "US500": -0.1803,
+    "NAS100": -0.1063,
+    "GER40": 0.0391,
+    "UK100": -0.2218,
+    "JP225": -0.256
+   }
+  },
+  "2020-22": {
+   "trades": 1066,
+   "mean_R": -0.1478,
+   "sd_R": 0.9647,
+   "s": -0.1532,
+   "win_rate": 0.425,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.058,
+    "5": -0.08,
+    "6": -0.096,
+    "8": -0.128
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0396,
+    "5": 0.055,
+    "6": 0.066,
+    "8": 0.088
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0396,
+    "trades_per_year": 357.2,
+    "cycles_per_year": 35.72,
+    "months_per_lifecycle": 12.1,
+    "cycles": 106,
+    "cycles_positive": 0.245,
+    "cycle_median_pct": -0.079,
+    "cycle_mean_pct": -0.058,
+    "cycle_worst_pct": -0.396,
+    "cycle_best_pct": 0.331,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -3.3,
+     -0.33
+    ],
+    "lifecycle_dd_pct": [
+     3.48,
+     0.98
+    ],
+    "lifecycle_worst_dd_pct": 3.48
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": 0.0067,
+    "XAGUSD": -0.1765,
+    "EURUSD": -0.1784,
+    "GBPUSD": -0.0047,
+    "USDJPY": -0.1964,
+    "EURGBP": -0.2763,
+    "WTI": -0.127,
+    "US500": -0.1664,
+    "NAS100": -0.0223,
+    "GER40": -0.0551,
+    "UK100": -0.2244,
+    "JP225": -0.306
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.25,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 3368,
+   "mean_R": -0.1051,
+   "sd_R": 0.9796,
+   "s": -0.1073,
+   "win_rate": 0.449,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.048,
+    "5": -0.067,
+    "6": -0.08,
+    "8": -0.107
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0461,
+    "5": 0.0641,
+    "6": 0.0769,
+    "8": 0.1025
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0461,
+    "trades_per_year": 374.6,
+    "cycles_per_year": 37.46,
+    "months_per_lifecycle": 11.5,
+    "cycles": 336,
+    "cycles_positive": 0.333,
+    "cycle_median_pct": -0.08,
+    "cycle_mean_pct": -0.048,
+    "cycle_worst_pct": -0.466,
+    "cycle_best_pct": 0.461,
+    "lifecycles": 9,
+    "lifecycle_returns_pct": [
+     -1.61,
+     -0.74,
+     -1.94,
+     -3.12,
+     -2.46,
+     -1.32,
+     -2.08,
+     -1.63,
+     -0.88
+    ],
+    "lifecycle_dd_pct": [
+     2.07,
+     1.36,
+     2.56,
+     3.66,
+     2.69,
+     2.41,
+     2.7,
+     2.27,
+     2.09
+    ],
+    "lifecycle_worst_dd_pct": 3.66
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0239,
+    "XAGUSD": -0.1842,
+    "EURUSD": 0.0322,
+    "GBPUSD": -0.1019,
+    "USDJPY": 0.0009,
+    "EURGBP": -0.1529,
+    "WTI": -0.1925,
+    "US500": -0.1454,
+    "NAS100": -0.1649,
+    "GER40": 0.0207,
+    "UK100": -0.1557,
+    "JP225": -0.2316
+   }
+  },
+  "2020-22": {
+   "trades": 1266,
+   "mean_R": -0.1132,
+   "sd_R": 0.9808,
+   "s": -0.1154,
+   "win_rate": 0.443,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.048,
+    "5": -0.067,
+    "6": -0.08,
+    "8": -0.107
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0435,
+    "5": 0.0605,
+    "6": 0.0725,
+    "8": 0.0967
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0435,
+    "trades_per_year": 424.2,
+    "cycles_per_year": 42.42,
+    "months_per_lifecycle": 10.2,
+    "cycles": 126,
+    "cycles_positive": 0.357,
+    "cycle_median_pct": -0.015,
+    "cycle_mean_pct": -0.049,
+    "cycle_worst_pct": -0.435,
+    "cycle_best_pct": 0.425,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.93,
+     -2.59,
+     -1.28
+    ],
+    "lifecycle_dd_pct": [
+     3.33,
+     2.78,
+     2.2
+    ],
+    "lifecycle_worst_dd_pct": 3.33
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0369,
+    "XAGUSD": -0.3004,
+    "EURUSD": 0.1139,
+    "GBPUSD": -0.0628,
+    "USDJPY": -0.0749,
+    "EURGBP": -0.2601,
+    "WTI": -0.1138,
+    "US500": -0.1488,
+    "NAS100": -0.0463,
+    "GER40": -0.0573,
+    "UK100": -0.1662,
+    "JP225": -0.2045
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.5,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 2958,
+   "mean_R": -0.1071,
+   "sd_R": 0.9917,
+   "s": -0.108,
+   "win_rate": 0.445,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.048,
+    "5": -0.066,
+    "6": -0.079,
+    "8": -0.106
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0449,
+    "5": 0.0624,
+    "6": 0.0748,
+    "8": 0.0998
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0449,
+    "trades_per_year": 329.0,
+    "cycles_per_year": 32.9,
+    "months_per_lifecycle": 13.1,
+    "cycles": 295,
+    "cycles_positive": 0.312,
+    "cycle_median_pct": -0.044,
+    "cycle_mean_pct": -0.048,
+    "cycle_worst_pct": -0.45,
+    "cycle_best_pct": 0.449,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -0.86,
+     -2.68,
+     -1.36,
+     -2.33,
+     -2.8,
+     -2.88,
+     -1.89,
+     0.78
+    ],
+    "lifecycle_dd_pct": [
+     1.86,
+     2.77,
+     2.2,
+     2.7,
+     3.02,
+     3.29,
+     2.21,
+     0.74
+    ],
+    "lifecycle_worst_dd_pct": 3.29
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0568,
+    "XAGUSD": -0.3038,
+    "EURUSD": -0.0589,
+    "GBPUSD": -0.1573,
+    "USDJPY": -0.0627,
+    "EURGBP": -0.1465,
+    "WTI": -0.1417,
+    "US500": -0.1601,
+    "NAS100": -0.078,
+    "GER40": 0.0262,
+    "UK100": -0.1781,
+    "JP225": -0.1808
+   }
+  },
+  "2020-22": {
+   "trades": 1065,
+   "mean_R": -0.1331,
+   "sd_R": 0.9776,
+   "s": -0.1361,
+   "win_rate": 0.432,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.053,
+    "5": -0.074,
+    "6": -0.089,
+    "8": -0.118
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0404,
+    "5": 0.0561,
+    "6": 0.0673,
+    "8": 0.0897
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0404,
+    "trades_per_year": 356.8,
+    "cycles_per_year": 35.68,
+    "months_per_lifecycle": 12.1,
+    "cycles": 106,
+    "cycles_positive": 0.311,
+    "cycle_median_pct": -0.072,
+    "cycle_mean_pct": -0.053,
+    "cycle_worst_pct": -0.404,
+    "cycle_best_pct": 0.293,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -2.68,
+     -0.46
+    ],
+    "lifecycle_dd_pct": [
+     2.92,
+     0.88
+    ],
+    "lifecycle_worst_dd_pct": 2.92
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1636,
+    "XAGUSD": -0.0675,
+    "EURUSD": -0.1776,
+    "GBPUSD": 0.0267,
+    "USDJPY": -0.0453,
+    "EURGBP": -0.2327,
+    "WTI": -0.0974,
+    "US500": -0.144,
+    "NAS100": -0.0037,
+    "GER40": -0.0846,
+    "UK100": -0.2525,
+    "JP225": -0.2693
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.5,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 3318,
+   "mean_R": -0.1113,
+   "sd_R": 0.9899,
+   "s": -0.1125,
+   "win_rate": 0.445,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.049,
+    "5": -0.069,
+    "6": -0.082,
+    "8": -0.11
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0448,
+    "5": 0.0622,
+    "6": 0.0746,
+    "8": 0.0995
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0448,
+    "trades_per_year": 369.0,
+    "cycles_per_year": 36.9,
+    "months_per_lifecycle": 11.7,
+    "cycles": 331,
+    "cycles_positive": 0.302,
+    "cycle_median_pct": -0.04,
+    "cycle_mean_pct": -0.049,
+    "cycle_worst_pct": -0.449,
+    "cycle_best_pct": 0.448,
+    "lifecycles": 9,
+    "lifecycle_returns_pct": [
+     -1.4,
+     -0.6,
+     -2.56,
+     -2.47,
+     -2.86,
+     -2.47,
+     -1.88,
+     -1.4,
+     -0.78
+    ],
+    "lifecycle_dd_pct": [
+     2.26,
+     1.03,
+     2.74,
+     3.0,
+     3.13,
+     3.14,
+     2.55,
+     2.09,
+     1.93
+    ],
+    "lifecycle_worst_dd_pct": 3.14
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0749,
+    "XAGUSD": -0.187,
+    "EURUSD": 0.0484,
+    "GBPUSD": -0.1071,
+    "USDJPY": 0.0243,
+    "EURGBP": -0.1356,
+    "WTI": -0.2426,
+    "US500": -0.1714,
+    "NAS100": -0.1699,
+    "GER40": -0.0291,
+    "UK100": -0.1046,
+    "JP225": -0.2255
+   }
+  },
+  "2020-22": {
+   "trades": 1264,
+   "mean_R": -0.115,
+   "sd_R": 0.9829,
+   "s": -0.117,
+   "win_rate": 0.443,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.048,
+    "5": -0.067,
+    "6": -0.081,
+    "8": -0.107
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0425,
+    "5": 0.0591,
+    "6": 0.0709,
+    "8": 0.0945
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0425,
+    "trades_per_year": 423.5,
+    "cycles_per_year": 42.35,
+    "months_per_lifecycle": 10.2,
+    "cycles": 126,
+    "cycles_positive": 0.341,
+    "cycle_median_pct": -0.027,
+    "cycle_mean_pct": -0.048,
+    "cycle_worst_pct": -0.425,
+    "cycle_best_pct": 0.425,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.4,
+     -2.62,
+     -1.86
+    ],
+    "lifecycle_dd_pct": [
+     2.82,
+     2.87,
+     2.31
+    ],
+    "lifecycle_worst_dd_pct": 2.87
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0506,
+    "XAGUSD": -0.1836,
+    "EURUSD": 0.0395,
+    "GBPUSD": 0.0048,
+    "USDJPY": -0.0419,
+    "EURGBP": -0.2501,
+    "WTI": -0.1651,
+    "US500": -0.1075,
+    "NAS100": -0.0535,
+    "GER40": -0.1089,
+    "UK100": -0.1611,
+    "JP225": -0.2362
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.1,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 2918,
+   "mean_R": -0.1212,
+   "sd_R": 0.9957,
+   "s": -0.1217,
+   "win_rate": 0.439,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.052,
+    "5": -0.073,
+    "6": -0.087,
+    "8": -0.116
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0436,
+    "5": 0.0606,
+    "6": 0.0727,
+    "8": 0.0969
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0436,
+    "trades_per_year": 324.5,
+    "cycles_per_year": 32.45,
+    "months_per_lifecycle": 13.3,
+    "cycles": 291,
+    "cycles_positive": 0.32,
+    "cycle_median_pct": -0.067,
+    "cycle_mean_pct": -0.052,
+    "cycle_worst_pct": -0.44,
+    "cycle_best_pct": 0.395,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -2.08,
+     -2.03,
+     -1.35,
+     -1.26,
+     -2.16,
+     -2.9,
+     -2.6,
+     -0.85
+    ],
+    "lifecycle_dd_pct": [
+     2.34,
+     2.16,
+     2.15,
+     1.91,
+     2.28,
+     3.38,
+     2.66,
+     1.28
+    ],
+    "lifecycle_worst_dd_pct": 3.38
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.095,
+    "XAGUSD": -0.2002,
+    "EURUSD": -0.1141,
+    "GBPUSD": -0.1543,
+    "USDJPY": -0.0009,
+    "EURGBP": -0.1935,
+    "WTI": -0.0714,
+    "US500": -0.1946,
+    "NAS100": -0.1317,
+    "GER40": 0.0553,
+    "UK100": -0.2761,
+    "JP225": -0.2326
+   }
+  },
+  "2020-22": {
+   "trades": 1046,
+   "mean_R": -0.1677,
+   "sd_R": 0.9646,
+   "s": -0.1739,
+   "win_rate": 0.415,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.061,
+    "5": -0.085,
+    "6": -0.102,
+    "8": -0.136
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0367,
+    "5": 0.051,
+    "6": 0.0612,
+    "8": 0.0815
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0367,
+    "trades_per_year": 350.5,
+    "cycles_per_year": 35.05,
+    "months_per_lifecycle": 12.3,
+    "cycles": 104,
+    "cycles_positive": 0.231,
+    "cycle_median_pct": -0.071,
+    "cycle_mean_pct": -0.061,
+    "cycle_worst_pct": -0.367,
+    "cycle_best_pct": 0.294,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -2.84,
+     -0.99
+    ],
+    "lifecycle_dd_pct": [
+     3.04,
+     1.06
+    ],
+    "lifecycle_worst_dd_pct": 3.04
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0742,
+    "XAGUSD": -0.2751,
+    "EURUSD": -0.2003,
+    "GBPUSD": -0.0708,
+    "USDJPY": -0.2127,
+    "EURGBP": -0.3352,
+    "WTI": -0.2071,
+    "US500": -0.1306,
+    "NAS100": 0.026,
+    "GER40": -0.1004,
+    "UK100": -0.2036,
+    "JP225": -0.2805
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.1,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 3288,
+   "mean_R": -0.1259,
+   "sd_R": 0.9816,
+   "s": -0.1283,
+   "win_rate": 0.439,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.054,
+    "5": -0.075,
+    "6": -0.09,
+    "8": -0.119
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0427,
+    "5": 0.0593,
+    "6": 0.0711,
+    "8": 0.0948
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0427,
+    "trades_per_year": 365.7,
+    "cycles_per_year": 36.57,
+    "months_per_lifecycle": 11.8,
+    "cycles": 328,
+    "cycles_positive": 0.305,
+    "cycle_median_pct": -0.08,
+    "cycle_mean_pct": -0.053,
+    "cycle_worst_pct": -0.428,
+    "cycle_best_pct": 0.341,
+    "lifecycles": 9,
+    "lifecycle_returns_pct": [
+     -1.7,
+     -0.97,
+     -2.32,
+     -3.23,
+     -2.41,
+     -1.02,
+     -1.91,
+     -2.04,
+     -1.79
+    ],
+    "lifecycle_dd_pct": [
+     1.9,
+     1.4,
+     2.32,
+     3.51,
+     2.53,
+     2.39,
+     2.26,
+     2.21,
+     2.51
+    ],
+    "lifecycle_worst_dd_pct": 3.51
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.063,
+    "XAGUSD": -0.1606,
+    "EURUSD": -0.0081,
+    "GBPUSD": -0.2041,
+    "USDJPY": 0.0063,
+    "EURGBP": -0.1774,
+    "WTI": -0.2166,
+    "US500": -0.1416,
+    "NAS100": -0.1483,
+    "GER40": -0.0031,
+    "UK100": -0.1945,
+    "JP225": -0.2833
+   }
+  },
+  "2020-22": {
+   "trades": 1241,
+   "mean_R": -0.1104,
+   "sd_R": 0.9862,
+   "s": -0.112,
+   "win_rate": 0.446,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.049,
+    "5": -0.067,
+    "6": -0.081,
+    "8": -0.108
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0446,
+    "5": 0.0619,
+    "6": 0.0743,
+    "8": 0.0991
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0446,
+    "trades_per_year": 415.8,
+    "cycles_per_year": 41.58,
+    "months_per_lifecycle": 10.4,
+    "cycles": 124,
+    "cycles_positive": 0.347,
+    "cycle_median_pct": -0.023,
+    "cycle_mean_pct": -0.049,
+    "cycle_worst_pct": -0.491,
+    "cycle_best_pct": 0.357,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.4,
+     -2.45,
+     -1.7
+    ],
+    "lifecycle_dd_pct": [
+     3.07,
+     2.78,
+     2.48
+    ],
+    "lifecycle_worst_dd_pct": 3.07
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0604,
+    "XAGUSD": -0.3004,
+    "EURUSD": 0.1367,
+    "GBPUSD": -0.1023,
+    "USDJPY": -0.0235,
+    "EURGBP": -0.2908,
+    "WTI": -0.1857,
+    "US500": -0.1323,
+    "NAS100": -0.0424,
+    "GER40": -0.0587,
+    "UK100": -0.1361,
+    "JP225": -0.1581
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.25,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 3176,
+   "mean_R": -0.1353,
+   "sd_R": 0.9896,
+   "s": -0.1367,
+   "win_rate": 0.434,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.055,
+    "5": -0.077,
+    "6": -0.092,
+    "8": -0.123
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0412,
+    "5": 0.0573,
+    "6": 0.0687,
+    "8": 0.0916
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0412,
+    "trades_per_year": 353.2,
+    "cycles_per_year": 35.32,
+    "months_per_lifecycle": 12.2,
+    "cycles": 317,
+    "cycles_positive": 0.259,
+    "cycle_median_pct": -0.082,
+    "cycle_mean_pct": -0.055,
+    "cycle_worst_pct": -0.413,
+    "cycle_best_pct": 0.33,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -1.64,
+     -1.92,
+     -2.22,
+     -3.07,
+     -1.81,
+     -1.13,
+     -1.75,
+     -1.12
+    ],
+    "lifecycle_dd_pct": [
+     2.04,
+     2.04,
+     2.8,
+     3.32,
+     1.81,
+     1.78,
+     2.33,
+     2.1
+    ],
+    "lifecycle_worst_dd_pct": 3.32
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0895,
+    "XAGUSD": -0.2622,
+    "EURUSD": -0.01,
+    "GBPUSD": -0.1528,
+    "USDJPY": -0.0903,
+    "EURGBP": -0.0796,
+    "WTI": -0.1955,
+    "US500": -0.1729,
+    "NAS100": -0.1964,
+    "GER40": -0.052,
+    "UK100": -0.1672,
+    "JP225": -0.2418
+   }
+  },
+  "2020-22": {
+   "trades": 1223,
+   "mean_R": -0.1276,
+   "sd_R": 0.988,
+   "s": -0.1292,
+   "win_rate": 0.437,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.053,
+    "5": -0.073,
+    "6": -0.088,
+    "8": -0.117
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0415,
+    "5": 0.0576,
+    "6": 0.0691,
+    "8": 0.0922
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0415,
+    "trades_per_year": 409.8,
+    "cycles_per_year": 40.98,
+    "months_per_lifecycle": 10.5,
+    "cycles": 122,
+    "cycles_positive": 0.279,
+    "cycle_median_pct": -0.049,
+    "cycle_mean_pct": -0.052,
+    "cycle_worst_pct": -0.415,
+    "cycle_best_pct": 0.415,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.68,
+     -2.81,
+     -1.16
+    ],
+    "lifecycle_dd_pct": [
+     2.94,
+     3.16,
+     1.77
+    ],
+    "lifecycle_worst_dd_pct": 3.16
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0364,
+    "XAGUSD": -0.2616,
+    "EURUSD": 0.0404,
+    "GBPUSD": -0.1667,
+    "USDJPY": -0.0631,
+    "EURGBP": -0.287,
+    "WTI": -0.2392,
+    "US500": -0.1323,
+    "NAS100": 0.0067,
+    "GER40": -0.0926,
+    "UK100": -0.1425,
+    "JP225": -0.2383
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.0,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 3222,
+   "mean_R": -0.136,
+   "sd_R": 0.9771,
+   "s": -0.1392,
+   "win_rate": 0.433,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.055,
+    "5": -0.077,
+    "6": -0.092,
+    "8": -0.123
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0407,
+    "5": 0.0565,
+    "6": 0.0678,
+    "8": 0.0904
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0407,
+    "trades_per_year": 358.3,
+    "cycles_per_year": 35.83,
+    "months_per_lifecycle": 12.1,
+    "cycles": 322,
+    "cycles_positive": 0.304,
+    "cycle_median_pct": -0.081,
+    "cycle_mean_pct": -0.055,
+    "cycle_worst_pct": -0.408,
+    "cycle_best_pct": 0.325,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -1.57,
+     -1.49,
+     -1.97,
+     -3.17,
+     -1.45,
+     -1.84,
+     -2.36,
+     -1.27
+    ],
+    "lifecycle_dd_pct": [
+     1.89,
+     1.57,
+     2.3,
+     3.17,
+     1.69,
+     2.21,
+     2.53,
+     2.22
+    ],
+    "lifecycle_worst_dd_pct": 3.17
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1064,
+    "XAGUSD": -0.136,
+    "EURUSD": -0.0118,
+    "GBPUSD": -0.194,
+    "USDJPY": 0.0171,
+    "EURGBP": -0.161,
+    "WTI": -0.2146,
+    "US500": -0.1602,
+    "NAS100": -0.1657,
+    "GER40": -0.0337,
+    "UK100": -0.2058,
+    "JP225": -0.3248
+   }
+  },
+  "2020-22": {
+   "trades": 1222,
+   "mean_R": -0.1247,
+   "sd_R": 0.98,
+   "s": -0.1272,
+   "win_rate": 0.437,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.053,
+    "5": -0.074,
+    "6": -0.088,
+    "8": -0.118
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0423,
+    "5": 0.0587,
+    "6": 0.0705,
+    "8": 0.0939
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0423,
+    "trades_per_year": 409.5,
+    "cycles_per_year": 40.95,
+    "months_per_lifecycle": 10.6,
+    "cycles": 122,
+    "cycles_positive": 0.287,
+    "cycle_median_pct": -0.068,
+    "cycle_mean_pct": -0.052,
+    "cycle_worst_pct": -0.423,
+    "cycle_best_pct": 0.423,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.09,
+     -3.1,
+     -1.43
+    ],
+    "lifecycle_dd_pct": [
+     2.49,
+     3.46,
+     1.96
+    ],
+    "lifecycle_worst_dd_pct": 3.46
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0545,
+    "XAGUSD": -0.2098,
+    "EURUSD": 0.0896,
+    "GBPUSD": -0.1424,
+    "USDJPY": -0.0531,
+    "EURGBP": -0.3321,
+    "WTI": -0.224,
+    "US500": -0.1714,
+    "NAS100": -0.0029,
+    "GER40": -0.0338,
+    "UK100": -0.1566,
+    "JP225": -0.2286
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.25,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 2814,
+   "mean_R": -0.1395,
+   "sd_R": 1.0008,
+   "s": -0.1394,
+   "win_rate": 0.429,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.057,
+    "5": -0.078,
+    "6": -0.094,
+    "8": -0.126
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0408,
+    "5": 0.0566,
+    "6": 0.068,
+    "8": 0.0906
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0408,
+    "trades_per_year": 313.0,
+    "cycles_per_year": 31.3,
+    "months_per_lifecycle": 13.8,
+    "cycles": 281,
+    "cycles_positive": 0.256,
+    "cycle_median_pct": -0.082,
+    "cycle_mean_pct": -0.056,
+    "cycle_worst_pct": -0.408,
+    "cycle_best_pct": 0.326,
+    "lifecycles": 7,
+    "lifecycle_returns_pct": [
+     -2.23,
+     -1.99,
+     -2.41,
+     -1.36,
+     -2.71,
+     -3.17,
+     -0.92
+    ],
+    "lifecycle_dd_pct": [
+     2.27,
+     2.44,
+     2.82,
+     1.56,
+     3.24,
+     3.41,
+     1.76
+    ],
+    "lifecycle_worst_dd_pct": 3.41
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1115,
+    "XAGUSD": -0.4618,
+    "EURUSD": -0.0648,
+    "GBPUSD": -0.1112,
+    "USDJPY": -0.0857,
+    "EURGBP": -0.1871,
+    "WTI": -0.1209,
+    "US500": -0.1887,
+    "NAS100": -0.1276,
+    "GER40": -0.0252,
+    "UK100": -0.2829,
+    "JP225": -0.2825
+   }
+  },
+  "2020-22": {
+   "trades": 1031,
+   "mean_R": -0.145,
+   "sd_R": 0.9837,
+   "s": -0.1474,
+   "win_rate": 0.426,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.058,
+    "5": -0.08,
+    "6": -0.096,
+    "8": -0.128
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0396,
+    "5": 0.055,
+    "6": 0.066,
+    "8": 0.0881
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0396,
+    "trades_per_year": 345.5,
+    "cycles_per_year": 34.55,
+    "months_per_lifecycle": 12.5,
+    "cycles": 103,
+    "cycles_positive": 0.262,
+    "cycle_median_pct": -0.079,
+    "cycle_mean_pct": -0.057,
+    "cycle_worst_pct": -0.396,
+    "cycle_best_pct": 0.238,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -2.86,
+     -0.96
+    ],
+    "lifecycle_dd_pct": [
+     3.09,
+     1.18
+    ],
+    "lifecycle_worst_dd_pct": 3.09
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0747,
+    "XAGUSD": 0.0091,
+    "EURUSD": -0.1079,
+    "GBPUSD": -0.0895,
+    "USDJPY": -0.1611,
+    "EURGBP": -0.2412,
+    "WTI": -0.1917,
+    "US500": -0.1429,
+    "NAS100": -0.041,
+    "GER40": -0.0361,
+    "UK100": -0.2374,
+    "JP225": -0.2884
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.0,
+   "stop": "swing"
+  },
+  "2011-19": {
+   "trades": 2851,
+   "mean_R": -0.1474,
+   "sd_R": 0.9911,
+   "s": -0.1487,
+   "win_rate": 0.424,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.059,
+    "5": -0.082,
+    "6": -0.098,
+    "8": -0.131
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0402,
+    "5": 0.0558,
+    "6": 0.0669,
+    "8": 0.0892
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0402,
+    "trades_per_year": 317.1,
+    "cycles_per_year": 31.71,
+    "months_per_lifecycle": 13.6,
+    "cycles": 285,
+    "cycles_positive": 0.253,
+    "cycle_median_pct": -0.08,
+    "cycle_mean_pct": -0.059,
+    "cycle_worst_pct": -0.402,
+    "cycle_best_pct": 0.321,
+    "lifecycles": 7,
+    "lifecycle_returns_pct": [
+     -2.22,
+     -1.97,
+     -1.93,
+     -1.77,
+     -2.83,
+     -2.85,
+     -2.43
+    ],
+    "lifecycle_dd_pct": [
+     2.41,
+     2.01,
+     2.08,
+     1.93,
+     2.87,
+     3.13,
+     2.79
+    ],
+    "lifecycle_worst_dd_pct": 3.13
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1373,
+    "XAGUSD": -0.1975,
+    "EURUSD": -0.1404,
+    "GBPUSD": -0.1762,
+    "USDJPY": -0.0361,
+    "EURGBP": -0.2336,
+    "WTI": -0.1118,
+    "US500": -0.2019,
+    "NAS100": -0.1236,
+    "GER40": 0.0023,
+    "UK100": -0.2823,
+    "JP225": -0.2978
+   }
+  },
+  "2020-22": {
+   "trades": 1028,
+   "mean_R": -0.1581,
+   "sd_R": 0.9721,
+   "s": -0.1627,
+   "win_rate": 0.42,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.061,
+    "5": -0.085,
+    "6": -0.102,
+    "8": -0.136
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0384,
+    "5": 0.0533,
+    "6": 0.064,
+    "8": 0.0853
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0384,
+    "trades_per_year": 344.4,
+    "cycles_per_year": 34.44,
+    "months_per_lifecycle": 12.5,
+    "cycles": 102,
+    "cycles_positive": 0.255,
+    "cycle_median_pct": -0.077,
+    "cycle_mean_pct": -0.061,
+    "cycle_worst_pct": -0.384,
+    "cycle_best_pct": 0.307,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -2.76,
+     -1.62
+    ],
+    "lifecycle_dd_pct": [
+     3.04,
+     1.66
+    ],
+    "lifecycle_worst_dd_pct": 3.04
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.101,
+    "XAGUSD": -0.2417,
+    "EURUSD": -0.2512,
+    "GBPUSD": -0.0616,
+    "USDJPY": -0.0981,
+    "EURGBP": -0.302,
+    "WTI": -0.2009,
+    "US500": -0.166,
+    "NAS100": 0.078,
+    "GER40": -0.0473,
+    "UK100": -0.241,
+    "JP225": -0.3004
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.1,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 2652,
+   "mean_R": -0.1661,
+   "sd_R": 1.004,
+   "s": -0.1655,
+   "win_rate": 0.417,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.062,
+    "5": -0.087,
+    "6": -0.104,
+    "8": -0.139
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0376,
+    "5": 0.0523,
+    "6": 0.0627,
+    "8": 0.0836
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0376,
+    "trades_per_year": 294.9,
+    "cycles_per_year": 29.49,
+    "months_per_lifecycle": 14.6,
+    "cycles": 265,
+    "cycles_positive": 0.211,
+    "cycle_median_pct": -0.075,
+    "cycle_mean_pct": -0.062,
+    "cycle_worst_pct": -0.304,
+    "cycle_best_pct": 0.301,
+    "lifecycles": 7,
+    "lifecycle_returns_pct": [
+     -2.76,
+     -2.09,
+     -2.31,
+     -2.06,
+     -2.42,
+     -3.14,
+     -0.99
+    ],
+    "lifecycle_dd_pct": [
+     2.8,
+     2.35,
+     2.38,
+     2.1,
+     2.6,
+     3.33,
+     1.35
+    ],
+    "lifecycle_worst_dd_pct": 3.33
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.2041,
+    "XAGUSD": -0.5269,
+    "EURUSD": -0.1279,
+    "GBPUSD": -0.1437,
+    "USDJPY": -0.0829,
+    "EURGBP": -0.2327,
+    "WTI": -0.1369,
+    "US500": -0.228,
+    "NAS100": -0.1417,
+    "GER40": -0.0404,
+    "UK100": -0.2978,
+    "JP225": -0.2746
+   }
+  },
+  "2020-22": {
+   "trades": 995,
+   "mean_R": -0.1648,
+   "sd_R": 0.983,
+   "s": -0.1676,
+   "win_rate": 0.416,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.063,
+    "5": -0.087,
+    "6": -0.104,
+    "8": -0.139
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0378,
+    "5": 0.0525,
+    "6": 0.063,
+    "8": 0.0841
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0378,
+    "trades_per_year": 333.4,
+    "cycles_per_year": 33.34,
+    "months_per_lifecycle": 13.0,
+    "cycles": 99,
+    "cycles_positive": 0.172,
+    "cycle_median_pct": -0.076,
+    "cycle_mean_pct": -0.062,
+    "cycle_worst_pct": -0.378,
+    "cycle_best_pct": 0.227,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -2.88,
+     -1.76
+    ],
+    "lifecycle_dd_pct": [
+     3.03,
+     1.91
+    ],
+    "lifecycle_worst_dd_pct": 3.03
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1384,
+    "XAGUSD": -0.2005,
+    "EURUSD": -0.1541,
+    "GBPUSD": -0.1056,
+    "USDJPY": -0.1605,
+    "EURGBP": -0.2756,
+    "WTI": -0.2563,
+    "US500": -0.1074,
+    "NAS100": 0.0571,
+    "GER40": -0.0375,
+    "UK100": -0.3065,
+    "JP225": -0.3379
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.1,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 3015,
+   "mean_R": -0.1674,
+   "sd_R": 0.9875,
+   "s": -0.1695,
+   "win_rate": 0.418,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.06,
+    "5": -0.084,
+    "6": -0.1,
+    "8": -0.134
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0363,
+    "5": 0.0505,
+    "6": 0.0605,
+    "8": 0.0807
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0363,
+    "trades_per_year": 335.3,
+    "cycles_per_year": 33.53,
+    "months_per_lifecycle": 12.9,
+    "cycles": 301,
+    "cycles_positive": 0.233,
+    "cycle_median_pct": -0.073,
+    "cycle_mean_pct": -0.06,
+    "cycle_worst_pct": -0.364,
+    "cycle_best_pct": 0.363,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -1.71,
+     -2.37,
+     -1.93,
+     -3.26,
+     -1.62,
+     -2.24,
+     -2.5,
+     -1.37
+    ],
+    "lifecycle_dd_pct": [
+     1.86,
+     2.52,
+     2.19,
+     3.41,
+     1.73,
+     2.43,
+     2.57,
+     1.88
+    ],
+    "lifecycle_worst_dd_pct": 3.41
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1457,
+    "XAGUSD": -0.2416,
+    "EURUSD": -0.0586,
+    "GBPUSD": -0.2035,
+    "USDJPY": -0.103,
+    "EURGBP": -0.1391,
+    "WTI": -0.2247,
+    "US500": -0.1495,
+    "NAS100": -0.2276,
+    "GER40": -0.0817,
+    "UK100": -0.2437,
+    "JP225": -0.2888
+   }
+  },
+  "2020-22": {
+   "trades": 1175,
+   "mean_R": -0.1555,
+   "sd_R": 0.9868,
+   "s": -0.1576,
+   "win_rate": 0.422,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.059,
+    "5": -0.082,
+    "6": -0.098,
+    "8": -0.131
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0379,
+    "5": 0.0526,
+    "6": 0.0631,
+    "8": 0.0841
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0379,
+    "trades_per_year": 393.7,
+    "cycles_per_year": 39.37,
+    "months_per_lifecycle": 11.0,
+    "cycles": 117,
+    "cycles_positive": 0.239,
+    "cycle_median_pct": -0.076,
+    "cycle_mean_pct": -0.059,
+    "cycle_worst_pct": -0.379,
+    "cycle_best_pct": 0.303,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.76,
+     -3.33,
+     -1.26
+    ],
+    "lifecycle_dd_pct": [
+     2.29,
+     3.48,
+     1.41
+    ],
+    "lifecycle_worst_dd_pct": 3.48
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0772,
+    "XAGUSD": -0.1416,
+    "EURUSD": 0.004,
+    "GBPUSD": -0.2113,
+    "USDJPY": 0.0,
+    "EURGBP": -0.3401,
+    "WTI": -0.3455,
+    "US500": -0.2054,
+    "NAS100": 0.0405,
+    "GER40": -0.0836,
+    "UK100": -0.2155,
+    "JP225": -0.2936
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "ny0930",
+   "buffer": 0.0,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 2892,
+   "mean_R": -0.1808,
+   "sd_R": 0.9826,
+   "s": -0.184,
+   "win_rate": 0.409,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.063,
+    "5": -0.088,
+    "6": -0.105,
+    "8": -0.14
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0352,
+    "5": 0.0488,
+    "6": 0.0586,
+    "8": 0.0782
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0352,
+    "trades_per_year": 321.6,
+    "cycles_per_year": 32.16,
+    "months_per_lifecycle": 13.4,
+    "cycles": 289,
+    "cycles_positive": 0.194,
+    "cycle_median_pct": -0.07,
+    "cycle_mean_pct": -0.063,
+    "cycle_worst_pct": -0.352,
+    "cycle_best_pct": 0.281,
+    "lifecycles": 8,
+    "lifecycle_returns_pct": [
+     -2.47,
+     -1.97,
+     -2.63,
+     -2.46,
+     -1.82,
+     -1.83,
+     -2.37,
+     -2.56
+    ],
+    "lifecycle_dd_pct": [
+     2.5,
+     2.08,
+     2.77,
+     2.85,
+     2.17,
+     2.0,
+     2.65,
+     3.05
+    ],
+    "lifecycle_worst_dd_pct": 3.05
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.129,
+    "XAGUSD": -0.2707,
+    "EURUSD": -0.0224,
+    "GBPUSD": -0.2353,
+    "USDJPY": -0.0747,
+    "EURGBP": -0.1319,
+    "WTI": -0.2492,
+    "US500": -0.2211,
+    "NAS100": -0.2634,
+    "GER40": -0.1149,
+    "UK100": -0.266,
+    "JP225": -0.2724
+   }
+  },
+  "2020-22": {
+   "trades": 1145,
+   "mean_R": -0.1745,
+   "sd_R": 0.9844,
+   "s": -0.1773,
+   "win_rate": 0.412,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.062,
+    "5": -0.086,
+    "6": -0.104,
+    "8": -0.138
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0361,
+    "5": 0.0501,
+    "6": 0.0601,
+    "8": 0.0802
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0361,
+    "trades_per_year": 383.7,
+    "cycles_per_year": 38.37,
+    "months_per_lifecycle": 11.3,
+    "cycles": 114,
+    "cycles_positive": 0.184,
+    "cycle_median_pct": -0.072,
+    "cycle_mean_pct": -0.063,
+    "cycle_worst_pct": -0.361,
+    "cycle_best_pct": 0.361,
+    "lifecycles": 3,
+    "lifecycle_returns_pct": [
+     -1.7,
+     -3.95,
+     -1.15
+    ],
+    "lifecycle_dd_pct": [
+     1.95,
+     4.24,
+     1.37
+    ],
+    "lifecycle_worst_dd_pct": 4.24
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.0918,
+    "XAGUSD": 0.1579,
+    "EURUSD": 0.017,
+    "GBPUSD": -0.2394,
+    "USDJPY": -0.1081,
+    "EURGBP": -0.383,
+    "WTI": -0.3962,
+    "US500": -0.1733,
+    "NAS100": -0.0135,
+    "GER40": -0.1,
+    "UK100": -0.2871,
+    "JP225": -0.2727
+   }
+  }
+ },
+ {
+  "config": {
+   "anchor": "wat1530",
+   "buffer": 0.0,
+   "stop": "candle"
+  },
+  "2011-19": {
+   "trades": 2540,
+   "mean_R": -0.1893,
+   "sd_R": 1.0015,
+   "s": -0.1891,
+   "win_rate": 0.404,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.066,
+    "5": -0.092,
+    "6": -0.11,
+    "8": -0.147
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0351,
+    "5": 0.0488,
+    "6": 0.0585,
+    "8": 0.078
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0351,
+    "trades_per_year": 282.5,
+    "cycles_per_year": 28.25,
+    "months_per_lifecycle": 15.3,
+    "cycles": 254,
+    "cycles_positive": 0.177,
+    "cycle_median_pct": -0.07,
+    "cycle_mean_pct": -0.066,
+    "cycle_worst_pct": -0.351,
+    "cycle_best_pct": 0.281,
+    "lifecycles": 7,
+    "lifecycle_returns_pct": [
+     -2.74,
+     -2.45,
+     -2.67,
+     -2.03,
+     -2.63,
+     -2.52,
+     -1.42
+    ],
+    "lifecycle_dd_pct": [
+     2.88,
+     2.52,
+     2.84,
+     2.17,
+     2.69,
+     2.52,
+     1.42
+    ],
+    "lifecycle_worst_dd_pct": 2.88
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.1569,
+    "XAGUSD": -0.3125,
+    "EURUSD": -0.1522,
+    "GBPUSD": -0.2354,
+    "USDJPY": -0.1524,
+    "EURGBP": -0.261,
+    "WTI": -0.1226,
+    "US500": -0.1889,
+    "NAS100": -0.1606,
+    "GER40": -0.1356,
+    "UK100": -0.2988,
+    "JP225": -0.3083
+   }
+  },
+  "2020-22": {
+   "trades": 966,
+   "mean_R": -0.1614,
+   "sd_R": 0.9852,
+   "s": -0.1638,
+   "win_rate": 0.418,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.062,
+    "5": -0.086,
+    "6": -0.103,
+    "8": -0.138
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.0388,
+    "5": 0.0539,
+    "6": 0.0647,
+    "8": 0.0862
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.0388,
+    "trades_per_year": 323.7,
+    "cycles_per_year": 32.37,
+    "months_per_lifecycle": 13.3,
+    "cycles": 96,
+    "cycles_positive": 0.167,
+    "cycle_median_pct": -0.078,
+    "cycle_mean_pct": -0.063,
+    "cycle_worst_pct": -0.31,
+    "cycle_best_pct": 0.233,
+    "lifecycles": 2,
+    "lifecycle_returns_pct": [
+     -2.78,
+     -1.71
+    ],
+    "lifecycle_dd_pct": [
+     2.86,
+     1.75
+    ],
+    "lifecycle_worst_dd_pct": 2.86
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": [],
+   "per_market_E": {
+    "XAUUSD": -0.2332,
+    "XAGUSD": -0.4,
+    "EURUSD": -0.1677,
+    "GBPUSD": -0.0149,
+    "USDJPY": -0.1655,
+    "EURGBP": -0.2563,
+    "WTI": -0.1878,
+    "US500": -0.1171,
+    "NAS100": -0.0205,
+    "GER40": 0.0487,
+    "UK100": -0.3329,
+    "JP225": -0.3108
+   }
+  }
+ }
+]

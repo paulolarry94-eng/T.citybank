@@ -259,6 +259,9 @@ the 9:30 New York candle again), about 12 trades a month on 5 markets, ~40 trade
 one 2023-25 look, pre-registered in research/owner330/PREREGISTRATION.md ("Proposed look"), waits for the owner's word. Even
 at the 2026 level, edge quality 0.13-0.23 is below the 0.42 the +2%-per-cycle goal needs. FAMILY: session, ema, retest,
 intraday, ny-open, owner-idea.
+v2 (owner's correction after the audit charts, 2026-11-02): reference may touch the range through its pullback; stop at the
+candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
+2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
 ### Q26 Re-run the intraday studies that used HistData markets before the clock fix (2026-11-02)
 HistData's stamps were one hour late in daylight-saving periods (P29; fixed in the data 2026-11-02). Re-run and compare:

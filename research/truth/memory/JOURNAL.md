@@ -583,3 +583,12 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** Prime costs are published averages; 2026 is in-sample for the owner; the season-split difference
   (t about 2.4-3.0) is before allowing for the owner's choice of timing and markets.
 - **Next:** owner decides (a) the one 2023-25 look and/or (b) a paper forward test from mid-March 2027; Q26 re-runs.
+
+## 2026-11-02 (6) · owner corrected one audit chart (US500 8 Apr 2014) and asked: right stops, 1:1, win rate
+- **Done:** v2 strategy (pullback touch of the range, entry A, stop = candle or pullback extreme + 0/0.1/0.25/0.5 ATR, 1R),
+  3 tests, pre-registration (ec22950) before results; lab run, cycle league, control, research/owner330/v2_study.py (win rate vs
+  needed, wick-outs, 2026 on two feeds, seasons, markets); chart of the corrected day (now enters at the owner's high, wins 1:1).
+- **Learned:** REJECTED, 0 of 16. Win rate 40-46% vs 56-59% needed (2011-19); 2020-22 and 2026 negative too. Wider stops
+  cut wick-outs (52% -> 23%) but not enough; before costs at most +0.04R. P16 gained evidence.
+- **Facts vs estimates:** costs are Prime published; v1 results were seen before the correction (stated in the pre-registration).
+- **Next:** owner's call; the remaining open item for the 3:30 family is the 2026-summer question (Q25, 3R runners, not 1:1).

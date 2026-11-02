@@ -1,0 +1,8901 @@
+{
+ "note": "v2 (owner's corrected 3:30 rules, 1:1): win rate against the win rate needed, by period, market, season and data feed.\n\n    python3 research/owner330/v2_study.py      # writes research/results/owner330/v2_study.json and V2_STUDY.md\n\nFor each of the 16 configurations (anchor x stop placement x ATR buffer), trades of all markets in time order:\n- 2011-19 and 2020-22 (lab data, fills before 2023; the 2023-25 holdout is not opened), Jan-Oct 2026 on the five markets with\n  2026 data, on our files (Exness ticks; EURGBP HistData) and on the second feed (data/holdout/histdata).\n- win rate; the break-even win rate at 1:1 after costs = (1 + mean cost in R) / 2; net and gross R per trade; t.\n- \"wicked out\": of the trades stopped out, the share where price later reached the 1R target before the time exit.\n- US summer vs winter (15:30 WAT = 10:30 vs 9:30 New York).\n",
+ "rows": [
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "candle",
+    "buffer": 0.0
+   },
+   "2011-19": {
+    "n": 2540,
+    "win_rate": 0.404,
+    "needed_win_rate": 0.587,
+    "net_R": -0.1893,
+    "gross_R": -0.0154,
+    "cost_R": 0.174,
+    "t": -9.53,
+    "s": -0.1891,
+    "time_exits": 0.005,
+    "stopped_then_target": 0.515,
+    "cycle": {
+     "s": -0.1891,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.066,
+      "5": -0.092,
+      "6": -0.11,
+      "8": -0.147
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 230,
+      "win_rate": 0.43,
+      "needed_win_rate": 0.582,
+      "net_R": -0.1569,
+      "gross_R": 0.008,
+      "cost_R": 0.165,
+      "t": -2.37,
+      "s": -0.156,
+      "time_exits": 0.013
+     },
+     "XAGUSD": {
+      "n": 32,
+      "win_rate": 0.344,
+      "needed_win_rate": 0.621,
+      "net_R": -0.3125,
+      "gross_R": -0.0713,
+      "cost_R": 0.241,
+      "t": -1.83,
+      "s": -0.3238,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 249,
+      "win_rate": 0.426,
+      "needed_win_rate": 0.561,
+      "net_R": -0.1522,
+      "gross_R": -0.0299,
+      "cost_R": 0.122,
+      "t": -2.43,
+      "s": -0.1541,
+      "time_exits": 0.008
+     },
+     "GBPUSD": {
+      "n": 268,
+      "win_rate": 0.381,
+      "needed_win_rate": 0.571,
+      "net_R": -0.2354,
+      "gross_R": -0.0927,
+      "cost_R": 0.143,
+      "t": -3.97,
+      "s": -0.2422,
+      "time_exits": 0.004
+     },
+     "USDJPY": {
+      "n": 257,
+      "win_rate": 0.424,
+      "needed_win_rate": 0.583,
+      "net_R": -0.1524,
+      "gross_R": 0.0142,
+      "cost_R": 0.167,
+      "t": -2.47,
+      "s": -0.1538,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 213,
+      "win_rate": 0.371,
+      "needed_win_rate": 0.596,
+      "net_R": -0.261,
+      "gross_R": -0.0695,
+      "cost_R": 0.192,
+      "t": -3.95,
+      "s": -0.2704,
+      "time_exits": 0.009
+     },
+     "WTI": {
+      "n": 196,
+      "win_rate": 0.439,
+      "needed_win_rate": 0.606,
+      "net_R": -0.1226,
+      "gross_R": 0.0893,
+      "cost_R": 0.212,
+      "t": -1.73,
+      "s": -0.1232,
+      "time_exits": 0.0
+     },
+     "US500": {
+      "n": 217,
+      "win_rate": 0.406,
+      "needed_win_rate": 0.615,
+      "net_R": -0.1889,
+      "gross_R": 0.0402,
+      "cost_R": 0.229,
+      "t": -2.83,
+      "s": -0.192,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 274,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.589,
+      "net_R": -0.1606,
+      "gross_R": 0.0181,
+      "cost_R": 0.179,
+      "t": -2.69,
+      "s": -0.1624,
+      "time_exits": 0.0
+     },
+     "GER40": {
+      "n": 313,
+      "win_rate": 0.431,
+      "needed_win_rate": 0.558,
+      "net_R": -0.1356,
+      "gross_R": -0.0188,
+      "cost_R": 0.117,
+      "t": -2.42,
+      "s": -0.1368,
+      "time_exits": 0.006
+     },
+     "UK100": {
+      "n": 219,
+      "win_rate": 0.324,
+      "needed_win_rate": 0.614,
+      "net_R": -0.2988,
+      "gross_R": -0.071,
+      "cost_R": 0.228,
+      "t": -3.81,
+      "s": -0.2578,
+      "time_exits": 0.009
+     },
+     "JP225": {
+      "n": 72,
+      "win_rate": 0.347,
+      "needed_win_rate": 0.62,
+      "net_R": -0.3083,
+      "gross_R": -0.0677,
+      "cost_R": 0.241,
+      "t": -2.72,
+      "s": -0.3206,
+      "time_exits": 0.014
+     }
+    },
+    "summer": {
+     "n": 1599,
+     "win_rate": 0.394,
+     "needed_win_rate": 0.59,
+     "net_R": -0.2075,
+     "gross_R": -0.0283,
+     "cost_R": 0.179,
+     "t": -8.22,
+     "s": -0.2056,
+     "time_exits": 0.008
+    },
+    "winter": {
+     "n": 941,
+     "win_rate": 0.421,
+     "needed_win_rate": 0.583,
+     "net_R": -0.1586,
+     "gross_R": 0.0066,
+     "cost_R": 0.165,
+     "t": -4.92,
+     "s": -0.1605,
+     "time_exits": 0.0
+    }
+   },
+   "2020-22": {
+    "n": 966,
+    "win_rate": 0.418,
+    "needed_win_rate": 0.569,
+    "net_R": -0.1614,
+    "gross_R": -0.0225,
+    "cost_R": 0.139,
+    "t": -5.09,
+    "s": -0.1638,
+    "time_exits": 0.009,
+    "stopped_then_target": 0.447,
+    "cycle": {
+     "s": -0.1638,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.062,
+      "5": -0.086,
+      "6": -0.103,
+      "8": -0.138
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 78,
+      "win_rate": 0.385,
+      "needed_win_rate": 0.553,
+      "net_R": -0.2332,
+      "gross_R": -0.1268,
+      "cost_R": 0.106,
+      "t": -2.11,
+      "s": -0.2388,
+      "time_exits": 0.013
+     },
+     "XAGUSD": {
+      "n": 10,
+      "win_rate": 0.3,
+      "needed_win_rate": 0.64,
+      "net_R": -0.4,
+      "gross_R": -0.1202,
+      "cost_R": 0.28,
+      "t": -1.31,
+      "s": -0.414,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 87,
+      "win_rate": 0.414,
+      "needed_win_rate": 0.558,
+      "net_R": -0.1677,
+      "gross_R": -0.0516,
+      "cost_R": 0.116,
+      "t": -1.58,
+      "s": -0.1698,
+      "time_exits": 0.011
+     },
+     "GBPUSD": {
+      "n": 67,
+      "win_rate": 0.493,
+      "needed_win_rate": 0.566,
+      "net_R": -0.0149,
+      "gross_R": 0.1163,
+      "cost_R": 0.131,
+      "t": -0.12,
+      "s": -0.0148,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 79,
+      "win_rate": 0.418,
+      "needed_win_rate": 0.58,
+      "net_R": -0.1655,
+      "gross_R": -0.0045,
+      "cost_R": 0.161,
+      "t": -1.48,
+      "s": -0.1666,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 83,
+      "win_rate": 0.361,
+      "needed_win_rate": 0.588,
+      "net_R": -0.2563,
+      "gross_R": -0.0813,
+      "cost_R": 0.175,
+      "t": -2.43,
+      "s": -0.267,
+      "time_exits": 0.024
+     },
+     "WTI": {
+      "n": 101,
+      "win_rate": 0.406,
+      "needed_win_rate": 0.589,
+      "net_R": -0.1878,
+      "gross_R": -0.0091,
+      "cost_R": 0.179,
+      "t": -1.92,
+      "s": -0.191,
+      "time_exits": 0.02
+     },
+     "US500": {
+      "n": 111,
+      "win_rate": 0.441,
+      "needed_win_rate": 0.557,
+      "net_R": -0.1171,
+      "gross_R": -0.0023,
+      "cost_R": 0.115,
+      "t": -1.24,
+      "s": -0.1174,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 102,
+      "win_rate": 0.49,
+      "needed_win_rate": 0.527,
+      "net_R": -0.0205,
+      "gross_R": 0.0341,
+      "cost_R": 0.055,
+      "t": -0.21,
+      "s": -0.0205,
+      "time_exits": 0.01
+     },
+     "GER40": {
+      "n": 82,
+      "win_rate": 0.524,
+      "needed_win_rate": 0.536,
+      "net_R": 0.0487,
+      "gross_R": 0.1217,
+      "cost_R": 0.073,
+      "t": 0.44,
+      "s": 0.0484,
+      "time_exits": 0.0
+     },
+     "UK100": {
+      "n": 97,
+      "win_rate": 0.33,
+      "needed_win_rate": 0.602,
+      "net_R": -0.3329,
+      "gross_R": -0.1295,
+      "cost_R": 0.203,
+      "t": -3.48,
+      "s": -0.3531,
+      "time_exits": 0.01
+     },
+     "JP225": {
+      "n": 69,
+      "win_rate": 0.348,
+      "needed_win_rate": 0.608,
+      "net_R": -0.3108,
+      "gross_R": -0.0946,
+      "cost_R": 0.216,
+      "t": -2.69,
+      "s": -0.3234,
+      "time_exits": 0.014
+     }
+    },
+    "summer": {
+     "n": 607,
+     "win_rate": 0.435,
+     "needed_win_rate": 0.571,
+     "net_R": -0.1274,
+     "gross_R": 0.015,
+     "cost_R": 0.142,
+     "t": -3.17,
+     "s": -0.1287,
+     "time_exits": 0.013
+    },
+    "winter": {
+     "n": 359,
+     "win_rate": 0.39,
+     "needed_win_rate": 0.567,
+     "net_R": -0.219,
+     "gross_R": -0.0858,
+     "cost_R": 0.133,
+     "t": -4.25,
+     "s": -0.2243,
+     "time_exits": 0.003
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 98,
+     "win_rate": 0.469,
+     "needed_win_rate": 0.575,
+     "net_R": -0.0612,
+     "gross_R": 0.0888,
+     "cost_R": 0.15,
+     "t": -0.6,
+     "s": -0.061,
+     "time_exits": 0.0
+    },
+    "summer": {
+     "n": 77,
+     "win_rate": 0.468,
+     "needed_win_rate": 0.582,
+     "net_R": -0.0649,
+     "gross_R": 0.0994,
+     "cost_R": 0.164,
+     "t": -0.57,
+     "s": -0.0646,
+     "time_exits": 0.0
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.476,
+     "needed_win_rate": 0.549,
+     "net_R": -0.0476,
+     "gross_R": 0.0498,
+     "cost_R": 0.097,
+     "t": -0.21,
+     "s": -0.0465,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.65,
+      "needed_win_rate": 0.513,
+      "net_R": 0.3,
+      "gross_R": 0.3258,
+      "cost_R": 0.026,
+      "t": 1.37,
+      "s": 0.3065,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.455,
+      "needed_win_rate": 0.582,
+      "net_R": -0.0909,
+      "gross_R": 0.0727,
+      "cost_R": 0.164,
+      "t": -0.42,
+      "s": -0.0892,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.385,
+      "needed_win_rate": 0.593,
+      "net_R": -0.2308,
+      "gross_R": -0.0457,
+      "cost_R": 0.185,
+      "t": -1.19,
+      "s": -0.2326,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.568,
+      "net_R": 0.0,
+      "gross_R": 0.1368,
+      "cost_R": 0.137,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 12,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.638,
+      "net_R": -0.3333,
+      "gross_R": -0.0575,
+      "cost_R": 0.276,
+      "t": -1.17,
+      "s": -0.3385,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 101,
+     "win_rate": 0.475,
+     "needed_win_rate": 0.575,
+     "net_R": -0.0452,
+     "gross_R": 0.1047,
+     "cost_R": 0.15,
+     "t": -0.45,
+     "s": -0.0452,
+     "time_exits": 0.01
+    },
+    "summer": {
+     "n": 79,
+     "win_rate": 0.494,
+     "needed_win_rate": 0.582,
+     "net_R": -0.0071,
+     "gross_R": 0.1565,
+     "cost_R": 0.164,
+     "t": -0.06,
+     "s": -0.0071,
+     "time_exits": 0.013
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.409,
+     "needed_win_rate": 0.55,
+     "net_R": -0.1818,
+     "gross_R": -0.0809,
+     "cost_R": 0.101,
+     "t": -0.85,
+     "s": -0.1806,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.682,
+      "needed_win_rate": 0.513,
+      "net_R": 0.3636,
+      "gross_R": 0.3897,
+      "cost_R": 0.026,
+      "t": 1.79,
+      "s": 0.3814,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.582,
+      "net_R": 0.0,
+      "gross_R": 0.1646,
+      "cost_R": 0.165,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.594,
+      "net_R": -0.3172,
+      "gross_R": -0.1288,
+      "cost_R": 0.188,
+      "t": -1.73,
+      "s": -0.3329,
+      "time_exits": 0.037
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.571,
+      "net_R": 0.0,
+      "gross_R": 0.1418,
+      "cost_R": 0.142,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 12,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.638,
+      "net_R": -0.3333,
+      "gross_R": -0.0575,
+      "cost_R": 0.276,
+      "t": -1.17,
+      "s": -0.3385,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1611,
+    "win_rate": 0.408,
+    "needed_win_rate": 0.576,
+    "net_R": -0.1862,
+    "gross_R": -0.0343,
+    "cost_R": 0.152,
+    "t": -7.6,
+    "s": -0.1893,
+    "time_exits": 0.007
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "candle",
+    "buffer": 0.1
+   },
+   "2011-19": {
+    "n": 2652,
+    "win_rate": 0.417,
+    "needed_win_rate": 0.582,
+    "net_R": -0.1661,
+    "gross_R": -0.003,
+    "cost_R": 0.163,
+    "t": -8.52,
+    "s": -0.1655,
+    "time_exits": 0.006,
+    "stopped_then_target": 0.464,
+    "cycle": {
+     "s": -0.1655,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.062,
+      "5": -0.087,
+      "6": -0.104,
+      "8": -0.139
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 234,
+      "win_rate": 0.406,
+      "needed_win_rate": 0.575,
+      "net_R": -0.2041,
+      "gross_R": -0.055,
+      "cost_R": 0.149,
+      "t": -3.14,
+      "s": -0.2055,
+      "time_exits": 0.013
+     },
+     "XAGUSD": {
+      "n": 38,
+      "win_rate": 0.237,
+      "needed_win_rate": 0.618,
+      "net_R": -0.5269,
+      "gross_R": -0.2906,
+      "cost_R": 0.236,
+      "t": -3.77,
+      "s": -0.6112,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 250,
+      "win_rate": 0.44,
+      "needed_win_rate": 0.555,
+      "net_R": -0.1279,
+      "gross_R": -0.0186,
+      "cost_R": 0.109,
+      "t": -2.04,
+      "s": -0.1293,
+      "time_exits": 0.012
+     },
+     "GBPUSD": {
+      "n": 272,
+      "win_rate": 0.426,
+      "needed_win_rate": 0.565,
+      "net_R": -0.1437,
+      "gross_R": -0.0138,
+      "cost_R": 0.13,
+      "t": -2.39,
+      "s": -0.1452,
+      "time_exits": 0.004
+     },
+     "USDJPY": {
+      "n": 266,
+      "win_rate": 0.459,
+      "needed_win_rate": 0.578,
+      "net_R": -0.0829,
+      "gross_R": 0.0721,
+      "cost_R": 0.155,
+      "t": -1.35,
+      "s": -0.083,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 226,
+      "win_rate": 0.385,
+      "needed_win_rate": 0.59,
+      "net_R": -0.2327,
+      "gross_R": -0.0526,
+      "cost_R": 0.18,
+      "t": -3.6,
+      "s": -0.2394,
+      "time_exits": 0.009
+     },
+     "WTI": {
+      "n": 224,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.603,
+      "net_R": -0.1369,
+      "gross_R": 0.0685,
+      "cost_R": 0.205,
+      "t": -2.03,
+      "s": -0.1356,
+      "time_exits": 0.0
+     },
+     "US500": {
+      "n": 217,
+      "win_rate": 0.387,
+      "needed_win_rate": 0.604,
+      "net_R": -0.228,
+      "gross_R": -0.0199,
+      "cost_R": 0.208,
+      "t": -3.43,
+      "s": -0.2331,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 292,
+      "win_rate": 0.428,
+      "needed_win_rate": 0.585,
+      "net_R": -0.1417,
+      "gross_R": 0.0292,
+      "cost_R": 0.171,
+      "t": -2.44,
+      "s": -0.1431,
+      "time_exits": 0.003
+     },
+     "GER40": {
+      "n": 314,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.552,
+      "net_R": -0.0404,
+      "gross_R": 0.0641,
+      "cost_R": 0.105,
+      "t": -0.72,
+      "s": -0.0405,
+      "time_exits": 0.01
+     },
+     "UK100": {
+      "n": 227,
+      "win_rate": 0.33,
+      "needed_win_rate": 0.605,
+      "net_R": -0.2978,
+      "gross_R": -0.087,
+      "cost_R": 0.211,
+      "t": -3.96,
+      "s": -0.2628,
+      "time_exits": 0.013
+     },
+     "JP225": {
+      "n": 92,
+      "win_rate": 0.37,
+      "needed_win_rate": 0.621,
+      "net_R": -0.2746,
+      "gross_R": -0.0319,
+      "cost_R": 0.243,
+      "t": -2.68,
+      "s": -0.2796,
+      "time_exits": 0.011
+     }
+    },
+    "summer": {
+     "n": 1673,
+     "win_rate": 0.405,
+     "needed_win_rate": 0.584,
+     "net_R": -0.1859,
+     "gross_R": -0.0184,
+     "cost_R": 0.167,
+     "t": -7.54,
+     "s": -0.1844,
+     "time_exits": 0.01
+    },
+    "winter": {
+     "n": 979,
+     "win_rate": 0.436,
+     "needed_win_rate": 0.578,
+     "net_R": -0.1323,
+     "gross_R": 0.0233,
+     "cost_R": 0.156,
+     "t": -4.16,
+     "s": -0.1328,
+     "time_exits": 0.001
+    }
+   },
+   "2020-22": {
+    "n": 995,
+    "win_rate": 0.416,
+    "needed_win_rate": 0.565,
+    "net_R": -0.1648,
+    "gross_R": -0.0347,
+    "cost_R": 0.13,
+    "t": -5.29,
+    "s": -0.1676,
+    "time_exits": 0.012,
+    "stopped_then_target": 0.404,
+    "cycle": {
+     "s": -0.1676,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.063,
+      "5": -0.087,
+      "6": -0.104,
+      "8": -0.139
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 78,
+      "win_rate": 0.436,
+      "needed_win_rate": 0.547,
+      "net_R": -0.1384,
+      "gross_R": -0.0441,
+      "cost_R": 0.094,
+      "t": -1.24,
+      "s": -0.1399,
+      "time_exits": 0.026
+     },
+     "XAGUSD": {
+      "n": 15,
+      "win_rate": 0.4,
+      "needed_win_rate": 0.639,
+      "net_R": -0.2005,
+      "gross_R": 0.0767,
+      "cost_R": 0.277,
+      "t": -0.77,
+      "s": -0.1976,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.553,
+      "net_R": -0.1541,
+      "gross_R": -0.0483,
+      "cost_R": 0.106,
+      "t": -1.46,
+      "s": -0.1557,
+      "time_exits": 0.011
+     },
+     "GBPUSD": {
+      "n": 68,
+      "win_rate": 0.441,
+      "needed_win_rate": 0.56,
+      "net_R": -0.1056,
+      "gross_R": 0.0138,
+      "cost_R": 0.119,
+      "t": -0.88,
+      "s": -0.1062,
+      "time_exits": 0.015
+     },
+     "USDJPY": {
+      "n": 81,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.574,
+      "net_R": -0.1605,
+      "gross_R": -0.0127,
+      "cost_R": 0.148,
+      "t": -1.45,
+      "s": -0.1616,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 88,
+      "win_rate": 0.352,
+      "needed_win_rate": 0.583,
+      "net_R": -0.2756,
+      "gross_R": -0.1096,
+      "cost_R": 0.166,
+      "t": -2.71,
+      "s": -0.2886,
+      "time_exits": 0.023
+     },
+     "WTI": {
+      "n": 105,
+      "win_rate": 0.371,
+      "needed_win_rate": 0.583,
+      "net_R": -0.2563,
+      "gross_R": -0.0903,
+      "cost_R": 0.166,
+      "t": -2.72,
+      "s": -0.2654,
+      "time_exits": 0.019
+     },
+     "US500": {
+      "n": 112,
+      "win_rate": 0.446,
+      "needed_win_rate": 0.552,
+      "net_R": -0.1074,
+      "gross_R": -0.0027,
+      "cost_R": 0.105,
+      "t": -1.14,
+      "s": -0.1075,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 102,
+      "win_rate": 0.529,
+      "needed_win_rate": 0.524,
+      "net_R": 0.0571,
+      "gross_R": 0.1059,
+      "cost_R": 0.049,
+      "t": 0.58,
+      "s": 0.057,
+      "time_exits": 0.01
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.482,
+      "needed_win_rate": 0.534,
+      "net_R": -0.0375,
+      "gross_R": 0.0303,
+      "cost_R": 0.068,
+      "t": -0.34,
+      "s": -0.0373,
+      "time_exits": 0.0
+     },
+     "UK100": {
+      "n": 102,
+      "win_rate": 0.343,
+      "needed_win_rate": 0.595,
+      "net_R": -0.3065,
+      "gross_R": -0.1169,
+      "cost_R": 0.19,
+      "t": -3.25,
+      "s": -0.322,
+      "time_exits": 0.01
+     },
+     "JP225": {
+      "n": 73,
+      "win_rate": 0.329,
+      "needed_win_rate": 0.602,
+      "net_R": -0.3379,
+      "gross_R": -0.1344,
+      "cost_R": 0.203,
+      "t": -3.06,
+      "s": -0.3582,
+      "time_exits": 0.027
+     }
+    },
+    "summer": {
+     "n": 627,
+     "win_rate": 0.434,
+     "needed_win_rate": 0.567,
+     "net_R": -0.1282,
+     "gross_R": 0.0053,
+     "cost_R": 0.133,
+     "t": -3.25,
+     "s": -0.1297,
+     "time_exits": 0.014
+    },
+    "winter": {
+     "n": 368,
+     "win_rate": 0.386,
+     "needed_win_rate": 0.562,
+     "net_R": -0.2271,
+     "gross_R": -0.1027,
+     "cost_R": 0.124,
+     "t": -4.48,
+     "s": -0.2336,
+     "time_exits": 0.008
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 101,
+     "win_rate": 0.485,
+     "needed_win_rate": 0.57,
+     "net_R": -0.0289,
+     "gross_R": 0.1114,
+     "cost_R": 0.14,
+     "t": -0.29,
+     "s": -0.0289,
+     "time_exits": 0.02
+    },
+    "summer": {
+     "n": 80,
+     "win_rate": 0.463,
+     "needed_win_rate": 0.577,
+     "net_R": -0.0739,
+     "gross_R": 0.0801,
+     "cost_R": 0.154,
+     "t": -0.67,
+     "s": -0.0744,
+     "time_exits": 0.025
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.544,
+     "net_R": 0.1429,
+     "gross_R": 0.2308,
+     "cost_R": 0.088,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.7,
+      "needed_win_rate": 0.512,
+      "net_R": 0.4,
+      "gross_R": 0.4232,
+      "cost_R": 0.023,
+      "t": 1.9,
+      "s": 0.4254,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.573,
+      "net_R": -0.0244,
+      "gross_R": 0.1212,
+      "cost_R": 0.146,
+      "t": -0.11,
+      "s": -0.0243,
+      "time_exits": 0.045
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.37,
+      "needed_win_rate": 0.585,
+      "net_R": -0.234,
+      "gross_R": -0.0641,
+      "cost_R": 0.17,
+      "t": -1.25,
+      "s": -0.2404,
+      "time_exits": 0.037
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.561,
+      "net_R": 0.0,
+      "gross_R": 0.1225,
+      "cost_R": 0.122,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 14,
+      "win_rate": 0.357,
+      "needed_win_rate": 0.632,
+      "net_R": -0.2901,
+      "gross_R": -0.0252,
+      "cost_R": 0.265,
+      "t": -1.09,
+      "s": -0.2907,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 104,
+     "win_rate": 0.481,
+     "needed_win_rate": 0.57,
+     "net_R": -0.0325,
+     "gross_R": 0.1073,
+     "cost_R": 0.14,
+     "t": -0.33,
+     "s": -0.0327,
+     "time_exits": 0.029
+    },
+    "summer": {
+     "n": 82,
+     "win_rate": 0.476,
+     "needed_win_rate": 0.576,
+     "net_R": -0.0412,
+     "gross_R": 0.1117,
+     "cost_R": 0.153,
+     "t": -0.38,
+     "s": -0.0416,
+     "time_exits": 0.037
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.545,
+     "net_R": 0.0,
+     "gross_R": 0.0908,
+     "cost_R": 0.091,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.727,
+      "needed_win_rate": 0.512,
+      "net_R": 0.4545,
+      "gross_R": 0.4779,
+      "cost_R": 0.023,
+      "t": 2.34,
+      "s": 0.4986,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.573,
+      "net_R": -0.024,
+      "gross_R": 0.1222,
+      "cost_R": 0.146,
+      "t": -0.11,
+      "s": -0.0239,
+      "time_exits": 0.045
+     },
+     "GBPUSD": {
+      "n": 28,
+      "win_rate": 0.321,
+      "needed_win_rate": 0.586,
+      "net_R": -0.314,
+      "gross_R": -0.1418,
+      "cost_R": 0.172,
+      "t": -1.78,
+      "s": -0.336,
+      "time_exits": 0.071
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.563,
+      "net_R": 0.0,
+      "gross_R": 0.1267,
+      "cost_R": 0.127,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 14,
+      "win_rate": 0.357,
+      "needed_win_rate": 0.632,
+      "net_R": -0.2901,
+      "gross_R": -0.0252,
+      "cost_R": 0.265,
+      "t": -1.09,
+      "s": -0.2907,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1651,
+    "win_rate": 0.422,
+    "needed_win_rate": 0.57,
+    "net_R": -0.1588,
+    "gross_R": -0.019,
+    "cost_R": 0.14,
+    "t": -6.54,
+    "s": -0.161,
+    "time_exits": 0.009
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "candle",
+    "buffer": 0.25
+   },
+   "2011-19": {
+    "n": 2814,
+    "win_rate": 0.429,
+    "needed_win_rate": 0.576,
+    "net_R": -0.1395,
+    "gross_R": 0.0118,
+    "cost_R": 0.151,
+    "t": -7.39,
+    "s": -0.1394,
+    "time_exits": 0.014,
+    "stopped_then_target": 0.412,
+    "cycle": {
+     "s": -0.1394,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.057,
+      "5": -0.078,
+      "6": -0.094,
+      "8": -0.126
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 237,
+      "win_rate": 0.451,
+      "needed_win_rate": 0.565,
+      "net_R": -0.1115,
+      "gross_R": 0.0182,
+      "cost_R": 0.13,
+      "t": -1.71,
+      "s": -0.1111,
+      "time_exits": 0.013
+     },
+     "XAGUSD": {
+      "n": 53,
+      "win_rate": 0.264,
+      "needed_win_rate": 0.618,
+      "net_R": -0.4618,
+      "gross_R": -0.2249,
+      "cost_R": 0.237,
+      "t": -3.79,
+      "s": -0.5199,
+      "time_exits": 0.019
+     },
+     "EURUSD": {
+      "n": 254,
+      "win_rate": 0.469,
+      "needed_win_rate": 0.548,
+      "net_R": -0.0648,
+      "gross_R": 0.0315,
+      "cost_R": 0.096,
+      "t": -1.04,
+      "s": -0.0654,
+      "time_exits": 0.024
+     },
+     "GBPUSD": {
+      "n": 273,
+      "win_rate": 0.44,
+      "needed_win_rate": 0.556,
+      "net_R": -0.1112,
+      "gross_R": 0.0014,
+      "cost_R": 0.113,
+      "t": -1.86,
+      "s": -0.1123,
+      "time_exits": 0.011
+     },
+     "USDJPY": {
+      "n": 278,
+      "win_rate": 0.457,
+      "needed_win_rate": 0.571,
+      "net_R": -0.0857,
+      "gross_R": 0.0555,
+      "cost_R": 0.141,
+      "t": -1.43,
+      "s": -0.0859,
+      "time_exits": 0.004
+     },
+     "EURGBP": {
+      "n": 237,
+      "win_rate": 0.405,
+      "needed_win_rate": 0.581,
+      "net_R": -0.1871,
+      "gross_R": -0.0242,
+      "cost_R": 0.163,
+      "t": -2.96,
+      "s": -0.1922,
+      "time_exits": 0.034
+     },
+     "WTI": {
+      "n": 242,
+      "win_rate": 0.442,
+      "needed_win_rate": 0.594,
+      "net_R": -0.1209,
+      "gross_R": 0.0667,
+      "cost_R": 0.188,
+      "t": -1.87,
+      "s": -0.1205,
+      "time_exits": 0.004
+     },
+     "US500": {
+      "n": 254,
+      "win_rate": 0.409,
+      "needed_win_rate": 0.601,
+      "net_R": -0.1887,
+      "gross_R": 0.0132,
+      "cost_R": 0.202,
+      "t": -3.04,
+      "s": -0.1909,
+      "time_exits": 0.004
+     },
+     "NAS100": {
+      "n": 306,
+      "win_rate": 0.435,
+      "needed_win_rate": 0.578,
+      "net_R": -0.1276,
+      "gross_R": 0.0287,
+      "cost_R": 0.156,
+      "t": -2.25,
+      "s": -0.1287,
+      "time_exits": 0.007
+     },
+     "GER40": {
+      "n": 318,
+      "win_rate": 0.487,
+      "needed_win_rate": 0.546,
+      "net_R": -0.0252,
+      "gross_R": 0.0672,
+      "cost_R": 0.092,
+      "t": -0.45,
+      "s": -0.0253,
+      "time_exits": 0.022
+     },
+     "UK100": {
+      "n": 256,
+      "win_rate": 0.34,
+      "needed_win_rate": 0.6,
+      "net_R": -0.2829,
+      "gross_R": -0.0835,
+      "cost_R": 0.199,
+      "t": -4.16,
+      "s": -0.26,
+      "time_exits": 0.016
+     },
+     "JP225": {
+      "n": 106,
+      "win_rate": 0.358,
+      "needed_win_rate": 0.615,
+      "net_R": -0.2825,
+      "gross_R": -0.0523,
+      "cost_R": 0.23,
+      "t": -3.01,
+      "s": -0.2924,
+      "time_exits": 0.019
+     }
+    },
+    "summer": {
+     "n": 1784,
+     "win_rate": 0.421,
+     "needed_win_rate": 0.578,
+     "net_R": -0.1515,
+     "gross_R": 0.0036,
+     "cost_R": 0.155,
+     "t": -6.37,
+     "s": -0.1508,
+     "time_exits": 0.018
+    },
+    "winter": {
+     "n": 1030,
+     "win_rate": 0.443,
+     "needed_win_rate": 0.572,
+     "net_R": -0.1187,
+     "gross_R": 0.0259,
+     "cost_R": 0.145,
+     "t": -3.83,
+     "s": -0.1193,
+     "time_exits": 0.007
+    }
+   },
+   "2020-22": {
+    "n": 1031,
+    "win_rate": 0.426,
+    "needed_win_rate": 0.56,
+    "net_R": -0.145,
+    "gross_R": -0.0253,
+    "cost_R": 0.12,
+    "t": -4.73,
+    "s": -0.1474,
+    "time_exits": 0.016,
+    "stopped_then_target": 0.313,
+    "cycle": {
+     "s": -0.1474,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.058,
+      "5": -0.08,
+      "6": -0.096,
+      "8": -0.128
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 79,
+      "win_rate": 0.468,
+      "needed_win_rate": 0.542,
+      "net_R": -0.0747,
+      "gross_R": 0.0093,
+      "cost_R": 0.084,
+      "t": -0.67,
+      "s": -0.0751,
+      "time_exits": 0.025
+     },
+     "XAGUSD": {
+      "n": 25,
+      "win_rate": 0.52,
+      "needed_win_rate": 0.637,
+      "net_R": 0.0091,
+      "gross_R": 0.2836,
+      "cost_R": 0.275,
+      "t": 0.05,
+      "s": 0.0091,
+      "time_exits": 0.04
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.443,
+      "needed_win_rate": 0.546,
+      "net_R": -0.1079,
+      "gross_R": -0.0168,
+      "cost_R": 0.091,
+      "t": -1.02,
+      "s": -0.1084,
+      "time_exits": 0.011
+     },
+     "GBPUSD": {
+      "n": 69,
+      "win_rate": 0.449,
+      "needed_win_rate": 0.553,
+      "net_R": -0.0895,
+      "gross_R": 0.0159,
+      "cost_R": 0.105,
+      "t": -0.75,
+      "s": -0.0899,
+      "time_exits": 0.014
+     },
+     "USDJPY": {
+      "n": 85,
+      "win_rate": 0.424,
+      "needed_win_rate": 0.568,
+      "net_R": -0.1611,
+      "gross_R": -0.0256,
+      "cost_R": 0.135,
+      "t": -1.5,
+      "s": -0.1631,
+      "time_exits": 0.012
+     },
+     "EURGBP": {
+      "n": 90,
+      "win_rate": 0.367,
+      "needed_win_rate": 0.574,
+      "net_R": -0.2412,
+      "gross_R": -0.094,
+      "cost_R": 0.147,
+      "t": -2.38,
+      "s": -0.2513,
+      "time_exits": 0.033
+     },
+     "WTI": {
+      "n": 110,
+      "win_rate": 0.4,
+      "needed_win_rate": 0.576,
+      "net_R": -0.1917,
+      "gross_R": -0.0404,
+      "cost_R": 0.151,
+      "t": -2.06,
+      "s": -0.1965,
+      "time_exits": 0.027
+     },
+     "US500": {
+      "n": 112,
+      "win_rate": 0.429,
+      "needed_win_rate": 0.545,
+      "net_R": -0.1429,
+      "gross_R": -0.0525,
+      "cost_R": 0.09,
+      "t": -1.52,
+      "s": -0.1437,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 104,
+      "win_rate": 0.481,
+      "needed_win_rate": 0.524,
+      "net_R": -0.041,
+      "gross_R": 0.0063,
+      "cost_R": 0.047,
+      "t": -0.42,
+      "s": -0.0409,
+      "time_exits": 0.01
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.482,
+      "needed_win_rate": 0.529,
+      "net_R": -0.0361,
+      "gross_R": 0.0221,
+      "cost_R": 0.058,
+      "t": -0.33,
+      "s": -0.0359,
+      "time_exits": 0.0
+     },
+     "UK100": {
+      "n": 104,
+      "win_rate": 0.375,
+      "needed_win_rate": 0.584,
+      "net_R": -0.2374,
+      "gross_R": -0.0696,
+      "cost_R": 0.168,
+      "t": -2.5,
+      "s": -0.2452,
+      "time_exits": 0.019
+     },
+     "JP225": {
+      "n": 82,
+      "win_rate": 0.354,
+      "needed_win_rate": 0.597,
+      "net_R": -0.2884,
+      "gross_R": -0.0949,
+      "cost_R": 0.194,
+      "t": -2.73,
+      "s": -0.301,
+      "time_exits": 0.024
+     }
+    },
+    "summer": {
+     "n": 650,
+     "win_rate": 0.437,
+     "needed_win_rate": 0.561,
+     "net_R": -0.1205,
+     "gross_R": 0.0018,
+     "cost_R": 0.122,
+     "t": -3.11,
+     "s": -0.1222,
+     "time_exits": 0.02
+    },
+    "winter": {
+     "n": 381,
+     "win_rate": 0.407,
+     "needed_win_rate": 0.558,
+     "net_R": -0.1867,
+     "gross_R": -0.0715,
+     "cost_R": 0.115,
+     "t": -3.72,
+     "s": -0.1906,
+     "time_exits": 0.01
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 106,
+     "win_rate": 0.453,
+     "needed_win_rate": 0.565,
+     "net_R": -0.0938,
+     "gross_R": 0.0371,
+     "cost_R": 0.131,
+     "t": -0.97,
+     "s": -0.0945,
+     "time_exits": 0.019
+    },
+    "summer": {
+     "n": 85,
+     "win_rate": 0.424,
+     "needed_win_rate": 0.572,
+     "net_R": -0.1519,
+     "gross_R": -0.0077,
+     "cost_R": 0.144,
+     "t": -1.42,
+     "s": -0.1543,
+     "time_exits": 0.024
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.538,
+     "net_R": 0.1415,
+     "gross_R": 0.2184,
+     "cost_R": 0.077,
+     "t": 0.64,
+     "s": 0.1393,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.7,
+      "needed_win_rate": 0.51,
+      "net_R": 0.4,
+      "gross_R": 0.4201,
+      "cost_R": 0.02,
+      "t": 1.9,
+      "s": 0.4254,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.545,
+      "needed_win_rate": 0.563,
+      "net_R": 0.0631,
+      "gross_R": 0.1885,
+      "cost_R": 0.125,
+      "t": 0.3,
+      "s": 0.0629,
+      "time_exits": 0.045
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.573,
+      "net_R": -0.3072,
+      "gross_R": -0.1611,
+      "cost_R": 0.146,
+      "t": -1.68,
+      "s": -0.3226,
+      "time_exits": 0.037
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.553,
+      "net_R": -0.001,
+      "gross_R": 0.105,
+      "cost_R": 0.106,
+      "t": -0.0,
+      "s": -0.0009,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 19,
+      "win_rate": 0.211,
+      "needed_win_rate": 0.628,
+      "net_R": -0.5799,
+      "gross_R": -0.3241,
+      "cost_R": 0.256,
+      "t": -3.02,
+      "s": -0.6918,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 111,
+     "win_rate": 0.441,
+     "needed_win_rate": 0.566,
+     "net_R": -0.1107,
+     "gross_R": 0.0219,
+     "cost_R": 0.133,
+     "t": -1.18,
+     "s": -0.1122,
+     "time_exits": 0.027
+    },
+    "summer": {
+     "n": 89,
+     "win_rate": 0.438,
+     "needed_win_rate": 0.573,
+     "net_R": -0.1156,
+     "gross_R": 0.0303,
+     "cost_R": 0.146,
+     "t": -1.11,
+     "s": -0.1174,
+     "time_exits": 0.034
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.455,
+     "needed_win_rate": 0.54,
+     "net_R": -0.0909,
+     "gross_R": -0.0119,
+     "cost_R": 0.079,
+     "t": -0.42,
+     "s": -0.0892,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.682,
+      "needed_win_rate": 0.51,
+      "net_R": 0.3636,
+      "gross_R": 0.384,
+      "cost_R": 0.02,
+      "t": 1.79,
+      "s": 0.3814,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 23,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.566,
+      "net_R": -0.0687,
+      "gross_R": 0.064,
+      "cost_R": 0.133,
+      "t": -0.33,
+      "s": -0.0686,
+      "time_exits": 0.043
+     },
+     "GBPUSD": {
+      "n": 29,
+      "win_rate": 0.345,
+      "needed_win_rate": 0.576,
+      "net_R": -0.2652,
+      "gross_R": -0.1137,
+      "cost_R": 0.151,
+      "t": -1.5,
+      "s": -0.2794,
+      "time_exits": 0.069
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.555,
+      "net_R": -0.0001,
+      "gross_R": 0.1093,
+      "cost_R": 0.109,
+      "t": -0.0,
+      "s": -0.0001,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 19,
+      "win_rate": 0.211,
+      "needed_win_rate": 0.628,
+      "net_R": -0.5799,
+      "gross_R": -0.3241,
+      "cost_R": 0.256,
+      "t": -3.02,
+      "s": -0.6918,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1690,
+    "win_rate": 0.441,
+    "needed_win_rate": 0.562,
+    "net_R": -0.1174,
+    "gross_R": 0.0072,
+    "cost_R": 0.125,
+    "t": -4.88,
+    "s": -0.1188,
+    "time_exits": 0.017
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "candle",
+    "buffer": 0.5
+   },
+   "2011-19": {
+    "n": 2958,
+    "win_rate": 0.445,
+    "needed_win_rate": 0.566,
+    "net_R": -0.1071,
+    "gross_R": 0.0253,
+    "cost_R": 0.132,
+    "t": -5.88,
+    "s": -0.108,
+    "time_exits": 0.037,
+    "stopped_then_target": 0.311,
+    "cycle": {
+     "s": -0.108,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.048,
+      "5": -0.066,
+      "6": -0.079,
+      "8": -0.106
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 241,
+      "win_rate": 0.481,
+      "needed_win_rate": 0.554,
+      "net_R": -0.0568,
+      "gross_R": 0.051,
+      "cost_R": 0.108,
+      "t": -0.88,
+      "s": -0.057,
+      "time_exits": 0.037
+     },
+     "XAGUSD": {
+      "n": 67,
+      "win_rate": 0.343,
+      "needed_win_rate": 0.609,
+      "net_R": -0.3038,
+      "gross_R": -0.085,
+      "cost_R": 0.219,
+      "t": -2.61,
+      "s": -0.3184,
+      "time_exits": 0.03
+     },
+     "EURUSD": {
+      "n": 254,
+      "win_rate": 0.472,
+      "needed_win_rate": 0.539,
+      "net_R": -0.0589,
+      "gross_R": 0.0189,
+      "cost_R": 0.078,
+      "t": -0.96,
+      "s": -0.0599,
+      "time_exits": 0.047
+     },
+     "GBPUSD": {
+      "n": 275,
+      "win_rate": 0.411,
+      "needed_win_rate": 0.547,
+      "net_R": -0.1573,
+      "gross_R": -0.0642,
+      "cost_R": 0.093,
+      "t": -2.7,
+      "s": -0.1626,
+      "time_exits": 0.055
+     },
+     "USDJPY": {
+      "n": 281,
+      "win_rate": 0.466,
+      "needed_win_rate": 0.558,
+      "net_R": -0.0627,
+      "gross_R": 0.0538,
+      "cost_R": 0.117,
+      "t": -1.06,
+      "s": -0.0635,
+      "time_exits": 0.032
+     },
+     "EURGBP": {
+      "n": 243,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.568,
+      "net_R": -0.1465,
+      "gross_R": -0.0098,
+      "cost_R": 0.137,
+      "t": -2.36,
+      "s": -0.1512,
+      "time_exits": 0.058
+     },
+     "WTI": {
+      "n": 266,
+      "win_rate": 0.432,
+      "needed_win_rate": 0.583,
+      "net_R": -0.1417,
+      "gross_R": 0.0243,
+      "cost_R": 0.166,
+      "t": -2.34,
+      "s": -0.1435,
+      "time_exits": 0.019
+     },
+     "US500": {
+      "n": 284,
+      "win_rate": 0.423,
+      "needed_win_rate": 0.591,
+      "net_R": -0.1601,
+      "gross_R": 0.0216,
+      "cost_R": 0.182,
+      "t": -2.72,
+      "s": -0.1616,
+      "time_exits": 0.004
+     },
+     "NAS100": {
+      "n": 327,
+      "win_rate": 0.459,
+      "needed_win_rate": 0.57,
+      "net_R": -0.078,
+      "gross_R": 0.0612,
+      "cost_R": 0.139,
+      "t": -1.42,
+      "s": -0.0788,
+      "time_exits": 0.021
+     },
+     "GER40": {
+      "n": 322,
+      "win_rate": 0.519,
+      "needed_win_rate": 0.539,
+      "net_R": 0.0262,
+      "gross_R": 0.1037,
+      "cost_R": 0.078,
+      "t": 0.48,
+      "s": 0.0267,
+      "time_exits": 0.071
+     },
+     "UK100": {
+      "n": 267,
+      "win_rate": 0.397,
+      "needed_win_rate": 0.585,
+      "net_R": -0.1781,
+      "gross_R": -0.0081,
+      "cost_R": 0.17,
+      "t": -2.72,
+      "s": -0.1664,
+      "time_exits": 0.03
+     },
+     "JP225": {
+      "n": 131,
+      "win_rate": 0.412,
+      "needed_win_rate": 0.608,
+      "net_R": -0.1808,
+      "gross_R": 0.0354,
+      "cost_R": 0.216,
+      "t": -2.1,
+      "s": -0.1831,
+      "time_exits": 0.031
+     }
+    },
+    "summer": {
+     "n": 1880,
+     "win_rate": 0.435,
+     "needed_win_rate": 0.568,
+     "net_R": -0.1254,
+     "gross_R": 0.01,
+     "cost_R": 0.135,
+     "t": -5.49,
+     "s": -0.1266,
+     "time_exits": 0.047
+    },
+    "winter": {
+     "n": 1078,
+     "win_rate": 0.463,
+     "needed_win_rate": 0.564,
+     "net_R": -0.0753,
+     "gross_R": 0.052,
+     "cost_R": 0.127,
+     "t": -2.49,
+     "s": -0.0758,
+     "time_exits": 0.019
+    }
+   },
+   "2020-22": {
+    "n": 1065,
+    "win_rate": 0.432,
+    "needed_win_rate": 0.552,
+    "net_R": -0.1331,
+    "gross_R": -0.0285,
+    "cost_R": 0.105,
+    "t": -4.44,
+    "s": -0.1361,
+    "time_exits": 0.038,
+    "stopped_then_target": 0.234,
+    "cycle": {
+     "s": -0.1361,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.053,
+      "5": -0.074,
+      "6": -0.089,
+      "8": -0.118
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 79,
+      "win_rate": 0.43,
+      "needed_win_rate": 0.534,
+      "net_R": -0.1636,
+      "gross_R": -0.0953,
+      "cost_R": 0.068,
+      "t": -1.49,
+      "s": -0.1679,
+      "time_exits": 0.051
+     },
+     "XAGUSD": {
+      "n": 35,
+      "win_rate": 0.486,
+      "needed_win_rate": 0.627,
+      "net_R": -0.0675,
+      "gross_R": 0.1864,
+      "cost_R": 0.254,
+      "t": -0.41,
+      "s": -0.0689,
+      "time_exits": 0.086
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.409,
+      "needed_win_rate": 0.537,
+      "net_R": -0.1776,
+      "gross_R": -0.1034,
+      "cost_R": 0.074,
+      "t": -1.71,
+      "s": -0.182,
+      "time_exits": 0.034
+     },
+     "GBPUSD": {
+      "n": 69,
+      "win_rate": 0.507,
+      "needed_win_rate": 0.543,
+      "net_R": 0.0267,
+      "gross_R": 0.112,
+      "cost_R": 0.085,
+      "t": 0.22,
+      "s": 0.0267,
+      "time_exits": 0.014
+     },
+     "USDJPY": {
+      "n": 86,
+      "win_rate": 0.477,
+      "needed_win_rate": 0.556,
+      "net_R": -0.0453,
+      "gross_R": 0.0671,
+      "cost_R": 0.112,
+      "t": -0.43,
+      "s": -0.0463,
+      "time_exits": 0.058
+     },
+     "EURGBP": {
+      "n": 94,
+      "win_rate": 0.372,
+      "needed_win_rate": 0.564,
+      "net_R": -0.2327,
+      "gross_R": -0.1054,
+      "cost_R": 0.127,
+      "t": -2.4,
+      "s": -0.2475,
+      "time_exits": 0.085
+     },
+     "WTI": {
+      "n": 114,
+      "win_rate": 0.447,
+      "needed_win_rate": 0.565,
+      "net_R": -0.0974,
+      "gross_R": 0.0323,
+      "cost_R": 0.13,
+      "t": -1.06,
+      "s": -0.099,
+      "time_exits": 0.053
+     },
+     "US500": {
+      "n": 113,
+      "win_rate": 0.425,
+      "needed_win_rate": 0.538,
+      "net_R": -0.144,
+      "gross_R": -0.0681,
+      "cost_R": 0.076,
+      "t": -1.55,
+      "s": -0.1454,
+      "time_exits": 0.009
+     },
+     "NAS100": {
+      "n": 104,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.519,
+      "net_R": -0.0037,
+      "gross_R": 0.0349,
+      "cost_R": 0.039,
+      "t": -0.04,
+      "s": -0.0036,
+      "time_exits": 0.01
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.458,
+      "needed_win_rate": 0.524,
+      "net_R": -0.0846,
+      "gross_R": -0.0373,
+      "cost_R": 0.047,
+      "t": -0.77,
+      "s": -0.0843,
+      "time_exits": 0.012
+     },
+     "UK100": {
+      "n": 104,
+      "win_rate": 0.365,
+      "needed_win_rate": 0.569,
+      "net_R": -0.2525,
+      "gross_R": -0.1143,
+      "cost_R": 0.138,
+      "t": -2.71,
+      "s": -0.2657,
+      "time_exits": 0.048
+     },
+     "JP225": {
+      "n": 96,
+      "win_rate": 0.365,
+      "needed_win_rate": 0.591,
+      "net_R": -0.2693,
+      "gross_R": -0.0878,
+      "cost_R": 0.181,
+      "t": -2.73,
+      "s": -0.2791,
+      "time_exits": 0.021
+     }
+    },
+    "summer": {
+     "n": 667,
+     "win_rate": 0.453,
+     "needed_win_rate": 0.552,
+     "net_R": -0.092,
+     "gross_R": 0.0129,
+     "cost_R": 0.105,
+     "t": -2.43,
+     "s": -0.0939,
+     "time_exits": 0.046
+    },
+    "winter": {
+     "n": 398,
+     "win_rate": 0.397,
+     "needed_win_rate": 0.552,
+     "net_R": -0.2019,
+     "gross_R": -0.0979,
+     "cost_R": 0.104,
+     "t": -4.14,
+     "s": -0.2077,
+     "time_exits": 0.023
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 114,
+     "win_rate": 0.456,
+     "needed_win_rate": 0.561,
+     "net_R": -0.0828,
+     "gross_R": 0.0383,
+     "cost_R": 0.121,
+     "t": -0.89,
+     "s": -0.0837,
+     "time_exits": 0.026
+    },
+    "summer": {
+     "n": 93,
+     "win_rate": 0.441,
+     "needed_win_rate": 0.567,
+     "net_R": -0.1123,
+     "gross_R": 0.0218,
+     "cost_R": 0.134,
+     "t": -1.1,
+     "s": -0.114,
+     "time_exits": 0.032
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.524,
+     "needed_win_rate": 0.532,
+     "net_R": 0.0476,
+     "gross_R": 0.1112,
+     "cost_R": 0.064,
+     "t": 0.21,
+     "s": 0.0465,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.75,
+      "needed_win_rate": 0.508,
+      "net_R": 0.5,
+      "gross_R": 0.5165,
+      "cost_R": 0.017,
+      "t": 2.52,
+      "s": 0.5627,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.545,
+      "needed_win_rate": 0.551,
+      "net_R": 0.0611,
+      "gross_R": 0.1632,
+      "cost_R": 0.102,
+      "t": 0.29,
+      "s": 0.061,
+      "time_exits": 0.045
+     },
+     "GBPUSD": {
+      "n": 28,
+      "win_rate": 0.25,
+      "needed_win_rate": 0.562,
+      "net_R": -0.4567,
+      "gross_R": -0.3321,
+      "cost_R": 0.125,
+      "t": -2.77,
+      "s": -0.5236,
+      "time_exits": 0.071
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.556,
+      "needed_win_rate": 0.543,
+      "net_R": 0.1111,
+      "gross_R": 0.1978,
+      "cost_R": 0.087,
+      "t": 0.46,
+      "s": 0.1087,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.619,
+      "net_R": -0.3846,
+      "gross_R": -0.1468,
+      "cost_R": 0.238,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 119,
+     "win_rate": 0.454,
+     "needed_win_rate": 0.561,
+     "net_R": -0.0825,
+     "gross_R": 0.0392,
+     "cost_R": 0.122,
+     "t": -0.91,
+     "s": -0.0836,
+     "time_exits": 0.034
+    },
+    "summer": {
+     "n": 97,
+     "win_rate": 0.443,
+     "needed_win_rate": 0.567,
+     "net_R": -0.1012,
+     "gross_R": 0.0333,
+     "cost_R": 0.134,
+     "t": -1.01,
+     "s": -0.103,
+     "time_exits": 0.041
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.533,
+     "net_R": 0.0,
+     "gross_R": 0.0651,
+     "cost_R": 0.065,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.727,
+      "needed_win_rate": 0.508,
+      "net_R": 0.4545,
+      "gross_R": 0.4713,
+      "cost_R": 0.017,
+      "t": 2.34,
+      "s": 0.4986,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 23,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.554,
+      "net_R": -0.0715,
+      "gross_R": 0.0361,
+      "cost_R": 0.108,
+      "t": -0.34,
+      "s": -0.0715,
+      "time_exits": 0.043
+     },
+     "GBPUSD": {
+      "n": 30,
+      "win_rate": 0.3,
+      "needed_win_rate": 0.564,
+      "net_R": -0.3386,
+      "gross_R": -0.2105,
+      "cost_R": 0.128,
+      "t": -2.03,
+      "s": -0.3715,
+      "time_exits": 0.1
+     },
+     "USDJPY": {
+      "n": 18,
+      "win_rate": 0.556,
+      "needed_win_rate": 0.545,
+      "net_R": 0.1106,
+      "gross_R": 0.1998,
+      "cost_R": 0.089,
+      "t": 0.46,
+      "s": 0.1081,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.619,
+      "net_R": -0.3846,
+      "gross_R": -0.1468,
+      "cost_R": 0.238,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1710,
+    "win_rate": 0.446,
+    "needed_win_rate": 0.552,
+    "net_R": -0.1039,
+    "gross_R": -0.0005,
+    "cost_R": 0.103,
+    "t": -4.39,
+    "s": -0.1062,
+    "time_exits": 0.047
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "swing",
+    "buffer": 0.0
+   },
+   "2011-19": {
+    "n": 2851,
+    "win_rate": 0.424,
+    "needed_win_rate": 0.573,
+    "net_R": -0.1474,
+    "gross_R": -0.0007,
+    "cost_R": 0.147,
+    "t": -7.94,
+    "s": -0.1487,
+    "time_exits": 0.044,
+    "stopped_then_target": 0.393,
+    "cycle": {
+     "s": -0.1487,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.059,
+      "5": -0.082,
+      "6": -0.098,
+      "8": -0.131
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 239,
+      "win_rate": 0.439,
+      "needed_win_rate": 0.563,
+      "net_R": -0.1373,
+      "gross_R": -0.011,
+      "cost_R": 0.126,
+      "t": -2.16,
+      "s": -0.1394,
+      "time_exits": 0.046
+     },
+     "XAGUSD": {
+      "n": 62,
+      "win_rate": 0.387,
+      "needed_win_rate": 0.616,
+      "net_R": -0.1975,
+      "gross_R": 0.0341,
+      "cost_R": 0.232,
+      "t": -1.64,
+      "s": -0.2085,
+      "time_exits": 0.113
+     },
+     "EURUSD": {
+      "n": 254,
+      "win_rate": 0.425,
+      "needed_win_rate": 0.545,
+      "net_R": -0.1404,
+      "gross_R": -0.0504,
+      "cost_R": 0.09,
+      "t": -2.32,
+      "s": -0.1456,
+      "time_exits": 0.063
+     },
+     "GBPUSD": {
+      "n": 274,
+      "win_rate": 0.405,
+      "needed_win_rate": 0.553,
+      "net_R": -0.1762,
+      "gross_R": -0.0693,
+      "cost_R": 0.107,
+      "t": -3.02,
+      "s": -0.1824,
+      "time_exits": 0.051
+     },
+     "USDJPY": {
+      "n": 270,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.566,
+      "net_R": -0.0361,
+      "gross_R": 0.0964,
+      "cost_R": 0.132,
+      "t": -0.6,
+      "s": -0.0365,
+      "time_exits": 0.03
+     },
+     "EURGBP": {
+      "n": 241,
+      "win_rate": 0.382,
+      "needed_win_rate": 0.579,
+      "net_R": -0.2336,
+      "gross_R": -0.0759,
+      "cost_R": 0.158,
+      "t": -3.8,
+      "s": -0.2451,
+      "time_exits": 0.054
+     },
+     "WTI": {
+      "n": 243,
+      "win_rate": 0.444,
+      "needed_win_rate": 0.591,
+      "net_R": -0.1118,
+      "gross_R": 0.0707,
+      "cost_R": 0.182,
+      "t": -1.78,
+      "s": -0.1141,
+      "time_exits": 0.037
+     },
+     "US500": {
+      "n": 276,
+      "win_rate": 0.402,
+      "needed_win_rate": 0.601,
+      "net_R": -0.2019,
+      "gross_R": -0.0008,
+      "cost_R": 0.201,
+      "t": -3.43,
+      "s": -0.2067,
+      "time_exits": 0.014
+     },
+     "NAS100": {
+      "n": 301,
+      "win_rate": 0.445,
+      "needed_win_rate": 0.575,
+      "net_R": -0.1236,
+      "gross_R": 0.0264,
+      "cost_R": 0.15,
+      "t": -2.19,
+      "s": -0.1265,
+      "time_exits": 0.04
+     },
+     "GER40": {
+      "n": 322,
+      "win_rate": 0.503,
+      "needed_win_rate": 0.545,
+      "net_R": 0.0023,
+      "gross_R": 0.0931,
+      "cost_R": 0.091,
+      "t": 0.04,
+      "s": 0.0023,
+      "time_exits": 0.059
+     },
+     "UK100": {
+      "n": 254,
+      "win_rate": 0.339,
+      "needed_win_rate": 0.595,
+      "net_R": -0.2823,
+      "gross_R": -0.0915,
+      "cost_R": 0.191,
+      "t": -4.04,
+      "s": -0.2535,
+      "time_exits": 0.024
+     },
+     "JP225": {
+      "n": 115,
+      "win_rate": 0.348,
+      "needed_win_rate": 0.61,
+      "net_R": -0.2978,
+      "gross_R": -0.0779,
+      "cost_R": 0.22,
+      "t": -3.35,
+      "s": -0.312,
+      "time_exits": 0.061
+     }
+    },
+    "summer": {
+     "n": 1802,
+     "win_rate": 0.417,
+     "needed_win_rate": 0.575,
+     "net_R": -0.1557,
+     "gross_R": -0.0058,
+     "cost_R": 0.15,
+     "t": -6.62,
+     "s": -0.156,
+     "time_exits": 0.048
+    },
+    "winter": {
+     "n": 1049,
+     "win_rate": 0.438,
+     "needed_win_rate": 0.571,
+     "net_R": -0.1333,
+     "gross_R": 0.0081,
+     "cost_R": 0.141,
+     "t": -4.4,
+     "s": -0.136,
+     "time_exits": 0.037
+    }
+   },
+   "2020-22": {
+    "n": 1028,
+    "win_rate": 0.42,
+    "needed_win_rate": 0.559,
+    "net_R": -0.1581,
+    "gross_R": -0.0399,
+    "cost_R": 0.118,
+    "t": -5.22,
+    "s": -0.1627,
+    "time_exits": 0.048,
+    "stopped_then_target": 0.34,
+    "cycle": {
+     "s": -0.1627,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.061,
+      "5": -0.085,
+      "6": -0.102,
+      "8": -0.136
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 78,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.54,
+      "net_R": -0.101,
+      "gross_R": -0.0202,
+      "cost_R": 0.081,
+      "t": -0.92,
+      "s": -0.1045,
+      "time_exits": 0.09
+     },
+     "XAGUSD": {
+      "n": 26,
+      "win_rate": 0.346,
+      "needed_win_rate": 0.625,
+      "net_R": -0.2417,
+      "gross_R": 0.0075,
+      "cost_R": 0.249,
+      "t": -1.35,
+      "s": -0.265,
+      "time_exits": 0.192
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.375,
+      "needed_win_rate": 0.542,
+      "net_R": -0.2512,
+      "gross_R": -0.1673,
+      "cost_R": 0.084,
+      "t": -2.45,
+      "s": -0.2609,
+      "time_exits": 0.034
+     },
+     "GBPUSD": {
+      "n": 68,
+      "win_rate": 0.471,
+      "needed_win_rate": 0.551,
+      "net_R": -0.0616,
+      "gross_R": 0.0414,
+      "cost_R": 0.103,
+      "t": -0.51,
+      "s": -0.0613,
+      "time_exits": 0.015
+     },
+     "USDJPY": {
+      "n": 83,
+      "win_rate": 0.458,
+      "needed_win_rate": 0.568,
+      "net_R": -0.0981,
+      "gross_R": 0.0379,
+      "cost_R": 0.136,
+      "t": -0.92,
+      "s": -0.1005,
+      "time_exits": 0.06
+     },
+     "EURGBP": {
+      "n": 90,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.575,
+      "net_R": -0.302,
+      "gross_R": -0.1529,
+      "cost_R": 0.149,
+      "t": -3.11,
+      "s": -0.3276,
+      "time_exits": 0.089
+     },
+     "WTI": {
+      "n": 113,
+      "win_rate": 0.398,
+      "needed_win_rate": 0.578,
+      "net_R": -0.2009,
+      "gross_R": -0.0443,
+      "cost_R": 0.157,
+      "t": -2.22,
+      "s": -0.2093,
+      "time_exits": 0.071
+     },
+     "US500": {
+      "n": 112,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.546,
+      "net_R": -0.166,
+      "gross_R": -0.0735,
+      "cost_R": 0.092,
+      "t": -1.78,
+      "s": -0.1682,
+      "time_exits": 0.009
+     },
+     "NAS100": {
+      "n": 102,
+      "win_rate": 0.549,
+      "needed_win_rate": 0.52,
+      "net_R": 0.078,
+      "gross_R": 0.1176,
+      "cost_R": 0.04,
+      "t": 0.8,
+      "s": 0.0788,
+      "time_exits": 0.039
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.47,
+      "needed_win_rate": 0.526,
+      "net_R": -0.0473,
+      "gross_R": 0.0053,
+      "cost_R": 0.053,
+      "t": -0.43,
+      "s": -0.047,
+      "time_exits": 0.036
+     },
+     "UK100": {
+      "n": 102,
+      "win_rate": 0.373,
+      "needed_win_rate": 0.584,
+      "net_R": -0.241,
+      "gross_R": -0.0734,
+      "cost_R": 0.168,
+      "t": -2.52,
+      "s": -0.2495,
+      "time_exits": 0.02
+     },
+     "JP225": {
+      "n": 83,
+      "win_rate": 0.349,
+      "needed_win_rate": 0.597,
+      "net_R": -0.3004,
+      "gross_R": -0.1065,
+      "cost_R": 0.194,
+      "t": -2.86,
+      "s": -0.3138,
+      "time_exits": 0.024
+     }
+    },
+    "summer": {
+     "n": 644,
+     "win_rate": 0.435,
+     "needed_win_rate": 0.56,
+     "net_R": -0.1301,
+     "gross_R": -0.0092,
+     "cost_R": 0.121,
+     "t": -3.39,
+     "s": -0.1335,
+     "time_exits": 0.057
+    },
+    "winter": {
+     "n": 384,
+     "win_rate": 0.396,
+     "needed_win_rate": 0.557,
+     "net_R": -0.2051,
+     "gross_R": -0.0914,
+     "cost_R": 0.114,
+     "t": -4.15,
+     "s": -0.212,
+     "time_exits": 0.031
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 106,
+     "win_rate": 0.481,
+     "needed_win_rate": 0.564,
+     "net_R": -0.0433,
+     "gross_R": 0.0843,
+     "cost_R": 0.128,
+     "t": -0.45,
+     "s": -0.0437,
+     "time_exits": 0.028
+    },
+    "summer": {
+     "n": 85,
+     "win_rate": 0.459,
+     "needed_win_rate": 0.571,
+     "net_R": -0.0893,
+     "gross_R": 0.0526,
+     "cost_R": 0.142,
+     "t": -0.83,
+     "s": -0.0905,
+     "time_exits": 0.035
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.535,
+     "net_R": 0.1429,
+     "gross_R": 0.2128,
+     "cost_R": 0.07,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.7,
+      "needed_win_rate": 0.511,
+      "net_R": 0.3749,
+      "gross_R": 0.3967,
+      "cost_R": 0.022,
+      "t": 1.8,
+      "s": 0.4031,
+      "time_exits": 0.05
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.455,
+      "needed_win_rate": 0.564,
+      "net_R": -0.0909,
+      "gross_R": 0.0364,
+      "cost_R": 0.127,
+      "t": -0.42,
+      "s": -0.0892,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.407,
+      "needed_win_rate": 0.575,
+      "net_R": -0.1596,
+      "gross_R": -0.0095,
+      "cost_R": 0.15,
+      "t": -0.84,
+      "s": -0.1614,
+      "time_exits": 0.037
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.526,
+      "needed_win_rate": 0.555,
+      "net_R": 0.0526,
+      "gross_R": 0.1626,
+      "cost_R": 0.11,
+      "t": 0.22,
+      "s": 0.0513,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 18,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.615,
+      "net_R": -0.3767,
+      "gross_R": -0.1462,
+      "cost_R": 0.231,
+      "t": -1.73,
+      "s": -0.4079,
+      "time_exits": 0.056
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 110,
+     "win_rate": 0.482,
+     "needed_win_rate": 0.564,
+     "net_R": -0.0353,
+     "gross_R": 0.0921,
+     "cost_R": 0.127,
+     "t": -0.37,
+     "s": -0.0357,
+     "time_exits": 0.036
+    },
+    "summer": {
+     "n": 88,
+     "win_rate": 0.477,
+     "needed_win_rate": 0.571,
+     "net_R": -0.0441,
+     "gross_R": 0.0971,
+     "cost_R": 0.141,
+     "t": -0.42,
+     "s": -0.0448,
+     "time_exits": 0.045
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.536,
+     "net_R": 0.0,
+     "gross_R": 0.072,
+     "cost_R": 0.072,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.727,
+      "needed_win_rate": 0.511,
+      "net_R": 0.433,
+      "gross_R": 0.4552,
+      "cost_R": 0.022,
+      "t": 2.25,
+      "s": 0.4791,
+      "time_exits": 0.045
+     },
+     "EURUSD": {
+      "n": 23,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.564,
+      "net_R": -0.0435,
+      "gross_R": 0.0837,
+      "cost_R": 0.127,
+      "t": -0.2,
+      "s": -0.0426,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 28,
+      "win_rate": 0.357,
+      "needed_win_rate": 0.578,
+      "net_R": -0.2368,
+      "gross_R": -0.0811,
+      "cost_R": 0.156,
+      "t": -1.31,
+      "s": -0.2479,
+      "time_exits": 0.071
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.526,
+      "needed_win_rate": 0.555,
+      "net_R": 0.0526,
+      "gross_R": 0.1625,
+      "cost_R": 0.11,
+      "t": 0.22,
+      "s": 0.0513,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 18,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.615,
+      "net_R": -0.3767,
+      "gross_R": -0.1462,
+      "cost_R": 0.231,
+      "t": -1.73,
+      "s": -0.4079,
+      "time_exits": 0.056
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1685,
+    "win_rate": 0.424,
+    "needed_win_rate": 0.56,
+    "net_R": -0.1497,
+    "gross_R": -0.0301,
+    "cost_R": 0.12,
+    "t": -6.34,
+    "s": -0.1543,
+    "time_exits": 0.051
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "swing",
+    "buffer": 0.1
+   },
+   "2011-19": {
+    "n": 2918,
+    "win_rate": 0.439,
+    "needed_win_rate": 0.57,
+    "net_R": -0.1212,
+    "gross_R": 0.018,
+    "cost_R": 0.139,
+    "t": -6.57,
+    "s": -0.1217,
+    "time_exits": 0.055,
+    "stopped_then_target": 0.349,
+    "cycle": {
+     "s": -0.1217,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.052,
+      "5": -0.073,
+      "6": -0.087,
+      "8": -0.116
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 240,
+      "win_rate": 0.463,
+      "needed_win_rate": 0.558,
+      "net_R": -0.095,
+      "gross_R": 0.0209,
+      "cost_R": 0.116,
+      "t": -1.49,
+      "s": -0.0965,
+      "time_exits": 0.058
+     },
+     "XAGUSD": {
+      "n": 68,
+      "win_rate": 0.382,
+      "needed_win_rate": 0.613,
+      "net_R": -0.2002,
+      "gross_R": 0.0255,
+      "cost_R": 0.226,
+      "t": -1.77,
+      "s": -0.2143,
+      "time_exits": 0.132
+     },
+     "EURUSD": {
+      "n": 254,
+      "win_rate": 0.437,
+      "needed_win_rate": 0.541,
+      "net_R": -0.1141,
+      "gross_R": -0.0321,
+      "cost_R": 0.082,
+      "t": -1.89,
+      "s": -0.1186,
+      "time_exits": 0.079
+     },
+     "GBPUSD": {
+      "n": 274,
+      "win_rate": 0.416,
+      "needed_win_rate": 0.549,
+      "net_R": -0.1543,
+      "gross_R": -0.0565,
+      "cost_R": 0.098,
+      "t": -2.65,
+      "s": -0.16,
+      "time_exits": 0.066
+     },
+     "USDJPY": {
+      "n": 276,
+      "win_rate": 0.496,
+      "needed_win_rate": 0.563,
+      "net_R": -0.0009,
+      "gross_R": 0.1243,
+      "cost_R": 0.125,
+      "t": -0.02,
+      "s": -0.0009,
+      "time_exits": 0.04
+     },
+     "EURGBP": {
+      "n": 247,
+      "win_rate": 0.401,
+      "needed_win_rate": 0.574,
+      "net_R": -0.1935,
+      "gross_R": -0.0446,
+      "cost_R": 0.149,
+      "t": -3.17,
+      "s": -0.2014,
+      "time_exits": 0.057
+     },
+     "WTI": {
+      "n": 256,
+      "win_rate": 0.469,
+      "needed_win_rate": 0.587,
+      "net_R": -0.0714,
+      "gross_R": 0.1031,
+      "cost_R": 0.174,
+      "t": -1.15,
+      "s": -0.0719,
+      "time_exits": 0.051
+     },
+     "US500": {
+      "n": 276,
+      "win_rate": 0.409,
+      "needed_win_rate": 0.593,
+      "net_R": -0.1946,
+      "gross_R": -0.0082,
+      "cost_R": 0.186,
+      "t": -3.3,
+      "s": -0.1986,
+      "time_exits": 0.018
+     },
+     "NAS100": {
+      "n": 310,
+      "win_rate": 0.442,
+      "needed_win_rate": 0.572,
+      "net_R": -0.1317,
+      "gross_R": 0.0114,
+      "cost_R": 0.143,
+      "t": -2.38,
+      "s": -0.1352,
+      "time_exits": 0.045
+     },
+     "GER40": {
+      "n": 323,
+      "win_rate": 0.523,
+      "needed_win_rate": 0.542,
+      "net_R": 0.0553,
+      "gross_R": 0.1386,
+      "cost_R": 0.083,
+      "t": 0.96,
+      "s": 0.0536,
+      "time_exits": 0.071
+     },
+     "UK100": {
+      "n": 257,
+      "win_rate": 0.35,
+      "needed_win_rate": 0.589,
+      "net_R": -0.2761,
+      "gross_R": -0.0983,
+      "cost_R": 0.178,
+      "t": -3.99,
+      "s": -0.2489,
+      "time_exits": 0.039
+     },
+     "JP225": {
+      "n": 137,
+      "win_rate": 0.387,
+      "needed_win_rate": 0.613,
+      "net_R": -0.2326,
+      "gross_R": -0.0074,
+      "cost_R": 0.225,
+      "t": -2.81,
+      "s": -0.2398,
+      "time_exits": 0.073
+     }
+    },
+    "summer": {
+     "n": 1844,
+     "win_rate": 0.432,
+     "needed_win_rate": 0.571,
+     "net_R": -0.1295,
+     "gross_R": 0.0122,
+     "cost_R": 0.142,
+     "t": -5.58,
+     "s": -0.13,
+     "time_exits": 0.06
+    },
+    "winter": {
+     "n": 1074,
+     "win_rate": 0.45,
+     "needed_win_rate": 0.567,
+     "net_R": -0.1068,
+     "gross_R": 0.028,
+     "cost_R": 0.135,
+     "t": -3.52,
+     "s": -0.1074,
+     "time_exits": 0.047
+    }
+   },
+   "2020-22": {
+    "n": 1046,
+    "win_rate": 0.415,
+    "needed_win_rate": 0.556,
+    "net_R": -0.1677,
+    "gross_R": -0.0559,
+    "cost_R": 0.112,
+    "t": -5.62,
+    "s": -0.1739,
+    "time_exits": 0.062,
+    "stopped_then_target": 0.304,
+    "cycle": {
+     "s": -0.1739,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.061,
+      "5": -0.085,
+      "6": -0.102,
+      "8": -0.136
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 78,
+      "win_rate": 0.474,
+      "needed_win_rate": 0.537,
+      "net_R": -0.0742,
+      "gross_R": -0.0007,
+      "cost_R": 0.073,
+      "t": -0.69,
+      "s": -0.0786,
+      "time_exits": 0.141
+     },
+     "XAGUSD": {
+      "n": 30,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.623,
+      "net_R": -0.2751,
+      "gross_R": -0.0295,
+      "cost_R": 0.246,
+      "t": -1.66,
+      "s": -0.3026,
+      "time_exits": 0.167
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.398,
+      "needed_win_rate": 0.538,
+      "net_R": -0.2003,
+      "gross_R": -0.1234,
+      "cost_R": 0.077,
+      "t": -1.94,
+      "s": -0.2073,
+      "time_exits": 0.068
+     },
+     "GBPUSD": {
+      "n": 69,
+      "win_rate": 0.464,
+      "needed_win_rate": 0.548,
+      "net_R": -0.0708,
+      "gross_R": 0.0257,
+      "cost_R": 0.096,
+      "t": -0.59,
+      "s": -0.0715,
+      "time_exits": 0.043
+     },
+     "USDJPY": {
+      "n": 85,
+      "win_rate": 0.4,
+      "needed_win_rate": 0.564,
+      "net_R": -0.2127,
+      "gross_R": -0.0848,
+      "cost_R": 0.128,
+      "t": -2.05,
+      "s": -0.2224,
+      "time_exits": 0.059
+     },
+     "EURGBP": {
+      "n": 93,
+      "win_rate": 0.312,
+      "needed_win_rate": 0.571,
+      "net_R": -0.3352,
+      "gross_R": -0.1931,
+      "cost_R": 0.142,
+      "t": -3.57,
+      "s": -0.3706,
+      "time_exits": 0.108
+     },
+     "WTI": {
+      "n": 113,
+      "win_rate": 0.398,
+      "needed_win_rate": 0.572,
+      "net_R": -0.2071,
+      "gross_R": -0.0639,
+      "cost_R": 0.143,
+      "t": -2.31,
+      "s": -0.2175,
+      "time_exits": 0.08
+     },
+     "US500": {
+      "n": 112,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.542,
+      "net_R": -0.1306,
+      "gross_R": -0.0467,
+      "cost_R": 0.084,
+      "t": -1.39,
+      "s": -0.1317,
+      "time_exits": 0.009
+     },
+     "NAS100": {
+      "n": 103,
+      "win_rate": 0.524,
+      "needed_win_rate": 0.519,
+      "net_R": 0.026,
+      "gross_R": 0.0649,
+      "cost_R": 0.039,
+      "t": 0.27,
+      "s": 0.0264,
+      "time_exits": 0.058
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.446,
+      "needed_win_rate": 0.524,
+      "net_R": -0.1004,
+      "gross_R": -0.0521,
+      "cost_R": 0.048,
+      "t": -0.92,
+      "s": -0.1006,
+      "time_exits": 0.048
+     },
+     "UK100": {
+      "n": 103,
+      "win_rate": 0.388,
+      "needed_win_rate": 0.578,
+      "net_R": -0.2036,
+      "gross_R": -0.0483,
+      "cost_R": 0.155,
+      "t": -2.13,
+      "s": -0.2098,
+      "time_exits": 0.029
+     },
+     "JP225": {
+      "n": 89,
+      "win_rate": 0.36,
+      "needed_win_rate": 0.594,
+      "net_R": -0.2805,
+      "gross_R": -0.092,
+      "cost_R": 0.189,
+      "t": -2.75,
+      "s": -0.2913,
+      "time_exits": 0.022
+     }
+    },
+    "summer": {
+     "n": 655,
+     "win_rate": 0.438,
+     "needed_win_rate": 0.557,
+     "net_R": -0.1206,
+     "gross_R": -0.0066,
+     "cost_R": 0.114,
+     "t": -3.19,
+     "s": -0.1247,
+     "time_exits": 0.078
+    },
+    "winter": {
+     "n": 391,
+     "win_rate": 0.376,
+     "needed_win_rate": 0.554,
+     "net_R": -0.2467,
+     "gross_R": -0.1384,
+     "cost_R": 0.108,
+     "t": -5.1,
+     "s": -0.2577,
+     "time_exits": 0.036
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 109,
+     "win_rate": 0.486,
+     "needed_win_rate": 0.562,
+     "net_R": -0.0348,
+     "gross_R": 0.0883,
+     "cost_R": 0.123,
+     "t": -0.37,
+     "s": -0.0353,
+     "time_exits": 0.046
+    },
+    "summer": {
+     "n": 88,
+     "win_rate": 0.466,
+     "needed_win_rate": 0.568,
+     "net_R": -0.0772,
+     "gross_R": 0.0598,
+     "cost_R": 0.137,
+     "t": -0.74,
+     "s": -0.0788,
+     "time_exits": 0.057
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.532,
+     "net_R": 0.1429,
+     "gross_R": 0.2078,
+     "cost_R": 0.065,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.75,
+      "needed_win_rate": 0.51,
+      "net_R": 0.4736,
+      "gross_R": 0.4933,
+      "cost_R": 0.02,
+      "t": 2.4,
+      "s": 0.5377,
+      "time_exits": 0.05
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.558,
+      "net_R": -0.0244,
+      "gross_R": 0.0914,
+      "cost_R": 0.116,
+      "t": -0.11,
+      "s": -0.0243,
+      "time_exits": 0.045
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.407,
+      "needed_win_rate": 0.568,
+      "net_R": -0.1458,
+      "gross_R": -0.0091,
+      "cost_R": 0.137,
+      "t": -0.77,
+      "s": -0.1489,
+      "time_exits": 0.074
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.526,
+      "needed_win_rate": 0.55,
+      "net_R": 0.0526,
+      "gross_R": 0.1534,
+      "cost_R": 0.101,
+      "t": 0.22,
+      "s": 0.0513,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 21,
+      "win_rate": 0.286,
+      "needed_win_rate": 0.616,
+      "net_R": -0.4661,
+      "gross_R": -0.2342,
+      "cost_R": 0.232,
+      "t": -2.43,
+      "s": -0.5297,
+      "time_exits": 0.048
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 113,
+     "win_rate": 0.469,
+     "needed_win_rate": 0.561,
+     "net_R": -0.0655,
+     "gross_R": 0.0572,
+     "cost_R": 0.123,
+     "t": -0.71,
+     "s": -0.0666,
+     "time_exits": 0.044
+    },
+    "summer": {
+     "n": 91,
+     "win_rate": 0.473,
+     "needed_win_rate": 0.568,
+     "net_R": -0.0593,
+     "gross_R": 0.0768,
+     "cost_R": 0.136,
+     "t": -0.58,
+     "s": -0.0606,
+     "time_exits": 0.055
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.455,
+     "needed_win_rate": 0.533,
+     "net_R": -0.0909,
+     "gross_R": -0.0242,
+     "cost_R": 0.067,
+     "t": -0.42,
+     "s": -0.0892,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.727,
+      "needed_win_rate": 0.51,
+      "net_R": 0.4317,
+      "gross_R": 0.4519,
+      "cost_R": 0.02,
+      "t": 2.24,
+      "s": 0.4778,
+      "time_exits": 0.045
+     },
+     "EURUSD": {
+      "n": 23,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.558,
+      "net_R": -0.0664,
+      "gross_R": 0.0499,
+      "cost_R": 0.116,
+      "t": -0.32,
+      "s": -0.0662,
+      "time_exits": 0.043
+     },
+     "GBPUSD": {
+      "n": 28,
+      "win_rate": 0.393,
+      "needed_win_rate": 0.571,
+      "net_R": -0.1636,
+      "gross_R": -0.0225,
+      "cost_R": 0.141,
+      "t": -0.89,
+      "s": -0.1686,
+      "time_exits": 0.071
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.474,
+      "needed_win_rate": 0.55,
+      "net_R": -0.0526,
+      "gross_R": 0.0484,
+      "cost_R": 0.101,
+      "t": -0.22,
+      "s": -0.0513,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 21,
+      "win_rate": 0.286,
+      "needed_win_rate": 0.616,
+      "net_R": -0.4661,
+      "gross_R": -0.2342,
+      "cost_R": 0.232,
+      "t": -2.43,
+      "s": -0.5297,
+      "time_exits": 0.048
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1704,
+    "win_rate": 0.434,
+    "needed_win_rate": 0.556,
+    "net_R": -0.1289,
+    "gross_R": -0.0174,
+    "cost_R": 0.112,
+    "t": -5.5,
+    "s": -0.1333,
+    "time_exits": 0.066
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "swing",
+    "buffer": 0.25
+   },
+   "2011-19": {
+    "n": 3005,
+    "win_rate": 0.447,
+    "needed_win_rate": 0.565,
+    "net_R": -0.1015,
+    "gross_R": 0.0283,
+    "cost_R": 0.13,
+    "t": -5.63,
+    "s": -0.1026,
+    "time_exits": 0.069,
+    "stopped_then_target": 0.301,
+    "cycle": {
+     "s": -0.1026,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.047,
+      "5": -0.065,
+      "6": -0.078,
+      "8": -0.104
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 240,
+      "win_rate": 0.479,
+      "needed_win_rate": 0.551,
+      "net_R": -0.0652,
+      "gross_R": 0.0373,
+      "cost_R": 0.102,
+      "t": -1.03,
+      "s": -0.0664,
+      "time_exits": 0.062
+     },
+     "XAGUSD": {
+      "n": 78,
+      "win_rate": 0.372,
+      "needed_win_rate": 0.61,
+      "net_R": -0.2175,
+      "gross_R": 0.0018,
+      "cost_R": 0.219,
+      "t": -2.07,
+      "s": -0.234,
+      "time_exits": 0.128
+     },
+     "EURUSD": {
+      "n": 255,
+      "win_rate": 0.463,
+      "needed_win_rate": 0.537,
+      "net_R": -0.0587,
+      "gross_R": 0.0146,
+      "cost_R": 0.073,
+      "t": -0.97,
+      "s": -0.0609,
+      "time_exits": 0.086
+     },
+     "GBPUSD": {
+      "n": 276,
+      "win_rate": 0.442,
+      "needed_win_rate": 0.544,
+      "net_R": -0.1023,
+      "gross_R": -0.0136,
+      "cost_R": 0.089,
+      "t": -1.77,
+      "s": -0.1066,
+      "time_exits": 0.094
+     },
+     "USDJPY": {
+      "n": 281,
+      "win_rate": 0.495,
+      "needed_win_rate": 0.557,
+      "net_R": -0.0009,
+      "gross_R": 0.1134,
+      "cost_R": 0.114,
+      "t": -0.02,
+      "s": -0.0009,
+      "time_exits": 0.043
+     },
+     "EURGBP": {
+      "n": 248,
+      "win_rate": 0.411,
+      "needed_win_rate": 0.567,
+      "net_R": -0.1642,
+      "gross_R": -0.0311,
+      "cost_R": 0.133,
+      "t": -2.72,
+      "s": -0.1726,
+      "time_exits": 0.093
+     },
+     "WTI": {
+      "n": 268,
+      "win_rate": 0.474,
+      "needed_win_rate": 0.581,
+      "net_R": -0.056,
+      "gross_R": 0.1054,
+      "cost_R": 0.161,
+      "t": -0.93,
+      "s": -0.057,
+      "time_exits": 0.06
+     },
+     "US500": {
+      "n": 292,
+      "win_rate": 0.418,
+      "needed_win_rate": 0.588,
+      "net_R": -0.1803,
+      "gross_R": -0.0042,
+      "cost_R": 0.176,
+      "t": -3.13,
+      "s": -0.1832,
+      "time_exits": 0.021
+     },
+     "NAS100": {
+      "n": 321,
+      "win_rate": 0.452,
+      "needed_win_rate": 0.567,
+      "net_R": -0.1063,
+      "gross_R": 0.0277,
+      "cost_R": 0.134,
+      "t": -1.95,
+      "s": -0.109,
+      "time_exits": 0.053
+     },
+     "GER40": {
+      "n": 323,
+      "win_rate": 0.511,
+      "needed_win_rate": 0.537,
+      "net_R": 0.0391,
+      "gross_R": 0.1128,
+      "cost_R": 0.074,
+      "t": 0.69,
+      "s": 0.0384,
+      "time_exits": 0.115
+     },
+     "UK100": {
+      "n": 270,
+      "win_rate": 0.378,
+      "needed_win_rate": 0.583,
+      "net_R": -0.2218,
+      "gross_R": -0.0549,
+      "cost_R": 0.167,
+      "t": -3.35,
+      "s": -0.2039,
+      "time_exits": 0.048
+     },
+     "JP225": {
+      "n": 153,
+      "win_rate": 0.373,
+      "needed_win_rate": 0.609,
+      "net_R": -0.256,
+      "gross_R": -0.0375,
+      "cost_R": 0.219,
+      "t": -3.29,
+      "s": -0.2664,
+      "time_exits": 0.072
+     }
+    },
+    "summer": {
+     "n": 1909,
+     "win_rate": 0.437,
+     "needed_win_rate": 0.566,
+     "net_R": -0.1161,
+     "gross_R": 0.0165,
+     "cost_R": 0.133,
+     "t": -5.14,
+     "s": -0.1177,
+     "time_exits": 0.076
+    },
+    "winter": {
+     "n": 1096,
+     "win_rate": 0.464,
+     "needed_win_rate": 0.562,
+     "net_R": -0.0761,
+     "gross_R": 0.0488,
+     "cost_R": 0.125,
+     "t": -2.53,
+     "s": -0.0765,
+     "time_exits": 0.057
+    }
+   },
+   "2020-22": {
+    "n": 1066,
+    "win_rate": 0.425,
+    "needed_win_rate": 0.552,
+    "net_R": -0.1478,
+    "gross_R": -0.0443,
+    "cost_R": 0.103,
+    "t": -5.0,
+    "s": -0.1532,
+    "time_exits": 0.075,
+    "stopped_then_target": 0.24,
+    "cycle": {
+     "s": -0.1532,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.058,
+      "5": -0.08,
+      "6": -0.096,
+      "8": -0.128
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 79,
+      "win_rate": 0.519,
+      "needed_win_rate": 0.534,
+      "net_R": 0.0067,
+      "gross_R": 0.0748,
+      "cost_R": 0.068,
+      "t": 0.06,
+      "s": 0.0071,
+      "time_exits": 0.152
+     },
+     "XAGUSD": {
+      "n": 37,
+      "win_rate": 0.378,
+      "needed_win_rate": 0.621,
+      "net_R": -0.1765,
+      "gross_R": 0.0652,
+      "cost_R": 0.242,
+      "t": -1.19,
+      "s": -0.1956,
+      "time_exits": 0.216
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.409,
+      "needed_win_rate": 0.534,
+      "net_R": -0.1784,
+      "gross_R": -0.1099,
+      "cost_R": 0.068,
+      "t": -1.73,
+      "s": -0.1847,
+      "time_exits": 0.08
+     },
+     "GBPUSD": {
+      "n": 69,
+      "win_rate": 0.493,
+      "needed_win_rate": 0.542,
+      "net_R": -0.0047,
+      "gross_R": 0.0802,
+      "cost_R": 0.085,
+      "t": -0.04,
+      "s": -0.0047,
+      "time_exits": 0.058
+     },
+     "USDJPY": {
+      "n": 87,
+      "win_rate": 0.402,
+      "needed_win_rate": 0.559,
+      "net_R": -0.1964,
+      "gross_R": -0.0793,
+      "cost_R": 0.117,
+      "t": -1.92,
+      "s": -0.206,
+      "time_exits": 0.069
+     },
+     "EURGBP": {
+      "n": 93,
+      "win_rate": 0.344,
+      "needed_win_rate": 0.563,
+      "net_R": -0.2763,
+      "gross_R": -0.1504,
+      "cost_R": 0.126,
+      "t": -2.94,
+      "s": -0.305,
+      "time_exits": 0.14
+     },
+     "WTI": {
+      "n": 114,
+      "win_rate": 0.439,
+      "needed_win_rate": 0.564,
+      "net_R": -0.127,
+      "gross_R": 0.0015,
+      "cost_R": 0.129,
+      "t": -1.41,
+      "s": -0.1316,
+      "time_exits": 0.079
+     },
+     "US500": {
+      "n": 112,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.537,
+      "net_R": -0.1664,
+      "gross_R": -0.0925,
+      "cost_R": 0.074,
+      "t": -1.79,
+      "s": -0.1687,
+      "time_exits": 0.009
+     },
+     "NAS100": {
+      "n": 104,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.519,
+      "net_R": -0.0223,
+      "gross_R": 0.0149,
+      "cost_R": 0.037,
+      "t": -0.23,
+      "s": -0.0226,
+      "time_exits": 0.058
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.47,
+      "needed_win_rate": 0.522,
+      "net_R": -0.0551,
+      "gross_R": -0.0121,
+      "cost_R": 0.043,
+      "t": -0.5,
+      "s": -0.0551,
+      "time_exits": 0.06
+     },
+     "UK100": {
+      "n": 104,
+      "win_rate": 0.375,
+      "needed_win_rate": 0.57,
+      "net_R": -0.2244,
+      "gross_R": -0.0847,
+      "cost_R": 0.14,
+      "t": -2.38,
+      "s": -0.2332,
+      "time_exits": 0.038
+     },
+     "JP225": {
+      "n": 96,
+      "win_rate": 0.354,
+      "needed_win_rate": 0.59,
+      "net_R": -0.306,
+      "gross_R": -0.1258,
+      "cost_R": 0.18,
+      "t": -3.07,
+      "s": -0.3132,
+      "time_exits": 0.052
+     }
+    },
+    "summer": {
+     "n": 667,
+     "win_rate": 0.448,
+     "needed_win_rate": 0.552,
+     "net_R": -0.099,
+     "gross_R": 0.0059,
+     "cost_R": 0.105,
+     "t": -2.66,
+     "s": -0.1028,
+     "time_exits": 0.091
+    },
+    "winter": {
+     "n": 399,
+     "win_rate": 0.386,
+     "needed_win_rate": 0.551,
+     "net_R": -0.2293,
+     "gross_R": -0.1282,
+     "cost_R": 0.101,
+     "t": -4.75,
+     "s": -0.238,
+     "time_exits": 0.048
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 113,
+     "win_rate": 0.478,
+     "needed_win_rate": 0.559,
+     "net_R": -0.0483,
+     "gross_R": 0.0688,
+     "cost_R": 0.117,
+     "t": -0.52,
+     "s": -0.0492,
+     "time_exits": 0.053
+    },
+    "summer": {
+     "n": 92,
+     "win_rate": 0.446,
+     "needed_win_rate": 0.565,
+     "net_R": -0.1137,
+     "gross_R": 0.0168,
+     "cost_R": 0.13,
+     "t": -1.12,
+     "s": -0.1168,
+     "time_exits": 0.065
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.619,
+     "needed_win_rate": 0.529,
+     "net_R": 0.2381,
+     "gross_R": 0.2968,
+     "cost_R": 0.059,
+     "t": 1.1,
+     "s": 0.2392,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.7,
+      "needed_win_rate": 0.509,
+      "net_R": 0.3718,
+      "gross_R": 0.3892,
+      "cost_R": 0.017,
+      "t": 1.79,
+      "s": 0.3999,
+      "time_exits": 0.05
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.591,
+      "needed_win_rate": 0.551,
+      "net_R": 0.1719,
+      "gross_R": 0.2741,
+      "cost_R": 0.102,
+      "t": 0.83,
+      "s": 0.1765,
+      "time_exits": 0.091
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.56,
+      "net_R": -0.2903,
+      "gross_R": -0.1696,
+      "cost_R": 0.121,
+      "t": -1.6,
+      "s": -0.3077,
+      "time_exits": 0.074
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.632,
+      "needed_win_rate": 0.545,
+      "net_R": 0.2623,
+      "gross_R": 0.352,
+      "cost_R": 0.09,
+      "t": 1.15,
+      "s": 0.2643,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 25,
+      "win_rate": 0.24,
+      "needed_win_rate": 0.613,
+      "net_R": -0.5528,
+      "gross_R": -0.3259,
+      "cost_R": 0.227,
+      "t": -3.34,
+      "s": -0.6679,
+      "time_exits": 0.04
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 118,
+     "win_rate": 0.483,
+     "needed_win_rate": 0.559,
+     "net_R": -0.0261,
+     "gross_R": 0.0914,
+     "cost_R": 0.118,
+     "t": -0.29,
+     "s": -0.0268,
+     "time_exits": 0.068
+    },
+    "summer": {
+     "n": 96,
+     "win_rate": 0.479,
+     "needed_win_rate": 0.565,
+     "net_R": -0.0321,
+     "gross_R": 0.0986,
+     "cost_R": 0.131,
+     "t": -0.32,
+     "s": -0.0331,
+     "time_exits": 0.083
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.53,
+     "net_R": 0.0,
+     "gross_R": 0.0602,
+     "cost_R": 0.06,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.727,
+      "needed_win_rate": 0.509,
+      "net_R": 0.4301,
+      "gross_R": 0.4478,
+      "cost_R": 0.018,
+      "t": 2.23,
+      "s": 0.476,
+      "time_exits": 0.045
+     },
+     "EURUSD": {
+      "n": 23,
+      "win_rate": 0.522,
+      "needed_win_rate": 0.552,
+      "net_R": 0.0609,
+      "gross_R": 0.1643,
+      "cost_R": 0.103,
+      "t": 0.3,
+      "s": 0.0629,
+      "time_exits": 0.13
+     },
+     "GBPUSD": {
+      "n": 29,
+      "win_rate": 0.379,
+      "needed_win_rate": 0.564,
+      "net_R": -0.1767,
+      "gross_R": -0.0484,
+      "cost_R": 0.128,
+      "t": -1.0,
+      "s": -0.1848,
+      "time_exits": 0.103
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.632,
+      "needed_win_rate": 0.545,
+      "net_R": 0.2631,
+      "gross_R": 0.3533,
+      "cost_R": 0.09,
+      "t": 1.16,
+      "s": 0.2654,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 25,
+      "win_rate": 0.24,
+      "needed_win_rate": 0.613,
+      "net_R": -0.5528,
+      "gross_R": -0.3259,
+      "cost_R": 0.227,
+      "t": -3.34,
+      "s": -0.6679,
+      "time_exits": 0.04
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1716,
+    "win_rate": 0.451,
+    "needed_win_rate": 0.55,
+    "net_R": -0.0921,
+    "gross_R": 0.0081,
+    "cost_R": 0.1,
+    "t": -3.96,
+    "s": -0.0956,
+    "time_exits": 0.082
+   }
+  },
+  {
+   "config": {
+    "anchor": "wat1530",
+    "stop": "swing",
+    "buffer": 0.5
+   },
+   "2011-19": {
+    "n": 3083,
+    "win_rate": 0.458,
+    "needed_win_rate": 0.558,
+    "net_R": -0.0779,
+    "gross_R": 0.0373,
+    "cost_R": 0.115,
+    "t": -4.41,
+    "s": -0.0794,
+    "time_exits": 0.108,
+    "stopped_then_target": 0.228,
+    "cycle": {
+     "s": -0.0794,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.04,
+      "5": -0.056,
+      "6": -0.067,
+      "8": -0.089
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 241,
+      "win_rate": 0.498,
+      "needed_win_rate": 0.544,
+      "net_R": -0.0282,
+      "gross_R": 0.0588,
+      "cost_R": 0.087,
+      "t": -0.45,
+      "s": -0.0293,
+      "time_exits": 0.1
+     },
+     "XAGUSD": {
+      "n": 89,
+      "win_rate": 0.36,
+      "needed_win_rate": 0.602,
+      "net_R": -0.2487,
+      "gross_R": -0.044,
+      "cost_R": 0.205,
+      "t": -2.57,
+      "s": -0.272,
+      "time_exits": 0.146
+     },
+     "EURUSD": {
+      "n": 255,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.531,
+      "net_R": -0.0393,
+      "gross_R": 0.0224,
+      "cost_R": 0.062,
+      "t": -0.66,
+      "s": -0.0415,
+      "time_exits": 0.129
+     },
+     "GBPUSD": {
+      "n": 276,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.538,
+      "net_R": -0.1116,
+      "gross_R": -0.0364,
+      "cost_R": 0.075,
+      "t": -1.99,
+      "s": -0.1196,
+      "time_exits": 0.159
+     },
+     "USDJPY": {
+      "n": 283,
+      "win_rate": 0.473,
+      "needed_win_rate": 0.549,
+      "net_R": -0.0318,
+      "gross_R": 0.0656,
+      "cost_R": 0.097,
+      "t": -0.55,
+      "s": -0.0329,
+      "time_exits": 0.085
+     },
+     "EURGBP": {
+      "n": 251,
+      "win_rate": 0.414,
+      "needed_win_rate": 0.557,
+      "net_R": -0.1348,
+      "gross_R": -0.0199,
+      "cost_R": 0.115,
+      "t": -2.29,
+      "s": -0.1446,
+      "time_exits": 0.147
+     },
+     "WTI": {
+      "n": 274,
+      "win_rate": 0.445,
+      "needed_win_rate": 0.57,
+      "net_R": -0.0938,
+      "gross_R": 0.0454,
+      "cost_R": 0.139,
+      "t": -1.62,
+      "s": -0.0978,
+      "time_exits": 0.095
+     },
+     "US500": {
+      "n": 305,
+      "win_rate": 0.443,
+      "needed_win_rate": 0.579,
+      "net_R": -0.1341,
+      "gross_R": 0.0233,
+      "cost_R": 0.157,
+      "t": -2.39,
+      "s": -0.1369,
+      "time_exits": 0.046
+     },
+     "NAS100": {
+      "n": 331,
+      "win_rate": 0.474,
+      "needed_win_rate": 0.559,
+      "net_R": -0.0613,
+      "gross_R": 0.0575,
+      "cost_R": 0.119,
+      "t": -1.16,
+      "s": -0.0636,
+      "time_exits": 0.088
+     },
+     "GER40": {
+      "n": 323,
+      "win_rate": 0.542,
+      "needed_win_rate": 0.531,
+      "net_R": 0.1035,
+      "gross_R": 0.1656,
+      "cost_R": 0.062,
+      "t": 1.73,
+      "s": 0.0965,
+      "time_exits": 0.176
+     },
+     "UK100": {
+      "n": 272,
+      "win_rate": 0.415,
+      "needed_win_rate": 0.572,
+      "net_R": -0.1531,
+      "gross_R": -0.0097,
+      "cost_R": 0.143,
+      "t": -2.35,
+      "s": -0.1427,
+      "time_exits": 0.07
+     },
+     "JP225": {
+      "n": 183,
+      "win_rate": 0.415,
+      "needed_win_rate": 0.605,
+      "net_R": -0.1775,
+      "gross_R": 0.0328,
+      "cost_R": 0.21,
+      "t": -2.46,
+      "s": -0.1821,
+      "time_exits": 0.077
+     }
+    },
+    "summer": {
+     "n": 1961,
+     "win_rate": 0.444,
+     "needed_win_rate": 0.559,
+     "net_R": -0.0987,
+     "gross_R": 0.0187,
+     "cost_R": 0.117,
+     "t": -4.46,
+     "s": -0.1007,
+     "time_exits": 0.123
+    },
+    "winter": {
+     "n": 1122,
+     "win_rate": 0.481,
+     "needed_win_rate": 0.556,
+     "net_R": -0.0416,
+     "gross_R": 0.0697,
+     "cost_R": 0.111,
+     "t": -1.41,
+     "s": -0.0422,
+     "time_exits": 0.083
+    }
+   },
+   "2020-22": {
+    "n": 1087,
+    "win_rate": 0.433,
+    "needed_win_rate": 0.546,
+    "net_R": -0.1311,
+    "gross_R": -0.0393,
+    "cost_R": 0.092,
+    "t": -4.54,
+    "s": -0.1376,
+    "time_exits": 0.104,
+    "stopped_then_target": 0.174,
+    "cycle": {
+     "s": -0.1376,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.054,
+      "5": -0.075,
+      "6": -0.09,
+      "8": -0.12
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 79,
+      "win_rate": 0.532,
+      "needed_win_rate": 0.529,
+      "net_R": 0.0256,
+      "gross_R": 0.0828,
+      "cost_R": 0.057,
+      "t": 0.25,
+      "s": 0.0277,
+      "time_exits": 0.19
+     },
+     "XAGUSD": {
+      "n": 50,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.619,
+      "net_R": -0.1317,
+      "gross_R": 0.1056,
+      "cost_R": 0.237,
+      "t": -1.02,
+      "s": -0.1444,
+      "time_exits": 0.2
+     },
+     "EURUSD": {
+      "n": 88,
+      "win_rate": 0.341,
+      "needed_win_rate": 0.529,
+      "net_R": -0.3226,
+      "gross_R": -0.2645,
+      "cost_R": 0.058,
+      "t": -3.38,
+      "s": -0.3602,
+      "time_exits": 0.136
+     },
+     "GBPUSD": {
+      "n": 69,
+      "win_rate": 0.507,
+      "needed_win_rate": 0.536,
+      "net_R": 0.0234,
+      "gross_R": 0.0944,
+      "cost_R": 0.071,
+      "t": 0.2,
+      "s": 0.0241,
+      "time_exits": 0.087
+     },
+     "USDJPY": {
+      "n": 87,
+      "win_rate": 0.46,
+      "needed_win_rate": 0.549,
+      "net_R": -0.0661,
+      "gross_R": 0.032,
+      "cost_R": 0.098,
+      "t": -0.64,
+      "s": -0.069,
+      "time_exits": 0.103
+     },
+     "EURGBP": {
+      "n": 94,
+      "win_rate": 0.372,
+      "needed_win_rate": 0.554,
+      "net_R": -0.2327,
+      "gross_R": -0.1248,
+      "cost_R": 0.108,
+      "t": -2.51,
+      "s": -0.2587,
+      "time_exits": 0.181
+     },
+     "WTI": {
+      "n": 115,
+      "win_rate": 0.487,
+      "needed_win_rate": 0.555,
+      "net_R": -0.0285,
+      "gross_R": 0.0812,
+      "cost_R": 0.11,
+      "t": -0.32,
+      "s": -0.0296,
+      "time_exits": 0.104
+     },
+     "US500": {
+      "n": 113,
+      "win_rate": 0.451,
+      "needed_win_rate": 0.532,
+      "net_R": -0.0967,
+      "gross_R": -0.0325,
+      "cost_R": 0.064,
+      "t": -1.04,
+      "s": -0.0975,
+      "time_exits": 0.018
+     },
+     "NAS100": {
+      "n": 104,
+      "win_rate": 0.471,
+      "needed_win_rate": 0.516,
+      "net_R": -0.0724,
+      "gross_R": -0.041,
+      "cost_R": 0.031,
+      "t": -0.76,
+      "s": -0.0742,
+      "time_exits": 0.077
+     },
+     "GER40": {
+      "n": 83,
+      "win_rate": 0.422,
+      "needed_win_rate": 0.518,
+      "net_R": -0.1356,
+      "gross_R": -0.099,
+      "cost_R": 0.037,
+      "t": -1.27,
+      "s": -0.1389,
+      "time_exits": 0.084
+     },
+     "UK100": {
+      "n": 104,
+      "win_rate": 0.385,
+      "needed_win_rate": 0.559,
+      "net_R": -0.2107,
+      "gross_R": -0.0928,
+      "cost_R": 0.118,
+      "t": -2.27,
+      "s": -0.2225,
+      "time_exits": 0.077
+     },
+     "JP225": {
+      "n": 101,
+      "win_rate": 0.366,
+      "needed_win_rate": 0.581,
+      "net_R": -0.2836,
+      "gross_R": -0.1222,
+      "cost_R": 0.161,
+      "t": -2.96,
+      "s": -0.2943,
+      "time_exits": 0.069
+     }
+    },
+    "summer": {
+     "n": 680,
+     "win_rate": 0.468,
+     "needed_win_rate": 0.546,
+     "net_R": -0.0646,
+     "gross_R": 0.0279,
+     "cost_R": 0.093,
+     "t": -1.78,
+     "s": -0.0682,
+     "time_exits": 0.126
+    },
+    "winter": {
+     "n": 407,
+     "win_rate": 0.376,
+     "needed_win_rate": 0.545,
+     "net_R": -0.2421,
+     "gross_R": -0.1516,
+     "cost_R": 0.091,
+     "t": -5.14,
+     "s": -0.2548,
+     "time_exits": 0.066
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 116,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.552,
+     "net_R": -0.0051,
+     "gross_R": 0.0992,
+     "cost_R": 0.104,
+     "t": -0.06,
+     "s": -0.0053,
+     "time_exits": 0.095
+    },
+    "summer": {
+     "n": 95,
+     "win_rate": 0.484,
+     "needed_win_rate": 0.558,
+     "net_R": -0.0378,
+     "gross_R": 0.0783,
+     "cost_R": 0.116,
+     "t": -0.38,
+     "s": -0.0395,
+     "time_exits": 0.116
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.525,
+     "net_R": 0.1429,
+     "gross_R": 0.1935,
+     "cost_R": 0.051,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 20,
+      "win_rate": 0.75,
+      "needed_win_rate": 0.507,
+      "net_R": 0.4694,
+      "gross_R": 0.484,
+      "cost_R": 0.015,
+      "t": 2.38,
+      "s": 0.5329,
+      "time_exits": 0.05
+     },
+     "EURUSD": {
+      "n": 22,
+      "win_rate": 0.591,
+      "needed_win_rate": 0.543,
+      "net_R": 0.1346,
+      "gross_R": 0.2204,
+      "cost_R": 0.086,
+      "t": 0.69,
+      "s": 0.1471,
+      "time_exits": 0.227
+     },
+     "GBPUSD": {
+      "n": 28,
+      "win_rate": 0.321,
+      "needed_win_rate": 0.554,
+      "net_R": -0.2962,
+      "gross_R": -0.1886,
+      "cost_R": 0.108,
+      "t": -1.69,
+      "s": -0.3196,
+      "time_exits": 0.107
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.632,
+      "needed_win_rate": 0.538,
+      "net_R": 0.2632,
+      "gross_R": 0.3392,
+      "cost_R": 0.076,
+      "t": 1.16,
+      "s": 0.2655,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.601,
+      "net_R": -0.3573,
+      "gross_R": -0.1551,
+      "cost_R": 0.202,
+      "t": -2.01,
+      "s": -0.386,
+      "time_exits": 0.074
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 121,
+     "win_rate": 0.496,
+     "needed_win_rate": 0.552,
+     "net_R": -0.0056,
+     "gross_R": 0.0987,
+     "cost_R": 0.104,
+     "t": -0.06,
+     "s": -0.0058,
+     "time_exits": 0.099
+    },
+    "summer": {
+     "n": 99,
+     "win_rate": 0.485,
+     "needed_win_rate": 0.558,
+     "net_R": -0.027,
+     "gross_R": 0.089,
+     "cost_R": 0.116,
+     "t": -0.28,
+     "s": -0.0283,
+     "time_exits": 0.121
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.545,
+     "needed_win_rate": 0.526,
+     "net_R": 0.0909,
+     "gross_R": 0.1427,
+     "cost_R": 0.052,
+     "t": 0.42,
+     "s": 0.0892,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 22,
+      "win_rate": 0.727,
+      "needed_win_rate": 0.507,
+      "net_R": 0.4278,
+      "gross_R": 0.4426,
+      "cost_R": 0.015,
+      "t": 2.22,
+      "s": 0.4734,
+      "time_exits": 0.045
+     },
+     "EURUSD": {
+      "n": 23,
+      "win_rate": 0.565,
+      "needed_win_rate": 0.544,
+      "net_R": 0.0922,
+      "gross_R": 0.1796,
+      "cost_R": 0.087,
+      "t": 0.48,
+      "s": 0.1002,
+      "time_exits": 0.217
+     },
+     "GBPUSD": {
+      "n": 30,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.556,
+      "net_R": -0.2521,
+      "gross_R": -0.1397,
+      "cost_R": 0.112,
+      "t": -1.49,
+      "s": -0.2724,
+      "time_exits": 0.133
+     },
+     "USDJPY": {
+      "n": 19,
+      "win_rate": 0.632,
+      "needed_win_rate": 0.538,
+      "net_R": 0.2632,
+      "gross_R": 0.3399,
+      "cost_R": 0.077,
+      "t": 1.16,
+      "s": 0.2655,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.601,
+      "net_R": -0.3573,
+      "gross_R": -0.1551,
+      "cost_R": 0.202,
+      "t": -2.01,
+      "s": -0.386,
+      "time_exits": 0.074
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1723,
+    "win_rate": 0.454,
+    "needed_win_rate": 0.543,
+    "net_R": -0.0829,
+    "gross_R": 0.0024,
+    "cost_R": 0.085,
+    "t": -3.64,
+    "s": -0.0878,
+    "time_exits": 0.128
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "candle",
+    "buffer": 0.0
+   },
+   "2011-19": {
+    "n": 2892,
+    "win_rate": 0.409,
+    "needed_win_rate": 0.583,
+    "net_R": -0.1808,
+    "gross_R": -0.0147,
+    "cost_R": 0.166,
+    "t": -9.89,
+    "s": -0.184,
+    "time_exits": 0.004,
+    "stopped_then_target": 0.543,
+    "cycle": {
+     "s": -0.184,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.063,
+      "5": -0.088,
+      "6": -0.105,
+      "8": -0.14
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 256,
+      "win_rate": 0.434,
+      "needed_win_rate": 0.573,
+      "net_R": -0.129,
+      "gross_R": 0.0169,
+      "cost_R": 0.146,
+      "t": -2.08,
+      "s": -0.1301,
+      "time_exits": 0.004
+     },
+     "XAGUSD": {
+      "n": 41,
+      "win_rate": 0.366,
+      "needed_win_rate": 0.621,
+      "net_R": -0.2707,
+      "gross_R": -0.0284,
+      "cost_R": 0.242,
+      "t": -1.77,
+      "s": -0.277,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 247,
+      "win_rate": 0.49,
+      "needed_win_rate": 0.552,
+      "net_R": -0.0224,
+      "gross_R": 0.081,
+      "cost_R": 0.103,
+      "t": -0.35,
+      "s": -0.0224,
+      "time_exits": 0.004
+     },
+     "GBPUSD": {
+      "n": 238,
+      "win_rate": 0.382,
+      "needed_win_rate": 0.566,
+      "net_R": -0.2353,
+      "gross_R": -0.1029,
+      "cost_R": 0.132,
+      "t": -3.73,
+      "s": -0.2416,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 263,
+      "win_rate": 0.46,
+      "needed_win_rate": 0.573,
+      "net_R": -0.0747,
+      "gross_R": 0.0705,
+      "cost_R": 0.145,
+      "t": -1.22,
+      "s": -0.075,
+      "time_exits": 0.008
+     },
+     "EURGBP": {
+      "n": 182,
+      "win_rate": 0.434,
+      "needed_win_rate": 0.59,
+      "net_R": -0.1319,
+      "gross_R": 0.0484,
+      "cost_R": 0.18,
+      "t": -1.79,
+      "s": -0.1327,
+      "time_exits": 0.0
+     },
+     "WTI": {
+      "n": 213,
+      "win_rate": 0.376,
+      "needed_win_rate": 0.602,
+      "net_R": -0.2492,
+      "gross_R": -0.0456,
+      "cost_R": 0.204,
+      "t": -3.75,
+      "s": -0.2566,
+      "time_exits": 0.0
+     },
+     "US500": {
+      "n": 303,
+      "win_rate": 0.389,
+      "needed_win_rate": 0.611,
+      "net_R": -0.2211,
+      "gross_R": 0.0015,
+      "cost_R": 0.223,
+      "t": -3.94,
+      "s": -0.2264,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 432,
+      "win_rate": 0.366,
+      "needed_win_rate": 0.584,
+      "net_R": -0.2634,
+      "gross_R": -0.095,
+      "cost_R": 0.168,
+      "t": -5.69,
+      "s": -0.2737,
+      "time_exits": 0.012
+     },
+     "GER40": {
+      "n": 342,
+      "win_rate": 0.444,
+      "needed_win_rate": 0.552,
+      "net_R": -0.1149,
+      "gross_R": -0.0108,
+      "cost_R": 0.104,
+      "t": -2.14,
+      "s": -0.1155,
+      "time_exits": 0.003
+     },
+     "UK100": {
+      "n": 282,
+      "win_rate": 0.369,
+      "needed_win_rate": 0.611,
+      "net_R": -0.266,
+      "gross_R": -0.0442,
+      "cost_R": 0.222,
+      "t": -4.63,
+      "s": -0.2759,
+      "time_exits": 0.011
+     },
+     "JP225": {
+      "n": 93,
+      "win_rate": 0.366,
+      "needed_win_rate": 0.624,
+      "net_R": -0.2724,
+      "gross_R": -0.0236,
+      "cost_R": 0.249,
+      "t": -2.7,
+      "s": -0.2804,
+      "time_exits": 0.0
+     }
+    },
+    "summer": {
+     "n": 1951,
+     "win_rate": 0.404,
+     "needed_win_rate": 0.583,
+     "net_R": -0.1915,
+     "gross_R": -0.0251,
+     "cost_R": 0.166,
+     "t": -8.63,
+     "s": -0.1954,
+     "time_exits": 0.007
+    },
+    "winter": {
+     "n": 941,
+     "win_rate": 0.421,
+     "needed_win_rate": 0.583,
+     "net_R": -0.1586,
+     "gross_R": 0.0066,
+     "cost_R": 0.165,
+     "t": -4.92,
+     "s": -0.1605,
+     "time_exits": 0.0
+    }
+   },
+   "2020-22": {
+    "n": 1145,
+    "win_rate": 0.412,
+    "needed_win_rate": 0.563,
+    "net_R": -0.1745,
+    "gross_R": -0.0485,
+    "cost_R": 0.126,
+    "t": -6.0,
+    "s": -0.1773,
+    "time_exits": 0.002,
+    "stopped_then_target": 0.528,
+    "cycle": {
+     "s": -0.1773,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.062,
+      "5": -0.086,
+      "6": -0.104,
+      "8": -0.138
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 100,
+      "win_rate": 0.45,
+      "needed_win_rate": 0.543,
+      "net_R": -0.0918,
+      "gross_R": -0.0053,
+      "cost_R": 0.087,
+      "t": -0.92,
+      "s": -0.0922,
+      "time_exits": 0.01
+     },
+     "XAGUSD": {
+      "n": 19,
+      "win_rate": 0.579,
+      "needed_win_rate": 0.643,
+      "net_R": 0.1579,
+      "gross_R": 0.4436,
+      "cost_R": 0.286,
+      "t": 0.68,
+      "s": 0.1556,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 83,
+      "win_rate": 0.506,
+      "needed_win_rate": 0.545,
+      "net_R": 0.017,
+      "gross_R": 0.1064,
+      "cost_R": 0.089,
+      "t": 0.15,
+      "s": 0.017,
+      "time_exits": 0.012
+     },
+     "GBPUSD": {
+      "n": 71,
+      "win_rate": 0.38,
+      "needed_win_rate": 0.553,
+      "net_R": -0.2394,
+      "gross_R": -0.1336,
+      "cost_R": 0.106,
+      "t": -2.06,
+      "s": -0.2449,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 65,
+      "win_rate": 0.446,
+      "needed_win_rate": 0.575,
+      "net_R": -0.1081,
+      "gross_R": 0.0425,
+      "cost_R": 0.151,
+      "t": -0.87,
+      "s": -0.1078,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 94,
+      "win_rate": 0.309,
+      "needed_win_rate": 0.589,
+      "net_R": -0.383,
+      "gross_R": -0.2057,
+      "cost_R": 0.177,
+      "t": -4.0,
+      "s": -0.4124,
+      "time_exits": 0.0
+     },
+     "WTI": {
+      "n": 106,
+      "win_rate": 0.302,
+      "needed_win_rate": 0.589,
+      "net_R": -0.3962,
+      "gross_R": -0.218,
+      "cost_R": 0.178,
+      "t": -4.42,
+      "s": -0.4295,
+      "time_exits": 0.0
+     },
+     "US500": {
+      "n": 150,
+      "win_rate": 0.413,
+      "needed_win_rate": 0.555,
+      "net_R": -0.1733,
+      "gross_R": -0.0632,
+      "cost_R": 0.11,
+      "t": -2.15,
+      "s": -0.1754,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 148,
+      "win_rate": 0.493,
+      "needed_win_rate": 0.526,
+      "net_R": -0.0135,
+      "gross_R": 0.0391,
+      "cost_R": 0.053,
+      "t": -0.16,
+      "s": -0.0135,
+      "time_exits": 0.0
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.45,
+      "needed_win_rate": 0.532,
+      "net_R": -0.1,
+      "gross_R": -0.0354,
+      "cost_R": 0.065,
+      "t": -1.1,
+      "s": -0.1001,
+      "time_exits": 0.0
+     },
+     "UK100": {
+      "n": 101,
+      "win_rate": 0.356,
+      "needed_win_rate": 0.597,
+      "net_R": -0.2871,
+      "gross_R": -0.0938,
+      "cost_R": 0.193,
+      "t": -3.0,
+      "s": -0.2983,
+      "time_exits": 0.0
+     },
+     "JP225": {
+      "n": 88,
+      "win_rate": 0.364,
+      "needed_win_rate": 0.604,
+      "net_R": -0.2727,
+      "gross_R": -0.0643,
+      "cost_R": 0.208,
+      "t": -2.64,
+      "s": -0.2819,
+      "time_exits": 0.0
+     }
+    },
+    "summer": {
+     "n": 786,
+     "win_rate": 0.422,
+     "needed_win_rate": 0.561,
+     "net_R": -0.1542,
+     "gross_R": -0.0315,
+     "cost_R": 0.123,
+     "t": -4.37,
+     "s": -0.156,
+     "time_exits": 0.001
+    },
+    "winter": {
+     "n": 359,
+     "win_rate": 0.39,
+     "needed_win_rate": 0.567,
+     "net_R": -0.219,
+     "gross_R": -0.0858,
+     "cost_R": 0.133,
+     "t": -4.25,
+     "s": -0.2243,
+     "time_exits": 0.003
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 130,
+     "win_rate": 0.4,
+     "needed_win_rate": 0.563,
+     "net_R": -0.2002,
+     "gross_R": -0.0738,
+     "cost_R": 0.126,
+     "t": -2.32,
+     "s": -0.2035,
+     "time_exits": 0.0
+    },
+    "summer": {
+     "n": 109,
+     "win_rate": 0.385,
+     "needed_win_rate": 0.566,
+     "net_R": -0.2297,
+     "gross_R": -0.0976,
+     "cost_R": 0.132,
+     "t": -2.45,
+     "s": -0.2348,
+     "time_exits": 0.0
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.476,
+     "needed_win_rate": 0.549,
+     "net_R": -0.0476,
+     "gross_R": 0.0498,
+     "cost_R": 0.097,
+     "t": -0.21,
+     "s": -0.0465,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.452,
+      "needed_win_rate": 0.513,
+      "net_R": -0.0968,
+      "gross_R": -0.0715,
+      "cost_R": 0.025,
+      "t": -0.53,
+      "s": -0.0956,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 28,
+      "win_rate": 0.286,
+      "needed_win_rate": 0.563,
+      "net_R": -0.4286,
+      "gross_R": -0.3023,
+      "cost_R": 0.126,
+      "t": -2.46,
+      "s": -0.4658,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 25,
+      "win_rate": 0.44,
+      "needed_win_rate": 0.58,
+      "net_R": -0.12,
+      "gross_R": 0.0404,
+      "cost_R": 0.16,
+      "t": -0.59,
+      "s": -0.1184,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.433,
+      "needed_win_rate": 0.566,
+      "net_R": -0.1344,
+      "gross_R": -0.0025,
+      "cost_R": 0.132,
+      "t": -0.73,
+      "s": -0.1332,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 16,
+      "win_rate": 0.375,
+      "needed_win_rate": 0.63,
+      "net_R": -0.25,
+      "gross_R": 0.0093,
+      "cost_R": 0.259,
+      "t": -1.0,
+      "s": -0.25,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 125,
+     "win_rate": 0.384,
+     "needed_win_rate": 0.564,
+     "net_R": -0.2321,
+     "gross_R": -0.1049,
+     "cost_R": 0.127,
+     "t": -2.66,
+     "s": -0.2376,
+     "time_exits": 0.0
+    },
+    "summer": {
+     "n": 103,
+     "win_rate": 0.379,
+     "needed_win_rate": 0.566,
+     "net_R": -0.2428,
+     "gross_R": -0.11,
+     "cost_R": 0.133,
+     "t": -2.53,
+     "s": -0.2491,
+     "time_exits": 0.0
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.409,
+     "needed_win_rate": 0.55,
+     "net_R": -0.1818,
+     "gross_R": -0.0809,
+     "cost_R": 0.101,
+     "t": -0.85,
+     "s": -0.1806,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.513,
+      "net_R": -0.125,
+      "gross_R": -0.0996,
+      "cost_R": 0.025,
+      "t": -0.7,
+      "s": -0.124,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.563,
+      "net_R": -0.3846,
+      "gross_R": -0.2579,
+      "cost_R": 0.127,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 25,
+      "win_rate": 0.44,
+      "needed_win_rate": 0.581,
+      "net_R": -0.12,
+      "gross_R": 0.0416,
+      "cost_R": 0.162,
+      "t": -0.59,
+      "s": -0.1184,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.346,
+      "needed_win_rate": 0.569,
+      "net_R": -0.3081,
+      "gross_R": -0.1698,
+      "cost_R": 0.138,
+      "t": -1.62,
+      "s": -0.3174,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 16,
+      "win_rate": 0.375,
+      "needed_win_rate": 0.63,
+      "net_R": -0.25,
+      "gross_R": 0.0093,
+      "cost_R": 0.259,
+      "t": -1.0,
+      "s": -0.25,
+      "time_exits": 0.0
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1599,
+    "win_rate": 0.435,
+    "needed_win_rate": 0.567,
+    "net_R": -0.1288,
+    "gross_R": 0.0059,
+    "cost_R": 0.135,
+    "t": -5.2,
+    "s": -0.1301,
+    "time_exits": 0.004
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "candle",
+    "buffer": 0.1
+   },
+   "2011-19": {
+    "n": 3015,
+    "win_rate": 0.418,
+    "needed_win_rate": 0.578,
+    "net_R": -0.1674,
+    "gross_R": -0.0107,
+    "cost_R": 0.157,
+    "t": -9.31,
+    "s": -0.1695,
+    "time_exits": 0.006,
+    "stopped_then_target": 0.499,
+    "cycle": {
+     "s": -0.1695,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.06,
+      "5": -0.084,
+      "6": -0.1,
+      "8": -0.134
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 261,
+      "win_rate": 0.425,
+      "needed_win_rate": 0.567,
+      "net_R": -0.1457,
+      "gross_R": -0.0126,
+      "cost_R": 0.133,
+      "t": -2.38,
+      "s": -0.1473,
+      "time_exits": 0.004
+     },
+     "XAGUSD": {
+      "n": 50,
+      "win_rate": 0.38,
+      "needed_win_rate": 0.62,
+      "net_R": -0.2416,
+      "gross_R": -0.0023,
+      "cost_R": 0.239,
+      "t": -1.74,
+      "s": -0.2467,
+      "time_exits": 0.02
+     },
+     "EURUSD": {
+      "n": 247,
+      "win_rate": 0.474,
+      "needed_win_rate": 0.546,
+      "net_R": -0.0586,
+      "gross_R": 0.0336,
+      "cost_R": 0.092,
+      "t": -0.92,
+      "s": -0.0588,
+      "time_exits": 0.008
+     },
+     "GBPUSD": {
+      "n": 241,
+      "win_rate": 0.398,
+      "needed_win_rate": 0.56,
+      "net_R": -0.2035,
+      "gross_R": -0.0826,
+      "cost_R": 0.121,
+      "t": -3.22,
+      "s": -0.2074,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 269,
+      "win_rate": 0.446,
+      "needed_win_rate": 0.567,
+      "net_R": -0.103,
+      "gross_R": 0.0313,
+      "cost_R": 0.134,
+      "t": -1.7,
+      "s": -0.1036,
+      "time_exits": 0.007
+     },
+     "EURGBP": {
+      "n": 195,
+      "win_rate": 0.431,
+      "needed_win_rate": 0.586,
+      "net_R": -0.1391,
+      "gross_R": 0.0338,
+      "cost_R": 0.173,
+      "t": -1.95,
+      "s": -0.14,
+      "time_exits": 0.0
+     },
+     "WTI": {
+      "n": 236,
+      "win_rate": 0.394,
+      "needed_win_rate": 0.598,
+      "net_R": -0.2247,
+      "gross_R": -0.028,
+      "cost_R": 0.197,
+      "t": -3.46,
+      "s": -0.2251,
+      "time_exits": 0.004
+     },
+     "US500": {
+      "n": 307,
+      "win_rate": 0.427,
+      "needed_win_rate": 0.602,
+      "net_R": -0.1495,
+      "gross_R": 0.0546,
+      "cost_R": 0.204,
+      "t": -2.64,
+      "s": -0.1505,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 451,
+      "win_rate": 0.384,
+      "needed_win_rate": 0.579,
+      "net_R": -0.2276,
+      "gross_R": -0.0686,
+      "cost_R": 0.159,
+      "t": -4.97,
+      "s": -0.2343,
+      "time_exits": 0.011
+     },
+     "GER40": {
+      "n": 342,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.547,
+      "net_R": -0.0817,
+      "gross_R": 0.0115,
+      "cost_R": 0.093,
+      "t": -1.51,
+      "s": -0.0816,
+      "time_exits": 0.006
+     },
+     "UK100": {
+      "n": 296,
+      "win_rate": 0.382,
+      "needed_win_rate": 0.604,
+      "net_R": -0.2437,
+      "gross_R": -0.0361,
+      "cost_R": 0.208,
+      "t": -4.33,
+      "s": -0.2515,
+      "time_exits": 0.014
+     },
+     "JP225": {
+      "n": 120,
+      "win_rate": 0.367,
+      "needed_win_rate": 0.625,
+      "net_R": -0.2888,
+      "gross_R": -0.039,
+      "cost_R": 0.25,
+      "t": -3.24,
+      "s": -0.296,
+      "time_exits": 0.008
+     }
+    },
+    "summer": {
+     "n": 2036,
+     "win_rate": 0.409,
+     "needed_win_rate": 0.579,
+     "net_R": -0.1843,
+     "gross_R": -0.027,
+     "cost_R": 0.157,
+     "t": -8.46,
+     "s": -0.1875,
+     "time_exits": 0.009
+    },
+    "winter": {
+     "n": 979,
+     "win_rate": 0.436,
+     "needed_win_rate": 0.578,
+     "net_R": -0.1323,
+     "gross_R": 0.0233,
+     "cost_R": 0.156,
+     "t": -4.16,
+     "s": -0.1328,
+     "time_exits": 0.001
+    }
+   },
+   "2020-22": {
+    "n": 1175,
+    "win_rate": 0.422,
+    "needed_win_rate": 0.559,
+    "net_R": -0.1555,
+    "gross_R": -0.0369,
+    "cost_R": 0.119,
+    "t": -5.4,
+    "s": -0.1576,
+    "time_exits": 0.006,
+    "stopped_then_target": 0.481,
+    "cycle": {
+     "s": -0.1576,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.059,
+      "5": -0.082,
+      "6": -0.098,
+      "8": -0.131
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 100,
+      "win_rate": 0.46,
+      "needed_win_rate": 0.538,
+      "net_R": -0.0772,
+      "gross_R": -0.0003,
+      "cost_R": 0.077,
+      "t": -0.78,
+      "s": -0.0778,
+      "time_exits": 0.02
+     },
+     "XAGUSD": {
+      "n": 28,
+      "win_rate": 0.429,
+      "needed_win_rate": 0.641,
+      "net_R": -0.1416,
+      "gross_R": 0.1394,
+      "cost_R": 0.281,
+      "t": -0.74,
+      "s": -0.1406,
+      "time_exits": 0.036
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.542,
+      "net_R": 0.004,
+      "gross_R": 0.087,
+      "cost_R": 0.083,
+      "t": 0.04,
+      "s": 0.004,
+      "time_exits": 0.024
+     },
+     "GBPUSD": {
+      "n": 71,
+      "win_rate": 0.394,
+      "needed_win_rate": 0.547,
+      "net_R": -0.2113,
+      "gross_R": -0.1164,
+      "cost_R": 0.095,
+      "t": -1.81,
+      "s": -0.2147,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 66,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.569,
+      "net_R": 0.0,
+      "gross_R": 0.1372,
+      "cost_R": 0.137,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 96,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.581,
+      "net_R": -0.3401,
+      "gross_R": -0.1773,
+      "cost_R": 0.163,
+      "t": -3.54,
+      "s": -0.3615,
+      "time_exits": 0.01
+     },
+     "WTI": {
+      "n": 110,
+      "win_rate": 0.327,
+      "needed_win_rate": 0.583,
+      "net_R": -0.3455,
+      "gross_R": -0.1796,
+      "cost_R": 0.166,
+      "t": -3.84,
+      "s": -0.3664,
+      "time_exits": 0.0
+     },
+     "US500": {
+      "n": 151,
+      "win_rate": 0.397,
+      "needed_win_rate": 0.55,
+      "net_R": -0.2054,
+      "gross_R": -0.1052,
+      "cost_R": 0.1,
+      "t": -2.57,
+      "s": -0.2092,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 148,
+      "win_rate": 0.52,
+      "needed_win_rate": 0.523,
+      "net_R": 0.0405,
+      "gross_R": 0.0875,
+      "cost_R": 0.047,
+      "t": 0.49,
+      "s": 0.0404,
+      "time_exits": 0.0
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.458,
+      "needed_win_rate": 0.529,
+      "net_R": -0.0836,
+      "gross_R": -0.0259,
+      "cost_R": 0.058,
+      "t": -0.92,
+      "s": -0.0836,
+      "time_exits": 0.0
+     },
+     "UK100": {
+      "n": 107,
+      "win_rate": 0.393,
+      "needed_win_rate": 0.591,
+      "net_R": -0.2155,
+      "gross_R": -0.0327,
+      "cost_R": 0.183,
+      "t": -2.27,
+      "s": -0.2195,
+      "time_exits": 0.0
+     },
+     "JP225": {
+      "n": 94,
+      "win_rate": 0.351,
+      "needed_win_rate": 0.599,
+      "net_R": -0.2936,
+      "gross_R": -0.0956,
+      "cost_R": 0.198,
+      "t": -2.96,
+      "s": -0.3057,
+      "time_exits": 0.011
+     }
+    },
+    "summer": {
+     "n": 807,
+     "win_rate": 0.439,
+     "needed_win_rate": 0.558,
+     "net_R": -0.1228,
+     "gross_R": -0.0068,
+     "cost_R": 0.116,
+     "t": -3.52,
+     "s": -0.1238,
+     "time_exits": 0.005
+    },
+    "winter": {
+     "n": 368,
+     "win_rate": 0.386,
+     "needed_win_rate": 0.562,
+     "net_R": -0.2271,
+     "gross_R": -0.1027,
+     "cost_R": 0.124,
+     "t": -4.48,
+     "s": -0.2336,
+     "time_exits": 0.008
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 133,
+     "win_rate": 0.406,
+     "needed_win_rate": 0.559,
+     "net_R": -0.1817,
+     "gross_R": -0.0629,
+     "cost_R": 0.119,
+     "t": -2.13,
+     "s": -0.1848,
+     "time_exits": 0.008
+    },
+    "summer": {
+     "n": 112,
+     "win_rate": 0.375,
+     "needed_win_rate": 0.562,
+     "net_R": -0.2426,
+     "gross_R": -0.118,
+     "cost_R": 0.125,
+     "t": -2.65,
+     "s": -0.2501,
+     "time_exits": 0.009
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.544,
+     "net_R": 0.1429,
+     "gross_R": 0.2308,
+     "cost_R": 0.088,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.484,
+      "needed_win_rate": 0.511,
+      "net_R": -0.0323,
+      "gross_R": -0.0096,
+      "cost_R": 0.023,
+      "t": -0.18,
+      "s": -0.0318,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 28,
+      "win_rate": 0.286,
+      "needed_win_rate": 0.557,
+      "net_R": -0.4286,
+      "gross_R": -0.3152,
+      "cost_R": 0.113,
+      "t": -2.46,
+      "s": -0.4658,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 25,
+      "win_rate": 0.48,
+      "needed_win_rate": 0.572,
+      "net_R": -0.04,
+      "gross_R": 0.1043,
+      "cost_R": 0.144,
+      "t": -0.2,
+      "s": -0.0392,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.433,
+      "needed_win_rate": 0.559,
+      "net_R": -0.1333,
+      "gross_R": -0.015,
+      "cost_R": 0.118,
+      "t": -0.72,
+      "s": -0.1323,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 19,
+      "win_rate": 0.316,
+      "needed_win_rate": 0.626,
+      "net_R": -0.3248,
+      "gross_R": -0.0735,
+      "cost_R": 0.251,
+      "t": -1.5,
+      "s": -0.3443,
+      "time_exits": 0.053
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 128,
+     "win_rate": 0.383,
+     "needed_win_rate": 0.56,
+     "net_R": -0.2279,
+     "gross_R": -0.1082,
+     "cost_R": 0.12,
+     "t": -2.65,
+     "s": -0.2341,
+     "time_exits": 0.008
+    },
+    "summer": {
+     "n": 106,
+     "win_rate": 0.358,
+     "needed_win_rate": 0.563,
+     "net_R": -0.2752,
+     "gross_R": -0.1494,
+     "cost_R": 0.126,
+     "t": -2.95,
+     "s": -0.2863,
+     "time_exits": 0.009
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.545,
+     "net_R": 0.0,
+     "gross_R": 0.0908,
+     "cost_R": 0.091,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.469,
+      "needed_win_rate": 0.511,
+      "net_R": -0.0625,
+      "gross_R": -0.0398,
+      "cost_R": 0.023,
+      "t": -0.35,
+      "s": -0.0616,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.557,
+      "net_R": -0.3846,
+      "gross_R": -0.2709,
+      "cost_R": 0.114,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 25,
+      "win_rate": 0.48,
+      "needed_win_rate": 0.573,
+      "net_R": -0.04,
+      "gross_R": 0.1052,
+      "cost_R": 0.145,
+      "t": -0.2,
+      "s": -0.0392,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.562,
+      "net_R": -0.3846,
+      "gross_R": -0.26,
+      "cost_R": 0.125,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 19,
+      "win_rate": 0.316,
+      "needed_win_rate": 0.626,
+      "net_R": -0.3248,
+      "gross_R": -0.0735,
+      "cost_R": 0.251,
+      "t": -1.5,
+      "s": -0.3443,
+      "time_exits": 0.053
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1630,
+    "win_rate": 0.435,
+    "needed_win_rate": 0.562,
+    "net_R": -0.1297,
+    "gross_R": -0.0054,
+    "cost_R": 0.124,
+    "t": -5.29,
+    "s": -0.1311,
+    "time_exits": 0.006
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "candle",
+    "buffer": 0.25
+   },
+   "2011-19": {
+    "n": 3176,
+    "win_rate": 0.434,
+    "needed_win_rate": 0.573,
+    "net_R": -0.1353,
+    "gross_R": 0.0103,
+    "cost_R": 0.146,
+    "t": -7.7,
+    "s": -0.1367,
+    "time_exits": 0.011,
+    "stopped_then_target": 0.437,
+    "cycle": {
+     "s": -0.1367,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.055,
+      "5": -0.077,
+      "6": -0.092,
+      "8": -0.123
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 266,
+      "win_rate": 0.455,
+      "needed_win_rate": 0.559,
+      "net_R": -0.0895,
+      "gross_R": 0.0286,
+      "cost_R": 0.118,
+      "t": -1.47,
+      "s": -0.09,
+      "time_exits": 0.008
+     },
+     "XAGUSD": {
+      "n": 62,
+      "win_rate": 0.371,
+      "needed_win_rate": 0.615,
+      "net_R": -0.2622,
+      "gross_R": -0.0313,
+      "cost_R": 0.231,
+      "t": -2.12,
+      "s": -0.2695,
+      "time_exits": 0.016
+     },
+     "EURUSD": {
+      "n": 250,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.541,
+      "net_R": -0.01,
+      "gross_R": 0.0723,
+      "cost_R": 0.082,
+      "t": -0.16,
+      "s": -0.01,
+      "time_exits": 0.012
+     },
+     "GBPUSD": {
+      "n": 242,
+      "win_rate": 0.426,
+      "needed_win_rate": 0.553,
+      "net_R": -0.1528,
+      "gross_R": -0.0473,
+      "cost_R": 0.105,
+      "t": -2.41,
+      "s": -0.1546,
+      "time_exits": 0.004
+     },
+     "USDJPY": {
+      "n": 272,
+      "win_rate": 0.449,
+      "needed_win_rate": 0.559,
+      "net_R": -0.0903,
+      "gross_R": 0.0281,
+      "cost_R": 0.118,
+      "t": -1.5,
+      "s": -0.0912,
+      "time_exits": 0.018
+     },
+     "EURGBP": {
+      "n": 202,
+      "win_rate": 0.46,
+      "needed_win_rate": 0.578,
+      "net_R": -0.0796,
+      "gross_R": 0.0762,
+      "cost_R": 0.156,
+      "t": -1.13,
+      "s": -0.0798,
+      "time_exits": 0.01
+     },
+     "WTI": {
+      "n": 252,
+      "win_rate": 0.405,
+      "needed_win_rate": 0.59,
+      "net_R": -0.1955,
+      "gross_R": -0.0154,
+      "cost_R": 0.18,
+      "t": -3.12,
+      "s": -0.1968,
+      "time_exits": 0.008
+     },
+     "US500": {
+      "n": 344,
+      "win_rate": 0.416,
+      "needed_win_rate": 0.597,
+      "net_R": -0.1729,
+      "gross_R": 0.0212,
+      "cost_R": 0.194,
+      "t": -3.24,
+      "s": -0.1745,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 471,
+      "win_rate": 0.399,
+      "needed_win_rate": 0.573,
+      "net_R": -0.1964,
+      "gross_R": -0.0511,
+      "cost_R": 0.145,
+      "t": -4.37,
+      "s": -0.2013,
+      "time_exits": 0.017
+     },
+     "GER40": {
+      "n": 343,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.541,
+      "net_R": -0.052,
+      "gross_R": 0.0293,
+      "cost_R": 0.081,
+      "t": -0.96,
+      "s": -0.052,
+      "time_exits": 0.012
+     },
+     "UK100": {
+      "n": 317,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.596,
+      "net_R": -0.1672,
+      "gross_R": 0.0239,
+      "cost_R": 0.191,
+      "t": -3.03,
+      "s": -0.17,
+      "time_exits": 0.016
+     },
+     "JP225": {
+      "n": 155,
+      "win_rate": 0.387,
+      "needed_win_rate": 0.622,
+      "net_R": -0.2418,
+      "gross_R": 0.0025,
+      "cost_R": 0.244,
+      "t": -3.06,
+      "s": -0.246,
+      "time_exits": 0.006
+     }
+    },
+    "summer": {
+     "n": 2146,
+     "win_rate": 0.429,
+     "needed_win_rate": 0.573,
+     "net_R": -0.1433,
+     "gross_R": 0.0028,
+     "cost_R": 0.146,
+     "t": -6.72,
+     "s": -0.1451,
+     "time_exits": 0.013
+    },
+    "winter": {
+     "n": 1030,
+     "win_rate": 0.443,
+     "needed_win_rate": 0.572,
+     "net_R": -0.1187,
+     "gross_R": 0.0259,
+     "cost_R": 0.145,
+     "t": -3.83,
+     "s": -0.1193,
+     "time_exits": 0.007
+    }
+   },
+   "2020-22": {
+    "n": 1223,
+    "win_rate": 0.437,
+    "needed_win_rate": 0.556,
+    "net_R": -0.1276,
+    "gross_R": -0.0161,
+    "cost_R": 0.111,
+    "t": -4.52,
+    "s": -0.1292,
+    "time_exits": 0.013,
+    "stopped_then_target": 0.413,
+    "cycle": {
+     "s": -0.1292,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.053,
+      "5": -0.073,
+      "6": -0.088,
+      "8": -0.117
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 101,
+      "win_rate": 0.475,
+      "needed_win_rate": 0.534,
+      "net_R": -0.0364,
+      "gross_R": 0.0324,
+      "cost_R": 0.069,
+      "t": -0.37,
+      "s": -0.0368,
+      "time_exits": 0.04
+     },
+     "XAGUSD": {
+      "n": 45,
+      "win_rate": 0.378,
+      "needed_win_rate": 0.637,
+      "net_R": -0.2616,
+      "gross_R": 0.013,
+      "cost_R": 0.275,
+      "t": -1.82,
+      "s": -0.2719,
+      "time_exits": 0.044
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.524,
+      "needed_win_rate": 0.536,
+      "net_R": 0.0404,
+      "gross_R": 0.1126,
+      "cost_R": 0.072,
+      "t": 0.37,
+      "s": 0.0407,
+      "time_exits": 0.036
+     },
+     "GBPUSD": {
+      "n": 72,
+      "win_rate": 0.417,
+      "needed_win_rate": 0.543,
+      "net_R": -0.1667,
+      "gross_R": -0.0813,
+      "cost_R": 0.085,
+      "t": -1.42,
+      "s": -0.1679,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 66,
+      "win_rate": 0.47,
+      "needed_win_rate": 0.559,
+      "net_R": -0.0631,
+      "gross_R": 0.0555,
+      "cost_R": 0.119,
+      "t": -0.52,
+      "s": -0.0635,
+      "time_exits": 0.03
+     },
+     "EURGBP": {
+      "n": 97,
+      "win_rate": 0.361,
+      "needed_win_rate": 0.572,
+      "net_R": -0.287,
+      "gross_R": -0.1437,
+      "cost_R": 0.143,
+      "t": -2.96,
+      "s": -0.3001,
+      "time_exits": 0.021
+     },
+     "WTI": {
+      "n": 113,
+      "win_rate": 0.381,
+      "needed_win_rate": 0.574,
+      "net_R": -0.2392,
+      "gross_R": -0.0911,
+      "cost_R": 0.148,
+      "t": -2.61,
+      "s": -0.2452,
+      "time_exits": 0.0
+     },
+     "US500": {
+      "n": 152,
+      "win_rate": 0.434,
+      "needed_win_rate": 0.544,
+      "net_R": -0.1323,
+      "gross_R": -0.0437,
+      "cost_R": 0.089,
+      "t": -1.64,
+      "s": -0.1329,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 149,
+      "win_rate": 0.503,
+      "needed_win_rate": 0.521,
+      "net_R": 0.0067,
+      "gross_R": 0.0491,
+      "cost_R": 0.042,
+      "t": 0.08,
+      "s": 0.0067,
+      "time_exits": 0.0
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.45,
+      "needed_win_rate": 0.525,
+      "net_R": -0.0926,
+      "gross_R": -0.0427,
+      "cost_R": 0.05,
+      "t": -1.02,
+      "s": -0.093,
+      "time_exits": 0.008
+     },
+     "UK100": {
+      "n": 111,
+      "win_rate": 0.432,
+      "needed_win_rate": 0.582,
+      "net_R": -0.1425,
+      "gross_R": 0.0225,
+      "cost_R": 0.165,
+      "t": -1.52,
+      "s": -0.1438,
+      "time_exits": 0.009
+     },
+     "JP225": {
+      "n": 113,
+      "win_rate": 0.381,
+      "needed_win_rate": 0.598,
+      "net_R": -0.2383,
+      "gross_R": -0.0413,
+      "cost_R": 0.197,
+      "t": -2.59,
+      "s": -0.2436,
+      "time_exits": 0.009
+     }
+    },
+    "summer": {
+     "n": 842,
+     "win_rate": 0.45,
+     "needed_win_rate": 0.555,
+     "net_R": -0.1009,
+     "gross_R": 0.0089,
+     "cost_R": 0.11,
+     "t": -2.95,
+     "s": -0.1017,
+     "time_exits": 0.014
+    },
+    "winter": {
+     "n": 381,
+     "win_rate": 0.407,
+     "needed_win_rate": 0.558,
+     "net_R": -0.1867,
+     "gross_R": -0.0715,
+     "cost_R": 0.115,
+     "t": -3.72,
+     "s": -0.1906,
+     "time_exits": 0.01
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 135,
+     "win_rate": 0.4,
+     "needed_win_rate": 0.553,
+     "net_R": -0.1882,
+     "gross_R": -0.0812,
+     "cost_R": 0.107,
+     "t": -2.23,
+     "s": -0.1923,
+     "time_exits": 0.015
+    },
+    "summer": {
+     "n": 114,
+     "win_rate": 0.368,
+     "needed_win_rate": 0.556,
+     "net_R": -0.249,
+     "gross_R": -0.1364,
+     "cost_R": 0.113,
+     "t": -2.76,
+     "s": -0.2583,
+     "time_exits": 0.018
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.538,
+     "net_R": 0.1415,
+     "gross_R": 0.2184,
+     "cost_R": 0.077,
+     "t": 0.64,
+     "s": 0.1393,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.484,
+      "needed_win_rate": 0.51,
+      "net_R": -0.0323,
+      "gross_R": -0.0127,
+      "cost_R": 0.02,
+      "t": -0.18,
+      "s": -0.0318,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 28,
+      "win_rate": 0.321,
+      "needed_win_rate": 0.549,
+      "net_R": -0.3571,
+      "gross_R": -0.2588,
+      "cost_R": 0.098,
+      "t": -1.99,
+      "s": -0.3755,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.423,
+      "needed_win_rate": 0.566,
+      "net_R": -0.1549,
+      "gross_R": -0.0237,
+      "cost_R": 0.131,
+      "t": -0.78,
+      "s": -0.1536,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.433,
+      "needed_win_rate": 0.551,
+      "net_R": -0.1334,
+      "gross_R": -0.0306,
+      "cost_R": 0.103,
+      "t": -0.72,
+      "s": -0.1323,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 20,
+      "win_rate": 0.3,
+      "needed_win_rate": 0.615,
+      "net_R": -0.3191,
+      "gross_R": -0.0897,
+      "cost_R": 0.229,
+      "t": -1.55,
+      "s": -0.3473,
+      "time_exits": 0.1
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 131,
+     "win_rate": 0.366,
+     "needed_win_rate": 0.555,
+     "net_R": -0.255,
+     "gross_R": -0.1455,
+     "cost_R": 0.109,
+     "t": -3.03,
+     "s": -0.2647,
+     "time_exits": 0.015
+    },
+    "summer": {
+     "n": 109,
+     "win_rate": 0.349,
+     "needed_win_rate": 0.558,
+     "net_R": -0.2881,
+     "gross_R": -0.1724,
+     "cost_R": 0.116,
+     "t": -3.16,
+     "s": -0.3023,
+     "time_exits": 0.018
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.455,
+     "needed_win_rate": 0.54,
+     "net_R": -0.0909,
+     "gross_R": -0.0119,
+     "cost_R": 0.079,
+     "t": -0.42,
+     "s": -0.0892,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.51,
+      "net_R": -0.125,
+      "gross_R": -0.1053,
+      "cost_R": 0.02,
+      "t": -0.7,
+      "s": -0.124,
+      "time_exits": 0.0
+     },
+     "EURUSD": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.553,
+      "net_R": -0.3333,
+      "gross_R": -0.2272,
+      "cost_R": 0.106,
+      "t": -1.8,
+      "s": -0.3469,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.423,
+      "needed_win_rate": 0.566,
+      "net_R": -0.1546,
+      "gross_R": -0.0224,
+      "cost_R": 0.132,
+      "t": -0.78,
+      "s": -0.1533,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.554,
+      "net_R": -0.3846,
+      "gross_R": -0.2761,
+      "cost_R": 0.109,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 20,
+      "win_rate": 0.3,
+      "needed_win_rate": 0.615,
+      "net_R": -0.3191,
+      "gross_R": -0.0897,
+      "cost_R": 0.229,
+      "t": -1.55,
+      "s": -0.3473,
+      "time_exits": 0.1
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1652,
+    "win_rate": 0.455,
+    "needed_win_rate": 0.555,
+    "net_R": -0.0897,
+    "gross_R": 0.0205,
+    "cost_R": 0.11,
+    "t": -3.68,
+    "s": -0.0906,
+    "time_exits": 0.015
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "candle",
+    "buffer": 0.5
+   },
+   "2011-19": {
+    "n": 3318,
+    "win_rate": 0.445,
+    "needed_win_rate": 0.564,
+    "net_R": -0.1113,
+    "gross_R": 0.0167,
+    "cost_R": 0.128,
+    "t": -6.48,
+    "s": -0.1125,
+    "time_exits": 0.023,
+    "stopped_then_target": 0.344,
+    "cycle": {
+     "s": -0.1125,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.049,
+      "5": -0.069,
+      "6": -0.082,
+      "8": -0.11
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 266,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.548,
+      "net_R": -0.0749,
+      "gross_R": 0.0211,
+      "cost_R": 0.096,
+      "t": -1.24,
+      "s": -0.0758,
+      "time_exits": 0.034
+     },
+     "XAGUSD": {
+      "n": 86,
+      "win_rate": 0.407,
+      "needed_win_rate": 0.613,
+      "net_R": -0.187,
+      "gross_R": 0.0382,
+      "cost_R": 0.225,
+      "t": -1.79,
+      "s": -0.1926,
+      "time_exits": 0.058
+     },
+     "EURUSD": {
+      "n": 252,
+      "win_rate": 0.528,
+      "needed_win_rate": 0.534,
+      "net_R": 0.0484,
+      "gross_R": 0.1171,
+      "cost_R": 0.069,
+      "t": 0.78,
+      "s": 0.0489,
+      "time_exits": 0.024
+     },
+     "GBPUSD": {
+      "n": 243,
+      "win_rate": 0.449,
+      "needed_win_rate": 0.544,
+      "net_R": -0.1071,
+      "gross_R": -0.0198,
+      "cost_R": 0.087,
+      "t": -1.68,
+      "s": -0.108,
+      "time_exits": 0.016
+     },
+     "USDJPY": {
+      "n": 275,
+      "win_rate": 0.505,
+      "needed_win_rate": 0.55,
+      "net_R": 0.0243,
+      "gross_R": 0.1235,
+      "cost_R": 0.099,
+      "t": 0.41,
+      "s": 0.0245,
+      "time_exits": 0.025
+     },
+     "EURGBP": {
+      "n": 204,
+      "win_rate": 0.426,
+      "needed_win_rate": 0.565,
+      "net_R": -0.1356,
+      "gross_R": -0.006,
+      "cost_R": 0.13,
+      "t": -1.98,
+      "s": -0.1383,
+      "time_exits": 0.034
+     },
+     "WTI": {
+      "n": 265,
+      "win_rate": 0.385,
+      "needed_win_rate": 0.578,
+      "net_R": -0.2426,
+      "gross_R": -0.0873,
+      "cost_R": 0.155,
+      "t": -3.96,
+      "s": -0.2435,
+      "time_exits": 0.008
+     },
+     "US500": {
+      "n": 372,
+      "win_rate": 0.417,
+      "needed_win_rate": 0.586,
+      "net_R": -0.1714,
+      "gross_R": 0.0008,
+      "cost_R": 0.172,
+      "t": -3.33,
+      "s": -0.1729,
+      "time_exits": 0.0
+     },
+     "NAS100": {
+      "n": 487,
+      "win_rate": 0.413,
+      "needed_win_rate": 0.563,
+      "net_R": -0.1699,
+      "gross_R": -0.0448,
+      "cost_R": 0.125,
+      "t": -3.84,
+      "s": -0.1738,
+      "time_exits": 0.025
+     },
+     "GER40": {
+      "n": 345,
+      "win_rate": 0.487,
+      "needed_win_rate": 0.534,
+      "net_R": -0.0291,
+      "gross_R": 0.0388,
+      "cost_R": 0.068,
+      "t": -0.54,
+      "s": -0.0292,
+      "time_exits": 0.038
+     },
+     "UK100": {
+      "n": 332,
+      "win_rate": 0.452,
+      "needed_win_rate": 0.583,
+      "net_R": -0.1046,
+      "gross_R": 0.0606,
+      "cost_R": 0.165,
+      "t": -1.93,
+      "s": -0.1058,
+      "time_exits": 0.021
+     },
+     "JP225": {
+      "n": 191,
+      "win_rate": 0.393,
+      "needed_win_rate": 0.613,
+      "net_R": -0.2255,
+      "gross_R": 0.0009,
+      "cost_R": 0.226,
+      "t": -3.16,
+      "s": -0.2289,
+      "time_exits": 0.016
+     }
+    },
+    "summer": {
+     "n": 2240,
+     "win_rate": 0.437,
+     "needed_win_rate": 0.564,
+     "net_R": -0.1287,
+     "gross_R": -0.0003,
+     "cost_R": 0.128,
+     "t": -6.16,
+     "s": -0.1303,
+     "time_exits": 0.025
+    },
+    "winter": {
+     "n": 1078,
+     "win_rate": 0.463,
+     "needed_win_rate": 0.564,
+     "net_R": -0.0753,
+     "gross_R": 0.052,
+     "cost_R": 0.127,
+     "t": -2.49,
+     "s": -0.0758,
+     "time_exits": 0.019
+    }
+   },
+   "2020-22": {
+    "n": 1264,
+    "win_rate": 0.443,
+    "needed_win_rate": 0.549,
+    "net_R": -0.115,
+    "gross_R": -0.0163,
+    "cost_R": 0.099,
+    "t": -4.16,
+    "s": -0.117,
+    "time_exits": 0.03,
+    "stopped_then_target": 0.314,
+    "cycle": {
+     "s": -0.117,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.048,
+      "5": -0.067,
+      "6": -0.081,
+      "8": -0.107
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 101,
+      "win_rate": 0.465,
+      "needed_win_rate": 0.528,
+      "net_R": -0.0506,
+      "gross_R": 0.0056,
+      "cost_R": 0.056,
+      "t": -0.52,
+      "s": -0.0515,
+      "time_exits": 0.059
+     },
+     "XAGUSD": {
+      "n": 65,
+      "win_rate": 0.415,
+      "needed_win_rate": 0.627,
+      "net_R": -0.1836,
+      "gross_R": 0.0708,
+      "cost_R": 0.254,
+      "t": -1.54,
+      "s": -0.1913,
+      "time_exits": 0.092
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.524,
+      "needed_win_rate": 0.53,
+      "net_R": 0.0395,
+      "gross_R": 0.099,
+      "cost_R": 0.06,
+      "t": 0.37,
+      "s": 0.0398,
+      "time_exits": 0.036
+     },
+     "GBPUSD": {
+      "n": 72,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.535,
+      "net_R": 0.0048,
+      "gross_R": 0.0747,
+      "cost_R": 0.07,
+      "t": 0.04,
+      "s": 0.0048,
+      "time_exits": 0.014
+     },
+     "USDJPY": {
+      "n": 67,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.55,
+      "net_R": -0.0419,
+      "gross_R": 0.0581,
+      "cost_R": 0.1,
+      "t": -0.35,
+      "s": -0.043,
+      "time_exits": 0.075
+     },
+     "EURGBP": {
+      "n": 99,
+      "win_rate": 0.384,
+      "needed_win_rate": 0.561,
+      "net_R": -0.2501,
+      "gross_R": -0.1285,
+      "cost_R": 0.122,
+      "t": -2.62,
+      "s": -0.263,
+      "time_exits": 0.061
+     },
+     "WTI": {
+      "n": 116,
+      "win_rate": 0.422,
+      "needed_win_rate": 0.563,
+      "net_R": -0.1651,
+      "gross_R": -0.0391,
+      "cost_R": 0.126,
+      "t": -1.81,
+      "s": -0.168,
+      "time_exits": 0.026
+     },
+     "US500": {
+      "n": 153,
+      "win_rate": 0.444,
+      "needed_win_rate": 0.537,
+      "net_R": -0.1075,
+      "gross_R": -0.0332,
+      "cost_R": 0.074,
+      "t": -1.34,
+      "s": -0.1085,
+      "time_exits": 0.02
+     },
+     "NAS100": {
+      "n": 149,
+      "win_rate": 0.477,
+      "needed_win_rate": 0.517,
+      "net_R": -0.0535,
+      "gross_R": -0.0189,
+      "cost_R": 0.035,
+      "t": -0.65,
+      "s": -0.0536,
+      "time_exits": 0.007
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.442,
+      "needed_win_rate": 0.52,
+      "net_R": -0.1089,
+      "gross_R": -0.068,
+      "cost_R": 0.041,
+      "t": -1.2,
+      "s": -0.1095,
+      "time_exits": 0.008
+     },
+     "UK100": {
+      "n": 112,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.568,
+      "net_R": -0.1611,
+      "gross_R": -0.0243,
+      "cost_R": 0.137,
+      "t": -1.74,
+      "s": -0.164,
+      "time_exits": 0.018
+     },
+     "JP225": {
+      "n": 126,
+      "win_rate": 0.381,
+      "needed_win_rate": 0.589,
+      "net_R": -0.2362,
+      "gross_R": -0.0586,
+      "cost_R": 0.178,
+      "t": -2.71,
+      "s": -0.2419,
+      "time_exits": 0.008
+     }
+    },
+    "summer": {
+     "n": 866,
+     "win_rate": 0.464,
+     "needed_win_rate": 0.548,
+     "net_R": -0.0751,
+     "gross_R": 0.0211,
+     "cost_R": 0.096,
+     "t": -2.24,
+     "s": -0.0762,
+     "time_exits": 0.033
+    },
+    "winter": {
+     "n": 398,
+     "win_rate": 0.397,
+     "needed_win_rate": 0.552,
+     "net_R": -0.2019,
+     "gross_R": -0.0979,
+     "cost_R": 0.104,
+     "t": -4.14,
+     "s": -0.2077,
+     "time_exits": 0.023
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 139,
+     "win_rate": 0.388,
+     "needed_win_rate": 0.547,
+     "net_R": -0.2151,
+     "gross_R": -0.1209,
+     "cost_R": 0.094,
+     "t": -2.61,
+     "s": -0.2217,
+     "time_exits": 0.022
+    },
+    "summer": {
+     "n": 118,
+     "win_rate": 0.364,
+     "needed_win_rate": 0.55,
+     "net_R": -0.2618,
+     "gross_R": -0.1622,
+     "cost_R": 0.1,
+     "t": -2.97,
+     "s": -0.2736,
+     "time_exits": 0.025
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.524,
+     "needed_win_rate": 0.532,
+     "net_R": 0.0476,
+     "gross_R": 0.1112,
+     "cost_R": 0.064,
+     "t": 0.21,
+     "s": 0.0465,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.452,
+      "needed_win_rate": 0.508,
+      "net_R": -0.1147,
+      "gross_R": -0.0987,
+      "cost_R": 0.016,
+      "t": -0.64,
+      "s": -0.1151,
+      "time_exits": 0.032
+     },
+     "EURUSD": {
+      "n": 29,
+      "win_rate": 0.31,
+      "needed_win_rate": 0.543,
+      "net_R": -0.3797,
+      "gross_R": -0.2931,
+      "cost_R": 0.087,
+      "t": -2.17,
+      "s": -0.4031,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.407,
+      "needed_win_rate": 0.557,
+      "net_R": -0.1852,
+      "gross_R": -0.072,
+      "cost_R": 0.113,
+      "t": -0.96,
+      "s": -0.1849,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.4,
+      "needed_win_rate": 0.542,
+      "net_R": -0.2,
+      "gross_R": -0.1156,
+      "cost_R": 0.084,
+      "t": -1.1,
+      "s": -0.2007,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 22,
+      "win_rate": 0.364,
+      "needed_win_rate": 0.602,
+      "net_R": -0.1969,
+      "gross_R": 0.0078,
+      "cost_R": 0.205,
+      "t": -0.97,
+      "s": -0.2059,
+      "time_exits": 0.091
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 134,
+     "win_rate": 0.381,
+     "needed_win_rate": 0.548,
+     "net_R": -0.2305,
+     "gross_R": -0.135,
+     "cost_R": 0.096,
+     "t": -2.76,
+     "s": -0.2386,
+     "time_exits": 0.022
+    },
+    "summer": {
+     "n": 112,
+     "win_rate": 0.357,
+     "needed_win_rate": 0.551,
+     "net_R": -0.2758,
+     "gross_R": -0.1743,
+     "cost_R": 0.102,
+     "t": -3.06,
+     "s": -0.2895,
+     "time_exits": 0.027
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.533,
+     "net_R": 0.0,
+     "gross_R": 0.0651,
+     "cost_R": 0.065,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.508,
+      "net_R": -0.1425,
+      "gross_R": -0.1264,
+      "cost_R": 0.016,
+      "t": -0.81,
+      "s": -0.1435,
+      "time_exits": 0.031
+     },
+     "EURUSD": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.543,
+      "net_R": -0.3333,
+      "gross_R": -0.2468,
+      "cost_R": 0.087,
+      "t": -1.8,
+      "s": -0.3469,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.444,
+      "needed_win_rate": 0.558,
+      "net_R": -0.1111,
+      "gross_R": 0.0046,
+      "cost_R": 0.116,
+      "t": -0.57,
+      "s": -0.1097,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.545,
+      "net_R": -0.3846,
+      "gross_R": -0.2951,
+      "cost_R": 0.089,
+      "t": -2.08,
+      "s": -0.4086,
+      "time_exits": 0.0
+     },
+     "EURGBP": {
+      "n": 22,
+      "win_rate": 0.364,
+      "needed_win_rate": 0.602,
+      "net_R": -0.1969,
+      "gross_R": 0.0078,
+      "cost_R": 0.205,
+      "t": -0.97,
+      "s": -0.2059,
+      "time_exits": 0.091
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1663,
+    "win_rate": 0.474,
+    "needed_win_rate": 0.546,
+    "net_R": -0.0503,
+    "gross_R": 0.0412,
+    "cost_R": 0.092,
+    "t": -2.08,
+    "s": -0.051,
+    "time_exits": 0.032
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "swing",
+    "buffer": 0.0
+   },
+   "2011-19": {
+    "n": 3222,
+    "win_rate": 0.433,
+    "needed_win_rate": 0.569,
+    "net_R": -0.136,
+    "gross_R": 0.0027,
+    "cost_R": 0.139,
+    "t": -7.9,
+    "s": -0.1392,
+    "time_exits": 0.04,
+    "stopped_then_target": 0.407,
+    "cycle": {
+     "s": -0.1392,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.055,
+      "5": -0.077,
+      "6": -0.092,
+      "8": -0.123
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 265,
+      "win_rate": 0.442,
+      "needed_win_rate": 0.556,
+      "net_R": -0.1064,
+      "gross_R": 0.0049,
+      "cost_R": 0.111,
+      "t": -1.77,
+      "s": -0.1086,
+      "time_exits": 0.042
+     },
+     "XAGUSD": {
+      "n": 75,
+      "win_rate": 0.44,
+      "needed_win_rate": 0.607,
+      "net_R": -0.136,
+      "gross_R": 0.0777,
+      "cost_R": 0.214,
+      "t": -1.25,
+      "s": -0.1445,
+      "time_exits": 0.133
+     },
+     "EURUSD": {
+      "n": 250,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.54,
+      "net_R": -0.0118,
+      "gross_R": 0.0673,
+      "cost_R": 0.079,
+      "t": -0.19,
+      "s": -0.012,
+      "time_exits": 0.04
+     },
+     "GBPUSD": {
+      "n": 241,
+      "win_rate": 0.402,
+      "needed_win_rate": 0.55,
+      "net_R": -0.194,
+      "gross_R": -0.093,
+      "cost_R": 0.101,
+      "t": -3.14,
+      "s": -0.202,
+      "time_exits": 0.058
+     },
+     "USDJPY": {
+      "n": 271,
+      "win_rate": 0.506,
+      "needed_win_rate": 0.556,
+      "net_R": 0.0171,
+      "gross_R": 0.1293,
+      "cost_R": 0.112,
+      "t": 0.29,
+      "s": 0.0174,
+      "time_exits": 0.037
+     },
+     "EURGBP": {
+      "n": 199,
+      "win_rate": 0.417,
+      "needed_win_rate": 0.569,
+      "net_R": -0.161,
+      "gross_R": -0.0231,
+      "cost_R": 0.138,
+      "t": -2.34,
+      "s": -0.1657,
+      "time_exits": 0.045
+     },
+     "WTI": {
+      "n": 248,
+      "win_rate": 0.399,
+      "needed_win_rate": 0.582,
+      "net_R": -0.2146,
+      "gross_R": -0.0508,
+      "cost_R": 0.164,
+      "t": -3.48,
+      "s": -0.2211,
+      "time_exits": 0.044
+     },
+     "US500": {
+      "n": 367,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.595,
+      "net_R": -0.1602,
+      "gross_R": 0.0298,
+      "cost_R": 0.19,
+      "t": -3.13,
+      "s": -0.1632,
+      "time_exits": 0.019
+     },
+     "NAS100": {
+      "n": 468,
+      "win_rate": 0.417,
+      "needed_win_rate": 0.57,
+      "net_R": -0.1657,
+      "gross_R": -0.0263,
+      "cost_R": 0.139,
+      "t": -3.67,
+      "s": -0.1697,
+      "time_exits": 0.032
+     },
+     "GER40": {
+      "n": 345,
+      "win_rate": 0.487,
+      "needed_win_rate": 0.54,
+      "net_R": -0.0337,
+      "gross_R": 0.0453,
+      "cost_R": 0.079,
+      "t": -0.63,
+      "s": -0.0341,
+      "time_exits": 0.046
+     },
+     "UK100": {
+      "n": 324,
+      "win_rate": 0.401,
+      "needed_win_rate": 0.591,
+      "net_R": -0.2058,
+      "gross_R": -0.0246,
+      "cost_R": 0.181,
+      "t": -3.82,
+      "s": -0.2122,
+      "time_exits": 0.028
+     },
+     "JP225": {
+      "n": 169,
+      "win_rate": 0.337,
+      "needed_win_rate": 0.612,
+      "net_R": -0.3248,
+      "gross_R": -0.1009,
+      "cost_R": 0.224,
+      "t": -4.47,
+      "s": -0.3436,
+      "time_exits": 0.036
+     }
+    },
+    "summer": {
+     "n": 2173,
+     "win_rate": 0.431,
+     "needed_win_rate": 0.569,
+     "net_R": -0.1373,
+     "gross_R": 0.0001,
+     "cost_R": 0.137,
+     "t": -6.56,
+     "s": -0.1407,
+     "time_exits": 0.041
+    },
+    "winter": {
+     "n": 1049,
+     "win_rate": 0.438,
+     "needed_win_rate": 0.571,
+     "net_R": -0.1333,
+     "gross_R": 0.0081,
+     "cost_R": 0.141,
+     "t": -4.4,
+     "s": -0.136,
+     "time_exits": 0.037
+    }
+   },
+   "2020-22": {
+    "n": 1222,
+    "win_rate": 0.437,
+    "needed_win_rate": 0.553,
+    "net_R": -0.1247,
+    "gross_R": -0.0186,
+    "cost_R": 0.106,
+    "t": -4.45,
+    "s": -0.1272,
+    "time_exits": 0.034,
+    "stopped_then_target": 0.392,
+    "cycle": {
+     "s": -0.1272,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.053,
+      "5": -0.074,
+      "6": -0.088,
+      "8": -0.118
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 100,
+      "win_rate": 0.47,
+      "needed_win_rate": 0.533,
+      "net_R": -0.0545,
+      "gross_R": 0.011,
+      "cost_R": 0.066,
+      "t": -0.56,
+      "s": -0.0556,
+      "time_exits": 0.06
+     },
+     "XAGUSD": {
+      "n": 48,
+      "win_rate": 0.375,
+      "needed_win_rate": 0.623,
+      "net_R": -0.2098,
+      "gross_R": 0.0369,
+      "cost_R": 0.247,
+      "t": -1.62,
+      "s": -0.2335,
+      "time_exits": 0.188
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.548,
+      "needed_win_rate": 0.536,
+      "net_R": 0.0896,
+      "gross_R": 0.1616,
+      "cost_R": 0.072,
+      "t": 0.83,
+      "s": 0.0906,
+      "time_exits": 0.036
+     },
+     "GBPUSD": {
+      "n": 72,
+      "win_rate": 0.431,
+      "needed_win_rate": 0.538,
+      "net_R": -0.1424,
+      "gross_R": -0.0659,
+      "cost_R": 0.076,
+      "t": -1.23,
+      "s": -0.1446,
+      "time_exits": 0.028
+     },
+     "USDJPY": {
+      "n": 67,
+      "win_rate": 0.478,
+      "needed_win_rate": 0.561,
+      "net_R": -0.0531,
+      "gross_R": 0.0694,
+      "cost_R": 0.122,
+      "t": -0.44,
+      "s": -0.054,
+      "time_exits": 0.045
+     },
+     "EURGBP": {
+      "n": 96,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.571,
+      "net_R": -0.3321,
+      "gross_R": -0.1907,
+      "cost_R": 0.141,
+      "t": -3.49,
+      "s": -0.3559,
+      "time_exits": 0.042
+     },
+     "WTI": {
+      "n": 113,
+      "win_rate": 0.389,
+      "needed_win_rate": 0.571,
+      "net_R": -0.224,
+      "gross_R": -0.0819,
+      "cost_R": 0.142,
+      "t": -2.46,
+      "s": -0.2311,
+      "time_exits": 0.027
+     },
+     "US500": {
+      "n": 153,
+      "win_rate": 0.412,
+      "needed_win_rate": 0.544,
+      "net_R": -0.1714,
+      "gross_R": -0.0839,
+      "cost_R": 0.088,
+      "t": -2.16,
+      "s": -0.1743,
+      "time_exits": 0.02
+     },
+     "NAS100": {
+      "n": 148,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.519,
+      "net_R": -0.0029,
+      "gross_R": 0.0346,
+      "cost_R": 0.037,
+      "t": -0.04,
+      "s": -0.0029,
+      "time_exits": 0.027
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.483,
+      "needed_win_rate": 0.524,
+      "net_R": -0.0338,
+      "gross_R": 0.0144,
+      "cost_R": 0.048,
+      "t": -0.37,
+      "s": -0.0336,
+      "time_exits": 0.0
+     },
+     "UK100": {
+      "n": 109,
+      "win_rate": 0.422,
+      "needed_win_rate": 0.577,
+      "net_R": -0.1566,
+      "gross_R": -0.0028,
+      "cost_R": 0.154,
+      "t": -1.66,
+      "s": -0.1592,
+      "time_exits": 0.018
+     },
+     "JP225": {
+      "n": 112,
+      "win_rate": 0.384,
+      "needed_win_rate": 0.591,
+      "net_R": -0.2286,
+      "gross_R": -0.0467,
+      "cost_R": 0.182,
+      "t": -2.49,
+      "s": -0.2348,
+      "time_exits": 0.027
+     }
+    },
+    "summer": {
+     "n": 838,
+     "win_rate": 0.456,
+     "needed_win_rate": 0.551,
+     "net_R": -0.0878,
+     "gross_R": 0.0148,
+     "cost_R": 0.103,
+     "t": -2.58,
+     "s": -0.0893,
+     "time_exits": 0.036
+    },
+    "winter": {
+     "n": 384,
+     "win_rate": 0.396,
+     "needed_win_rate": 0.557,
+     "net_R": -0.2051,
+     "gross_R": -0.0914,
+     "cost_R": 0.114,
+     "t": -4.15,
+     "s": -0.212,
+     "time_exits": 0.031
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 131,
+     "win_rate": 0.412,
+     "needed_win_rate": 0.551,
+     "net_R": -0.1779,
+     "gross_R": -0.0765,
+     "cost_R": 0.101,
+     "t": -2.1,
+     "s": -0.1834,
+     "time_exits": 0.038
+    },
+    "summer": {
+     "n": 110,
+     "win_rate": 0.382,
+     "needed_win_rate": 0.554,
+     "net_R": -0.2391,
+     "gross_R": -0.1317,
+     "cost_R": 0.107,
+     "t": -2.63,
+     "s": -0.2507,
+     "time_exits": 0.045
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.535,
+     "net_R": 0.1429,
+     "gross_R": 0.2128,
+     "cost_R": 0.07,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.484,
+      "needed_win_rate": 0.509,
+      "net_R": -0.0263,
+      "gross_R": -0.0084,
+      "cost_R": 0.018,
+      "t": -0.15,
+      "s": -0.0267,
+      "time_exits": 0.065
+     },
+     "EURUSD": {
+      "n": 28,
+      "win_rate": 0.286,
+      "needed_win_rate": 0.549,
+      "net_R": -0.4286,
+      "gross_R": -0.3308,
+      "cost_R": 0.098,
+      "t": -2.46,
+      "s": -0.4658,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 25,
+      "win_rate": 0.52,
+      "needed_win_rate": 0.567,
+      "net_R": 0.04,
+      "gross_R": 0.1735,
+      "cost_R": 0.133,
+      "t": 0.2,
+      "s": 0.0392,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.367,
+      "needed_win_rate": 0.55,
+      "net_R": -0.287,
+      "gross_R": -0.1863,
+      "cost_R": 0.101,
+      "t": -1.64,
+      "s": -0.2993,
+      "time_exits": 0.033
+     },
+     "EURGBP": {
+      "n": 17,
+      "win_rate": 0.412,
+      "needed_win_rate": 0.607,
+      "net_R": -0.1693,
+      "gross_R": 0.0445,
+      "cost_R": 0.214,
+      "t": -0.73,
+      "s": -0.1773,
+      "time_exits": 0.118
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 128,
+     "win_rate": 0.383,
+     "needed_win_rate": 0.553,
+     "net_R": -0.237,
+     "gross_R": -0.1314,
+     "cost_R": 0.106,
+     "t": -2.8,
+     "s": -0.2477,
+     "time_exits": 0.039
+    },
+    "summer": {
+     "n": 106,
+     "win_rate": 0.358,
+     "needed_win_rate": 0.556,
+     "net_R": -0.2862,
+     "gross_R": -0.1736,
+     "cost_R": 0.113,
+     "t": -3.14,
+     "s": -0.3045,
+     "time_exits": 0.047
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.536,
+     "net_R": 0.0,
+     "gross_R": 0.072,
+     "cost_R": 0.072,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.469,
+      "needed_win_rate": 0.509,
+      "net_R": -0.0575,
+      "gross_R": -0.0388,
+      "cost_R": 0.019,
+      "t": -0.33,
+      "s": -0.0583,
+      "time_exits": 0.062
+     },
+     "EURUSD": {
+      "n": 27,
+      "win_rate": 0.296,
+      "needed_win_rate": 0.553,
+      "net_R": -0.4074,
+      "gross_R": -0.3009,
+      "cost_R": 0.107,
+      "t": -2.27,
+      "s": -0.4378,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.571,
+      "net_R": -0.0769,
+      "gross_R": 0.0641,
+      "cost_R": 0.141,
+      "t": -0.39,
+      "s": -0.0757,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.269,
+      "needed_win_rate": 0.553,
+      "net_R": -0.4853,
+      "gross_R": -0.38,
+      "cost_R": 0.105,
+      "t": -2.84,
+      "s": -0.5564,
+      "time_exits": 0.038
+     },
+     "EURGBP": {
+      "n": 17,
+      "win_rate": 0.412,
+      "needed_win_rate": 0.607,
+      "net_R": -0.1693,
+      "gross_R": 0.0445,
+      "cost_R": 0.214,
+      "t": -0.73,
+      "s": -0.1773,
+      "time_exits": 0.118
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1645,
+    "win_rate": 0.454,
+    "needed_win_rate": 0.552,
+    "net_R": -0.0905,
+    "gross_R": 0.0136,
+    "cost_R": 0.104,
+    "t": -3.75,
+    "s": -0.0925,
+    "time_exits": 0.044
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "swing",
+    "buffer": 0.1
+   },
+   "2011-19": {
+    "n": 3288,
+    "win_rate": 0.439,
+    "needed_win_rate": 0.566,
+    "net_R": -0.1259,
+    "gross_R": 0.0061,
+    "cost_R": 0.132,
+    "t": -7.36,
+    "s": -0.1283,
+    "time_exits": 0.05,
+    "stopped_then_target": 0.365,
+    "cycle": {
+     "s": -0.1283,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.054,
+      "5": -0.075,
+      "6": -0.09,
+      "8": -0.119
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 266,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.551,
+      "net_R": -0.063,
+      "gross_R": 0.0394,
+      "cost_R": 0.102,
+      "t": -1.05,
+      "s": -0.0646,
+      "time_exits": 0.06
+     },
+     "XAGUSD": {
+      "n": 85,
+      "win_rate": 0.424,
+      "needed_win_rate": 0.607,
+      "net_R": -0.1606,
+      "gross_R": 0.0541,
+      "cost_R": 0.215,
+      "t": -1.6,
+      "s": -0.1739,
+      "time_exits": 0.165
+     },
+     "EURUSD": {
+      "n": 250,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.536,
+      "net_R": -0.0081,
+      "gross_R": 0.0642,
+      "cost_R": 0.072,
+      "t": -0.13,
+      "s": -0.0083,
+      "time_exits": 0.044
+     },
+     "GBPUSD": {
+      "n": 244,
+      "win_rate": 0.398,
+      "needed_win_rate": 0.548,
+      "net_R": -0.2041,
+      "gross_R": -0.1089,
+      "cost_R": 0.095,
+      "t": -3.33,
+      "s": -0.213,
+      "time_exits": 0.057
+     },
+     "USDJPY": {
+      "n": 273,
+      "win_rate": 0.502,
+      "needed_win_rate": 0.552,
+      "net_R": 0.0063,
+      "gross_R": 0.1108,
+      "cost_R": 0.105,
+      "t": 0.11,
+      "s": 0.0064,
+      "time_exits": 0.04
+     },
+     "EURGBP": {
+      "n": 203,
+      "win_rate": 0.409,
+      "needed_win_rate": 0.566,
+      "net_R": -0.1774,
+      "gross_R": -0.046,
+      "cost_R": 0.131,
+      "t": -2.63,
+      "s": -0.1844,
+      "time_exits": 0.064
+     },
+     "WTI": {
+      "n": 256,
+      "win_rate": 0.41,
+      "needed_win_rate": 0.578,
+      "net_R": -0.2166,
+      "gross_R": -0.0603,
+      "cost_R": 0.156,
+      "t": -3.47,
+      "s": -0.2171,
+      "time_exits": 0.059
+     },
+     "US500": {
+      "n": 369,
+      "win_rate": 0.431,
+      "needed_win_rate": 0.589,
+      "net_R": -0.1416,
+      "gross_R": 0.0356,
+      "cost_R": 0.177,
+      "t": -2.75,
+      "s": -0.1433,
+      "time_exits": 0.024
+     },
+     "NAS100": {
+      "n": 479,
+      "win_rate": 0.426,
+      "needed_win_rate": 0.566,
+      "net_R": -0.1483,
+      "gross_R": -0.0156,
+      "cost_R": 0.133,
+      "t": -3.33,
+      "s": -0.1522,
+      "time_exits": 0.044
+     },
+     "GER40": {
+      "n": 345,
+      "win_rate": 0.496,
+      "needed_win_rate": 0.536,
+      "net_R": -0.0031,
+      "gross_R": 0.0694,
+      "cost_R": 0.073,
+      "t": -0.06,
+      "s": -0.0031,
+      "time_exits": 0.058
+     },
+     "UK100": {
+      "n": 327,
+      "win_rate": 0.41,
+      "needed_win_rate": 0.585,
+      "net_R": -0.1945,
+      "gross_R": -0.0252,
+      "cost_R": 0.169,
+      "t": -3.63,
+      "s": -0.2007,
+      "time_exits": 0.037
+     },
+     "JP225": {
+      "n": 191,
+      "win_rate": 0.361,
+      "needed_win_rate": 0.612,
+      "net_R": -0.2833,
+      "gross_R": -0.0597,
+      "cost_R": 0.224,
+      "t": -4.07,
+      "s": -0.2948,
+      "time_exits": 0.047
+     }
+    },
+    "summer": {
+     "n": 2214,
+     "win_rate": 0.434,
+     "needed_win_rate": 0.565,
+     "net_R": -0.1352,
+     "gross_R": -0.0045,
+     "cost_R": 0.131,
+     "t": -6.52,
+     "s": -0.1386,
+     "time_exits": 0.052
+    },
+    "winter": {
+     "n": 1074,
+     "win_rate": 0.45,
+     "needed_win_rate": 0.567,
+     "net_R": -0.1068,
+     "gross_R": 0.028,
+     "cost_R": 0.135,
+     "t": -3.52,
+     "s": -0.1074,
+     "time_exits": 0.047
+    }
+   },
+   "2020-22": {
+    "n": 1241,
+    "win_rate": 0.446,
+    "needed_win_rate": 0.551,
+    "net_R": -0.1104,
+    "gross_R": -0.0094,
+    "cost_R": 0.101,
+    "t": -3.94,
+    "s": -0.112,
+    "time_exits": 0.04,
+    "stopped_then_target": 0.355,
+    "cycle": {
+     "s": -0.112,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.049,
+      "5": -0.067,
+      "6": -0.081,
+      "8": -0.108
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 100,
+      "win_rate": 0.47,
+      "needed_win_rate": 0.53,
+      "net_R": -0.0604,
+      "gross_R": -0.0007,
+      "cost_R": 0.06,
+      "t": -0.62,
+      "s": -0.062,
+      "time_exits": 0.07
+     },
+     "XAGUSD": {
+      "n": 54,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.62,
+      "net_R": -0.3004,
+      "gross_R": -0.0596,
+      "cost_R": 0.241,
+      "t": -2.52,
+      "s": -0.3424,
+      "time_exits": 0.185
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.571,
+      "needed_win_rate": 0.533,
+      "net_R": 0.1367,
+      "gross_R": 0.2026,
+      "cost_R": 0.066,
+      "t": 1.27,
+      "s": 0.1391,
+      "time_exits": 0.036
+     },
+     "GBPUSD": {
+      "n": 72,
+      "win_rate": 0.444,
+      "needed_win_rate": 0.535,
+      "net_R": -0.1023,
+      "gross_R": -0.0318,
+      "cost_R": 0.071,
+      "t": -0.89,
+      "s": -0.1043,
+      "time_exits": 0.056
+     },
+     "USDJPY": {
+      "n": 67,
+      "win_rate": 0.493,
+      "needed_win_rate": 0.556,
+      "net_R": -0.0235,
+      "gross_R": 0.0881,
+      "cost_R": 0.112,
+      "t": -0.19,
+      "s": -0.0238,
+      "time_exits": 0.045
+     },
+     "EURGBP": {
+      "n": 98,
+      "win_rate": 0.357,
+      "needed_win_rate": 0.567,
+      "net_R": -0.2908,
+      "gross_R": -0.1574,
+      "cost_R": 0.133,
+      "t": -3.05,
+      "s": -0.308,
+      "time_exits": 0.051
+     },
+     "WTI": {
+      "n": 115,
+      "win_rate": 0.409,
+      "needed_win_rate": 0.567,
+      "net_R": -0.1857,
+      "gross_R": -0.0521,
+      "cost_R": 0.134,
+      "t": -2.04,
+      "s": -0.19,
+      "time_exits": 0.026
+     },
+     "US500": {
+      "n": 153,
+      "win_rate": 0.431,
+      "needed_win_rate": 0.54,
+      "net_R": -0.1323,
+      "gross_R": -0.0522,
+      "cost_R": 0.08,
+      "t": -1.65,
+      "s": -0.1337,
+      "time_exits": 0.02
+     },
+     "NAS100": {
+      "n": 148,
+      "win_rate": 0.48,
+      "needed_win_rate": 0.517,
+      "net_R": -0.0424,
+      "gross_R": -0.008,
+      "cost_R": 0.034,
+      "t": -0.52,
+      "s": -0.0426,
+      "time_exits": 0.034
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.483,
+      "needed_win_rate": 0.522,
+      "net_R": -0.0587,
+      "gross_R": -0.0146,
+      "cost_R": 0.044,
+      "t": -0.6,
+      "s": -0.0552,
+      "time_exits": 0.008
+     },
+     "UK100": {
+      "n": 111,
+      "win_rate": 0.432,
+      "needed_win_rate": 0.573,
+      "net_R": -0.1361,
+      "gross_R": 0.009,
+      "cost_R": 0.145,
+      "t": -1.45,
+      "s": -0.1379,
+      "time_exits": 0.018
+     },
+     "JP225": {
+      "n": 119,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.589,
+      "net_R": -0.1581,
+      "gross_R": 0.0196,
+      "cost_R": 0.178,
+      "t": -1.75,
+      "s": -0.1605,
+      "time_exits": 0.034
+     }
+    },
+    "summer": {
+     "n": 850,
+     "win_rate": 0.478,
+     "needed_win_rate": 0.549,
+     "net_R": -0.0478,
+     "gross_R": 0.05,
+     "cost_R": 0.098,
+     "t": -1.4,
+     "s": -0.0481,
+     "time_exits": 0.042
+    },
+    "winter": {
+     "n": 391,
+     "win_rate": 0.376,
+     "needed_win_rate": 0.554,
+     "net_R": -0.2467,
+     "gross_R": -0.1384,
+     "cost_R": 0.108,
+     "t": -5.1,
+     "s": -0.2577,
+     "time_exits": 0.036
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 136,
+     "win_rate": 0.397,
+     "needed_win_rate": 0.551,
+     "net_R": -0.2084,
+     "gross_R": -0.1068,
+     "cost_R": 0.102,
+     "t": -2.52,
+     "s": -0.2161,
+     "time_exits": 0.037
+    },
+    "summer": {
+     "n": 115,
+     "win_rate": 0.365,
+     "needed_win_rate": 0.554,
+     "net_R": -0.2725,
+     "gross_R": -0.1643,
+     "cost_R": 0.108,
+     "t": -3.09,
+     "s": -0.2883,
+     "time_exits": 0.043
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.532,
+     "net_R": 0.1429,
+     "gross_R": 0.2078,
+     "cost_R": 0.065,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.484,
+      "needed_win_rate": 0.508,
+      "net_R": -0.0266,
+      "gross_R": -0.0101,
+      "cost_R": 0.017,
+      "t": -0.15,
+      "s": -0.027,
+      "time_exits": 0.065
+     },
+     "EURUSD": {
+      "n": 29,
+      "win_rate": 0.276,
+      "needed_win_rate": 0.549,
+      "net_R": -0.4483,
+      "gross_R": -0.3505,
+      "cost_R": 0.098,
+      "t": -2.65,
+      "s": -0.4928,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.564,
+      "net_R": 0.0,
+      "gross_R": 0.1282,
+      "cost_R": 0.128,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.367,
+      "needed_win_rate": 0.546,
+      "net_R": -0.2876,
+      "gross_R": -0.1951,
+      "cost_R": 0.093,
+      "t": -1.64,
+      "s": -0.3,
+      "time_exits": 0.033
+     },
+     "EURGBP": {
+      "n": 20,
+      "win_rate": 0.35,
+      "needed_win_rate": 0.609,
+      "net_R": -0.2942,
+      "gross_R": -0.0768,
+      "cost_R": 0.217,
+      "t": -1.42,
+      "s": -0.3172,
+      "time_exits": 0.1
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 131,
+     "win_rate": 0.382,
+     "needed_win_rate": 0.551,
+     "net_R": -0.2394,
+     "gross_R": -0.1373,
+     "cost_R": 0.102,
+     "t": -2.87,
+     "s": -0.2504,
+     "time_exits": 0.038
+    },
+    "summer": {
+     "n": 109,
+     "win_rate": 0.367,
+     "needed_win_rate": 0.555,
+     "net_R": -0.2694,
+     "gross_R": -0.1601,
+     "cost_R": 0.109,
+     "t": -2.98,
+     "s": -0.285,
+     "time_exits": 0.046
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.455,
+     "needed_win_rate": 0.533,
+     "net_R": -0.0909,
+     "gross_R": -0.0242,
+     "cost_R": 0.067,
+     "t": -0.42,
+     "s": -0.0892,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.438,
+      "needed_win_rate": 0.509,
+      "net_R": -0.1203,
+      "gross_R": -0.1031,
+      "cost_R": 0.017,
+      "t": -0.69,
+      "s": -0.1228,
+      "time_exits": 0.062
+     },
+     "EURUSD": {
+      "n": 27,
+      "win_rate": 0.296,
+      "needed_win_rate": 0.549,
+      "net_R": -0.4074,
+      "gross_R": -0.3099,
+      "cost_R": 0.098,
+      "t": -2.27,
+      "s": -0.4378,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.564,
+      "net_R": 0.0,
+      "gross_R": 0.1279,
+      "cost_R": 0.128,
+      "t": 0.0,
+      "s": 0.0,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.308,
+      "needed_win_rate": 0.549,
+      "net_R": -0.409,
+      "gross_R": -0.3119,
+      "cost_R": 0.097,
+      "t": -2.29,
+      "s": -0.4486,
+      "time_exits": 0.038
+     },
+     "EURGBP": {
+      "n": 20,
+      "win_rate": 0.35,
+      "needed_win_rate": 0.609,
+      "net_R": -0.2942,
+      "gross_R": -0.0768,
+      "cost_R": 0.217,
+      "t": -1.42,
+      "s": -0.3172,
+      "time_exits": 0.1
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1657,
+    "win_rate": 0.459,
+    "needed_win_rate": 0.549,
+    "net_R": -0.0814,
+    "gross_R": 0.0157,
+    "cost_R": 0.097,
+    "t": -3.4,
+    "s": -0.0834,
+    "time_exits": 0.053
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "swing",
+    "buffer": 0.25
+   },
+   "2011-19": {
+    "n": 3368,
+    "win_rate": 0.449,
+    "needed_win_rate": 0.562,
+    "net_R": -0.1051,
+    "gross_R": 0.0182,
+    "cost_R": 0.123,
+    "t": -6.23,
+    "s": -0.1073,
+    "time_exits": 0.062,
+    "stopped_then_target": 0.32,
+    "cycle": {
+     "s": -0.1073,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.048,
+      "5": -0.067,
+      "6": -0.08,
+      "8": -0.107
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 267,
+      "win_rate": 0.479,
+      "needed_win_rate": 0.546,
+      "net_R": -0.0239,
+      "gross_R": 0.0677,
+      "cost_R": 0.092,
+      "t": -0.4,
+      "s": -0.0246,
+      "time_exits": 0.067
+     },
+     "XAGUSD": {
+      "n": 96,
+      "win_rate": 0.406,
+      "needed_win_rate": 0.605,
+      "net_R": -0.1842,
+      "gross_R": 0.0261,
+      "cost_R": 0.21,
+      "t": -1.96,
+      "s": -0.1999,
+      "time_exits": 0.167
+     },
+     "EURUSD": {
+      "n": 251,
+      "win_rate": 0.522,
+      "needed_win_rate": 0.533,
+      "net_R": 0.0322,
+      "gross_R": 0.0973,
+      "cost_R": 0.065,
+      "t": 0.52,
+      "s": 0.0329,
+      "time_exits": 0.056
+     },
+     "GBPUSD": {
+      "n": 245,
+      "win_rate": 0.449,
+      "needed_win_rate": 0.543,
+      "net_R": -0.1019,
+      "gross_R": -0.0162,
+      "cost_R": 0.086,
+      "t": -1.65,
+      "s": -0.1051,
+      "time_exits": 0.069
+     },
+     "USDJPY": {
+      "n": 275,
+      "win_rate": 0.498,
+      "needed_win_rate": 0.547,
+      "net_R": 0.0009,
+      "gross_R": 0.0957,
+      "cost_R": 0.095,
+      "t": 0.02,
+      "s": 0.0009,
+      "time_exits": 0.051
+     },
+     "EURGBP": {
+      "n": 204,
+      "win_rate": 0.426,
+      "needed_win_rate": 0.56,
+      "net_R": -0.1529,
+      "gross_R": -0.0338,
+      "cost_R": 0.119,
+      "t": -2.29,
+      "s": -0.1606,
+      "time_exits": 0.098
+     },
+     "WTI": {
+      "n": 265,
+      "win_rate": 0.419,
+      "needed_win_rate": 0.573,
+      "net_R": -0.1925,
+      "gross_R": -0.0469,
+      "cost_R": 0.146,
+      "t": -3.19,
+      "s": -0.196,
+      "time_exits": 0.072
+     },
+     "US500": {
+      "n": 381,
+      "win_rate": 0.428,
+      "needed_win_rate": 0.583,
+      "net_R": -0.1454,
+      "gross_R": 0.0196,
+      "cost_R": 0.165,
+      "t": -2.88,
+      "s": -0.1475,
+      "time_exits": 0.026
+     },
+     "NAS100": {
+      "n": 486,
+      "win_rate": 0.418,
+      "needed_win_rate": 0.561,
+      "net_R": -0.1649,
+      "gross_R": -0.0437,
+      "cost_R": 0.121,
+      "t": -3.76,
+      "s": -0.1704,
+      "time_exits": 0.053
+     },
+     "GER40": {
+      "n": 345,
+      "win_rate": 0.507,
+      "needed_win_rate": 0.532,
+      "net_R": 0.0207,
+      "gross_R": 0.0854,
+      "cost_R": 0.065,
+      "t": 0.38,
+      "s": 0.0204,
+      "time_exits": 0.081
+     },
+     "UK100": {
+      "n": 334,
+      "win_rate": 0.425,
+      "needed_win_rate": 0.578,
+      "net_R": -0.1557,
+      "gross_R": 0.0003,
+      "cost_R": 0.156,
+      "t": -2.89,
+      "s": -0.1581,
+      "time_exits": 0.045
+     },
+     "JP225": {
+      "n": 219,
+      "win_rate": 0.388,
+      "needed_win_rate": 0.61,
+      "net_R": -0.2316,
+      "gross_R": -0.0119,
+      "cost_R": 0.22,
+      "t": -3.53,
+      "s": -0.2385,
+      "time_exits": 0.055
+     }
+    },
+    "summer": {
+     "n": 2272,
+     "win_rate": 0.441,
+     "needed_win_rate": 0.561,
+     "net_R": -0.1191,
+     "gross_R": 0.0034,
+     "cost_R": 0.123,
+     "t": -5.84,
+     "s": -0.1225,
+     "time_exits": 0.065
+    },
+    "winter": {
+     "n": 1096,
+     "win_rate": 0.464,
+     "needed_win_rate": 0.562,
+     "net_R": -0.0761,
+     "gross_R": 0.0488,
+     "cost_R": 0.125,
+     "t": -2.53,
+     "s": -0.0765,
+     "time_exits": 0.057
+    }
+   },
+   "2020-22": {
+    "n": 1266,
+    "win_rate": 0.443,
+    "needed_win_rate": 0.547,
+    "net_R": -0.1132,
+    "gross_R": -0.0184,
+    "cost_R": 0.095,
+    "t": -4.11,
+    "s": -0.1154,
+    "time_exits": 0.056,
+    "stopped_then_target": 0.308,
+    "cycle": {
+     "s": -0.1154,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.048,
+      "5": -0.067,
+      "6": -0.08,
+      "8": -0.107
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 101,
+      "win_rate": 0.485,
+      "needed_win_rate": 0.528,
+      "net_R": -0.0369,
+      "gross_R": 0.0186,
+      "cost_R": 0.056,
+      "t": -0.38,
+      "s": -0.038,
+      "time_exits": 0.079
+     },
+     "XAGUSD": {
+      "n": 65,
+      "win_rate": 0.323,
+      "needed_win_rate": 0.618,
+      "net_R": -0.3004,
+      "gross_R": -0.0648,
+      "cost_R": 0.236,
+      "t": -2.85,
+      "s": -0.3537,
+      "time_exits": 0.231
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.56,
+      "needed_win_rate": 0.529,
+      "net_R": 0.1139,
+      "gross_R": 0.1725,
+      "cost_R": 0.059,
+      "t": 1.07,
+      "s": 0.117,
+      "time_exits": 0.06
+     },
+     "GBPUSD": {
+      "n": 72,
+      "win_rate": 0.458,
+      "needed_win_rate": 0.532,
+      "net_R": -0.0628,
+      "gross_R": 0.0005,
+      "cost_R": 0.063,
+      "t": -0.55,
+      "s": -0.0644,
+      "time_exits": 0.069
+     },
+     "USDJPY": {
+      "n": 68,
+      "win_rate": 0.456,
+      "needed_win_rate": 0.551,
+      "net_R": -0.0749,
+      "gross_R": 0.0272,
+      "cost_R": 0.102,
+      "t": -0.64,
+      "s": -0.0773,
+      "time_exits": 0.074
+     },
+     "EURGBP": {
+      "n": 98,
+      "win_rate": 0.367,
+      "needed_win_rate": 0.559,
+      "net_R": -0.2601,
+      "gross_R": -0.1413,
+      "cost_R": 0.119,
+      "t": -2.73,
+      "s": -0.2753,
+      "time_exits": 0.061
+     },
+     "WTI": {
+      "n": 116,
+      "win_rate": 0.448,
+      "needed_win_rate": 0.56,
+      "net_R": -0.1138,
+      "gross_R": 0.0069,
+      "cost_R": 0.121,
+      "t": -1.25,
+      "s": -0.1157,
+      "time_exits": 0.034
+     },
+     "US500": {
+      "n": 153,
+      "win_rate": 0.425,
+      "needed_win_rate": 0.536,
+      "net_R": -0.1488,
+      "gross_R": -0.0776,
+      "cost_R": 0.071,
+      "t": -1.87,
+      "s": -0.1511,
+      "time_exits": 0.026
+     },
+     "NAS100": {
+      "n": 149,
+      "win_rate": 0.477,
+      "needed_win_rate": 0.516,
+      "net_R": -0.0463,
+      "gross_R": -0.0137,
+      "cost_R": 0.033,
+      "t": -0.57,
+      "s": -0.0467,
+      "time_exits": 0.04
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.475,
+      "needed_win_rate": 0.52,
+      "net_R": -0.0573,
+      "gross_R": -0.0181,
+      "cost_R": 0.039,
+      "t": -0.6,
+      "s": -0.0544,
+      "time_exits": 0.033
+     },
+     "UK100": {
+      "n": 112,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.566,
+      "net_R": -0.1662,
+      "gross_R": -0.0346,
+      "cost_R": 0.132,
+      "t": -1.8,
+      "s": -0.1698,
+      "time_exits": 0.027
+     },
+     "JP225": {
+      "n": 128,
+      "win_rate": 0.406,
+      "needed_win_rate": 0.585,
+      "net_R": -0.2045,
+      "gross_R": -0.0344,
+      "cost_R": 0.17,
+      "t": -2.32,
+      "s": -0.2053,
+      "time_exits": 0.047
+     }
+    },
+    "summer": {
+     "n": 867,
+     "win_rate": 0.469,
+     "needed_win_rate": 0.546,
+     "net_R": -0.0598,
+     "gross_R": 0.032,
+     "cost_R": 0.092,
+     "t": -1.79,
+     "s": -0.0607,
+     "time_exits": 0.06
+    },
+    "winter": {
+     "n": 399,
+     "win_rate": 0.386,
+     "needed_win_rate": 0.551,
+     "net_R": -0.2293,
+     "gross_R": -0.1282,
+     "cost_R": 0.101,
+     "t": -4.75,
+     "s": -0.238,
+     "time_exits": 0.048
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 136,
+     "win_rate": 0.419,
+     "needed_win_rate": 0.545,
+     "net_R": -0.1536,
+     "gross_R": -0.063,
+     "cost_R": 0.091,
+     "t": -1.85,
+     "s": -0.1588,
+     "time_exits": 0.051
+    },
+    "summer": {
+     "n": 115,
+     "win_rate": 0.383,
+     "needed_win_rate": 0.548,
+     "net_R": -0.2251,
+     "gross_R": -0.1287,
+     "cost_R": 0.096,
+     "t": -2.54,
+     "s": -0.2372,
+     "time_exits": 0.061
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.619,
+     "needed_win_rate": 0.529,
+     "net_R": 0.2381,
+     "gross_R": 0.2968,
+     "cost_R": 0.059,
+     "t": 1.1,
+     "s": 0.2392,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.484,
+      "needed_win_rate": 0.507,
+      "net_R": -0.0038,
+      "gross_R": 0.0109,
+      "cost_R": 0.015,
+      "t": -0.02,
+      "s": -0.004,
+      "time_exits": 0.097
+     },
+     "EURUSD": {
+      "n": 29,
+      "win_rate": 0.345,
+      "needed_win_rate": 0.543,
+      "net_R": -0.3103,
+      "gross_R": -0.2237,
+      "cost_R": 0.087,
+      "t": -1.73,
+      "s": -0.3208,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.556,
+      "net_R": -0.0769,
+      "gross_R": 0.0358,
+      "cost_R": 0.113,
+      "t": -0.39,
+      "s": -0.0757,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.433,
+      "needed_win_rate": 0.541,
+      "net_R": -0.155,
+      "gross_R": -0.0724,
+      "cost_R": 0.083,
+      "t": -0.86,
+      "s": -0.1566,
+      "time_exits": 0.033
+     },
+     "EURGBP": {
+      "n": 20,
+      "win_rate": 0.35,
+      "needed_win_rate": 0.598,
+      "net_R": -0.2559,
+      "gross_R": -0.0589,
+      "cost_R": 0.197,
+      "t": -1.25,
+      "s": -0.2805,
+      "time_exits": 0.15
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 131,
+     "win_rate": 0.397,
+     "needed_win_rate": 0.546,
+     "net_R": -0.2037,
+     "gross_R": -0.1125,
+     "cost_R": 0.091,
+     "t": -2.45,
+     "s": -0.2138,
+     "time_exits": 0.061
+    },
+    "summer": {
+     "n": 109,
+     "win_rate": 0.376,
+     "needed_win_rate": 0.549,
+     "net_R": -0.2449,
+     "gross_R": -0.1474,
+     "cost_R": 0.097,
+     "t": -2.73,
+     "s": -0.2611,
+     "time_exits": 0.073
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.5,
+     "needed_win_rate": 0.53,
+     "net_R": 0.0,
+     "gross_R": 0.0602,
+     "cost_R": 0.06,
+     "t": 0.0,
+     "s": 0.0,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.469,
+      "needed_win_rate": 0.508,
+      "net_R": -0.0599,
+      "gross_R": -0.0446,
+      "cost_R": 0.015,
+      "t": -0.36,
+      "s": -0.0628,
+      "time_exits": 0.125
+     },
+     "EURUSD": {
+      "n": 27,
+      "win_rate": 0.333,
+      "needed_win_rate": 0.543,
+      "net_R": -0.3333,
+      "gross_R": -0.2467,
+      "cost_R": 0.087,
+      "t": -1.8,
+      "s": -0.3469,
+      "time_exits": 0.0
+     },
+     "GBPUSD": {
+      "n": 26,
+      "win_rate": 0.462,
+      "needed_win_rate": 0.556,
+      "net_R": -0.0769,
+      "gross_R": 0.0355,
+      "cost_R": 0.112,
+      "t": -0.39,
+      "s": -0.0757,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.346,
+      "needed_win_rate": 0.543,
+      "net_R": -0.3329,
+      "gross_R": -0.246,
+      "cost_R": 0.087,
+      "t": -1.8,
+      "s": -0.353,
+      "time_exits": 0.038
+     },
+     "EURGBP": {
+      "n": 20,
+      "win_rate": 0.35,
+      "needed_win_rate": 0.598,
+      "net_R": -0.2559,
+      "gross_R": -0.0589,
+      "cost_R": 0.197,
+      "t": -1.25,
+      "s": -0.2805,
+      "time_exits": 0.15
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1665,
+    "win_rate": 0.474,
+    "needed_win_rate": 0.544,
+    "net_R": -0.0501,
+    "gross_R": 0.0374,
+    "cost_R": 0.088,
+    "t": -2.11,
+    "s": -0.0516,
+    "time_exits": 0.067
+   }
+  },
+  {
+   "config": {
+    "anchor": "ny0930",
+    "stop": "swing",
+    "buffer": 0.5
+   },
+   "2011-19": {
+    "n": 3442,
+    "win_rate": 0.453,
+    "needed_win_rate": 0.555,
+    "net_R": -0.0975,
+    "gross_R": 0.0124,
+    "cost_R": 0.11,
+    "t": -5.9,
+    "s": -0.1006,
+    "time_exits": 0.091,
+    "stopped_then_target": 0.259,
+    "cycle": {
+     "s": -0.1006,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.046,
+      "5": -0.063,
+      "6": -0.076,
+      "8": -0.102
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 267,
+      "win_rate": 0.479,
+      "needed_win_rate": 0.539,
+      "net_R": -0.0305,
+      "gross_R": 0.047,
+      "cost_R": 0.077,
+      "t": -0.52,
+      "s": -0.0318,
+      "time_exits": 0.112
+     },
+     "XAGUSD": {
+      "n": 114,
+      "win_rate": 0.404,
+      "needed_win_rate": 0.603,
+      "net_R": -0.1821,
+      "gross_R": 0.0229,
+      "cost_R": 0.205,
+      "t": -2.15,
+      "s": -0.2012,
+      "time_exits": 0.184
+     },
+     "EURUSD": {
+      "n": 252,
+      "win_rate": 0.516,
+      "needed_win_rate": 0.528,
+      "net_R": 0.033,
+      "gross_R": 0.0889,
+      "cost_R": 0.056,
+      "t": 0.54,
+      "s": 0.0342,
+      "time_exits": 0.083
+     },
+     "GBPUSD": {
+      "n": 245,
+      "win_rate": 0.461,
+      "needed_win_rate": 0.536,
+      "net_R": -0.0922,
+      "gross_R": -0.0196,
+      "cost_R": 0.073,
+      "t": -1.51,
+      "s": -0.0966,
+      "time_exits": 0.106
+     },
+     "USDJPY": {
+      "n": 276,
+      "win_rate": 0.536,
+      "needed_win_rate": 0.541,
+      "net_R": 0.083,
+      "gross_R": 0.1644,
+      "cost_R": 0.081,
+      "t": 1.44,
+      "s": 0.0865,
+      "time_exits": 0.091
+     },
+     "EURGBP": {
+      "n": 205,
+      "win_rate": 0.42,
+      "needed_win_rate": 0.551,
+      "net_R": -0.1665,
+      "gross_R": -0.0635,
+      "cost_R": 0.103,
+      "t": -2.57,
+      "s": -0.1792,
+      "time_exits": 0.141
+     },
+     "WTI": {
+      "n": 270,
+      "win_rate": 0.396,
+      "needed_win_rate": 0.564,
+      "net_R": -0.217,
+      "gross_R": -0.0898,
+      "cost_R": 0.127,
+      "t": -3.74,
+      "s": -0.2276,
+      "time_exits": 0.093
+     },
+     "US500": {
+      "n": 396,
+      "win_rate": 0.404,
+      "needed_win_rate": 0.574,
+      "net_R": -0.1923,
+      "gross_R": -0.0443,
+      "cost_R": 0.148,
+      "t": -3.94,
+      "s": -0.1981,
+      "time_exits": 0.043
+     },
+     "NAS100": {
+      "n": 489,
+      "win_rate": 0.434,
+      "needed_win_rate": 0.552,
+      "net_R": -0.138,
+      "gross_R": -0.0339,
+      "cost_R": 0.104,
+      "t": -3.17,
+      "s": -0.1433,
+      "time_exits": 0.074
+     },
+     "GER40": {
+      "n": 345,
+      "win_rate": 0.504,
+      "needed_win_rate": 0.527,
+      "net_R": 0.0006,
+      "gross_R": 0.0556,
+      "cost_R": 0.055,
+      "t": 0.01,
+      "s": 0.0006,
+      "time_exits": 0.128
+     },
+     "UK100": {
+      "n": 337,
+      "win_rate": 0.466,
+      "needed_win_rate": 0.568,
+      "net_R": -0.0757,
+      "gross_R": 0.06,
+      "cost_R": 0.136,
+      "t": -1.39,
+      "s": -0.0755,
+      "time_exits": 0.065
+     },
+     "JP225": {
+      "n": 246,
+      "win_rate": 0.398,
+      "needed_win_rate": 0.603,
+      "net_R": -0.2188,
+      "gross_R": -0.0135,
+      "cost_R": 0.205,
+      "t": -3.52,
+      "s": -0.2247,
+      "time_exits": 0.065
+     }
+    },
+    "summer": {
+     "n": 2320,
+     "win_rate": 0.439,
+     "needed_win_rate": 0.555,
+     "net_R": -0.1246,
+     "gross_R": -0.0153,
+     "cost_R": 0.109,
+     "t": -6.24,
+     "s": -0.1296,
+     "time_exits": 0.094
+    },
+    "winter": {
+     "n": 1122,
+     "win_rate": 0.481,
+     "needed_win_rate": 0.556,
+     "net_R": -0.0416,
+     "gross_R": 0.0697,
+     "cost_R": 0.111,
+     "t": -1.41,
+     "s": -0.0422,
+     "time_exits": 0.083
+    }
+   },
+   "2020-22": {
+    "n": 1291,
+    "win_rate": 0.451,
+    "needed_win_rate": 0.543,
+    "net_R": -0.0982,
+    "gross_R": -0.0131,
+    "cost_R": 0.085,
+    "t": -3.63,
+    "s": -0.1011,
+    "time_exits": 0.08,
+    "stopped_then_target": 0.231,
+    "cycle": {
+     "s": -0.1011,
+     "cycle_mean_pct_at_cap": {
+      "3.6": -0.044,
+      "5": -0.061,
+      "6": -0.073,
+      "8": -0.097
+     }
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 101,
+      "win_rate": 0.505,
+      "needed_win_rate": 0.523,
+      "net_R": 0.0114,
+      "gross_R": 0.0582,
+      "cost_R": 0.047,
+      "t": 0.12,
+      "s": 0.0118,
+      "time_exits": 0.099
+     },
+     "XAGUSD": {
+      "n": 82,
+      "win_rate": 0.366,
+      "needed_win_rate": 0.613,
+      "net_R": -0.2244,
+      "gross_R": 0.0014,
+      "cost_R": 0.226,
+      "t": -2.28,
+      "s": -0.2514,
+      "time_exits": 0.183
+     },
+     "EURUSD": {
+      "n": 84,
+      "win_rate": 0.524,
+      "needed_win_rate": 0.525,
+      "net_R": 0.0371,
+      "gross_R": 0.0868,
+      "cost_R": 0.05,
+      "t": 0.35,
+      "s": 0.0381,
+      "time_exits": 0.083
+     },
+     "GBPUSD": {
+      "n": 72,
+      "win_rate": 0.5,
+      "needed_win_rate": 0.527,
+      "net_R": 0.0214,
+      "gross_R": 0.0756,
+      "cost_R": 0.054,
+      "t": 0.19,
+      "s": 0.0222,
+      "time_exits": 0.097
+     },
+     "USDJPY": {
+      "n": 69,
+      "win_rate": 0.435,
+      "needed_win_rate": 0.545,
+      "net_R": -0.1093,
+      "gross_R": -0.0201,
+      "cost_R": 0.089,
+      "t": -0.96,
+      "s": -0.116,
+      "time_exits": 0.13
+     },
+     "EURGBP": {
+      "n": 99,
+      "win_rate": 0.404,
+      "needed_win_rate": 0.551,
+      "net_R": -0.213,
+      "gross_R": -0.1103,
+      "cost_R": 0.103,
+      "t": -2.27,
+      "s": -0.2284,
+      "time_exits": 0.111
+     },
+     "WTI": {
+      "n": 116,
+      "win_rate": 0.44,
+      "needed_win_rate": 0.551,
+      "net_R": -0.1412,
+      "gross_R": -0.0389,
+      "cost_R": 0.102,
+      "t": -1.57,
+      "s": -0.1455,
+      "time_exits": 0.06
+     },
+     "US500": {
+      "n": 154,
+      "win_rate": 0.448,
+      "needed_win_rate": 0.531,
+      "net_R": -0.097,
+      "gross_R": -0.0351,
+      "cost_R": 0.062,
+      "t": -1.22,
+      "s": -0.0984,
+      "time_exits": 0.032
+     },
+     "NAS100": {
+      "n": 149,
+      "win_rate": 0.463,
+      "needed_win_rate": 0.514,
+      "net_R": -0.0721,
+      "gross_R": -0.0445,
+      "cost_R": 0.028,
+      "t": -0.9,
+      "s": -0.0741,
+      "time_exits": 0.081
+     },
+     "GER40": {
+      "n": 120,
+      "win_rate": 0.458,
+      "needed_win_rate": 0.517,
+      "net_R": -0.0876,
+      "gross_R": -0.0544,
+      "cost_R": 0.033,
+      "t": -0.93,
+      "s": -0.0845,
+      "time_exits": 0.058
+     },
+     "UK100": {
+      "n": 112,
+      "win_rate": 0.455,
+      "needed_win_rate": 0.556,
+      "net_R": -0.0888,
+      "gross_R": 0.0231,
+      "cost_R": 0.112,
+      "t": -0.96,
+      "s": -0.091,
+      "time_exits": 0.054
+     },
+     "JP225": {
+      "n": 133,
+      "win_rate": 0.421,
+      "needed_win_rate": 0.576,
+      "net_R": -0.1732,
+      "gross_R": -0.0219,
+      "cost_R": 0.151,
+      "t": -2.01,
+      "s": -0.1745,
+      "time_exits": 0.053
+     }
+    },
+    "summer": {
+     "n": 884,
+     "win_rate": 0.485,
+     "needed_win_rate": 0.541,
+     "net_R": -0.0319,
+     "gross_R": 0.0506,
+     "cost_R": 0.083,
+     "t": -0.97,
+     "s": -0.0328,
+     "time_exits": 0.086
+    },
+    "winter": {
+     "n": 407,
+     "win_rate": 0.376,
+     "needed_win_rate": 0.545,
+     "net_R": -0.2421,
+     "gross_R": -0.1516,
+     "cost_R": 0.091,
+     "t": -5.14,
+     "s": -0.2548,
+     "time_exits": 0.066
+    }
+   },
+   "our 2026 files": {
+    "all": {
+     "n": 140,
+     "win_rate": 0.4,
+     "needed_win_rate": 0.541,
+     "net_R": -0.2022,
+     "gross_R": -0.1193,
+     "cost_R": 0.083,
+     "t": -2.51,
+     "s": -0.2125,
+     "time_exits": 0.064
+    },
+    "summer": {
+     "n": 119,
+     "win_rate": 0.37,
+     "needed_win_rate": 0.544,
+     "net_R": -0.263,
+     "gross_R": -0.1744,
+     "cost_R": 0.089,
+     "t": -3.08,
+     "s": -0.2824,
+     "time_exits": 0.076
+    },
+    "winter": {
+     "n": 21,
+     "win_rate": 0.571,
+     "needed_win_rate": 0.525,
+     "net_R": 0.1429,
+     "gross_R": 0.1935,
+     "cost_R": 0.051,
+     "t": 0.65,
+     "s": 0.1409,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 31,
+      "win_rate": 0.419,
+      "needed_win_rate": 0.506,
+      "net_R": -0.1587,
+      "gross_R": -0.1461,
+      "cost_R": 0.013,
+      "t": -0.94,
+      "s": -0.169,
+      "time_exits": 0.129
+     },
+     "EURUSD": {
+      "n": 29,
+      "win_rate": 0.345,
+      "needed_win_rate": 0.537,
+      "net_R": -0.3312,
+      "gross_R": -0.2582,
+      "cost_R": 0.073,
+      "t": -1.89,
+      "s": -0.3507,
+      "time_exits": 0.034
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.407,
+      "needed_win_rate": 0.55,
+      "net_R": -0.1852,
+      "gross_R": -0.0846,
+      "cost_R": 0.101,
+      "t": -0.96,
+      "s": -0.1849,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 30,
+      "win_rate": 0.433,
+      "needed_win_rate": 0.535,
+      "net_R": -0.156,
+      "gross_R": -0.0858,
+      "cost_R": 0.07,
+      "t": -0.86,
+      "s": -0.1577,
+      "time_exits": 0.033
+     },
+     "EURGBP": {
+      "n": 23,
+      "win_rate": 0.391,
+      "needed_win_rate": 0.593,
+      "net_R": -0.1782,
+      "gross_R": 0.0077,
+      "cost_R": 0.186,
+      "t": -0.91,
+      "s": -0.19,
+      "time_exits": 0.13
+     }
+    }
+   },
+   "HistData 2026": {
+    "all": {
+     "n": 135,
+     "win_rate": 0.393,
+     "needed_win_rate": 0.542,
+     "net_R": -0.217,
+     "gross_R": -0.1329,
+     "cost_R": 0.084,
+     "t": -2.66,
+     "s": -0.229,
+     "time_exits": 0.067
+    },
+    "summer": {
+     "n": 113,
+     "win_rate": 0.363,
+     "needed_win_rate": 0.545,
+     "net_R": -0.2769,
+     "gross_R": -0.1865,
+     "cost_R": 0.09,
+     "t": -3.18,
+     "s": -0.2992,
+     "time_exits": 0.08
+    },
+    "winter": {
+     "n": 22,
+     "win_rate": 0.545,
+     "needed_win_rate": 0.526,
+     "net_R": 0.0909,
+     "gross_R": 0.1427,
+     "cost_R": 0.052,
+     "t": 0.42,
+     "s": 0.0892,
+     "time_exits": 0.0
+    },
+    "by_market": {
+     "XAUUSD": {
+      "n": 32,
+      "win_rate": 0.406,
+      "needed_win_rate": 0.506,
+      "net_R": -0.1852,
+      "gross_R": -0.1722,
+      "cost_R": 0.013,
+      "t": -1.12,
+      "s": -0.198,
+      "time_exits": 0.125
+     },
+     "EURUSD": {
+      "n": 27,
+      "win_rate": 0.37,
+      "needed_win_rate": 0.537,
+      "net_R": -0.2808,
+      "gross_R": -0.2077,
+      "cost_R": 0.073,
+      "t": -1.52,
+      "s": -0.292,
+      "time_exits": 0.037
+     },
+     "GBPUSD": {
+      "n": 27,
+      "win_rate": 0.444,
+      "needed_win_rate": 0.551,
+      "net_R": -0.1111,
+      "gross_R": -0.0088,
+      "cost_R": 0.102,
+      "t": -0.57,
+      "s": -0.1097,
+      "time_exits": 0.0
+     },
+     "USDJPY": {
+      "n": 26,
+      "win_rate": 0.346,
+      "needed_win_rate": 0.537,
+      "net_R": -0.334,
+      "gross_R": -0.2599,
+      "cost_R": 0.074,
+      "t": -1.81,
+      "s": -0.3545,
+      "time_exits": 0.038
+     },
+     "EURGBP": {
+      "n": 23,
+      "win_rate": 0.391,
+      "needed_win_rate": 0.593,
+      "net_R": -0.1782,
+      "gross_R": 0.0077,
+      "cost_R": 0.186,
+      "t": -0.91,
+      "s": -0.19,
+      "time_exits": 0.13
+     }
+    }
+   },
+   "2011-22 five markets": {
+    "n": 1670,
+    "win_rate": 0.483,
+    "needed_win_rate": 0.537,
+    "net_R": -0.0338,
+    "gross_R": 0.0412,
+    "cost_R": 0.075,
+    "t": -1.44,
+    "s": -0.0354,
+    "time_exits": 0.105
+   }
+  }
+ ]
+}

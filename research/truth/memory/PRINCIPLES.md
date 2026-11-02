@@ -150,6 +150,9 @@ of drawdown and equity. Evidence: research/results/truth/eurusd_close_beyond_rev
 Evidence (2026-10-31, Leg 34 gold M5): 48% of filled trades reach +1R before the stop, 31% +2R, 23% +3R. "It was in profit
 before the loss" is the normal path of a no-edge trade, not a sign of edge; breakeven and trailing turn it into many small
 losses (before costs +0.004 to +0.014R).
+Evidence (2026-11-02, owner's 3:30 setup at 1:1): wider stops stopped the "it just gets wicked" losses (stopped trades that
+later reached the target: 52% -> 23%) yet the win rate rose only 40% -> 46% against 56-59% needed after costs. A wider stop
+moves the target out by the same amount, so it buys fewer wick-outs, not more winners.
 
 ### P17 Active hours picked from a backtest do not carry forward
 Choosing a strategy's best trading hours on past data mostly selects luck. Dark Mimas family: best 6 hours picked on

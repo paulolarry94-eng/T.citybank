@@ -113,3 +113,32 @@ checked against Exness week by week). Where it came from (`season_split.json`):
 ## Files
 `research/results/truth/owner330_ema_retest_v1/` (REPORT.md, CYCLES_LEAGUE.md, cycles_league.json, controls.json, grid),
 `research/results/owner330/` (REPLAY.md, AUDIT.md + audit/, CHECK_2026.md, check_2026*.json, season_split.json, charts/).
+
+---
+
+# v2: the owner's correction (pullback touch, stop placement, 1:1) — rejected too (2026-11-02)
+After the audit charts the owner corrected one rule (US500 8 Apr 2014: the reference is the cross after a pullback that
+touched the range; entry at its high) and asked to find the right stop and test 1:1. Pre-registered before any v2 result
+(`research/owner330/PREREGISTRATION_V2.md`, commit ec22950): 16 configurations = anchor (15:30 WAT / 9:30 New York) x stop
+(reference candle extreme / pullback extreme) x buffer (0, 0.1, 0.25, 0.5 x ATR14 of M5), target 1R. The corrected US500 day
+now enters at the owner's marked high and wins 1:1 (`v2/US500_2014-04-08_v2.png`).
+
+| Stop (15:30 WAT anchor) | 2011-19 win rate | Win rate needed after costs | Net R a trade | Stopped trades that later hit the target | 2020-22 win / net R | 2026 win / net R (5 markets) |
+|---|---|---|---|---|---|---|
+| Candle extreme, no buffer | 40.4% | 58.7% | −0.189 | 52% | 41.8% / −0.161 | 46.9% / −0.061 |
+| Candle + 0.5 ATR | 44.5% | 56.6% | −0.107 | 31% | 43.2% / −0.133 | 45.6% / −0.083 |
+| Pullback extreme, no buffer | 42.4% | 57.3% | −0.147 | 39% | 42.0% / −0.158 | 48.1% / −0.043 |
+| **Pullback + 0.5 ATR (best)** | **45.8%** | **55.8%** | **−0.078** | 23% | 43.3% / −0.131 | 50.0% / −0.005 |
+
+- 0 of 16 configurations pass the lab's gate; none is positive in 2011-19 (all 16: win rate 40-46% vs 56-59% needed; t −4 to
+  −10). The 9:30 New York anchor is the same or worse. Full table: `V2_STUDY.md`; lab: `research/results/truth/owner330_ema_retest_v2/`.
+- Wider stops do what the owner expected: fewer trades get wicked out (52% → 23% of stopped trades later reached the
+  target) and the cost share falls (0.17R → 0.12R), but the win rate only rises 40% → 46%. Before costs the best is +0.04R a
+  trade: even with zero costs, edge quality would be about 0.04 against the 0.42 the cycle goal needs. The best setting is at
+  the edge of the grid (0.5 ATR); wider is untested.
+- 2026 (the owner's own period) is negative at 1:1 for all 16, on both data feeds (best −0.005R, 50% wins). The 2026 summer
+  profit of v1 came from trades running to 3R, not from a high hit rate.
+- Control (anchor 2 h later): the 3:30 rules lose less in 2011-19 (t 2.3-5.1) but not in 2020-22 (t −0.3 to 1.6).
+- By market (best setting, 2011-19): only GER40 positive (54% wins, +0.10R, 323 trades), 1 of 12: picking it now is hindsight.
+- In cycles (best setting): edge quality −0.08, 36% of 10-trade cycles positive, 7 of 8 lifecycles negative.
+- 2023-25 not opened (nothing passed the gate).
