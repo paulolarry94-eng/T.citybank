@@ -172,6 +172,8 @@ REJECTED at the development gate; gross edge about zero in both shapes (into the
 research/results/q19/ecb_fix_costs.json). Fix rows so far: Tokyo (known payer and direction) Tier B; London 4 pm x2 and ECB
 (no known direction) rejected. Remaining rows need a direction from somewhere (month's equity returns for month-end
 rebalancing, US close imbalance) or data we lack.
+Update 2026-11-02: month-end rebalancing (conditional on the month's move) and the US close flow were tested in Batch 01
+(Q23): both rejected.
 
 ### Q20 SEESARE P26 router (owner directive 2026-11-01): which constraint is the goal, and how does the ladder trade at $1,000?
 Owner directive: run the payer flows through an MQL5 "time and event router" sized by SEESARE P26 (16-level hierarchy,
@@ -239,6 +241,16 @@ Daily queue (2026-11-01): one trade a day from the 13 validated strategies canno
 Cycle math (2026-11-02, P28, research/results/seesare/cycle_math_study.json): +2% per 10-trade cycle inside 3.6% (95% of
 lifecycles) needs a per-trade Sharpe of about 0.42 (0.36 at 5%, 0.32 at 6%, 0.28 at 8%); ours is 0.06-0.13. The book at a 5%
 cap makes about +0.12% per cycle. Open: owner chooses between the target (needs an edge we do not have) and the cap.
+### Q23 Owner's Batch 01: 13 payer-flow candidates (2026-11-02)
+Pre-registered with controls and a stricter batch rule (t >= 3, beats its control, replicates): research/batch01/. Tested 9
+(month-end rebalancing) and 11 (leveraged/vol-target flow into the US close): both REJECTED (research/results/batch01/
+BATCH01_REPORT.md). Not testable here, by reason: 1, 2, 13 need daily front and second-month futures prices per contract
+(pysystemtrade holds one contract plus carry/forward; not tradeable as spreads on MT5); 3 needs VX term structure and ETP
+roll sizes (no VIX on Prime); 4 and 12 too few events (owner pre-flagged); 5 needs a dividend payment calendar with sizes;
+6 EM FX and coupon calendars; 7 new-issue cash bonds (no bonds on Prime); 8 cross-currency basis; 10 option open interest
+by strike. Any of these can be reopened if the owner supplies the data source. FAMILY: calendar, flow, payer, batch01,
+owner-idea.
+
 ### Q22 Build and verify the MQL5 code here (owner, 2026-11-02): compile, self-tests, Strategy Tester, parity
 Checked in the cloud session: Wine 9.0 installs from Ubuntu's archive; MetaQuotes' mt5setup.exe (64-bit) downloads. Running
 the installer was blocked by the session's safety check (third-party software), so nothing is compiled yet. Needs: owner's OK

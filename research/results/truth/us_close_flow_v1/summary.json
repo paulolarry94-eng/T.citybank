@@ -1,0 +1,237 @@
+{
+ "name": "us_close_flow_v1",
+ "hypothesis": "Leveraged and vol-target funds rebalance into the US cash close in the direction of the day's move, so the last 15-30 minutes continue big moves by more than RoboForex Prime's cost.",
+ "fingerprint": "1495b4bfca9e8c332d43f417f8981ce6fd0c067a1bdc008b35a1c431a83535a8",
+ "started": "2026-11-02 08:55:10 UTC",
+ "markets": [
+  "US500",
+  "NAS100"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "anchor": [
+   "prev_close",
+   "open"
+  ],
+  "entry": [
+   "15:30",
+   "15:45"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 50,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Cross-sectional momentum (12-1, within class)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "breadth_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "index_rsi2_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "index_rsi2_breadth_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "oil_equity_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "oil_equity_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024)",
+   "verdict": "Rejected: the effect faded after publication"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel futures v2: 16 awesome-list cross-asset strategies (pysystemtrade futures, one-day execution lag)",
+   "verdict": "Rejected except time-series momentum (confirms the futures trend family) and four weak futures-only passes"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "funnel_sofus_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Tokyo fix payoff shape and declared-bracket study",
+   "verdict": "Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection."
+  },
+  {
+   "name": "SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules)",
+   "verdict": "Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R."
+  },
+  {
+   "name": "SEESARE time-exit ascension study (Tokyo fix, cent account)",
+   "verdict": "Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3."
+  },
+  {
+   "name": "Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00",
+   "verdict": "Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen."
+  },
+  {
+   "name": "Q21 diagnostic: tick-volume surge on opening-range breakouts vs range expansion and direction",
+   "verdict": "Study: activity predicts a little more movement in both directions, not direction. USDJPY 2011-25 (9,252 breakouts, Tokyo/London/New York): rank correlation with 60-min range expansion +0.05 / +0.07, with follow-through +0.001 / -0.008; top-quintile follow-through +0.0135 ATR_D in 2011-19 (t 2.4 of 5 quintiles) and +0.006 (t 0.8) in 2020-25, below the 0.0187 ATR_D round-trip cost. GER40 2020-25 (2,396): expansion +0.19, follow-through -0.009. Only USDJPY (all years) and GER40 (2020+) have tick volume in our data."
+  },
+  {
+   "name": "ecb_fix_eurusd_v1",
+   "verdict": "Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for."
+  },
+  {
+   "name": "Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard)",
+   "verdict": "Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened."
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 4,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.04005524458790449,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

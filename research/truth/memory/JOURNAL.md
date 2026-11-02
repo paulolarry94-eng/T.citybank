@@ -533,3 +533,16 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   numbers are backtests seen before, except Jan-Oct 2026.
 - **Next:** owner decides on running the MT5 installer here (compile) and where to run the tester; search for s >= 0.45 or
   for independent breadth.
+
+## 2026-11-02 (3) · owner submitted "Truth Lab Batch 01": 13 payer-flow candidates with controls and a batch protocol
+- **Done:** triage of all 13 against our data and MT5 Prime tradeability; pre-registered the 2 testable ones with controls and
+  the owner's stricter batch rule (research/batch01/, commit 6eb237f before results); RoboForex Prime index costs added from
+  the published specifications (US500 0.5, NAS100 0.97, GER40 0.99 points; UK100 not on Prime).
+- **Learned (Truth Lab):** us_close_flow_v1 (4 configurations) and monthend_rebalance_v1 (4) both rejected at the development
+  gate; controls and before-cost numbers in research/results/batch01/. P22 updated: a known direction is necessary, not
+  sufficient. 2023-25 not opened for either.
+- **Lab fix:** grid setting names starting with "n_" were read as the lab's count columns (crash, before any result); fixed in
+  protocol.pooled, regression test added.
+- **Facts vs estimates:** RoboForex index costs are published averages, not measured; index swaps are the lab's estimates.
+- **Next:** the owner's suggested first three (1, 2, 10) need data we do not have: daily front/second futures prices per
+  contract (e.g. a paid futures history) and option open interest by strike. Owner decides whether to source data.

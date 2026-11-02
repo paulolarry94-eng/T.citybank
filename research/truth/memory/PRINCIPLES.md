@@ -204,6 +204,12 @@ Update (2026-11-01): a fix time alone is not a payer. The ECB 14:10 CET referenc
 no known direction) shows no gross edge on EURUSD in either shape (ecb_fix_eurusd_v1, 4 configurations, gross -0.6 to +0.4
 pip per trade), like the London 4 pm fix (2 rejections). The survivor has a payer with a known DIRECTION (importers buy
 dollars). Hunt for who must trade AND which way. Confidence unchanged: medium.
+Update (2026-11-02, Batch 01): a known direction is necessary, not sufficient. Leveraged-ETF rebalancing into the US close
+(direction = the day's move) and month-end rebalancing (direction = against the month's move) both have named payers and
+known directions, and both failed on our index CFDs: the close flow was about zero before costs in 2011-19; the month-end
+reversal was positive before costs in 2011-19 (t about 2) but swaps took it, and it was negative in 2020-22 even gross.
+Widely known flows get front-run or netted; the payer must be large relative to liquidity, and the edge must exceed
+costs and swaps in more than one era. Evidence: research/results/batch01/.
 
 ### P23 A daily backtest across markets must trade one day after the signal
 Markets close at different hours (Hang Seng and Nikkei before Europe, Europe before the US) and holidays leave stale prices.

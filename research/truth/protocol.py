@@ -212,7 +212,7 @@ def keycols(S):
 
 def pooled(S, df):
     k = keycols(S)
-    num = [c for c in df.columns if c[:2] in ("n_", "s_", "ss", "c_", "f_", "nl", "sl")]
+    num = [c for c in df.columns if c[:2] in ("n_", "s_", "ss", "c_", "f_", "nl", "sl") and c not in k]   # grid keys never count
     P = df.groupby(k, dropna=False)[num].sum()
     per = {s: df[df.sym == s].set_index(k)[num].reindex(P.index) for s in S.MARKETS}
     R = pd.concat([summ(P, DEV, "dev_"), summ(P, ERA1, "e1_"), summ(P, ERA2, "e2_"), summ(P, VAL, "val_")], axis=1)

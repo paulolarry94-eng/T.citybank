@@ -100,6 +100,8 @@ Learning rules:
   `--table`, `--trades <csv>`, `--survivors`). Rule: edge quality x sqrt(independent trades per cycle) ~ 1.4 for +2% inside 3.6%
   (2.8 for +7%). Owner document: `research/goal/CYCLE_GOAL_MATH.pdf`. EA build here (Q22): Wine installs, MT5 installer
   downloads; running it needs the owner's OK.
+- Batch 01 (2026-11-02, Q23): 13 owner payer-flow candidates; 11 untestable here (data or not tradeable on MT5 Prime); month-end
+  rebalancing and the US close flow REJECTED (`research/results/batch01/BATCH01_REPORT.md`). Known direction is not enough (P22).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

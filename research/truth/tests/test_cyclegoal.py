@@ -85,5 +85,25 @@ class TestMemoryRerun(unittest.TestCase):
             M.MEM, M.LEDGER = old
 
 
+
+class TestPooledColumns(unittest.TestCase):
+    def test_grid_key_with_count_prefix(self):
+        import types
+        import pandas as pd
+        S = types.SimpleNamespace(GRID={"n_before": [1, 3]}, MARKETS=["A"], MANAGEMENT={"tgt": [0.0], "trail": [0.0], "bias": [0]})
+        cols = P.keycols(S)
+        rows = []
+        for nb in (1, 3):
+            r = dict(sym="A", tf="M30", n_before=nb, tgt=0.0, trail=0.0, bias=0)
+            for y in range(2011, 2023):
+                r[f"n_{y}"] = 30; r[f"s_{y}"] = 1.0; r[f"ss_{y}"] = 40.0
+            rows.append(r)
+        df = pd.DataFrame(rows)
+        try:
+            P.pooled(S, df)
+        except KeyError as e:                                  # other columns of a real grid are absent here; only the key clash matters
+            self.assertNotIn("n_before", str(e), f"pooled() mistook a grid key for a count column: {e}")
+
+
 if __name__ == "__main__":
     unittest.main()
