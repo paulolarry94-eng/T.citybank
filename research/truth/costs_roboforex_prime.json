@@ -1,15 +1,49 @@
 {
- "_note": "RoboForex Prime all-in round-trip cost (raw spread + commission + slippage) in price units, built 2026-11-01 from RoboForex's PUBLISHED figures (https://roboforex.com/trade-conditions/specifications/ and the Prime account page), NOT measured: RoboForex has no public tick archive. Spread = the published Prime AVERAGE spread. Commission = '10 / mio' read as 10 USD per 1 million USD notional PER SIDE (the conservative reading; reviews quote about 1 USD per lot per side, which matches), converted at a conservative price (EURUSD 1.25, USDJPY 125; 2011-25 averages 1.17 and 114). Slippage allowance 0.2 pip, the same as the Exness Zero profile. Swaps: the specifications page lists Prime as NOT swap-free; the March 2026 swap-free programme covers new accounts on currencies and metals and its exact terms are unverified. Intraday strategies that never hold through the 22:00 UTC rollover pay no swap either way.",
+ "_note": "RoboForex Prime all-in round-trip cost (raw spread + commission + slippage) in price units, built 2026-11-01 from RoboForex's PUBLISHED figures (https://roboforex.com/trade-conditions/specifications/ and the Prime account page), NOT measured: RoboForex has no public tick archive. Spread = the published Prime AVERAGE spread. Commission = '10 / mio' read as 10 USD per 1 million USD notional PER SIDE (the conservative reading; reviews quote about 1 USD per lot per side, which matches), converted at a conservative price (EURUSD 1.25, USDJPY 125; 2011-25 averages 1.17 and 114). Slippage allowance 0.2 pip, the same as the Exness Zero profile. Swaps: the specifications page lists Prime as NOT swap-free; the March 2026 swap-free programme covers new accounts on currencies and metals and its exact terms are unverified. Intraday strategies that never hold through the 22:00 UTC rollover pay no swap either way. Indices added 2026-11-02 from the same page (Prime 'Indices & Energies'): average spread .US500Cash 0.2, .USTECHCash 0.3 (taken as NAS100), .DE40Cash 0.3 points; commission '4 / mio' read as 4 USD per million per side, converted at US500 6000, NAS100 21000, GER40 24000; slippage allowance 0.25 / 0.5 / 0.5 points. UK100 is not offered on Prime. Published swaps -8.6% long / -1.8% short a year (US), -7.2% / -1.8% (DE40).",
  "components": {
-  "EURUSD": {"spread_pips": 0.1, "commission_pips_round_trip": 0.25, "slippage_pips": 0.2, "pip": 0.0001},
-  "USDJPY": {"spread_pips": 0.2, "commission_pips_round_trip": 0.25, "slippage_pips": 0.2, "pip": 0.01}
+  "EURUSD": {
+   "spread_pips": 0.1,
+   "commission_pips_round_trip": 0.25,
+   "slippage_pips": 0.2,
+   "pip": 0.0001
+  },
+  "USDJPY": {
+   "spread_pips": 0.2,
+   "commission_pips_round_trip": 0.25,
+   "slippage_pips": 0.2,
+   "pip": 0.01
+  },
+  "US500": {
+   "spread_points": 0.2,
+   "commission_points_round_trip": 0.05,
+   "slippage_points": 0.25
+  },
+  "NAS100": {
+   "spread_points": 0.3,
+   "commission_points_round_trip": 0.17,
+   "slippage_points": 0.5
+  },
+  "GER40": {
+   "spread_points": 0.3,
+   "commission_points_round_trip": 0.19,
+   "slippage_points": 0.5
+  }
  },
  "realistic": {
   "EURUSD": 5.5e-05,
-  "USDJPY": 0.0065
+  "USDJPY": 0.0065,
+  "US500": 0.5,
+  "NAS100": 0.97,
+  "GER40": 0.99
  },
  "published_swaps_pips_per_night": {
-  "EURUSD": {"long": -0.98, "short": 0.19},
-  "USDJPY": {"long": 0.38, "short": -2.1}
+  "EURUSD": {
+   "long": -0.98,
+   "short": 0.19
+  },
+  "USDJPY": {
+   "long": 0.38,
+   "short": -2.1
+  }
  }
 }
