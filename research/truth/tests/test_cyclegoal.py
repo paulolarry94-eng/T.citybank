@@ -105,5 +105,24 @@ class TestPooledColumns(unittest.TestCase):
             self.assertNotIn("n_before", str(e), f"pooled() mistook a grid key for a count column: {e}")
 
 
+
+class TestSequence(unittest.TestCase):
+    def test_cycles_and_lifecycles(self):
+        R = np.tile([2.0, -1.0], 400)                                   # 800 trades, one a day
+        t = np.arange(800) * 86400.0
+        q = G.sequence(R, t, 0.01)
+        self.assertEqual(q["cycles"], 80); self.assertEqual(q["lifecycles"], 2)
+        self.assertAlmostEqual(q["cycle_median_pct"], 5.0)              # 5 x (+2 -1) R x 1% per cycle
+        self.assertAlmostEqual(q["lifecycle_returns_pct"][0], 180.0)   # 180 R x 1%
+        self.assertAlmostEqual(q["lifecycle_worst_dd_pct"], 1.0)
+        self.assertAlmostEqual(q["trades_per_year"], 365.7, delta=1.0)
+
+    def test_score_with_times_has_sequence(self):
+        rng = np.random.default_rng(9)
+        R = np.where(rng.random(2000) < 0.55, 2.0, -1.0)
+        sc = G.score(R, np.arange(2000) * 86400.0)
+        self.assertIn("sequence", sc); self.assertGreater(sc["sequence"]["lifecycles"], 4)
+
+
 if __name__ == "__main__":
     unittest.main()

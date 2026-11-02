@@ -95,9 +95,28 @@ def bootstrap(R, sims=SIMS, seed=SEED):
     return paths.reshape(sims, N_CYCLES, N_CYC).sum(axis=2), lifecycle_dd(paths)
 
 
-def score(R):
-    """Where a list of trade results (R, after costs) sits against the cycle goal."""
+def sequence(R, t, risk):
+    """The trades in their actual order, cut into 10-trade cycles and 360-trade lifecycles, at a fixed risk per trade."""
+    R = np.asarray(R, float); t = np.asarray(t, float)
+    n = len(R) // N_CYC
+    cyc = R[:n * N_CYC].reshape(n, N_CYC).sum(axis=1) * risk * 100 if n else np.zeros(0)
+    years = max((t[-1] - t[0]) / (365.25 * 86400), 1e-9) if len(t) > 1 else np.nan
+    lives = [R[i:i + N_CYC * N_CYCLES] for i in range(0, len(R) - N_CYC * N_CYCLES + 1, N_CYC * N_CYCLES)]
+    dd = [float(lifecycle_dd(x[None, :])[0]) * risk * 100 for x in lives]
+    return dict(risk_pct=round(risk * 100, 4), trades_per_year=round(len(R) / years, 1), cycles_per_year=round(len(R) / years / N_CYC, 2),
+                months_per_lifecycle=round(12 * N_CYC * N_CYCLES / (len(R) / years), 1) if len(R) else None,
+                cycles=int(n), cycles_positive=round(float((cyc > 0).mean()), 3) if n else 0.0,
+                cycle_median_pct=round(float(np.median(cyc)), 3) if n else 0.0, cycle_mean_pct=round(float(cyc.mean()), 3) if n else 0.0,
+                cycle_worst_pct=round(float(cyc.min()), 3) if n else 0.0, cycle_best_pct=round(float(cyc.max()), 3) if n else 0.0,
+                lifecycles=len(lives), lifecycle_returns_pct=[round(float(x.sum()) * risk * 100, 2) for x in lives],
+                lifecycle_dd_pct=[round(x, 2) for x in dd], lifecycle_worst_dd_pct=round(max(dd), 2) if dd else 0.0)
+
+
+def score(R, t=None):
+    """Where a list of trade results (R, after costs) sits against the cycle goal. t: entry times (for the actual sequence)."""
     R = np.asarray(R, float)
+    if t is not None:
+        t = np.asarray(t, float)[np.isfinite(R)]
     R = R[np.isfinite(R)]
     if len(R) < 2 * N_CYC:
         return dict(trades=int(len(R)), note="too few trades")
@@ -113,6 +132,8 @@ def score(R):
     if mu > 0:
         out["for_target"] = {f"{C * 100:g}": dict(risk_pct=round(C / (N_CYC * mu) * 100, 3), dd95_pct=round(p95 * C / (N_CYC * mu) * 100, 1))
                              for C in TARGETS}
+    if t is not None and len(t) == len(R):
+        out["sequence"] = sequence(R, t, 0.036 / p95)
     out["gap_2pct_at_3.6"] = round(needed_s(0.02, 0.036) / s, 1) if s > 0 else None
     out["meets"] = [f"{C * 100:g}% at {D * 100:g}%" for C in TARGETS for D in CAPS
                     if out["cycle_mean_pct_at_cap"][f"{D * 100:g}"] >= C * 100]

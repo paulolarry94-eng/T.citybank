@@ -312,7 +312,10 @@ def run(path, look=True, markets=None, procs=4):
     if not R.gate.any():
         rec["verdict"] = "Rejected: no configuration passed the development gate"
         return finish(S, rec, out)
-    G = R[R.gate].sort_values("dev_t", ascending=False); key = G.index[0]
+    rank = "dev_t"
+    if getattr(S, "SELECT_BY", "t") == "s":                   # cycle-centric: edge quality s = t / sqrt(n)
+        R["dev_s"] = R.dev_t / np.sqrt(R.dev_n.clip(lower=1)); rank = "dev_s"
+    G = R[R.gate].sort_values(rank, ascending=False); key = G.index[0]
     cfg = {k: jsonable(v) for k, v in zip(keycols(S), key)}
     nb = neighbours(S, key, R); nbt = [x["dev_t"] for x in nb]
     sel = dict(candidate=cfg, stats={k: jsonable(v) for k, v in R.loc[key].items() if k != "gate"}, neighbours=nb,
@@ -336,7 +339,10 @@ def run(path, look=True, markets=None, procs=4):
     rec["confirmation"] = conf
     print(f"[4] stress (costs x1.5, swaps x2, +1 min) 2011-22 E {conf['stress_dev_val'].get('E')}; deflated Sharpe {conf['dsr'] and round(conf['dsr']['dsr'], 3)}", flush=True)
     # cycle goal (owner: +2..7% per 10-trade cycle inside a 360-trade lifecycle drawdown cap) and the cost ladder, 2011-22
-    rec["cycle_goal"] = {"2011-19": cyclegoal.score(Bt[dev, 3]), "2020-22": cyclegoal.score(Bt[val, 3])}
+    to = np.argsort(Bt[:, 0], kind="stable")                    # chronological across markets (cycles are in trade order)
+    Bs, ys = Bt[to], yb[to]
+    rec["cycle_goal"] = {"2011-19": cyclegoal.score(Bs[ys <= 2019, 3], Bs[ys <= 2019, 0]),
+                         "2020-22": cyclegoal.score(Bs[(ys >= 2020) & (ys <= 2022), 3], Bs[(ys >= 2020) & (ys <= 2022), 0])}
     rec["cost_ladder"] = cyclegoal.cost_ladder(Bt, S.MARKETS, {"2011-19": dev, "2020-22": val})
     print(f"    cycle goal: edge quality s {rec['cycle_goal']['2011-19'].get('s')} (2011-19) / {rec['cycle_goal']['2020-22'].get('s')} (2020-22); "
           f"+2% per cycle inside 3.6% needs {cyclegoal.needed_s(0.02, 0.036):.2f}", flush=True)
@@ -358,7 +364,8 @@ def run(path, look=True, markets=None, procs=4):
     low = lambda Z: Z[:, 3] + 0.5 * Z[:, 5] + Z[:, 7]
     yf = year_index(F[:, 0])
     late = yf >= 2023
-    rec["cycle_goal"]["2023-25"] = cyclegoal.score(F[late, 3])
+    Fs = F[np.argsort(F[:, 0], kind="stable")]; lt = year_index(Fs[:, 0]) >= 2023
+    rec["cycle_goal"]["2023-25"] = cyclegoal.score(Fs[lt, 3], Fs[lt, 0])
     for prof, v in cyclegoal.cost_ladder(F, S.MARKETS, {"2023-25": late}).items():
         rec["cost_ladder"][prof].update(v)
     rec["low_cost_swap_free"] = {k: stats(low(F[m])) for k, m in (("dev", yf <= 2019), ("val", (yf >= 2020) & (yf <= 2022)), ("2023-25", yf >= 2023))}
@@ -464,6 +471,17 @@ def _goal_lines(r):
         cm = v["cycle_mean_pct_at_cap"]
         L.append(f"| {per} | {v['trades']} | {v['win_rate']:.0%} | {v['s']:.3f} | {cm['3.6']:+.2f}% | {cm['5']:+.2f}% | {cm['8']:+.2f}% | "
                  f"{'x' + str(v['gap_2pct_at_3.6']) if v.get('gap_2pct_at_3.6') else 'no edge'} |")
+    if any("sequence" in v for v in g.values()):
+        L += ["", "## Cycles and lifecycles in actual trade order (risk set so 95% of bootstrapped 360-trade lifecycles stay inside 3.6%)",
+              "| Period | Risk per trade | Trades a year | Cycles a year | Months per lifecycle | Positive cycles | Median cycle | Worst cycle | Lifecycles done | Lifecycle return (each) | Worst lifecycle drawdown |",
+              "|---|---|---|---|---|---|---|---|---|---|---|"]
+        for per, v in g.items():
+            q = v.get("sequence")
+            if not q:
+                continue
+            L.append(f"| {per} | {q['risk_pct']:.3f}% | {q['trades_per_year']:.0f} | {q['cycles_per_year']:.1f} | {q['months_per_lifecycle']:.1f} | "
+                     f"{q['cycles_positive']:.0%} | {q['cycle_median_pct']:+.2f}% | {q['cycle_worst_pct']:+.2f}% | {q['lifecycles']} | "
+                     f"{', '.join(f'{x:+.1f}%' for x in q['lifecycle_returns_pct']) or '-'} | {q['lifecycle_worst_dd_pct']:.2f}% |")
     if c:
         pers = list(next(iter(c.values())).keys())
         L += ["", "## Cost ladder (same trades, other prices; swaps unchanged): mean R per trade (t)",
