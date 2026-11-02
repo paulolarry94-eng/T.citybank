@@ -278,3 +278,7 @@ improve; a cycle defined in time would. Under the drawdown-keyed ladder at its m
 Evidence: research/seesare/cycle_math_study.py, research/results/seesare/cycle_math_study.json (80 cells x 20,000 lifecycles;
 a model, so real drawdowns run larger: edges are uncertain, fade and cluster). Confidence: high for the arithmetic, medium for
 its use (it assumes a known, stable edge). Related: P24, P26, P27.
+Update 2026-11-02 (breadth): edge quality x sqrt(independent trades per cycle) must reach about 1.4 for +2% inside 3.6%
+(about 2.8 for +7%), whatever the number of trades per cycle (simulated n = 10-160: 1.38-1.47). With 10 trades per cycle
+that is s >= 0.43; with 40 independent trades, 0.23. Evidence: research/results/goal/breadth.json; summary for the owner:
+research/goal/CYCLE_GOAL_MATH.pdf.

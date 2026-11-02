@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-76 ideas tested, about 303,592 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+77 ideas tested, about 303,592 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,29 +15,29 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 22 | 0 | 1,876 |
+| owner-idea | 23 | 0 | 1,876 |
 | intraday | 20 | 1 | 182,555 |
 | flow | 16 | 1 | 60 |
 | calendar | 14 | 1 | 143 |
 | awesome-list | 13 | 0 | 147 |
+| breadth | 13 | 0 | 697 |
 | index | 13 | 0 | 98 |
-| breadth | 12 | 0 | 697 |
 | trend | 12 | 4 | 102,718 |
+| sizing | 11 | 0 | 276 |
 | breakout | 10 | 0 | 119,432 |
 | fix | 10 | 1 | 54 |
 | reversal | 10 | 1 | 105,856 |
-| sizing | 10 | 0 | 276 |
+| seesare | 10 | 0 | 232 |
 | engulfing | 9 | 0 | 3,836 |
 | seasonal | 9 | 2 | 23 |
-| seesare | 9 | 0 | 232 |
 | session | 9 | 0 | 183,879 |
 | daily | 8 | 1 | 172 |
 | structure | 8 | 0 | 1,634 |
+| drawdown-cap | 7 | 0 | 204 |
 | portfolio | 7 | 3 | 136 |
 | repo-funnel | 7 | 0 | 222 |
 | retest | 7 | 0 | 10,308 |
 | risk | 7 | 0 | 172 |
-| drawdown-cap | 6 | 0 | 204 |
 | eurusd | 6 | 1 | 159 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
@@ -72,6 +72,8 @@
 | dip-buying | 2 | 0 | 8 |
 | energy | 2 | 0 | 128 |
 | fvg | 2 | 0 | 9,312 |
+| lifecycle | 2 | 0 | 80 |
+| math | 2 | 0 | 80 |
 | payer | 2 | 0 | 4 |
 | rsi2 | 2 | 0 | 8 |
 | scanner | 2 | 0 | 61,803 |
@@ -96,9 +98,7 @@
 | fx | 1 | 0 | 16 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | ict | 1 | 0 | 780 |
-| lifecycle | 1 | 0 | 80 |
 | look-ahead | 1 | 0 | 16 |
-| math | 1 | 0 | 80 |
 | metals | 1 | 0 | 64 |
 | methods | 1 | 0 | 16 |
 | monte-carlo | 1 | 0 | 80 |
@@ -130,6 +130,7 @@
 | Date | Idea | Family | Configs | Verdict | Key numbers |
 |---|---|---|---|---|---|
 | 2026-11-02 | Cycle math: what +2% per 10-trade cycle needs vs the 360-trade lifecycle drawdown | seesare, sizing, drawdown-cap, math, monte-carlo, lifecycle, owner-idea | 80 | Study (model: independent trades, fixed risk, after costs): +2% per 10-trade cycle needs a per-trade Sharpe of about 0.42 for a 95th-percentile lifecycle drawdown of 3.6%, 0.36 for 5%, 0.32 for 6%, 0.28 for 8% (fit DD95 = 0.69% x s^-1.91 over 80 cells). Examples inside 3.6%: 70% wins at 1:1 gives 4.0%; 55% at 2:1 3.4%; 45% at 3:1 3.5%; 40% at 4:1 3.2%. Ours per trade after Exness costs + swaps: book 0.062, Tokyo fix 0.088, EURUSD reversal 0.125, all 13 0.063, book Jan-Oct 2026 0.020: about +0.09 / +0.12 / +0.20% per cycle for the book at a 3.6 / 5 / 8% drawdown; forcing +2% needs 2.6% risk and an 80% drawdown. Combining strategies leaves the per-trade Sharpe unchanged (all 13: 0.063). The drawdown-keyed ladder at weight 1.00 never passes 3.6% but stops lifecycles at the wall: median +2% needs about s 0.41 AND a high win rate (75% at 0.75:1: median +1.99%, 4.7% stopped; 40% at 4:1: 95% stopped). | s_needed_3_6 +0.421, s_needed_5 +0.355, s_needed_6 +0.322, s_needed_8 +0.277, s_needed_10 +0.246, closed_form_s_3_6_p5 +0.288, book_s +0.062, tokyo_s +0.088, eurusd_rev_s +0.125, all13_s +0.062, book2026_s +0.020, book_cycle_at_3_6 +0.090, book_cycle_at_5 +0.124, book_cycle_at_8 +0.199, book_risk_for_2pct +2.565, book_dd95_at_2pct +80.200 |
+| 2026-11-02 | Cycle goal by trades per cycle (quality x breadth) | seesare, sizing, drawdown-cap, math, breadth, lifecycle, owner-idea | — | Study: edge quality x sqrt(independent trades per cycle) stays about 1.4 for +2% inside 3.6% (1.38-1.47 for n = 10-160) and about 2.8 for +7% inside 3.6%. Needed s for +2%/3.6%: n 10 0.43, 20 0.32, 40 0.23, 80 0.16, 160 0.12; the book (s 0.062) would need about 530 independent trades per cycle. | s_needed_2_3.6_n10 +0.435, s_needed_2_3.6_n20 +0.316, s_needed_2_3.6_n40 +0.228, s_needed_2_3.6_n80 +0.162, s_needed_2_3.6_n160 +0.116 |
 | 2026-11-01 | 5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19) | engulfing, structure, intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 133 | Rejected: winners' attributes do not select winners | ~194,000 filled Leg 34 setups on M5, 11 markets, each simulated alone. Before costs about zero on every market (ladder -0.07 to +0.04R; silver/oil/indices costs are lab estimates). Gold 2011-19: 43% reach +1R, 13% +5R, 6% +10R, 1.5% +20R. Top 10% runners look like all trades (lifts 0.86-1.15); top 1% lean to quiet volatility, a quiet day, a strong 4h push, small structure. Best 2-condition rule (cost_R low & EMA slope mid, 133 conditions) failed its own halves (-0.04 / +0.04R), then -0.08R gold 2020-22, -0.06R 2023-25, -0.10R pooled other markets (9 of 10 negative), -0.02R Jan-Sep 2026. |
 | 2026-11-01 | 5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample) | intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 2 | Rejected: worse than taking every setup | Score = quiet volatility, quiet day, strong 4h push, small structure, deep Leg 2 (cut points gold 2011-19); trade score>=3. Ladder exit: gold 2011-19 -0.20R (all setups -0.15), 2020-22 -0.13, 2023-25 -0.12, other 10 markets -0.35 (all -0.31), Jan-Sep 2026 -0.14R. The profile concentrates runners and losers alike. |
 | 2026-11-01 | Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits | engulfing, structure, intraday, session, timeframe-scan, owner-idea, breadth | 396 | Rejected: no pocket survives | 396 cells (M5, M10, M15, M30, M45, H1; Asia/London/New York; t3 and ladder), selection on 2011-22 only. 1 cell passed discovery (GBPUSD H1 London t3, t 2.13; ~9 expected by luck) and lost in 2020-22 (-0.37R); 0 confirmed; no cell positive in 2011-19, 2020-22 and 2023-25. Before costs only 33% of cells positive in 2011-19 (medians -0.01 to -0.05R by timeframe); persistence before costs 34% vs 32% = luck. Higher timeframes cut the cost share (median after costs -0.27R M5 -> -0.20R H1) but the raw edge does not improve. Sessions alike (-0.23R). Past hint (sop_4leg_v1 EUR/GBP M30 16-20 UTC) negative on all 9 other markets (-0.04 to -0.51R). |

@@ -96,6 +96,10 @@ Learning rules:
   known direction). Owner plans RoboForex Prime; its swap-free status is unsettled (Q1 note).
 - Cycle math (2026-11-02, P28): +2% per 10-trade cycle inside a 3.6% lifecycle drawdown (95%) needs a per-trade Sharpe of
   ~0.42 (5%: 0.36, 8%: 0.28); our strategies have 0.06-0.13, so about +0.1-0.2% per cycle. Mixing strategies does not raise it.
+- Lab consolidated (2026-11-02): every report ends with a cycle-goal table and a cost ladder (`research/truth/cyclegoal.py`;
+  `--table`, `--trades <csv>`, `--survivors`). Rule: edge quality x sqrt(independent trades per cycle) ~ 1.4 for +2% inside 3.6%
+  (2.8 for +7%). Owner document: `research/goal/CYCLE_GOAL_MATH.pdf`. EA build here (Q22): Wine installs, MT5 installer
+  downloads; running it needs the owner's OK.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
@@ -104,6 +108,7 @@ Learning rules:
 - `research/northstar/`: execution core (`core.py`), pattern modules, pre-registration, risk manager, weekly
   report; the lab builds on it.
 - `research/truth/`: the Truth Lab. `research/results/truth/<NAME>/` holds its reports.
+- `research/goal/`: the 2-7% per cycle goal as maths (PDF + its builder).
 - `research/multiasset/`: trend+carry on pysystemtrade futures data; Kelly/Monte Carlo frontier; PROJECT.md.
 - `mt5/Seesare/`: SEESARE router Phase 1 modules + self-test (uncompiled; README there).
 - `mt5/`: TimelessCity.mq5 + presets, NorthStarGovernor.mq5 + NorthStarRisk.mqh, TruthEA.mq5 template,

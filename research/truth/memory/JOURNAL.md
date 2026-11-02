@@ -518,3 +518,18 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** the map is arithmetic on a model (independent trades, known edge); our strategies' numbers come from
   backtests seen before (2026 forward is the only clean period). Real drawdowns run larger than the model.
 - **Next:** owner decides cycle target vs cap; the honest lever is a better edge (s >= 0.35) or a cycle defined in time.
+
+## 2026-11-02 (2) · owner: "consolidate the lab; a PDF of what it takes for 2-7% per cycle as a maths problem; what would EA build and verification here take"
+- **Done (lab):** research/truth/cyclegoal.py (needed edge quality for +2..7% x 3.6-8% caps, trade-list scoring by block
+  bootstrap, needed-s simulation for any trades per cycle, cost ladder); every lab report now ends with a cycle-goal table and
+  a cost ladder (gross / RoboForex Prime / Exness Zero / lab). memory.record now keeps the first test date on re-runs
+  (last_run added). Survivor reports regenerated with their logged looks reused (no new 2023-25 look). 124 tests pass.
+- **Done (document):** research/goal/CYCLE_GOAL_MATH.pdf (8 pages) built by research/goal/build_cycle_goal_pdf.py.
+- **Learned:** quality x breadth rule: s x sqrt(n) ~ 1.4 for +2% inside 3.6% (2.8 for +7%), P28 updated. Tokyo fix at
+  RoboForex Prime prices: s 0.07 -> 0.11 (2011-19), still ~4x short.
+- **EA build here (Q22):** Wine 9.0 installed and the MT5 installer downloaded; running it was blocked by the session's safety
+  check, so nothing compiled. Needs the owner's OK; tester needs a demo login and broker network access.
+- **Facts vs estimates:** the needed-quality numbers are model results (independent trades, steady edge); our strategies'
+  numbers are backtests seen before, except Jan-Oct 2026.
+- **Next:** owner decides on running the MT5 installer here (compile) and where to run the tester; search for s >= 0.45 or
+  for independent breadth.

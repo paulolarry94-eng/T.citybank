@@ -239,6 +239,14 @@ Daily queue (2026-11-01): one trade a day from the 13 validated strategies canno
 Cycle math (2026-11-02, P28, research/results/seesare/cycle_math_study.json): +2% per 10-trade cycle inside 3.6% (95% of
 lifecycles) needs a per-trade Sharpe of about 0.42 (0.36 at 5%, 0.32 at 6%, 0.28 at 8%); ours is 0.06-0.13. The book at a 5%
 cap makes about +0.12% per cycle. Open: owner chooses between the target (needs an edge we do not have) and the cap.
+### Q22 Build and verify the MQL5 code here (owner, 2026-11-02): compile, self-tests, Strategy Tester, parity
+Checked in the cloud session: Wine 9.0 installs from Ubuntu's archive; MetaQuotes' mt5setup.exe (64-bit) downloads. Running
+the installer was blocked by the session's safety check (third-party software), so nothing is compiled yet. Needs: owner's OK
+to run the installer under Wine (then MetaEditor command-line compile of every .mq5); for self-tests and the Strategy Tester a
+demo login (environment secret) and a network path from MT5 to the broker's servers (unknown through this proxy). Alternatives:
+GitHub Actions Windows runner (compile + tester with a demo login as a secret) or the owner's PC / a VPS. Details: section 9 of
+research/goal/CYCLE_GOAL_MATH.pdf. FAMILY: tooling, mql5, verification, parity.
+
 ### Q21 "Magnetic Distance" momentum bursts with micro-stops and fast scratches (owner paste, 2026-11-01)
 Claim: entering at a velocity break of the 15-minute opening range toward a liquidity "magnet" (previous day high/low, session
 open), stop under the entry candle, scratch at -0.2R if no follow-through in 3 candles, gives 40% +2R / 25% +0.75R / 25% -0.2R /
