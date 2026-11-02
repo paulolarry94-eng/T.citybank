@@ -94,6 +94,8 @@ Learning rules:
 - Q19 ECB fix (2026-11-01): ECB 14:10 CET reference rate on EURUSD REJECTED at RoboForex Prime costs (0.55 pip, published,
   `research/truth/costs_roboforex_prime.json`); gross edge about zero, so costs are not the reason (P22 update: a payer needs a
   known direction). Owner plans RoboForex Prime; its swap-free status is unsettled (Q1 note).
+- Cycle math (2026-11-02, P28): +2% per 10-trade cycle inside a 3.6% lifecycle drawdown (95%) needs a per-trade Sharpe of
+  ~0.42 (5%: 0.36, 8%: 0.28); our strategies have 0.06-0.13, so about +0.1-0.2% per cycle. Mixing strategies does not raise it.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

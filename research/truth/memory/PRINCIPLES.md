@@ -266,3 +266,15 @@ fix and the EURUSD reversal helped 2011-22 and hurt 2023-25. Size by the room le
 Update 2026-11-01 (per-lifecycle scoring, 360 real trades = one unit, reset): book + drawdown ladder +6.1% mean per
 lifecycle (13 completed, 0 stopped, 2011-22), book + guard +6.4% (9 completed, 5 stopped); one lifecycle is about 11
 months, so the unit changes the count, not the money. Evidence: research/results/seesare/universe_lifecycle_study.json.
+
+### P28 A cycle target within a drawdown cap is a demand on the per-trade Sharpe, and mixing strategies does not meet it
+With independent trades and fixed risk, +2% per 10-trade cycle with 95% of 360-trade lifecycles inside a drawdown D needs a
+per-trade Sharpe s (mean R / spread of R, after costs) of about 0.42 for D = 3.6%, 0.36 for 5%, 0.32 for 6%, 0.28 for 8%
+(95th-percentile drawdown about 0.69% x s^-1.9 at +2% per cycle). Examples that qualify: 70% wins at 1:1, 55% at 2:1, 45% at
+3:1, 40% at 4:1. Our verified strategies have s = 0.06-0.13 (book 0.062, Jan-Oct 2026 0.020), so the cap allows about +0.1-0.2%
+per cycle. Combining strategies raises trades per week, not s per trade (all 13 together: 0.063), so per-10-trade cycles do not
+improve; a cycle defined in time would. Under the drawdown-keyed ladder at its maximum weight, losing streaks walk into the
+3.6% wall: for the same s, high win rates finish lifecycles and low-win, high-payoff edges stop (40% at 4:1: 95% stopped).
+Evidence: research/seesare/cycle_math_study.py, research/results/seesare/cycle_math_study.json (80 cells x 20,000 lifecycles;
+a model, so real drawdowns run larger: edges are uncertain, fade and cluster). Confidence: high for the arithmetic, medium for
+its use (it assumes a known, stable edge). Related: P24, P26, P27.

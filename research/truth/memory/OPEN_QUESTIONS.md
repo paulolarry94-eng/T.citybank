@@ -236,6 +236,9 @@ Daily queue (2026-11-01): one trade a day from the 13 validated strategies canno
 3.6-5% drawdown: every-day version +0.0-0.05% per cycle; top-3 legs +0.6% per cycle but a cycle takes ~5.5 months
 (research/results/seesare/daily_queue_study.json). Reaching 1% per daily cycle at this cap needs about +0.6R per trade, about
 8 times the book's +0.078R. Open: owner decides the goal unit (per cycle vs per year) and whether to forward-test the book.
+Cycle math (2026-11-02, P28, research/results/seesare/cycle_math_study.json): +2% per 10-trade cycle inside 3.6% (95% of
+lifecycles) needs a per-trade Sharpe of about 0.42 (0.36 at 5%, 0.32 at 6%, 0.28 at 8%); ours is 0.06-0.13. The book at a 5%
+cap makes about +0.12% per cycle. Open: owner chooses between the target (needs an edge we do not have) and the cap.
 ### Q21 "Magnetic Distance" momentum bursts with micro-stops and fast scratches (owner paste, 2026-11-01)
 Claim: entering at a velocity break of the 15-minute opening range toward a liquidity "magnet" (previous day high/low, session
 open), stop under the entry candle, scratch at -0.2R if no follow-through in 3 candles, gives 40% +2R / 25% +0.75R / 25% -0.2R /

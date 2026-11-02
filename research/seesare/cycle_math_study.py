@@ -93,7 +93,7 @@ def part_bc():
             mu = w * b - (1 - w)
             sig = (b + 1) * math.sqrt(w * (1 - w))
             row = dict(w=w, b=b, mu=round(mu, 4), s=round(mu / sig, 4), loss_streak_p95=streak)
-            if mu <= 0:
+            if mu <= 1e-9:                                     # fixed after the first run: w 0.40 / b 1.5 is exactly 0 (float 1e-16)
                 row["feasible"] = False
                 rows.append(row); continue
             R = np.where(win, b, -1.0)

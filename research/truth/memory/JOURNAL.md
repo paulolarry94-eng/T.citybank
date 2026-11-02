@@ -504,3 +504,17 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   open; the RoboForex check is logged under Q1. The ECB test is intraday and pays no swap either way.
 - **Next:** remaining Q19 rows need a direction source (month-end rebalancing conditional on the month's equity move) or data
   we lack (US close imbalance). Owner: check swap and commission on the Prime account in MT5.
+
+## 2026-11-02 · owner: "use a mathematical drawdown situation: find the drawdown and combination for 2% per cycle, within 3.6% (a bit higher is fine) over 1 lifecycle"
+- **Done:** research/seesare/cycle_math_study.py (design committed 8de9a6a before results): closed form, Monte Carlo of 80
+  win-rate x payoff cells (20,000 lifecycles of 360 trades each, risk set for a +2% mean cycle), the drawdown-keyed ladder at
+  weight 1.00 on the same cells, and our 13 strategies placed on the map by block bootstrap.
+- **Learned:** +2% per cycle within 3.6% at 95% needs per-trade Sharpe ~0.42 (5%: 0.36, 6%: 0.32, 8%: 0.28). Qualifying shapes:
+  70% at 1:1, 55% at 2:1, 45% at 3:1, 40% at 4:1 (after costs). Ours: 0.06-0.13 (2026 forward 0.02); book +0.09 / +0.12 / +0.20%
+  per cycle at 3.6 / 5 / 8%. Mixing strategies leaves the per-trade Sharpe unchanged. The ladder at maximum weight holds 3.6% but
+  stops low-win, high-payoff lifecycles. New principle P28; Q20 updated.
+- **Fix after the first run:** the w 0.40 / b 1.5 cell has exactly zero edge but float rounding made it 1e-16 and printed nonsense;
+  treated as zero (no other cell changed).
+- **Facts vs estimates:** the map is arithmetic on a model (independent trades, known edge); our strategies' numbers come from
+  backtests seen before (2026 forward is the only clean period). Real drawdowns run larger than the model.
+- **Next:** owner decides cycle target vs cap; the honest lever is a better edge (s >= 0.35) or a cycle defined in time.
