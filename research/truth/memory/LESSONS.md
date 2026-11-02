@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-91 ideas tested, about 304,389 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+92 ideas tested, about 305,029 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,20 +15,20 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 33 | 0 | 2,657 |
-| intraday | 29 | 1 | 183,332 |
+| owner-idea | 34 | 0 | 3,297 |
+| intraday | 30 | 1 | 183,972 |
 | flow | 20 | 1 | 84 |
 | calendar | 18 | 1 | 167 |
 | index | 17 | 0 | 122 |
-| session | 14 | 0 | 184,008 |
+| session | 15 | 0 | 184,648 |
 | awesome-list | 13 | 0 | 147 |
 | breadth | 13 | 0 | 697 |
+| ema | 13 | 0 | 2,405 |
 | reversal | 13 | 1 | 105,864 |
 | breakout | 12 | 0 | 119,496 |
-| ema | 12 | 0 | 1,765 |
+| engulfing | 12 | 0 | 5,116 |
 | retest | 12 | 0 | 10,437 |
 | trend | 12 | 4 | 102,718 |
-| engulfing | 11 | 0 | 4,476 |
 | sizing | 11 | 0 | 276 |
 | fix | 10 | 1 | 54 |
 | seesare | 10 | 0 | 232 |
@@ -50,17 +50,18 @@
 | gold | 5 | 0 | 363 |
 | liquidity | 5 | 0 | 1,380 |
 | mean-reversion | 5 | 0 | 47 |
+| multi-market | 5 | 0 | 1,344 |
 | sweep | 5 | 0 | 1,380 |
 | batch01 | 4 | 0 | 24 |
+| control | 4 | 0 | 736 |
 | monthly | 4 | 0 | 20 |
-| multi-market | 4 | 0 | 704 |
 | ny-open | 4 | 0 | 128 |
 | oil | 4 | 0 | 7 |
 | rebalancing | 4 | 0 | 24 |
 | third-party-ea | 4 | 0 | 304 |
 | carry | 3 | 1 | 18 |
+| chop | 3 | 0 | 1,280 |
 | close | 3 | 0 | 20 |
-| control | 3 | 0 | 96 |
 | costs | 3 | 0 | 8 |
 | cross-asset | 3 | 0 | 4 |
 | filter-mining | 3 | 0 | 244 |
@@ -68,6 +69,7 @@
 | grid | 3 | 0 | 196 |
 | macro | 3 | 0 | 4 |
 | month-end | 3 | 0 | 20 |
+| multi-timeframe | 3 | 0 | 1,280 |
 | options-expiry | 3 | 0 | 4 |
 | oscillator | 3 | 0 | 288 |
 | pattern | 3 | 0 | 4,932 |
@@ -76,7 +78,6 @@
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | cent-account | 2 | 0 | 12 |
-| chop | 2 | 0 | 640 |
 | clock | 2 | 0 | 8 |
 | cross-sectional | 2 | 0 | 17 |
 | data | 2 | 0 | 8 |
@@ -88,7 +89,6 @@
 | lifecycle | 2 | 0 | 80 |
 | math | 2 | 0 | 80 |
 | mss | 2 | 0 | 4 |
-| multi-timeframe | 2 | 0 | 640 |
 | rsi2 | 2 | 0 | 8 |
 | scanner | 2 | 0 | 61,803 |
 | short-vol | 2 | 0 | 17 |
@@ -165,6 +165,7 @@
 | 2026-11-02 | Owner 3:30 v2 win-rate study: 1:1 with stop placement grid (pullback touch) | session, ema, retest, intraday, ny-open, owner-idea, stops, win-rate | 16 | Rejected. 2011-19 win rate 40-46% vs 56-59% needed after costs at 1:1 (net -0.08 to -0.19R; t -4 to -10); 2020-22 41-45%, negative; Jan-Oct 2026 (owner's period, 5 markets) negative for all 16 on both feeds (best -0.005R, 50% wins). Wider stops cut wick-outs (52% -> 23% of stopped trades later reached the target) and cost share (0.17 -> 0.12R) but raise the win rate only 40 -> 46%; before costs at most +0.04R. Best setting (pullback extreme + 0.5 ATR) at the grid edge. Only GER40 positive (1 of 12, hindsight). |  |
 | 2026-11-02 | ema4_flip_v1 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | — | Rejected: look-ahead (signals change when future bars are removed) |  |
 | 2026-11-02 | ema4_flip_v1 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 640 | Rejected: no configuration passed the development gate | share_dev_positive +0.150 |
+| 2026-11-02 | 4-flip EMA: where/when search, profile, rejected-pattern control, replay | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, chop, control, session | 640 | Rejected. Replay 5 of 7 owner calls (misses are sub-pip feed differences). Before costs about 0 on M5-H1 (-0.04 to +0.04R), costs 0.06-0.16R; only H4 positive (A+ +0.14R, A+B+ +0.11R in 2011-19, t 1.7-1.9, 106-282 trades; 2020-22 about 0). Where/when: 0 of 69 cells t >= 3 in 2011-19 (best t 2.4), 0 pass. Control: graded beat rejected four-flips in 2011-19 (H4 +0.14R) but not in 2020-22 (H4 -0.10R). Close entry beat the 50% limit. Best edge quality 0.18 (H4 A+), -0.09 in 2020-22. |  |
 | 2026-11-01 | 5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19) | engulfing, structure, intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 133 | Rejected: winners' attributes do not select winners | ~194,000 filled Leg 34 setups on M5, 11 markets, each simulated alone. Before costs about zero on every market (ladder -0.07 to +0.04R; silver/oil/indices costs are lab estimates). Gold 2011-19: 43% reach +1R, 13% +5R, 6% +10R, 1.5% +20R. Top 10% runners look like all trades (lifts 0.86-1.15); top 1% lean to quiet volatility, a quiet day, a strong 4h push, small structure. Best 2-condition rule (cost_R low & EMA slope mid, 133 conditions) failed its own halves (-0.04 / +0.04R), then -0.08R gold 2020-22, -0.06R 2023-25, -0.10R pooled other markets (9 of 10 negative), -0.02R Jan-Sep 2026. |
 | 2026-11-01 | 5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample) | intraday, filter-mining, winner-anatomy, owner-idea, gold, breadth | 2 | Rejected: worse than taking every setup | Score = quiet volatility, quiet day, strong 4h push, small structure, deep Leg 2 (cut points gold 2011-19); trade score>=3. Ladder exit: gold 2011-19 -0.20R (all setups -0.15), 2020-22 -0.13, 2023-25 -0.12, other 10 markets -0.35 (all -0.31), Jan-Sep 2026 -0.14R. The profile concentrates runners and losers alike. |
 | 2026-11-01 | Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits | engulfing, structure, intraday, session, timeframe-scan, owner-idea, breadth | 396 | Rejected: no pocket survives | 396 cells (M5, M10, M15, M30, M45, H1; Asia/London/New York; t3 and ladder), selection on 2011-22 only. 1 cell passed discovery (GBPUSD H1 London t3, t 2.13; ~9 expected by luck) and lost in 2020-22 (-0.37R); 0 confirmed; no cell positive in 2011-19, 2020-22 and 2023-25. Before costs only 33% of cells positive in 2011-19 (medians -0.01 to -0.05R by timeframe); persistence before costs 34% vs 32% = luck. Higher timeframes cut the cost share (median after costs -0.27R M5 -> -0.20R H1) but the raw edge does not improve. Sessions alike (-0.23R). Past hint (sop_4leg_v1 EUR/GBP M30 16-20 UTC) negative on all 9 other markets (-0.04 to -0.51R). |

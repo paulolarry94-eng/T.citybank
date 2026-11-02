@@ -263,6 +263,13 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q27 Owner's 4-flip EMA pattern (2026-11-02) — TESTED, rejected
+Four consecutive candles crossing the 10 EMA in turn; B+ when the 4th closes beyond the 3rd open, A+ when the 2nd also closed
+beyond the 1st open; entry 50% of the 4th or at its close; stop and target grids; close daily. 640 configurations, 12
+markets, M5-H4: 0 pass; where/when 0 of 180 cells (research/results/ema4/RESULT.md). Only lead: H4 (+0.11 to +0.14R in
+2011-19 on 106-282 trades, about 0 in 2020-22); a held-longer H4/D1 version would be a new, hindsight-flagged test. FAMILY:
+ema, engulfing, chop, multi-timeframe, owner-idea.
+
 ### Q26 Re-run the intraday studies that used HistData markets before the clock fix (2026-11-02)
 HistData's stamps were one hour late in daylight-saving periods (P29; fixed in the data 2026-11-02). Re-run and compare:
 the Leg 34 pocket scan (research/hunter5m/pocket_scan.py; 11 markets x 6 timeframes x 3 sessions), the winner anatomy and

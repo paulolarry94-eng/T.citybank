@@ -111,6 +111,9 @@ Learning rules:
   2020-22, about 0 before costs; edge quality −0.18 to −0.08). Jan-Oct 2026 positive for the 15:30 WAT anchor only in US summer
   (= 10:30 New York), the timing that was worst in 2011-22; 2023-25 not opened (a look is pre-registered, owner decides).
   Report: `research/results/owner330/RESULT.md`. Lab: `SELECT_BY = "s"`, trades scored in time order, `research/truth/cycles_league.py`.
+- Owner's 4-flip EMA pattern (2026-11-02, Q27): 4 consecutive candles crossing the 10 EMA, A+/B+ engulfing grades; 640
+  configurations x 12 markets x M5-H4 REJECTED (about 0 before costs up to H1; H4 +0.11-0.14R on 106-282 trades, about 0 in
+  2020-22); where/when 0 of 180 cells. Detector + replay of the owner's charts: `research/ema4/`; report `research/results/ema4/RESULT.md`.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

@@ -592,3 +592,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   cut wick-outs (52% -> 23%) but not enough; before costs at most +0.04R. P16 gained evidence.
 - **Facts vs estimates:** costs are Prime published; v1 results were seen before the correction (stated in the pre-registration).
 - **Next:** owner's call; the remaining open item for the 3:30 family is the 2026-summer question (Q25, 3R runners, not 1:1).
+
+## 2026-11-02 (7) · owner's "final strategy": the 4-flip EMA pattern (one pattern, all hours, timeframes, markets)
+- **Done:** detector `research/ema4/scanner.py`, the owner's six charts located in our EURUSD data (20-27 Oct 2026) and
+  replayed (5 of 7 calls; the 2 misses are sub-pip feed differences), questions answered by the owner, pre-registration with
+  the answers (ecc3328), strategy ema4_flip_v1 (640 configurations), tests (10), where/when learn-then-check, profile,
+  control on rejected four-flips, cycle league. cycles_league.py and controls.py now key multi-timeframe strategies by
+  timeframe (they merged timeframes before; caught before reading results).
+- **Bugs caught:** the first lab run failed the look-ahead check (a last-bar exclusion in my file); fixed before any result.
+- **Learned:** REJECTED (0 of 640; where/when 0 of 180). Before costs about 0 on M5-H1; only H4 positive, thin and fading in
+  2020-22. Graded vs rejected four-flips: helped in 2011-19, not after. Close entry beat the 50% limit (P2). P3 gained evidence.
+- **Facts vs estimates:** Prime costs published; 2023-25 not opened.
+- **Next:** owner's call. The only lead is H4 held longer than a day (new test, hindsight-flagged).

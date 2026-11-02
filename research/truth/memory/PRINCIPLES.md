@@ -27,6 +27,8 @@ Evidence: North Star ablation. Confidence: high.
 Evidence (2026-11-01, Leg 34 pocket scan, 11 markets): moving from M5 to H1 cuts the cost share (median -0.27R -> -0.20R
 after costs) but does not create a raw edge (before costs -0.01 to -0.05R at every timeframe). Higher timeframes help only
 an idea that already has an edge.
+Evidence (2026-11-02, owner's 4-flip EMA pattern, 12 markets): median R per trade by timeframe M5 -0.17, M15 -0.09, M30 -0.11,
+H1 -0.09, H4 +0.05R; before costs about 0 up to H1 and positive only on H4, on too few trades to trust (t <= 1.9).
 
 ### P4 Breakeven stops are a backtest mirage
 They add no out-of-sample edge; small targets hurt. Evidence: four-strategy study (mgmt_oos, exit_eras).
