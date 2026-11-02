@@ -26,7 +26,7 @@ def league(name):
     for sym in S.MARKETS:
         M = P.market(sym, S)
         for p in P.param_sets(S):
-            key = json.dumps({k: p[k] for k in S.GRID}, sort_keys=True)
+            key = json.dumps({k: p[k] for k in (list(S.GRID) + (["tf"] if len(S.TIMEFRAMES) > 1 else []))}, sort_keys=True)
             tr = P.run_config(S, M, p, 0.0, 0.0, 0)
             per_cfg.setdefault(key, []).append(np.c_[tr[:, :4], np.full(len(tr), S.MARKETS.index(sym))])
     rows = []

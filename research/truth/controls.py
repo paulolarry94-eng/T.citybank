@@ -61,7 +61,7 @@ def run(name):
     for sym in S.MARKETS:
         M = P.market(sym, S)
         for p in P.param_sets(S):
-            key = json.dumps({k: p[k] for k in S.GRID}, sort_keys=True)
+            key = json.dumps({k: p[k] for k in (list(S.GRID) + (["tf"] if len(S.TIMEFRAMES) > 1 else []))}, sort_keys=True)
             f = P.run_config(S, M, p, 0.0, 0.0, 0)
             c = P.run_config(S, M, dict(p, sample="control"), 0.0, 0.0, 0)
             yf, yc = year_index(f[:, 0]), year_index(c[:, 0])
@@ -71,7 +71,7 @@ def run(name):
                 row.setdefault(per, {})[sym] = dict(flow=stats(f[mf, 3]), control=stats(c[mc, 3]), diff=welch(f[mf, 3], c[mc, 3]))
                 pf, pc = pool.setdefault(key, {}).setdefault(per, ([], []))
                 pf.append(f[mf, 3]); pc.append(c[mc, 3])
-            if sel and all(sel.get(k) == p.get(k) for k in S.GRID):
+            if sel and all(sel.get(k) == p.get(k) for k in list(S.GRID) + ["tf"] if k in sel):
                 fs.append((sym, f)); cs.append(c)
                 per_mkt[sym] = stats(f[yf <= 2019, 3])
                 dev = yf <= 2019

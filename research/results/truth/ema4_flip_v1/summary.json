@@ -1,8 +1,8 @@
 {
  "name": "ema4_flip_v1",
  "hypothesis": "Four consecutive candles crossing the 10 EMA in turn, with the 4th closing beyond the 3rd candle's open (B+), or also the 2nd beyond the 1st (A+), predict a move in the 4th candle's direction larger than costs.",
- "fingerprint": "8ccd8bb8e6f4391269a6110e4887bf8ed390c0e8e548817601b3c25fec81bb1d",
- "started": "2026-11-02 23:49:35 UTC",
+ "fingerprint": "d039fe0124357572b5806b7a2224204c32fc4e7927785a64065bd8b6e504af8b",
+ "started": "2026-11-02 23:50:30 UTC",
  "markets": [
   "XAUUSD",
   "XAGUSD",
@@ -229,17 +229,151 @@
   }
  ],
  "lookahead": {
-  "ok": false,
+  "ok": true,
   "checks": [
    {
     "tf": "M5",
     "test": "real-time decision",
-    "bar": 129657,
-    "full": "[(129657, -1, 1605.106)]",
-    "live": "[]",
-    "ok": false
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 22,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
    }
   ]
  },
- "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+ "grid_summary": {
+  "configs": 640,
+  "passed_gate": 0,
+  "share_dev_positive": 0.15,
+  "median_dev_E": -0.09297168729766814,
+  "share_dev_and_val_positive": 0.0515625
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
 }

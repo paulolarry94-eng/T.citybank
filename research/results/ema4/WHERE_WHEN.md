@@ -1,0 +1,75 @@
+# 4-flip pattern: where and when (learn 2011-19, check 2020-22)
+
+Cells: 180 (12 markets x 5 timeframes x 3 sessions); with enough trades: 69; best setting t >= 3 in 2011-19: 0; also positive with t >= 2 in 2020-22 (PASS): 0. Each cell's best of up to 128 settings was chosen on 2011-19, so its learn t is inflated by the choice; the 2020-22 check is untouched.
+
+| Market | TF | Session | Best setting (2011-19) | Trades | R/trade | t | 2020-22 trades | R/trade | t | Pass |
+|---|---|---|---|---|---|---|---|---|---|---|
+| GER40 | M5 | London | close c4+0.5 1R A | 107 | +0.239 | +2.40 | 47 | +0.028 | 0.19 |  |
+| EURUSD | M30 | London | close c4+0.0 2R AB | 102 | +0.330 | +2.27 | 33 | +0.111 | 0.45 |  |
+| NAS100 | M5 | NewYork | close c4+0.1 2R A | 189 | +0.228 | +2.24 | 80 | +0.016 | 0.1 |  |
+| USDJPY | M30 | Asia | close c4+0.5 4R AB | 139 | +0.352 | +2.01 | 45 | +0.337 | 1.2 |  |
+| EURGBP | M15 | London | close all4+0.1 4R AB | 143 | +0.328 | +2.01 | 49 | -0.459 | -2.73 |  |
+| USDJPY | M15 | London | close all4+0.0 3R AB | 132 | +0.310 | +1.96 | 37 | -0.052 | -0.19 |  |
+| GBPUSD | M5 | London | close all4+0.5 4R A | 153 | +0.336 | +1.94 | 55 | +0.107 | 0.39 |  |
+| USDJPY | M5 | London | close c4+0.25 4R A | 131 | +0.373 | +1.91 | 47 | -0.149 | -0.54 |  |
+| EURGBP | M15 | NewYork | mid50 all4+0.25 4R AB | 138 | +0.168 | +1.53 | 56 | -0.252 | -1.49 |  |
+| US500 | M30 | NewYork | close c4+0.0 4R AB | 100 | +0.245 | +1.48 | 39 | +0.045 | 0.2 |  |
+| GER40 | M30 | NewYork | close c4+0.0 2R AB | 108 | +0.190 | +1.42 | 24 | +0.093 | 0.41 |  |
+| US500 | M15 | NewYork | close c4+0.1 4R AB | 137 | +0.192 | +1.35 | 62 | -0.080 | -0.4 |  |
+| EURUSD | M15 | London | close all4+0.0 2R AB | 144 | +0.151 | +1.28 | 40 | +0.231 | 0.99 |  |
+| JP225 | M5 | Asia | close all4+0.1 4R AB | 129 | +0.238 | +1.28 | 110 | -0.332 | -2.06 |  |
+| GBPUSD | M15 | London | close c4+0.0 3R AB | 145 | +0.164 | +1.12 | 48 | +0.428 | 1.55 |  |
+| USDJPY | M30 | NewYork | close c4+0.0 3R AB | 101 | +0.142 | +1.07 | 35 | -0.121 | -0.64 |  |
+| USDJPY | M5 | NewYork | close all4+0.5 4R AB | 601 | +0.067 | +1.01 | 210 | -0.036 | -0.37 |  |
+| NAS100 | M15 | NewYork | mid50 all4+0.1 3R AB | 119 | +0.141 | +0.96 | 36 | -0.329 | -1.53 |  |
+| EURGBP | M5 | London | close all4+0.5 3R AB | 336 | +0.087 | +0.92 | 146 | -0.183 | -1.4 |  |
+| EURGBP | M15 | Asia | close all4+0.5 4R A | 115 | +0.172 | +0.88 | 30 | +0.130 | 0.34 |  |
+| NAS100 | M5 | Asia | close all4+0.25 4R AB | 235 | +0.116 | +0.86 | 193 | +0.009 | 0.07 |  |
+| NAS100 | M30 | NewYork | close all4+0.1 4R AB | 102 | +0.167 | +0.74 | 32 | +0.258 | 1.05 |  |
+| EURUSD | M15 | Asia | close all4+0.0 4R AB | 270 | +0.087 | +0.70 | 78 | -0.402 | -2.2 |  |
+| NAS100 | M5 | London | close c4+0.0 3R AB | 164 | +0.097 | +0.69 | 176 | -0.136 | -1.1 |  |
+| XAUUSD | M15 | London | close all4+0.0 2R AB | 136 | +0.080 | +0.65 | 49 | -0.171 | -0.9 |  |
+| XAUUSD | M15 | NewYork | close c4+0.1 3R AB | 215 | +0.065 | +0.65 | 93 | -0.225 | -1.69 |  |
+| USDJPY | M15 | Asia | close c4+0.1 4R AB | 208 | +0.088 | +0.62 | 83 | +0.265 | 1.12 |  |
+| EURUSD | M30 | Asia | close all4+0.5 1R AB | 140 | +0.047 | +0.56 | 46 | +0.000 | 0.0 |  |
+| GBPUSD | M15 | NewYork | mid50 all4+0.5 4R AB | 148 | +0.054 | +0.56 | 34 | -0.020 | -0.09 |  |
+| NAS100 | M15 | London | close all4+0.0 3R AB | 111 | +0.093 | +0.56 | 38 | -0.158 | -0.59 |  |
+| USDJPY | M15 | NewYork | close c4+0.25 4R AB | 236 | +0.056 | +0.54 | 66 | +0.092 | 0.54 |  |
+| XAUUSD | M5 | London | close all4+0.5 4R AB | 359 | +0.052 | +0.48 | 142 | -0.053 | -0.33 |  |
+| XAUUSD | M5 | Asia | close all4+0.5 3R AB | 430 | +0.039 | +0.45 | 210 | -0.162 | -1.44 |  |
+| XAUUSD | M15 | Asia | close c4+0.0 4R AB | 137 | +0.075 | +0.43 | 69 | -0.156 | -0.69 |  |
+| US500 | M5 | NewYork | mid50 all4+0.25 3R AB | 142 | +0.055 | +0.40 | 108 | -0.225 | -1.52 |  |
+| GER40 | M15 | NewYork | mid50 all4+0.1 4R AB | 138 | +0.054 | +0.39 | 40 | +0.051 | 0.2 |  |
+| WTI | M15 | London | close c4+0.1 4R AB | 100 | +0.076 | +0.37 | 52 | -0.345 | -1.52 |  |
+| NAS100 | M15 | Asia | close all4+0.25 2R AB | 116 | +0.039 | +0.29 | 54 | -0.202 | -1.12 |  |
+| WTI | M5 | NewYork | close c4+0.25 4R AB | 375 | +0.026 | +0.28 | 186 | +0.111 | 0.84 |  |
+| EURUSD | M5 | NewYork | close c4+0.0 3R A | 233 | +0.028 | +0.27 | 92 | -0.080 | -0.49 |  |
+| EURUSD | M5 | Asia | mid50 c4+0.5 3R AB | 409 | +0.023 | +0.26 | 134 | -0.194 | -1.39 |  |
+| EURUSD | M15 | NewYork | close all4+0.0 2R AB | 261 | +0.017 | +0.24 | 84 | +0.126 | 0.95 |  |
+| EURGBP | M30 | London | close c4+0.0 3R AB | 102 | +0.024 | +0.15 | 28 | +0.185 | 0.62 |  |
+| EURUSD | M5 | London | close all4+0.5 3R A | 150 | +0.012 | +0.09 | 52 | -0.093 | -0.4 |  |
+| UK100 | M5 | NewYork | close all4+0.25 4R AB | 407 | +0.005 | +0.06 | 185 | -0.134 | -1.15 |  |
+| GBPUSD | M5 | NewYork | mid50 c4+0.0 4R A | 139 | -0.005 | -0.03 | 36 | +0.311 | 0.85 |  |
+| XAUUSD | M30 | NewYork | close all4+0.0 1R AB | 103 | -0.010 | -0.12 | 47 | -0.052 | -0.45 |  |
+| JP225 | M5 | NewYork | close all4+0.5 2R AB | 104 | -0.015 | -0.12 | 112 | -0.226 | -1.99 |  |
+| UK100 | M5 | London | close c4+0.5 4R AB | 252 | -0.018 | -0.15 | 125 | -0.092 | -0.57 |  |
+| GBPUSD | M30 | Asia | close c4+0.25 4R AB | 109 | -0.034 | -0.18 | 51 | -0.568 | -2.95 |  |
+| GER40 | M5 | NewYork | mid50 all4+0.5 1R A | 123 | -0.024 | -0.18 | 63 | -0.036 | -0.29 |  |
+| US500 | M5 | London | close all4+0.1 2R AB | 100 | -0.050 | -0.36 | 106 | +0.073 | 0.52 |  |
+| EURGBP | M30 | Asia | mid50 all4+0.5 4R AB | 109 | -0.070 | -0.38 | 31 | -0.726 | -3.75 |  |
+| USDJPY | M5 | Asia | close all4+0.1 4R AB | 594 | -0.033 | -0.40 | 209 | -0.071 | -0.53 |  |
+| WTI | M15 | NewYork | close all4+0.5 4R AB | 173 | -0.038 | -0.41 | 61 | -0.238 | -2.37 |  |
+| GER40 | M15 | London | close c4+0.25 2R AB | 101 | -0.061 | -0.44 | 50 | +0.172 | 0.83 |  |
+| GBPUSD | M30 | NewYork | close c4+0.5 4R AB | 102 | -0.062 | -0.63 | 31 | -0.126 | -0.7 |  |
+| GBPUSD | M5 | Asia | mid50 c4+0.1 4R AB | 135 | -0.112 | -0.68 | 58 | -0.499 | -2.46 |  |
+| WTI | M5 | London | close all4+0.5 4R AB | 201 | -0.105 | -0.78 | 93 | -0.147 | -0.77 |  |
+| JP225 | M15 | Asia | close c4+0.5 3R AB | 101 | -0.162 | -1.05 | 41 | -0.204 | -0.88 |  |
+| XAUUSD | M5 | NewYork | close all4+0.0 4R AB | 624 | -0.070 | -1.06 | 233 | -0.092 | -0.9 |  |
+| EURGBP | M5 | Asia | mid50 c4+0.5 3R AB | 162 | -0.137 | -1.06 | 54 | -0.260 | -1.22 |  |
+| GBPUSD | M15 | Asia | mid50 all4+0.25 4R AB | 169 | -0.163 | -1.11 | 52 | -0.234 | -0.93 |  |
+| WTI | M5 | Asia | close all4+0.25 3R AB | 115 | -0.170 | -1.11 | 115 | -0.096 | -0.61 |  |
+| EURGBP | M5 | NewYork | mid50 all4+0.5 4R A | 133 | -0.149 | -1.19 | 44 | +0.076 | 0.34 |  |
+| UK100 | M30 | NewYork | close c4+0.25 4R AB | 101 | -0.149 | -1.26 | 40 | +0.182 | 0.74 |  |
+| XAGUSD | M15 | NewYork | close all4+0.1 3R AB | 100 | -0.161 | -1.47 | 49 | -0.330 | -2.59 |  |
+| UK100 | M15 | NewYork | close all4+0.5 3R AB | 153 | -0.134 | -1.47 | 73 | -0.071 | -0.51 |  |
+| XAGUSD | M5 | NewYork | close all4+0.5 3R AB | 164 | -0.151 | -1.51 | 116 | -0.345 | -3.68 |  |
