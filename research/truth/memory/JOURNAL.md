@@ -623,3 +623,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Learned:** REJECTED, 0 of 540 positive in 2011-19. The 4th-candle-high entry is the worst on every timeframe (P2 gained
   evidence). The full-engulfing closes carry no information versus plain alternating candles.
 - **Next:** the four-candle / EMA family is exhausted at M5-H4 with daily closes on these markets.
+
+## 2026-11-03 (10) · owner: "use the best positive variant, add one confluence indicator, final result, clean up and save"
+- **Done:** ranked every setting of the four-candle family positive in both 2011-19 and 2020-22 (>= 200 trades); best v1 H4
+  close 2R A+B+ (t 1.96 over 2011-22, chosen with hindsight). Added one indicator fixed before the test: H4 50-EMA trend filter.
+  Pre-registered the decision rule; lab run (no configuration passed its gate, 198 vs 200 trades); one logged 2023-25 look
+  and Jan-Oct 2026 (`research/final/final_test.py`). Cleanup: final report, version index in `research/ema4/README.md`, lab
+  README tools section, 164 tests pass.
+- **Learned:** FAILS. 2023-25: -0.033R with the filter (-0.122R without), 2026 negative. The best-of-many backtest did not carry
+  forward (P10 gained evidence). The trend filter reduced losses but did not create an edge.
+- **Facts vs estimates:** the 2026 samples are tiny (6-7 trades); the 2023-25 sample is 86-117 trades.
+- **Next:** this family is closed. What has held up: the Tokyo fix (payer flow) and the 11-leg book; search flows with a
+  payer, not shapes (P22).

@@ -98,6 +98,9 @@ walk-forward and the deflated Sharpe caught it. Never trust one filter. Evidence
 More evidence (2026-10-31): oil was the only one of four new markets with a positive trend in 2011–22 (+0.14R net). Tested
 alone afterwards (hindsight, called out), its 2023–25 look was −0.18R per trade. Picking the winner after the fact found luck.
 
+Evidence (2026-11-03): the best of about 6,200 owner-pattern settings (t 1.96 over 2011-22, positive in both periods) lost
+0.12R a trade on the unseen 2023-25 holdout (with a trend filter added before the look, -0.03R). research/results/final/FINAL.md.
+
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
 on untouched January–October 2026 Exness data made +0.022R per trade against +0.078R in its 2011–25 backtest (about 70%

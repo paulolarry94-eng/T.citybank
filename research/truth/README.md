@@ -59,3 +59,13 @@ costs (0.35 inside 5%; +7% needs 0.81 / 0.68). `python3 research/truth/cyclegoal
   negative on EUR and GBP, which is why TimelessCity runs trend only on gold and yen.
 
 Tests: `python3 -m unittest discover -s research/truth/tests -v`.
+
+## Tools added 2026-11-02 / 03
+- `cyclegoal.py`: every report ends with the cycle goal (edge quality, return per 10-trade cycle inside a 3.6% / 5% lifecycle
+  drawdown) and a cost ladder; `score(R, t)` also scores trades in their actual order (cycles and 360-trade lifecycles).
+- `SELECT_BY = "s"` in a strategy file ranks gate-passing configurations by edge quality instead of t.
+- `cycles_league.py <name>`: every configuration in cycle units (2011-19 and 2020-22 only). Rank only rows with enough
+  trades: tiny samples top the raw list.
+- `controls.py <name>`: flow vs control (`p['sample'] = 'control'`) per market and pooled; multi-timeframe strategies are
+  keyed by timeframe.
+- Owner-pattern helpers (detectors, chart replay, where/when learn-then-check): `research/ema4/`, `research/owner330/`.

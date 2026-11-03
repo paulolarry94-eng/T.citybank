@@ -264,6 +264,8 @@ candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% 
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
 ### Q27 Owner's 4-flip EMA pattern (2026-11-02) — TESTED, rejected
+CLOSED 2026-11-03: best variant + H4 50-EMA trend filter FAILS on the unseen 2023-25 holdout and 2026
+(research/results/final/FINAL.md).
 Four consecutive candles crossing the 10 EMA in turn; B+ when the 4th closes beyond the 3rd open, A+ when the 2nd also closed
 beyond the 1st open; entry 50% of the 4th or at its close; stop and target grids; close daily. 640 configurations, 12
 markets, M5-H4: 0 pass; where/when 0 of 180 cells (research/results/ema4/RESULT.md). Only lead: H4 (+0.11 to +0.14R in

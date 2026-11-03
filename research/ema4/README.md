@@ -1,5 +1,11 @@
 # Owner's 4-flip EMA pattern — understanding, tools and open questions (2026-11-02, before any backtest)
 
+> **Status 2026-11-03: family closed, all versions rejected.** Final result: `research/results/final/FINAL.md`.
+> Versions: v1 (`ema4_flip_v1`, 4th beyond the 3rd open) · v2 full engulfing (`PREREGISTRATION_V2.md`) · v3 breaks from the
+> other side (`PREREGISTRATION_V3.md`) · v4 obvious breaks (`PREREGISTRATION_V4.md`) · no-EMA price action
+> (`research/pa4/`) · best variant + trend filter (`research/final/`). Results: `research/results/ema4/RESULT.md`,
+> `RESULT_V2_V4.md`, `research/results/pa4/RESULT.md`.
+
 ## The rule as understood (the owner's words: "4 interactions with the 10 EMA", "THIS IS THE ONLY PATTERN")
 One timeframe (M5), one pattern. SELL (BUY is the mirror): four consecutive candles whose bodies cross the 10 EMA in turn:
 1 out above (bullish, opens at/below the line, closes at/above it), 2 back in below (bearish), 3 out above, 4 back in below.

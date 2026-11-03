@@ -118,6 +118,9 @@ Learning rules:
   REJECTED, the engulfing grade adds nothing (`research/results/ema4/RESULT_V2_V4.md`).
   No-EMA price-action version (A+ only; entries close / 50% / 4th-candle high; 540 settings) REJECTED, 0 positive in 2011-19;
   the 4th-candle-high entry is the worst (`research/results/pa4/RESULT.md`).
+- Final (2026-11-03): best of ~6,200 four-candle settings (v1 H4, close entry, 2R) + H4 50-EMA trend filter, one logged look:
+  2023-25 -0.033R (86 trades; -0.122R without the filter), Jan-Oct 2026 negative. FAILS. Family closed:
+  `research/results/final/FINAL.md`. 164 tests pass.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
