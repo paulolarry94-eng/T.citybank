@@ -1,0 +1,1631 @@
+{
+ "note": "Where and when does the 4-flip pattern work? Pre-registered learn-then-check search (research/ema4/PREREGISTRATION.md).\n\n    python3 research/ema4/where_when.py [ema4_flip_v2]   # writes research/results/ema4/where_when[_v2].json and WHERE_WHEN[_v2].md\n\nCells = market x timeframe x session of the 4th candle's close (Asia 23-07, London 07-12, New York 12-20:30 UTC).\nLEARN (2011-19): per cell, the trade setting (every combination of the strategy's GRID: v1 128, v2 252) with the highest t after costs\namong those with >= 100 trades. CHECK (2020-22, untouched by the choice): same setting, mean R > 0 and t >= 2 (>= 30 trades).\nFills before 2023 only; the 2023-25 holdout is not opened here.\n",
+ "rows": [
+  {
+   "market": "XAUUSD",
+   "tf": "M5",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 269,
+   "learn_E": 0.0009,
+   "learn_t": 0.01,
+   "check_n": 125,
+   "check_E": -0.136,
+   "check_t": -0.92,
+   "passed": false,
+   "settings_tried": 91
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 239,
+   "learn_E": 0.0763,
+   "learn_t": 0.57,
+   "check_n": 92,
+   "check_E": -0.0514,
+   "check_t": -0.25,
+   "passed": false,
+   "settings_tried": 112
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "mid50",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 153,
+   "learn_E": -0.1148,
+   "learn_t": -0.88,
+   "check_n": 76,
+   "check_E": 0.1057,
+   "check_t": 0.53,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "1R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 135,
+   "learn_E": 0.127,
+   "learn_t": 1.67,
+   "check_n": 50,
+   "check_E": -0.3193,
+   "check_t": -3.0,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M5",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M5",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "ema",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 101,
+   "learn_E": -0.2225,
+   "learn_t": -2.78,
+   "check_n": 66,
+   "check_E": -0.1966,
+   "check_t": -2.79,
+   "passed": false,
+   "settings_tried": 1
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M15",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "XAGUSD",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M5",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "mid50",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 254,
+   "learn_E": 0.0079,
+   "learn_t": 0.07,
+   "check_n": 74,
+   "check_E": -0.0812,
+   "check_t": -0.41,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "trail1",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 271,
+   "learn_E": -0.0114,
+   "learn_t": -0.2,
+   "check_n": 96,
+   "check_E": 0.2021,
+   "check_t": 2.11,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "trail2",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 486,
+   "learn_E": -0.1101,
+   "learn_t": -2.01,
+   "check_n": 161,
+   "check_E": -0.0887,
+   "check_t": -0.82,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M15",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "mid50",
+    "exit": "trail2",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 112,
+   "learn_E": 0.076,
+   "learn_t": 0.47,
+   "check_n": 27,
+   "check_E": -0.2501,
+   "check_t": -1.04,
+   "passed": false,
+   "settings_tried": 119
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "close",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 144,
+   "learn_E": 0.0089,
+   "learn_t": 0.08,
+   "check_n": 52,
+   "check_E": 0.1507,
+   "check_t": 0.82,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURUSD",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M5",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "mid50",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 137,
+   "learn_E": -0.0149,
+   "learn_t": -0.09,
+   "check_n": 61,
+   "check_E": -0.3448,
+   "check_t": -1.58,
+   "passed": false,
+   "settings_tried": 112
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "mid50",
+    "exit": "ema",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 167,
+   "learn_E": -0.0872,
+   "learn_t": -0.6,
+   "check_n": 62,
+   "check_E": -0.1614,
+   "check_t": -0.82,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "mid50",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 278,
+   "learn_E": -0.1249,
+   "learn_t": -1.37,
+   "check_n": 79,
+   "check_E": -0.2454,
+   "check_t": -1.64,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M15",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "mid50",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 111,
+   "learn_E": -0.0584,
+   "learn_t": -0.31,
+   "check_n": 28,
+   "check_E": -0.2888,
+   "check_t": -0.86,
+   "passed": false,
+   "settings_tried": 113
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "close",
+    "exit": "1R",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 148,
+   "learn_E": 0.0558,
+   "learn_t": 0.75,
+   "check_n": 43,
+   "check_E": -0.2523,
+   "check_t": -1.78,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GBPUSD",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M5",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 385,
+   "learn_E": -0.009,
+   "learn_t": -0.1,
+   "check_n": 126,
+   "check_E": 0.0052,
+   "check_t": 0.03,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 241,
+   "learn_E": 0.0179,
+   "learn_t": 0.2,
+   "check_n": 76,
+   "check_E": 0.0479,
+   "check_t": 0.29,
+   "passed": false,
+   "settings_tried": 119
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 417,
+   "learn_E": 0.0281,
+   "learn_t": 0.33,
+   "check_n": 145,
+   "check_E": 0.0305,
+   "check_t": 0.23,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M15",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 134,
+   "learn_E": 0.0367,
+   "learn_t": 0.21,
+   "check_n": 59,
+   "check_E": 0.0464,
+   "check_t": 0.18,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 141,
+   "learn_E": 0.0727,
+   "learn_t": 0.76,
+   "check_n": 35,
+   "check_E": 0.0757,
+   "check_t": 0.44,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "USDJPY",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M5",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "mid50",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 148,
+   "learn_E": -0.0588,
+   "learn_t": -0.37,
+   "check_n": 44,
+   "check_E": 0.0227,
+   "check_t": 0.07,
+   "passed": false,
+   "settings_tried": 91
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 216,
+   "learn_E": -0.0018,
+   "learn_t": -0.02,
+   "check_n": 92,
+   "check_E": -0.1268,
+   "check_t": -0.74,
+   "passed": false,
+   "settings_tried": 119
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "mid50",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 232,
+   "learn_E": -0.1933,
+   "learn_t": -2.02,
+   "check_n": 74,
+   "check_E": 0.1086,
+   "check_t": 0.54,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M15",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 172,
+   "learn_E": -0.0413,
+   "learn_t": -0.39,
+   "check_n": 52,
+   "check_E": -0.2901,
+   "check_t": -1.59,
+   "passed": false,
+   "settings_tried": 97
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 139,
+   "learn_E": -0.0263,
+   "learn_t": -0.32,
+   "check_n": 57,
+   "check_E": -0.1295,
+   "check_t": -0.9,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "EURGBP",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "M5",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 129,
+   "learn_E": 0.0094,
+   "learn_t": 0.05,
+   "check_n": 67,
+   "check_E": 0.0352,
+   "check_t": 0.15,
+   "passed": false,
+   "settings_tried": 56
+  },
+  {
+   "market": "WTI",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "mid50",
+    "exit": "ema",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 110,
+   "learn_E": 0.1668,
+   "learn_t": 0.68,
+   "check_n": 63,
+   "check_E": -0.2597,
+   "check_t": -2.77,
+   "passed": false,
+   "settings_tried": 98
+  },
+  {
+   "market": "WTI",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 102,
+   "learn_E": 0.053,
+   "learn_t": 0.45,
+   "check_n": 33,
+   "check_E": -0.0185,
+   "check_t": -0.13,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "WTI",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "WTI",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M5",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M5",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 191,
+   "learn_E": 0.0924,
+   "learn_t": 0.97,
+   "check_n": 126,
+   "check_E": 0.1028,
+   "check_t": 0.83,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "US500",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M15",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "US500",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "M5",
+   "session": "Asia",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "close",
+    "exit": "ema",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 100,
+   "learn_E": -0.0979,
+   "learn_t": -0.55,
+   "check_n": 117,
+   "check_E": 0.0887,
+   "check_t": 0.59,
+   "passed": false,
+   "settings_tried": 58
+  },
+  {
+   "market": "NAS100",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "close",
+    "exit": "3R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 132,
+   "learn_E": 0.1815,
+   "learn_t": 1.14,
+   "check_n": 98,
+   "check_E": -0.3878,
+   "check_t": -2.65,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "NAS100",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 332,
+   "learn_E": 0.0604,
+   "learn_t": 0.81,
+   "check_n": 117,
+   "check_E": -0.0264,
+   "check_t": -0.22,
+   "passed": false,
+   "settings_tried": 119
+  },
+  {
+   "market": "NAS100",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "trail2",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 112,
+   "learn_E": -0.0158,
+   "learn_t": -0.2,
+   "check_n": 37,
+   "check_E": 0.0078,
+   "check_t": 0.06,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "NAS100",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "NAS100",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "M5",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.0,
+    "entry": "close",
+    "exit": "2R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 188,
+   "learn_E": 0.2261,
+   "learn_t": 2.08,
+   "check_n": 76,
+   "check_E": -0.3744,
+   "check_t": -2.67,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "GER40",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "1R",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 338,
+   "learn_E": -0.0205,
+   "learn_t": -0.35,
+   "check_n": 104,
+   "check_E": 0.0226,
+   "check_t": 0.23,
+   "passed": false,
+   "settings_tried": 126
+  },
+  {
+   "market": "GER40",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "1R",
+    "grade": "AB",
+    "stop": "c34"
+   },
+   "learn_n": 113,
+   "learn_E": -0.0898,
+   "learn_t": -0.78,
+   "check_n": 24,
+   "check_E": -0.1742,
+   "check_t": -0.91,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "GER40",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "GER40",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "M5",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "M5",
+   "session": "London",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "c4"
+   },
+   "learn_n": 159,
+   "learn_E": -0.0436,
+   "learn_t": -0.29,
+   "check_n": 75,
+   "check_E": -0.0922,
+   "check_t": -0.43,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "UK100",
+   "tf": "M5",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.25,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 266,
+   "learn_E": -0.0145,
+   "learn_t": -0.13,
+   "check_n": 124,
+   "check_E": -0.1182,
+   "check_t": -0.84,
+   "passed": false,
+   "settings_tried": 92
+  },
+  {
+   "market": "UK100",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "M15",
+   "session": "NewYork",
+   "setting": {
+    "buffer": 0.5,
+    "entry": "close",
+    "exit": "4R",
+    "grade": "AB",
+    "stop": "all4"
+   },
+   "learn_n": 104,
+   "learn_E": -0.1063,
+   "learn_t": -0.9,
+   "check_n": 37,
+   "check_E": -0.0647,
+   "check_t": -0.29,
+   "passed": false,
+   "settings_tried": 63
+  },
+  {
+   "market": "UK100",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "UK100",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M5",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M5",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M5",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M15",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M15",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M15",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M30",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M30",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "M30",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "H1",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "H1",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "H1",
+   "session": "NewYork",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "H4",
+   "session": "Asia",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "H4",
+   "session": "London",
+   "learn": null
+  },
+  {
+   "market": "JP225",
+   "tf": "H4",
+   "session": "NewYork",
+   "learn": null
+  }
+ ]
+}

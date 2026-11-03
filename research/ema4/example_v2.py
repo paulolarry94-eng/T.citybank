@@ -22,6 +22,7 @@ UTC1 = dt.timezone(dt.timedelta(hours=1))
 VER = sys.argv[1] if len(sys.argv) > 1 else "v2"
 S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", f"ema4_flip_{VER}.py"))
 FRESH = VER != "v2"
+CLEAR = 0.1 if VER == "v4" else 0.0
 if VER != "v2":
     OUT = os.path.join(ROOT, "research", "results", "ema4", f"{VER}_examples")
 
@@ -67,14 +68,14 @@ def draw(B, E, Pt, j, path, note):
 def main():
     os.makedirs(OUT, exist_ok=True)
     M = P.market("EURUSD", S); B = M.bars("M5"); E = scanner.ema(B["c"])
-    Pt = scanner.detect(B["o"], B["h"], B["l"], B["c"], engulf="extreme", fresh=FRESH)
+    Pt = scanner.detect(B["o"], B["h"], B["l"], B["c"], engulf="extreme", fresh=FRESH, clear=CLEAR)
     t4 = int(dt.datetime(2014, 8, 20, 6, 35, tzinfo=dt.timezone.utc).timestamp())
     j = int(np.flatnonzero((B["t"][Pt["i4"]] == t4) & (Pt["side"] == 1))[0])
     draw(B, E, Pt, j, os.path.join(OUT, "ex1_EURUSD_2014-08-20_owner.png"), "EURUSD M5 (owner's chart)")
     rng = np.random.default_rng(11)
-    for n, (sym, want) in enumerate((("XAUUSD", -1), ("GBPUSD", 1)) if VER == "v2" else (("XAUUSD", -1), ("GBPUSD", 1), ("EURUSD", -1), ("USDJPY", 1)), 2):
+    for n, (sym, want) in enumerate((("XAUUSD", -1), ("GBPUSD", 1)) if VER == "v2" else (("XAUUSD", -1), ("GBPUSD", 1), ("EURUSD", -1), ("USDJPY", 1)) + ((("US500", -1), ("GBPUSD", -1)) if VER == "v4" else ()), 2):
         M = P.market(sym, S); B = M.bars("M5"); E = scanner.ema(B["c"])
-        Pt = scanner.detect(B["o"], B["h"], B["l"], B["c"], engulf="extreme", fresh=FRESH)
+        Pt = scanner.detect(B["o"], B["h"], B["l"], B["c"], engulf="extreme", fresh=FRESH, clear=CLEAR)
         g_want = (Pt["grade"] == 2) if (VER != "v2" and n % 2 == 0) else (Pt["grade"] > 0)
         ok = np.flatnonzero(g_want & (Pt["side"] == want) & (B["t"][Pt["i4"]] < P.core.CUT))
         j = int(rng.choice(ok)); draw(B, E, Pt, j, os.path.join(OUT, f"ex{n}_{sym}_random.png"), f"{sym} M5 (random)")
