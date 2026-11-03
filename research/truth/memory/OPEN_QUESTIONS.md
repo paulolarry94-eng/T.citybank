@@ -102,6 +102,9 @@ pension flows); the pre-FOMC drift in US500 (documented, weaker after 2015); Jap
 Priors: London 4 pm fix reversal real but only half a cost; month-end 1.4-1.9 costs but 12 trades a year (Hunt 2). Data:
 USDJPY, US500, GER40 M1 in data/. FAMILY: calendar, flow, fix, seasonal.
 
+Update 2026-11-03 (last push): month-end FX hedge rebalancing at the 4 pm fix (direction from US vs foreign month-to-date equity
+returns) TESTED: real in 2011-19, reversed in 2020-22, flat in 2023-25; rejected (research/results/flows/MONTHEND_HEDGE.md).
+
 ### Q11 Gold's cost is now the lowest it has ever been relative to its movement
 Commission is fixed in dollars per ounce while gold doubled: a 5-minute stop's cost fell from 10-17% of R (2011-22) to 6%
 (2025) (`research/results/sop/leg34_diag.json`). Hypotheses that died on costs could be re-scored at today's relative cost,

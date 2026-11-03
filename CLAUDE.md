@@ -1,5 +1,7 @@
 # T.citybank — project memory for Claude
 
+**New session? Read `START_HERE.md` first (status, best/worst results in cycle units, what the goal needs).**
+
 Owner goal: a systematic MT5 portfolio (Exness Zero account) with fortnightly payouts; aspiration 60–120% a
 year. The job is to find out what is TRUE, not what looks impressive in a backtest.
 
@@ -43,7 +45,7 @@ Learning rules:
 3. Before ending a session that produced results: append a JOURNAL entry, update OPEN_QUESTIONS and
    PRINCIPLES if evidence changed them, run `--render`, commit and push.
 
-## What is known (2026-10-31, details in `research/CONCLUSION.md`)
+## What is known (updated 2026-11-03; details in `research/CONCLUSION.md` and `START_HERE.md`)
 - Survivors: **TimelessCity v2.42** (`mt5/TimelessCity.mq5` + presets: gold dip reversion S1, USDJPY trend S2,
   gold trend S3); the **11-leg book** (`research/results/book_v3.json`, Tier B forward-test candidate);
   **futures trend + carry** (works only on real futures, not CFDs).
@@ -121,6 +123,9 @@ Learning rules:
 - Final (2026-11-03): best of ~6,200 four-candle settings (v1 H4, close entry, 2R) + H4 50-EMA trend filter, one logged look:
   2023-25 -0.033R (86 trades; -0.122R without the filter), Jan-Oct 2026 negative. FAILS. Family closed:
   `research/results/final/FINAL.md`. 164 tests pass.
+- Last push (2026-11-03): month-end FX hedge rebalancing at the 4 pm fix (payer + known direction from US vs foreign equity
+  returns), REJECTED: real in 2011-19 (+0.10R, beat its control), reversed 2020-22, flat on the 2023-25 look; P22 updated
+  (published flows get competed away). `research/results/flows/MONTHEND_HEDGE.md`.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

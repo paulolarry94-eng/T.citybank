@@ -243,6 +243,12 @@ reversal was positive before costs in 2011-19 (t about 2) but swaps took it, and
 Widely known flows get front-run or netted; the payer must be large relative to liquidity, and the edge must exceed
 costs and swaps in more than one era. Evidence: research/results/batch01/.
 
+Evidence (2026-11-03, month-end FX hedge rebalancing at the 4 pm fix, a payer WITH a known direction): real in 2011-19 (all
+settings positive, beat a mid-month control by ~0.1R, t up to 3.05), reversed in 2020-22 (t -3 to -4) and flat in 2023-25. A
+payer and a known direction are necessary, not sufficient: a flow that has been published can be traded ahead of until it
+disappears. Prefer flows that are hard to front-run (small, local, operationally forced, e.g. the Tokyo gotobi fix).
+research/results/flows/MONTHEND_HEDGE.md.
+
 ### P23 A daily backtest across markets must trade one day after the signal
 Markets close at different hours (Hang Seng and Nikkei before Europe, Europe before the US) and holidays leave stale prices.
 A rule that decides at "today's close" from all markets and earns each market's next close-to-close return is using

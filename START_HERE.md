@@ -40,6 +40,7 @@ carry (Sharpe 0.50 2011-24, works only on real futures, not CFDs).
 | Idea | Tried | Result |
 |---|---|---|
 | Owner's 4-flip EMA / four-candle price action (v1-v4, no-EMA, best + trend filter) | about 6,200 settings | best of all lost -0.03R to -0.12R a trade on unseen 2023-25; family closed (`research/results/final/FINAL.md`) |
+| Month-end FX hedge rebalancing at the 4 pm fix (last push, payer + known direction) | 6 | real in 2011-19 (+0.10R, s 0.12), reversed 2020-22 (s -0.41), flat on unseen 2023-25 (-0.03R); competed away after publication (`research/results/flows/MONTHEND_HEDGE.md`) |
 | Owner's 3:30 EMA retest (incl. 1:1 stop grid) | 64 | -0.16 to -0.22R a trade, edge quality -0.18 to -0.08 (`research/results/owner330/RESULT.md`) |
 | Chart-pattern families (ORB, FVG, supply/demand, Quasimodo, SnR, engulfing, ~1,400 liquidity grabs, Leg 34) | ~250,000 | about 0 before costs, negative after (P1, P14) |
 | Third-party bots (Gold Hunter grid, Dark Mimas) | replayed | lose on equity; grids hide open losses (P15) |
@@ -48,7 +49,7 @@ Common causes: no raw edge before costs on 5-minute to 1-hour shapes; costs of 0
 not carrying forward (P10, P11).
 
 ## 5. Where we are
-- **About 100 ideas and 316,000 configurations tested; 6 survivors**, all with edge quality 0.02-0.13. In cycle units the best
+- **About 100 ideas and 316,000 configurations tested; 6 survivors** (last push 2026-11-03: one more payer flow, rejected), all with edge quality 0.02-0.13. In cycle units the best
   realistic portfolio makes about **+0.1% per 10-trade cycle**, i.e. a few % a year inside a 3.6% drawdown, against the goal
   of +2% per cycle. The 2026 forward check of the book was about flat.
 - Built and waiting: TimelessCity EA (compiled by the owner earlier), uncompiled MQL5 for the SEESARE router (`mt5/Seesare/`),
@@ -57,7 +58,8 @@ not carrying forward (P10, P11).
 ## 6. What the goal needs (and what to do next)
 1. **A stronger edge, not more patterns.** s about 0.42 per trade, or many independent edges at once (the book at s 0.06 would
    need about 530 independent trades per cycle). Shapes on price charts have not delivered; **flows with a payer** have
-   (Tokyo fix, P22): hunt forced, scheduled order flows (fixings, rebalances, expiries) with a known direction (Q10, Q19, Q23).
+   (Tokyo fix, P22): hunt forced, scheduled order flows with a known direction (Q10, Q19, Q23) that are hard to front-run
+   (small, local, operationally forced). Well-published flows fade: the month-end hedge flow worked 2011-19, then reversed.
 2. **Or relax the cycle**: a cycle defined in time (fortnightly) instead of 10 trades, or a wider drawdown (8% needs s 0.28).
 3. **Forward evidence before money**: compile and parity-check the EAs (Q22, needs the owner's OK to run the MT5 installer
    here), 3-6 months of demo with the weekly report, confirm RoboForex/Exness costs and swap-free status (Q1).

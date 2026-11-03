@@ -635,3 +635,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** the 2026 samples are tiny (6-7 trades); the 2023-25 sample is 86-117 trades.
 - **Next:** this family is closed. What has held up: the Tokyo fix (payer flow) and the 11-leg book; search flows with a
   payer, not shapes (P22).
+
+## 2026-11-03 (11) · owner: last push - "look for flows that have a payer ... run final test", then wrap up and hand over
+- **Done:** chose the one untested payer flow with a known direction testable here (month-end FX hedge rebalancing into the
+  London 4 pm fix; direction from US vs foreign month-to-date equity returns; Melvin & Prins 2015), pre-registered before
+  results, lab run (2 of 6 passed the gate; one logged 2023-25 look), control (10th business day). Handover: `START_HERE.md`
+  (resume in 3 commands; best and worst results in cycle units; what the goal needs); CLAUDE.md points to it; 164+ tests pass.
+- **Learned:** REJECTED. Real in 2011-19 (all settings positive, beat control, t up to 3), reversed in 2020-22 (t -3 to -4),
+  flat on unseen 2023-25 (-0.03R). P22 updated: published payer flows get competed away.
+- **Where we are (cycle units):** best realistic edges s 0.06-0.13 -> about +0.1-0.2% per 10-trade cycle inside a 3.6%
+  lifecycle drawdown; the goal (+2%) needs s about 0.42 or many independent edges. Book forward 2026 about flat.
+- **Next:** see START_HERE.md section 6 (stronger or hard-to-front-run flows, relaxed cycle definition, forward evidence via
+  demo; Q1, Q22, Q25, Q26).

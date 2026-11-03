@@ -1,0 +1,797 @@
+{
+ "name": "monthend_hedge_fix_v1",
+ "hypothesis": "Month-end currency-hedge rebalancing at the London 4 pm fix moves the dollar against the month's relative US-vs-foreign equity performance, by more than RoboForex Prime's cost.",
+ "fingerprint": "92ff62b6b5bdc552fac0c87610bb01fb8b5782d75fb2065a4cbef496745f33c7",
+ "started": "2026-11-03 08:55:08 UTC",
+ "markets": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY"
+ ],
+ "timeframes": [
+  "M5"
+ ],
+ "params": {
+  "entry": [
+   "1200",
+   "1400",
+   "1500"
+  ],
+  "filter": [
+   "all",
+   "strong"
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 60,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "tom_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "opex_week_indices_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel futures v2: 16 awesome-list cross-asset strategies (pysystemtrade futures, one-day execution lag)",
+   "verdict": "Rejected except time-series momentum (confirms the futures trend family) and four weak futures-only passes"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Tokyo fix payoff shape and declared-bracket study",
+   "verdict": "Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection."
+  },
+  {
+   "name": "SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules)",
+   "verdict": "Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R."
+  },
+  {
+   "name": "SEESARE time-exit ascension study (Tokyo fix, cent account)",
+   "verdict": "Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3."
+  },
+  {
+   "name": "Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00",
+   "verdict": "Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen."
+  },
+  {
+   "name": "Q21 diagnostic: tick-volume surge on opening-range breakouts vs range expansion and direction",
+   "verdict": "Study: activity predicts a little more movement in both directions, not direction. USDJPY 2011-25 (9,252 breakouts, Tokyo/London/New York): rank correlation with 60-min range expansion +0.05 / +0.07, with follow-through +0.001 / -0.008; top-quintile follow-through +0.0135 ATR_D in 2011-19 (t 2.4 of 5 quintiles) and +0.006 (t 0.8) in 2020-25, below the 0.0187 ATR_D round-trip cost. GER40 2020-25 (2,396): expansion +0.19, follow-through -0.009. Only USDJPY (all years) and GER40 (2020+) have tick volume in our data."
+  },
+  {
+   "name": "ecb_fix_eurusd_v1",
+   "verdict": "Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for."
+  },
+  {
+   "name": "Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard)",
+   "verdict": "Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened."
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule)",
+   "verdict": "Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened."
+  },
+  {
+   "name": "ssr_sweep_shift_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "owner330_ema_retest_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "us_close_flow_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "monthend_rebalance_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner 3:30 replay: scanner vs the owner's ten example days (Oct 2026)",
+   "verdict": "Implementation check passed: 9 of 10 days match the owner's call (references within one M5 candle, entry and stop within cents / 0.4 pip). Miss: EURGBP 27 Oct, the owner's reference closed exactly on the M5 EMA in our data (sub-pip feed difference). Led to two changes before any backtest: the HistData clock fix and 'within the range' = the reference candle touches the range. Not evidence of an edge (P18)."
+  },
+  {
+   "name": "Owner 3:30 follow-up: cycle league, 2-hour control, 2026 on two feeds, season split, audit charts",
+   "verdict": "Rejected for 2011-22; 2026 is an open lead. Cycles (12 markets, 2011-19): edge quality -0.18 to -0.08 (needed +0.42), an average 10-trade cycle -1.4R to -1.8R, 22-37% of cycles positive, every 360-trade lifecycle negative (best config: -10R to -116R). Before costs about 0 (-0.03 to +0.02R); costs 0.17R a trade (one-candle stop). Control (2 h later) lost more in 2011-19 (diff +0.08R, t up to 2.9) but not in 2020-22 (t about 0). 2026 Jan-Oct, 5 markets: 15:30 WAT anchor 23/24 configs positive (median +0.17R) on Exness data and 24/24 (+0.19R) on HistData; 9:30 NY 0/24. All of it in US summer time (15:30 WAT = 10:30 NY): A 3R +0.23R (73 trades, t 1.1), B3 3R +0.42R (65, t 1.8), while the same timing was the worst in 2011-22 (-0.27R, 1,106 trades, t -6.2; every year negative). Owner chose this timing in 2026 (selection). Even at face value s 0.13-0.23 < 0.42."
+  },
+  {
+   "name": "Batch 01 re-run on clock-fixed HistData (US close flow, month-end rebalancing)",
+   "verdict": "Verdicts unchanged (both rejected at the gate). US close flow 2011-19 net -0.029 to -0.036R, before costs +0.006 to +0.014R; the one 2020-22 slice that looked positive before (prev close 15:30: +0.031R, t 2.1) was a clock artifact (now -0.011R). Month-end barely moved (2011-19 before costs +0.04 to +0.17R, 2020-22 negative even before costs)."
+  },
+  {
+   "name": "owner330_ema_retest_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner 3:30 v2 win-rate study: 1:1 with stop placement grid (pullback touch)",
+   "verdict": "Rejected. 2011-19 win rate 40-46% vs 56-59% needed after costs at 1:1 (net -0.08 to -0.19R; t -4 to -10); 2020-22 41-45%, negative; Jan-Oct 2026 (owner's period, 5 markets) negative for all 16 on both feeds (best -0.005R, 50% wins). Wider stops cut wick-outs (52% -> 23% of stopped trades later reached the target) and cost share (0.17 -> 0.12R) but raise the win rate only 40 -> 46%; before costs at most +0.04R. Best setting (pullback extreme + 0.5 ATR) at the grid edge. Only GER40 positive (1 of 12, hindsight)."
+  },
+  {
+   "name": "ema4_flip_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "ema4_flip_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "4-flip EMA: where/when search, profile, rejected-pattern control, replay",
+   "verdict": "Rejected. Replay 5 of 7 owner calls (misses are sub-pip feed differences). Before costs about 0 on M5-H1 (-0.04 to +0.04R), costs 0.06-0.16R; only H4 positive (A+ +0.14R, A+B+ +0.11R in 2011-19, t 1.7-1.9, 106-282 trades; 2020-22 about 0). Where/when: 0 of 69 cells t >= 3 in 2011-19 (best t 2.4), 0 pass. Control: graded beat rejected four-flips in 2011-19 (H4 +0.14R) but not in 2020-22 (H4 -0.10R). Close entry beat the 50% limit. Best edge quality 0.18 (H4 A+), -0.09 in 2020-22."
+  },
+  {
+   "name": "ema4_flip_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ema4_flip_v3",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ema4_flip_v4",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "pa4_engulf_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ema4_final_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 6,
+  "passed_gate": 2,
+  "share_dev_positive": 1.0,
+  "median_dev_E": 0.1139747860585176,
+  "share_dev_and_val_positive": 0.16666666666666666
+ },
+ "selection": {
+  "candidate": {
+   "tf": "M5",
+   "entry": "1400",
+   "filter": "all",
+   "tgt": 0.0,
+   "trail": 0.0,
+   "bias": 0
+  },
+  "stats": {
+   "dev_n": 315,
+   "dev_E": 0.09614794890034667,
+   "dev_t": 2.0725719279434243,
+   "dev_Es": 0.08674164676215905,
+   "dev_fin": 0.0,
+   "dev_nL": 172,
+   "dev_EL": 0.12488177363592116,
+   "dev_nS": 143,
+   "dev_ES": 0.061586984882732586,
+   "e1_n": 173,
+   "e1_E": 0.1157337310399617,
+   "e1_t": 1.8630947045120463,
+   "e1_Es": 0.10652783657334475,
+   "e1_fin": 0.0,
+   "e1_nL": 98,
+   "e1_EL": 0.09894220623160438,
+   "e1_nS": 75,
+   "e1_ES": 0.1376746567895486,
+   "e2_n": 142,
+   "e2_E": 0.07228639742039315,
+   "e2_t": 1.0373927459516064,
+   "e2_Es": 0.06263593664008071,
+   "e2_fin": 0.0,
+   "e2_nL": 74,
+   "e2_EL": 0.15923417371190826,
+   "e2_nS": 68,
+   "e2_ES": -0.022333241485079175,
+   "val_n": 103,
+   "val_E": -0.3192076361541583,
+   "val_t": -4.16563475509482,
+   "val_Es": -0.32884559996843615,
+   "val_fin": 0.0,
+   "val_nL": 53,
+   "val_EL": -0.2492581344840901,
+   "val_nS": 50,
+   "val_ES": -0.39335410792443054,
+   "devE_EURUSD": 0.03380212479404272,
+   "devE_GBPUSD": 0.07877178629283406,
+   "devE_USDJPY": 0.18060589522092457,
+   "mk_pos": 3
+  },
+  "neighbours": [
+   {
+    "param": "entry",
+    "value": "1200",
+    "dev_E": 0.11480629941123917,
+    "dev_t": 1.9765396424622768,
+    "dev_n": 315
+   },
+   {
+    "param": "entry",
+    "value": "1500",
+    "dev_E": 0.05479776421236705,
+    "dev_t": 1.4261689710127674,
+    "dev_n": 315
+   },
+   {
+    "param": "filter",
+    "value": "strong",
+    "dev_E": 0.12242548106126393,
+    "dev_t": 1.8691087082335176,
+    "dev_n": 150
+   }
+  ],
+  "neighbours_all_pos": true,
+  "neighbours_median_t": 1.8691087082335176,
+  "walk_forward": {
+   "E": -0.18269998139487043,
+   "n": 138,
+   "picks": [
+    {
+     "year": 2014,
+     "pick": [
+      "M5",
+      "1200",
+      "all",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 35,
+     "E": -0.09028242544636433
+    },
+    {
+     "year": 2015,
+     "pick": null
+    },
+    {
+     "year": 2016,
+     "pick": [
+      "M5",
+      "1400",
+      "all",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 36,
+     "E": -0.17926728340052842
+    },
+    {
+     "year": 2017,
+     "pick": null
+    },
+    {
+     "year": 2018,
+     "pick": null
+    },
+    {
+     "year": 2019,
+     "pick": null
+    },
+    {
+     "year": 2020,
+     "pick": [
+      "M5",
+      "1400",
+      "all",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 35,
+     "E": -0.0723042883919877
+    },
+    {
+     "year": 2021,
+     "pick": [
+      "M5",
+      "1500",
+      "all",
+      "0.0",
+      "0.0",
+      "0"
+     ],
+     "n": 32,
+     "E": -0.4083887576790867
+    },
+    {
+     "year": 2022,
+     "pick": null
+    }
+   ]
+  }
+ },
+ "confirmation": {
+  "dev": {
+   "n": 315,
+   "E": 0.09614794890034667,
+   "t": 2.069279516130026,
+   "PF": 1.3315248689186698,
+   "win": 0.526984126984127
+  },
+  "val": {
+   "n": 103,
+   "E": -0.3192076361541583,
+   "t": -4.145363906064215,
+   "PF": 0.39659786017091836,
+   "win": 0.33980582524271846
+  },
+  "stress_dev_val": {
+   "n": 418,
+   "E": -0.013763210961010767,
+   "t": -0.33293064981512177,
+   "PF": 0.9611917027053039,
+   "win": 0.47129186602870815
+  },
+  "dsr": {
+   "sr_trade": 0.11659069248532383,
+   "sr0": 0.05799854052554515,
+   "dsr": 0.8567716387396496,
+   "n_trials": 6,
+   "T": 315
+  }
+ },
+ "cycle_goal": {
+  "2011-19": {
+   "trades": 315,
+   "mean_R": 0.0961,
+   "sd_R": 0.8247,
+   "s": 0.1166,
+   "win_rate": 0.527,
+   "trades_to_prove_t3": 663,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.211,
+    "5": 0.293,
+    "6": 0.352,
+    "8": 0.469
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.2144,
+    "5": 0.2977,
+    "6": 0.3573,
+    "8": 0.4764
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 2.08,
+     "dd95_pct": 34.9
+    },
+    "3": {
+     "risk_pct": 3.12,
+     "dd95_pct": 52.4
+    },
+    "4": {
+     "risk_pct": 4.16,
+     "dd95_pct": 69.9
+    },
+    "5": {
+     "risk_pct": 5.2,
+     "dd95_pct": 87.3
+    },
+    "6": {
+     "risk_pct": 6.24,
+     "dd95_pct": 104.8
+    },
+    "7": {
+     "risk_pct": 7.28,
+     "dd95_pct": 122.3
+    }
+   },
+   "sequence": {
+    "risk_pct": 0.2144,
+    "trades_per_year": 35.6,
+    "cycles_per_year": 3.56,
+    "months_per_lifecycle": 121.2,
+    "cycles": 31,
+    "cycles_positive": 0.613,
+    "cycle_median_pct": 0.207,
+    "cycle_mean_pct": 0.199,
+    "cycle_worst_pct": -1.214,
+    "cycle_best_pct": 2.075,
+    "lifecycles": 0,
+    "lifecycle_returns_pct": [],
+    "lifecycle_dd_pct": [],
+    "lifecycle_worst_dd_pct": 0.0
+   },
+   "gap_2pct_at_3.6": 3.6,
+   "meets": []
+  },
+  "2020-22": {
+   "trades": 103,
+   "mean_R": -0.3192,
+   "sd_R": 0.7815,
+   "s": -0.4085,
+   "win_rate": 0.34,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.082,
+    "5": -0.114,
+    "6": -0.137,
+    "8": -0.183
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.024,
+    "5": 0.0333,
+    "6": 0.04,
+    "8": 0.0533
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.024,
+    "trades_per_year": 35.4,
+    "cycles_per_year": 3.54,
+    "months_per_lifecycle": 122.2,
+    "cycles": 10,
+    "cycles_positive": 0.2,
+    "cycle_median_pct": -0.072,
+    "cycle_mean_pct": -0.072,
+    "cycle_worst_pct": -0.158,
+    "cycle_best_pct": 0.059,
+    "lifecycles": 0,
+    "lifecycle_returns_pct": [],
+    "lifecycle_dd_pct": [],
+    "lifecycle_worst_dd_pct": 0.0
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": []
+  },
+  "2023-25": {
+   "trades": 106,
+   "mean_R": -0.0317,
+   "sd_R": 0.6344,
+   "s": -0.05,
+   "win_rate": 0.462,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.028,
+    "5": -0.039,
+    "6": -0.047,
+    "8": -0.062
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.1254,
+    "5": 0.1741,
+    "6": 0.209,
+    "8": 0.2786
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.1254,
+    "trades_per_year": 36.4,
+    "cycles_per_year": 3.64,
+    "months_per_lifecycle": 118.8,
+    "cycles": 10,
+    "cycles_positive": 0.3,
+    "cycle_median_pct": -0.01,
+    "cycle_mean_pct": -0.043,
+    "cycle_worst_pct": -0.426,
+    "cycle_best_pct": 0.34,
+    "lifecycles": 0,
+    "lifecycle_returns_pct": [],
+    "lifecycle_dd_pct": [],
+    "lifecycle_worst_dd_pct": 0.0
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": []
+  }
+ },
+ "cost_ladder": {
+  "gross": {
+   "2011-19": {
+    "n": 315,
+    "E": 0.115,
+    "t": 2.47
+   },
+   "2020-22": {
+    "n": 103,
+    "E": -0.2999,
+    "t": -3.9
+   },
+   "2023-25": {
+    "n": 106,
+    "E": -0.0136,
+    "t": -0.22
+   }
+  },
+  "roboforex_prime": {
+   "2011-19": {
+    "n": 315,
+    "E": 0.0961,
+    "t": 2.07
+   },
+   "2020-22": {
+    "n": 103,
+    "E": -0.3192,
+    "t": -4.15
+   },
+   "2023-25": {
+    "n": 106,
+    "E": -0.0317,
+    "t": -0.52
+   }
+  },
+  "exness_zero": {
+   "2011-19": {
+    "n": 315,
+    "E": 0.0844,
+    "t": 1.82
+   },
+   "2020-22": {
+    "n": 103,
+    "E": -0.3304,
+    "t": -4.29
+   },
+   "2023-25": {
+    "n": 106,
+    "E": -0.0417,
+    "t": -0.68
+   }
+  },
+  "lab_standard": {
+   "2011-19": {
+    "n": 315,
+    "E": 0.0745,
+    "t": 1.6
+   },
+   "2020-22": {
+    "n": 103,
+    "E": -0.3415,
+    "t": -4.43
+   },
+   "2023-25": {
+    "n": 106,
+    "E": -0.0534,
+    "t": -0.87
+   }
+  }
+ },
+ "final_look": {
+  "fingerprint": "92ff62b6b5bdc552fac0c87610bb01fb8b5782d75fb2065a4cbef496745f33c7",
+  "config": "{\"bias\": 0, \"entry\": \"1400\", \"filter\": \"all\", \"tf\": \"M5\", \"tgt\": 0.0, \"trail\": 0.0}",
+  "time": "2026-11-03 08:56:13 UTC",
+  "oos": {
+   "n": 106,
+   "E": -0.03174346189319738,
+   "t": -0.5151793679508595,
+   "PF": 0.8802603517986275,
+   "win": 0.46226415094339623
+  },
+  "per_market": {
+   "EURUSD": {
+    "n": 36,
+    "E": 0.10136752942618138,
+    "t": 1.0440186884032665,
+    "PF": 1.5666132104478703,
+    "win": 0.5833333333333334
+   },
+   "GBPUSD": {
+    "n": 36,
+    "E": 0.033939235758271784,
+    "t": 0.3183483231963038,
+    "PF": 1.1393539880133716,
+    "win": 0.5277777777777778
+   },
+   "USDJPY": {
+    "n": 34,
+    "E": -0.24223089727409525,
+    "t": -2.187565201864103,
+    "PF": 0.3612108623370524,
+    "win": 0.2647058823529412
+   }
+  }
+ },
+ "tier": "Rejected",
+ "criteria": {
+  "1_E_pos_dev_val_oos": false,
+  "2_oos_PF110_t2_n100": false,
+  "3_walk_forward_E_pos": false,
+  "4_neighbours_stable": true,
+  "5_stress_dev_val_pos": false,
+  "6_oos_pos_2_markets": true
+ },
+ "low_cost_swap_free": {
+  "dev": {
+   "n": 315,
+   "E": 0.10555425103853427,
+   "t": 2.2714233069517737,
+   "PF": 1.369532629811844,
+   "win": 0.5301587301587302
+  },
+  "val": {
+   "n": 103,
+   "E": -0.3095696723398805,
+   "t": -4.0205724074001425,
+   "PF": 0.40758359209342454,
+   "win": 0.33980582524271846
+  },
+  "2023-25": {
+   "n": 106,
+   "E": -0.022684660164286545,
+   "t": -0.3680303151422979,
+   "PF": 0.9128743349096953,
+   "win": 0.46226415094339623
+  }
+ },
+ "portfolio_fit": {
+  "corr_monthly": 0.011600476107335738,
+  "weights": {
+   "book": 0.408,
+   "cand": 0.592
+  },
+  "book_sharpe": 1.2128619857019274,
+  "cand_sharpe": -0.07471145387158871,
+  "combined_sharpe": 0.8196969061732371,
+  "book_sharpe_2017_on": 1.0349414170517213,
+  "combined_sharpe_2017_on": 0.4585139839071323
+ },
+ "verdict": "Rejected"
+}
