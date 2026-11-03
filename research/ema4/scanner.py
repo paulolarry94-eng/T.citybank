@@ -7,8 +7,9 @@ SELL pattern (BUY is the mirror), four CONSECUTIVE candles, each crossing the 10
   2 breaks back IN below (opens at/above, closes at/below)             "sell"
   3 breaks out above again                                             "buy"
   4 breaks back in below                                               "sell"
-Grade: B+ = the 4th candle CLOSES below the 3rd candle's OPEN (one engulfing);
-       A+ = also the 2nd candle closed below the 1st candle's OPEN (two engulfings).
+Grade (engulf="open", v1): B+ = the 4th candle CLOSES below the 3rd candle's OPEN; A+ = also the 2nd below the 1st's OPEN.
+Grade (engulf="extreme", owner 2026-11-03, full engulfing): B+ = the 4th CLOSES below the 3rd candle's LOW (above its HIGH
+       for buys); A+ = also the 2nd closed below the 1st candle's LOW (above its HIGH).
        Only the 2nd engulfing, or none = rejected (owner's charts of 22 and 26 Oct 2026).
 The EMA is the line drawn on each candle: 10-period EMA of closes including that candle (TradingView ema(close, 10)).
 A candle within `tol` x ATR(14) of the line counts as touching it; a candle needs a body larger than `min_body` x ATR(14)
@@ -42,7 +43,7 @@ def flips(o, c, e, tol=0.0, body=0.0):
     return up, dn
 
 
-def detect(o, h, l, c, e=None, margin=0.0, tol=0.0, min_body=0.0):
+def detect(o, h, l, c, e=None, margin=0.0, tol=0.0, min_body=0.0, engulf="open"):
     """Every pattern. Returns a dict of arrays: i4 (index of the 4th candle), side (-1 sell, +1 buy), grade (2 A+, 1 B+,
     0 rejected: four flips without the 4th engulfing, kept for audits), entry50, hi4, lo4, hi_all, lo_all (the 4 candles)."""
     o, h, l, c = (np.asarray(x, float) for x in (o, h, l, c))
@@ -52,17 +53,21 @@ def detect(o, h, l, c, e=None, margin=0.0, tol=0.0, min_body=0.0):
     n = len(c); i = np.arange(3, n)
     sell = up[i - 3] & dn[i - 2] & up[i - 1] & dn[i]
     buy = dn[i - 3] & up[i - 2] & dn[i - 1] & up[i]
-    out = {k: [] for k in ("i4", "side", "grade", "entry50", "hi4", "lo4", "hi_all", "lo_all", "atr")}
+    out = {k: [] for k in ("i4", "side", "grade", "entry50", "hi4", "lo4", "hi3", "lo3", "hi_all", "lo_all", "atr")}
     for side, m in ((-1, sell), (1, buy)):
         for k in i[m]:
             mg = margin * a[k]
+            if engulf == "open":                     # v1: close beyond the previous candle's OPEN
+                ref3, ref1 = o[k - 1], o[k - 3]
+            else:                                    # owner 2026-11-03: close beyond its full range (low for sells)
+                ref3, ref1 = (l[k - 1], l[k - 3]) if side < 0 else (h[k - 1], h[k - 3])
             if side < 0:
-                e4 = c[k] < o[k - 1] - mg; e2 = c[k - 2] < o[k - 3] - mg
+                e4 = c[k] < ref3 - mg; e2 = c[k - 2] < ref1 - mg
             else:
-                e4 = c[k] > o[k - 1] + mg; e2 = c[k - 2] > o[k - 3] + mg
+                e4 = c[k] > ref3 + mg; e2 = c[k - 2] > ref1 + mg
             grade = 2 if (e4 and e2) else (1 if e4 else 0)
             for kk, v in (("i4", k), ("side", side), ("grade", grade), ("entry50", 0.5 * (h[k] + l[k])), ("hi4", h[k]),
-                          ("lo4", l[k]), ("hi_all", h[k - 3:k + 1].max()), ("lo_all", l[k - 3:k + 1].min()), ("atr", a[k])):
+                          ("lo4", l[k]), ("hi3", h[k - 1]), ("lo3", l[k - 1]), ("hi_all", h[k - 3:k + 1].max()), ("lo_all", l[k - 3:k + 1].min()), ("atr", a[k])):
                 out[kk].append(v)
     srt = np.argsort(np.asarray(out["i4"]), kind="stable")
     return {k: np.asarray(v)[srt] for k, v in out.items()}

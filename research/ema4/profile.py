@@ -15,8 +15,10 @@ sys.path.insert(0, os.path.join(ROOT, "research", "truth"))
 import protocol as P             # noqa: E402
 from grid import year_index      # noqa: E402
 
-S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", "ema4_flip_v1.py"))
-BASE = dict(entry="close", stop="c4", buffer=0.25, target=2)
+NAME = sys.argv[1] if len(sys.argv) > 1 else "ema4_flip_v1"
+S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", f"{NAME}.py"))
+BASE = dict(entry="close", stop="c4", buffer=0.25, target=2) if NAME == "ema4_flip_v1" else dict(entry="close", stop="c4", buffer=0.25, exit="2R")
+SUF = "" if NAME == "ema4_flip_v1" else "_" + NAME.split("_")[-1]
 OUT = os.path.join(ROOT, "research", "results", "ema4")
 
 
@@ -48,7 +50,7 @@ def main():
             a, b = r["2011-19"]["all"], r["2020-22"]["all"]
             print(tf, grade, "2011-19", a, "| 2020-22", b, flush=True)
     os.makedirs(OUT, exist_ok=True)
-    json.dump(dict(note=__doc__, setting=BASE, results=res), open(os.path.join(OUT, "profile.json"), "w"), indent=1)
+    json.dump(dict(note=__doc__, setting=BASE, results=res), open(os.path.join(OUT, f"profile{SUF}.json"), "w"), indent=1)
     f = lambda d, k, fm: fm.format(d[k]) if k in d else "-"
     L = ["# 4-flip pattern: descriptive profile (entry at close, stop 4th candle + 0.25 ATR, 2R; 12 markets)", "",
          "| Timeframe | Grade | 2011-19 trades | Win rate | R/trade | Before costs | Cost/trade | 2020-22 trades | Win rate | R/trade | Before costs |",
@@ -57,7 +59,7 @@ def main():
         a, b = r["2011-19"]["all"], r["2020-22"]["all"]
         L.append(f"| {k.split()[0]} | {'A+' if k.endswith('A') else 'A+ and B+'} | {a['n']} | {f(a, 'win', '{:.0%}')} | {f(a, 'net', '{:+.3f}')} | "
                  f"{f(a, 'gross', '{:+.3f}')} | {f(a, 'cost', '{:.2f}R')} | {b['n']} | {f(b, 'win', '{:.0%}')} | {f(b, 'net', '{:+.3f}')} | {f(b, 'gross', '{:+.3f}')} |")
-    open(os.path.join(OUT, "PROFILE.md"), "w").write("\n".join(L) + "\n")
+    open(os.path.join(OUT, f"PROFILE{SUF}.md"), "w").write("\n".join(L) + "\n")
 
 
 if __name__ == "__main__":

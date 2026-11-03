@@ -51,6 +51,18 @@ class TestScanner(unittest.TestCase):
         self.assertTrue(((P["i4"] == n - 2) & (P["side"] == -1)).any())
         self.assertTrue(((P["i4"] == n - 1) & (P["side"] == 1)).any())
 
+    def test_full_engulf_needs_close_beyond_low(self):
+        # 3rd candle (0.99 -> 1.02) has low 0.98 (wick); 4th closes 0.985: below its open, NOT below its low
+        o = np.r_[[1.0] * 30, 0.98, 1.02, 0.99, 1.02]; c = np.r_[[1.0] * 30, 1.03, 0.99, 1.02, 0.985]
+        h = np.maximum(o, c) + 0.01; l = np.minimum(o, c) - 0.01
+        P1 = S.detect(o, h, l, c, engulf="open"); P2 = S.detect(o, h, l, c, engulf="extreme")
+        k1 = (P1["i4"] == len(o) - 1) & (P1["side"] == -1); k2 = (P2["i4"] == len(o) - 1) & (P2["side"] == -1)
+        self.assertEqual(int(P1["grade"][k1][0]), 1)                # v1: B+ (close below the 3rd open 0.99)
+        self.assertEqual(int(P2["grade"][k2][0]), 0)                # v2: rejected (not below the 3rd low 0.98)
+        c2 = c.copy(); c2[-1] = 0.97; l2 = np.minimum(o, c2) - 0.01
+        P3 = S.detect(o, h, l2, c2, engulf="extreme"); k3 = (P3["i4"] == len(o) - 1) & (P3["side"] == -1)
+        self.assertEqual(int(P3["grade"][k3][0]), 1)                # closes below 0.98: full engulfing B+
+
 
 if __name__ == "__main__":
     unittest.main()

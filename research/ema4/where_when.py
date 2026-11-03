@@ -1,9 +1,9 @@
 """Where and when does the 4-flip pattern work? Pre-registered learn-then-check search (research/ema4/PREREGISTRATION.md).
 
-    python3 research/ema4/where_when.py      # writes research/results/ema4/where_when.json and WHERE_WHEN.md
+    python3 research/ema4/where_when.py [ema4_flip_v2]   # writes research/results/ema4/where_when[_v2].json and WHERE_WHEN[_v2].md
 
 Cells = market x timeframe x session of the 4th candle's close (Asia 23-07, London 07-12, New York 12-20:30 UTC).
-LEARN (2011-19): per cell, the trade setting (entry x stop x buffer x target x grade = 128) with the highest t after costs
+LEARN (2011-19): per cell, the trade setting (every combination of the strategy's GRID: v1 128, v2 252) with the highest t after costs
 among those with >= 100 trades. CHECK (2020-22, untouched by the choice): same setting, mean R > 0 and t >= 2 (>= 30 trades).
 Fills before 2023 only; the 2023-25 holdout is not opened here.
 """
@@ -16,7 +16,9 @@ sys.path.insert(0, os.path.join(ROOT, "research", "truth"))
 import protocol as P             # noqa: E402
 from grid import year_index      # noqa: E402
 
-S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", "ema4_flip_v1.py"))
+NAME = sys.argv[1] if len(sys.argv) > 1 else "ema4_flip_v1"
+S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", f"{NAME}.py"))
+SUF = "" if NAME == "ema4_flip_v1" else "_" + NAME.split("_")[-1]
 SESS = {"Asia": (23, 7), "London": (7, 12), "NewYork": (12, 20.5)}
 OUT = os.path.join(ROOT, "research", "results", "ema4")
 
@@ -70,8 +72,8 @@ def main():
                          passed=bool(t >= 3 and len(v["val"]) >= 30 and v["val"].mean() > 0 and (tv or 0) >= 2),
                          settings_tried=len(cand)))
     os.makedirs(OUT, exist_ok=True)
-    json.dump(dict(note=__doc__, rows=rows), open(os.path.join(OUT, "where_when.json"), "w"), indent=1, default=float)
-    open(os.path.join(OUT, "WHERE_WHEN.md"), "w").write(markdown(rows))
+    json.dump(dict(note=__doc__, rows=rows), open(os.path.join(OUT, f"where_when{SUF}.json"), "w"), indent=1, default=float)
+    open(os.path.join(OUT, f"WHERE_WHEN{SUF}.md"), "w").write(markdown(rows))
 
 
 def markdown(rows):
