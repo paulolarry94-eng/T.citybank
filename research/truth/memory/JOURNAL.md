@@ -635,3 +635,22 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** the 2026 samples are tiny (6-7 trades); the 2023-25 sample is 86-117 trades.
 - **Next:** this family is closed. What has held up: the Tokyo fix (payer flow) and the 11-leg book; search flows with a
   payer, not shapes (P22).
+
+## 2026-11-03 (11) · task: re-run the intraday studies that used HistData markets before the clock fix (Q26)
+- **Done:** re-ran on the clock-fixed data, same code and strategy files: Leg 34 pocket scan, winner anatomy, runner profile
+  (research/hunter5m/), Q21 opening-range diagnostic, and the lab strategies tom_indices_v2, opex_week_indices_v2,
+  oil_equity_v2 (--no-look: they never had a look) and payday_indices_v1 (the lab replays its logged look). Recomputed
+  payday's 2023-25 on fixed data for information (research/q26/payday_holdout_corrected.py; oos_log unchanged). Old vs new
+  from git 76d7dfe by research/q26/compare.py -> research/results/q26/RERUN.md, rerun_compare.json.
+- **Learned:** no verdict changed, nothing new passes. Control: XAUUSD, EURUSD, GBPUSD, USDJPY identical in every study, so
+  the differences are the data fix alone. Pocket scan: same single discovery cell (GBPUSD, unaffected), 0 confirmed;
+  persistence before costs 27% vs 33% (was 34% vs 32%). Anatomy and runner profile: same rule and cut points, pooled
+  other-markets results unchanged (-0.101R, -0.345R). Q21 byte-identical (its GER40 window, 2020-25, is outside the shifted
+  period). Payday weaker in 2011-19 (t 2.11 -> 1.69), 2023-25 about 0 either way (+0.002R fixed vs -0.006R logged).
+- **Decisions:** P3, P17, P21 evidence numbers updated with the old text under History; P29 evidence added; Q26 to Answered;
+  ledger: one Q26 study entry plus re-run notes on the hunter, Q21 and payday entries. No strategy rules changed, no new holdout
+  look opened. No new configurations tried.
+- **Facts vs estimates:** costs for silver, oil and the indices are lab estimates; silver's before-costs mean in the anatomy
+  study is outlier-driven (cost about 1.3R a trade) and not meaningful. Daily studies were not re-run (one-hour day-boundary
+  shift; low priority).
+- **Next:** nothing in Q26 reopens a family. Hunt flows with a payer (P22); daily-study re-runs only if one of them is revived.

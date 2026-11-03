@@ -57,7 +57,7 @@ CLOCK FIX (2026-11-02): HistData's stamps were one hour late in daylight-saving 
 from 2019), although documented as EST without daylight saving. All HistData files (EURGBP, XAGUSD, US500, NAS100, UK100,
 JP225, GER40 to 2020-01-29, WTI to 2023-12-01) corrected in place; tools/histdata_m1.py converts correctly for new downloads.
 Evidence and method: tools/histdata_clock.py, research/results/data/histdata_clock.json, P29. Intraday studies before the fix
-are listed for a re-run in Q26.
+are listed for a re-run in Q26 (done 2026-11-03: no verdict changed, research/results/q26/RERUN.md).
 
 ### Q5 Equity-index RSI(2) mean reversion (watch-list) — TESTED 2026-10-31, see Answered
 +0.41 Sharpe on stock indices in the daily futures data (`research/multiasset/mr_breadth.py`). Needs index
@@ -277,13 +277,14 @@ No-EMA price-action version (2026-11-03, A+ only, entries close / 50% / 4th-cand
 FAMILY:
 ema, engulfing, chop, multi-timeframe, owner-idea.
 
-### Q26 Re-run the intraday studies that used HistData markets before the clock fix (2026-11-02)
+### Q26 Re-run the intraday studies that used HistData markets before the clock fix (2026-11-02) — DONE 2026-11-03, see Answered
 HistData's stamps were one hour late in daylight-saving periods (P29; fixed in the data 2026-11-02). Re-run and compare:
 the Leg 34 pocket scan (research/hunter5m/pocket_scan.py; 11 markets x 6 timeframes x 3 sessions), the winner anatomy and
 runner profile (research/hunter5m/), the Q21 GER40 opening-range diagnostic (research/results/q21/), and the H1 index
 calendar studies (tom_indices_v2, opex_week_indices_v2, oil_equity_v2, payday_indices_v1: multi-day holds, so small effect
 expected). Done already: Batch 01 (verdicts unchanged; the US close 2020-22 'positive' slice was an artifact). Daily studies
 (breadth trend, index RSI2, funnels, ath_trend) shift only the day boundary by an hour: low priority. FAMILY: data, clock.
+Re-run 2026-11-03: no verdict changed, no new survivor (research/results/q26/RERUN.md). Daily studies not re-run (low priority).
 
 ### Q24 Sweep-and-Shift Reversal (owner spec, 2026-11-02) — TESTED, rejected
 XAUUSD + EURUSD, H1 sweep of the 20-bar extreme by 0.5 ATR, reclaim within 3 bars, M15 structure break, fade to the prior
@@ -340,3 +341,11 @@ FAMILY: breakout, orb, liquidity, momentum, intraday, scratch, micro-stop, owner
   not significant, negative under stress, and about zero after costs on NAS100, UK100 and JP225. Rejected at the lab's costs;
   the raw edge (+0.02 to +0.09R) is real but small. Revisit only with measured index commissions on a swap-free account.
   Evidence: research/results/truth/index_rsi2_v1/, index_rsi2_breadth_v1/.
+- **Q26 (2026-11-03):** every intraday study that used HistData markets before the clock fix was re-run on the fixed data with
+  the same code and strategy files: Leg 34 pocket scan (still 1 discovery pass, the same GBPUSD cell, 0 confirmed, 0
+  survivors; persistence before costs 27% vs 33%, was 34% vs 32%), winner anatomy and runner profile (same rule, still
+  rejected; the pooled other-markets rule -0.101R both times), Q21 (byte-identical: GER40 2020-25 is outside the shifted
+  period), tom_indices_v2, opex_week_indices_v2, oil_equity_v2 (still fail the gate), payday_indices_v1 (still rejected; 2011-19
+  t 2.11 -> 1.69; 2023-25 on fixed data +0.002R, t 0.14, vs the logged -0.006R). Control: the four never-affected markets came
+  out identical. Daily studies were not re-run (they only shift the day boundary by an hour). P3, P17, P21 numbers updated,
+  P29 evidence added. Evidence: research/results/q26/RERUN.md, research/results/q26/rerun_compare.json.

@@ -2,7 +2,7 @@
  "name": "payday_indices_v1",
  "hypothesis": "Salary money arriving around the 15th lifts equity indexes on the next trading day.",
  "fingerprint": "360f43f984ad4995fd41f015db8fdc638e077c0a6857208c31c79aea3618939e",
- "started": "2026-11-01 08:14:08 UTC",
+ "started": "2026-11-03 07:54:23 UTC",
  "markets": [
   "US500",
   "NAS100",
@@ -48,10 +48,6 @@
    "verdict": "Survivor: Tier B forward-test candidate"
   },
   {
-   "name": "tokyo_fix_gotobi_v1",
-   "verdict": "Tier B: forward-test candidate"
-  },
-  {
    "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
    "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
   },
@@ -68,24 +64,28 @@
    "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
   },
   {
-   "name": "tom_indices_v2",
-   "verdict": "Rejected: no configuration passed the development gate"
-  },
-  {
-   "name": "opex_week_indices_v2",
-   "verdict": "Rejected: no configuration passed the development gate"
-  },
-  {
-   "name": "oil_equity_v2",
-   "verdict": "Rejected: no configuration passed the development gate"
-  },
-  {
    "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
    "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
   },
   {
    "name": "Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024)",
    "verdict": "Rejected: the effect faded after publication"
+  },
+  {
+   "name": "ath_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Repo funnel futures v2: 16 awesome-list cross-asset strategies (pysystemtrade futures, one-day execution lag)",
+   "verdict": "Rejected except time-series momentum (confirms the futures trend family) and four weak futures-only passes"
+  },
+  {
+   "name": "Repo funnel futures v1 (same-day execution)",
+   "verdict": "Invalid: look-ahead through markets closing at different hours (and stale holiday prices)"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
   },
   {
    "name": "funnel_trustdan_v1",
@@ -96,7 +96,67 @@
    "verdict": "Rejected: no configuration passed the development gate"
   },
   {
-   "name": "ath_trend_v1",
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Tokyo fix payoff shape and declared-bracket study",
+   "verdict": "Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection."
+  },
+  {
+   "name": "SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules)",
+   "verdict": "Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R."
+  },
+  {
+   "name": "SEESARE time-exit ascension study (Tokyo fix, cent account)",
+   "verdict": "Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3."
+  },
+  {
+   "name": "Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00",
+   "verdict": "Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen."
+  },
+  {
+   "name": "ecb_fix_eurusd_v1",
+   "verdict": "Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for."
+  },
+  {
+   "name": "Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard)",
+   "verdict": "Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened."
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule)",
+   "verdict": "Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened."
+  },
+  {
+   "name": "us_close_flow_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "monthend_rebalance_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Batch 01 re-run on clock-fixed HistData (US close flow, month-end rebalancing)",
+   "verdict": "Verdicts unchanged (both rejected at the gate). US close flow 2011-19 net -0.029 to -0.036R, before costs +0.006 to +0.014R; the one 2020-22 slice that looked positive before (prev close 15:30: +0.031R, t 2.1) was a clock artifact (now -0.011R). Month-end barely moved (2011-19 before costs +0.04 to +0.17R, 2020-22 negative even before costs)."
+  },
+  {
+   "name": "tom_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "opex_week_indices_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "oil_equity_v2",
    "verdict": "Rejected: no configuration passed the development gate"
   }
  ],
@@ -136,7 +196,7 @@
   "configs": 1,
   "passed_gate": 1,
   "share_dev_positive": 1.0,
-  "median_dev_E": 0.016301802956425165,
+  "median_dev_E": 0.013526752728959012,
   "share_dev_and_val_positive": 0.0
  },
  "selection": {
@@ -149,54 +209,54 @@
   },
   "stats": {
    "dev_n": 529,
-   "dev_E": 0.016301802956425165,
-   "dev_t": 2.11409662251071,
-   "dev_Es": 0.0023558553042249517,
-   "dev_fin": 0.010076995678828384,
+   "dev_E": 0.013526752728959012,
+   "dev_t": 1.6905951579955931,
+   "dev_Es": -0.0005304498465995396,
+   "dev_fin": 0.01018558471843943,
    "dev_nL": 529,
-   "dev_EL": 0.016301802956425165,
+   "dev_EL": 0.013526752728959012,
    "dev_nS": 0,
    "dev_ES": null,
    "e1_n": 300,
-   "e1_E": 0.02216291360522155,
-   "e1_t": 1.9853214850554983,
-   "e1_Es": 0.00538853783482677,
-   "e1_fin": 0.012141786549693077,
+   "e1_E": 0.015190037321666934,
+   "e1_t": 1.3243103032109755,
+   "e1_Es": -0.001715738384369881,
+   "e1_fin": 0.012270263355861871,
    "e1_nL": 300,
-   "e1_EL": 0.02216291360522155,
+   "e1_EL": 0.015190037321666934,
    "e1_nS": 0,
    "e1_ES": null,
    "e2_n": 229,
-   "e2_E": 0.008623492062805452,
-   "e2_t": 0.8498490135562732,
-   "e2_Es": -0.001617091242414983,
-   "e2_fin": 0.007372029472455428,
+   "e2_E": 0.01134777727999667,
+   "e2_t": 1.054548121445508,
+   "e2_Es": 0.001022329897204407,
+   "e2_fin": 0.007454564669414394,
    "e2_nL": 229,
-   "e2_EL": 0.008623492062805452,
+   "e2_EL": 0.01134777727999667,
    "e2_nS": 0,
    "e2_ES": null,
-   "val_n": 152,
-   "val_E": -0.010083889278468702,
-   "val_t": -0.3436661678376876,
-   "val_Es": -0.01779609768465363,
-   "val_fin": 0.005483212842989161,
-   "val_nL": 152,
-   "val_EL": -0.010083889278468702,
+   "val_n": 146,
+   "val_E": -0.02489061253151502,
+   "val_t": -0.8423538801175763,
+   "val_Es": -0.03255954660948113,
+   "val_fin": 0.005445561114838783,
+   "val_nL": 146,
+   "val_EL": -0.02489061253151502,
    "val_nS": 0,
    "val_ES": null,
-   "devE_US500": 0.024583322040595823,
-   "devE_NAS100": 0.014238027551562065,
-   "devE_GER40": 0.01574986354196367,
-   "devE_UK100": 0.008678040649494456,
-   "devE_JP225": 0.01841548865034585,
+   "devE_US500": 0.02419995721413069,
+   "devE_NAS100": 0.015415133687922479,
+   "devE_GER40": 0.008375266128308656,
+   "devE_UK100": 0.0028358224510862838,
+   "devE_JP225": 0.017109344484842623,
    "mk_pos": 5
   },
   "neighbours": [],
   "neighbours_all_pos": false,
   "neighbours_median_t": null,
   "walk_forward": {
-   "E": 0.00783190302326092,
-   "n": 381,
+   "E": 0.01642946577428976,
+   "n": 279,
    "picks": [
     {
      "year": 2014,
@@ -212,7 +272,7 @@
       "0"
      ],
      "n": 60,
-     "E": 0.10478260439851232
+     "E": 0.09814415195004396
     },
     {
      "year": 2016,
@@ -224,7 +284,7 @@
       "0"
      ],
      "n": 57,
-     "E": -0.038754445427684095
+     "E": -0.010368298588290251
     },
     {
      "year": 2017,
@@ -236,7 +296,7 @@
       "0"
      ],
      "n": 55,
-     "E": 0.015243226205062115
+     "E": 0.010564260205096501
     },
     {
      "year": 2018,
@@ -248,7 +308,7 @@
       "0"
      ],
      "n": 57,
-     "E": -0.007010949010903659
+     "E": -0.013207337557979518
     },
     {
      "year": 2019,
@@ -263,32 +323,16 @@
       "0.0",
       "0"
      ],
-     "n": 54,
-     "E": 0.024017909795980345
+     "n": 50,
+     "E": -0.010841024338374517
     },
     {
      "year": 2021,
-     "pick": [
-      "H1",
-      "payday",
-      "0.0",
-      "0.0",
-      "0"
-     ],
-     "n": 50,
-     "E": -0.017327055325025306
+     "pick": null
     },
     {
      "year": 2022,
-     "pick": [
-      "H1",
-      "payday",
-      "0.0",
-      "0.0",
-      "0"
-     ],
-     "n": 48,
-     "E": -0.040903448605394084
+     "pick": null
     }
    ]
   }
@@ -296,31 +340,315 @@
  "confirmation": {
   "dev": {
    "n": 529,
-   "E": 0.016301802956425165,
-   "t": 2.1120974763212574,
-   "PF": 1.2731805976565367,
-   "win": 0.555765595463138
+   "E": 0.013526752728959009,
+   "t": 1.6889964860938331,
+   "PF": 1.2171021032965803,
+   "win": 0.5500945179584121
   },
   "val": {
-   "n": 152,
-   "E": -0.010083889278468705,
-   "t": -0.3425338215374592,
-   "PF": 0.9080132324074219,
-   "win": 0.5328947368421053
+   "n": 146,
+   "E": -0.02489061253151502,
+   "t": -0.8394641498852913,
+   "PF": 0.7841514439891342,
+   "win": 0.5
   },
   "stress_dev_val": {
-   "n": 681,
-   "E": -0.0038754185194061967,
-   "t": -0.43107515965847487,
-   "PF": 0.9499043469338412,
-   "win": 0.527165932452276
+   "n": 674,
+   "E": -0.008847452742422922,
+   "t": -0.971113929397912,
+   "PF": 0.8895919955330814,
+   "win": 0.5103857566765578
   },
   "dsr": {
-   "sr_trade": 0.09183032505744598,
+   "sr_trade": 0.07343462983016666,
    "sr0": 0.0,
-   "dsr": 0.979929944105524,
+   "dsr": 0.9508620836528546,
    "n_trials": 1,
    "T": 529
+  }
+ },
+ "cycle_goal": {
+  "2011-19": {
+   "trades": 529,
+   "mean_R": 0.0135,
+   "sd_R": 0.1842,
+   "s": 0.0734,
+   "win_rate": 0.55,
+   "trades_to_prove_t3": 1669,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.039,
+    "5": 0.054,
+    "6": 0.065,
+    "8": 0.087
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.3174,
+    "5": 0.4408,
+    "6": 0.529,
+    "8": 0.7053
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 14.786,
+     "dd95_pct": 167.7
+    },
+    "3": {
+     "risk_pct": 22.178,
+     "dd95_pct": 251.6
+    },
+    "4": {
+     "risk_pct": 29.571,
+     "dd95_pct": 335.4
+    },
+    "5": {
+     "risk_pct": 36.964,
+     "dd95_pct": 419.3
+    },
+    "6": {
+     "risk_pct": 44.357,
+     "dd95_pct": 503.1
+    },
+    "7": {
+     "risk_pct": 51.749,
+     "dd95_pct": 587.0
+    }
+   },
+   "sequence": {
+    "risk_pct": 0.3174,
+    "trades_per_year": 59.4,
+    "cycles_per_year": 5.94,
+    "months_per_lifecycle": 72.8,
+    "cycles": 52,
+    "cycles_positive": 0.635,
+    "cycle_median_pct": 0.125,
+    "cycle_mean_pct": 0.037,
+    "cycle_worst_pct": -1.31,
+    "cycle_best_pct": 0.752,
+    "lifecycles": 1,
+    "lifecycle_returns_pct": [
+     1.16
+    ],
+    "lifecycle_dd_pct": [
+     3.57
+    ],
+    "lifecycle_worst_dd_pct": 3.57
+   },
+   "gap_2pct_at_3.6": 5.7,
+   "meets": []
+  },
+  "2020-22": {
+   "trades": 146,
+   "mean_R": -0.0249,
+   "sd_R": 0.3583,
+   "s": -0.0695,
+   "win_rate": 0.5,
+   "trades_to_prove_t3": null,
+   "cycle_mean_pct_at_cap": {
+    "3.6": -0.024,
+    "5": -0.033,
+    "6": -0.04,
+    "8": -0.053
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.1167,
+    "5": 0.162,
+    "6": 0.1944,
+    "8": 0.2593
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "sequence": {
+    "risk_pct": 0.1167,
+    "trades_per_year": 50.1,
+    "cycles_per_year": 5.01,
+    "months_per_lifecycle": 86.3,
+    "cycles": 14,
+    "cycles_positive": 0.5,
+    "cycle_median_pct": -0.0,
+    "cycle_mean_pct": -0.019,
+    "cycle_worst_pct": -0.46,
+    "cycle_best_pct": 0.274,
+    "lifecycles": 0,
+    "lifecycle_returns_pct": [],
+    "lifecycle_dd_pct": [],
+    "lifecycle_worst_dd_pct": 0.0
+   },
+   "gap_2pct_at_3.6": null,
+   "meets": []
+  },
+  "2023-25": {
+   "trades": 149,
+   "mean_R": 0.002,
+   "sd_R": 0.1658,
+   "s": 0.0118,
+   "win_rate": 0.497,
+   "trades_to_prove_t3": 64908,
+   "cycle_mean_pct_at_cap": {
+    "3.6": 0.021,
+    "5": 0.029,
+    "6": 0.034,
+    "8": 0.046
+   },
+   "risk_pct_at_cap": {
+    "3.6": 0.37,
+    "5": 0.5139,
+    "6": 0.6167,
+    "8": 0.8223
+   },
+   "needed_s": {
+    "2%/3.6%": 0.421,
+    "2%/5%": 0.355,
+    "3%/3.6%": 0.521,
+    "3%/5%": 0.439,
+    "4%/3.6%": 0.606,
+    "4%/5%": 0.51,
+    "5%/3.6%": 0.681,
+    "5%/5%": 0.573,
+    "6%/3.6%": 0.749,
+    "6%/5%": 0.631,
+    "7%/3.6%": 0.813,
+    "7%/5%": 0.684
+   },
+   "for_target": {
+    "2": {
+     "risk_pct": 102.415,
+     "dd95_pct": 996.4
+    },
+    "3": {
+     "risk_pct": 153.622,
+     "dd95_pct": 1494.6
+    },
+    "4": {
+     "risk_pct": 204.829,
+     "dd95_pct": 1992.8
+    },
+    "5": {
+     "risk_pct": 256.037,
+     "dd95_pct": 2491.0
+    },
+    "6": {
+     "risk_pct": 307.244,
+     "dd95_pct": 2989.2
+    },
+    "7": {
+     "risk_pct": 358.451,
+     "dd95_pct": 3487.4
+    }
+   },
+   "sequence": {
+    "risk_pct": 0.37,
+    "trades_per_year": 51.0,
+    "cycles_per_year": 5.1,
+    "months_per_lifecycle": 84.7,
+    "cycles": 14,
+    "cycles_positive": 0.786,
+    "cycle_median_pct": 0.109,
+    "cycle_mean_pct": 0.06,
+    "cycle_worst_pct": -0.486,
+    "cycle_best_pct": 0.511,
+    "lifecycles": 0,
+    "lifecycle_returns_pct": [],
+    "lifecycle_dd_pct": [],
+    "lifecycle_worst_dd_pct": 0.0
+   },
+   "gap_2pct_at_3.6": 35.8,
+   "meets": []
+  }
+ },
+ "cost_ladder": {
+  "gross": {
+   "2011-19": {
+    "n": 529,
+    "E": 0.0213,
+    "t": 2.66
+   },
+   "2020-22": {
+    "n": 146,
+    "E": -0.0204,
+    "t": -0.69
+   },
+   "2023-25": {
+    "n": 149,
+    "E": 0.0051,
+    "t": 0.37
+   }
+  },
+  "roboforex_prime": {
+   "2011-19": {
+    "n": 422,
+    "E": 0.0191,
+    "t": 2.05
+   },
+   "2020-22": {
+    "n": 118,
+    "E": -0.0291,
+    "t": -0.82
+   },
+   "2023-25": {
+    "n": 118,
+    "E": 0.0052,
+    "t": 0.33
+   }
+  },
+  "exness_zero": {
+   "2011-19": {
+    "n": 0,
+    "E": null,
+    "t": null
+   },
+   "2020-22": {
+    "n": 0,
+    "E": null,
+    "t": null
+   },
+   "2023-25": {
+    "n": 0,
+    "E": null,
+    "t": null
+   }
+  },
+  "lab_standard": {
+   "2011-19": {
+    "n": 529,
+    "E": 0.0135,
+    "t": 1.69
+   },
+   "2020-22": {
+    "n": 146,
+    "E": -0.0249,
+    "t": -0.84
+   },
+   "2023-25": {
+    "n": 149,
+    "E": 0.002,
+    "t": 0.14
+   }
   }
  },
  "final_look": {
@@ -384,37 +712,37 @@
  "low_cost_swap_free": {
   "dev": {
    "n": 529,
-   "E": 0.03024775060862538,
-   "t": 3.924389288182414,
-   "PF": 1.5645608996013032,
-   "win": 0.5897920604914934
+   "E": 0.027583955304517564,
+   "t": 3.447175456738514,
+   "PF": 1.4913365837782664,
+   "win": 0.5784499054820416
   },
   "val": {
-   "n": 152,
-   "E": -0.002371680872283773,
-   "t": -0.08069344457752686,
-   "PF": 0.9776389099064046,
-   "win": 0.5657894736842105
+   "n": 146,
+   "E": -0.017221678453548914,
+   "t": -0.5814925024333335,
+   "PF": 0.8456588141073631,
+   "win": 0.5205479452054794
   },
   "2023-25": {
-   "n": 151,
-   "E": -0.0004776555982320698,
-   "t": -0.03403395175568285,
-   "PF": 0.9921765099569062,
-   "win": 0.5231788079470199
+   "n": 149,
+   "E": 0.0076988126049143705,
+   "t": 0.566370871811639,
+   "PF": 1.1345382481412807,
+   "win": 0.5369127516778524
   }
  },
  "portfolio_fit": {
-  "corr_monthly": 0.07533334772949114,
+  "corr_monthly": 0.09899394329319731,
   "weights": {
-   "book": 0.256,
-   "cand": 0.744
+   "book": 0.238,
+   "cand": 0.762
   },
   "book_sharpe": 1.2128619857019274,
-  "cand_sharpe": 0.133307941949926,
-  "combined_sharpe": 0.8941306906608575,
+  "cand_sharpe": 0.08763963488706221,
+  "combined_sharpe": 0.8442650064943262,
   "book_sharpe_2017_on": 1.0349414170517213,
-  "combined_sharpe_2017_on": 0.6965293829647932
+  "combined_sharpe_2017_on": 0.6253876740859553
  },
  "verdict": "Rejected"
 }
