@@ -85,3 +85,30 @@ def detect(o, h, l, c, e=None, margin=0.0, tol=0.0, min_body=0.0, engulf="open",
 
 
 GRADE = {2: "A+", 1: "B+", 0: "rejected"}
+
+
+def detect_pa(o, h, l, c):
+    """Owner 2026-11-03: the same four candles WITHOUT the EMA, A+ only (pure price action).
+    SELL: 1 bullish; 2 bearish closing below candle 1's LOW; 3 bullish; 4 bearish closing below candle 3's LOW.
+    BUY (mirror): 1 bearish; 2 bullish closing above candle 1's HIGH; 3 bearish; 4 bullish closing above candle 3's HIGH.
+    grade 2 = that pattern; grade 0 = four alternating-colour candles WITHOUT both closes beyond (the control).
+    Same output fields as detect()."""
+    o, h, l, c = (np.asarray(x, float) for x in (o, h, l, c))
+    a = atr(h, l, c)
+    bull, bear = c > o, c < o
+    n = len(c); i = np.arange(3, n)
+    sell_alt = bull[i - 3] & bear[i - 2] & bull[i - 1] & bear[i]
+    buy_alt = bear[i - 3] & bull[i - 2] & bear[i - 1] & bull[i]
+    out = {k: [] for k in ("i4", "side", "grade", "entry50", "hi4", "lo4", "hi3", "lo3", "hi_all", "lo_all", "atr")}
+    for side, m in ((-1, sell_alt), (1, buy_alt)):
+        for k in i[m]:
+            if side < 0:
+                ok = c[k - 2] < l[k - 3] and c[k] < l[k - 1]
+            else:
+                ok = c[k - 2] > h[k - 3] and c[k] > h[k - 1]
+            for kk, v in (("i4", k), ("side", side), ("grade", 2 if ok else 0), ("entry50", 0.5 * (h[k] + l[k])), ("hi4", h[k]),
+                          ("lo4", l[k]), ("hi3", h[k - 1]), ("lo3", l[k - 1]), ("hi_all", h[k - 3:k + 1].max()),
+                          ("lo_all", l[k - 3:k + 1].min()), ("atr", a[k])):
+                out[kk].append(v)
+    srt = np.argsort(np.asarray(out["i4"]), kind="stable")
+    return {k: np.asarray(v)[srt] for k, v in out.items()}

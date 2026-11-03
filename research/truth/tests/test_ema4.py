@@ -72,6 +72,16 @@ class TestScanner(unittest.TestCase):
         self.assertTrue(k0.any())
         self.assertFalse(k1.any())
 
+    def test_price_action_a_plus_without_ema(self):
+        # sell: bull, bear closing below its low, bull, bear closing below its low - anywhere relative to any EMA
+        o = np.r_[[1.0] * 30, 1.00, 1.03, 0.97, 1.01]; c = np.r_[[1.0] * 30, 1.03, 0.98, 1.01, 0.96]
+        h = np.maximum(o, c) + 0.005; l = np.minimum(o, c) - 0.005
+        P = S.detect_pa(o, h, l, c); k = (P["i4"] == len(o) - 1) & (P["side"] == -1)
+        self.assertEqual(int(P["grade"][k][0]), 2)
+        c2 = c.copy(); c2[-1] = 0.97                                  # closes inside the 3rd candle's range: control only
+        P2 = S.detect_pa(o, h, np.minimum(o, c2) - 0.005, c2); k2 = (P2["i4"] == len(o) - 1) & (P2["side"] == -1)
+        self.assertEqual(int(P2["grade"][k2][0]), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
