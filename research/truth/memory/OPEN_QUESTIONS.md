@@ -267,7 +267,10 @@ candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% 
 Four consecutive candles crossing the 10 EMA in turn; B+ when the 4th closes beyond the 3rd open, A+ when the 2nd also closed
 beyond the 1st open; entry 50% of the 4th or at its close; stop and target grids; close daily. 640 configurations, 12
 markets, M5-H4: 0 pass; where/when 0 of 180 cells (research/results/ema4/RESULT.md). Only lead: H4 (+0.11 to +0.14R in
-2011-19 on 106-282 trades, about 0 in 2020-22); a held-longer H4/D1 version would be a new, hindsight-flagged test. FAMILY:
+2011-19 on 106-282 trades, about 0 in 2020-22); a held-longer H4/D1 version would be a new, hindsight-flagged test.
+v2-v4 (2026-11-03, owner's corrections: full engulfing, breaks from the other side, obvious breaks; 3 stops, trailing and
+EMA exits; 5,040 settings): all rejected; the engulfing grade has no selection value (research/results/ema4/RESULT_V2_V4.md).
+FAMILY:
 ema, engulfing, chop, multi-timeframe, owner-idea.
 
 ### Q26 Re-run the intraday studies that used HistData markets before the clock fix (2026-11-02)

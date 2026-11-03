@@ -134,6 +134,9 @@ the strict cup and handle never triggers. research/results/truth/funnel_sofus_v1
 Evidence (2026-11-02): the owner's 3:30 EMA retest (M30 anchor candle crossing the 10 EMA at the New York session, first M5
 EMA cross inside its range, 2R/3R/4R, breakeven, 4 entries, 2 anchors): 0 of 48 configurations positive in 2011-19 or
 2020-22 on 12 markets; every year 2011-2022 negative. research/results/truth/owner330_ema_retest_v1/.
+Evidence (2026-11-03): the owner's 4-flip EMA pattern in four versions (open engulf, full engulf, breaks from the other side,
+obvious breaks), 5,680 settings over 12 markets and M5-H4: 0 pass; about 0 before costs; the engulfing grade does no better
+than the same four-flips without it (-0.002 to -0.017R). research/results/ema4/RESULT.md, RESULT_V2_V4.md.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:

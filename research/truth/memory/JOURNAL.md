@@ -604,3 +604,14 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   2020-22. Graded vs rejected four-flips: helped in 2011-19, not after. Close entry beat the 50% limit (P2). P3 gained evidence.
 - **Facts vs estimates:** Prime costs published; 2023-25 not opened.
 - **Next:** owner's call. The only lead is H4 held longer than a day (new test, hindsight-flagged).
+
+## 2026-11-03 (8) · owner corrected the 4-flip rules three times and asked for stops, trailing and "the best rewards"
+- **Done:** v2 full engulfing (close beyond the 3rd candle's low/high; A+ the 2nd beyond the 1st's), stops c4/c34/all4, ATR
+  trailing and EMA exits (1,260 settings); v3 each break from the other side of the EMA (owner flagged a fake 1st candle on
+  GBPUSD 10 Sep 2012; on-the-line ties allowed for the owner's EURUSD 20 Aug 2014 template); v4 obvious breaks (open and close
+  0.05/0.1/0.2 ATR clear of the line; 2,520 settings). Each pre-registered and committed before its results, with example
+  charts sent to the owner; tests 15 (detector 8, exits 3, orders 4).
+- **Learned:** all rejected; v4: 0 of 826 settings with enough trades positive in both periods. The engulfing grade adds
+  nothing over non-engulfing four-flips. Trailing exits no better than targets. P14 gained evidence.
+- **Facts vs estimates:** "obvious" has no owner number; three levels tested. The top of the raw cycle league is tiny-sample noise.
+- **Next:** owner's call. Pattern family exhausted on these markets at M5-H4 with daily closes.
