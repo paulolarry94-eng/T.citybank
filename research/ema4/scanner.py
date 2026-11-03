@@ -13,7 +13,11 @@ Grade (engulf="extreme", owner 2026-11-03, full engulfing): B+ = the 4th CLOSES 
        Only the 2nd engulfing, or none = rejected (owner's charts of 22 and 26 Oct 2026).
 The EMA is the line drawn on each candle: 10-period EMA of closes including that candle (TradingView ema(close, 10)).
 A candle within `tol` x ATR(14) of the line counts as touching it; a candle needs a body larger than `min_body` x ATR(14)
-(a doji is not a breakout: owner's 22 Oct 07:55 candle). Feeds differ by tenths of a pip, so near-dojis on the line flip
+(a doji is not a breakout: owner's 22 Oct 07:55 candle).
+fresh=True (owner 2026-11-03, v3): each break must come from the other side - the previous candle CLOSED on the other side of
+the EMA (GBPUSD 10 Sep 2012 06:00: the candle before had closed 0.31 pip below, so 06:00 was no break). A previous close
+within fresh_tol x ATR (0.02, about 0.06 pip on EURUSD M5) of the line counts as either side (owner's EURUSD 20 Aug 2014
+07:15 candle closed exactly ON the line, and the owner takes 07:20 as the 1st candle). Feeds differ by tenths of a pip, so near-dojis on the line flip
 between brokers (owner's 27 Oct 16:50 candle: a small bullish body on TradingView, a doji in our feed). Overlapping windows are all patterns (owner's 20 Oct chart:
 a sell on candles 12:35-12:50 and a buy on 12:40-12:55).
 margin: how far beyond the open the engulfing close must be, in ATR(14) (0 = any amount; feeds differ by tenths of a pip).
@@ -35,21 +39,25 @@ def atr(h, l, c, n=14):
     return pd.Series(tr).rolling(n, min_periods=1).mean().to_numpy()
 
 
-def flips(o, c, e, tol=0.0, body=0.0):
+def flips(o, c, e, tol=0.0, body=0.0, fresh=False, ftol=0.0):
     """up[j]: candle j's body crosses the EMA upward; dn[j]: downward (within tol of the line counts as touching).
     body: minimum body (|close - open|) in price units; a doji is not a breakout (owner's 22 Oct 07:55 candle)."""
     up = (o <= e + tol) & (c >= e - tol) & (c - o > body)
     dn = (o >= e - tol) & (c <= e + tol) & (o - c > body)
+    if fresh:                                   # a real break: the previous candle closed on the other side of the EMA
+        pc, pe = np.r_[np.nan, c[:-1]], np.r_[np.nan, e[:-1]]   # (within ftol of the line counts as either side)
+        up &= pc <= pe + ftol
+        dn &= pc >= pe - ftol
     return up, dn
 
 
-def detect(o, h, l, c, e=None, margin=0.0, tol=0.0, min_body=0.0, engulf="open"):
+def detect(o, h, l, c, e=None, margin=0.0, tol=0.0, min_body=0.0, engulf="open", fresh=False, fresh_tol=0.02):
     """Every pattern. Returns a dict of arrays: i4 (index of the 4th candle), side (-1 sell, +1 buy), grade (2 A+, 1 B+,
     0 rejected: four flips without the 4th engulfing, kept for audits), entry50, hi4, lo4, hi_all, lo_all (the 4 candles)."""
     o, h, l, c = (np.asarray(x, float) for x in (o, h, l, c))
     e = ema(c) if e is None else np.asarray(e, float)
     a = atr(h, l, c)
-    up, dn = flips(o, c, e, tol * a, min_body * a)
+    up, dn = flips(o, c, e, tol * a, min_body * a, fresh, fresh_tol * np.r_[a[0], a[:-1]])
     n = len(c); i = np.arange(3, n)
     sell = up[i - 3] & dn[i - 2] & up[i - 1] & dn[i]
     buy = dn[i - 3] & up[i - 2] & dn[i - 1] & up[i]

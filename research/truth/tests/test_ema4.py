@@ -63,6 +63,15 @@ class TestScanner(unittest.TestCase):
         P3 = S.detect(o, h, l2, c2, engulf="extreme"); k3 = (P3["i4"] == len(o) - 1) & (P3["side"] == -1)
         self.assertEqual(int(P3["grade"][k3][0]), 1)                # closes below 0.98: full engulfing B+
 
+    def test_fresh_break_needs_previous_close_on_other_side(self):
+        # candle before the "1st" already closed below the EMA: the 1st (opens a hair above, closes below) is no real break
+        seq = [(0.98, 1.03), (1.031, 0.97), (1.0005, 0.96), (0.96, 1.03), (1.02, 0.95), (0.95, 1.06)]
+        o, h, l, c = bars(seq)
+        P0 = S.detect(o, h, l, c); P1 = S.detect(o, h, l, c, fresh=True)
+        k0 = (P0["i4"] == len(o) - 1) & (P0["side"] == 1); k1 = (P1["i4"] == len(o) - 1) & (P1["side"] == 1)
+        self.assertTrue(k0.any())
+        self.assertFalse(k1.any())
+
 
 if __name__ == "__main__":
     unittest.main()
