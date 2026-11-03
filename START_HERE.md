@@ -6,7 +6,7 @@ One page to pick the project up later. Details live in `CLAUDE.md` (rules + ever
 ## 1. How to resume (3 commands)
 ```bash
 bash tools/bootstrap.sh                                   # installs packages, prints the research memory digest
-python3 -m unittest $(ls research/truth/tests/test_*.py)  # 164 tests, about 40 s: everything should say OK
+python3 -m unittest $(ls research/truth/tests/test_*.py)  # 164 tests, about 1 minute: should end with OK
 python3 research/truth/cyclegoal.py --survivors           # the scoreboard below, recomputed
 ```
 Test any new idea only as a strategy file through the Truth Lab:
@@ -69,4 +69,5 @@ not carrying forward (P10, P11).
 ## 7. Map of the latest work (2026-11-01 to 03)
 `research/results/final/FINAL.md` (owner patterns, final) · `research/results/ema4/` and `research/results/pa4/` (4-flip
 versions) · `research/results/owner330/` (3:30 retest) · `research/results/batch01/` (payer-flow batch) ·
+`research/results/flows/MONTHEND_HEDGE.md` (last push, month-end hedge flow) ·
 `research/goal/` (cycle maths) · `tools/histdata_clock.py` (data clock fix) · `research/truth/README.md` (lab tools).
