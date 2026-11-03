@@ -87,7 +87,7 @@ def markdown(rows):
          "|---|---|---|---|---|---|---|---|---|---|---|"]
     for x in sorted(r, key=lambda x: -x["learn_t"]):
         st = x["setting"]
-        L.append(f"| {x['market']} | {x['tf']} | {x['session']} | {st['entry']} {st['stop']}+{st['buffer']} {st['target']}R {st['grade']} | "
+        L.append(f"| {x['market']} | {x['tf']} | {x['session']} | {' '.join(str(v) for v in st.values())} | "
                  f"{x['learn_n']} | {x['learn_E']:+.3f} | {x['learn_t']:+.2f} | {x['check_n']} | "
                  f"{(x['check_E'] if x['check_E'] is not None else float('nan')):+.3f} | {x['check_t']} | {'PASS' if x['passed'] else ''} |")
     return "\n".join(L) + "\n"

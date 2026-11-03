@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-92 ideas tested, about 305,029 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+93 ideas tested, about 306,289 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,18 +15,18 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 34 | 0 | 3,297 |
-| intraday | 30 | 1 | 183,972 |
+| owner-idea | 35 | 0 | 4,557 |
+| intraday | 31 | 1 | 185,232 |
 | flow | 20 | 1 | 84 |
 | calendar | 18 | 1 | 167 |
 | index | 17 | 0 | 122 |
 | session | 15 | 0 | 184,648 |
+| ema | 14 | 0 | 3,665 |
 | awesome-list | 13 | 0 | 147 |
 | breadth | 13 | 0 | 697 |
-| ema | 13 | 0 | 2,405 |
+| engulfing | 13 | 0 | 6,376 |
 | reversal | 13 | 1 | 105,864 |
 | breakout | 12 | 0 | 119,496 |
-| engulfing | 12 | 0 | 5,116 |
 | retest | 12 | 0 | 10,437 |
 | trend | 12 | 4 | 102,718 |
 | sizing | 11 | 0 | 276 |
@@ -34,15 +34,16 @@
 | seesare | 10 | 0 | 232 |
 | seasonal | 9 | 2 | 23 |
 | daily | 8 | 1 | 172 |
+| limit-entry | 8 | 0 | 2,896 |
 | structure | 8 | 0 | 1,634 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
-| limit-entry | 7 | 0 | 1,636 |
 | portfolio | 7 | 3 | 136 |
 | repo-funnel | 7 | 0 | 222 |
 | risk | 7 | 0 | 172 |
 | smc | 7 | 0 | 14,992 |
 | momentum | 6 | 0 | 61 |
+| multi-market | 6 | 0 | 2,604 |
 | payer | 6 | 0 | 28 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
@@ -50,17 +51,17 @@
 | gold | 5 | 0 | 363 |
 | liquidity | 5 | 0 | 1,380 |
 | mean-reversion | 5 | 0 | 47 |
-| multi-market | 5 | 0 | 1,344 |
 | sweep | 5 | 0 | 1,380 |
 | batch01 | 4 | 0 | 24 |
+| chop | 4 | 0 | 2,540 |
 | control | 4 | 0 | 736 |
 | monthly | 4 | 0 | 20 |
+| multi-timeframe | 4 | 0 | 2,540 |
 | ny-open | 4 | 0 | 128 |
 | oil | 4 | 0 | 7 |
 | rebalancing | 4 | 0 | 24 |
 | third-party-ea | 4 | 0 | 304 |
 | carry | 3 | 1 | 18 |
-| chop | 3 | 0 | 1,280 |
 | close | 3 | 0 | 20 |
 | costs | 3 | 0 | 8 |
 | cross-asset | 3 | 0 | 4 |
@@ -69,7 +70,6 @@
 | grid | 3 | 0 | 196 |
 | macro | 3 | 0 | 4 |
 | month-end | 3 | 0 | 20 |
-| multi-timeframe | 3 | 0 | 1,280 |
 | options-expiry | 3 | 0 | 4 |
 | oscillator | 3 | 0 | 288 |
 | pattern | 3 | 0 | 4,932 |
@@ -149,6 +149,7 @@
 ## Every idea tested (newest first)
 | Date | Idea | Family | Configs | Verdict | Key numbers |
 |---|---|---|---|---|---|
+| 2026-11-03 | ema4_flip_v2 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.087 |
 | 2026-11-02 | Cycle math: what +2% per 10-trade cycle needs vs the 360-trade lifecycle drawdown | seesare, sizing, drawdown-cap, math, monte-carlo, lifecycle, owner-idea | 80 | Study (model: independent trades, fixed risk, after costs): +2% per 10-trade cycle needs a per-trade Sharpe of about 0.42 for a 95th-percentile lifecycle drawdown of 3.6%, 0.36 for 5%, 0.32 for 6%, 0.28 for 8% (fit DD95 = 0.69% x s^-1.91 over 80 cells). Examples inside 3.6%: 70% wins at 1:1 gives 4.0%; 55% at 2:1 3.4%; 45% at 3:1 3.5%; 40% at 4:1 3.2%. Ours per trade after Exness costs + swaps: book 0.062, Tokyo fix 0.088, EURUSD reversal 0.125, all 13 0.063, book Jan-Oct 2026 0.020: about +0.09 / +0.12 / +0.20% per cycle for the book at a 3.6 / 5 / 8% drawdown; forcing +2% needs 2.6% risk and an 80% drawdown. Combining strategies leaves the per-trade Sharpe unchanged (all 13: 0.063). The drawdown-keyed ladder at weight 1.00 never passes 3.6% but stops lifecycles at the wall: median +2% needs about s 0.41 AND a high win rate (75% at 0.75:1: median +1.99%, 4.7% stopped; 40% at 4:1: 95% stopped). | s_needed_3_6 +0.421, s_needed_5 +0.355, s_needed_6 +0.322, s_needed_8 +0.277, s_needed_10 +0.246, closed_form_s_3_6_p5 +0.288, book_s +0.062, tokyo_s +0.088, eurusd_rev_s +0.125, all13_s +0.062, book2026_s +0.020, book_cycle_at_3_6 +0.090, book_cycle_at_5 +0.124, book_cycle_at_8 +0.199, book_risk_for_2pct +2.565, book_dd95_at_2pct +80.200 |
 | 2026-11-02 | Cycle goal by trades per cycle (quality x breadth) | seesare, sizing, drawdown-cap, math, breadth, lifecycle, owner-idea | — | Study: edge quality x sqrt(independent trades per cycle) stays about 1.4 for +2% inside 3.6% (1.38-1.47 for n = 10-160) and about 2.8 for +7% inside 3.6%. Needed s for +2%/3.6%: n 10 0.43, 20 0.32, 40 0.23, 80 0.16, 160 0.12; the book (s 0.062) would need about 530 independent trades per cycle. | s_needed_2_3.6_n10 +0.435, s_needed_2_3.6_n20 +0.316, s_needed_2_3.6_n40 +0.228, s_needed_2_3.6_n80 +0.162, s_needed_2_3.6_n160 +0.116 |
 | 2026-11-02 | Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule) | calendar, flow, payer, index, month-end, close, rebalancing, roll, batch01, owner-idea | 8 | Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened. |  |
