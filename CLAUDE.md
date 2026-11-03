@@ -116,6 +116,8 @@ Learning rules:
   2020-22); where/when 0 of 180 cells. Detector + replay of the owner's charts: `research/ema4/`; report `research/results/ema4/RESULT.md`.
   v2-v4 (2026-11-03: full engulfing, breaks from the other side, obvious breaks; stops, trailing/EMA exits; 5,040 settings) all
   REJECTED, the engulfing grade adds nothing (`research/results/ema4/RESULT_V2_V4.md`).
+  No-EMA price-action version (A+ only; entries close / 50% / 4th-candle high; 540 settings) REJECTED, 0 positive in 2011-19;
+  the 4th-candle-high entry is the worst (`research/results/pa4/RESULT.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

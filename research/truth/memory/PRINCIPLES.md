@@ -21,6 +21,10 @@ They fill when price runs against you and miss the trades that work. QM: retest 
 97% of paired settings (−0.081R); supply/demand −0.035 to −0.084R; FVG midpoint depth worse in 96%.
 Evidence: North Star ablation. Confidence: high.
 
+Evidence (2026-11-03, owner's four-candle price action, 12 markets, M5-H4): a limit at the 4th candle's far end (high for
+sells) was the worst of three entries on every timeframe (medians -0.12 to -0.23R vs -0.03 to -0.15R at the close; it filled
+on about 1 setup in 5). research/results/pa4/RESULT.md.
+
 ### P3 Higher timeframes beat lower ones
 Costs per unit of risk shrink and noise falls. FVG M5→H1 +0.15R in every paired setting; QM M15→H1 +0.05R.
 Evidence: North Star ablation. Confidence: high.

@@ -270,6 +270,8 @@ markets, M5-H4: 0 pass; where/when 0 of 180 cells (research/results/ema4/RESULT.
 2011-19 on 106-282 trades, about 0 in 2020-22); a held-longer H4/D1 version would be a new, hindsight-flagged test.
 v2-v4 (2026-11-03, owner's corrections: full engulfing, breaks from the other side, obvious breaks; 3 stops, trailing and
 EMA exits; 5,040 settings): all rejected; the engulfing grade has no selection value (research/results/ema4/RESULT_V2_V4.md).
+No-EMA price-action version (2026-11-03, A+ only, entries close / 50% / 4th-candle high; 540 settings): rejected, 0 positive in
+2011-19; the 4th-candle-high entry is the worst (research/results/pa4/RESULT.md).
 FAMILY:
 ema, engulfing, chop, multi-timeframe, owner-idea.
 

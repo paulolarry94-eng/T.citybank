@@ -615,3 +615,11 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   nothing over non-engulfing four-flips. Trailing exits no better than targets. P14 gained evidence.
 - **Facts vs estimates:** "obvious" has no owner number; three levels tested. The top of the raw cycle league is tiny-sample noise.
 - **Next:** owner's call. Pattern family exhausted on these markets at M5-H4 with daily closes.
+
+## 2026-11-03 (9) · owner: "take out EMA and B+, just the price action; compare entry at the 4th candle high, SL at the highest of 4"
+- **Done:** detector `detect_pa` (no EMA, A+ only), strategy pa4_engulf_v1 (540 settings: entries close / 50% / 4th-candle
+  extreme, stops all4 / c4 x 3 buffers, 1R-4R and trailing), pre-registered before results; examples; lab, league, control
+  (alternating candles without the full closes), where/when.
+- **Learned:** REJECTED, 0 of 540 positive in 2011-19. The 4th-candle-high entry is the worst on every timeframe (P2 gained
+  evidence). The full-engulfing closes carry no information versus plain alternating candles.
+- **Next:** the four-candle / EMA family is exhausted at M5-H4 with daily closes on these markets.
