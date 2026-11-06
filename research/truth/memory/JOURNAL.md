@@ -647,3 +647,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   lifecycle drawdown; the goal (+2%) needs s about 0.42 or many independent edges. Book forward 2026 about flat.
 - **Next:** see START_HERE.md section 6 (stronger or hard-to-front-run flows, relaxed cycle definition, forward evidence via
   demo; Q1, Q22, Q25, Q26).
+
+## 2026-11-06 (12) · owner: "Do you know about noise gates and how it works? Can you test it"
+- **Done:** translated the audio noise gate (threshold, hysteresis, hold) into a trading filter on Kaufman's efficiency
+  ratio; pre-registered 8 configurations; applied to the 13 survivors (a filter cannot create an edge, so only where one
+  exists); random-gate control; one logged 2023-25 look; untouched 2026 book trades.
+- **Learned:** REJECTED. Best gate s 0.074 vs 0.068 (2011-19), not better than random gates (p 0.36); 2026 reversed
+  (passed -0.054, blocked +0.086). Evidence added to P8 (state filters, like sizing states, add no edge). Q28 answered.
+- **Facts vs estimates:** all numbers computed here at Exness Zero costs + swaps; 2023-25 leg trades had been seen before
+  (the gate rule is new).
+- **Next:** unchanged (START_HERE.md section 6). If the owner meant a specific "noise gate" indicator, test its exact rules.

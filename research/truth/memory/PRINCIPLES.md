@@ -83,6 +83,10 @@ in every cell. Confidence raised to medium-high: about 1,400 earlier variants pl
 Halving size after a 10% drawdown slows recovery; plain fixed-fractional at lower risk dominates at equal
 tail risk. Keep only a hard circuit breaker (RED). Evidence: North Star risk comparison. Confidence: medium-high.
 
+Evidence (2026-11-06, noise gate): an efficiency-ratio gate (threshold, hysteresis, hold) on the 13 survivors filtered no
+better than random (p 0.36, 8 configurations), halved the trades and reversed on untouched 2026 data. Filters on a
+market's "state" behave like sizing states: they do not add edge. research/results/noisegate/RESULT.md.
+
 ### P9 Breadth of independent edges is the only free lunch
 11 legs of about Sharpe 0.3 each with near-zero correlation make Sharpe 1.0. Sharpe ≈ s·√(N/(1+(N−1)ρ)):
 correlation sets the ceiling. Evidence: book, multiasset combination. Confidence: high.

@@ -1,0 +1,1463 @@
+{
+ "prereg": "research/noisegate/PREREGISTRATION.md",
+ "configurations": 8,
+ "ungated": {
+  "2011-19": {
+   "trades": 4524,
+   "E": 0.0769,
+   "s": 0.0682,
+   "win": 0.509,
+   "cycle_at_3_6": 0.1,
+   "trades_per_year": 503.2
+  },
+  "2020-22": {
+   "trades": 1543,
+   "E": 0.0774,
+   "s": 0.0659,
+   "win": 0.5,
+   "cycle_at_3_6": 0.108,
+   "trades_per_year": 515.5
+  }
+ },
+ "configs": [
+  {
+   "config": {
+    "h": "fast",
+    "theta": 0.5,
+    "policy": "textbook"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 2912,
+     "E": 0.0762,
+     "s": 0.0639,
+     "win": 0.489,
+     "cycle_at_3_6": 0.086,
+     "trades_per_year": 342.3
+    },
+    "blocked": {
+     "trades": 1612,
+     "E": 0.0781,
+     "s": 0.0782,
+     "win": 0.545,
+     "cycle_at_3_6": 0.129,
+     "trades_per_year": 179.3
+    },
+    "passed_swapfree": {
+     "trades": 2912,
+     "E": 0.1054,
+     "s": 0.0862,
+     "win": 0.496,
+     "cycle_at_3_6": 0.142,
+     "trades_per_year": 342.3
+    },
+    "share_passed": 0.644
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 1050,
+     "E": 0.0897,
+     "s": 0.0711,
+     "win": 0.493,
+     "cycle_at_3_6": 0.115,
+     "trades_per_year": 350.8
+    },
+    "blocked": {
+     "trades": 493,
+     "E": 0.0512,
+     "s": 0.0533,
+     "win": 0.515,
+     "cycle_at_3_6": 0.058,
+     "trades_per_year": 164.9
+    },
+    "passed_swapfree": {
+     "trades": 1050,
+     "E": 0.1138,
+     "s": 0.0886,
+     "win": 0.501,
+     "cycle_at_3_6": 0.164,
+     "trades_per_year": 350.8
+    },
+    "share_passed": 0.68
+   },
+   "control_2011_19": {
+    "p_value": 0.6175,
+    "random_s_median": 0.0664,
+    "random_s_95": 0.0793
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 794,
+     "E_passed": 0.089,
+     "blocked": 596,
+     "E_blocked": 0.041
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 27,
+     "E_passed": 0.216,
+     "blocked": 26,
+     "E_blocked": 0.415
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 493,
+     "E_passed": 0.062,
+     "blocked": 389,
+     "E_blocked": 0.075
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 334,
+     "E_passed": 0.05,
+     "blocked": 40,
+     "E_blocked": 0.351
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 70,
+     "E_passed": 0.24,
+     "blocked": 9,
+     "E_blocked": -0.056
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 50,
+     "E_passed": 0.426,
+     "blocked": 21,
+     "E_blocked": 0.18
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 33,
+     "E_passed": 0.26,
+     "blocked": 3,
+     "E_blocked": 0.263
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 43,
+     "E_passed": 0.154,
+     "blocked": 3,
+     "E_blocked": -0.328
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 63,
+     "E_passed": 0.102,
+     "blocked": 18,
+     "E_blocked": 0.169
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 337,
+     "E_passed": 0.096,
+     "blocked": 48,
+     "E_blocked": 0.16
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 195,
+     "E_passed": -0.014,
+     "blocked": 36,
+     "E_blocked": 0.07
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 367,
+     "E_passed": 0.018,
+     "blocked": 277,
+     "E_blocked": 0.073
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 106,
+     "E_passed": 0.021,
+     "blocked": 146,
+     "E_blocked": 0.075
+    }
+   },
+   "beats_ungated_both": false
+  },
+  {
+   "config": {
+    "h": "fast",
+    "theta": 0.5,
+    "policy": "by-type"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 2747,
+     "E": 0.0864,
+     "s": 0.0718,
+     "win": 0.493,
+     "cycle_at_3_6": 0.105,
+     "trades_per_year": 307.0
+    },
+    "blocked": {
+     "trades": 1777,
+     "E": 0.0622,
+     "s": 0.0623,
+     "win": 0.533,
+     "cycle_at_3_6": 0.091,
+     "trades_per_year": 197.7
+    },
+    "passed_swapfree": {
+     "trades": 2747,
+     "E": 0.1139,
+     "s": 0.0922,
+     "win": 0.5,
+     "cycle_at_3_6": 0.16,
+     "trades_per_year": 307.0
+    },
+    "share_passed": 0.607
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 976,
+     "E": 0.0928,
+     "s": 0.0722,
+     "win": 0.486,
+     "cycle_at_3_6": 0.117,
+     "trades_per_year": 326.2
+    },
+    "blocked": {
+     "trades": 567,
+     "E": 0.0507,
+     "s": 0.0534,
+     "win": 0.526,
+     "cycle_at_3_6": 0.064,
+     "trades_per_year": 189.5
+    },
+    "passed_swapfree": {
+     "trades": 976,
+     "E": 0.1149,
+     "s": 0.0878,
+     "win": 0.494,
+     "cycle_at_3_6": 0.16,
+     "trades_per_year": 326.2
+    },
+    "share_passed": 0.633
+   },
+   "control_2011_19": {
+    "p_value": 0.3575,
+    "random_s_median": 0.0684,
+    "random_s_95": 0.0822
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 794,
+     "E_passed": 0.089,
+     "blocked": 596,
+     "E_blocked": 0.041
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 26,
+     "E_passed": 0.415,
+     "blocked": 27,
+     "E_blocked": 0.216
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 493,
+     "E_passed": 0.062,
+     "blocked": 389,
+     "E_blocked": 0.075
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 334,
+     "E_passed": 0.05,
+     "blocked": 40,
+     "E_blocked": 0.351
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 70,
+     "E_passed": 0.24,
+     "blocked": 9,
+     "E_blocked": -0.056
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 50,
+     "E_passed": 0.426,
+     "blocked": 21,
+     "E_blocked": 0.18
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 33,
+     "E_passed": 0.26,
+     "blocked": 3,
+     "E_blocked": 0.263
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 43,
+     "E_passed": 0.154,
+     "blocked": 3,
+     "E_blocked": -0.328
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 18,
+     "E_passed": 0.169,
+     "blocked": 63,
+     "E_blocked": 0.102
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 337,
+     "E_passed": 0.096,
+     "blocked": 48,
+     "E_blocked": 0.16
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 36,
+     "E_passed": 0.07,
+     "blocked": 195,
+     "E_blocked": -0.014
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 367,
+     "E_passed": 0.018,
+     "blocked": 277,
+     "E_blocked": 0.073
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 146,
+     "E_passed": 0.075,
+     "blocked": 106,
+     "E_blocked": 0.021
+    }
+   },
+   "beats_ungated_both": true
+  },
+  {
+   "config": {
+    "h": "fast",
+    "theta": 0.67,
+    "policy": "textbook"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 2203,
+     "E": 0.0758,
+     "s": 0.0603,
+     "win": 0.483,
+     "cycle_at_3_6": 0.078,
+     "trades_per_year": 259.5
+    },
+    "blocked": {
+     "trades": 2321,
+     "E": 0.078,
+     "s": 0.0788,
+     "win": 0.534,
+     "cycle_at_3_6": 0.125,
+     "trades_per_year": 258.2
+    },
+    "passed_swapfree": {
+     "trades": 2203,
+     "E": 0.1081,
+     "s": 0.0839,
+     "win": 0.489,
+     "cycle_at_3_6": 0.135,
+     "trades_per_year": 259.5
+    },
+    "share_passed": 0.487
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 760,
+     "E": 0.1035,
+     "s": 0.078,
+     "win": 0.497,
+     "cycle_at_3_6": 0.145,
+     "trades_per_year": 253.9
+    },
+    "blocked": {
+     "trades": 783,
+     "E": 0.052,
+     "s": 0.0518,
+     "win": 0.503,
+     "cycle_at_3_6": 0.07,
+     "trades_per_year": 261.8
+    },
+    "passed_swapfree": {
+     "trades": 760,
+     "E": 0.1299,
+     "s": 0.0962,
+     "win": 0.507,
+     "cycle_at_3_6": 0.207,
+     "trades_per_year": 253.9
+    },
+    "share_passed": 0.493
+   },
+   "control_2011_19": {
+    "p_value": 0.6915,
+    "random_s_median": 0.0659,
+    "random_s_95": 0.0849
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 551,
+     "E_passed": 0.098,
+     "blocked": 839,
+     "E_blocked": 0.049
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 22,
+     "E_passed": 0.127,
+     "blocked": 31,
+     "E_blocked": 0.446
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 331,
+     "E_passed": 0.071,
+     "blocked": 551,
+     "E_blocked": 0.065
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 284,
+     "E_passed": 0.041,
+     "blocked": 90,
+     "E_blocked": 0.213
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 61,
+     "E_passed": 0.231,
+     "blocked": 18,
+     "E_blocked": 0.123
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 38,
+     "E_passed": 0.603,
+     "blocked": 33,
+     "E_blocked": 0.065
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 31,
+     "E_passed": 0.276,
+     "blocked": 5,
+     "E_blocked": 0.164
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 41,
+     "E_passed": 0.218,
+     "blocked": 5,
+     "E_blocked": -0.661
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 52,
+     "E_passed": 0.074,
+     "blocked": 29,
+     "E_blocked": 0.194
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 294,
+     "E_passed": 0.049,
+     "blocked": 91,
+     "E_blocked": 0.283
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 173,
+     "E_passed": -0.026,
+     "blocked": 58,
+     "E_blocked": 0.076
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 267,
+     "E_passed": 0.024,
+     "blocked": 377,
+     "E_blocked": 0.054
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 58,
+     "E_passed": 0.007,
+     "blocked": 194,
+     "E_blocked": 0.066
+    }
+   },
+   "beats_ungated_both": false
+  },
+  {
+   "config": {
+    "h": "fast",
+    "theta": 0.67,
+    "policy": "by-type"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 2210,
+     "E": 0.091,
+     "s": 0.0736,
+     "win": 0.512,
+     "cycle_at_3_6": 0.105,
+     "trades_per_year": 247.5
+    },
+    "blocked": {
+     "trades": 2314,
+     "E": 0.0634,
+     "s": 0.0626,
+     "win": 0.506,
+     "cycle_at_3_6": 0.08,
+     "trades_per_year": 257.4
+    },
+    "passed_swapfree": {
+     "trades": 2210,
+     "E": 0.1207,
+     "s": 0.0952,
+     "win": 0.519,
+     "cycle_at_3_6": 0.163,
+     "trades_per_year": 247.5
+    },
+    "share_passed": 0.489
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 754,
+     "E": 0.108,
+     "s": 0.0817,
+     "win": 0.509,
+     "cycle_at_3_6": 0.151,
+     "trades_per_year": 252.0
+    },
+    "blocked": {
+     "trades": 789,
+     "E": 0.0481,
+     "s": 0.0476,
+     "win": 0.492,
+     "cycle_at_3_6": 0.06,
+     "trades_per_year": 263.7
+    },
+    "passed_swapfree": {
+     "trades": 754,
+     "E": 0.1314,
+     "s": 0.0976,
+     "win": 0.519,
+     "cycle_at_3_6": 0.204,
+     "trades_per_year": 252.0
+    },
+    "share_passed": 0.489
+   },
+   "control_2011_19": {
+    "p_value": 0.3635,
+    "random_s_median": 0.0696,
+    "random_s_95": 0.0879
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 551,
+     "E_passed": 0.098,
+     "blocked": 839,
+     "E_blocked": 0.049
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 31,
+     "E_passed": 0.446,
+     "blocked": 22,
+     "E_blocked": 0.127
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 331,
+     "E_passed": 0.071,
+     "blocked": 551,
+     "E_blocked": 0.065
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 284,
+     "E_passed": 0.041,
+     "blocked": 90,
+     "E_blocked": 0.213
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 61,
+     "E_passed": 0.231,
+     "blocked": 18,
+     "E_blocked": 0.123
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 38,
+     "E_passed": 0.603,
+     "blocked": 33,
+     "E_blocked": 0.065
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 31,
+     "E_passed": 0.276,
+     "blocked": 5,
+     "E_blocked": 0.164
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 41,
+     "E_passed": 0.218,
+     "blocked": 5,
+     "E_blocked": -0.661
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 29,
+     "E_passed": 0.194,
+     "blocked": 52,
+     "E_blocked": 0.074
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 294,
+     "E_passed": 0.049,
+     "blocked": 91,
+     "E_blocked": 0.283
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 58,
+     "E_passed": 0.076,
+     "blocked": 173,
+     "E_blocked": -0.026
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 267,
+     "E_passed": 0.024,
+     "blocked": 377,
+     "E_blocked": 0.054
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 194,
+     "E_passed": 0.066,
+     "blocked": 58,
+     "E_blocked": 0.007
+    }
+   },
+   "beats_ungated_both": true
+  },
+  {
+   "config": {
+    "h": "slow",
+    "theta": 0.5,
+    "policy": "textbook"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 2588,
+     "E": 0.0737,
+     "s": 0.0661,
+     "win": 0.507,
+     "cycle_at_3_6": 0.09,
+     "trades_per_year": 305.5
+    },
+    "blocked": {
+     "trades": 1936,
+     "E": 0.0812,
+     "s": 0.0709,
+     "win": 0.512,
+     "cycle_at_3_6": 0.11,
+     "trades_per_year": 215.7
+    },
+    "passed_swapfree": {
+     "trades": 2588,
+     "E": 0.097,
+     "s": 0.0853,
+     "win": 0.512,
+     "cycle_at_3_6": 0.134,
+     "trades_per_year": 305.5
+    },
+    "share_passed": 0.572
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 983,
+     "E": 0.0801,
+     "s": 0.0642,
+     "win": 0.507,
+     "cycle_at_3_6": 0.11,
+     "trades_per_year": 328.4
+    },
+    "blocked": {
+     "trades": 560,
+     "E": 0.0726,
+     "s": 0.0703,
+     "win": 0.489,
+     "cycle_at_3_6": 0.113,
+     "trades_per_year": 187.2
+    },
+    "passed_swapfree": {
+     "trades": 983,
+     "E": 0.0973,
+     "s": 0.077,
+     "win": 0.511,
+     "cycle_at_3_6": 0.147,
+     "trades_per_year": 328.4
+    },
+    "share_passed": 0.637
+   },
+   "control_2011_19": {
+    "p_value": 0.5505,
+    "random_s_median": 0.0678,
+    "random_s_95": 0.085
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 820,
+     "E_passed": 0.055,
+     "blocked": 570,
+     "E_blocked": 0.088
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 31,
+     "E_passed": 0.192,
+     "blocked": 22,
+     "E_blocked": 0.486
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 481,
+     "E_passed": 0.094,
+     "blocked": 401,
+     "E_blocked": 0.036
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 206,
+     "E_passed": 0.08,
+     "blocked": 168,
+     "E_blocked": 0.086
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 45,
+     "E_passed": 0.058,
+     "blocked": 34,
+     "E_blocked": 0.402
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 29,
+     "E_passed": 0.301,
+     "blocked": 42,
+     "E_blocked": 0.389
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 20,
+     "E_passed": 0.408,
+     "blocked": 16,
+     "E_blocked": 0.076
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 36,
+     "E_passed": 0.277,
+     "blocked": 10,
+     "E_blocked": -0.433
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 40,
+     "E_passed": 0.223,
+     "blocked": 41,
+     "E_blocked": 0.014
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 224,
+     "E_passed": 0.116,
+     "blocked": 161,
+     "E_blocked": 0.088
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 143,
+     "E_passed": -0.039,
+     "blocked": 88,
+     "E_blocked": 0.062
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 373,
+     "E_passed": 0.037,
+     "blocked": 271,
+     "E_blocked": 0.048
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 140,
+     "E_passed": 0.04,
+     "blocked": 112,
+     "E_blocked": 0.067
+    }
+   },
+   "beats_ungated_both": false
+  },
+  {
+   "config": {
+    "h": "slow",
+    "theta": 0.5,
+    "policy": "by-type"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 2497,
+     "E": 0.0801,
+     "s": 0.0714,
+     "win": 0.504,
+     "cycle_at_3_6": 0.101,
+     "trades_per_year": 279.0
+    },
+    "blocked": {
+     "trades": 2027,
+     "E": 0.073,
+     "s": 0.0643,
+     "win": 0.516,
+     "cycle_at_3_6": 0.089,
+     "trades_per_year": 225.8
+    },
+    "passed_swapfree": {
+     "trades": 2497,
+     "E": 0.1025,
+     "s": 0.0895,
+     "win": 0.508,
+     "cycle_at_3_6": 0.145,
+     "trades_per_year": 279.0
+    },
+    "share_passed": 0.552
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 933,
+     "E": 0.0794,
+     "s": 0.0626,
+     "win": 0.489,
+     "cycle_at_3_6": 0.095,
+     "trades_per_year": 311.8
+    },
+    "blocked": {
+     "trades": 610,
+     "E": 0.0742,
+     "s": 0.0733,
+     "win": 0.518,
+     "cycle_at_3_6": 0.131,
+     "trades_per_year": 203.8
+    },
+    "passed_swapfree": {
+     "trades": 933,
+     "E": 0.0974,
+     "s": 0.0757,
+     "win": 0.493,
+     "cycle_at_3_6": 0.129,
+     "trades_per_year": 311.8
+    },
+    "share_passed": 0.605
+   },
+   "control_2011_19": {
+    "p_value": 0.3805,
+    "random_s_median": 0.0678,
+    "random_s_95": 0.087
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 820,
+     "E_passed": 0.055,
+     "blocked": 570,
+     "E_blocked": 0.088
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 22,
+     "E_passed": 0.486,
+     "blocked": 31,
+     "E_blocked": 0.192
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 481,
+     "E_passed": 0.094,
+     "blocked": 401,
+     "E_blocked": 0.036
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 206,
+     "E_passed": 0.08,
+     "blocked": 168,
+     "E_blocked": 0.086
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 45,
+     "E_passed": 0.058,
+     "blocked": 34,
+     "E_blocked": 0.402
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 29,
+     "E_passed": 0.301,
+     "blocked": 42,
+     "E_blocked": 0.389
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 20,
+     "E_passed": 0.408,
+     "blocked": 16,
+     "E_blocked": 0.076
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 36,
+     "E_passed": 0.277,
+     "blocked": 10,
+     "E_blocked": -0.433
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 41,
+     "E_passed": 0.014,
+     "blocked": 40,
+     "E_blocked": 0.223
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 224,
+     "E_passed": 0.116,
+     "blocked": 161,
+     "E_blocked": 0.088
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 88,
+     "E_passed": 0.062,
+     "blocked": 143,
+     "E_blocked": -0.039
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 373,
+     "E_passed": 0.037,
+     "blocked": 271,
+     "E_blocked": 0.048
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 112,
+     "E_passed": 0.067,
+     "blocked": 140,
+     "E_blocked": 0.04
+    }
+   },
+   "beats_ungated_both": false
+  },
+  {
+   "config": {
+    "h": "slow",
+    "theta": 0.67,
+    "policy": "textbook"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 1786,
+     "E": 0.0788,
+     "s": 0.0684,
+     "win": 0.506,
+     "cycle_at_3_6": 0.092,
+     "trades_per_year": 211.0
+    },
+    "blocked": {
+     "trades": 2738,
+     "E": 0.0756,
+     "s": 0.068,
+     "win": 0.511,
+     "cycle_at_3_6": 0.103,
+     "trades_per_year": 305.0
+    },
+    "passed_swapfree": {
+     "trades": 1786,
+     "E": 0.1025,
+     "s": 0.0872,
+     "win": 0.512,
+     "cycle_at_3_6": 0.137,
+     "trades_per_year": 211.0
+    },
+    "share_passed": 0.395
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 687,
+     "E": 0.1478,
+     "s": 0.11,
+     "win": 0.539,
+     "cycle_at_3_6": 0.257,
+     "trades_per_year": 229.5
+    },
+    "blocked": {
+     "trades": 856,
+     "E": 0.0208,
+     "s": 0.0205,
+     "win": 0.47,
+     "cycle_at_3_6": 0.021,
+     "trades_per_year": 286.1
+    },
+    "passed_swapfree": {
+     "trades": 687,
+     "E": 0.1648,
+     "s": 0.1209,
+     "win": 0.541,
+     "cycle_at_3_6": 0.31,
+     "trades_per_year": 229.5
+    },
+    "share_passed": 0.445
+   },
+   "control_2011_19": {
+    "p_value": 0.479,
+    "random_s_median": 0.0675,
+    "random_s_95": 0.0941
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 560,
+     "E_passed": 0.036,
+     "blocked": 830,
+     "E_blocked": 0.091
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 24,
+     "E_passed": 0.12,
+     "blocked": 29,
+     "E_blocked": 0.474
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 344,
+     "E_passed": 0.113,
+     "blocked": 538,
+     "E_blocked": 0.038
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 130,
+     "E_passed": 0.101,
+     "blocked": 244,
+     "E_blocked": 0.073
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 27,
+     "E_passed": 0.291,
+     "blocked": 52,
+     "E_blocked": 0.162
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 14,
+     "E_passed": 0.471,
+     "blocked": 57,
+     "E_blocked": 0.324
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 15,
+     "E_passed": 0.208,
+     "blocked": 21,
+     "E_blocked": 0.298
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 29,
+     "E_passed": 0.176,
+     "blocked": 17,
+     "E_blocked": 0.032
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 21,
+     "E_passed": 0.368,
+     "blocked": 60,
+     "E_blocked": 0.029
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 160,
+     "E_passed": 0.155,
+     "blocked": 225,
+     "E_blocked": 0.068
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 99,
+     "E_passed": -0.039,
+     "blocked": 132,
+     "E_blocked": 0.029
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 264,
+     "E_passed": 0.035,
+     "blocked": 380,
+     "E_blocked": 0.046
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 99,
+     "E_passed": 0.051,
+     "blocked": 153,
+     "E_blocked": 0.053
+    }
+   },
+   "beats_ungated_both": true
+  },
+  {
+   "config": {
+    "h": "slow",
+    "theta": 0.67,
+    "policy": "by-type"
+   },
+   "2011-19": {
+    "passed": {
+     "trades": 1917,
+     "E": 0.0815,
+     "s": 0.0727,
+     "win": 0.526,
+     "cycle_at_3_6": 0.105,
+     "trades_per_year": 214.2
+    },
+    "blocked": {
+     "trades": 2607,
+     "E": 0.0735,
+     "s": 0.0649,
+     "win": 0.496,
+     "cycle_at_3_6": 0.093,
+     "trades_per_year": 290.4
+    },
+    "passed_swapfree": {
+     "trades": 1917,
+     "E": 0.1041,
+     "s": 0.0909,
+     "win": 0.532,
+     "cycle_at_3_6": 0.151,
+     "trades_per_year": 214.2
+    },
+    "share_passed": 0.424
+   },
+   "2020-22": {
+    "passed": {
+     "trades": 723,
+     "E": 0.1348,
+     "s": 0.1025,
+     "win": 0.545,
+     "cycle_at_3_6": 0.241,
+     "trades_per_year": 241.7
+    },
+    "blocked": {
+     "trades": 820,
+     "E": 0.0267,
+     "s": 0.0259,
+     "win": 0.461,
+     "cycle_at_3_6": 0.031,
+     "trades_per_year": 274.0
+    },
+    "passed_swapfree": {
+     "trades": 723,
+     "E": 0.1528,
+     "s": 0.1146,
+     "win": 0.548,
+     "cycle_at_3_6": 0.296,
+     "trades_per_year": 241.7
+    },
+    "share_passed": 0.469
+   },
+   "control_2011_19": {
+    "p_value": 0.398,
+    "random_s_median": 0.0684,
+    "random_s_95": 0.0931
+   },
+   "per_leg_2011_19": {
+    "EUR_EuroHours_short_TueThu": {
+     "kind": "flow",
+     "passed": 560,
+     "E_passed": 0.036,
+     "blocked": 830,
+     "E_blocked": 0.091
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "kind": "revert",
+     "passed": 29,
+     "E_passed": 0.474,
+     "blocked": 24,
+     "E_blocked": 0.12
+    },
+    "JPY_VolBreakout_D1_k0.7": {
+     "kind": "trend",
+     "passed": 344,
+     "E_passed": 0.113,
+     "blocked": 538,
+     "E_blocked": 0.038
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "kind": "trend",
+     "passed": 130,
+     "E_passed": 0.101,
+     "blocked": 244,
+     "E_blocked": 0.073
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "kind": "trend",
+     "passed": 27,
+     "E_passed": 0.291,
+     "blocked": 52,
+     "E_blocked": 0.162
+    },
+    "XAU_EMA20-50_H4": {
+     "kind": "trend",
+     "passed": 14,
+     "E_passed": 0.471,
+     "blocked": 57,
+     "E_blocked": 0.324
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "kind": "trend",
+     "passed": 15,
+     "E_passed": 0.208,
+     "blocked": 21,
+     "E_blocked": 0.298
+    },
+    "JPY_Donchian55_D1_trail": {
+     "kind": "trend",
+     "passed": 29,
+     "E_passed": 0.176,
+     "blocked": 17,
+     "E_blocked": 0.032
+    },
+    "JPY_RSI2_D1_lo5": {
+     "kind": "revert",
+     "passed": 60,
+     "E_passed": 0.029,
+     "blocked": 21,
+     "E_blocked": 0.368
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "kind": "trend",
+     "passed": 160,
+     "E_passed": 0.155,
+     "blocked": 225,
+     "E_blocked": 0.068
+    },
+    "EURGBP_Bollinger_D1_k1.5": {
+     "kind": "revert",
+     "passed": 132,
+     "E_passed": 0.029,
+     "blocked": 99,
+     "E_blocked": -0.039
+    },
+    "tokyo_fix_gotobi_v1": {
+     "kind": "flow",
+     "passed": 264,
+     "E_passed": 0.035,
+     "blocked": 380,
+     "E_blocked": 0.046
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "kind": "revert",
+     "passed": 153,
+     "E_passed": 0.053,
+     "blocked": 99,
+     "E_blocked": 0.051
+    }
+   },
+   "beats_ungated_both": true
+  }
+ ],
+ "selected": {
+  "h": "fast",
+  "theta": 0.67,
+  "policy": "by-type"
+ },
+ "look_2023_25": {
+  "logged": "2026-11-06T06:32:08+00:00",
+  "ungated": {
+   "trades": 1558,
+   "E": 0.051,
+   "s": 0.0433,
+   "win": 0.513,
+   "cycle_at_3_6": 0.06,
+   "trades_per_year": 520.2
+  },
+  "passed": {
+   "trades": 740,
+   "E": 0.0634,
+   "s": 0.0466,
+   "win": 0.508,
+   "cycle_at_3_6": 0.067,
+   "trades_per_year": 247.1
+  },
+  "blocked": {
+   "trades": 818,
+   "E": 0.0399,
+   "s": 0.0403,
+   "win": 0.517,
+   "cycle_at_3_6": 0.053,
+   "trades_per_year": 273.8
+  },
+  "passed_swapfree": {
+   "trades": 740,
+   "E": 0.0844,
+   "s": 0.0612,
+   "win": 0.519,
+   "cycle_at_3_6": 0.099,
+   "trades_per_year": 247.1
+  },
+  "per_leg": {
+   "EUR_EuroHours_short_TueThu": {
+    "kind": "flow",
+    "passed": 161,
+    "E_passed": -0.017,
+    "blocked": 303,
+    "E_blocked": 0.059
+   },
+   "XAU_S1_reversion_H1M30M20": {
+    "kind": "revert",
+    "passed": 12,
+    "E_passed": 0.189,
+    "blocked": 11,
+    "E_blocked": 0.112
+   },
+   "JPY_VolBreakout_D1_k0.7": {
+    "kind": "trend",
+    "passed": 120,
+    "E_passed": 0.013,
+    "blocked": 176,
+    "E_blocked": -0.038
+   },
+   "XAU_Donchian20_H4_turtle": {
+    "kind": "trend",
+    "passed": 106,
+    "E_passed": 0.13,
+    "blocked": 35,
+    "E_blocked": 0.328
+   },
+   "JPY_S2_Donchian20_H4_long": {
+    "kind": "trend",
+    "passed": 15,
+    "E_passed": 0.466,
+    "blocked": 3,
+    "E_blocked": -0.611
+   },
+   "XAU_EMA20-50_H4": {
+    "kind": "trend",
+    "passed": 6,
+    "E_passed": 4.018,
+    "blocked": 14,
+    "E_blocked": -0.284
+   },
+   "GBP_WeeklySweep_FollowThrough": {
+    "kind": "trend",
+    "passed": 11,
+    "E_passed": -0.19,
+    "blocked": 2,
+    "E_blocked": 0.514
+   },
+   "JPY_Donchian55_D1_trail": {
+    "kind": "trend",
+    "passed": 15,
+    "E_passed": 0.284,
+    "blocked": 0,
+    "E_blocked": null
+   },
+   "JPY_RSI2_D1_lo5": {
+    "kind": "revert",
+    "passed": 9,
+    "E_passed": 0.109,
+    "blocked": 18,
+    "E_blocked": -0.06
+   },
+   "GBPJPY_Donchian20_H4_trail": {
+    "kind": "trend",
+    "passed": 101,
+    "E_passed": -0.057,
+    "blocked": 24,
+    "E_blocked": 0.16
+   },
+   "EURGBP_Bollinger_D1_k1.5": {
+    "kind": "revert",
+    "passed": 28,
+    "E_passed": 0.0,
+    "blocked": 62,
+    "E_blocked": 0.008
+   },
+   "tokyo_fix_gotobi_v1": {
+    "kind": "flow",
+    "passed": 78,
+    "E_passed": 0.031,
+    "blocked": 136,
+    "E_blocked": 0.065
+   },
+   "eurusd_close_beyond_reversal_v1": {
+    "kind": "revert",
+    "passed": 78,
+    "E_passed": 0.013,
+    "blocked": 34,
+    "E_blocked": 0.048
+   }
+  }
+ },
+ "forward_2026_book": {
+  "ungated": {
+   "trades": 333,
+   "E": 0.022,
+   "s": 0.02,
+   "win": 0.456,
+   "cycle_at_3_6": 0.003,
+   "trades_per_year": 403.6
+  },
+  "passed": {
+   "trades": 157,
+   "E": -0.0587,
+   "s": -0.0537,
+   "win": 0.401,
+   "cycle_at_3_6": -0.029,
+   "trades_per_year": 190.3
+  },
+  "blocked": {
+   "trades": 176,
+   "E": 0.0939,
+   "s": 0.0855,
+   "win": 0.506,
+   "cycle_at_3_6": 0.034,
+   "trades_per_year": 216.2
+  }
+ }
+}

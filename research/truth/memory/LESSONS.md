@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-102 ideas tested, about 316,205 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+103 ideas tested, about 316,213 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -15,7 +15,7 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 42 | 0 | 14,461 |
+| owner-idea | 43 | 0 | 14,469 |
 | intraday | 36 | 1 | 189,560 |
 | flow | 22 | 1 | 96 |
 | calendar | 20 | 1 | 179 |
@@ -39,10 +39,10 @@
 | chop | 8 | 0 | 11,362 |
 | daily | 8 | 1 | 172 |
 | payer | 8 | 0 | 40 |
+| portfolio | 8 | 3 | 144 |
 | structure | 8 | 0 | 1,634 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
-| portfolio | 7 | 3 | 136 |
 | repo-funnel | 7 | 0 | 222 |
 | risk | 7 | 0 | 172 |
 | smc | 7 | 0 | 14,992 |
@@ -109,8 +109,10 @@
 | commodities | 1 | 0 | 16 |
 | diversified | 1 | 1 | 1 |
 | donchian | 1 | 0 | 48 |
+| efficiency-ratio | 1 | 0 | 8 |
 | exness | 1 | 0 | 5 |
 | factor | 1 | 0 | 1 |
+| filter | 1 | 0 | 8 |
 | forward-test | 1 | 1 | 1 |
 | hindsight-market-choice | 1 | 0 | 64 |
 | histdata | 1 | 0 | 0 |
@@ -121,6 +123,7 @@
 | metals | 1 | 0 | 64 |
 | methods | 1 | 0 | 16 |
 | monte-carlo | 1 | 0 | 80 |
+| noise-gate | 1 | 0 | 8 |
 | orb | 1 | 0 | 0 |
 | out-of-sample | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
@@ -134,6 +137,7 @@
 | quasimodo | 1 | 0 | 3,456 |
 | random | 1 | 0 | 48 |
 | ranking | 1 | 0 | 61,787 |
+| regime | 1 | 0 | 8 |
 | roboforex | 1 | 0 | 0 |
 | roll | 1 | 0 | 8 |
 | scalping | 1 | 0 | 144 |
@@ -153,6 +157,7 @@
 ## Every idea tested (newest first)
 | Date | Idea | Family | Configs | Verdict | Key numbers |
 |---|---|---|---|---|---|
+| 2026-11-06 | Noise gate (efficiency-ratio gate with threshold, hysteresis, hold) on the 13 survivors | filter, regime, noise-gate, efficiency-ratio, owner-idea, portfolio | 8 | Rejected. Best (H1, 67th pct, by-type): s 0.074 vs 0.068 ungated 2011-19, 0.082 vs 0.066 2020-22, but random gates of the same size do as well (p 0.36; all 8 within random range). 2023-25 look 0.047 vs 0.043; untouched 2026 book reversed (passed -0.054, blocked +0.086). Halves trades and yearly return; cycle +0.105% vs +0.10%. |  |
 | 2026-11-03 | ema4_flip_v2 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.087 |
 | 2026-11-03 | ema4_flip_v3 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.067 |
 | 2026-11-03 | ema4_flip_v4 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 2520 | Rejected: no configuration passed the development gate | share_dev_positive +0.215 |

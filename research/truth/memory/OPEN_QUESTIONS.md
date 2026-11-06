@@ -266,6 +266,11 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q28 Owner's noise gate (2026-11-06) — TESTED, rejected
+FAMILY: filter, regime, noise-gate, efficiency-ratio, owner-idea. Gate the survivors by how clean recent movement is.
+Answer: no better than random filtering (p 0.36), reversed in 2026 (research/results/noisegate/RESULT.md). If the owner
+meant a specific indicator called "noise gate", its exact rules can be tested the same way.
+
 ### Q27 Owner's 4-flip EMA pattern (2026-11-02) — TESTED, rejected
 CLOSED 2026-11-03: best variant + H4 50-EMA trend filter FAILS on the unseen 2023-25 holdout and 2026
 (research/results/final/FINAL.md).

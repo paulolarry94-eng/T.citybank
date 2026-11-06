@@ -126,6 +126,8 @@ Learning rules:
 - Last push (2026-11-03): month-end FX hedge rebalancing at the 4 pm fix (payer + known direction from US vs foreign equity
   returns), REJECTED: real in 2011-19 (+0.10R, beat its control), reversed 2020-22, flat on the 2023-25 look; P22 updated
   (published flows get competed away). `research/results/flows/MONTHEND_HEDGE.md`.
+- Noise gate (2026-11-06, owner): efficiency-ratio gate (threshold, hysteresis, hold) on the 13 survivors, 8 configurations,
+  REJECTED: no better than random filtering (p 0.36), halves trades, reversed on 2026 (`research/results/noisegate/RESULT.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
