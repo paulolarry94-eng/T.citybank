@@ -331,6 +331,10 @@ Update 2026-11-02 (breadth): edge quality x sqrt(independent trades per cycle) m
 that is s >= 0.43; with 40 independent trades, 0.23. Evidence: research/results/goal/breadth.json; summary for the owner:
 research/goal/CYCLE_GOAL_MATH.pdf.
 
+Evidence (2026-11-06, 2-week cycle): redefining the cycle as 2 weeks needs a fortnight Sharpe of 1.17 (about 6 a year) for
++2% inside 3.6%; the best mix has 0.33 (+0.19% per 2 weeks, ~5% a year). The label changes, the yearly money does not.
+research/results/goal/FORTNIGHT_CYCLE.md.
+
 ### P29 Check every data source's clock against a correctly timed reference before testing a time-of-day rule
 HistData's free M1 files are documented as "EST without daylight saving", but measured week by week against correctly timed
 markets they are New York local time with US daylight saving in 2011-2018 and follow UK daylight saving from 2019: one hour

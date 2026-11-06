@@ -128,6 +128,8 @@ Learning rules:
   (published flows get competed away). `research/results/flows/MONTHEND_HEDGE.md`.
 - Noise gate (2026-11-06, owner): efficiency-ratio gate (threshold, hysteresis, hold) on the 13 survivors, 8 configurations,
   REJECTED: no better than random filtering (p 0.36), halves trades, reversed on 2026 (`research/results/noisegate/RESULT.md`).
+- 2-week cycle (2026-11-06): +2% per 2 weeks inside 3.6% needs a fortnight Sharpe of 1.17; best mix 0.33 (+0.19% per 2 weeks,
+  ~5%/yr; 8% cap ~11%/yr). TradingView "Noise Gate" (Q29) has no trade rule: waiting for the owner's usage.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

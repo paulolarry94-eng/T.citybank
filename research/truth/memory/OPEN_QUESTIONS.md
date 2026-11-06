@@ -266,6 +266,11 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
+FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,
+ratio, level; hard/soft knee): values whose size is below `level` are shrunk. It has no buy/sell rule, so the owner's
+signal, level and entry/exit must be fixed before a test. Its code could not be fetched here (only the description).
+
 ### Q28 Owner's noise gate (2026-11-06) — TESTED, rejected
 FAMILY: filter, regime, noise-gate, efficiency-ratio, owner-idea. Gate the survivors by how clean recent movement is.
 Answer: no better than random filtering (p 0.36), reversed in 2026 (research/results/noisegate/RESULT.md). If the owner

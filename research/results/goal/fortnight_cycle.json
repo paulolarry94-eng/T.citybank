@@ -1,0 +1,554 @@
+{
+ "note": "    python3 research/goal/fortnight_cycle.py",
+ "needed": {
+  "+2% inside 3.6%": 1.17,
+  "+2% inside 5%": 1.0,
+  "+2% inside 8%": 0.79,
+  "+5% inside 3.6%": 1.75,
+  "+5% inside 5%": 1.53,
+  "+5% inside 8%": 1.24,
+  "+7% inside 3.6%": 1.98,
+  "+7% inside 5%": 1.76,
+  "+7% inside 8%": 1.44
+ },
+ "sets": {
+  "All 13 survivors | every trade 1R | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 19.5,
+   "sharpe_per_fortnight": 0.261,
+   "mean_R_per_fortnight": 1.39,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.101,
+    "mean_pct": 0.14,
+    "median_pct": 0.056,
+    "positive": 0.563,
+    "at_least_2pct": 0.015,
+    "worst_pct": -1.11,
+    "pct_a_year": 3.7
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.14,
+    "mean_pct": 0.195,
+    "median_pct": 0.077,
+    "positive": 0.563,
+    "at_least_2pct": 0.023,
+    "worst_pct": -1.54,
+    "pct_a_year": 5.1
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.224,
+    "mean_pct": 0.312,
+    "median_pct": 0.124,
+    "positive": 0.563,
+    "at_least_2pct": 0.069,
+    "worst_pct": -2.46,
+    "pct_a_year": 8.1
+   }
+  },
+  "All 13 survivors | leg weights | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 19.5,
+   "sharpe_per_fortnight": 0.326,
+   "mean_R_per_fortnight": 0.537,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.348,
+    "mean_pct": 0.187,
+    "median_pct": 0.137,
+    "positive": 0.627,
+    "at_least_2pct": 0.01,
+    "worst_pct": -1.43,
+    "pct_a_year": 4.9
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.484,
+    "mean_pct": 0.26,
+    "median_pct": 0.191,
+    "positive": 0.627,
+    "at_least_2pct": 0.02,
+    "worst_pct": -1.98,
+    "pct_a_year": 6.8
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.774,
+    "mean_pct": 0.416,
+    "median_pct": 0.305,
+    "positive": 0.627,
+    "at_least_2pct": 0.097,
+    "worst_pct": -3.17,
+    "pct_a_year": 10.8
+   }
+  },
+  "11-leg book | every trade 1R | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 15.6,
+   "sharpe_per_fortnight": 0.229,
+   "mean_R_per_fortnight": 1.21,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.098,
+    "mean_pct": 0.119,
+    "median_pct": 0.046,
+    "positive": 0.547,
+    "at_least_2pct": 0.01,
+    "worst_pct": -1.03,
+    "pct_a_year": 3.1
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.137,
+    "mean_pct": 0.165,
+    "median_pct": 0.065,
+    "positive": 0.547,
+    "at_least_2pct": 0.023,
+    "worst_pct": -1.44,
+    "pct_a_year": 4.3
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.219,
+    "mean_pct": 0.265,
+    "median_pct": 0.103,
+    "positive": 0.547,
+    "at_least_2pct": 0.069,
+    "worst_pct": -2.3,
+    "pct_a_year": 6.9
+   }
+  },
+  "11-leg book | leg weights | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 15.6,
+   "sharpe_per_fortnight": 0.267,
+   "mean_R_per_fortnight": 0.413,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.358,
+    "mean_pct": 0.148,
+    "median_pct": 0.076,
+    "positive": 0.583,
+    "at_least_2pct": 0.013,
+    "worst_pct": -1.31,
+    "pct_a_year": 3.9
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.497,
+    "mean_pct": 0.205,
+    "median_pct": 0.106,
+    "positive": 0.583,
+    "at_least_2pct": 0.026,
+    "worst_pct": -1.83,
+    "pct_a_year": 5.4
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.796,
+    "mean_pct": 0.328,
+    "median_pct": 0.17,
+    "positive": 0.583,
+    "at_least_2pct": 0.069,
+    "worst_pct": -2.92,
+    "pct_a_year": 8.6
+   }
+  },
+  "Tokyo fix | every trade 1R | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 2.7,
+   "sharpe_per_fortnight": 0.145,
+   "mean_R_per_fortnight": 0.13,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.486,
+    "mean_pct": 0.063,
+    "median_pct": 0.073,
+    "positive": 0.593,
+    "at_least_2pct": 0.003,
+    "worst_pct": -1.25,
+    "pct_a_year": 1.6
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.674,
+    "mean_pct": 0.088,
+    "median_pct": 0.102,
+    "positive": 0.593,
+    "at_least_2pct": 0.005,
+    "worst_pct": -1.74,
+    "pct_a_year": 2.3
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 1.079,
+    "mean_pct": 0.14,
+    "median_pct": 0.163,
+    "positive": 0.593,
+    "at_least_2pct": 0.018,
+    "worst_pct": -2.78,
+    "pct_a_year": 3.7
+   }
+  },
+  "Tokyo fix | leg weights | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 2.7,
+   "sharpe_per_fortnight": 0.145,
+   "mean_R_per_fortnight": 0.075,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.847,
+    "mean_pct": 0.063,
+    "median_pct": 0.073,
+    "positive": 0.593,
+    "at_least_2pct": 0.003,
+    "worst_pct": -1.25,
+    "pct_a_year": 1.6
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 1.176,
+    "mean_pct": 0.088,
+    "median_pct": 0.102,
+    "positive": 0.593,
+    "at_least_2pct": 0.005,
+    "worst_pct": -1.74,
+    "pct_a_year": 2.3
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 1.882,
+    "mean_pct": 0.14,
+    "median_pct": 0.163,
+    "positive": 0.593,
+    "at_least_2pct": 0.018,
+    "worst_pct": -2.78,
+    "pct_a_year": 3.7
+   }
+  },
+  "EURUSD reversal | every trade 1R | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 1.2,
+   "sharpe_per_fortnight": 0.135,
+   "mean_R_per_fortnight": 0.05,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.943,
+    "mean_pct": 0.047,
+    "median_pct": 0.07,
+    "positive": 0.619,
+    "at_least_2pct": 0.0,
+    "worst_pct": -1.0,
+    "pct_a_year": 1.2
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 1.309,
+    "mean_pct": 0.065,
+    "median_pct": 0.097,
+    "positive": 0.619,
+    "at_least_2pct": 0.0,
+    "worst_pct": -1.39,
+    "pct_a_year": 1.7
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 2.095,
+    "mean_pct": 0.105,
+    "median_pct": 0.155,
+    "positive": 0.619,
+    "at_least_2pct": 0.003,
+    "worst_pct": -2.23,
+    "pct_a_year": 2.7
+   }
+  },
+  "EURUSD reversal | leg weights | swaps": {
+   "fortnights": 391,
+   "trades_per_fortnight": 1.2,
+   "sharpe_per_fortnight": 0.135,
+   "mean_R_per_fortnight": 0.05,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.943,
+    "mean_pct": 0.047,
+    "median_pct": 0.07,
+    "positive": 0.619,
+    "at_least_2pct": 0.0,
+    "worst_pct": -1.0,
+    "pct_a_year": 1.2
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 1.309,
+    "mean_pct": 0.065,
+    "median_pct": 0.097,
+    "positive": 0.619,
+    "at_least_2pct": 0.0,
+    "worst_pct": -1.39,
+    "pct_a_year": 1.7
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 2.095,
+    "mean_pct": 0.105,
+    "median_pct": 0.155,
+    "positive": 0.619,
+    "at_least_2pct": 0.003,
+    "worst_pct": -2.23,
+    "pct_a_year": 2.7
+   }
+  },
+  "All 13 survivors | every trade 1R | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 19.5,
+   "sharpe_per_fortnight": 0.333,
+   "mean_R_per_fortnight": 1.797,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.118,
+    "mean_pct": 0.212,
+    "median_pct": 0.113,
+    "positive": 0.596,
+    "at_least_2pct": 0.018,
+    "worst_pct": -1.28,
+    "pct_a_year": 5.5
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.164,
+    "mean_pct": 0.295,
+    "median_pct": 0.157,
+    "positive": 0.596,
+    "at_least_2pct": 0.033,
+    "worst_pct": -1.78,
+    "pct_a_year": 7.7
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.263,
+    "mean_pct": 0.472,
+    "median_pct": 0.252,
+    "positive": 0.596,
+    "at_least_2pct": 0.11,
+    "worst_pct": -2.84,
+    "pct_a_year": 12.3
+   }
+  },
+  "All 13 survivors | leg weights | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 19.5,
+   "sharpe_per_fortnight": 0.403,
+   "mean_R_per_fortnight": 0.671,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.396,
+    "mean_pct": 0.266,
+    "median_pct": 0.208,
+    "positive": 0.662,
+    "at_least_2pct": 0.015,
+    "worst_pct": -1.6,
+    "pct_a_year": 6.9
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.55,
+    "mean_pct": 0.369,
+    "median_pct": 0.288,
+    "positive": 0.662,
+    "at_least_2pct": 0.041,
+    "worst_pct": -2.22,
+    "pct_a_year": 9.6
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.88,
+    "mean_pct": 0.591,
+    "median_pct": 0.461,
+    "positive": 0.662,
+    "at_least_2pct": 0.136,
+    "worst_pct": -3.55,
+    "pct_a_year": 15.4
+   }
+  },
+  "11-leg book | every trade 1R | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 15.6,
+   "sharpe_per_fortnight": 0.3,
+   "mean_R_per_fortnight": 1.607,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.115,
+    "mean_pct": 0.184,
+    "median_pct": 0.096,
+    "positive": 0.575,
+    "at_least_2pct": 0.018,
+    "worst_pct": -1.18,
+    "pct_a_year": 4.8
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.159,
+    "mean_pct": 0.256,
+    "median_pct": 0.134,
+    "positive": 0.575,
+    "at_least_2pct": 0.026,
+    "worst_pct": -1.65,
+    "pct_a_year": 6.7
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.255,
+    "mean_pct": 0.409,
+    "median_pct": 0.214,
+    "positive": 0.575,
+    "at_least_2pct": 0.097,
+    "worst_pct": -2.63,
+    "pct_a_year": 10.7
+   }
+  },
+  "11-leg book | leg weights | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 15.6,
+   "sharpe_per_fortnight": 0.344,
+   "mean_R_per_fortnight": 0.537,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.415,
+    "mean_pct": 0.223,
+    "median_pct": 0.125,
+    "positive": 0.624,
+    "at_least_2pct": 0.013,
+    "worst_pct": -1.49,
+    "pct_a_year": 5.8
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.577,
+    "mean_pct": 0.31,
+    "median_pct": 0.174,
+    "positive": 0.624,
+    "at_least_2pct": 0.031,
+    "worst_pct": -2.07,
+    "pct_a_year": 8.1
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 0.923,
+    "mean_pct": 0.496,
+    "median_pct": 0.278,
+    "positive": 0.624,
+    "at_least_2pct": 0.123,
+    "worst_pct": -3.31,
+    "pct_a_year": 12.9
+   }
+  },
+  "Tokyo fix | every trade 1R | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 2.7,
+   "sharpe_per_fortnight": 0.145,
+   "mean_R_per_fortnight": 0.13,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.486,
+    "mean_pct": 0.063,
+    "median_pct": 0.073,
+    "positive": 0.593,
+    "at_least_2pct": 0.003,
+    "worst_pct": -1.25,
+    "pct_a_year": 1.6
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 0.674,
+    "mean_pct": 0.088,
+    "median_pct": 0.102,
+    "positive": 0.593,
+    "at_least_2pct": 0.005,
+    "worst_pct": -1.74,
+    "pct_a_year": 2.3
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 1.079,
+    "mean_pct": 0.14,
+    "median_pct": 0.163,
+    "positive": 0.593,
+    "at_least_2pct": 0.018,
+    "worst_pct": -2.78,
+    "pct_a_year": 3.7
+   }
+  },
+  "Tokyo fix | leg weights | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 2.7,
+   "sharpe_per_fortnight": 0.145,
+   "mean_R_per_fortnight": 0.075,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.847,
+    "mean_pct": 0.063,
+    "median_pct": 0.073,
+    "positive": 0.593,
+    "at_least_2pct": 0.003,
+    "worst_pct": -1.25,
+    "pct_a_year": 1.6
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 1.176,
+    "mean_pct": 0.088,
+    "median_pct": 0.102,
+    "positive": 0.593,
+    "at_least_2pct": 0.005,
+    "worst_pct": -1.74,
+    "pct_a_year": 2.3
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 1.882,
+    "mean_pct": 0.14,
+    "median_pct": 0.163,
+    "positive": 0.593,
+    "at_least_2pct": 0.018,
+    "worst_pct": -2.78,
+    "pct_a_year": 3.7
+   }
+  },
+  "EURUSD reversal | every trade 1R | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 1.2,
+   "sharpe_per_fortnight": 0.163,
+   "mean_R_per_fortnight": 0.059,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.999,
+    "mean_pct": 0.059,
+    "median_pct": 0.082,
+    "positive": 0.629,
+    "at_least_2pct": 0.0,
+    "worst_pct": -0.99,
+    "pct_a_year": 1.5
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 1.388,
+    "mean_pct": 0.082,
+    "median_pct": 0.114,
+    "positive": 0.629,
+    "at_least_2pct": 0.0,
+    "worst_pct": -1.37,
+    "pct_a_year": 2.1
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 2.221,
+    "mean_pct": 0.132,
+    "median_pct": 0.183,
+    "positive": 0.629,
+    "at_least_2pct": 0.003,
+    "worst_pct": -2.19,
+    "pct_a_year": 3.4
+   }
+  },
+  "EURUSD reversal | leg weights | swap-free": {
+   "fortnights": 391,
+   "trades_per_fortnight": 1.2,
+   "sharpe_per_fortnight": 0.163,
+   "mean_R_per_fortnight": 0.059,
+   "cap_0.036": {
+    "risk_per_trade_pct": 0.999,
+    "mean_pct": 0.059,
+    "median_pct": 0.082,
+    "positive": 0.629,
+    "at_least_2pct": 0.0,
+    "worst_pct": -0.99,
+    "pct_a_year": 1.5
+   },
+   "cap_0.05": {
+    "risk_per_trade_pct": 1.388,
+    "mean_pct": 0.082,
+    "median_pct": 0.114,
+    "positive": 0.629,
+    "at_least_2pct": 0.0,
+    "worst_pct": -1.37,
+    "pct_a_year": 2.1
+   },
+   "cap_0.08": {
+    "risk_per_trade_pct": 2.221,
+    "mean_pct": 0.132,
+    "median_pct": 0.183,
+    "positive": 0.629,
+    "at_least_2pct": 0.003,
+    "worst_pct": -2.19,
+    "pct_a_year": 3.4
+   }
+  },
+  "11-leg book, Jan-Oct 2026 forward | every trade 1R | swaps": {
+   "fortnights": 21,
+   "sharpe_per_fortnight": 0.043,
+   "mean_R_per_fortnight": 0.194
+  },
+  "11-leg book, Jan-Oct 2026 forward | leg weights | swaps": {
+   "fortnights": 21,
+   "sharpe_per_fortnight": -0.049,
+   "mean_R_per_fortnight": -0.06
+  }
+ }
+}

@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-103 ideas tested, about 316,213 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+104 ideas tested, about 316,214 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -11,6 +11,7 @@
 | Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12. CORRECTED 2026-10-31 (Sunday-exit bug, P20): Sharpe 1.24 after research costs+swaps 2011-24Q1 (1.03 after 2016); Exness Zero 1.36 with swaps, 1.74 swap-free 2011-25; untouched Jan-Oct 2026 -1.36% | research/hunt/HUNT2_REPORT.md; research/northstar/NORTHSTAR_REPORT.md |
 | tokyo_fix_gotobi_v1 | calendar, flow, fix, intraday, usdjpy, seasonal | Tier B: forward-test candidate |  | research/results/truth/tokyo_fix_gotobi_v1/REPORT.md |
 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | Tier B: forward-test candidate |  | research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md |
+| Cycle goal with a 2-week cycle instead of 10 trades (survivors) | cycle-goal, risk, portfolio, owner-question | Needed fortnight Sharpe 1.17 (+2% in 3.6%; 0.79 in 8%). Best mix (13 survivors, leg weights) 0.33: +0.19% per 2 weeks, 4.9%/yr at 3.6%, 10.8%/yr at 8%; 3.6x short in Sharpe, ~10x in return. Same yearly money as the 10-trade cycle. 2026 forward about 0. |  | research/results/goal/FORTNIGHT_CYCLE.md |
 
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
@@ -35,16 +36,16 @@
 | multi-market | 10 | 0 | 6,926 |
 | multi-timeframe | 10 | 0 | 12,442 |
 | seesare | 10 | 0 | 232 |
+| portfolio | 9 | 4 | 145 |
 | seasonal | 9 | 2 | 23 |
 | chop | 8 | 0 | 11,362 |
 | daily | 8 | 1 | 172 |
 | payer | 8 | 0 | 40 |
-| portfolio | 8 | 3 | 144 |
+| risk | 8 | 1 | 173 |
 | structure | 8 | 0 | 1,634 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
 | repo-funnel | 7 | 0 | 222 |
-| risk | 7 | 0 | 172 |
 | smc | 7 | 0 | 14,992 |
 | control | 6 | 0 | 1,282 |
 | momentum | 6 | 0 | 61 |
@@ -107,6 +108,7 @@
 | best-setup | 1 | 0 | 16 |
 | breakeven | 1 | 0 | 102,260 |
 | commodities | 1 | 0 | 16 |
+| cycle-goal | 1 | 1 | 1 |
 | diversified | 1 | 1 | 1 |
 | donchian | 1 | 0 | 48 |
 | efficiency-ratio | 1 | 0 | 8 |
@@ -126,6 +128,7 @@
 | noise-gate | 1 | 0 | 8 |
 | orb | 1 | 0 | 0 |
 | out-of-sample | 1 | 1 | 1 |
+| owner-question | 1 | 1 | 1 |
 | pairs | 1 | 0 | 1 |
 | payday | 1 | 0 | 1 |
 | payoff | 1 | 0 | 16 |
@@ -158,6 +161,7 @@
 | Date | Idea | Family | Configs | Verdict | Key numbers |
 |---|---|---|---|---|---|
 | 2026-11-06 | Noise gate (efficiency-ratio gate with threshold, hysteresis, hold) on the 13 survivors | filter, regime, noise-gate, efficiency-ratio, owner-idea, portfolio | 8 | Rejected. Best (H1, 67th pct, by-type): s 0.074 vs 0.068 ungated 2011-19, 0.082 vs 0.066 2020-22, but random gates of the same size do as well (p 0.36; all 8 within random range). 2023-25 look 0.047 vs 0.043; untouched 2026 book reversed (passed -0.054, blocked +0.086). Halves trades and yearly return; cycle +0.105% vs +0.10%. |  |
+| 2026-11-06 | Cycle goal with a 2-week cycle instead of 10 trades (survivors) | cycle-goal, risk, portfolio, owner-question | 1 | Needed fortnight Sharpe 1.17 (+2% in 3.6%; 0.79 in 8%). Best mix (13 survivors, leg weights) 0.33: +0.19% per 2 weeks, 4.9%/yr at 3.6%, 10.8%/yr at 8%; 3.6x short in Sharpe, ~10x in return. Same yearly money as the 10-trade cycle. 2026 forward about 0. |  |
 | 2026-11-03 | ema4_flip_v2 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.087 |
 | 2026-11-03 | ema4_flip_v3 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.067 |
 | 2026-11-03 | ema4_flip_v4 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 2520 | Rejected: no configuration passed the development gate | share_dev_positive +0.215 |

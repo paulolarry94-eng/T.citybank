@@ -657,3 +657,11 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** all numbers computed here at Exness Zero costs + swaps; 2023-25 leg trades had been seen before
   (the gate rule is new).
 - **Next:** unchanged (START_HERE.md section 6). If the owner meant a specific "noise gate" indicator, test its exact rules.
+
+## 2026-11-06 (13) · owner: "I meant the TradingView noise gate indicator ... if we switch a cycle to 2 weeks how close are we"
+- **Done:** found the TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source); read its public description (the
+  code could not be fetched here). It is a signal shaper with no trade rule, so Q29 waits for the owner's usage. Scored
+  the survivors with a 2-week cycle (`research/goal/fortnight_cycle.py`).
+- **Learned:** +2% per 2 weeks inside 3.6% needs a fortnight Sharpe of 1.17; best mix 0.33 (+0.19% per 2 weeks, ~5% a
+  year; 8% cap ~11%). Evidence added to P28.
+- **Next:** owner's noise-gate rules -> pre-register -> lab.

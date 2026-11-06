@@ -61,7 +61,9 @@ not carrying forward (P10, P11).
    need about 530 independent trades per cycle). Shapes on price charts have not delivered; **flows with a payer** have
    (Tokyo fix, P22): hunt forced, scheduled order flows with a known direction (Q10, Q19, Q23) that are hard to front-run
    (small, local, operationally forced). Well-published flows fade: the month-end hedge flow worked 2011-19, then reversed.
-2. **Or relax the cycle**: a cycle defined in time (fortnightly) instead of 10 trades, or a wider drawdown (8% needs s 0.28).
+2. **Or relax the cycle**: a 2-week cycle needs a fortnight Sharpe of 1.17 for +2% inside 3.6% (we have 0.33: +0.19% per
+   2 weeks, ~5% a year); it changes the label, not the money (`research/results/goal/FORTNIGHT_CYCLE.md`). A wider
+   drawdown helps more: 8% gives about 11% a year in backtest.
 3. **Forward evidence before money**: compile and parity-check the EAs (Q22, needs the owner's OK to run the MT5 installer
    here), 3-6 months of demo with the weekly report, confirm RoboForex/Exness costs and swap-free status (Q1).
 4. Housekeeping still open: re-run the intraday studies that used HistData markets before the clock fix (Q26); the 3:30 2026
