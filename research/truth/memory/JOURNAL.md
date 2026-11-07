@@ -665,3 +665,11 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Learned:** +2% per 2 weeks inside 3.6% needs a fortnight Sharpe of 1.17; best mix 0.33 (+0.19% per 2 weeks, ~5% a
   year; 8% cap ~11%). Evidence added to P28.
 - **Next:** owner's noise-gate rules -> pre-register -> lab.
+
+## 2026-11-07 (14) · owner: body-engulf 4-candle range on Boom 1000 M5, "confirm you understand ... show me 5 examples"
+- **Done:** read the two Boom 1000 charts (entry = range midpoint, stop = far end, 1:4, breakeven at +2R); built
+  `research/body4/scanner.py` and 5 examples picked at random (fixed seed) on XAUUSD/EURUSD M5 2019-22
+  (`research/results/body4/examples/`). No backtest yet. Deriv's public data feed: first try failed on Deriv's side (520),
+  a retry was blocked here; Boom 1000 data must come from the owner's MT5 export unless the owner allows the feed.
+- **Decisions:** Q30 opened with the open rule questions; priors told to the owner (four-candle family, P2, P4).
+- **Next:** owner's answers + Boom 1000 data + broker specs -> pre-register -> lab.

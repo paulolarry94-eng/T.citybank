@@ -266,6 +266,15 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q30 Owner's body-engulf 4-candle range on Boom 1000 M5 (2026-11-07)
+FAMILY: engulfing, owner-idea, limit-entry, breakeven, synthetic-index, intraday. Candles 1-4 alternate; the 2nd and 4th
+bodies engulf the 1st and 3rd bodies (wicks ignored); range = high-low of the four; limit at the midpoint, stop at the far
+end, target 4R, stop to breakeven at +2R. Scanner and 5 random examples (XAUUSD/EURUSD): research/body4/.
+Priors: the four-candle family (~6,200 settings) was rejected on FX/gold/indices; limit entries (P2) and breakeven (P4).
+New here: Boom 1000 (Deriv synthetic index, RNG-generated with built-in drift and spikes), never tested. Needs: the owner's
+Boom 1000 M1/tick export and broker specs (the Deriv data feed could not be reached from here), plus answers on body size,
+order expiry, time exit, overlapping patterns, both sides.
+
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,
 ratio, level; hard/soft knee): values whose size is below `level` are shrunk. It has no buy/sell rule, so the owner's
