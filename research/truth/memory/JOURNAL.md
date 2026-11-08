@@ -796,3 +796,19 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   0.6-0.75 spread): strict vs loose is tick noise, matching the paired result (Q30).
 - **Next:** owner confirms the rules on the charts (loose = close beyond the previous open; layering = same-direction big
   setup confirmed less than 2 big candles before the small one, orders from the small range).
+
+## 2026-11-08 (25) · owner: "focus more on gold ... all the setups, over a thousand trades in 2019 ... find the best characteristics"
+- **Priors told first** (asked before spending effort): the gold Leg 34 winner study failed (P21); body-engulf on gold is
+  about 0 before costs. Owner chose: run it, learn on 2019.
+- **Done:** pre-registered and committed before any result (PREREGISTRATION_GOLD.md, f8e48d7); `research/body4/gold_traits.py`:
+  every gold setup M1-H4 2011-Oct 2026 (loose universe), each traded alone with the lab's M1 engine (50% limit, stop at the
+  range end, 2R, flat at 20:30 UTC, RoboForex Prime costs); 20 characteristics; best single and two-condition rule on 2019;
+  14 check years, 2,000 random selections; one look at Jan-Oct 2026.
+- **Learned:** REJECTED. 2019: 11,782 setups, 5,761 trades, -0.476R (-0.078R before costs). Every characteristic group loses
+  after costs (only H4 about 0 in the check years); before costs -0.09 to +0.05R. Timeframe, cost share, session and
+  volatility matter only through costs; lookback (3-5 of 5 no better), trend, strict/loose, engulf size, side, weekday and
+  news do nothing. Rule M30 + loose: -0.022R over 14 years (6 positive), -0.066R in 2026. "Lookback 5/5" +0.235R in 2026,
+  negative in 14 of 14 other years (P10 evidence). P21 evidence added.
+- **Facts vs estimates:** costs are RoboForex's published figures; 2026 data are Exness ticks (gold $3,870-5,593, M1
+  candles 11 times taller than 2019, which is why 2026 loses less).
+- **Next:** nothing left to mine in this pattern on gold; only a forward log of the owner's own calls.

@@ -147,6 +147,8 @@ Learning rules:
   v5 (strict vs loose engulf x timeframe layering, 768 settings) REJECTED; loose no better, layering +0.03-0.06R but keeps
   1-2% of trades. Owner's 2023-25 look: the 4 settings chosen on 2011-22 all lost (-0.07 to -0.38R a trade); 16 of 448
   positive (H4, about 0). 2023-25 used up for this family (5,184 settings); CLOSED (`research/results/body4/v5/RESULT.md`).
+  Gold characteristics (learn 2019, 20 traits, 70 conditions, 14 check years + Jan-Oct 2026) REJECTED: every group loses
+  after costs, about 0 before; only cost traits matter (`research/results/body4/gold/RESULT.md`, P21).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

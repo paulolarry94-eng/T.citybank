@@ -142,6 +142,9 @@ Evidence (2026-11-08, body-engulf range v5): the one primary that did well in 20
 (+0.052R, t 1.12) had lost -0.099R a trade (t -4.77) in 2011-22. A good period picked from many is mostly luck.
 research/results/body4/v5/RESULT.md.
 
+Evidence (2026-11-08, gold body-engulf): 'lookback 5 of 5' made +0.235R a trade on 203 unseen 2026 trades and lost in
+all 14 other years (-0.373R on 2,316): one good stretch is not a characteristic. research/results/body4/gold/RESULT.md.
+
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
 on untouched January–October 2026 Exness data made +0.022R per trade against +0.078R in its 2011–25 backtest (about 70%
@@ -294,6 +297,11 @@ Evidence (2026-11-08, multi-timeframe layering of the body-engulf range): requir
 kept 0.7-1.7% of the trades and improved R per trade in 56-75% of paired settings (+0.03 to +0.06R), but every primary
 stayed negative in 2023-25. A filter on a setup with no raw edge cuts the loss and the trades, not the sign.
 research/results/body4/v5/RESULT.md.
+
+Evidence (2026-11-08, gold body-engulf characteristics, pre-registered, learn 2019): 20 characteristics known at candle
+4's close, 70 conditions; every group lost after costs in 2019 and in 14 other years (except H4, +0.03R on 261 trades);
+before costs every group -0.09 to +0.05R. Only cost-related traits (timeframe, cost share, session, volatility) moved
+the result, toward zero. The rule learned on 2019 lost in 2026. research/results/body4/gold/RESULT.md.
 
 ### P22 Edges with a payer survive where shapes do not
 After ~300,000 configurations of chart shapes rejected after costs, the first new survivor is a flow with a known payer:

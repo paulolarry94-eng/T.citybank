@@ -339,6 +339,10 @@ Examples (2026-11-08): 10 v5 trades drawn at random from the 4 look settings, ev
 (research/results/body4/v5/examples/). About 2 in 3 loose setups fail the strict rule only because candle 2 or 4
 opens inside the previous body by less than one spread (median 0.6-0.75 spread; M5 296,083 and H1 29,497 setups):
 tick noise, which is why strict and loose tested the same.
+Gold characteristics (2026-11-08, owner: "focus on gold, all the setups in 2019, find the best characteristics";
+pre-registered, learn 2019): REJECTED. 20 characteristics, 70 conditions; every group loses after costs, about 0
+before; only cost traits matter; the 2019 rule (M30 + loose) lost in 14 years and in 2026.
+research/results/body4/gold/RESULT.md.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,
