@@ -750,3 +750,19 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** costs per timeframe in R (0.06-0.42R) come from the v4 attribution; swaps are zero by construction
   (flat at 20:30 UTC). XAGUSD/UK100 cost split 50/25/25 is an assumption.
 - **Next:** nothing left to tune in backtests; a forward log of the owner's own calls is the only open test for this pattern.
+
+## 2026-11-08 (21) · owner: "what does this vps roboforex copy affiliate cycle need"
+- **Done:** read the repo's SEESARE and copy-trading notes (blueprint findings F1-F7 and open items, NorthStar report
+  section 8, Q20) and RoboForex's current pages on the Copy Trading Service, the Copy Partner Program, the partner program
+  and the VPS. New Q31 holds the facts.
+- **Learned (RoboForex pages, 2026-11-08):** copy traders need a real MT4 account or MT5 with Hedge, $100, fee 5-50% above
+  the investor's high-water mark, periods of 1/2/4 weeks; cent (ProCent) eligibility is not stated. The free VPS (1 core,
+  1 GB) needs $300 equity and 3 standard lots a month (else $5) and reaches only RoboForex sites, so it cannot run the
+  Telegram relay. Copy Partners get a trader-set share of the trader's fee; the partner program pays up to 85% of spreads
+  and 30% of swaps.
+- **Decisions:** none. Answer to the owner: the plumbing is cheap; the blockers are an edge worth copying, cent-account
+  eligibility and the legal opinion.
+- **Facts vs estimates:** RoboForex terms as published today; a third-party Windows VPS at about $10-30 a month and the fee
+  arithmetic (about $1,000 a year per $100,000 copied, 20% fee on the best fortnight mix) are estimates.
+- **Next:** owner asks RoboForex support whether a ProCent account can be a Copy Trader account; compile and self-test the
+  router on a RoboForex demo.

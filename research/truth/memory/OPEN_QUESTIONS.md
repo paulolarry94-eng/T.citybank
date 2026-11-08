@@ -266,6 +266,28 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q31 RoboForex VPS + copy trading + affiliate "cycle" (owner, 2026-11-08): what does it need?
+FAMILY: business, copy-trading, affiliate, vps, roboforex, seesare, owner-idea.
+Facts from RoboForex's own pages, read 2026-11-08 (terms can change):
+- Copy Trading Service (CopyFX renamed at the end of 2025): trader account = any real MT4 account, or MT5 / R StocksTrader
+  with the Hedge system; deposit at least $100; performance fee 5-50% of the investor's profit above their high-water mark,
+  or no commission; investment period 1, 2 or 4 weeks, fee paid Monday 00:00 server time at the end of the period; no
+  cross-platform copying (one trader account per platform).
+- Whether a ProCent (cent) account can be a trader account is NOT stated (ask support). The SEESARE router at $1,000 trades
+  REAL only on ProCent (Tokyo fix L0-L3, none on a standard account), so a standard account needs about 100x the money.
+- Copy Partner Program (Nov 2025): people who bring investors to a trader get a share of that trader's commission, set by
+  the trader (example: 50%, 60% above $100 earned). Standard partner program: up to 85% of spreads and 30% of swaps of
+  referred clients (fixed payouts per lot).
+- Free RoboForex VPS: 1 core, 1 GB RAM, 30 GB HDD, Windows Server 2019; free with equity above $300 (bonuses excluded) and
+  at least 3 standard lots a month (CFD volume excluded), otherwise $5 a month; client accounts only. It reaches only
+  RoboForex servers and websites, so the SEESARE Telegram relay cannot post from it. MetaQuotes VPS: free until 2026-12-31
+  after a $500 MT5 deposit (no DLLs; WebRequest reportedly migrates, untested here).
+Still needed: ProCent eligibility; a VPS that can reach Telegram; the counsel opinion before followers (blueprint F6); a
+compiled, self-tested router with a forward record (NorthStar report section 8); an edge worth copying (P28: +2% per cycle
+needs edge quality ~0.42, ours 0.06-0.13; best fortnight mix +0.19% per 2 weeks, about 5% a year at the 3.6% cap).
+Conflict to disclose: affiliate pay grows with followers' trading volume (spreads, swaps), the costs that sink intraday
+strategies (P1).
+
 ### Q30 Owner's body-engulf 4-candle range (2026-11-07) — TESTED, rejected; CLOSED 2026-11-08 (2023-25 look failed)
 FAMILY: engulfing, owner-idea, limit-entry, breakeven, synthetic-index, intraday. Candles 1-4 alternate; the 2nd and 4th
 bodies engulf the 1st and 3rd bodies (wicks ignored); range = high-low of the four; limit at the midpoint, stop at the far
