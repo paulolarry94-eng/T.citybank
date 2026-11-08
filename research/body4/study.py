@@ -106,7 +106,8 @@ def main():
                      "buffer 0% vs 5%": pairs("buffer", 0.0, 0.05), "buffer 0% vs 10%": pairs("buffer", 0.0, 0.1),
                      "buffer 0% vs 20%": pairs("buffer", 0.0, 0.2)}
     if "target" in S.GRID:
-        res["paired"]["target 2R vs 1R"] = pairs("target", 2, 1)
+        ta, tb = S.GRID["target"][:2]
+        res["paired"][f"target {ta}R vs {tb}R"] = pairs("target", ta, tb)
     # 3. size terciles
     res["size_terciles_main"] = {tf: {per: {["small", "medium", "large"][z]: metrics(v) for z, v in d.items()} for per, d in pp.items()}
                                  for tf, pp in size_acc.items()}

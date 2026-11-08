@@ -709,3 +709,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   35-48%. Smaller targets are worse (2R > 1R in 85% of pairs) and slightly negative even before costs; breakeven lowers PF
   in 85% of pairs (P4). P4 and P16 evidence added; Q30 updated.
 - **Next:** unchanged: a forward log of the owner's own calls is the only way left to test this pattern family.
+
+## 2026-11-08 (18) · owner: "a doji counts ... that doji was bullish ... this strategy works, I have seen it even at 10R ... check for bugs, test it with the doji ... 1:2 ... 1:10R at breakeven at 75% ... 10 most won and 10 most lost"
+- **Done:** dojis bullish in the lookback (the owner's image-7 buy now 3 of 5, tested); v3 pre-registered and run (1:2 and
+  1:10, breakeven at 75%, 384 configurations); a full bug audit with independent code (patterns from raw candles, missed-
+  pattern re-scan, entry rules, exit re-scoring, unclear minutes, gaps); the 10 biggest winners and losers drawn.
+- **Learned:** no bug: 0 broken / 0 missed setups, 0 entry violations, 0 exit differences on 215,119 trades. v3 REJECTED: best
+  -0.09R, about 0 before costs; 10R hit by 6.6% of trades vs about 9% needed before costs. The extremes are gap trades
+  (Brexit, index overnight gaps, two one-hour data holes); capping them moves the mean by 0.01R.
+- **Correction:** P30 and the v1 report called fill-minute stops "unclear"; they are certain losses (price passes the entry
+  to reach the stop). Truly unclear minutes are <= 0.2%. History kept in P30.
+- **Next:** this pattern family is closed in backtests (960 settings of this version alone). The owner's discretion can
+  only be measured forward (log calls before the outcome).

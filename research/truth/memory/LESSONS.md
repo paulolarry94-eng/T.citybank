@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-108 ideas tested, about 317,366 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+110 ideas tested, about 318,134 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,17 +16,17 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 47 | 0 | 15,621 |
-| intraday | 40 | 1 | 190,712 |
-| engulfing | 24 | 0 | 17,432 |
+| owner-idea | 49 | 0 | 16,389 |
+| intraday | 42 | 1 | 191,480 |
+| engulfing | 26 | 0 | 18,200 |
 | flow | 22 | 1 | 96 |
 | calendar | 20 | 1 | 179 |
 | ema | 19 | 0 | 12,489 |
+| limit-entry | 19 | 0 | 9,678 |
 | index | 17 | 0 | 122 |
-| limit-entry | 17 | 0 | 8,910 |
+| multi-market | 16 | 0 | 8,846 |
+| multi-timeframe | 16 | 0 | 14,362 |
 | session | 15 | 0 | 184,648 |
-| multi-market | 14 | 0 | 8,078 |
-| multi-timeframe | 14 | 0 | 13,594 |
 | awesome-list | 13 | 0 | 147 |
 | breadth | 13 | 0 | 697 |
 | reversal | 13 | 1 | 105,864 |
@@ -43,15 +43,16 @@
 | payer | 8 | 0 | 40 |
 | risk | 8 | 1 | 173 |
 | structure | 8 | 0 | 1,634 |
+| breakeven | 7 | 0 | 104,180 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
 | repo-funnel | 7 | 0 | 222 |
 | smc | 7 | 0 | 14,992 |
 | control | 6 | 0 | 1,282 |
 | momentum | 6 | 0 | 61 |
+| range | 6 | 0 | 1,920 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
-| breakeven | 5 | 0 | 103,412 |
 | futures | 5 | 1 | 138 |
 | gold | 5 | 0 | 363 |
 | liquidity | 5 | 0 | 1,380 |
@@ -62,7 +63,6 @@
 | monthly | 4 | 0 | 20 |
 | ny-open | 4 | 0 | 128 |
 | oil | 4 | 0 | 7 |
-| range | 4 | 0 | 1,152 |
 | rebalancing | 4 | 0 | 24 |
 | third-party-ea | 4 | 0 | 304 |
 | carry | 3 | 1 | 18 |
@@ -92,6 +92,7 @@
 | fvg | 2 | 0 | 9,312 |
 | hedging | 2 | 0 | 12 |
 | ict | 2 | 0 | 784 |
+| large-target | 2 | 0 | 768 |
 | lifecycle | 2 | 0 | 80 |
 | math | 2 | 0 | 80 |
 | mss | 2 | 0 | 4 |
@@ -108,6 +109,7 @@
 | trustdan | 2 | 0 | 151 |
 | winner-anatomy | 2 | 0 | 135 |
 | all-time-high | 1 | 0 | 2 |
+| audit | 1 | 0 | 384 |
 | best-setup | 1 | 0 | 16 |
 | commodities | 1 | 0 | 16 |
 | cycle-goal | 1 | 1 | 1 |
@@ -166,6 +168,8 @@
 | 2026-11-08 | Body-engulf 4-candle range: owner's questions (breakeven, 50/70% entry, stop buffer, lookback, candle size, best market x timeframe, before costs) | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range | 192 | Rejected. Main settings after costs 2011-19: M1 -0.47, M5 -0.28, M15 -0.16, M30 -0.19, H1 -0.14, H4 -0.14R a trade (2020-22 similar); before costs about 0 (M1 -0.07 t -8.5, M5 -0.03). Breakeven lowered PF in 75% of 1,110 pairs, R unchanged; 50% entry beat 70% in 74% (+0.08R); 20% stop buffer beat 0% in 75% (+0.08R); lookback no effect; bigger candles less negative, never positive. 64 best market x timeframe picks: 8 positive in 2020-22, top four all lost. Unclear M1 minutes 20%. |  |
 | 2026-11-08 | body4_range_v2 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, small-target | 384 | Rejected: no configuration passed the development gate | share_dev_positive +0.003 |
 | 2026-11-08 | Body-engulf range at 1:2 and 1:1 (owner: try 1:2R and 1:1R): targets, win rates, paired comparisons | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, small-target | 384 | Rejected. 0 of 384 positive after costs; best with 200+ trades -0.10R (H4). Breakeven off, 2011-19: 1R wins 34-47% (needs 53-72%), 2R 25-35% (needs 35-48%). Before costs slightly negative at 1R (M15 -0.04, H1 -0.06R). 2R beats 1R in 85% of pairs; breakeven lowers PF in 85%; 50% beats 70% in 84%; 20% buffer beats 0% in 83%; lookback no effect. 1 of 63 market x timeframe picks positive in both periods (weak). |  |
+| 2026-11-08 | body4_range_v3 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target | 384 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-11-08 | Body-engulf range v3 (dojis bullish, 1:2 and 1:10, breakeven at 75%) + bug audit | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target, audit | 384 | Rejected, no bug. Audit: 464,614 setups re-checked (0 broken), 0 missed in an independent re-scan, 215,119 trades re-scored by a separate exit checker (0 differences), 0 entry violations; truly unclear minutes <= 0.2%; gaps move the mean by 0.01R. v3: 0 of 384 positive after costs, best -0.09R; before costs about 0 (101 of 384 positive in 2011-19, best t 2.8). 10R hit by 6.6% of trades (needs ~9% before costs). Breakeven at 75% lowers PF in 69% of pairs. |  |
 | 2026-11-06 | Noise gate (efficiency-ratio gate with threshold, hysteresis, hold) on the 13 survivors | filter, regime, noise-gate, efficiency-ratio, owner-idea, portfolio | 8 | Rejected. Best (H1, 67th pct, by-type): s 0.074 vs 0.068 ungated 2011-19, 0.082 vs 0.066 2020-22, but random gates of the same size do as well (p 0.36; all 8 within random range). 2023-25 look 0.047 vs 0.043; untouched 2026 book reversed (passed -0.054, blocked +0.086). Halves trades and yearly return; cycle +0.105% vs +0.10%. |  |
 | 2026-11-06 | Cycle goal with a 2-week cycle instead of 10 trades (survivors) | cycle-goal, risk, portfolio, owner-question | 1 | Needed fortnight Sharpe 1.17 (+2% in 3.6%; 0.79 in 8%). Best mix (13 survivors, leg weights) 0.33: +0.19% per 2 weeks, 4.9%/yr at 3.6%, 10.8%/yr at 8%; 3.6x short in Sharpe, ~10x in return. Same yearly money as the 10-trade cycle. 2026 forward about 0. |  |
 | 2026-11-03 | ema4_flip_v2 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.087 |

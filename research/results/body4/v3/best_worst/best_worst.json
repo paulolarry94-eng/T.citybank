@@ -1,0 +1,263 @@
+{
+ "settings": {
+  "entry": 0.5,
+  "be": 1,
+  "buffer": 0.0,
+  "lookback": 1,
+  "target": 10
+ },
+ "summary": {
+  "trades": 121822,
+  "mean_R": -0.3917,
+  "share_target": 0.0664,
+  "share_stop": 0.8925,
+  "share_breakeven": 0.0205,
+  "share_friday": 0.0206
+ },
+ "picks": {
+  "Biggest winner": [
+   {
+    "market": "XAUUSD",
+    "tf": "M1",
+    "R": 27.09,
+    "fill": "2015-07-20T23:54:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.8,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.20000000000004547
+   },
+   {
+    "market": "WTI",
+    "tf": "M1",
+    "R": 22.796,
+    "fill": "2022-06-16T19:29:00+00:00",
+    "side": "sell",
+    "reason": "target (+10R)",
+    "cost_R": 0.289,
+    "swap_R": 0.085,
+    "nights": 1,
+    "risk": 0.11749999999999261
+   },
+   {
+    "market": "GER40",
+    "tf": "M1",
+    "R": 22.294,
+    "fill": "2016-05-19T17:18:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.203,
+    "swap_R": 0.615,
+    "nights": 1,
+    "risk": 4.875
+   },
+   {
+    "market": "GBPUSD",
+    "tf": "M1",
+    "R": 20.705,
+    "fill": "2013-05-20T23:00:00+00:00",
+    "side": "sell",
+    "reason": "target (+10R)",
+    "cost_R": 0.445,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.00019999999999997797
+   },
+   {
+    "market": "UK100",
+    "tf": "M1",
+    "R": 20.485,
+    "fill": "2018-10-18T17:58:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.462,
+    "swap_R": 0.4,
+    "nights": 1,
+    "risk": 3.25
+   },
+   {
+    "market": "XAUUSD",
+    "tf": "M1",
+    "R": 19.276,
+    "fill": "2016-08-09T23:08:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.64,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.25
+   },
+   {
+    "market": "UK100",
+    "tf": "M1",
+    "R": 18.163,
+    "fill": "2015-10-20T18:15:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.75,
+    "swap_R": 0.65,
+    "nights": 1,
+    "risk": 2.0
+   },
+   {
+    "market": "UK100",
+    "tf": "M1",
+    "R": 17.442,
+    "fill": "2015-09-29T19:59:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.5,
+    "swap_R": 0.433,
+    "nights": 1,
+    "risk": 3.0
+   },
+   {
+    "market": "GBPUSD",
+    "tf": "M1",
+    "R": 17.39,
+    "fill": "2016-04-13T23:48:00+00:00",
+    "side": "sell",
+    "reason": "target (+10R)",
+    "cost_R": 0.848,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.00010500000000002174
+   },
+   {
+    "market": "GBPUSD",
+    "tf": "M1",
+    "R": 17.145,
+    "fill": "2013-04-14T23:42:00+00:00",
+    "side": "buy",
+    "reason": "target (+10R)",
+    "cost_R": 0.614,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.0001449999999998397
+   }
+  ],
+  "Biggest loser": [
+   {
+    "market": "UK100",
+    "tf": "M30",
+    "R": -22.569,
+    "fill": "2016-06-22T19:59:00+00:00",
+    "side": "buy",
+    "reason": "stop (-1R)",
+    "cost_R": 0.071,
+    "swap_R": 0.248,
+    "nights": 4,
+    "risk": 21.0
+   },
+   {
+    "market": "GER40",
+    "tf": "M1",
+    "R": -21.109,
+    "fill": "2017-04-03T19:57:00+00:00",
+    "side": "buy",
+    "reason": "stop (-1R)",
+    "cost_R": 0.566,
+    "swap_R": 1.714,
+    "nights": 1,
+    "risk": 1.75
+   },
+   {
+    "market": "GER40",
+    "tf": "M5",
+    "R": -20.444,
+    "fill": "2015-08-31T19:48:00+00:00",
+    "side": "buy",
+    "reason": "stop (-1R)",
+    "cost_R": 0.099,
+    "swap_R": 0.3,
+    "nights": 1,
+    "risk": 10.0
+   },
+   {
+    "market": "UK100",
+    "tf": "M5",
+    "R": -20.2,
+    "fill": "2015-05-07T19:01:00+00:00",
+    "side": "sell",
+    "reason": "stop (-1R)",
+    "cost_R": 0.286,
+    "swap_R": 0.248,
+    "nights": 1,
+    "risk": 5.25
+   },
+   {
+    "market": "UK100",
+    "tf": "M5",
+    "R": -19.55,
+    "fill": "2016-11-08T16:40:00+00:00",
+    "side": "buy",
+    "reason": "stop (-1R)",
+    "cost_R": 0.136,
+    "swap_R": 0.118,
+    "nights": 1,
+    "risk": 11.0
+   },
+   {
+    "market": "GBPUSD",
+    "tf": "M1",
+    "R": -18.085,
+    "fill": "2014-04-16T23:50:00+00:00",
+    "side": "sell",
+    "reason": "stop (-1R)",
+    "cost_R": 0.539,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.00016499999999997073
+   },
+   {
+    "market": "GER40",
+    "tf": "M1",
+    "R": -16.633,
+    "fill": "2013-07-31T19:39:00+00:00",
+    "side": "sell",
+    "reason": "stop (-1R)",
+    "cost_R": 0.36,
+    "swap_R": 3.273,
+    "nights": 3,
+    "risk": 2.75
+   },
+   {
+    "market": "UK100",
+    "tf": "M30",
+    "R": -15.342,
+    "fill": "2016-11-07T15:04:00+00:00",
+    "side": "buy",
+    "reason": "stop (-1R)",
+    "cost_R": 0.133,
+    "swap_R": 0.231,
+    "nights": 2,
+    "risk": 11.25
+   },
+   {
+    "market": "GBPUSD",
+    "tf": "M1",
+    "R": -13.536,
+    "fill": "2014-11-13T23:54:00+00:00",
+    "side": "buy",
+    "reason": "stop (-1R)",
+    "cost_R": 0.809,
+    "swap_R": 0.0,
+    "nights": 0,
+    "risk": 0.0001100000000000545
+   },
+   {
+    "market": "GER40",
+    "tf": "M1",
+    "R": -12.388,
+    "fill": "2018-06-19T19:55:00+00:00",
+    "side": "sell",
+    "reason": "stop (-1R)",
+    "cost_R": 0.344,
+    "swap_R": 1.043,
+    "nights": 1,
+    "risk": 2.875
+   }
+  ]
+ }
+}

@@ -57,6 +57,9 @@ Evidence (2026-11-08, body-engulf range at 2R and 1R, breakeven at 50% of the ta
 factor in only 15% of 1,800 paired settings (16% of 1,492 in 2020-22); smaller targets were worse (2R beat 1R in 85% of
 pairs). research/results/body4/v2/RESULT.md.
 
+Evidence (2026-11-08, body-engulf range, breakeven at 75% of the way to 10R or 2R): higher profit factor in only 31% of
+2,172 pairs (36% in 2020-22), R per trade unchanged. research/results/body4/v3/RESULT.md.
+
 ### P5 Overnight swaps matter for multi-day trades
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
 +0.063 → +0.044R. A swap-free account changes the picture (book Sharpe 1.00 → 1.64 with low costs).
@@ -225,6 +228,10 @@ Evidence (2026-11-02, owner's 3:30 EMA retest): the coded scanner made the owner
 days (same reference candle, entry and stop within cents), so the rules were captured; scanned over every day of 2011-2022 on
 12 markets they lose -0.16 to -0.22R a trade in all 48 settings. research/results/owner330/REPLAY.md, RESULT.md.
 
+Evidence (2026-11-08, body-engulf range at 10R): the owner has "seen it even at 10R" and 10R winners are real (6.6% of
+121,822 trades, the biggest +17 to +27R after gaps), but 89% of trades were stopped; a 10R target needs about 9% winners
+before costs. research/results/body4/v3/RESULT.md.
+
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
 swap-free), and of profitable years from 87% to 100% of 2011-25, from costs alone. One leg alone is profitable in 27-28% of
@@ -378,3 +385,7 @@ entry-to-stop distance (a gap through both entry and stop otherwise divides by z
 the same minute cannot be ordered: 20% of M1 trades, 7% M5, 4% M15, 1% H4 (body-engulf range); count them and treat them
 against the trade, and use ticks before trusting an M1 result. Evidence: research/body4/body4_orders.py (specification),
 research/truth/tests/test_body4.py, research/results/body4/RESULT.md. Confidence: high.
+Correction (2026-11-08, v3 audit): for a resting limit entry, a fill and a stop in the same minute is NOT ambiguous: price has
+to pass the entry to reach the stop, so it is a certain loss. The truly unclear case (stop and target in the same minute)
+is at most 0.2% of M1 trades and 0.06% of M5+ trades for the body-engulf range. Minute bars are enough to judge it.
+History: the first version of P30 (above) counted every same-minute event as unclear (20% of M1 trades).

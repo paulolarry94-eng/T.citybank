@@ -1,0 +1,5378 @@
+{
+ "M1 | target 10R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 60112,
+   "E": -0.0672,
+   "t": -5.48,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 28806,
+   "E": -0.0522,
+   "t": -2.94,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 108281,
+   "E": -0.0512,
+   "t": -5.55,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 51703,
+   "E": -0.0355,
+   "t": -2.66,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 59178,
+   "E": -0.0254,
+   "t": -2.02,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 28421,
+   "E": -0.0168,
+   "t": -0.93,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 105000,
+   "E": -0.0041,
+   "t": -0.43,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 50242,
+   "E": -0.0083,
+   "t": -0.61,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 58375,
+   "E": -0.0181,
+   "t": -1.42,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 28029,
+   "E": -0.0305,
+   "t": -1.68,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 102333,
+   "E": -0.0056,
+   "t": -0.58,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 48913,
+   "E": -0.0169,
+   "t": -1.22,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 56546,
+   "E": -0.0123,
+   "t": -0.95,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 27196,
+   "E": -0.039,
+   "t": -2.13,
+   "markets_positive": 3
+  }
+ },
+ "M1 | target 10R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 96484,
+   "E": -0.0052,
+   "t": -0.52,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 46257,
+   "E": -0.0321,
+   "t": -2.28,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 59984,
+   "E": -0.0684,
+   "t": -5.5,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 28755,
+   "E": -0.0504,
+   "t": -2.8,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 107911,
+   "E": -0.0526,
+   "t": -5.62,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 51515,
+   "E": -0.0364,
+   "t": -2.68,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 59045,
+   "E": -0.0255,
+   "t": -2.0,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 28340,
+   "E": -0.0114,
+   "t": -0.62,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 104612,
+   "E": -0.004,
+   "t": -0.41,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 49987,
+   "E": -0.0058,
+   "t": -0.42,
+   "markets_positive": 6
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 58194,
+   "E": -0.0168,
+   "t": -1.3,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 27949,
+   "E": -0.0307,
+   "t": -1.67,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 101855,
+   "E": -0.0052,
+   "t": -0.53,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 48659,
+   "E": -0.0155,
+   "t": -1.1,
+   "markets_positive": 6
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 56353,
+   "E": -0.0119,
+   "t": -0.91,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 27107,
+   "E": -0.0391,
+   "t": -2.1,
+   "markets_positive": 3
+  }
+ },
+ "M1 | target 10R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 95979,
+   "E": -0.0058,
+   "t": -0.57,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 46002,
+   "E": -0.034,
+   "t": -2.38,
+   "markets_positive": 3
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 56249,
+   "E": -0.1173,
+   "t": -9.44,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 26977,
+   "E": -0.0748,
+   "t": -4.1,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 105521,
+   "E": -0.0941,
+   "t": -10.27,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 50429,
+   "E": -0.0575,
+   "t": -4.27,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 56861,
+   "E": -0.035,
+   "t": -2.72,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 27340,
+   "E": -0.0144,
+   "t": -0.77,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 105241,
+   "E": -0.0072,
+   "t": -0.76,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 50437,
+   "E": -0.0027,
+   "t": -0.2,
+   "markets_positive": 6
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 57051,
+   "E": -0.0215,
+   "t": -1.66,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 27532,
+   "E": -0.0192,
+   "t": -1.04,
+   "markets_positive": 6
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 104301,
+   "E": -0.0047,
+   "t": -0.48,
+   "markets_positive": 9
+  },
+  "2020-22": {
+   "n": 50070,
+   "E": -0.0135,
+   "t": -0.98,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 56722,
+   "E": -0.0198,
+   "t": -1.53,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 27453,
+   "E": -0.0303,
+   "t": -1.65,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 100976,
+   "E": -0.0096,
+   "t": -0.98,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 48599,
+   "E": -0.0223,
+   "t": -1.61,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 56206,
+   "E": -0.1197,
+   "t": -9.51,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 26954,
+   "E": -0.0742,
+   "t": -4.01,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 105381,
+   "E": -0.0976,
+   "t": -10.52,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 50361,
+   "E": -0.057,
+   "t": -4.17,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 56801,
+   "E": -0.0348,
+   "t": -2.66,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 27317,
+   "E": -0.0097,
+   "t": -0.51,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 105015,
+   "E": -0.0066,
+   "t": -0.68,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 50338,
+   "E": 0.0011,
+   "t": 0.08,
+   "markets_positive": 6
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 56961,
+   "E": -0.0197,
+   "t": -1.51,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 27502,
+   "E": -0.022,
+   "t": -1.17,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 104020,
+   "E": -0.0011,
+   "t": -0.11,
+   "markets_positive": 9
+  },
+  "2020-22": {
+   "n": 49948,
+   "E": -0.0142,
+   "t": -1.01,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 56606,
+   "E": -0.0197,
+   "t": -1.5,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 27410,
+   "E": -0.0334,
+   "t": -1.79,
+   "markets_positive": 5
+  }
+ },
+ "M1 | target 10R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 100627,
+   "E": -0.0105,
+   "t": -1.06,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 48469,
+   "E": -0.0248,
+   "t": -1.76,
+   "markets_positive": 4
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 45280,
+   "E": -0.1011,
+   "t": -16.32,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 21460,
+   "E": -0.1004,
+   "t": -11.23,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 88203,
+   "E": -0.1019,
+   "t": -22.81,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 41764,
+   "E": -0.0912,
+   "t": -14.19,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 47310,
+   "E": -0.0635,
+   "t": -10.37,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 22443,
+   "E": -0.0617,
+   "t": -6.96,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 91815,
+   "E": -0.0624,
+   "t": -14.11,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 43565,
+   "E": -0.0539,
+   "t": -8.46,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 48927,
+   "E": -0.0557,
+   "t": -9.22,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 23321,
+   "E": -0.052,
+   "t": -5.97,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 94553,
+   "E": -0.0557,
+   "t": -12.75,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 45010,
+   "E": -0.0444,
+   "t": -7.07,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 51416,
+   "E": -0.0442,
+   "t": -7.46,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 24527,
+   "E": -0.0492,
+   "t": -5.8,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 98336,
+   "E": -0.0439,
+   "t": -10.16,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 46962,
+   "E": -0.041,
+   "t": -6.68,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 45214,
+   "E": -0.1049,
+   "t": -16.22,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 21450,
+   "E": -0.1034,
+   "t": -11.06,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 87943,
+   "E": -0.1046,
+   "t": -22.39,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 41672,
+   "E": -0.0927,
+   "t": -13.75,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 47220,
+   "E": -0.0669,
+   "t": -10.44,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 22422,
+   "E": -0.0672,
+   "t": -7.26,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 91460,
+   "E": -0.0644,
+   "t": -13.87,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 43440,
+   "E": -0.058,
+   "t": -8.69,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 48825,
+   "E": -0.0568,
+   "t": -8.97,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 23279,
+   "E": -0.0587,
+   "t": -6.45,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 94113,
+   "E": -0.057,
+   "t": -12.43,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 44845,
+   "E": -0.0484,
+   "t": -7.36,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 51262,
+   "E": -0.0439,
+   "t": -7.05,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 24449,
+   "E": -0.0504,
+   "t": -5.66,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 97699,
+   "E": -0.0436,
+   "t": -9.58,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 46708,
+   "E": -0.0423,
+   "t": -6.56,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 9728,
+   "E": -0.2511,
+   "t": -19.46,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 4564,
+   "E": -0.2347,
+   "t": -12.58,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 18997,
+   "E": -0.2417,
+   "t": -26.19,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 9076,
+   "E": -0.2383,
+   "t": -18.05,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 17056,
+   "E": -0.1339,
+   "t": -13.3,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 8069,
+   "E": -0.1371,
+   "t": -9.45,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 33455,
+   "E": -0.1271,
+   "t": -17.59,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 15815,
+   "E": -0.1376,
+   "t": -13.27,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 24569,
+   "E": -0.1027,
+   "t": -12.21,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 11549,
+   "E": -0.1119,
+   "t": -9.22,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 48106,
+   "E": -0.1019,
+   "t": -16.9,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 22559,
+   "E": -0.1112,
+   "t": -12.77,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 33100,
+   "E": -0.0831,
+   "t": -11.37,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 15707,
+   "E": -0.0849,
+   "t": -8.08,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 64559,
+   "E": -0.0744,
+   "t": -14.13,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 30616,
+   "E": -0.0725,
+   "t": -9.55,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 9727,
+   "E": -0.2541,
+   "t": -19.06,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 4564,
+   "E": -0.2424,
+   "t": -12.57,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 18996,
+   "E": -0.2451,
+   "t": -25.67,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 9072,
+   "E": -0.2401,
+   "t": -17.53,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 17051,
+   "E": -0.134,
+   "t": -12.77,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 8067,
+   "E": -0.1342,
+   "t": -8.86,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 33435,
+   "E": -0.1269,
+   "t": -16.86,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 15805,
+   "E": -0.1374,
+   "t": -12.71,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 24555,
+   "E": -0.1066,
+   "t": -12.11,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 11542,
+   "E": -0.1153,
+   "t": -9.07,
+   "markets_positive": 2
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 48054,
+   "E": -0.1032,
+   "t": -16.34,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 22533,
+   "E": -0.1104,
+   "t": -12.1,
+   "markets_positive": 0
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 33068,
+   "E": -0.0834,
+   "t": -10.84,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 15696,
+   "E": -0.0857,
+   "t": -7.79,
+   "markets_positive": 1
+  }
+ },
+ "M1 | target 2R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 64422,
+   "E": -0.0749,
+   "t": -13.56,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 30550,
+   "E": -0.0757,
+   "t": -9.55,
+   "markets_positive": 0
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 18960,
+   "E": -0.028,
+   "t": -1.29,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7819,
+   "E": -0.0684,
+   "t": -2.04,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 34157,
+   "E": -0.0223,
+   "t": -1.36,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 14312,
+   "E": -0.042,
+   "t": -1.68,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 18682,
+   "E": 0.0053,
+   "t": 0.24,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 7734,
+   "E": -0.0205,
+   "t": -0.6,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 33205,
+   "E": 0.0072,
+   "t": 0.43,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 13939,
+   "E": -0.0257,
+   "t": -1.01,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 18459,
+   "E": 0.0027,
+   "t": 0.12,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7629,
+   "E": -0.0342,
+   "t": -1.0,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 32446,
+   "E": -0.0115,
+   "t": -0.69,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 13571,
+   "E": -0.0338,
+   "t": -1.32,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 17995,
+   "E": 0.0075,
+   "t": 0.34,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 7426,
+   "E": -0.0397,
+   "t": -1.16,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 30972,
+   "E": -0.0121,
+   "t": -0.71,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 12945,
+   "E": -0.0516,
+   "t": -2.01,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 18930,
+   "E": -0.0243,
+   "t": -1.1,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7806,
+   "E": -0.0755,
+   "t": -2.23,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 34057,
+   "E": -0.0215,
+   "t": -1.3,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 14279,
+   "E": -0.0515,
+   "t": -2.04,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 18653,
+   "E": 0.0042,
+   "t": 0.19,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 7720,
+   "E": -0.0303,
+   "t": -0.87,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 33105,
+   "E": 0.0076,
+   "t": 0.45,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 13891,
+   "E": -0.0319,
+   "t": -1.24,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 18425,
+   "E": 0.0038,
+   "t": 0.17,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7613,
+   "E": -0.0392,
+   "t": -1.14,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 32334,
+   "E": -0.0092,
+   "t": -0.54,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 13515,
+   "E": -0.0362,
+   "t": -1.4,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 17959,
+   "E": 0.01,
+   "t": 0.44,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 7411,
+   "E": -0.0389,
+   "t": -1.12,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 10R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 30880,
+   "E": -0.0118,
+   "t": -0.69,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 12901,
+   "E": -0.0485,
+   "t": -1.86,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 17817,
+   "E": -0.0176,
+   "t": -0.77,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 7359,
+   "E": -0.0262,
+   "t": -0.72,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 33289,
+   "E": -0.0307,
+   "t": -1.82,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 14044,
+   "E": 0.0017,
+   "t": 0.06,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 17933,
+   "E": 0.0007,
+   "t": 0.03,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 7434,
+   "E": 0.029,
+   "t": 0.79,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 33030,
+   "E": -0.0071,
+   "t": -0.42,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 13946,
+   "E": 0.0348,
+   "t": 1.31,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 17975,
+   "E": 0.002,
+   "t": 0.09,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 7448,
+   "E": 0.0053,
+   "t": 0.15,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 32664,
+   "E": -0.0111,
+   "t": -0.65,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 13794,
+   "E": 0.0102,
+   "t": 0.39,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 17740,
+   "E": -0.0077,
+   "t": -0.34,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7378,
+   "E": 0.0094,
+   "t": 0.26,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 31476,
+   "E": -0.0157,
+   "t": -0.91,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 13335,
+   "E": -0.0193,
+   "t": -0.74,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 17799,
+   "E": -0.0144,
+   "t": -0.62,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 7351,
+   "E": -0.023,
+   "t": -0.62,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 33234,
+   "E": -0.0302,
+   "t": -1.76,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 14022,
+   "E": 0.0017,
+   "t": 0.06,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 17907,
+   "E": 0.003,
+   "t": 0.13,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7427,
+   "E": 0.0337,
+   "t": 0.9,
+   "markets_positive": 7
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 32967,
+   "E": -0.0005,
+   "t": -0.03,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 13922,
+   "E": 0.0319,
+   "t": 1.18,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 17949,
+   "E": 0.0034,
+   "t": 0.15,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 7444,
+   "E": -0.0001,
+   "t": -0.0,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 32602,
+   "E": -0.0104,
+   "t": -0.61,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 13783,
+   "E": 0.0049,
+   "t": 0.18,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 17719,
+   "E": -0.0075,
+   "t": -0.33,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 7358,
+   "E": -0.0028,
+   "t": -0.08,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 10R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 31422,
+   "E": -0.0165,
+   "t": -0.95,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 13291,
+   "E": -0.0263,
+   "t": -1.0,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 15161,
+   "E": -0.0576,
+   "t": -5.32,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 6102,
+   "E": -0.0191,
+   "t": -1.11,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 29805,
+   "E": -0.0443,
+   "t": -5.72,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 12361,
+   "E": -0.0236,
+   "t": -1.96,
+   "markets_positive": 2
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 15759,
+   "E": -0.0356,
+   "t": -3.33,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 6347,
+   "E": 0.0004,
+   "t": 0.03,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 30777,
+   "E": -0.0281,
+   "t": -3.67,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 12795,
+   "E": -0.0044,
+   "t": -0.37,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 16257,
+   "E": -0.0425,
+   "t": -4.04,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 6565,
+   "E": -0.0021,
+   "t": -0.13,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 31579,
+   "E": -0.0303,
+   "t": -4.0,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 13154,
+   "E": -0.0044,
+   "t": -0.38,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 16850,
+   "E": -0.0246,
+   "t": -2.38,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 6863,
+   "E": -0.006,
+   "t": -0.37,
+   "markets_positive": 7
+  }
+ },
+ "M5 | target 2R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 32357,
+   "E": -0.0255,
+   "t": -3.42,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 13505,
+   "E": -0.0112,
+   "t": -0.97,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 15136,
+   "E": -0.0556,
+   "t": -4.89,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 6090,
+   "E": -0.0224,
+   "t": -1.24,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 29667,
+   "E": -0.0451,
+   "t": -5.53,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 12321,
+   "E": -0.0273,
+   "t": -2.16,
+   "markets_positive": 2
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 15724,
+   "E": -0.0343,
+   "t": -3.05,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 6337,
+   "E": 0.0014,
+   "t": 0.08,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 30622,
+   "E": -0.0279,
+   "t": -3.45,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 12743,
+   "E": -0.0032,
+   "t": -0.26,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 16206,
+   "E": -0.0428,
+   "t": -3.86,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 6545,
+   "E": -0.0052,
+   "t": -0.3,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 31384,
+   "E": -0.0316,
+   "t": -3.96,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 13089,
+   "E": -0.0069,
+   "t": -0.56,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 16773,
+   "E": -0.0281,
+   "t": -2.58,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 6832,
+   "E": -0.0095,
+   "t": -0.56,
+   "markets_positive": 7
+  }
+ },
+ "M5 | target 2R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 32092,
+   "E": -0.0279,
+   "t": -3.53,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 13410,
+   "E": -0.0093,
+   "t": -0.77,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 3514,
+   "E": -0.1119,
+   "t": -5.12,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 1365,
+   "E": -0.0548,
+   "t": -1.52,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 6763,
+   "E": -0.0911,
+   "t": -5.71,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 2780,
+   "E": -0.0319,
+   "t": -1.26,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 5932,
+   "E": -0.0559,
+   "t": -3.22,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 2300,
+   "E": -0.0451,
+   "t": -1.64,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 11640,
+   "E": -0.0521,
+   "t": -4.21,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 4754,
+   "E": -0.0133,
+   "t": -0.69,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 8193,
+   "E": -0.0669,
+   "t": -4.58,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 3220,
+   "E": -0.0127,
+   "t": -0.54,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 16158,
+   "E": -0.0522,
+   "t": -4.99,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 6664,
+   "E": -0.0081,
+   "t": -0.5,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 11060,
+   "E": -0.045,
+   "t": -3.52,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 4399,
+   "E": -0.0152,
+   "t": -0.74,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 21639,
+   "E": -0.0429,
+   "t": -4.67,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 8958,
+   "E": -0.0297,
+   "t": -2.1,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 3514,
+   "E": -0.12,
+   "t": -5.25,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 1365,
+   "E": -0.058,
+   "t": -1.55,
+   "markets_positive": 4
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 6760,
+   "E": -0.0959,
+   "t": -5.72,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 2780,
+   "E": -0.0277,
+   "t": -1.05,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 5929,
+   "E": -0.0615,
+   "t": -3.39,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 2298,
+   "E": -0.0441,
+   "t": -1.52,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 11630,
+   "E": -0.0553,
+   "t": -4.25,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 4747,
+   "E": -0.0132,
+   "t": -0.65,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 8186,
+   "E": -0.07,
+   "t": -4.57,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 3214,
+   "E": -0.0156,
+   "t": -0.63,
+   "markets_positive": 3
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 16127,
+   "E": -0.0519,
+   "t": -4.72,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 6649,
+   "E": -0.0133,
+   "t": -0.77,
+   "markets_positive": 6
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 11044,
+   "E": -0.0539,
+   "t": -3.99,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 4394,
+   "E": -0.0145,
+   "t": -0.68,
+   "markets_positive": 5
+  }
+ },
+ "M5 | target 2R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 21576,
+   "E": -0.0461,
+   "t": -4.77,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 8937,
+   "E": -0.0276,
+   "t": -1.85,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 7687,
+   "E": 0.0709,
+   "t": 2.04,
+   "markets_positive": 9
+  },
+  "2020-22": {
+   "n": 2895,
+   "E": -0.0168,
+   "t": -0.31,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 13833,
+   "E": 0.0435,
+   "t": 1.7,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5395,
+   "E": 0.0146,
+   "t": 0.36,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 7616,
+   "E": 0.0854,
+   "t": 2.45,
+   "markets_positive": 11
+  },
+  "2020-22": {
+   "n": 2870,
+   "E": 0.0161,
+   "t": 0.29,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 13570,
+   "E": 0.0593,
+   "t": 2.3,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5279,
+   "E": -0.0013,
+   "t": -0.03,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 7559,
+   "E": 0.0798,
+   "t": 2.31,
+   "markets_positive": 9
+  },
+  "2020-22": {
+   "n": 2847,
+   "E": 0.0329,
+   "t": 0.6,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 13357,
+   "E": 0.0473,
+   "t": 1.85,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 5182,
+   "E": 0.0086,
+   "t": 0.21,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 7409,
+   "E": 0.0927,
+   "t": 2.7,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2810,
+   "E": 0.0454,
+   "t": 0.83,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 10R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 12874,
+   "E": 0.061,
+   "t": 2.37,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 5010,
+   "E": -0.001,
+   "t": -0.02,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 7683,
+   "E": 0.0692,
+   "t": 1.98,
+   "markets_positive": 9
+  },
+  "2020-22": {
+   "n": 2893,
+   "E": -0.0121,
+   "t": -0.22,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 13812,
+   "E": 0.0454,
+   "t": 1.76,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5388,
+   "E": 0.0135,
+   "t": 0.33,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 7612,
+   "E": 0.0885,
+   "t": 2.52,
+   "markets_positive": 10
+  },
+  "2020-22": {
+   "n": 2867,
+   "E": 0.0226,
+   "t": 0.41,
+   "markets_positive": 8
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 13551,
+   "E": 0.0659,
+   "t": 2.52,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5271,
+   "E": 0.0039,
+   "t": 0.1,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 7555,
+   "E": 0.0859,
+   "t": 2.46,
+   "markets_positive": 10
+  },
+  "2020-22": {
+   "n": 2845,
+   "E": 0.0333,
+   "t": 0.6,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 13338,
+   "E": 0.052,
+   "t": 2.01,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 5173,
+   "E": 0.0145,
+   "t": 0.35,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 7405,
+   "E": 0.0962,
+   "t": 2.78,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 2809,
+   "E": 0.0388,
+   "t": 0.71,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 12861,
+   "E": 0.0642,
+   "t": 2.47,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 5008,
+   "E": -0.0077,
+   "t": -0.19,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 7075,
+   "E": 0.0303,
+   "t": 0.83,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2661,
+   "E": 0.0181,
+   "t": 0.31,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 13152,
+   "E": -0.0002,
+   "t": -0.01,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 5085,
+   "E": 0.0627,
+   "t": 1.43,
+   "markets_positive": 8
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 7133,
+   "E": 0.0397,
+   "t": 1.09,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2691,
+   "E": 0.0635,
+   "t": 1.06,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 13072,
+   "E": 0.0233,
+   "t": 0.87,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5079,
+   "E": 0.0542,
+   "t": 1.25,
+   "markets_positive": 9
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 7168,
+   "E": 0.0231,
+   "t": 0.65,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 2708,
+   "E": 0.0755,
+   "t": 1.27,
+   "markets_positive": 8
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 12994,
+   "E": -0.0024,
+   "t": -0.09,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 5051,
+   "E": 0.0409,
+   "t": 0.95,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 7123,
+   "E": 0.0594,
+   "t": 1.65,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2701,
+   "E": 0.0538,
+   "t": 0.93,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 12701,
+   "E": 0.017,
+   "t": 0.64,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 4955,
+   "E": -0.0048,
+   "t": -0.11,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 7071,
+   "E": 0.0264,
+   "t": 0.71,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2658,
+   "E": 0.0117,
+   "t": 0.19,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 13134,
+   "E": 0.0017,
+   "t": 0.06,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5079,
+   "E": 0.0514,
+   "t": 1.16,
+   "markets_positive": 8
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 7128,
+   "E": 0.0384,
+   "t": 1.04,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2688,
+   "E": 0.0608,
+   "t": 1.0,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 13055,
+   "E": 0.0189,
+   "t": 0.7,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 5071,
+   "E": 0.0497,
+   "t": 1.13,
+   "markets_positive": 9
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 7165,
+   "E": 0.0231,
+   "t": 0.64,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2706,
+   "E": 0.0693,
+   "t": 1.15,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 12973,
+   "E": -0.0054,
+   "t": -0.2,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 5044,
+   "E": 0.0367,
+   "t": 0.85,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 7119,
+   "E": 0.0692,
+   "t": 1.9,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2697,
+   "E": 0.0459,
+   "t": 0.78,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 10R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 12684,
+   "E": 0.0229,
+   "t": 0.85,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 4948,
+   "E": -0.0162,
+   "t": -0.38,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 6253,
+   "E": 0.014,
+   "t": 0.81,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2335,
+   "E": -0.0112,
+   "t": -0.41,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 12112,
+   "E": -0.009,
+   "t": -0.73,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 4638,
+   "E": -0.0176,
+   "t": -0.9,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 6493,
+   "E": 0.0211,
+   "t": 1.24,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2436,
+   "E": -0.0044,
+   "t": -0.16,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 12493,
+   "E": 0.0051,
+   "t": 0.42,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 4805,
+   "E": -0.0129,
+   "t": -0.67,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 6676,
+   "E": 0.0182,
+   "t": 1.09,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2489,
+   "E": -0.0076,
+   "t": -0.28,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 12753,
+   "E": -0.0018,
+   "t": -0.15,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 4893,
+   "E": -0.0163,
+   "t": -0.85,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 6893,
+   "E": 0.0173,
+   "t": 1.06,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2589,
+   "E": 0.0173,
+   "t": 0.66,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 13067,
+   "E": -0.0034,
+   "t": -0.29,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5044,
+   "E": 0.0056,
+   "t": 0.3,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 6244,
+   "E": 0.0088,
+   "t": 0.49,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2328,
+   "E": -0.0096,
+   "t": -0.33,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 12062,
+   "E": -0.0097,
+   "t": -0.75,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 4615,
+   "E": -0.0138,
+   "t": -0.67,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 6474,
+   "E": 0.0172,
+   "t": 0.97,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2431,
+   "E": 0.0078,
+   "t": 0.27,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 12418,
+   "E": 0.004,
+   "t": 0.32,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 4781,
+   "E": 0.0006,
+   "t": 0.03,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 6660,
+   "E": 0.013,
+   "t": 0.75,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2481,
+   "E": 0.0035,
+   "t": 0.13,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 12677,
+   "E": -0.0033,
+   "t": -0.26,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 4864,
+   "E": -0.0121,
+   "t": -0.6,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 6865,
+   "E": 0.0141,
+   "t": 0.83,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 2578,
+   "E": 0.0131,
+   "t": 0.48,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 12964,
+   "E": -0.0033,
+   "t": -0.27,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 5008,
+   "E": -0.0034,
+   "t": -0.17,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 1546,
+   "E": -0.0327,
+   "t": -0.93,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 538,
+   "E": -0.0349,
+   "t": -0.62,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 2948,
+   "E": -0.0447,
+   "t": -1.79,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 1048,
+   "E": -0.0545,
+   "t": -1.35,
+   "markets_positive": 3
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 2515,
+   "E": 0.0067,
+   "t": 0.25,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 930,
+   "E": 0.0341,
+   "t": 0.77,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 4887,
+   "E": -0.0078,
+   "t": -0.4,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1868,
+   "E": 0.0117,
+   "t": 0.37,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 3386,
+   "E": -0.0083,
+   "t": -0.36,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1282,
+   "E": 0.0278,
+   "t": 0.74,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 6611,
+   "E": -0.0349,
+   "t": -2.11,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 2561,
+   "E": -0.0134,
+   "t": -0.51,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 4545,
+   "E": 0.0138,
+   "t": 0.68,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1678,
+   "E": -0.0062,
+   "t": -0.19,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 2R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 8775,
+   "E": -0.0159,
+   "t": -1.1,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 3351,
+   "E": -0.0399,
+   "t": -1.72,
+   "markets_positive": 3
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 1546,
+   "E": -0.0399,
+   "t": -1.08,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 538,
+   "E": -0.0289,
+   "t": -0.48,
+   "markets_positive": 7
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 2947,
+   "E": -0.0506,
+   "t": -1.93,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 1048,
+   "E": -0.0503,
+   "t": -1.18,
+   "markets_positive": 4
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 2513,
+   "E": 0.0039,
+   "t": 0.13,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 930,
+   "E": 0.0368,
+   "t": 0.79,
+   "markets_positive": 8
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 4881,
+   "E": -0.0161,
+   "t": -0.79,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1865,
+   "E": 0.0205,
+   "t": 0.63,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 3383,
+   "E": -0.0016,
+   "t": -0.07,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1282,
+   "E": 0.0176,
+   "t": 0.45,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 6601,
+   "E": -0.0306,
+   "t": -1.75,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 2554,
+   "E": -0.0247,
+   "t": -0.9,
+   "markets_positive": 6
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 4540,
+   "E": 0.0143,
+   "t": 0.67,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1675,
+   "E": -0.008,
+   "t": -0.24,
+   "markets_positive": 5
+  }
+ },
+ "M15 | target 2R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 8752,
+   "E": -0.0142,
+   "t": -0.94,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 3344,
+   "E": -0.0425,
+   "t": -1.76,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 4240,
+   "E": -0.0021,
+   "t": -0.05,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1581,
+   "E": -0.0696,
+   "t": -1.01,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 7679,
+   "E": -0.0339,
+   "t": -1.05,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2934,
+   "E": -0.0529,
+   "t": -1.04,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 4221,
+   "E": -0.0109,
+   "t": -0.25,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1576,
+   "E": -0.0669,
+   "t": -0.98,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 7570,
+   "E": -0.0204,
+   "t": -0.63,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 2904,
+   "E": -0.0647,
+   "t": -1.29,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 4192,
+   "E": -0.0173,
+   "t": -0.4,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1574,
+   "E": -0.0513,
+   "t": -0.76,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 7475,
+   "E": -0.0114,
+   "t": -0.35,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2879,
+   "E": -0.0779,
+   "t": -1.58,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 4131,
+   "E": 0.0091,
+   "t": 0.22,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 1558,
+   "E": -0.0747,
+   "t": -1.14,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 7310,
+   "E": 0.0174,
+   "t": 0.54,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2813,
+   "E": -0.0864,
+   "t": -1.79,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 4239,
+   "E": 0.0007,
+   "t": 0.02,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1581,
+   "E": -0.0682,
+   "t": -0.98,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 7674,
+   "E": -0.0344,
+   "t": -1.06,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2934,
+   "E": -0.0594,
+   "t": -1.16,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 4220,
+   "E": -0.0173,
+   "t": -0.4,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1576,
+   "E": -0.064,
+   "t": -0.93,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 7570,
+   "E": -0.0251,
+   "t": -0.78,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 2903,
+   "E": -0.0654,
+   "t": -1.29,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 4191,
+   "E": -0.0249,
+   "t": -0.58,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1574,
+   "E": -0.0549,
+   "t": -0.81,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 7471,
+   "E": -0.0206,
+   "t": -0.64,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2878,
+   "E": -0.0811,
+   "t": -1.64,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 4131,
+   "E": 0.0015,
+   "t": 0.03,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 1558,
+   "E": -0.083,
+   "t": -1.27,
+   "markets_positive": 6
+  }
+ },
+ "M30 | target 10R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 7306,
+   "E": 0.0113,
+   "t": 0.35,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2813,
+   "E": -0.0959,
+   "t": -1.99,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 3880,
+   "E": -0.0552,
+   "t": -1.19,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1455,
+   "E": -0.0979,
+   "t": -1.29,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 7200,
+   "E": -0.0325,
+   "t": -0.94,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2728,
+   "E": -0.1331,
+   "t": -2.48,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 3905,
+   "E": -0.0572,
+   "t": -1.25,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1465,
+   "E": -0.0707,
+   "t": -0.94,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 7189,
+   "E": -0.0222,
+   "t": -0.64,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2726,
+   "E": -0.1074,
+   "t": -2.0,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 3931,
+   "E": -0.0432,
+   "t": -0.94,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1473,
+   "E": -0.0972,
+   "t": -1.35,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 7183,
+   "E": -0.0211,
+   "t": -0.62,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2717,
+   "E": -0.143,
+   "t": -2.76,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 3924,
+   "E": -0.0217,
+   "t": -0.48,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1471,
+   "E": -0.1208,
+   "t": -1.73,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 7090,
+   "E": -0.0189,
+   "t": -0.56,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2692,
+   "E": -0.1755,
+   "t": -3.51,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 3879,
+   "E": -0.0615,
+   "t": -1.31,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1454,
+   "E": -0.1062,
+   "t": -1.39,
+   "markets_positive": 7
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 7196,
+   "E": -0.0347,
+   "t": -0.99,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2726,
+   "E": -0.1402,
+   "t": -2.58,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 3903,
+   "E": -0.0592,
+   "t": -1.28,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1465,
+   "E": -0.0804,
+   "t": -1.06,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 7183,
+   "E": -0.0253,
+   "t": -0.73,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2725,
+   "E": -0.118,
+   "t": -2.19,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 3930,
+   "E": -0.0495,
+   "t": -1.07,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1472,
+   "E": -0.0876,
+   "t": -1.19,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 7181,
+   "E": -0.0262,
+   "t": -0.76,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2715,
+   "E": -0.1529,
+   "t": -2.94,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 3922,
+   "E": -0.0238,
+   "t": -0.52,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1470,
+   "E": -0.1183,
+   "t": -1.68,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 10R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 7084,
+   "E": -0.0198,
+   "t": -0.58,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2689,
+   "E": -0.1726,
+   "t": -3.42,
+   "markets_positive": 5
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 3441,
+   "E": -0.0298,
+   "t": -1.33,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1265,
+   "E": -0.0946,
+   "t": -2.56,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 6607,
+   "E": -0.0062,
+   "t": -0.38,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 2504,
+   "E": -0.0589,
+   "t": -2.24,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 3543,
+   "E": -0.0143,
+   "t": -0.64,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1309,
+   "E": -0.0722,
+   "t": -1.99,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 6786,
+   "E": 0.005,
+   "t": 0.31,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2578,
+   "E": -0.0399,
+   "t": -1.54,
+   "markets_positive": 2
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 3636,
+   "E": 0.005,
+   "t": 0.23,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1346,
+   "E": -0.0838,
+   "t": -2.35,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 6928,
+   "E": 0.02,
+   "t": 1.25,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2628,
+   "E": -0.0447,
+   "t": -1.74,
+   "markets_positive": 2
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 3757,
+   "E": -0.0008,
+   "t": -0.04,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1384,
+   "E": -0.0939,
+   "t": -2.71,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 7101,
+   "E": 0.0116,
+   "t": 0.74,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 2702,
+   "E": -0.0676,
+   "t": -2.71,
+   "markets_positive": 1
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 3428,
+   "E": -0.0284,
+   "t": -1.2,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1263,
+   "E": -0.0982,
+   "t": -2.53,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 6580,
+   "E": -0.006,
+   "t": -0.35,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 2497,
+   "E": -0.0684,
+   "t": -2.48,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 3533,
+   "E": -0.0143,
+   "t": -0.61,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1306,
+   "E": -0.0716,
+   "t": -1.87,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 6757,
+   "E": 0.0053,
+   "t": 0.31,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2566,
+   "E": -0.0433,
+   "t": -1.59,
+   "markets_positive": 2
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 3627,
+   "E": 0.0002,
+   "t": 0.01,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1342,
+   "E": -0.0785,
+   "t": -2.09,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 6903,
+   "E": 0.0139,
+   "t": 0.83,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2614,
+   "E": -0.0469,
+   "t": -1.74,
+   "markets_positive": 2
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 3746,
+   "E": -0.0049,
+   "t": -0.22,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1381,
+   "E": -0.0985,
+   "t": -2.71,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 7072,
+   "E": 0.0034,
+   "t": 0.21,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 2687,
+   "E": -0.0716,
+   "t": -2.74,
+   "markets_positive": 1
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 848,
+   "E": -0.0898,
+   "t": -2.01,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 279,
+   "E": -0.0842,
+   "t": -1.08,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 1650,
+   "E": -0.0216,
+   "t": -0.66,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 571,
+   "E": -0.1204,
+   "t": -2.24,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 1395,
+   "E": -0.058,
+   "t": -1.65,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 504,
+   "E": -0.053,
+   "t": -0.86,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 2732,
+   "E": -0.0261,
+   "t": -1.03,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 1009,
+   "E": -0.062,
+   "t": -1.47,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 1852,
+   "E": -0.0199,
+   "t": -0.64,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 689,
+   "E": -0.0299,
+   "t": -0.57,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3639,
+   "E": -0.0168,
+   "t": -0.76,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 1359,
+   "E": -0.0473,
+   "t": -1.29,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 2466,
+   "E": -0.0095,
+   "t": -0.35,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 919,
+   "E": -0.0403,
+   "t": -0.9,
+   "markets_positive": 5
+  }
+ },
+ "M30 | target 2R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 4786,
+   "E": 0.0035,
+   "t": 0.18,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1799,
+   "E": -0.0782,
+   "t": -2.52,
+   "markets_positive": 2
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 847,
+   "E": -0.0719,
+   "t": -1.51,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 279,
+   "E": -0.0602,
+   "t": -0.73,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 1648,
+   "E": -0.0215,
+   "t": -0.62,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 571,
+   "E": -0.0841,
+   "t": -1.46,
+   "markets_positive": 5
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 1393,
+   "E": -0.0704,
+   "t": -1.91,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 504,
+   "E": -0.0431,
+   "t": -0.66,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 2728,
+   "E": -0.0324,
+   "t": -1.21,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1008,
+   "E": -0.043,
+   "t": -0.96,
+   "markets_positive": 2
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 1850,
+   "E": -0.0153,
+   "t": -0.47,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 686,
+   "E": -0.0175,
+   "t": -0.32,
+   "markets_positive": 5
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3636,
+   "E": -0.0167,
+   "t": -0.72,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1353,
+   "E": -0.0397,
+   "t": -1.04,
+   "markets_positive": 3
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 2464,
+   "E": -0.0186,
+   "t": -0.66,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 916,
+   "E": -0.0365,
+   "t": -0.78,
+   "markets_positive": 4
+  }
+ },
+ "M30 | target 2R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 4779,
+   "E": -0.0012,
+   "t": -0.06,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1794,
+   "E": -0.0763,
+   "t": -2.34,
+   "markets_positive": 2
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 2067,
+   "E": 0.023,
+   "t": 0.39,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 756,
+   "E": 0.0958,
+   "t": 0.92,
+   "markets_positive": 9
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 3945,
+   "E": 0.0321,
+   "t": 0.75,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1394,
+   "E": 0.0905,
+   "t": 1.18,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 2058,
+   "E": 0.0091,
+   "t": 0.16,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 752,
+   "E": 0.1381,
+   "t": 1.32,
+   "markets_positive": 9
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 3908,
+   "E": 0.0215,
+   "t": 0.51,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1379,
+   "E": 0.1129,
+   "t": 1.49,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 2052,
+   "E": 0.0173,
+   "t": 0.31,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 751,
+   "E": 0.0844,
+   "t": 0.85,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3881,
+   "E": 0.0207,
+   "t": 0.5,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1372,
+   "E": 0.0605,
+   "t": 0.84,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 2033,
+   "E": 0.0015,
+   "t": 0.03,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 743,
+   "E": 0.0729,
+   "t": 0.79,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 10R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 3808,
+   "E": 0.0118,
+   "t": 0.3,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1352,
+   "E": 0.0684,
+   "t": 0.99,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 2067,
+   "E": 0.0342,
+   "t": 0.58,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 756,
+   "E": 0.0932,
+   "t": 0.89,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 3944,
+   "E": 0.0408,
+   "t": 0.94,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1394,
+   "E": 0.0874,
+   "t": 1.14,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 2058,
+   "E": 0.0136,
+   "t": 0.23,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 752,
+   "E": 0.1508,
+   "t": 1.43,
+   "markets_positive": 10
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 3907,
+   "E": 0.0252,
+   "t": 0.6,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1378,
+   "E": 0.116,
+   "t": 1.52,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 2052,
+   "E": 0.0137,
+   "t": 0.24,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 751,
+   "E": 0.0974,
+   "t": 0.97,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3880,
+   "E": 0.0214,
+   "t": 0.51,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1371,
+   "E": 0.0682,
+   "t": 0.94,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 2033,
+   "E": -0.0081,
+   "t": -0.15,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 743,
+   "E": 0.0716,
+   "t": 0.76,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 3807,
+   "E": 0.0098,
+   "t": 0.25,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1352,
+   "E": 0.0641,
+   "t": 0.92,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 1863,
+   "E": 0.0382,
+   "t": 0.56,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 693,
+   "E": 0.1126,
+   "t": 0.96,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 3583,
+   "E": 0.0305,
+   "t": 0.62,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1294,
+   "E": 0.069,
+   "t": 0.82,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 1888,
+   "E": 0.0109,
+   "t": 0.16,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 695,
+   "E": 0.0888,
+   "t": 0.79,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 3602,
+   "E": 0.0022,
+   "t": 0.05,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1288,
+   "E": 0.0665,
+   "t": 0.8,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 1899,
+   "E": 0.025,
+   "t": 0.38,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 700,
+   "E": 0.0611,
+   "t": 0.56,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3600,
+   "E": -0.0041,
+   "t": -0.09,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1292,
+   "E": 0.0605,
+   "t": 0.75,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 1900,
+   "E": 0.0552,
+   "t": 0.87,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 692,
+   "E": 0.1206,
+   "t": 1.14,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 3578,
+   "E": 0.0138,
+   "t": 0.31,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1274,
+   "E": 0.1044,
+   "t": 1.33,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 1863,
+   "E": 0.0277,
+   "t": 0.4,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 693,
+   "E": 0.0958,
+   "t": 0.82,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 3583,
+   "E": 0.0222,
+   "t": 0.45,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1294,
+   "E": 0.0616,
+   "t": 0.72,
+   "markets_positive": 5
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 1886,
+   "E": 0.0079,
+   "t": 0.12,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 695,
+   "E": 0.1213,
+   "t": 1.05,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 3601,
+   "E": 0.0038,
+   "t": 0.08,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1288,
+   "E": 0.0803,
+   "t": 0.96,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 1897,
+   "E": 0.0249,
+   "t": 0.38,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 700,
+   "E": 0.0887,
+   "t": 0.8,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3599,
+   "E": -0.0048,
+   "t": -0.1,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1291,
+   "E": 0.0853,
+   "t": 1.04,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 1900,
+   "E": 0.0651,
+   "t": 1.02,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 692,
+   "E": 0.1134,
+   "t": 1.07,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 10R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 3576,
+   "E": 0.0202,
+   "t": 0.44,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 1274,
+   "E": 0.1059,
+   "t": 1.34,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 1663,
+   "E": -0.0396,
+   "t": -1.23,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 576,
+   "E": 0.0505,
+   "t": 0.91,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 3363,
+   "E": -0.0017,
+   "t": -0.07,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1147,
+   "E": 0.0374,
+   "t": 0.95,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 1741,
+   "E": -0.0094,
+   "t": -0.3,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 608,
+   "E": 0.0295,
+   "t": 0.55,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 3459,
+   "E": 0.017,
+   "t": 0.76,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1193,
+   "E": 0.0412,
+   "t": 1.08,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 1774,
+   "E": -0.0019,
+   "t": -0.06,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 633,
+   "E": 0.0453,
+   "t": 0.86,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3522,
+   "E": 0.0024,
+   "t": 0.11,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1228,
+   "E": 0.0495,
+   "t": 1.31,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 1848,
+   "E": -0.0327,
+   "t": -1.09,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 664,
+   "E": 0.0486,
+   "t": 0.94,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 3603,
+   "E": -0.0173,
+   "t": -0.81,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1263,
+   "E": 0.064,
+   "t": 1.72,
+   "markets_positive": 9
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 1661,
+   "E": -0.0359,
+   "t": -1.07,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 576,
+   "E": 0.0689,
+   "t": 1.17,
+   "markets_positive": 9
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 3349,
+   "E": -0.0047,
+   "t": -0.2,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1145,
+   "E": 0.0386,
+   "t": 0.94,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 1738,
+   "E": -0.012,
+   "t": -0.37,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 608,
+   "E": 0.0227,
+   "t": 0.4,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 3446,
+   "E": 0.0084,
+   "t": 0.36,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 1188,
+   "E": 0.0351,
+   "t": 0.87,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 1772,
+   "E": -0.0035,
+   "t": -0.11,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 632,
+   "E": 0.0421,
+   "t": 0.76,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 3513,
+   "E": -0.0038,
+   "t": -0.16,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 1223,
+   "E": 0.0511,
+   "t": 1.29,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 1845,
+   "E": -0.0294,
+   "t": -0.94,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 664,
+   "E": 0.0479,
+   "t": 0.89,
+   "markets_positive": 9
+  }
+ },
+ "H1 | target 2R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 3594,
+   "E": -0.0198,
+   "t": -0.88,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 1259,
+   "E": 0.0499,
+   "t": 1.28,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 419,
+   "E": -0.1206,
+   "t": -1.92,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 136,
+   "E": 0.0544,
+   "t": 0.47,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 855,
+   "E": -0.0369,
+   "t": -0.82,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 293,
+   "E": 0.0256,
+   "t": 0.33,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 677,
+   "E": -0.0797,
+   "t": -1.6,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 219,
+   "E": 0.004,
+   "t": 0.04,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 1394,
+   "E": -0.0236,
+   "t": -0.67,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 467,
+   "E": -0.0193,
+   "t": -0.32,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 898,
+   "E": -0.0451,
+   "t": -1.03,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 290,
+   "E": -0.0019,
+   "t": -0.02,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 1819,
+   "E": -0.012,
+   "t": -0.38,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 605,
+   "E": 0.0167,
+   "t": 0.31,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 1203,
+   "E": -0.0437,
+   "t": -1.16,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 412,
+   "E": 0.0411,
+   "t": 0.62,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 2418,
+   "E": -0.0048,
+   "t": -0.18,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 815,
+   "E": 0.0755,
+   "t": 1.59,
+   "markets_positive": 10
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 419,
+   "E": -0.1075,
+   "t": -1.62,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 136,
+   "E": 0.0263,
+   "t": 0.22,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 855,
+   "E": -0.0159,
+   "t": -0.33,
+   "markets_positive": 8
+  },
+  "2020-22": {
+   "n": 293,
+   "E": 0.0161,
+   "t": 0.2,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 677,
+   "E": -0.0782,
+   "t": -1.49,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 219,
+   "E": -0.0233,
+   "t": -0.25,
+   "markets_positive": 5
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 1394,
+   "E": -0.0125,
+   "t": -0.34,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 467,
+   "E": -0.0157,
+   "t": -0.25,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 898,
+   "E": -0.047,
+   "t": -1.02,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 290,
+   "E": -0.0053,
+   "t": -0.06,
+   "markets_positive": 8
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 1818,
+   "E": -0.0167,
+   "t": -0.51,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 605,
+   "E": 0.0246,
+   "t": 0.43,
+   "markets_positive": 6
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 1203,
+   "E": -0.0359,
+   "t": -0.91,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 412,
+   "E": 0.0525,
+   "t": 0.76,
+   "markets_positive": 7
+  }
+ },
+ "H1 | target 2R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 2412,
+   "E": -0.001,
+   "t": -0.04,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 815,
+   "E": 0.0838,
+   "t": 1.7,
+   "markets_positive": 9
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 517,
+   "E": -0.1026,
+   "t": -1.21,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.1786,
+   "t": -1.3,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 987,
+   "E": -0.0376,
+   "t": -0.6,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 307,
+   "E": -0.0764,
+   "t": -0.68,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 516,
+   "E": -0.0815,
+   "t": -0.99,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.179,
+   "t": -1.37,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 986,
+   "E": -0.0444,
+   "t": -0.75,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 306,
+   "E": -0.0382,
+   "t": -0.34,
+   "markets_positive": 7
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 515,
+   "E": -0.0634,
+   "t": -0.8,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.0547,
+   "t": -0.4,
+   "markets_positive": 6
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 986,
+   "E": -0.0452,
+   "t": -0.81,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 305,
+   "E": 0.0379,
+   "t": 0.33,
+   "markets_positive": 7
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 513,
+   "E": -0.0635,
+   "t": -0.87,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.0891,
+   "t": -0.71,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 10R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 977,
+   "E": -0.0369,
+   "t": -0.71,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 305,
+   "E": 0.0367,
+   "t": 0.34,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 517,
+   "E": -0.1026,
+   "t": -1.21,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.1786,
+   "t": -1.3,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 987,
+   "E": -0.0376,
+   "t": -0.6,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 307,
+   "E": -0.0764,
+   "t": -0.68,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 516,
+   "E": -0.0815,
+   "t": -0.99,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.179,
+   "t": -1.37,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 986,
+   "E": -0.0444,
+   "t": -0.75,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 306,
+   "E": -0.0382,
+   "t": -0.34,
+   "markets_positive": 7
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 515,
+   "E": -0.0634,
+   "t": -0.8,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.0547,
+   "t": -0.4,
+   "markets_positive": 6
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 986,
+   "E": -0.0452,
+   "t": -0.81,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 305,
+   "E": 0.0379,
+   "t": 0.33,
+   "markets_positive": 7
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 513,
+   "E": -0.0635,
+   "t": -0.87,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 154,
+   "E": -0.0891,
+   "t": -0.71,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 10R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 977,
+   "E": -0.0369,
+   "t": -0.71,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 305,
+   "E": 0.0367,
+   "t": 0.34,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 437,
+   "E": -0.2533,
+   "t": -2.64,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 129,
+   "E": -0.4159,
+   "t": -2.61,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 837,
+   "E": -0.1121,
+   "t": -1.44,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 260,
+   "E": -0.2123,
+   "t": -1.64,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 436,
+   "E": -0.2534,
+   "t": -2.94,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 129,
+   "E": -0.3999,
+   "t": -2.79,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 836,
+   "E": -0.1362,
+   "t": -1.95,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 261,
+   "E": -0.1692,
+   "t": -1.32,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 438,
+   "E": -0.2112,
+   "t": -2.58,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 130,
+   "E": -0.1555,
+   "t": -0.88,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 839,
+   "E": -0.1293,
+   "t": -1.97,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 262,
+   "E": -0.0363,
+   "t": -0.27,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 439,
+   "E": -0.1632,
+   "t": -2.01,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 131,
+   "E": -0.2234,
+   "t": -1.58,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 10R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 833,
+   "E": -0.082,
+   "t": -1.3,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 263,
+   "E": -0.0387,
+   "t": -0.33,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 437,
+   "E": -0.2579,
+   "t": -2.69,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 129,
+   "E": -0.4159,
+   "t": -2.61,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 837,
+   "E": -0.1172,
+   "t": -1.51,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 260,
+   "E": -0.22,
+   "t": -1.7,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 436,
+   "E": -0.258,
+   "t": -2.99,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 129,
+   "E": -0.3999,
+   "t": -2.79,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 836,
+   "E": -0.1386,
+   "t": -1.98,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 261,
+   "E": -0.1692,
+   "t": -1.32,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 438,
+   "E": -0.2135,
+   "t": -2.61,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 130,
+   "E": -0.1555,
+   "t": -0.88,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 839,
+   "E": -0.1305,
+   "t": -1.99,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 262,
+   "E": -0.0363,
+   "t": -0.27,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 439,
+   "E": -0.1632,
+   "t": -2.01,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 131,
+   "E": -0.2234,
+   "t": -1.58,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 10R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 833,
+   "E": -0.082,
+   "t": -1.3,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 263,
+   "E": -0.0387,
+   "t": -0.33,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 436,
+   "E": -0.1069,
+   "t": -1.88,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 126,
+   "E": -0.2284,
+   "t": -2.14,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 855,
+   "E": -0.0491,
+   "t": -1.17,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 260,
+   "E": -0.1634,
+   "t": -2.2,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 452,
+   "E": -0.0933,
+   "t": -1.69,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 128,
+   "E": -0.2472,
+   "t": -2.41,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 874,
+   "E": -0.0676,
+   "t": -1.68,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 266,
+   "E": -0.1799,
+   "t": -2.54,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 467,
+   "E": -0.0472,
+   "t": -0.86,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 130,
+   "E": -0.1651,
+   "t": -1.58,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 896,
+   "E": -0.0359,
+   "t": -0.9,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 271,
+   "E": -0.0997,
+   "t": -1.38,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 480,
+   "E": -0.0573,
+   "t": -1.08,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 141,
+   "E": -0.1429,
+   "t": -1.48,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 2R | entry 50% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 928,
+   "E": -0.0265,
+   "t": -0.69,
+   "markets_positive": 7
+  },
+  "2020-22": {
+   "n": 285,
+   "E": -0.1106,
+   "t": -1.65,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 436,
+   "E": -0.0973,
+   "t": -1.63,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 126,
+   "E": -0.2421,
+   "t": -2.23,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 854,
+   "E": -0.0465,
+   "t": -1.06,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 259,
+   "E": -0.1749,
+   "t": -2.25,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 452,
+   "E": -0.1007,
+   "t": -1.75,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 128,
+   "E": -0.2477,
+   "t": -2.38,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 874,
+   "E": -0.0758,
+   "t": -1.81,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 265,
+   "E": -0.1809,
+   "t": -2.44,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 467,
+   "E": -0.0633,
+   "t": -1.13,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 130,
+   "E": -0.1573,
+   "t": -1.49,
+   "markets_positive": 5
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 896,
+   "E": -0.0492,
+   "t": -1.2,
+   "markets_positive": 5
+  },
+  "2020-22": {
+   "n": 271,
+   "E": -0.1192,
+   "t": -1.61,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 479,
+   "E": -0.0851,
+   "t": -1.59,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 141,
+   "E": -0.157,
+   "t": -1.62,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 2R | entry 50% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 925,
+   "E": -0.0544,
+   "t": -1.39,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 285,
+   "E": -0.1248,
+   "t": -1.84,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 105,
+   "E": -0.4899,
+   "t": -5.1,
+   "markets_positive": 0
+  },
+  "2020-22": {
+   "n": 29,
+   "E": -0.5158,
+   "t": -2.69,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 220,
+   "E": -0.2581,
+   "t": -3.24,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 69,
+   "E": -0.2551,
+   "t": -1.79,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 170,
+   "E": -0.3203,
+   "t": -3.6,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 48,
+   "E": -0.3709,
+   "t": -2.21,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 349,
+   "E": -0.1973,
+   "t": -3.02,
+   "markets_positive": 1
+  },
+  "2020-22": {
+   "n": 102,
+   "E": -0.1641,
+   "t": -1.3,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 208,
+   "E": -0.2265,
+   "t": -2.78,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 66,
+   "E": -0.084,
+   "t": -0.52,
+   "markets_positive": 6
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 444,
+   "E": -0.1371,
+   "t": -2.37,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 130,
+   "E": 0.0715,
+   "t": 0.6,
+   "markets_positive": 7
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 291,
+   "E": -0.1719,
+   "t": -2.52,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 93,
+   "E": -0.1497,
+   "t": -1.19,
+   "markets_positive": 3
+  }
+ },
+ "H4 | target 2R | entry 70% | be on | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 594,
+   "E": -0.1046,
+   "t": -2.11,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 184,
+   "E": -0.0167,
+   "t": -0.18,
+   "markets_positive": 6
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 0% | lookback on": {
+  "2011-19": {
+   "n": 105,
+   "E": -0.4121,
+   "t": -3.77,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 29,
+   "E": -0.5503,
+   "t": -2.87,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 0% | lookback off": {
+  "2011-19": {
+   "n": 220,
+   "E": -0.2317,
+   "t": -2.75,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 69,
+   "E": -0.2841,
+   "t": -1.92,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 5% | lookback on": {
+  "2011-19": {
+   "n": 170,
+   "E": -0.3247,
+   "t": -3.56,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 48,
+   "E": -0.3501,
+   "t": -2.0,
+   "markets_positive": 2
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 5% | lookback off": {
+  "2011-19": {
+   "n": 348,
+   "E": -0.1984,
+   "t": -2.92,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 102,
+   "E": -0.1739,
+   "t": -1.35,
+   "markets_positive": 4
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 10% | lookback on": {
+  "2011-19": {
+   "n": 208,
+   "E": -0.2336,
+   "t": -2.75,
+   "markets_positive": 3
+  },
+  "2020-22": {
+   "n": 66,
+   "E": -0.1167,
+   "t": -0.72,
+   "markets_positive": 6
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 10% | lookback off": {
+  "2011-19": {
+   "n": 443,
+   "E": -0.1532,
+   "t": -2.54,
+   "markets_positive": 4
+  },
+  "2020-22": {
+   "n": 130,
+   "E": 0.0394,
+   "t": 0.32,
+   "markets_positive": 6
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 20% | lookback on": {
+  "2011-19": {
+   "n": 291,
+   "E": -0.1731,
+   "t": -2.45,
+   "markets_positive": 2
+  },
+  "2020-22": {
+   "n": 93,
+   "E": -0.214,
+   "t": -1.68,
+   "markets_positive": 1
+  }
+ },
+ "H4 | target 2R | entry 70% | be off | buffer 20% | lookback off": {
+  "2011-19": {
+   "n": 593,
+   "E": -0.0924,
+   "t": -1.79,
+   "markets_positive": 6
+  },
+  "2020-22": {
+   "n": 184,
+   "E": -0.0291,
+   "t": -0.3,
+   "markets_positive": 6
+  }
+ }
+}

@@ -54,6 +54,8 @@ Over all 192 settings the engulfing version lost less than the plain shape in 16
 less), it never makes them positive, and on H1/H4 it makes no difference.
 
 ## Notes
+- CORRECTED 2026-11-08 (v3 audit): a fill and a stop in the same minute is NOT unclear (price must pass the entry to
+  reach the stop: a certain loss); truly unclear minutes (stop and target together) are at most 0.2%. Original note:
 - Unclear minutes (M1 data cannot order a fill, stop and target inside one minute; counted against the trade): 20% of
   M1 trades, 7% M5, 4% M15, 2% M30 and H1, 1% H4. Dropping every unclear trade (which flatters the result) still leaves
   the main settings negative in 2011-19: M1 -0.27, M5 -0.24, M15 -0.14, M30 -0.18, H1 -0.14, H4 -0.14R a trade.

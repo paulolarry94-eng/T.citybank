@@ -1,0 +1,1379 @@
+{
+ "settings": "body4_range_v3 main settings: entry 50%, buffer 0, breakeven at 75% of the way, lookback on (dojis bullish)",
+ "patterns": {
+  "XAUUSD M1": {
+   "setups": 44011,
+   "broken": 0
+  },
+  "XAUUSD M5": {
+   "setups": 11081,
+   "broken": 0
+  },
+  "XAUUSD M15": {
+   "setups": 3913,
+   "broken": 0
+  },
+  "XAUUSD M30": {
+   "setups": 1839,
+   "broken": 0
+  },
+  "XAUUSD H1": {
+   "setups": 936,
+   "broken": 0
+  },
+  "XAUUSD H4": {
+   "setups": 217,
+   "broken": 0
+  },
+  "XAGUSD M1": {
+   "setups": 14782,
+   "broken": 0
+  },
+  "XAGUSD M5": {
+   "setups": 5614,
+   "broken": 0
+  },
+  "XAGUSD M15": {
+   "setups": 2490,
+   "broken": 0
+  },
+  "XAGUSD M30": {
+   "setups": 1428,
+   "broken": 0
+  },
+  "XAGUSD H1": {
+   "setups": 763,
+   "broken": 0
+  },
+  "XAGUSD H4": {
+   "setups": 194,
+   "broken": 0
+  },
+  "EURUSD M1": {
+   "setups": 43956,
+   "broken": 0
+  },
+  "EURUSD M5": {
+   "setups": 13173,
+   "broken": 0
+  },
+  "EURUSD M15": {
+   "setups": 4894,
+   "broken": 0
+  },
+  "EURUSD M30": {
+   "setups": 2612,
+   "broken": 0
+  },
+  "EURUSD H1": {
+   "setups": 1264,
+   "broken": 0
+  },
+  "EURUSD H4": {
+   "setups": 284,
+   "broken": 0
+  },
+  "GBPUSD M1": {
+   "setups": 46862,
+   "broken": 0
+  },
+  "GBPUSD M5": {
+   "setups": 13022,
+   "broken": 0
+  },
+  "GBPUSD M15": {
+   "setups": 4981,
+   "broken": 0
+  },
+  "GBPUSD M30": {
+   "setups": 2529,
+   "broken": 0
+  },
+  "GBPUSD H1": {
+   "setups": 1177,
+   "broken": 0
+  },
+  "GBPUSD H4": {
+   "setups": 279,
+   "broken": 0
+  },
+  "USDJPY M1": {
+   "setups": 42618,
+   "broken": 0
+  },
+  "USDJPY M5": {
+   "setups": 12723,
+   "broken": 0
+  },
+  "USDJPY M15": {
+   "setups": 4748,
+   "broken": 0
+  },
+  "USDJPY M30": {
+   "setups": 2459,
+   "broken": 0
+  },
+  "USDJPY H1": {
+   "setups": 1294,
+   "broken": 0
+  },
+  "USDJPY H4": {
+   "setups": 303,
+   "broken": 0
+  },
+  "EURGBP M1": {
+   "setups": 29407,
+   "broken": 0
+  },
+  "EURGBP M5": {
+   "setups": 9555,
+   "broken": 0
+  },
+  "EURGBP M15": {
+   "setups": 3767,
+   "broken": 0
+  },
+  "EURGBP M30": {
+   "setups": 1984,
+   "broken": 0
+  },
+  "EURGBP H1": {
+   "setups": 936,
+   "broken": 0
+  },
+  "EURGBP H4": {
+   "setups": 248,
+   "broken": 0
+  },
+  "WTI M1": {
+   "setups": 10588,
+   "broken": 0
+  },
+  "WTI M5": {
+   "setups": 4091,
+   "broken": 0
+  },
+  "WTI M15": {
+   "setups": 1910,
+   "broken": 0
+  },
+  "WTI M30": {
+   "setups": 1042,
+   "broken": 0
+  },
+  "WTI H1": {
+   "setups": 620,
+   "broken": 0
+  },
+  "WTI H4": {
+   "setups": 146,
+   "broken": 0
+  },
+  "US500 M1": {
+   "setups": 11276,
+   "broken": 0
+  },
+  "US500 M5": {
+   "setups": 4004,
+   "broken": 0
+  },
+  "US500 M15": {
+   "setups": 1728,
+   "broken": 0
+  },
+  "US500 M30": {
+   "setups": 1007,
+   "broken": 0
+  },
+  "US500 H1": {
+   "setups": 544,
+   "broken": 0
+  },
+  "US500 H4": {
+   "setups": 152,
+   "broken": 0
+  },
+  "NAS100 M1": {
+   "setups": 23794,
+   "broken": 0
+  },
+  "NAS100 M5": {
+   "setups": 6588,
+   "broken": 0
+  },
+  "NAS100 M15": {
+   "setups": 2487,
+   "broken": 0
+  },
+  "NAS100 M30": {
+   "setups": 1382,
+   "broken": 0
+  },
+  "NAS100 H1": {
+   "setups": 734,
+   "broken": 0
+  },
+  "NAS100 H4": {
+   "setups": 185,
+   "broken": 0
+  },
+  "GER40 M1": {
+   "setups": 15179,
+   "broken": 0
+  },
+  "GER40 M5": {
+   "setups": 4992,
+   "broken": 0
+  },
+  "GER40 M15": {
+   "setups": 1926,
+   "broken": 0
+  },
+  "GER40 M30": {
+   "setups": 1097,
+   "broken": 0
+  },
+  "GER40 H1": {
+   "setups": 506,
+   "broken": 0
+  },
+  "GER40 H4": {
+   "setups": 151,
+   "broken": 0
+  },
+  "UK100 M1": {
+   "setups": 15907,
+   "broken": 0
+  },
+  "UK100 M5": {
+   "setups": 5245,
+   "broken": 0
+  },
+  "UK100 M15": {
+   "setups": 2034,
+   "broken": 0
+  },
+  "UK100 M30": {
+   "setups": 1088,
+   "broken": 0
+  },
+  "UK100 H1": {
+   "setups": 532,
+   "broken": 0
+  },
+  "UK100 H4": {
+   "setups": 123,
+   "broken": 0
+  },
+  "JP225 M1": {
+   "setups": 5789,
+   "broken": 0
+  },
+  "JP225 M5": {
+   "setups": 2622,
+   "broken": 0
+  },
+  "JP225 M15": {
+   "setups": 1286,
+   "broken": 0
+  },
+  "JP225 M30": {
+   "setups": 869,
+   "broken": 0
+  },
+  "JP225 H1": {
+   "setups": 482,
+   "broken": 0
+  },
+  "JP225 H4": {
+   "setups": 165,
+   "broken": 0
+  }
+ },
+ "missed": {
+  "XAUUSD M1": {
+   "scalar": 480,
+   "scanner": 480,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAUUSD M5": {
+   "scalar": 772,
+   "scanner": 772,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAUUSD M15": {
+   "scalar": 1100,
+   "scanner": 1100,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAUUSD M30": {
+   "scalar": 1095,
+   "scanner": 1095,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAUUSD H1": {
+   "scalar": 936,
+   "scanner": 936,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAUUSD H4": {
+   "scalar": 217,
+   "scanner": 217,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAGUSD M1": {
+   "scalar": 37,
+   "scanner": 37,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAGUSD M5": {
+   "scalar": 376,
+   "scanner": 376,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAGUSD M15": {
+   "scalar": 557,
+   "scanner": 557,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAGUSD M30": {
+   "scalar": 696,
+   "scanner": 696,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAGUSD H1": {
+   "scalar": 763,
+   "scanner": 763,
+   "missed": 0,
+   "extra": 0
+  },
+  "XAGUSD H4": {
+   "scalar": 194,
+   "scanner": 194,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURUSD M1": {
+   "scalar": 881,
+   "scanner": 881,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURUSD M5": {
+   "scalar": 1358,
+   "scanner": 1358,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURUSD M15": {
+   "scalar": 1419,
+   "scanner": 1419,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURUSD M30": {
+   "scalar": 1501,
+   "scanner": 1501,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURUSD H1": {
+   "scalar": 1264,
+   "scanner": 1264,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURUSD H4": {
+   "scalar": 284,
+   "scanner": 284,
+   "missed": 0,
+   "extra": 0
+  },
+  "GBPUSD M1": {
+   "scalar": 1178,
+   "scanner": 1178,
+   "missed": 0,
+   "extra": 0
+  },
+  "GBPUSD M5": {
+   "scalar": 1483,
+   "scanner": 1483,
+   "missed": 0,
+   "extra": 0
+  },
+  "GBPUSD M15": {
+   "scalar": 1571,
+   "scanner": 1571,
+   "missed": 0,
+   "extra": 0
+  },
+  "GBPUSD M30": {
+   "scalar": 1523,
+   "scanner": 1523,
+   "missed": 0,
+   "extra": 0
+  },
+  "GBPUSD H1": {
+   "scalar": 1177,
+   "scanner": 1177,
+   "missed": 0,
+   "extra": 0
+  },
+  "GBPUSD H4": {
+   "scalar": 279,
+   "scanner": 279,
+   "missed": 0,
+   "extra": 0
+  },
+  "USDJPY M1": {
+   "scalar": 632,
+   "scanner": 632,
+   "missed": 0,
+   "extra": 0
+  },
+  "USDJPY M5": {
+   "scalar": 1162,
+   "scanner": 1162,
+   "missed": 0,
+   "extra": 0
+  },
+  "USDJPY M15": {
+   "scalar": 1396,
+   "scanner": 1396,
+   "missed": 0,
+   "extra": 0
+  },
+  "USDJPY M30": {
+   "scalar": 1381,
+   "scanner": 1381,
+   "missed": 0,
+   "extra": 0
+  },
+  "USDJPY H1": {
+   "scalar": 1294,
+   "scanner": 1294,
+   "missed": 0,
+   "extra": 0
+  },
+  "USDJPY H4": {
+   "scalar": 303,
+   "scanner": 303,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURGBP M1": {
+   "scalar": 7,
+   "scanner": 7,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURGBP M5": {
+   "scalar": 262,
+   "scanner": 262,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURGBP M15": {
+   "scalar": 571,
+   "scanner": 571,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURGBP M30": {
+   "scalar": 885,
+   "scanner": 885,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURGBP H1": {
+   "scalar": 936,
+   "scanner": 936,
+   "missed": 0,
+   "extra": 0
+  },
+  "EURGBP H4": {
+   "scalar": 248,
+   "scanner": 248,
+   "missed": 0,
+   "extra": 0
+  },
+  "WTI M1": {
+   "scalar": 229,
+   "scanner": 229,
+   "missed": 0,
+   "extra": 0
+  },
+  "WTI M5": {
+   "scalar": 460,
+   "scanner": 460,
+   "missed": 0,
+   "extra": 0
+  },
+  "WTI M15": {
+   "scalar": 498,
+   "scanner": 498,
+   "missed": 0,
+   "extra": 0
+  },
+  "WTI M30": {
+   "scalar": 547,
+   "scanner": 547,
+   "missed": 0,
+   "extra": 0
+  },
+  "WTI H1": {
+   "scalar": 620,
+   "scanner": 620,
+   "missed": 0,
+   "extra": 0
+  },
+  "WTI H4": {
+   "scalar": 146,
+   "scanner": 146,
+   "missed": 0,
+   "extra": 0
+  },
+  "US500 M1": {
+   "scalar": 11,
+   "scanner": 11,
+   "missed": 0,
+   "extra": 0
+  },
+  "US500 M5": {
+   "scalar": 121,
+   "scanner": 121,
+   "missed": 0,
+   "extra": 0
+  },
+  "US500 M15": {
+   "scalar": 235,
+   "scanner": 235,
+   "missed": 0,
+   "extra": 0
+  },
+  "US500 M30": {
+   "scalar": 422,
+   "scanner": 422,
+   "missed": 0,
+   "extra": 0
+  },
+  "US500 H1": {
+   "scalar": 544,
+   "scanner": 544,
+   "missed": 0,
+   "extra": 0
+  },
+  "US500 H4": {
+   "scalar": 152,
+   "scanner": 152,
+   "missed": 0,
+   "extra": 0
+  },
+  "NAS100 M1": {
+   "scalar": 87,
+   "scanner": 87,
+   "missed": 0,
+   "extra": 0
+  },
+  "NAS100 M5": {
+   "scalar": 401,
+   "scanner": 401,
+   "missed": 0,
+   "extra": 0
+  },
+  "NAS100 M15": {
+   "scalar": 577,
+   "scanner": 577,
+   "missed": 0,
+   "extra": 0
+  },
+  "NAS100 M30": {
+   "scalar": 764,
+   "scanner": 764,
+   "missed": 0,
+   "extra": 0
+  },
+  "NAS100 H1": {
+   "scalar": 734,
+   "scanner": 734,
+   "missed": 0,
+   "extra": 0
+  },
+  "NAS100 H4": {
+   "scalar": 185,
+   "scanner": 185,
+   "missed": 0,
+   "extra": 0
+  },
+  "GER40 M1": {
+   "scalar": 339,
+   "scanner": 339,
+   "missed": 0,
+   "extra": 0
+  },
+  "GER40 M5": {
+   "scalar": 795,
+   "scanner": 795,
+   "missed": 0,
+   "extra": 0
+  },
+  "GER40 M15": {
+   "scalar": 729,
+   "scanner": 729,
+   "missed": 0,
+   "extra": 0
+  },
+  "GER40 M30": {
+   "scalar": 850,
+   "scanner": 850,
+   "missed": 0,
+   "extra": 0
+  },
+  "GER40 H1": {
+   "scalar": 506,
+   "scanner": 506,
+   "missed": 0,
+   "extra": 0
+  },
+  "GER40 H4": {
+   "scalar": 151,
+   "scanner": 151,
+   "missed": 0,
+   "extra": 0
+  },
+  "UK100 M1": {
+   "scalar": 294,
+   "scanner": 294,
+   "missed": 0,
+   "extra": 0
+  },
+  "UK100 M5": {
+   "scalar": 722,
+   "scanner": 722,
+   "missed": 0,
+   "extra": 0
+  },
+  "UK100 M15": {
+   "scalar": 845,
+   "scanner": 845,
+   "missed": 0,
+   "extra": 0
+  },
+  "UK100 M30": {
+   "scalar": 873,
+   "scanner": 873,
+   "missed": 0,
+   "extra": 0
+  },
+  "UK100 H1": {
+   "scalar": 532,
+   "scanner": 532,
+   "missed": 0,
+   "extra": 0
+  },
+  "UK100 H4": {
+   "scalar": 123,
+   "scanner": 123,
+   "missed": 0,
+   "extra": 0
+  },
+  "JP225 M1": {
+   "scalar": 5,
+   "scanner": 5,
+   "missed": 0,
+   "extra": 0
+  },
+  "JP225 M5": {
+   "scalar": 19,
+   "scanner": 19,
+   "missed": 0,
+   "extra": 0
+  },
+  "JP225 M15": {
+   "scalar": 175,
+   "scanner": 175,
+   "missed": 0,
+   "extra": 0
+  },
+  "JP225 M30": {
+   "scalar": 406,
+   "scanner": 406,
+   "missed": 0,
+   "extra": 0
+  },
+  "JP225 H1": {
+   "scalar": 482,
+   "scanner": 482,
+   "missed": 0,
+   "extra": 0
+  },
+  "JP225 H4": {
+   "scalar": 165,
+   "scanner": 165,
+   "missed": 0,
+   "extra": 0
+  }
+ },
+ "entries": {
+  "10R": {
+   "trades": 121822,
+   "violations": 0
+  },
+  "2R": {
+   "trades": 93297,
+   "violations": 0
+  }
+ },
+ "exits": {
+  "10R": {
+   "trades": 121822,
+   "exit_time_mismatch": 0,
+   "R_mismatch": 0,
+   "max_R_diff": 0.0
+  },
+  "2R": {
+   "trades": 93297,
+   "exit_time_mismatch": 0,
+   "R_mismatch": 0,
+   "max_R_diff": 0.0
+  }
+ },
+ "sides": {
+  "10R M1": {
+   "buys": {
+    "n": 38925,
+    "E": -0.4892,
+    "E_before_costs_and_swaps": -0.0417
+   },
+   "sells": {
+    "n": 37923,
+    "E": -0.4624,
+    "E_before_costs_and_swaps": -0.0358
+   }
+  },
+  "2R M1": {
+   "buys": {
+    "n": 27804,
+    "E": -0.4663,
+    "E_before_costs_and_swaps": -0.0369
+   },
+   "sells": {
+    "n": 29739,
+    "E": -0.4764,
+    "E_before_costs_and_swaps": -0.0544
+   }
+  },
+  "10R M5": {
+   "buys": {
+    "n": 13048,
+    "E": -0.3076,
+    "E_before_costs_and_swaps": -0.0151
+   },
+   "sells": {
+    "n": 12453,
+    "E": -0.317,
+    "E_before_costs_and_swaps": -0.0457
+   }
+  },
+  "2R M5": {
+   "buys": {
+    "n": 10015,
+    "E": -0.2772,
+    "E_before_costs_and_swaps": -0.0111
+   },
+   "sells": {
+    "n": 10095,
+    "E": -0.2902,
+    "E_before_costs_and_swaps": -0.0336
+   }
+  },
+  "10R M15": {
+   "buys": {
+    "n": 5258,
+    "E": -0.1361,
+    "E_before_costs_and_swaps": 0.0869
+   },
+   "sells": {
+    "n": 5028,
+    "E": -0.187,
+    "E_before_costs_and_swaps": 0.0146
+   }
+  },
+  "2R M15": {
+   "buys": {
+    "n": 4129,
+    "E": -0.171,
+    "E_before_costs_and_swaps": 0.0236
+   },
+   "sells": {
+    "n": 4150,
+    "E": -0.166,
+    "E_before_costs_and_swaps": 0.0131
+   }
+  },
+  "10R M30": {
+   "buys": {
+    "n": 2933,
+    "E": -0.2066,
+    "E_before_costs_and_swaps": -0.02
+   },
+   "sells": {
+    "n": 2790,
+    "E": -0.1716,
+    "E_before_costs_and_swaps": -0.0061
+   }
+  },
+  "2R M30": {
+   "buys": {
+    "n": 2292,
+    "E": -0.1773,
+    "E_before_costs_and_swaps": -0.0214
+   },
+   "sells": {
+    "n": 2301,
+    "E": -0.1927,
+    "E_before_costs_and_swaps": -0.0479
+   }
+  },
+  "10R H1": {
+   "buys": {
+    "n": 1449,
+    "E": -0.119,
+    "E_before_costs_and_swaps": 0.0409
+   },
+   "sells": {
+    "n": 1345,
+    "E": -0.0919,
+    "E_before_costs_and_swaps": 0.0471
+   }
+  },
+  "2R H1": {
+   "buys": {
+    "n": 1132,
+    "E": -0.138,
+    "E_before_costs_and_swaps": -0.0094
+   },
+   "sells": {
+    "n": 1078,
+    "E": -0.1132,
+    "E_before_costs_and_swaps": 0.0027
+   }
+  },
+  "10R H4": {
+   "buys": {
+    "n": 349,
+    "E": -0.1031,
+    "E_before_costs_and_swaps": 0.0107
+   },
+   "sells": {
+    "n": 321,
+    "E": -0.3231,
+    "E_before_costs_and_swaps": -0.2224
+   }
+  },
+  "2R H4": {
+   "buys": {
+    "n": 294,
+    "E": -0.1221,
+    "E_before_costs_and_swaps": -0.0284
+   },
+   "sells": {
+    "n": 268,
+    "E": -0.2859,
+    "E_before_costs_and_swaps": -0.2042
+   }
+  }
+ },
+ "outcomes": {
+  "10R M1": {
+   "stop": 53815,
+   "target": 5175,
+   "breakeven stop": 1625,
+   "Friday close": 363,
+   "stop in the fill minute": 15870
+  },
+  "2R M1": {
+   "stop": 29257,
+   "target": 13249,
+   "breakeven stop": 3840,
+   "Friday close": 45,
+   "stop in the fill minute": 11152
+  },
+  "10R M5": {
+   "stop": 20869,
+   "target": 1728,
+   "breakeven stop": 573,
+   "Friday close": 570,
+   "stop in the fill minute": 1761
+  },
+  "2R M5": {
+   "stop": 12317,
+   "target": 5053,
+   "breakeven stop": 1605,
+   "Friday close": 84,
+   "stop in the fill minute": 1051
+  },
+  "10R M15": {
+   "stop": 8441,
+   "target": 716,
+   "breakeven stop": 201,
+   "Friday close": 545,
+   "stop in the fill minute": 383
+  },
+  "2R M15": {
+   "stop": 5012,
+   "target": 2220,
+   "breakeven stop": 660,
+   "Friday close": 160,
+   "stop in the fill minute": 227
+  },
+  "10R M30": {
+   "stop": 4724,
+   "target": 332,
+   "breakeven stop": 73,
+   "Friday close": 453,
+   "stop in the fill minute": 141
+  },
+  "2R M30": {
+   "stop": 2814,
+   "target": 1165,
+   "breakeven stop": 399,
+   "Friday close": 139,
+   "stop in the fill minute": 76
+  },
+  "10R H1": {
+   "stop": 2206,
+   "target": 137,
+   "breakeven stop": 25,
+   "Friday close": 379,
+   "stop in the fill minute": 47
+  },
+  "2R H1": {
+   "stop": 1318,
+   "target": 576,
+   "breakeven stop": 189,
+   "Friday close": 106,
+   "stop in the fill minute": 21
+  },
+  "10R H4": {
+   "stop": 459,
+   "target": 7,
+   "breakeven stop": 0,
+   "Friday close": 198,
+   "stop in the fill minute": 6
+  },
+  "2R H4": {
+   "stop": 319,
+   "target": 109,
+   "breakeven stop": 42,
+   "Friday close": 87,
+   "stop in the fill minute": 5
+  }
+ },
+ "extremes": {
+  "worst": [
+   {
+    "R": -22.569,
+    "market": "UK100",
+    "tf": "M30",
+    "target": "10R",
+    "time": "2016-06-22 19:59",
+    "side": "buy",
+    "cost_R": 0.071,
+    "swap_R": 0.248,
+    "nights": 4,
+    "reason": "stop",
+    "risk": 21.0
+   },
+   {
+    "R": -21.109,
+    "market": "GER40",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2017-04-03 19:57",
+    "side": "buy",
+    "cost_R": 0.566,
+    "swap_R": 1.714,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 1.75
+   },
+   {
+    "R": -20.444,
+    "market": "GER40",
+    "tf": "M5",
+    "target": "10R",
+    "time": "2015-08-31 19:48",
+    "side": "buy",
+    "cost_R": 0.099,
+    "swap_R": 0.3,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 10.0
+   },
+   {
+    "R": -20.444,
+    "market": "GER40",
+    "tf": "M5",
+    "target": "2R",
+    "time": "2015-08-31 19:48",
+    "side": "buy",
+    "cost_R": 0.099,
+    "swap_R": 0.3,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 10.0
+   },
+   {
+    "R": -20.2,
+    "market": "UK100",
+    "tf": "M5",
+    "target": "10R",
+    "time": "2015-05-07 19:01",
+    "side": "sell",
+    "cost_R": 0.286,
+    "swap_R": 0.248,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 5.25
+   },
+   {
+    "R": -19.55,
+    "market": "UK100",
+    "tf": "M5",
+    "target": "10R",
+    "time": "2016-11-08 16:40",
+    "side": "buy",
+    "cost_R": 0.136,
+    "swap_R": 0.118,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 11.0
+   },
+   {
+    "R": -18.085,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2014-04-16 23:50",
+    "side": "sell",
+    "cost_R": 0.539,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "stop",
+    "risk": 0.00016499999999997073
+   },
+   {
+    "R": -16.633,
+    "market": "GER40",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2013-07-31 19:39",
+    "side": "sell",
+    "cost_R": 0.36,
+    "swap_R": 3.273,
+    "nights": 3,
+    "reason": "stop",
+    "risk": 2.75
+   },
+   {
+    "R": -15.342,
+    "market": "UK100",
+    "tf": "M30",
+    "target": "10R",
+    "time": "2016-11-07 15:04",
+    "side": "buy",
+    "cost_R": 0.133,
+    "swap_R": 0.231,
+    "nights": 2,
+    "reason": "stop",
+    "risk": 11.25
+   },
+   {
+    "R": -13.536,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2014-11-13 23:54",
+    "side": "buy",
+    "cost_R": 0.809,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "stop",
+    "risk": 0.0001100000000000545
+   },
+   {
+    "R": -12.388,
+    "market": "GER40",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2018-06-19 19:55",
+    "side": "sell",
+    "cost_R": 0.344,
+    "swap_R": 1.043,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 2.875
+   },
+   {
+    "R": -12.286,
+    "market": "UK100",
+    "tf": "M5",
+    "target": "10R",
+    "time": "2016-12-16 08:00",
+    "side": "buy",
+    "cost_R": 0.286,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "stop",
+    "risk": 5.25
+   },
+   {
+    "R": -12.12,
+    "market": "NAS100",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2018-03-06 18:56",
+    "side": "buy",
+    "cost_R": 0.21,
+    "swap_R": 0.65,
+    "nights": 1,
+    "reason": "stop",
+    "risk": 4.614999999999782
+   },
+   {
+    "R": -11.596,
+    "market": "GER40",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2013-10-09 19:08",
+    "side": "sell",
+    "cost_R": 0.396,
+    "swap_R": 3.6,
+    "nights": 3,
+    "reason": "breakeven stop",
+    "risk": 2.5
+   },
+   {
+    "R": -11.433,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2016-05-29 23:28",
+    "side": "buy",
+    "cost_R": 0.989,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "breakeven stop",
+    "risk": 8.999999999992347e-05
+   }
+  ],
+  "best": [
+   {
+    "R": 27.09,
+    "market": "XAUUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2015-07-20 23:54",
+    "side": "buy",
+    "cost_R": 0.8,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "target",
+    "risk": 0.20000000000004547
+   },
+   {
+    "R": 22.796,
+    "market": "WTI",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2022-06-16 19:29",
+    "side": "sell",
+    "cost_R": 0.289,
+    "swap_R": 0.085,
+    "nights": 1,
+    "reason": "target",
+    "risk": 0.11749999999999261
+   },
+   {
+    "R": 22.294,
+    "market": "GER40",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2016-05-19 17:18",
+    "side": "buy",
+    "cost_R": 0.203,
+    "swap_R": 0.615,
+    "nights": 1,
+    "reason": "target",
+    "risk": 4.875
+   },
+   {
+    "R": 20.705,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2013-05-20 23:00",
+    "side": "sell",
+    "cost_R": 0.445,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "target",
+    "risk": 0.00019999999999997797
+   },
+   {
+    "R": 20.485,
+    "market": "UK100",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2018-10-18 17:58",
+    "side": "buy",
+    "cost_R": 0.462,
+    "swap_R": 0.4,
+    "nights": 1,
+    "reason": "target",
+    "risk": 3.25
+   },
+   {
+    "R": 19.276,
+    "market": "XAUUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2016-08-09 23:08",
+    "side": "buy",
+    "cost_R": 0.64,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "target",
+    "risk": 0.25
+   },
+   {
+    "R": 18.163,
+    "market": "UK100",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2015-10-20 18:15",
+    "side": "buy",
+    "cost_R": 0.75,
+    "swap_R": 0.65,
+    "nights": 1,
+    "reason": "target",
+    "risk": 2.0
+   },
+   {
+    "R": 17.442,
+    "market": "UK100",
+    "tf": "M1",
+    "target": "2R",
+    "time": "2015-09-29 19:59",
+    "side": "buy",
+    "cost_R": 0.5,
+    "swap_R": 0.433,
+    "nights": 1,
+    "reason": "target",
+    "risk": 3.0
+   },
+   {
+    "R": 17.442,
+    "market": "UK100",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2015-09-29 19:59",
+    "side": "buy",
+    "cost_R": 0.5,
+    "swap_R": 0.433,
+    "nights": 1,
+    "reason": "target",
+    "risk": 3.0
+   },
+   {
+    "R": 17.39,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2016-04-13 23:48",
+    "side": "sell",
+    "cost_R": 0.848,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "target",
+    "risk": 0.00010500000000002174
+   },
+   {
+    "R": 17.145,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2013-04-14 23:42",
+    "side": "buy",
+    "cost_R": 0.614,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "target",
+    "risk": 0.0001449999999998397
+   },
+   {
+    "R": 16.67,
+    "market": "NAS100",
+    "tf": "M5",
+    "target": "10R",
+    "time": "2020-04-16 14:13",
+    "side": "buy",
+    "cost_R": 0.05,
+    "swap_R": 0.155,
+    "nights": 1,
+    "reason": "target",
+    "risk": 19.30000000000109
+   },
+   {
+    "R": 15.53,
+    "market": "UK100",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2014-12-01 19:37",
+    "side": "buy",
+    "cost_R": 0.6,
+    "swap_R": 0.52,
+    "nights": 1,
+    "reason": "target",
+    "risk": 2.5
+   },
+   {
+    "R": 15.15,
+    "market": "GBPUSD",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2011-12-19 23:00",
+    "side": "buy",
+    "cost_R": 0.636,
+    "swap_R": 0.0,
+    "nights": 0,
+    "reason": "target",
+    "risk": 0.000140000000000029
+   },
+   {
+    "R": 14.775,
+    "market": "GER40",
+    "tf": "M1",
+    "target": "10R",
+    "time": "2011-09-26 19:09",
+    "side": "buy",
+    "cost_R": 0.132,
+    "swap_R": 0.4,
+    "nights": 1,
+    "reason": "target",
+    "risk": 7.5
+   }
+  ]
+ }
+}

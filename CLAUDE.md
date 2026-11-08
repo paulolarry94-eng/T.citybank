@@ -138,6 +138,9 @@ Learning rules:
   commission per trade, slippage on stops: P30). Report `research/results/body4/RESULT.md`.
   v2 at 1:2 and 1:1 (384 configurations) also REJECTED: 1R wins 34-47% vs 53-72% needed, best -0.10R
   (`research/results/body4/v2/RESULT.md`, side by side `research/results/body4/v2/TARGETS.md`).
+  v3 (dojis bullish in the lookback, 1:2 and 1:10, breakeven at 75%) REJECTED, and a full bug audit found nothing (464,614
+  setups and 215,119 trades independently re-checked): `research/results/body4/v3/RESULT.md`; 10 biggest winners/losers are
+  all gap trades (`research/results/body4/v3/best_worst/`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
