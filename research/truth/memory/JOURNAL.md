@@ -778,3 +778,11 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** none; advice to the owner: keep the withdraw-half rule, risk 0.5-1% a trade.
 - **Facts vs estimates:** win rates are scenarios, not measurements of a new strategy; 0.2R costs is a mid value from the
   body-engulf attribution (M15-M30 0.14-0.18R, M1 0.42R).
+
+## 2026-11-08 (23) · owner: "architect a system to pass the wealth game, or the SEESARE cap with higher alpha: which is better for a timeless hands-off experience?"
+- **Answered (no new test):** the cap, with the Wealth Game's withdraw-half rule kept only as the payout policy. A hands-off
+  system must survive streaks and gaps with nobody watching: at 25% risk 4 losses cost 68% and a 4R gap the whole account;
+  the pre-trade cap check holds planned losses at 3.6% (P24) and 0.25% risk keeps a 14R gap at 3.5%. Neither reaches 60-120%
+  today; under a cap, return grows with the square of edge quality (FORTNIGHT_CYCLE.md: 3.6x short in Sharpe, ~10x in
+  return), so alpha is the lever. Proposed layers and missing pieces (payout ratchet, drift check) in Q33.
+- **Next:** owner decides which governs (cap vs return target); then compile and self-test the router on a RoboForex demo.

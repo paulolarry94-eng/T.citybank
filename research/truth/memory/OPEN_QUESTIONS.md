@@ -266,6 +266,16 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q33 Architecture for a hands-off system: Wealth Game or SEESARE cap with higher alpha? (owner, 2026-11-08)
+FAMILY: architecture, sizing, seesare, payout, owner-idea. Proposal (awaiting the owner's decision; blueprint decision 2):
+the 3.6% cap governs; the Wealth Game survives only as the payout rule (when a lifecycle ends in profit, withdraw half the
+profit and start the next lifecycle and its 3.6% from the new base). Layers: verified edges (Truth Lab, then SHADOW on live
+data) -> allocation (small risk, so one gap fits inside the cap: 0.25% x 14R = 3.5%) -> pre-trade cap check (P24) -> payout
+ratchet -> drift check (a module whose live R per trade falls below its backtest band goes back to SHADOW by itself) ->
+plumbing (VPS that reaches Telegram, restart recovery, heartbeat). Inside a fixed cap, return grows with the square of edge
+quality (fortnight study: 3.6x short in Sharpe = about 10x short in return), so ~60% a year inside 3.6% needs about 3.5x
+the best mix's edge quality and ~120% about 5x (estimates). Not built: payout ratchet and drift check (twin first).
+
 ### Q31 RoboForex VPS + copy trading + affiliate "cycle" (owner, 2026-11-08): what does it need?
 FAMILY: business, copy-trading, affiliate, vps, roboforex, seesare, owner-idea.
 Facts from RoboForex's own pages, read 2026-11-08 (terms can change):
