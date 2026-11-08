@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-115 ideas tested, about 327,350 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+116 ideas tested, about 327,365 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,7 +16,7 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 54 | 0 | 25,605 |
+| owner-idea | 55 | 0 | 25,620 |
 | intraday | 47 | 1 | 200,696 |
 | engulfing | 31 | 0 | 27,416 |
 | limit-entry | 24 | 0 | 18,894 |
@@ -34,16 +34,16 @@
 | breakout | 12 | 0 | 119,496 |
 | fix | 12 | 1 | 66 |
 | retest | 12 | 0 | 10,437 |
+| sizing | 12 | 0 | 291 |
 | trend | 12 | 4 | 102,718 |
 | range | 11 | 0 | 11,136 |
-| sizing | 11 | 0 | 276 |
 | seesare | 10 | 0 | 232 |
 | portfolio | 9 | 4 | 145 |
+| risk | 9 | 1 | 188 |
 | seasonal | 9 | 2 | 23 |
 | chop | 8 | 0 | 11,362 |
 | daily | 8 | 1 | 172 |
 | payer | 8 | 0 | 40 |
-| risk | 8 | 1 | 173 |
 | structure | 8 | 0 | 1,634 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
@@ -115,6 +115,7 @@
 | audit | 1 | 0 | 384 |
 | best-setup | 1 | 0 | 16 |
 | commodities | 1 | 0 | 16 |
+| compounding | 1 | 0 | 15 |
 | cycle-goal | 1 | 1 | 1 |
 | diversified | 1 | 1 | 1 |
 | donchian | 1 | 0 | 48 |
@@ -127,6 +128,7 @@
 | histdata | 1 | 0 | 0 |
 | implementation-check | 1 | 0 | 1 |
 | infrastructure | 1 | 0 | 0 |
+| kelly | 1 | 0 | 15 |
 | look-ahead | 1 | 0 | 16 |
 | metals | 1 | 0 | 64 |
 | methods | 1 | 0 | 16 |
@@ -177,6 +179,7 @@
 | 2026-11-08 | body4_range_v5 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, layering | 768 | Rejected: no configuration passed the development gate | share_dev_positive +0.070 |
 | 2026-11-08 | Body-engulf range v5 study: strict vs loose engulfing, timeframe layering (2011-22) | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, layering | 768 | Rejected (lab: 0 of 768 pass). Loose vs strict: better in 26% of 240 pairs 2011-19 (-0.013R), 56% of 182 2020-22 (+0.004R); about 3x the trades at the same loss. Layering: better in 62%/75% of pairs (+0.030R/+0.060R) but keeps 0.7% (strict) / 1.7% (loose) of trades. Before costs 23 of 96 main cells positive in both periods, at most +0.17R (t < 2) where n > 100; only M15 strict+layering 3R/5R beat costs in both, on 25-28 and 11 trades (t < 1). |  |
 | 2026-11-08 | Body-engulf range v5: owner's logged 2023-25 look (4 primaries chosen on 2011-22 + all 768 described) | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, layering, holdout | 768 | FAILS. Primaries 2023-25: strict M15 10R -0.129R (1,236, t -2.43); strict+layer M1 10R -0.384R (74); loose H1 10R -0.133R (1,836, t -3.29); loose+layer M5 5R -0.067R (229, t -0.50; it was +0.213R in 2020-22). All 768: 16 of 448 with >= 100 trades positive (all H4 loose, no layering), median -0.178R; best H4 loose 2R +0.052R (t 1.12) was -0.099R in 2011-22. 2023-25 is used up for the body-engulf family (5,184 settings in v1-v5). | final_E -0.129, final_n +1236.000, final_PF +0.821 |
+| 2026-11-08 | Wealth Game: 25% risk on 1:4 trades, withdraw half at 4x the level's start, 12 levels (owner's sizing plan) | sizing, risk, compounding, kelly, owner-idea | 15 | Rejected as sizing. At 25% risk the account shrinks unless 1:4 trades win more than 29.3% (+0.46R a trade); 25% is the best size only at a 40% win rate (+1R). 100 trades, 0.2R costs: 20% win rate -> 9% pass level 1, 91% end below $100; 25% -> 21% / 78%; 40% -> 93% / 6%. Every run had a 50%+ fall. For a +0.05R edge (our best strategies) Kelly is about 1% a trade. The plan's level 1 target is $400, not $408. |  |
 | 2026-11-06 | Noise gate (efficiency-ratio gate with threshold, hysteresis, hold) on the 13 survivors | filter, regime, noise-gate, efficiency-ratio, owner-idea, portfolio | 8 | Rejected. Best (H1, 67th pct, by-type): s 0.074 vs 0.068 ungated 2011-19, 0.082 vs 0.066 2020-22, but random gates of the same size do as well (p 0.36; all 8 within random range). 2023-25 look 0.047 vs 0.043; untouched 2026 book reversed (passed -0.054, blocked +0.086). Halves trades and yearly return; cycle +0.105% vs +0.10%. |  |
 | 2026-11-06 | Cycle goal with a 2-week cycle instead of 10 trades (survivors) | cycle-goal, risk, portfolio, owner-question | 1 | Needed fortnight Sharpe 1.17 (+2% in 3.6%; 0.79 in 8%). Best mix (13 survivors, leg weights) 0.33: +0.19% per 2 weeks, 4.9%/yr at 3.6%, 10.8%/yr at 8%; 3.6x short in Sharpe, ~10x in return. Same yearly money as the 10-trade cycle. 2026 forward about 0. |  |
 | 2026-11-03 | ema4_flip_v2 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.087 |

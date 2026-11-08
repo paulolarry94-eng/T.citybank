@@ -406,6 +406,10 @@ volume every year).
 FAMILY: breakout, orb, liquidity, momentum, intraday, scratch, micro-stop, owner-idea.
 
 ## Answered
+- **Q32 (2026-11-08), owner's Wealth Game (25% risk on 1:4 trades, withdraw half at each 4x, 12 levels):** the account shrinks at 25% risk unless
+  1:4 trades win more than 29.3%; at our measured hit rates (12-18% at 4R) 80-94% of runs end below the $100 start;
+  for a +0.05R edge the best risk is about 1% a trade. Evidence: research/results/goal/WEALTH_GAME.md. FAMILY: sizing, risk,
+  compounding, kelly, owner-idea.
 - **Q4 (partly, 2026-10-31):** the book's trend family does not transfer to US500, GER40, WTI or XAGUSD (0 of 64; oil alone
   failed 2023–25). Evidence: research/results/truth/breadth_trend_v1/, wti_trend_v1/. Still open: JPY crosses and metals
   on a swap-free account.

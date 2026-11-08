@@ -766,3 +766,15 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   arithmetic (about $1,000 a year per $100,000 copied, 20% fee on the best fortnight mix) are estimates.
 - **Next:** owner asks RoboForex support whether a ProCent account can be a Copy Trader account; compile and self-test the
   router on a RoboForex demo.
+
+## 2026-11-08 (22) · owner: "WEALTH GAME ... 12 levels ... what you think 25% equity risk"
+- **Done:** simulated the plan (risk 25% of the balance on 1:4 trades, withdraw half at 4x the level's start, 12 levels):
+  growth by win rate, 100-trade runs with and without 0.2R costs (200,000 players a row), and the same edge at 25/10/5/2/1%
+  risk (`research/goal/wealth_game.py`, `research/results/goal/WEALTH_GAME.md`); Q32 answered; P8 evidence.
+- **Learned:** at 25% risk the account shrinks unless more than 29.3% of 1:4 trades win; 25% is the best size only at a 40%
+  win rate (+1R a trade). With 0.2R costs: 20% win rate -> 9% pass level 1, 91% end below $100; 30% -> 45% / 54%. Every run
+  falls 50%+ at some point. The owner's patterns hit 4R 12-18% of the time in tests (chance 20%). Kelly for a +0.05R edge
+  with 1:4 payoffs is about 1%. The plan's level 1 target is $400, not $408 (everything after is 2% too high).
+- **Decisions:** none; advice to the owner: keep the withdraw-half rule, risk 0.5-1% a trade.
+- **Facts vs estimates:** win rates are scenarios, not measurements of a new strategy; 0.2R costs is a mid value from the
+  body-engulf attribution (M15-M30 0.14-0.18R, M1 0.42R).

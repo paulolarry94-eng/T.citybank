@@ -114,6 +114,11 @@ Evidence (2026-11-06, noise gate): an efficiency-ratio gate (threshold, hysteres
 better than random (p 0.36, 8 configurations), halved the trades and reversed on untouched 2026 data. Filters on a
 market's "state" behave like sizing states: they do not add edge. research/results/noisegate/RESULT.md.
 
+Evidence (2026-11-08, owner's Wealth Game: 25% risk on 1:4 trades, half withdrawn at each 4x): size cannot replace edge.
+At 25% risk the account shrinks unless more than 29.3% of 1:4 trades win (+0.46R a trade); with 0.2R costs a 25% win
+rate (+0.05R, like our best strategies) leaves 78% of 100-trade runs below the $100 start, and every run falls 50% or
+more at some point. For that edge the best size (Kelly) is about 1% a trade. research/results/goal/WEALTH_GAME.md.
+
 ### P9 Breadth of independent edges is the only free lunch
 11 legs of about Sharpe 0.3 each with near-zero correlation make Sharpe 1.0. Sharpe ≈ s·√(N/(1+(N−1)ρ)):
 correlation sets the ceiling. Evidence: book, multiasset combination. Confidence: high.
