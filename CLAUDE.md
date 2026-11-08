@@ -136,6 +136,8 @@ Learning rules:
   before costs; best market x timeframe picks did not hold). Breakeven lowers profit factor (P4); 50% beats 70% (P2); wider
   stop buffers lose less. Engine: `research/body4/` (spec + numba twin, trade-for-trade parity; spread decides fills,
   commission per trade, slippage on stops: P30). Report `research/results/body4/RESULT.md`.
+  v2 at 1:2 and 1:1 (384 configurations) also REJECTED: 1R wins 34-47% vs 53-72% needed, best -0.10R
+  (`research/results/body4/v2/RESULT.md`, side by side `research/results/body4/v2/TARGETS.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

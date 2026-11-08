@@ -289,6 +289,8 @@ fills, P30). Pre-registered, 192 configurations x 12 markets x M1-H4: REJECTED. 
 -0.47R a trade), about 0 before costs; breakeven lowers profit factor; 50% beats 70%; wider stops lose less; lookback no
 effect; engulfing loses a little less than the plain shape on M1-M15 only; best market x timeframe picks did not hold.
 research/results/body4/RESULT.md. Open only if the owner's discretion (which setups he skips by eye) is logged forward.
+v2 (2026-11-08, owner: "try 1:2R and 1:1R"): 384 configurations, REJECTED; 1R wins 34-47% where 53-72% is needed, 2R
+25-35% vs 35-48%; best -0.10R a trade. research/results/body4/v2/RESULT.md.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

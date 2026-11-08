@@ -1,0 +1,722 @@
+{
+ "M1 4R be on": {
+  "dev": {
+   "n": 44500,
+   "E": -0.466,
+   "win": 0.132,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 22152,
+   "E": -0.444,
+   "win": 0.13,
+   "markets_positive": 0
+  },
+  "cost_r": 0.428,
+  "needed": 0.286,
+  "gross": [
+   -0.0673,
+   -0.0644
+  ]
+ },
+ "M1 2R be on": {
+  "dev": {
+   "n": 35835,
+   "E": -0.476,
+   "win": 0.199,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 17689,
+   "E": -0.451,
+   "win": 0.198,
+   "markets_positive": 0
+  },
+  "cost_r": 0.426,
+  "needed": 0.475,
+  "gross": [
+   -0.0974,
+   -0.0976
+  ]
+ },
+ "M1 1R be on": {
+  "dev": {
+   "n": 18968,
+   "E": -0.55,
+   "win": 0.262,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 9201,
+   "E": -0.524,
+   "win": 0.259,
+   "markets_positive": 0
+  },
+  "cost_r": 0.437,
+  "needed": 0.718,
+  "gross": [
+   -0.1998,
+   -0.1982
+  ]
+ },
+ "M5 4R be on": {
+  "dev": {
+   "n": 16375,
+   "E": -0.281,
+   "win": 0.148,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 7011,
+   "E": -0.263,
+   "win": 0.146,
+   "markets_positive": 0
+  },
+  "cost_r": 0.258,
+  "needed": 0.252,
+  "gross": [
+   -0.0338,
+   -0.0202
+  ]
+ },
+ "M5 2R be on": {
+  "dev": {
+   "n": 13553,
+   "E": -0.293,
+   "win": 0.211,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 5653,
+   "E": -0.249,
+   "win": 0.22,
+   "markets_positive": 0
+  },
+  "cost_r": 0.256,
+  "needed": 0.419,
+  "gross": [
+   -0.0529,
+   -0.0223
+  ]
+ },
+ "M5 1R be on": {
+  "dev": {
+   "n": 7377,
+   "E": -0.304,
+   "win": 0.283,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 3061,
+   "E": -0.285,
+   "win": 0.292,
+   "markets_positive": 0
+  },
+  "cost_r": 0.262,
+  "needed": 0.631,
+  "gross": [
+   -0.0692,
+   -0.041
+  ]
+ },
+ "M15 4R be on": {
+  "dev": {
+   "n": 6835,
+   "E": -0.16,
+   "win": 0.172,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 2663,
+   "E": -0.166,
+   "win": 0.164,
+   "markets_positive": 0
+  },
+  "cost_r": 0.179,
+  "needed": 0.236,
+  "gross": [
+   0.0263,
+   0.0059
+  ]
+ },
+ "M15 2R be on": {
+  "dev": {
+   "n": 5759,
+   "E": -0.164,
+   "win": 0.242,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 2247,
+   "E": -0.181,
+   "win": 0.226,
+   "markets_positive": 0
+  },
+  "cost_r": 0.178,
+  "needed": 0.393,
+  "gross": [
+   0.0088,
+   -0.0103
+  ]
+ },
+ "M15 1R be on": {
+  "dev": {
+   "n": 3222,
+   "E": -0.186,
+   "win": 0.297,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 1256,
+   "E": -0.207,
+   "win": 0.288,
+   "markets_positive": 0
+  },
+  "cost_r": 0.18,
+  "needed": 0.59,
+  "gross": [
+   -0.026,
+   -0.0541
+  ]
+ },
+ "M30 4R be on": {
+  "dev": {
+   "n": 3856,
+   "E": -0.189,
+   "win": 0.166,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 1474,
+   "E": -0.251,
+   "win": 0.157,
+   "markets_positive": 1
+  },
+  "cost_r": 0.143,
+  "needed": 0.229,
+  "gross": [
+   -0.0475,
+   -0.1103
+  ]
+ },
+ "M30 2R be on": {
+  "dev": {
+   "n": 3245,
+   "E": -0.158,
+   "win": 0.236,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 1239,
+   "E": -0.22,
+   "win": 0.219,
+   "markets_positive": 2
+  },
+  "cost_r": 0.141,
+  "needed": 0.38,
+  "gross": [
+   -0.0233,
+   -0.0903
+  ]
+ },
+ "M30 1R be on": {
+  "dev": {
+   "n": 1883,
+   "E": -0.177,
+   "win": 0.288,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 703,
+   "E": -0.15,
+   "win": 0.289,
+   "markets_positive": 2
+  },
+  "cost_r": 0.144,
+  "needed": 0.572,
+  "gross": [
+   -0.0387,
+   -0.0282
+  ]
+ },
+ "H1 4R be on": {
+  "dev": {
+   "n": 1891,
+   "E": -0.142,
+   "win": 0.182,
+   "markets_positive": 1
+  },
+  "val": {
+   "n": 725,
+   "E": -0.083,
+   "win": 0.193,
+   "markets_positive": 2
+  },
+  "cost_r": 0.116,
+  "needed": 0.223,
+  "gross": [
+   -0.0086,
+   0.0082
+  ]
+ },
+ "H1 2R be on": {
+  "dev": {
+   "n": 1584,
+   "E": -0.138,
+   "win": 0.242,
+   "markets_positive": 1
+  },
+  "val": {
+   "n": 572,
+   "E": -0.064,
+   "win": 0.262,
+   "markets_positive": 6
+  },
+  "cost_r": 0.115,
+  "needed": 0.372,
+  "gross": [
+   -0.0208,
+   0.0156
+  ]
+ },
+ "H1 1R be on": {
+  "dev": {
+   "n": 887,
+   "E": -0.148,
+   "win": 0.296,
+   "markets_positive": 1
+  },
+  "val": {
+   "n": 296,
+   "E": -0.065,
+   "win": 0.341,
+   "markets_positive": 4
+  },
+  "cost_r": 0.114,
+  "needed": 0.557,
+  "gross": [
+   -0.0438,
+   -0.0027
+  ]
+ },
+ "H4 4R be on": {
+  "dev": {
+   "n": 503,
+   "E": -0.142,
+   "win": 0.264,
+   "markets_positive": 3
+  },
+  "val": {
+   "n": 144,
+   "E": -0.208,
+   "win": 0.222,
+   "markets_positive": 3
+  },
+  "cost_r": 0.064,
+  "needed": 0.213,
+  "gross": [
+   -0.056,
+   -0.1354
+  ]
+ },
+ "H4 2R be on": {
+  "dev": {
+   "n": 434,
+   "E": -0.152,
+   "win": 0.265,
+   "markets_positive": 2
+  },
+  "val": {
+   "n": 121,
+   "E": -0.283,
+   "win": 0.215,
+   "markets_positive": 1
+  },
+  "cost_r": 0.064,
+  "needed": 0.355,
+  "gross": [
+   -0.0916,
+   -0.1934
+  ]
+ },
+ "H4 1R be on": {
+  "dev": {
+   "n": 240,
+   "E": -0.155,
+   "win": 0.317,
+   "markets_positive": 2
+  },
+  "val": {
+   "n": 65,
+   "E": -0.163,
+   "win": 0.246,
+   "markets_positive": 2
+  },
+  "cost_r": 0.069,
+  "needed": 0.535,
+  "gross": [
+   -0.0861,
+   -0.1564
+  ]
+ },
+ "M1 4R be off": {
+  "dev": {
+   "n": 44287,
+   "E": -0.471,
+   "win": 0.156,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 22062,
+   "E": -0.443,
+   "win": 0.155,
+   "markets_positive": 0
+  },
+  "cost_r": 0.428,
+  "needed": 0.286,
+  "gross": [
+   -0.0787,
+   -0.0684
+  ]
+ },
+ "M1 2R be off": {
+  "dev": {
+   "n": 35704,
+   "E": -0.475,
+   "win": 0.252,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 17656,
+   "E": -0.453,
+   "win": 0.251,
+   "markets_positive": 0
+  },
+  "cost_r": 0.426,
+  "needed": 0.475,
+  "gross": [
+   -0.1051,
+   -0.1033
+  ]
+ },
+ "M1 1R be off": {
+  "dev": {
+   "n": 18944,
+   "E": -0.547,
+   "win": 0.34,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 9191,
+   "E": -0.524,
+   "win": 0.337,
+   "markets_positive": 0
+  },
+  "cost_r": 0.437,
+  "needed": 0.718,
+  "gross": [
+   -0.206,
+   -0.2047
+  ]
+ },
+ "M5 4R be off": {
+  "dev": {
+   "n": 16244,
+   "E": -0.279,
+   "win": 0.176,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 6975,
+   "E": -0.261,
+   "win": 0.175,
+   "markets_positive": 0
+  },
+  "cost_r": 0.257,
+  "needed": 0.251,
+  "gross": [
+   -0.0329,
+   -0.0308
+  ]
+ },
+ "M5 2R be off": {
+  "dev": {
+   "n": 13495,
+   "E": -0.29,
+   "win": 0.278,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 5627,
+   "E": -0.256,
+   "win": 0.285,
+   "markets_positive": 0
+  },
+  "cost_r": 0.256,
+  "needed": 0.419,
+  "gross": [
+   -0.0546,
+   -0.0219
+  ]
+ },
+ "M5 1R be off": {
+  "dev": {
+   "n": 7355,
+   "E": -0.312,
+   "win": 0.402,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 3059,
+   "E": -0.278,
+   "win": 0.414,
+   "markets_positive": 0
+  },
+  "cost_r": 0.262,
+  "needed": 0.631,
+  "gross": [
+   -0.0829,
+   -0.0598
+  ]
+ },
+ "M15 4R be off": {
+  "dev": {
+   "n": 6801,
+   "E": -0.161,
+   "win": 0.201,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 2650,
+   "E": -0.151,
+   "win": 0.197,
+   "markets_positive": 1
+  },
+  "cost_r": 0.179,
+  "needed": 0.236,
+  "gross": [
+   0.0264,
+   0.0208
+  ]
+ },
+ "M15 2R be off": {
+  "dev": {
+   "n": 5728,
+   "E": -0.172,
+   "win": 0.307,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 2225,
+   "E": -0.168,
+   "win": 0.304,
+   "markets_positive": 2
+  },
+  "cost_r": 0.178,
+  "needed": 0.393,
+  "gross": [
+   0.0043,
+   -0.0064
+  ]
+ },
+ "M15 1R be off": {
+  "dev": {
+   "n": 3208,
+   "E": -0.2,
+   "win": 0.435,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 1253,
+   "E": -0.187,
+   "win": 0.439,
+   "markets_positive": 0
+  },
+  "cost_r": 0.18,
+  "needed": 0.59,
+  "gross": [
+   -0.0416,
+   -0.0328
+  ]
+ },
+ "M30 4R be off": {
+  "dev": {
+   "n": 3842,
+   "E": -0.183,
+   "win": 0.197,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 1468,
+   "E": -0.256,
+   "win": 0.185,
+   "markets_positive": 2
+  },
+  "cost_r": 0.144,
+  "needed": 0.229,
+  "gross": [
+   -0.0423,
+   -0.1119
+  ]
+ },
+ "M30 2R be off": {
+  "dev": {
+   "n": 3220,
+   "E": -0.173,
+   "win": 0.305,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 1230,
+   "E": -0.219,
+   "win": 0.29,
+   "markets_positive": 2
+  },
+  "cost_r": 0.141,
+  "needed": 0.38,
+  "gross": [
+   -0.036,
+   -0.0995
+  ]
+ },
+ "M30 1R be off": {
+  "dev": {
+   "n": 1876,
+   "E": -0.178,
+   "win": 0.439,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 701,
+   "E": -0.181,
+   "win": 0.435,
+   "markets_positive": 2
+  },
+  "cost_r": 0.144,
+  "needed": 0.572,
+  "gross": [
+   -0.0458,
+   -0.0511
+  ]
+ },
+ "H1 4R be off": {
+  "dev": {
+   "n": 1885,
+   "E": -0.14,
+   "win": 0.212,
+   "markets_positive": 2
+  },
+  "val": {
+   "n": 724,
+   "E": -0.088,
+   "win": 0.227,
+   "markets_positive": 2
+  },
+  "cost_r": 0.116,
+  "needed": 0.223,
+  "gross": [
+   0.003,
+   0.0085
+  ]
+ },
+ "H1 2R be off": {
+  "dev": {
+   "n": 1578,
+   "E": -0.15,
+   "win": 0.31,
+   "markets_positive": 0
+  },
+  "val": {
+   "n": 572,
+   "E": -0.032,
+   "win": 0.351,
+   "markets_positive": 6
+  },
+  "cost_r": 0.115,
+  "needed": 0.372,
+  "gross": [
+   -0.0314,
+   0.0693
+  ]
+ },
+ "H1 1R be off": {
+  "dev": {
+   "n": 886,
+   "E": -0.165,
+   "win": 0.439,
+   "markets_positive": 1
+  },
+  "val": {
+   "n": 296,
+   "E": -0.099,
+   "win": 0.473,
+   "markets_positive": 4
+  },
+  "cost_r": 0.114,
+  "needed": 0.557,
+  "gross": [
+   -0.0606,
+   -0.0378
+  ]
+ },
+ "H4 4R be off": {
+  "dev": {
+   "n": 502,
+   "E": -0.162,
+   "win": 0.277,
+   "markets_positive": 4
+  },
+  "val": {
+   "n": 144,
+   "E": -0.2,
+   "win": 0.229,
+   "markets_positive": 4
+  },
+  "cost_r": 0.064,
+  "needed": 0.213,
+  "gross": [
+   -0.0749,
+   -0.1399
+  ]
+ },
+ "H4 2R be off": {
+  "dev": {
+   "n": 434,
+   "E": -0.162,
+   "win": 0.341,
+   "markets_positive": 1
+  },
+  "val": {
+   "n": 121,
+   "E": -0.35,
+   "win": 0.24,
+   "markets_positive": 1
+  },
+  "cost_r": 0.064,
+  "needed": 0.355,
+  "gross": [
+   -0.0882,
+   -0.248
+  ]
+ },
+ "H4 1R be off": {
+  "dev": {
+   "n": 240,
+   "E": -0.198,
+   "win": 0.425,
+   "markets_positive": 2
+  },
+  "val": {
+   "n": 65,
+   "E": -0.2,
+   "win": 0.385,
+   "markets_positive": 3
+  },
+  "cost_r": 0.069,
+  "needed": 0.535,
+  "gross": [
+   -0.1336,
+   -0.1856
+  ]
+ }
+}

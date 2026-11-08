@@ -53,6 +53,10 @@ Evidence (2026-11-08, owner's body-engulf range, 4R target): breakeven at +2R ha
 1,110 paired settings (2011-19) and 27% of 962 (2020-22), PF -0.03, R per trade unchanged (+0.001). The early exits pay
 commission and slippage. research/results/body4/RESULT.md.
 
+Evidence (2026-11-08, body-engulf range at 2R and 1R, breakeven at 50% of the target): breakeven had the higher profit
+factor in only 15% of 1,800 paired settings (16% of 1,492 in 2020-22); smaller targets were worse (2R beat 1R in 85% of
+pairs). research/results/body4/v2/RESULT.md.
+
 ### P5 Overnight swaps matter for multi-day trades
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
 +0.063 → +0.044R. A swap-free account changes the picture (book Sharpe 1.00 → 1.64 with low costs).
@@ -184,6 +188,9 @@ losses (before costs +0.004 to +0.014R).
 Evidence (2026-11-02, owner's 3:30 setup at 1:1): wider stops stopped the "it just gets wicked" losses (stopped trades that
 later reached the target: 52% -> 23%) yet the win rate rose only 40% -> 46% against 56-59% needed after costs. A wider stop
 moves the target out by the same amount, so it buys fewer wick-outs, not more winners.
+
+Evidence (2026-11-08, body-engulf range at 1:1): 44% wins on M15-H1 looks close to a coin flip, but a 1:1 trade needs
+53-59% wins after these costs; every 1R setting lost. research/results/body4/v2/RESULT.md.
 
 ### P17 Active hours picked from a backtest do not carry forward
 Choosing a strategy's best trading hours on past data mostly selects luck. Dark Mimas family: best 6 hours picked on

@@ -699,3 +699,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   and stop (division by zero) before any result; fixed by using the planned 1R.
 - **Facts vs estimates:** XAGUSD/UK100 cost split 50/25/25 is an assumption; the lab's swap is a constant per night.
 - **Next:** if the owner believes his discretion adds the edge, log his own calls forward (screenshots before the outcome).
+
+## 2026-11-08 (17) · owner: "try..1;2r and 1;1r"
+- **Done:** v2 of the body-engulf range with targets 2R and 1R (breakeven at 50% of the target, the owner's rule), everything
+  else as v1; engine target parameter + 1R/2R unit and parity tests (176 OK); pre-registered (PREREGISTRATION_V2.md, noting
+  that small targets sit inside the range so the cancel rule removes many orders); lab 384 configurations; study, zero-cost
+  run, 4R/2R/1R table (research/results/body4/v2/TARGETS.md).
+- **Learned:** REJECTED. 0 of 384 positive; best -0.10R. Breakeven off: 1R wins 34-47% vs 53-72% needed; 2R 25-35% vs
+  35-48%. Smaller targets are worse (2R > 1R in 85% of pairs) and slightly negative even before costs; breakeven lowers PF
+  in 85% of pairs (P4). P4 and P16 evidence added; Q30 updated.
+- **Next:** unchanged: a forward log of the owner's own calls is the only way left to test this pattern family.
