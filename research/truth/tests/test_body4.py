@@ -60,6 +60,21 @@ class TestDetector(unittest.TestCase):
             j = int(np.flatnonzero(bt[P["k"]] == t4)[0])
             self.assertEqual((int(P["side"][j]), int(P["lookback"][j])), (1, want))
 
+    def test_loose_engulf_allows_a_gap_at_the_open(self):
+        """v5 (owner's silver chart): candle 2 opens below candle 1's close but closes below candle 1's open."""
+        gap = [(100.0, 101.2, 99.9, 101.0), (100.8, 100.9, 99.4, 99.5), (99.5, 100.6, 99.45, 100.5), (100.5, 100.6, 99.3, 99.4)]
+        M = market(LOOK + gap, MON)
+        self.assertEqual(len(SC.setups(M, 1)["k"]), 0)                      # strict: 100.8 < 101.0, no full body cover
+        L = SC.setups(M, 1, engulf="loose")
+        self.assertEqual((len(L["k"]), int(L["side"][0])), (1, -1))
+
+    def test_layer_mask(self):
+        """A small setup counts only if a same-direction big setup closed at most `window` earlier."""
+        big_t, big_s = np.array([1000, 5000]), np.array([-1, 1])
+        small_t = np.array([999, 1000, 1500, 3500, 5100, 5100])
+        small_s = np.array([-1, -1, -1, -1, 1, -1])
+        self.assertEqual(SC.layer_mask(small_t, small_s, big_t, big_s, 2000).tolist(), [0, 1, 1, 0, 1, 0])
+
     def test_control_sample_has_no_engulfing(self):
         rows = LOOK + [(100.0, 101.2, 99.9, 101.0), (101.0, 101.3, 100.2, 100.4), (100.4, 100.9, 100.3, 100.8), (100.8, 100.9, 100.5, 100.6)]
         M = market(rows, MON)

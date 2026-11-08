@@ -55,7 +55,7 @@ def follow(o, h, l, c, k, side, mid, stop, risk, wait=None, target_r=4.0, be_r=2
     return dict(result="still open", fill=fill, exit=None, R=None, tp=tp, be=be)
 
 
-def detect_arrays(o, h, l, c, sample="flow", doji_bullish=False):
+def detect_arrays(o, h, l, c, sample="flow", doji_bullish=False, engulf="body"):
     """Vectorised detector (same rule as detect()). sample="control": the same alternating four candles where NEITHER
     the 2nd nor the 4th candle body-engulfs the candle before it (the shape without the engulfing).
     Returns arrays k (index of candle 4), side, hi, lo, lookback (candles going the trade's way among the 5 before
@@ -66,8 +66,12 @@ def detect_arrays(o, h, l, c, sample="flow", doji_bullish=False):
     eng_dn, eng_up, alt_dn, alt_up = (np.zeros(n, bool) for _ in range(4))
     alt_dn[1:] = bull[:-1] & bear[1:]
     alt_up[1:] = bear[:-1] & bull[1:]
-    eng_dn[1:] = alt_dn[1:] & (o[1:] >= c[:-1]) & (c[1:] < o[:-1])
-    eng_up[1:] = alt_up[1:] & (o[1:] <= c[:-1]) & (c[1:] > o[:-1])
+    if engulf == "loose":       # owner 2026-11-08: only "closes beyond the previous candle's open" (a gap at the open is allowed)
+        eng_dn[1:] = alt_dn[1:] & (c[1:] < o[:-1])
+        eng_up[1:] = alt_up[1:] & (c[1:] > o[:-1])
+    else:                       # "body": the body fully covers the previous body (opens at/beyond its close)
+        eng_dn[1:] = alt_dn[1:] & (o[1:] >= c[:-1]) & (c[1:] < o[:-1])
+        eng_up[1:] = alt_up[1:] & (o[1:] <= c[:-1]) & (c[1:] > o[:-1])
     k = np.arange(3, n)
     if sample == "control":
         sell = alt_dn[k - 2] & alt_dn[k] & ~eng_dn[k - 2] & ~eng_dn[k]
@@ -88,9 +92,26 @@ def detect_arrays(o, h, l, c, sample="flow", doji_bullish=False):
     return dict(k=kk.astype(np.int64), side=side.astype(np.int64), hi=hi, lo=lo, lookback=lb.astype(np.int64))
 
 
-def setups(B, tf_min, sample="flow", doji_bullish=False):
+def setups(B, tf_min, sample="flow", doji_bullish=False, engulf="body"):
     """detect_arrays plus what the order engines need: t_conf (time candle 4 closes) and c4 (its close)."""
-    P = detect_arrays(B["o"], B["h"], B["l"], B["c"], sample=sample, doji_bullish=doji_bullish)
+    P = detect_arrays(B["o"], B["h"], B["l"], B["c"], sample=sample, doji_bullish=doji_bullish, engulf=engulf)
     P["t_conf"] = (np.asarray(B["t"], np.int64)[P["k"]] + tf_min * 60).astype(np.int64)
     P["c4"] = np.asarray(B["c"], float)[P["k"]]
     return P
+
+
+def layer_mask(t_small, side_small, t_big, side_big, window_sec):
+    """1 where a small-timeframe setup has a big-timeframe setup in the SAME direction whose candle 4 closed at or before
+    it, at most window_sec earlier (owner 2026-11-08: "one big with small, both align, then entry in small")."""
+    t_small = np.asarray(t_small, np.int64); side_small = np.asarray(side_small)
+    out = np.zeros(len(t_small), np.int64)
+    for sd in (1, -1):
+        tb = np.sort(np.asarray(t_big, np.int64)[np.asarray(side_big) == sd])
+        m = side_small == sd
+        if not len(tb) or not m.any():
+            continue
+        i = np.searchsorted(tb, t_small[m], side="right") - 1
+        ok = i >= 0
+        last = np.where(ok, tb[np.maximum(i, 0)], 0)
+        out[np.flatnonzero(m)] = (ok & (t_small[m] - last < window_sec)).astype(np.int64)
+    return out
