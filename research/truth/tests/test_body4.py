@@ -37,6 +37,29 @@ class TestDetector(unittest.TestCase):
         P = SC.setups(M, 1)
         self.assertEqual(int(P["lookback"][0]), 2)             # 2 bearish, 1 doji, 2 bullish -> 2, not 3
 
+    def test_doji_bullish_mode(self):
+        """v3 (owner, 2026-11-08): a doji counts as bullish in the lookback (close >= open)."""
+        buy4 = [(101.0, 101.1, 99.9, 100.0), (100.0, 101.3, 99.9, 101.1), (101.1, 101.2, 100.4, 100.5), (100.5, 101.9, 100.4, 101.8)]
+        look = [(100.0, 100.6, 99.9, 100.5)] * 2 + [(100.5, 100.7, 100.3, 100.5)] + [(101.0, 101.1, 100.4, 100.5)] * 2
+        M = market(look + buy4, MON)
+        self.assertEqual(int(SC.setups(M, 1)["lookback"][0]), 2)                     # doji neutral
+        self.assertEqual(int(SC.setups(M, 1, doji_bullish=True)["lookback"][0]), 3)  # doji bullish -> 3 of 5
+
+    def test_owner_image_7_lookback_is_3_with_dojis_bullish(self):
+        try:
+            sys.path.insert(0, os.path.join(HERE, "..", ".."))
+            import engine as EN
+            ts, o, h, l, c = EN.load_m1("XAUUSD", 2019, 2019)
+        except Exception as e:
+            self.skipTest(str(e))
+        bt, bo, bh, bl, bc, _ = EN.resample(ts, o, h, l, c, 5)
+        B = dict(t=bt, o=bo, h=bh, l=bl, c=bc)
+        t4 = int(dt.datetime(2019, 1, 2, 8, 35, tzinfo=dt.timezone.utc).timestamp())     # candle 4 of the image-7 buy
+        for mode, want in ((False, 2), (True, 3)):
+            P = SC.setups(B, 5, doji_bullish=mode)
+            j = int(np.flatnonzero(bt[P["k"]] == t4)[0])
+            self.assertEqual((int(P["side"][j]), int(P["lookback"][j])), (1, want))
+
     def test_control_sample_has_no_engulfing(self):
         rows = LOOK + [(100.0, 101.2, 99.9, 101.0), (101.0, 101.3, 100.2, 100.4), (100.4, 100.9, 100.3, 100.8), (100.8, 100.9, 100.5, 100.6)]
         M = market(rows, MON)
@@ -88,6 +111,18 @@ class TestOrders(unittest.TestCase):
         after2 = [(99.6, 100.4, 99.5, 100.0), (100.0, 100.1, 99.2, 99.3)]
         tr2, _, _ = ref(market(LOOK + SELL4 + after2, MON), target_r=1.0, be_r=0.5)
         self.assertEqual(tr2[0]["reason"], "target (+1R)"); self.assertAlmostEqual(tr2[0]["R"], 1.0)
+
+    def test_ten_r_target_and_breakeven_at_75_percent(self):
+        """v3: target 10R, breakeven at 75% of the way (+7.5R)."""
+        down = [(99.6, 100.4, 99.5, 99.0)] + [(99.0 - k, 99.1 - k, 97.9 - k, 98.0 - k) for k in range(0, 6)]   # low 92.9
+        back = [(93.0, 100.5, 92.7, 100.4)]                       # reaches 92.71 ask (+7.5R = 92.8) and comes back
+        after = [(100.4, 100.6, 100.2, 100.5)] * 3
+        tr, log, _ = ref(market(LOOK + SELL4 + down + back + after, MON), target_r=10.0, be_r=7.5)
+        self.assertAlmostEqual(tr[0]["tp"], 90.3); self.assertAlmostEqual(tr[0]["be"], 92.8)
+        self.assertEqual(tr[0]["reason"], "breakeven stop")
+        win = [(99.6, 100.4, 99.5, 99.0)] + [(99.0 - k, 99.1 - k, 97.9 - k, 98.0 - k) for k in range(0, 9)]   # low 89.9
+        tr2, _, _ = ref(market(LOOK + SELL4 + win, MON), target_r=10.0, be_r=7.5)
+        self.assertEqual(tr2[0]["reason"], "target (+10R)"); self.assertAlmostEqual(tr2[0]["R"], 10.0)
 
     def test_friday_close_and_lookback(self):
         after = [(99.6, 100.4, 99.5, 100.0)] + [(100.0, 100.2, 99.8, 100.0)] * 40
@@ -152,12 +187,14 @@ class TestParity(unittest.TestCase):
             S = SC.setups(B, tf)
             for p in (dict(entry=0.5, buffer=0.0, be=True, lookback=True), dict(entry=0.7, buffer=0.1, be=False, lookback=False),
                       dict(entry=0.5, buffer=0.2, be=True, lookback=False), dict(entry=0.5, buffer=0.0, be=True, lookback=True, target=2),
-                      dict(entry=0.7, buffer=0.05, be=True, lookback=False, target=1)):
-                tgt = p.get("target", 4)
-                tr, _, _ = OR.run(M, OR.patterns(B, tf), cost["spread"], cost["commission"], cost["slippage"], swap=cost["swap"],
-                                  entry=p["entry"], buffer=p["buffer"], breakeven=p["be"], use_lookback=p["lookback"],
-                                  target_r=tgt, be_r=0.5 * tgt)
-                F, _ = FA.run(M, S, cost, p)
+                      dict(entry=0.7, buffer=0.05, be=True, lookback=False, target=1),
+                      dict(entry=0.5, buffer=0.0, be=True, lookback=True, target=10, be_frac=0.75, doji=True),
+                      dict(entry=0.7, buffer=0.1, be=True, lookback=True, target=2, be_frac=0.75, doji=True)):
+                tgt = p.get("target", 4); dj = p.get("doji", False)
+                tr, _, _ = OR.run(M, OR.patterns(B, tf, doji_bullish=dj), cost["spread"], cost["commission"], cost["slippage"],
+                                  swap=cost["swap"], entry=p["entry"], buffer=p["buffer"], breakeven=p["be"],
+                                  use_lookback=p["lookback"], target_r=tgt, be_r=p.get("be_frac", 0.5) * tgt)
+                F, _ = FA.run(M, SC.setups(B, tf, doji_bullish=dj) if dj else S, cost, p)
                 self.assertEqual(len(F), len(tr), (tf, p))
                 total += len(tr)
                 for a, b in zip(tr, F):

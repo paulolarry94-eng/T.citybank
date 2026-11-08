@@ -201,8 +201,8 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, c
 def run(M1, setups, costs, p, cut=2 ** 62, delay=0, gaps=None):
     """Convenience wrapper. M1 = dict(ts, o, h, l, c); setups = dict of arrays from body4_scan.detect_arrays plus
     t_conf and c4; costs = dict(spread, commission, slippage, swap); p = dict(entry, buffer, be, lookback[, target]).
-    target in R (default 4); the breakeven level is always 50% of the target (owner: "breakeven when price hits 50% of
-    the target"), i.e. +2R for 4R, +1R for 2R, +0.5R for 1R."""
+    target in R (default 4); the breakeven level is be_frac x the target (default 0.5, the owner's first rule: +2R for 4R,
+    +1R for 2R; v3 uses 0.75, "breakeven at 75% of the journey")."""
     ts = np.asarray(M1["ts"], np.int64)
     start = np.searchsorted(ts, setups["t_conf"] + 60 * int(delay)).astype(np.int64)
     return simulate(ts, np.asarray(M1["o"], float), np.asarray(M1["h"], float), np.asarray(M1["l"], float),
@@ -211,4 +211,4 @@ def run(M1, setups, costs, p, cut=2 ** 62, delay=0, gaps=None):
                     setups["lo"].astype(float), setups["c4"].astype(float), setups["lookback"].astype(np.int64),
                     float(costs["spread"]), float(costs["commission"]), float(costs["slippage"]), float(costs.get("swap", 0.0)),
                     float(p["entry"]), float(p["buffer"]), bool(p["be"]), bool(p["lookback"]),
-                    float(p.get("target", 4.0)), 0.5 * float(p.get("target", 4.0)), int(cut))
+                    float(p.get("target", 4.0)), float(p.get("be_frac", 0.5)) * float(p.get("target", 4.0)), int(cut))

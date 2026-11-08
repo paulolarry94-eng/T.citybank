@@ -55,7 +55,7 @@ def follow(o, h, l, c, k, side, mid, stop, risk, wait=None, target_r=4.0, be_r=2
     return dict(result="still open", fill=fill, exit=None, R=None, tp=tp, be=be)
 
 
-def detect_arrays(o, h, l, c, sample="flow"):
+def detect_arrays(o, h, l, c, sample="flow", doji_bullish=False):
     """Vectorised detector (same rule as detect()). sample="control": the same alternating four candles where NEITHER
     the 2nd nor the 4th candle body-engulfs the candle before it (the shape without the engulfing).
     Returns arrays k (index of candle 4), side, hi, lo, lookback (candles going the trade's way among the 5 before
@@ -79,15 +79,18 @@ def detect_arrays(o, h, l, c, sample="flow"):
     side = np.where(buy[sell | buy], 1, -1)
     hi = np.max(np.stack([h[kk - j] for j in range(4)]), axis=0) if len(kk) else np.zeros(0)
     lo = np.min(np.stack([l[kk - j] for j in range(4)]), axis=0) if len(kk) else np.zeros(0)
-    cb, cs = np.r_[0, np.cumsum(bull)], np.r_[0, np.cumsum(bear)]      # cb[i] = bullish candles among 0..i-1
+    # lookback colours: a doji (open = close) counts for neither side, or as BULLISH when doji_bullish (owner, 2026-11-08:
+    # "a doji counts ... that doji was bullish", i.e. close >= open is bullish, as charts colour it)
+    lb_bull = (c >= o) if doji_bullish else bull
+    cb, cs = np.r_[0, np.cumsum(lb_bull)], np.r_[0, np.cumsum(bear)]   # cb[i] = bullish candles among 0..i-1
     a, b = np.maximum(kk - 8, 0), np.maximum(kk - 3, 0)                 # candles k-8 .. k-4
     lb = np.where(side > 0, cb[b] - cb[a], cs[b] - cs[a])
     return dict(k=kk.astype(np.int64), side=side.astype(np.int64), hi=hi, lo=lo, lookback=lb.astype(np.int64))
 
 
-def setups(B, tf_min, sample="flow"):
+def setups(B, tf_min, sample="flow", doji_bullish=False):
     """detect_arrays plus what the order engines need: t_conf (time candle 4 closes) and c4 (its close)."""
-    P = detect_arrays(B["o"], B["h"], B["l"], B["c"], sample=sample)
+    P = detect_arrays(B["o"], B["h"], B["l"], B["c"], sample=sample, doji_bullish=doji_bullish)
     P["t_conf"] = (np.asarray(B["t"], np.int64)[P["k"]] + tf_min * 60).astype(np.int64)
     P["c4"] = np.asarray(B["c"], float)[P["k"]]
     return P

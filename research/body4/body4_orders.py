@@ -64,9 +64,9 @@ def nights_held(t_in, t_out):
     return n
 
 
-def patterns(B, tf_min, sample="flow"):
+def patterns(B, tf_min, sample="flow", doji_bullish=False):
     """B = dict(t, o, h, l, c) of the pattern timeframe. List of setups in time order."""
-    P = SC.setups(B, tf_min, sample=sample)
+    P = SC.setups(B, tf_min, sample=sample, doji_bullish=doji_bullish)
     out = []
     for j in range(len(P["k"])):
         k = int(P["k"][j])
