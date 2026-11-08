@@ -10,7 +10,9 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "research", "truth")); sys.path.insert(0, HERE)
 import protocol as P   # noqa: E402
 
-S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", "body4_range_v1.py"))
+NAME = next((a for a in sys.argv[1:] if a.startswith("body4_")), "body4_range_v1")
+S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", f"{NAME}.py"))
+SUB = "" if NAME == "body4_range_v1" else NAME.split("_")[-1]
 Y20 = int(dt.datetime(2020, 1, 1, tzinfo=dt.timezone.utc).timestamp())
 ZERO = dict(spread=0.0, commission=0.0, slippage=0.0)
 
@@ -25,7 +27,7 @@ def main():
             for v in itertools.product(*S.GRID.values()):
                 c = dict(zip(S.GRID, v))
                 D = S.detail(M, B, dict(c, tf=tf), cut=P.core.CUT, swap=0.0)
-                k = f"{tf} | entry {int(c['entry'] * 100)}% | be {'on' if c['be'] else 'off'} | buffer {int(c['buffer'] * 100)}% | lookback {'on' if c['lookback'] else 'off'}"
+                k = f"{tf} | " + (f"target {c['target']}R | " if "target" in c else "") + f"entry {int(c['entry'] * 100)}% | be {'on' if c['be'] else 'off'} | buffer {int(c['buffer'] * 100)}% | lookback {'on' if c['lookback'] else 'off'}"
                 for per, m in (("2011-19", D[:, 0] < Y20), ("2020-22", D[:, 0] >= Y20)):
                     a = acc.setdefault(k, {}).setdefault(per, [0, 0.0, 0.0, 0])
                     a[0] += int(m.sum()); a[1] += float(D[m, 3].sum()); a[2] += float((D[m, 3] ** 2).sum())
@@ -39,7 +41,9 @@ def main():
             sd = np.sqrt(max(ss / n - E * E, 0)) if n else None
             out[k][per] = dict(n=n, E=round(E, 4) if E is not None else None,
                                t=round(E / sd * np.sqrt(n), 2) if n and sd else None, markets_positive=mk)
-    json.dump(out, open(os.path.join(ROOT, "research", "results", "body4", "gross.json"), "w"), indent=1)
+    d = os.path.join(ROOT, "research", "results", "body4", SUB) if SUB else os.path.join(ROOT, "research", "results", "body4")
+    os.makedirs(d, exist_ok=True)
+    json.dump(out, open(os.path.join(d, "gross.json"), "w"), indent=1)
     return out
 
 

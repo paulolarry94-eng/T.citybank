@@ -78,6 +78,17 @@ class TestOrders(unittest.TestCase):
         self.assertAlmostEqual(tr[0]["entry"], 100.7)                 # sell at lo + 0.7 x range
         self.assertAlmostEqual(tr[0]["risk"], 0.6)                    # stop at the range high 101.3
 
+    def test_one_r_target_with_breakeven_at_half(self):
+        """v2: target 1R, breakeven at 50% of the target (+0.5R)."""
+        after = [(99.6, 100.4, 99.5, 100.0), (100.0, 100.1, 99.75, 99.9), (99.9, 100.35, 99.85, 100.3)]
+        tr, log, _ = ref(market(LOOK + SELL4 + after, MON), target_r=1.0, be_r=0.5)
+        # sell at 100.3, 1R = 1.0: +0.5R at 99.8 (ask = bid 99.75 + 0.01) -> stop to 100.3; price returns -> breakeven
+        self.assertEqual(tr[0]["reason"], "breakeven stop")
+        self.assertAlmostEqual(tr[0]["tp"], 99.3)
+        after2 = [(99.6, 100.4, 99.5, 100.0), (100.0, 100.1, 99.2, 99.3)]
+        tr2, _, _ = ref(market(LOOK + SELL4 + after2, MON), target_r=1.0, be_r=0.5)
+        self.assertEqual(tr2[0]["reason"], "target (+1R)"); self.assertAlmostEqual(tr2[0]["R"], 1.0)
+
     def test_friday_close_and_lookback(self):
         after = [(99.6, 100.4, 99.5, 100.0)] + [(100.0, 100.2, 99.8, 100.0)] * 40
         fri = int(dt.datetime(2019, 1, 11, 20, 0, tzinfo=dt.timezone.utc).timestamp())
@@ -134,20 +145,25 @@ class TestParity(unittest.TestCase):
         ts, o, h, l, c = ts[keep], o[keep], h[keep], l[keep], c[keep]
         M = dict(ts=ts, o=o, h=h, l=l, c=c)
         cost = dict(spread=0.05, commission=0.06, slippage=0.05, swap=0.2)
+        total = 0
         for tf in (5, 1):
             bt, bo, bh, bl, bc, _ = EN.resample(ts, o, h, l, c, tf)
             B = dict(t=bt, o=bo, h=bh, l=bl, c=bc)
             S = SC.setups(B, tf)
             for p in (dict(entry=0.5, buffer=0.0, be=True, lookback=True), dict(entry=0.7, buffer=0.1, be=False, lookback=False),
-                      dict(entry=0.5, buffer=0.2, be=True, lookback=False)):
+                      dict(entry=0.5, buffer=0.2, be=True, lookback=False), dict(entry=0.5, buffer=0.0, be=True, lookback=True, target=2),
+                      dict(entry=0.7, buffer=0.05, be=True, lookback=False, target=1)):
+                tgt = p.get("target", 4)
                 tr, _, _ = OR.run(M, OR.patterns(B, tf), cost["spread"], cost["commission"], cost["slippage"], swap=cost["swap"],
-                                  entry=p["entry"], buffer=p["buffer"], breakeven=p["be"], use_lookback=p["lookback"])
+                                  entry=p["entry"], buffer=p["buffer"], breakeven=p["be"], use_lookback=p["lookback"],
+                                  target_r=tgt, be_r=0.5 * tgt)
                 F, _ = FA.run(M, S, cost, p)
                 self.assertEqual(len(F), len(tr), (tf, p))
-                self.assertTrue(len(tr) > 10)
+                total += len(tr)
                 for a, b in zip(tr, F):
                     self.assertEqual((a["t_in"], a["t_out"], a["side"]), (int(b[0]), int(b[1]), int(b[2])))
                     self.assertAlmostEqual(a["R"], b[3], places=9)
+        self.assertGreater(total, 300)          # the comparison covers hundreds of trades
 
 
 if __name__ == "__main__":

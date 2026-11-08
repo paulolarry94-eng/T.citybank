@@ -18,10 +18,13 @@ sys.path.insert(0, os.path.join(ROOT, "research", "truth")); sys.path.insert(0, 
 import protocol as P              # noqa: E402
 
 OUT = os.path.join(ROOT, "research", "results", "body4")
-S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", "body4_range_v1.py"))
+NAME = next((a for a in sys.argv[1:] if a.startswith("body4_")), "body4_range_v1")
+S = P.load_strategy(os.path.join(ROOT, "research", "truth", "strategies", f"{NAME}.py"))
+SUB = "" if NAME == "body4_range_v1" else NAME.split("_")[-1]
 Y20 = int(dt.datetime(2020, 1, 1, tzinfo=dt.timezone.utc).timestamp())
 Y11 = int(dt.datetime(2011, 1, 1, tzinfo=dt.timezone.utc).timestamp())
 YEARS = {"2011-19": 9.0, "2020-22": 3.0}
+MAIN_T = S.GRID.get("target", [4])[0]
 CFGS = [dict(zip(S.GRID, v)) for v in itertools.product(*S.GRID.values())]
 
 
@@ -41,7 +44,7 @@ def metrics(R, fin=None):
 
 
 def key(c):
-    return f"entry {int(c['entry'] * 100)}% | breakeven {'on' if c['be'] else 'off'} | buffer {int(c['buffer'] * 100)}% | lookback {'on' if c['lookback'] else 'off'}"
+    return (f"target {c['target']}R | " if "target" in c else "") + f"entry {int(c['entry'] * 100)}% | breakeven {'on' if c['be'] else 'off'} | buffer {int(c['buffer'] * 100)}% | lookback {'on' if c['lookback'] else 'off'}"
 
 
 def main():
@@ -74,7 +77,7 @@ def main():
                     for z in range(3):
                         sel = terc[j] == z
                         size_acc_all.setdefault(tf, {}).setdefault(per, {}).setdefault(z, []).extend(R[m][sel].tolist())
-                        if c == dict(entry=0.5, be=1, buffer=0.0, lookback=1):
+                        if {k: v for k, v in c.items() if k != "target"} == dict(entry=0.5, be=1, buffer=0.0, lookback=1) and c.get("target", 4) == MAIN_T:
                             size_acc.setdefault(tf, {}).setdefault(per, {}).setdefault(z, []).extend(R[m][sel].tolist())
                 rows.append(rec)
                 amb.setdefault(tf, [0, 0]); amb[tf][0] += rec["n_unclear"]; amb[tf][1] += len(D)
@@ -102,6 +105,8 @@ def main():
                      "lookback on vs off": pairs("lookback", 1, 0),
                      "buffer 0% vs 5%": pairs("buffer", 0.0, 0.05), "buffer 0% vs 10%": pairs("buffer", 0.0, 0.1),
                      "buffer 0% vs 20%": pairs("buffer", 0.0, 0.2)}
+    if "target" in S.GRID:
+        res["paired"]["target 2R vs 1R"] = pairs("target", 2, 1)
     # 3. size terciles
     res["size_terciles_main"] = {tf: {per: {["small", "medium", "large"][z]: metrics(v) for z, v in d.items()} for per, d in pp.items()}
                                  for tf, pp in size_acc.items()}
@@ -128,8 +133,9 @@ def main():
                                                             markets_positive=sum(1 for r in rs if r[per].get("E", -1) > 0))
                                                  for per in ("2011-19", "2020-22")}
     res["pooled_by_tf"] = pooled
-    os.makedirs(OUT, exist_ok=True)
-    json.dump(res, open(os.path.join(OUT, "study.json"), "w"), indent=1, default=float)
+    out = os.path.join(OUT, SUB) if SUB else OUT
+    os.makedirs(out, exist_ok=True)
+    json.dump(res, open(os.path.join(out, "study.json"), "w"), indent=1, default=float)
     return res
 
 
