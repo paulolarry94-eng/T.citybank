@@ -124,6 +124,24 @@ class TestOrders(unittest.TestCase):
         tr2, _, _ = ref(market(LOOK + SELL4 + win, MON), target_r=10.0, be_r=7.5)
         self.assertEqual(tr2[0]["reason"], "target (+10R)"); self.assertAlmostEqual(tr2[0]["R"], 10.0)
 
+    def test_safe_window_daily_close_and_allow(self):
+        """v4 safe mode: everything closes at 20:30 UTC each day; a setup with allow = False never trades."""
+        after = [(99.6, 100.4, 99.5, 100.0)] + [(100.0, 100.2, 99.8, 100.0)] * 40
+        wed = int(dt.datetime(2019, 1, 9, 20, 0, tzinfo=dt.timezone.utc).timestamp())       # Wednesday 20:00 UTC
+        M = market(LOOK + SELL4 + after, wed)
+        tr, _, _ = ref(M, day_close=True)
+        self.assertEqual(tr[0]["reason"], "daily close")
+        self.assertEqual(dt.datetime.fromtimestamp(tr[0]["t_out"], dt.timezone.utc).strftime("%a %H:%M"), "Wed 20:30")
+        self.assertEqual(ref(M)[0], [])          # without the daily close the trade is still open when the data ends
+        P = OR.patterns(M, 1)
+        for p in P:
+            p["allow"] = False
+        tr2, log2, _ = OR.run(M, P, 0.01, 0.0, 0.0, day_close=True)
+        self.assertEqual(tr2, []); self.assertTrue(any("safe window" in x[1] for x in log2))
+        F, _ = FA.run(dict(ts=M["ts"], o=M["o"], h=M["h"], l=M["l"], c=M["c"]), SC.setups(M, 1), dict(spread=0.01, commission=0, slippage=0),
+                      dict(entry=0.5, buffer=0.0, be=True, lookback=True), day_close=True)
+        self.assertEqual((len(F), int(F[0][1])), (1, tr[0]["t_out"]))
+
     def test_friday_close_and_lookback(self):
         after = [(99.6, 100.4, 99.5, 100.0)] + [(100.0, 100.2, 99.8, 100.0)] * 40
         fri = int(dt.datetime(2019, 1, 11, 20, 0, tzinfo=dt.timezone.utc).timestamp())
@@ -195,6 +213,21 @@ class TestParity(unittest.TestCase):
                                   swap=cost["swap"], entry=p["entry"], buffer=p["buffer"], breakeven=p["be"],
                                   use_lookback=p["lookback"], target_r=tgt, be_r=p.get("be_frac", 0.5) * tgt)
                 F, _ = FA.run(M, SC.setups(B, tf, doji_bullish=dj) if dj else S, cost, p)
+                if p.get("target") == 10:                    # the same setting in the safe-window mode (daily close + allow)
+                    Sd = SC.setups(B, tf, doji_bullish=dj)
+                    al = ((Sd["t_conf"] % 86400 >= 7 * 3600) & (Sd["t_conf"] % 86400 < 19 * 3600)).astype(np.int64)
+                    pats = OR.patterns(B, tf, doji_bullish=dj)
+                    for q, a in zip(pats, al):
+                        q["allow"] = bool(a)
+                    tr2, _, _ = OR.run(M, pats, cost["spread"], cost["commission"], cost["slippage"], swap=cost["swap"],
+                                       entry=p["entry"], buffer=p["buffer"], breakeven=p["be"], use_lookback=p["lookback"],
+                                       target_r=10, be_r=7.5, day_close=True)
+                    F2, _ = FA.run(M, Sd, cost, p, allow=al, day_close=True)
+                    self.assertEqual(len(F2), len(tr2), ("safe", tf))
+                    for a2, b2 in zip(tr2, F2):
+                        self.assertEqual((a2["t_in"], a2["t_out"]), (int(b2[0]), int(b2[1])))
+                        self.assertAlmostEqual(a2["R"], b2[3], places=9)
+                    total += len(tr2)
                 self.assertEqual(len(F), len(tr), (tf, p))
                 total += len(tr)
                 for a, b in zip(tr, F):

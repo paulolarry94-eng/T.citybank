@@ -45,6 +45,12 @@ def weekend(t):
     return FRI_CUT <= s < SUN_OPEN
 
 
+def day_cut_after(t):
+    """The next 20:30 UTC at or after t (daily close before the rollover; safe-window mode)."""
+    s = int(t) % 86400
+    return int(t) - s + 73800 if s < 73800 else int(t) - s + 86400 + 73800
+
+
 def friday_cut_after(t):
     """The Friday 20:30 UTC that ends the trading week containing t."""
     s = week_sec(t)
@@ -78,7 +84,7 @@ def patterns(B, tf_min, sample="flow", doji_bullish=False):
 
 
 def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, breakeven=True, use_lookback=True,
-        target_r=4.0, be_r=2.0, cut=2 ** 62, delay=0, gaps=()):
+        target_r=4.0, be_r=2.0, cut=2 ** 62, delay=0, gaps=(), day_close=False):
     """M = dict(ts, o, h, l, c) M1 bid bars. Returns (trades, log)."""
     ts, o, h, l, c = M["ts"], M["o"], M["h"], M["l"], M["c"]
     N = len(ts)
@@ -90,6 +96,7 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
     stats = dict(ambiguous=0)
     starts = np.searchsorted(ts, np.array([p["t_conf"] for p in pats], np.int64) + 60 * delay)
     pj = 0
+    cut_after = day_cut_after if day_close else friday_cut_after
 
     def stamp(i):
         return dt.datetime.fromtimestamp(int(ts[i]), dt.timezone.utc).strftime("%a %Y-%m-%d %H:%M")
@@ -118,10 +125,10 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
         # Friday cutoff (the data usually jumps from Friday evening to Sunday night)
         if pos is not None and t >= pos["cut"]:
             px = c[i - 1] - slippage if pos["side"] > 0 else c[i - 1] + spread + slippage
-            close(i - 1, pos["cut"], px, "Friday close")
+            close(i - 1, pos["cut"], px, "daily close" if day_close else "Friday close")
         if pend and t >= pend[0]["cut"]:
             for q in pend:
-                log.append((t, f"{stamp(i)}  pattern #{q['p']['id']} pending order cancelled: Friday close"))
+                log.append((t, f"{stamp(i)}  pattern #{q['p']['id']} pending order cancelled: {'daily' if day_close else 'Friday'} close"))
             pend = []
         if t >= cut:
             if pend:
@@ -134,6 +141,8 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
             if t >= cut:
                 continue
             s = p["side"]
+            if not p.get("allow", True):
+                log.append((t, f"{stamp(i)}  {name(p)}: ignored, outside the safe window or on a news day")); continue
             if weekend(p["t_conf"]) or weekend(t):
                 log.append((t, f"{stamp(i)}  {name(p)}: ignored, formed in the weekend window")); continue
             if use_lookback and p["lookback"] < 3:
@@ -150,7 +159,7 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
             if risk <= cost:
                 log.append((t, f"{stamp(i)}  {name(p)}: skipped, 1R ({risk:.5g}) not bigger than the round-trip cost")); continue
             order = dict(p=p, side=s, level=lvl, stop=stop, risk=risk, tp=lvl + s * target_r * risk, be=lvl + s * be_r * risk,
-                         width=p["width"], cut=friday_cut_after(t))
+                         width=p["width"], cut=cut_after(t))
             if pend and pend[0]["side"] != s:
                 if p["width"] > max(q["width"] for q in pend):
                     log.append((t, f"{stamp(i)}  {name(p)}: opposite direction, WIDER than every pending order: replaces "
@@ -187,7 +196,7 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
                 px = min(q["level"], o[i] + spread) if s > 0 else max(q["level"], o[i])     # a gap fills at the open
                 # stop, target and breakeven level are fixed prices set with the order; 1R = planned entry to stop
                 pos = dict(p=q["p"], side=s, entry=px, stop=q["stop"], stop0=q["stop"], risk=q["risk"], tp=q["tp"],
-                           be=q["be"], moved=False, i_in=i, t_in=t, cut=friday_cut_after(t))
+                           be=q["be"], moved=False, i_in=i, t_in=t, cut=cut_after(t))
                 others = [x for x in pend + filled if x is not q]
                 log.append((t, f"{stamp(i)}  pattern #{q['p']['id']} {'SELL' if s < 0 else 'BUY'} filled at {px:.5g}"
                             + (("; removed pending " + ", ".join(f"#{x['p']['id']}" for x in others)) if others else "")))

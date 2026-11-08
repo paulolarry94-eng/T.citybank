@@ -6,6 +6,8 @@ simulate(...) returns (rows, ambiguous minutes); one row per trade:
   5 cost R (round-trip cost / risk, for the lab's cost stress), 6 nights, 7 swap R, 8 setup index, 9 reason
   (1 stop, 2 target, 3 breakeven stop, 4 Friday close, 5 stop in the fill minute), 10 entry, 11 exit, 12 stop,
   13 target, 14 breakeven moved (0/1), 15 ambiguous minute in the trade (0/1)
+Options (safe-window mode, owner 2026-11-08): allow[j] = 0 drops setup j (time window, news days); day_close closes
+every position and cancels every order at 20:30 UTC each day instead of only on Friday (reason 4 = time close).
 """
 import numpy as np
 from numba import njit
@@ -37,6 +39,18 @@ def _fri_cut(t):
 
 
 @njit(cache=True)
+def _day_cut(t):
+    """The next 20:30 UTC at or after t (the daily close before the rollover; used by the safe-window mode)."""
+    s = t % 86400
+    return t - s + 73800 if s < 73800 else t - s + 86400 + 73800
+
+
+@njit(cache=True)
+def _cut(t, day_close):
+    return _day_cut(t) if day_close else _fri_cut(t)
+
+
+@njit(cache=True)
 def _nights(t_in, t_out):
     n = 0
     for d in range(t_in // 86400, t_out // 86400 + 1):
@@ -64,7 +78,7 @@ def _record(out, m, gaps, xj, xs, xe, xst0, xr, xtp, xmv, xi, xt, ci, ct, px, wh
 
 @njit(cache=True)
 def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, comm, slip, swap, entry, buf, be_on,
-             use_lb, tgt_r, be_r, cut):
+             use_lb, tgt_r, be_r, cut, allow, day_close):
     N = len(ts); P = len(start)
     out = np.zeros((P + 1, 16)); m = 0
     cost = spread + comm + slip
@@ -95,6 +109,8 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, c
             if t >= cut:
                 continue
             s = side[j]
+            if allow[j] == 0:
+                continue
             if _weekend(tconf[j]) or _weekend(t):
                 continue
             if use_lb and lb[j] < 3:
@@ -129,7 +145,7 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, c
                 pp[npend] = j; ps[npend] = s; plev[npend] = lvl; pstop[npend] = stp
                 ptp[npend] = lvl + s * tgt_r * rk; pwid[npend] = w
                 npend += 1
-                pcut = _fri_cut(t)
+                pcut = _cut(t, day_close)
         # 3. pending orders
         if npend > 0 and not pos:
             sod = t % 86400
@@ -150,7 +166,7 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, c
                 px = min(plev[best], o[i] + spread) if s > 0 else max(plev[best], o[i])     # a gap fills at the open
                 # stop, target and breakeven level are fixed prices set with the order; 1R = planned entry to stop
                 pos = True; xj = pp[best]; xs = s; xe = px; xst = pstop[best]; xst0 = xst; xr = abs(plev[best] - xst)
-                xtp = ptp[best]; xbe = plev[best] + s * be_r * xr; xmv = False; xi = i; xt = t; xcut = _fri_cut(t)
+                xtp = ptp[best]; xbe = plev[best] + s * be_r * xr; xmv = False; xi = i; xt = t; xcut = _cut(t, day_close)
                 xamb = 0
                 npend = 0                              # every other pending order is removed
                 if (l[i] <= xst) if s > 0 else (h[i] + spread >= xst):
@@ -198,7 +214,7 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, c
     return out[:m], amb
 
 
-def run(M1, setups, costs, p, cut=2 ** 62, delay=0, gaps=None):
+def run(M1, setups, costs, p, cut=2 ** 62, delay=0, gaps=None, allow=None, day_close=False):
     """Convenience wrapper. M1 = dict(ts, o, h, l, c); setups = dict of arrays from body4_scan.detect_arrays plus
     t_conf and c4; costs = dict(spread, commission, slippage, swap); p = dict(entry, buffer, be, lookback[, target]).
     target in R (default 4); the breakeven level is be_frac x the target (default 0.5, the owner's first rule: +2R for 4R,
@@ -211,4 +227,5 @@ def run(M1, setups, costs, p, cut=2 ** 62, delay=0, gaps=None):
                     setups["lo"].astype(float), setups["c4"].astype(float), setups["lookback"].astype(np.int64),
                     float(costs["spread"]), float(costs["commission"]), float(costs["slippage"]), float(costs.get("swap", 0.0)),
                     float(p["entry"]), float(p["buffer"]), bool(p["be"]), bool(p["lookback"]),
-                    float(p.get("target", 4.0)), float(p.get("be_frac", 0.5)) * float(p.get("target", 4.0)), int(cut))
+                    float(p.get("target", 4.0)), float(p.get("be_frac", 0.5)) * float(p.get("target", 4.0)), int(cut),
+                    np.asarray(allow if allow is not None else np.ones(len(start)), np.int64), bool(day_close))
