@@ -12,7 +12,7 @@ from matplotlib.patches import Rectangle
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "research"))
-import scanner as SC   # noqa: E402
+import body4_scan as SC   # noqa: E402
 import engine as EN    # noqa: E402
 
 OUT = os.path.join(ROOT, "research", "results", "body4", "examples")

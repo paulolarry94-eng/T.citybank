@@ -274,6 +274,14 @@ Priors: the four-candle family (~6,200 settings) was rejected on FX/gold/indices
 New here: Boom 1000 (Deriv synthetic index, RNG-generated with built-in drift and spikes), never tested. Needs: the owner's
 Boom 1000 M1/tick export and broker specs (the Deriv data feed could not be reached from here), plus answers on body size,
 order expiry, time exit, overlapping patterns, both sides.
+Owner's answers (2026-11-07): report results by candle size (tiny candles allowed); cancel if the target is reached
+before the fill; no trade starts over the weekend, all close Friday (cutoff 20:30 UTC assumed); price already past the
+midpoint -> market, also test skip; newer same-direction setup replaces the pending order, opposite setup: wider range
+wins; stop at the range end, test buffers; breakeven at +2R vs none (profit factor); all 12 markets, M1 + M5 first, then
+higher timeframes; lookback: >= 3 of 5 candles in the trade's direction, with and without. Reference order engine
+`research/body4/body4_orders.py` + 8 rule examples (`research/results/body4/examples2/`) + 3 tests.
+Still open: which 5 candles (the owner's own Boom buy chart has 0 of 5 bullish before candle 1); an open trade when a
+new setup forms (assumed: kept, setup ignored); Boom 1000 data + broker specs.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

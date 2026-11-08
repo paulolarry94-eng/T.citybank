@@ -673,3 +673,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   a retry was blocked here; Boom 1000 data must come from the owner's MT5 export unless the owner allows the feed.
 - **Decisions:** Q30 opened with the open rule questions; priors told to the owner (four-candle family, P2, P4).
 - **Next:** owner's answers + Boom 1000 data + broker specs -> pre-register -> lab.
+
+## 2026-11-08 (15) · owner: answers to the 10 rule questions for the body-engulf 4-candle range (Q30), "5 more examples"
+- **Done:** reference order engine `research/body4/body4_orders.py` (one slot per market, replacement and wider-range
+  rules, market entry past the midpoint, cancel at target before fill, breakeven at +2R, stop buffer, Friday 20:30 UTC
+  cutoff, lookback filter); 8 examples, each the FIRST time a rule fires on XAUUSD M5 2019
+  (`research/results/body4/examples2/`); 3 unit tests (167 tests OK). Renamed body4 modules after a name clash with
+  research/ema4/scanner.py broke 16 tests in the full run (fixed before commit).
+- **Facts:** 2019 XAUUSD M5: 851 patterns; 306 trades with the lookback filter, 541 without (counts only, no results).
+- **Open:** which 5 candles the lookback means; open trade vs new setup; Boom 1000 data + specs.
+- **Next:** owner confirms -> pre-register the grid -> numba engine with trade-for-trade parity -> lab.

@@ -1,0 +1,1621 @@
+Wed 2019-01-02 00:55  pattern #1 SELL (range 0.753, lookback 3/5): limit order at midpoint 1280.7
+Wed 2019-01-02 01:01  pattern #1 pending order cancelled: price reached the target before filling
+Wed 2019-01-02 08:40  pattern #2 BUY (range 1.32, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-02 09:05  pattern #3 SELL (range 1.49, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-04 05:05  pattern #4 SELL (range 0.793, lookback 3/5): limit order at midpoint 1294.4
+Fri 2019-01-04 05:09  pattern #4 SELL filled by the limit at the midpoint at 1294.4
+Fri 2019-01-04 05:24  pattern #4 closed: stop (-1R) at 1294.8 (-1.00R before swaps)
+Fri 2019-01-04 09:25  pattern #5 SELL (range 1.34, lookback 3/5): limit order at midpoint 1291.8
+Fri 2019-01-04 11:31  pattern #5 SELL filled by the limit at the midpoint at 1291.8
+Fri 2019-01-04 13:17  pattern #5 reached +2R: stop moved to breakeven
+Fri 2019-01-04 13:30  pattern #5 closed: target (+4R) at 1289.2 (+4.00R before swaps)
+Fri 2019-01-04 14:05  pattern #6 SELL (range 2.92, lookback 4/5): limit order at midpoint 1286.8
+Fri 2019-01-04 14:37  pattern #6 pending order cancelled: price reached the target before filling
+Fri 2019-01-04 15:35  pattern #7 BUY (range 5.293, lookback 5/5): limit order at midpoint 1281.7
+Fri 2019-01-04 20:30  pattern #7 pending order cancelled: Friday close
+Fri 2019-01-04 21:55  pattern #8 SELL (range 0.573, lookback 4/5): ignored, formed in the Friday-to-Sunday window
+Sun 2019-01-06 23:50  pattern #9 BUY (range 0.613, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Sun 2019-01-06 23:55  pattern #10 SELL (range 0.923, lookback 5/5): limit order at midpoint 1284.5
+Mon 2019-01-07 00:01  pattern #10 SELL filled by the limit at the midpoint at 1284.5
+Mon 2019-01-07 00:18  pattern #10 reached +2R: stop moved to breakeven
+Mon 2019-01-07 00:45  pattern #10 closed: breakeven stop at 1284.5 (-0.00R before swaps)
+Mon 2019-01-07 09:55  pattern #11 BUY (range 0.943, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-01-08 02:30  pattern #12 BUY (range 0.9, lookback 3/5): limit order at midpoint 1286.2
+Tue 2019-01-08 02:41  pattern #12 BUY filled by the limit at the midpoint at 1286.2
+Tue 2019-01-08 02:50  pattern #12 closed: stop (-1R) at 1285.8 (-1.00R before swaps)
+Wed 2019-01-09 05:40  pattern #13 BUY (range 0.95, lookback 3/5): limit order at midpoint 1282
+Wed 2019-01-09 06:02  pattern #13 BUY filled by the limit at the midpoint at 1282
+Wed 2019-01-09 06:02  pattern #13 closed: stop (-1R) at 1281.5 (-1.00R before swaps)
+Thu 2019-01-10 00:45  pattern #14 BUY (range 0.5, lookback 3/5): limit order at midpoint 1292.8
+Thu 2019-01-10 00:55  pattern #14 BUY filled by the limit at the midpoint at 1292.8
+Thu 2019-01-10 00:55  pattern #14 closed: stop (-1R) at 1292.6 (-1.00R before swaps)
+Thu 2019-01-10 01:35  pattern #15 SELL (range 1.6, lookback 3/5): limit order at midpoint 1292.3
+Thu 2019-01-10 01:39  pattern #15 SELL filled by the limit at the midpoint at 1292.3
+Thu 2019-01-10 01:48  pattern #15 closed: stop (-1R) at 1293.1 (-1.00R before swaps)
+Thu 2019-01-10 04:15  pattern #16 SELL (range 0.83, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-11 09:00  pattern #17 SELL (range 0.87, lookback 3/5): limit order at midpoint 1293.2
+Fri 2019-01-11 09:23  pattern #17 SELL filled by the limit at the midpoint at 1293.2
+Fri 2019-01-11 09:40  pattern #17 closed: stop (-1R) at 1293.7 (-1.00R before swaps)
+Fri 2019-01-11 12:35  pattern #18 BUY (range 1.06, lookback 3/5): limit order at midpoint 1292.9
+Fri 2019-01-11 12:50  pattern #18 BUY filled by the limit at the midpoint at 1292.9
+Fri 2019-01-11 12:50  pattern #18 closed: stop (-1R) at 1292.4 (-1.00R before swaps)
+Fri 2019-01-11 13:30  pattern #19 SELL (range 1.013, lookback 3/5): limit order at midpoint 1292.5
+Fri 2019-01-11 13:30  pattern #19 SELL filled by the limit at the midpoint at 1292.5
+Fri 2019-01-11 13:30  pattern #19 closed: stop (-1R) at 1293 (-1.00R before swaps)
+Mon 2019-01-14 03:25  pattern #20 BUY (range 1.01, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-01-14 10:30  pattern #21 SELL (range 0.79, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-01-14 10:40  pattern #22 SELL (range 0.66, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-01-14 15:00  pattern #23 SELL (range 1.12, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-16 03:00  pattern #24 SELL (range 0.71, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-16 03:10  pattern #25 SELL (range 1.103, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-16 12:05  pattern #26 BUY (range 1.12, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-16 17:20  pattern #27 SELL (range 0.72, lookback 3/5): limit order at midpoint 1294.5
+Wed 2019-01-16 17:20  pattern #27 SELL filled by the limit at the midpoint at 1294.5
+Wed 2019-01-16 17:51  pattern #27 reached +2R: stop moved to breakeven
+Wed 2019-01-16 17:55  pattern #28 SELL (range 1.36, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-16 18:39  pattern #27 closed: target (+4R) at 1293.1 (+4.00R before swaps)
+Thu 2019-01-17 07:05  pattern #29 SELL (range 0.84, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-01-17 20:40  pattern #30 BUY (range 1.39, lookback 3/5): limit order at midpoint 1291.7
+Thu 2019-01-17 20:46  pattern #30 BUY filled by the limit at the midpoint at 1291.7
+Fri 2019-01-18 00:13  pattern #30 closed: stop (-1R) at 1291 (-1.00R before swaps)
+Fri 2019-01-18 00:50  pattern #31 SELL (range 0.663, lookback 5/5): limit order at midpoint 1290.8
+Fri 2019-01-18 00:50  pattern #31 SELL filled by the limit at the midpoint at 1290.8
+Fri 2019-01-18 00:53  pattern #31 closed: stop (-1R) at 1291.1 (-1.00R before swaps)
+Fri 2019-01-18 03:05  pattern #32 BUY (range 0.707, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-18 10:30  pattern #33 BUY (range 0.797, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-18 14:10  pattern #34 SELL (range 0.94, lookback 3/5): limit order at midpoint 1283.3
+Fri 2019-01-18 14:58  pattern #34 SELL filled by the limit at the midpoint at 1283.3
+Fri 2019-01-18 15:00  pattern #34 closed: stop (-1R) at 1283.8 (-1.00R before swaps)
+Fri 2019-01-18 21:45  pattern #35 BUY (range 0.627, lookback 2/5): ignored, formed in the Friday-to-Sunday window
+Fri 2019-01-18 21:55  pattern #36 BUY (range 0.61, lookback 1/5): ignored, formed in the Friday-to-Sunday window
+Mon 2019-01-21 07:10  pattern #37 SELL (range 0.893, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-01-21 11:05  pattern #38 BUY (range 0.29, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-01-21 11:25  pattern #39 SELL (range 1.087, lookback 3/5): limit order at midpoint 1278.8
+Mon 2019-01-21 11:39  pattern #39 SELL filled by the limit at the midpoint at 1278.8
+Mon 2019-01-21 12:14  pattern #39 reached +2R: stop moved to breakeven
+Mon 2019-01-21 13:55  pattern #39 closed: breakeven stop at 1278.8 (-0.00R before swaps)
+Mon 2019-01-21 15:55  pattern #40 BUY (range 0.61, lookback 3/5): limit order at midpoint 1279.9
+Mon 2019-01-21 23:00  pattern #40 BUY filled by the limit at the midpoint at 1279.9
+Mon 2019-01-21 23:00  pattern #40 closed: stop (-1R) at 1279.6 (-1.00R before swaps)
+Tue 2019-01-22 18:45  pattern #41 BUY (range 1.293, lookback 3/5): limit order at midpoint 1284
+Tue 2019-01-22 19:05  pattern #42 SELL (range 1.04, lookback 3/5): opposite direction with a narrower range, ignored (keeps #41)
+Tue 2019-01-22 19:35  pattern #43 BUY (range 1.057, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-01-22 19:45  pattern #44 BUY (range 1.097, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-01-22 20:28  pattern #41 BUY filled by the limit at the midpoint at 1284
+Tue 2019-01-22 21:05  pattern #41 reached +2R: stop moved to breakeven
+Wed 2019-01-23 00:05  pattern #45 SELL (range 0.33, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-23 00:10  pattern #41 closed: breakeven stop at 1284 (+0.00R before swaps)
+Wed 2019-01-23 18:20  pattern #46 SELL (range 1.02, lookback 4/5): limit order at midpoint 1284.3
+Wed 2019-01-23 18:22  pattern #46 SELL filled by the limit at the midpoint at 1284.3
+Wed 2019-01-23 18:25  pattern #46 closed: stop (-1R) at 1284.8 (-1.00R before swaps)
+Wed 2019-01-23 21:20  pattern #47 SELL (range 0.383, lookback 3/5): limit order at midpoint 1282.9
+Wed 2019-01-23 23:11  pattern #47 SELL filled by the limit at the midpoint at 1282.9
+Wed 2019-01-23 23:16  pattern #47 closed: stop (-1R) at 1283.1 (-1.00R before swaps)
+Wed 2019-01-23 23:30  pattern #48 SELL (range 0.46, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-01-24 13:50  pattern #49 BUY (range 2.963, lookback 4/5): limit order at midpoint 1278.1
+Fri 2019-01-25 03:45  pattern #50 SELL (range 0.68, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-25 05:20  pattern #51 BUY (range 0.493, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-25 07:09  pattern #49 pending order cancelled: price reached the target before filling
+Fri 2019-01-25 12:20  pattern #52 BUY (range 0.643, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-25 12:30  pattern #53 BUY (range 0.613, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-01-25 21:55  pattern #54 SELL (range 0.77, lookback 3/5): ignored, formed in the Friday-to-Sunday window
+Mon 2019-01-28 00:30  pattern #55 BUY (range 1.22, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-01-30 00:25  pattern #56 SELL (range 0.62, lookback 3/5): limit order at midpoint 1310.8
+Wed 2019-01-30 00:25  pattern #56 SELL filled by the limit at the midpoint at 1310.8
+Wed 2019-01-30 00:27  pattern #56 closed: stop (-1R) at 1311.1 (-1.00R before swaps)
+Wed 2019-01-30 17:05  pattern #57 SELL (range 1.15, lookback 3/5): limit order at midpoint 1311.1
+Wed 2019-01-30 17:06  pattern #57 SELL filled by the limit at the midpoint at 1311.1
+Wed 2019-01-30 18:09  pattern #57 closed: stop (-1R) at 1311.6 (-1.00R before swaps)
+Wed 2019-01-30 18:10  pattern #58 BUY (range 0.733, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-01-31 02:35  pattern #59 BUY (range 0.54, lookback 4/5): limit order at midpoint 1318.4
+Thu 2019-01-31 02:37  pattern #59 BUY filled by the limit at the midpoint at 1318.4
+Thu 2019-01-31 02:40  pattern #60 SELL (range 0.66, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-01-31 02:44  pattern #59 closed: stop (-1R) at 1318.1 (-1.00R before swaps)
+Thu 2019-01-31 10:35  pattern #61 SELL (range 0.8, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-01-31 10:40  pattern #62 BUY (range 1.033, lookback 4/5): limit order at midpoint 1321.9
+Thu 2019-01-31 11:50  pattern #63 BUY (range 1.44, lookback 4/5): same direction, replaces pending #62
+Thu 2019-01-31 11:50  pattern #63 BUY (range 1.44, lookback 4/5): limit order at midpoint 1322.9
+Thu 2019-01-31 12:03  pattern #63 BUY filled by the limit at the midpoint at 1322.9
+Thu 2019-01-31 12:34  pattern #63 reached +2R: stop moved to breakeven
+Thu 2019-01-31 12:49  pattern #63 closed: breakeven stop at 1322.9 (+0.00R before swaps)
+Thu 2019-01-31 15:00  pattern #64 SELL (range 1.557, lookback 3/5): limit order at midpoint 1323.5
+Thu 2019-01-31 15:00  pattern #64 SELL filled by the limit at the midpoint at 1323.5
+Thu 2019-01-31 15:24  pattern #64 closed: stop (-1R) at 1324.3 (-1.00R before swaps)
+Fri 2019-02-01 12:20  pattern #65 BUY (range 0.49, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-05 12:50  pattern #66 SELL (range 1.16, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-05 14:55  pattern #67 SELL (range 1.193, lookback 4/5): limit order at midpoint 1314.9
+Tue 2019-02-05 15:12  pattern #67 SELL filled by the limit at the midpoint at 1314.9
+Tue 2019-02-05 15:12  pattern #67 closed: stop (-1R) at 1315.4 (-1.00R before swaps)
+Tue 2019-02-05 15:40  pattern #68 SELL (range 1.533, lookback 3/5): limit order at midpoint 1315.6
+Tue 2019-02-05 21:10  pattern #69 BUY (range 0.88, lookback 3/5): opposite direction with a narrower range, ignored (keeps #68)
+Wed 2019-02-06 00:22  pattern #68 SELL filled by the limit at the midpoint at 1315.6
+Wed 2019-02-06 01:38  pattern #68 reached +2R: stop moved to breakeven
+Wed 2019-02-06 02:28  pattern #68 closed: breakeven stop at 1315.6 (-0.00R before swaps)
+Wed 2019-02-06 04:40  pattern #70 SELL (range 0.52, lookback 5/5): limit order at midpoint 1313.7
+Wed 2019-02-06 04:50  pattern #70 SELL filled by the limit at the midpoint at 1313.7
+Wed 2019-02-06 04:56  pattern #70 closed: stop (-1R) at 1313.9 (-1.00R before swaps)
+Wed 2019-02-06 10:30  pattern #71 SELL (range 0.72, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-06 10:40  pattern #72 SELL (range 0.53, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-06 18:15  pattern #73 SELL (range 2.467, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-02-07 06:35  pattern #74 BUY (range 0.47, lookback 4/5): limit order at midpoint 1304.4
+Thu 2019-02-07 07:00  pattern #74 BUY filled by the limit at the midpoint at 1304.4
+Thu 2019-02-07 07:11  pattern #74 reached +2R: stop moved to breakeven
+Thu 2019-02-07 07:36  pattern #74 closed: breakeven stop at 1304.4 (+0.00R before swaps)
+Thu 2019-02-07 19:20  pattern #75 BUY (range 0.683, lookback 3/5): limit order at midpoint 1310.7
+Thu 2019-02-07 19:32  pattern #75 BUY filled by the limit at the midpoint at 1310.7
+Thu 2019-02-07 19:34  pattern #75 closed: stop (-1R) at 1310.3 (-1.00R before swaps)
+Fri 2019-02-08 10:15  pattern #76 BUY (range 1.14, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-02-08 15:20  pattern #77 SELL (range 1.143, lookback 3/5): limit order at midpoint 1314.3
+Fri 2019-02-08 16:06  pattern #77 SELL filled by the limit at the midpoint at 1314.3
+Fri 2019-02-08 17:13  pattern #77 closed: stop (-1R) at 1314.8 (-1.00R before swaps)
+Fri 2019-02-08 18:05  pattern #78 BUY (range 0.813, lookback 3/5): limit order at midpoint 1315.2
+Fri 2019-02-08 18:14  pattern #78 BUY filled by the limit at the midpoint at 1315.2
+Fri 2019-02-08 18:18  pattern #78 closed: stop (-1R) at 1314.8 (-1.00R before swaps)
+Mon 2019-02-11 02:40  pattern #79 SELL (range 0.75, lookback 4/5): limit order at midpoint 1313.1
+Mon 2019-02-11 02:50  pattern #80 SELL (range 0.5, lookback 3/5): same direction, replaces pending #79
+Mon 2019-02-11 02:50  pattern #80 SELL (range 0.5, lookback 3/5): limit order at midpoint 1312.9
+Mon 2019-02-11 03:00  pattern #81 SELL (range 0.943, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-02-11 03:02  pattern #80 pending order cancelled: price reached the target before filling
+Tue 2019-02-12 03:20  pattern #82 SELL (range 0.45, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-12 03:30  pattern #83 SELL (range 0.38, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-12 04:05  pattern #84 BUY (range 0.413, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-12 05:40  pattern #85 SELL (range 0.673, lookback 3/5): limit order at midpoint 1308.5
+Tue 2019-02-12 05:48  pattern #85 SELL filled by the limit at the midpoint at 1308.5
+Tue 2019-02-12 05:51  pattern #85 closed: stop (-1R) at 1308.8 (-1.00R before swaps)
+Wed 2019-02-13 04:05  pattern #86 SELL (range 0.48, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-13 07:10  pattern #87 SELL (range 0.74, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-13 08:35  pattern #88 BUY (range 0.96, lookback 3/5): limit order at midpoint 1312
+Wed 2019-02-13 10:22  pattern #88 BUY filled by the limit at the midpoint at 1312
+Wed 2019-02-13 10:30  pattern #88 closed: stop (-1R) at 1311.5 (-1.00R before swaps)
+Wed 2019-02-13 12:00  pattern #89 BUY (range 1.637, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-13 15:35  pattern #90 BUY (range 1.5, lookback 3/5): limit order at midpoint 1316.8
+Wed 2019-02-13 15:44  pattern #90 BUY filled by the limit at the midpoint at 1316.8
+Wed 2019-02-13 15:45  pattern #90 closed: stop (-1R) at 1316 (-1.00R before swaps)
+Wed 2019-02-13 21:45  pattern #91 BUY (range 0.97, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-02-14 09:40  pattern #92 SELL (range 0.987, lookback 3/5): limit order at midpoint 1306.4
+Thu 2019-02-14 09:42  pattern #92 SELL filled by the limit at the midpoint at 1306.4
+Thu 2019-02-14 12:33  pattern #92 reached +2R: stop moved to breakeven
+Thu 2019-02-14 12:47  pattern #92 closed: target (+4R) at 1304.4 (+4.00R before swaps)
+Thu 2019-02-14 15:30  pattern #93 SELL (range 1.13, lookback 4/5): limit order at midpoint 1308.6
+Thu 2019-02-14 15:34  pattern #93 SELL filled by the limit at the midpoint at 1308.6
+Thu 2019-02-14 15:37  pattern #93 closed: stop (-1R) at 1309.1 (-1.00R before swaps)
+Thu 2019-02-14 15:40  pattern #94 SELL (range 1.4, lookback 4/5): limit order at midpoint 1308.5
+Thu 2019-02-14 15:40  pattern #94 SELL filled by the limit at the midpoint at 1308.5
+Thu 2019-02-14 15:51  pattern #94 closed: stop (-1R) at 1309.2 (-1.00R before swaps)
+Fri 2019-02-15 19:55  pattern #95 BUY (range 0.593, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-02-18 11:35  pattern #96 BUY (range 1.03, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-02-18 12:50  pattern #97 SELL (range 0.843, lookback 3/5): limit order at midpoint 1325.4
+Mon 2019-02-18 12:50  pattern #97 SELL filled by the limit at the midpoint at 1325.4
+Mon 2019-02-18 12:54  pattern #97 closed: stop (-1R) at 1325.8 (-1.00R before swaps)
+Tue 2019-02-19 05:45  pattern #98 BUY (range 0.717, lookback 3/5): limit order at midpoint 1324
+Tue 2019-02-19 06:02  pattern #98 BUY filled by the limit at the midpoint at 1324
+Tue 2019-02-19 06:07  pattern #98 closed: stop (-1R) at 1323.7 (-1.00R before swaps)
+Tue 2019-02-19 15:20  pattern #99 BUY (range 2.183, lookback 4/5): limit order at midpoint 1335.4
+Tue 2019-02-19 17:20  pattern #100 BUY (range 1.85, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-19 17:30  pattern #99 pending order cancelled: price reached the target before filling
+Wed 2019-02-20 08:55  pattern #101 SELL (range 1.34, lookback 4/5): limit order at midpoint 1342.2
+Wed 2019-02-20 09:09  pattern #101 SELL filled by the limit at the midpoint at 1342.2
+Wed 2019-02-20 09:19  pattern #101 closed: stop (-1R) at 1342.9 (-1.00R before swaps)
+Wed 2019-02-20 15:05  pattern #102 BUY (range 1.41, lookback 3/5): limit order at midpoint 1344.5
+Wed 2019-02-20 15:08  pattern #102 BUY filled by the limit at the midpoint at 1344.5
+Wed 2019-02-20 15:10  pattern #102 closed: stop (-1R) at 1343.8 (-1.00R before swaps)
+Thu 2019-02-21 01:45  pattern #103 SELL (range 0.857, lookback 4/5): limit order at midpoint 1338.2
+Thu 2019-02-21 02:12  pattern #103 SELL filled by the limit at the midpoint at 1338.2
+Thu 2019-02-21 02:27  pattern #103 closed: stop (-1R) at 1338.7 (-1.00R before swaps)
+Thu 2019-02-21 03:25  pattern #104 BUY (range 1.307, lookback 3/5): limit order at midpoint 1339.3
+Thu 2019-02-21 05:53  pattern #104 BUY filled by the limit at the midpoint at 1339.3
+Thu 2019-02-21 06:00  pattern #104 closed: stop (-1R) at 1338.6 (-1.00R before swaps)
+Thu 2019-02-21 07:15  pattern #105 BUY (range 1.093, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-02-21 16:45  pattern #106 SELL (range 1.33, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-02-21 20:50  pattern #107 SELL (range 1.81, lookback 3/5): limit order at midpoint 1325
+Thu 2019-02-21 21:34  pattern #107 pending order cancelled: price reached the target before filling
+Fri 2019-02-22 08:25  pattern #108 BUY (range 0.85, lookback 4/5): limit order at midpoint 1326.4
+Fri 2019-02-22 08:31  pattern #108 BUY filled by the limit at the midpoint at 1326.4
+Fri 2019-02-22 08:45  pattern #108 closed: stop (-1R) at 1326 (-1.00R before swaps)
+Fri 2019-02-22 09:05  pattern #109 BUY (range 0.77, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-02-22 09:15  pattern #110 BUY (range 0.87, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-02-22 09:20  pattern #111 SELL (range 2.037, lookback 4/5): limit order at midpoint 1325.7
+Fri 2019-02-22 13:22  pattern #111 SELL filled by the limit at the midpoint at 1325.7
+Fri 2019-02-22 13:24  pattern #111 closed: stop (-1R) at 1326.7 (-1.00R before swaps)
+Fri 2019-02-22 14:30  pattern #112 BUY (range 1.463, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-02-22 14:40  pattern #113 BUY (range 1.793, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-02-22 15:05  pattern #114 BUY (range 2.083, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-02-22 17:30  pattern #115 SELL (range 1.027, lookback 4/5): limit order at midpoint 1331.2
+Fri 2019-02-22 17:34  pattern #115 SELL filled by the limit at the midpoint at 1331.2
+Fri 2019-02-22 17:35  pattern #115 closed: stop (-1R) at 1331.7 (-1.00R before swaps)
+Fri 2019-02-22 19:05  pattern #116 BUY (range 0.757, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-02-25 03:35  pattern #117 SELL (range 0.53, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-02-25 05:55  pattern #118 BUY (range 0.46, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-02-25 10:50  pattern #119 BUY (range 1.333, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-02-26 04:50  pattern #120 SELL (range 0.31, lookback 3/5): limit order at midpoint 1329.2
+Tue 2019-02-26 05:14  pattern #120: stop closer than costs, skipped
+Tue 2019-02-26 07:05  pattern #121 SELL (range 0.763, lookback 5/5): limit order at midpoint 1327.4
+Tue 2019-02-26 07:05  pattern #121 SELL filled by the limit at the midpoint at 1327.4
+Tue 2019-02-26 07:09  pattern #121 closed: stop (-1R) at 1327.8 (-1.00R before swaps)
+Tue 2019-02-26 17:00  pattern #122 SELL (range 1.63, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-27 00:25  pattern #123 BUY (range 0.383, lookback 4/5): limit order at midpoint 1329.4
+Wed 2019-02-27 00:39  pattern #123 BUY filled by the limit at the midpoint at 1329.4
+Wed 2019-02-27 00:40  pattern #123 closed: stop (-1R) at 1329.1 (-1.26R before swaps)
+Wed 2019-02-27 06:10  pattern #124 BUY (range 0.343, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-02-27 10:50  pattern #125 BUY (range 0.663, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-02-28 05:05  pattern #126 BUY (range 0.21, lookback 3/5): limit order at midpoint 1318.7
+Thu 2019-02-28 05:33  pattern #126: stop closer than costs, skipped
+Thu 2019-02-28 12:55  pattern #127 SELL (range 0.64, lookback 4/5): limit order at midpoint 1325.1
+Thu 2019-02-28 13:12  pattern #127 SELL filled by the limit at the midpoint at 1325.1
+Thu 2019-02-28 13:13  pattern #127 closed: stop (-1R) at 1325.4 (-1.00R before swaps)
+Thu 2019-02-28 17:25  pattern #128 SELL (range 0.597, lookback 3/5): limit order at midpoint 1314.7
+Thu 2019-02-28 17:35  pattern #129 SELL (range 0.94, lookback 4/5): same direction, replaces pending #128
+Thu 2019-02-28 17:35  pattern #129 SELL (range 0.94, lookback 4/5): limit order at midpoint 1314.5
+Thu 2019-02-28 17:39  pattern #129 SELL filled by the limit at the midpoint at 1314.5
+Thu 2019-02-28 17:40  pattern #129 closed: stop (-1R) at 1315 (-1.00R before swaps)
+Thu 2019-02-28 19:45  pattern #130 SELL (range 0.883, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-01 14:40  pattern #131 BUY (range 3.608, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-01 19:40  pattern #132 BUY (range 1.853, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-04 15:30  pattern #133 SELL (range 1.81, lookback 4/5): limit order at midpoint 1284.8
+Mon 2019-03-04 15:33  pattern #133 SELL filled by the limit at the midpoint at 1284.8
+Mon 2019-03-04 15:46  pattern #133 closed: stop (-1R) at 1285.8 (-1.00R before swaps)
+Mon 2019-03-04 23:55  pattern #134 SELL (range 0.51, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-03-06 07:50  pattern #135 SELL (range 0.827, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-03-06 13:25  pattern #136 SELL (range 2.02, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-03-07 05:35  pattern #137 SELL (range 1.03, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-03-07 06:05  pattern #138 SELL (range 1.077, lookback 4/5): limit order at midpoint 1284.4
+Thu 2019-03-07 06:05  pattern #138 SELL filled by the limit at the midpoint at 1284.4
+Thu 2019-03-07 06:12  pattern #138 closed: stop (-1R) at 1284.9 (-1.00R before swaps)
+Thu 2019-03-07 09:30  pattern #139 BUY (range 0.59, lookback 3/5): limit order at midpoint 1286.5
+Thu 2019-03-07 09:37  pattern #139 BUY filled by the limit at the midpoint at 1286.5
+Thu 2019-03-07 09:38  pattern #139 closed: stop (-1R) at 1286.2 (-1.00R before swaps)
+Thu 2019-03-07 19:55  pattern #140 BUY (range 0.86, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-03-07 23:25  pattern #141 BUY (range 0.513, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-08 02:40  pattern #142 BUY (range 0.58, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-08 10:45  pattern #143 SELL (range 1.063, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-08 14:05  pattern #144 BUY (range 3.133, lookback 4/5): limit order at midpoint 1297.6
+Fri 2019-03-08 14:39  pattern #144 BUY filled by the limit at the midpoint at 1297.6
+Fri 2019-03-08 14:46  pattern #144 closed: stop (-1R) at 1296 (-1.00R before swaps)
+Fri 2019-03-08 16:50  pattern #145 SELL (range 1.883, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-11 03:40  pattern #146 SELL (range 0.28, lookback 3/5): limit order at midpoint 1296.9
+Mon 2019-03-11 03:52  pattern #146: stop closer than costs, skipped
+Mon 2019-03-11 12:00  pattern #147 BUY (range 0.933, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-11 12:40  pattern #148 SELL (range 2.063, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-11 16:05  pattern #149 SELL (range 0.813, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-11 17:15  pattern #150 BUY (range 1.3, lookback 3/5): limit order at midpoint 1291.5
+Mon 2019-03-11 17:28  pattern #150 BUY filled by the limit at the midpoint at 1291.5
+Mon 2019-03-11 17:29  pattern #150 closed: stop (-1R) at 1290.9 (-1.00R before swaps)
+Tue 2019-03-12 23:50  pattern #151 BUY (range 0.57, lookback 4/5): limit order at midpoint 1301.6
+Wed 2019-03-13 00:00  pattern #152 BUY (range 0.633, lookback 3/5): same direction, replaces pending #151
+Wed 2019-03-13 00:00  pattern #152 BUY (range 0.633, lookback 3/5): limit order at midpoint 1301.7
+Wed 2019-03-13 00:26  pattern #152 pending order cancelled: price reached the target before filling
+Wed 2019-03-13 04:45  pattern #153 BUY (range 0.383, lookback 3/5): limit order at midpoint 1304.8
+Wed 2019-03-13 05:01  pattern #153 BUY filled by the limit at the midpoint at 1304.8
+Wed 2019-03-13 05:01  pattern #153 closed: stop (-1R) at 1304.6 (-1.00R before swaps)
+Wed 2019-03-13 11:30  pattern #154 SELL (range 0.91, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-03-14 20:40  pattern #155 SELL (range 0.31, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-03-14 22:46  pattern #156 SELL (range 0.3, lookback 3/5): limit order at midpoint 1296.5
+Thu 2019-03-14 22:46  pattern #156: stop closer than costs, skipped
+Fri 2019-03-15 00:20  pattern #157 SELL (range 0.947, lookback 3/5): limit order at midpoint 1296.1
+Fri 2019-03-15 01:05  pattern #157 SELL filled by the limit at the midpoint at 1296.1
+Fri 2019-03-15 01:38  pattern #157 reached +2R: stop moved to breakeven
+Fri 2019-03-15 01:42  pattern #157 closed: target (+4R) at 1294.2 (+4.00R before swaps)
+Fri 2019-03-15 06:40  pattern #158 SELL (range 1.05, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-15 09:50  pattern #159 BUY (range 0.9, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-15 15:05  pattern #160 SELL (range 1.83, lookback 4/5): limit order at midpoint 1303.8
+Fri 2019-03-15 15:25  pattern #161 BUY (range 1.113, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-15 17:45  pattern #162 SELL (range 0.73, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-15 20:30  pattern #160 pending order cancelled: Friday close
+Mon 2019-03-18 04:31  pattern #163 BUY (range 0.31, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-18 09:10  pattern #164 BUY (range 1.383, lookback 3/5): limit order at midpoint 1304
+Mon 2019-03-18 12:09  pattern #164 BUY filled by the limit at the midpoint at 1304
+Mon 2019-03-18 12:32  pattern #164 reached +2R: stop moved to breakeven
+Mon 2019-03-18 13:49  pattern #164 closed: breakeven stop at 1304 (+0.00R before swaps)
+Mon 2019-03-18 14:05  pattern #165 BUY (range 2.22, lookback 3/5): limit order at midpoint 1304.9
+Mon 2019-03-18 14:16  pattern #165 BUY filled by the limit at the midpoint at 1304.9
+Mon 2019-03-18 15:43  pattern #165 closed: stop (-1R) at 1303.8 (-1.00R before swaps)
+Tue 2019-03-19 10:05  pattern #166 BUY (range 0.78, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-03-19 10:15  pattern #167 BUY (range 0.887, lookback 3/5): limit order at midpoint 1306.3
+Tue 2019-03-19 10:25  pattern #168 BUY (range 0.92, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-03-19 10:31  pattern #167 pending order cancelled: price reached the target before filling
+Tue 2019-03-19 22:55  pattern #169 SELL (range 0.167, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-03-20 00:35  pattern #170 SELL (range 1.317, lookback 3/5): limit order at midpoint 1306.2
+Wed 2019-03-20 06:07  pattern #170 SELL filled by the limit at the midpoint at 1306.2
+Wed 2019-03-20 07:00  pattern #170 reached +2R: stop moved to breakeven
+Wed 2019-03-20 07:31  pattern #170 closed: target (+4R) at 1303.5 (+4.00R before swaps)
+Wed 2019-03-20 16:40  pattern #171 SELL (range 1.597, lookback 3/5): limit order at midpoint 1300.8
+Wed 2019-03-20 16:48  pattern #171 SELL filled by the limit at the midpoint at 1300.8
+Wed 2019-03-20 17:03  pattern #171 closed: stop (-1R) at 1301.6 (-1.00R before swaps)
+Wed 2019-03-20 22:50  pattern #172 SELL (range 0.33, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-03-21 17:25  pattern #173 BUY (range 1.203, lookback 4/5): limit order at midpoint 1306.1
+Thu 2019-03-21 17:48  pattern #173 BUY filled by the limit at the midpoint at 1306.1
+Thu 2019-03-21 17:55  pattern #173 reached +2R: stop moved to breakeven
+Thu 2019-03-21 18:07  pattern #173 closed: target (+4R) at 1308.5 (+4.00R before swaps)
+Thu 2019-03-21 23:20  pattern #174 SELL (range 0.46, lookback 3/5): limit order at midpoint 1309.1
+Thu 2019-03-21 23:27  pattern #174 SELL filled by the limit at the midpoint at 1309.1
+Thu 2019-03-21 23:42  pattern #174 closed: stop (-1R) at 1309.4 (-1.00R before swaps)
+Fri 2019-03-22 07:25  pattern #175 SELL (range 0.96, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-22 16:35  pattern #176 SELL (range 0.85, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-25 04:10  pattern #177 SELL (range 0.377, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-25 04:50  pattern #178 SELL (range 0.56, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-03-25 09:35  pattern #179 BUY (range 0.54, lookback 3/5): limit order at midpoint 1317.1
+Mon 2019-03-25 09:57  pattern #179 BUY filled by the limit at the midpoint at 1317.1
+Mon 2019-03-25 10:01  pattern #179 reached +2R: stop moved to breakeven
+Mon 2019-03-25 10:08  pattern #179 closed: target (+4R) at 1318.2 (+4.00R before swaps)
+Mon 2019-03-25 12:10  pattern #180 BUY (range 1.21, lookback 5/5): limit order at midpoint 1318
+Mon 2019-03-25 14:08  pattern #180 pending order cancelled: price reached the target before filling
+Mon 2019-03-25 18:35  pattern #181 SELL (range 1.32, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-03-26 01:00  pattern #182 BUY (range 0.7, lookback 3/5): limit order at midpoint 1320.6
+Tue 2019-03-26 01:42  pattern #182 pending order cancelled: price reached the target before filling
+Tue 2019-03-26 02:00  pattern #183 SELL (range 0.723, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-03-26 02:10  pattern #184 SELL (range 0.733, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-03-26 05:50  pattern #185 SELL (range 1.45, lookback 3/5): limit order at midpoint 1318.2
+Tue 2019-03-26 05:56  pattern #185 SELL filled by the limit at the midpoint at 1318.2
+Tue 2019-03-26 06:14  pattern #185 closed: stop (-1R) at 1319 (-1.00R before swaps)
+Thu 2019-03-28 11:40  pattern #186 SELL (range 1.65, lookback 5/5): limit order at midpoint 1305.2
+Thu 2019-03-28 12:31  pattern #186 SELL filled by the limit at the midpoint at 1305.2
+Thu 2019-03-28 12:34  pattern #186 closed: stop (-1R) at 1306.1 (-1.00R before swaps)
+Fri 2019-03-29 08:10  pattern #187 SELL (range 1.39, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-29 08:20  pattern #188 SELL (range 1.5, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-03-29 08:35  pattern #189 BUY (range 1.72, lookback 3/5): limit order at midpoint 1288
+Fri 2019-03-29 09:18  pattern #189 pending order cancelled: price reached the target before filling
+Fri 2019-03-29 09:30  pattern #190 BUY (range 1.827, lookback 4/5): limit order at midpoint 1291.2
+Fri 2019-03-29 09:38  pattern #190 BUY filled by the limit at the midpoint at 1291.2
+Fri 2019-03-29 10:04  pattern #190 closed: stop (-1R) at 1290.3 (-1.00R before swaps)
+Mon 2019-04-01 02:35  pattern #191 BUY (range 0.577, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-04-01 06:50  pattern #192 SELL (range 1.697, lookback 3/5): limit order at midpoint 1289.6
+Mon 2019-04-01 07:30  pattern #192 SELL filled by the limit at the midpoint at 1289.6
+Mon 2019-04-01 07:40  pattern #192 closed: stop (-1R) at 1290.4 (-1.00R before swaps)
+Mon 2019-04-01 11:55  pattern #193 BUY (range 0.59, lookback 4/5): limit order at midpoint 1290.9
+Mon 2019-04-01 11:56  pattern #193 BUY filled by the limit at the midpoint at 1290.9
+Mon 2019-04-01 11:57  pattern #193 closed: stop (-1R) at 1290.7 (-1.00R before swaps)
+Mon 2019-04-01 12:05  pattern #194 BUY (range 1.49, lookback 3/5): limit order at midpoint 1290.4
+Mon 2019-04-01 12:30  pattern #194 pending order cancelled: price reached the target before filling
+Mon 2019-04-01 16:45  pattern #195 SELL (range 1.213, lookback 3/5): limit order at midpoint 1290.1
+Mon 2019-04-01 16:46  pattern #195 SELL filled by the limit at the midpoint at 1290.1
+Mon 2019-04-01 17:03  pattern #195 closed: stop (-1R) at 1290.7 (-1.00R before swaps)
+Mon 2019-04-01 17:15  pattern #196 BUY (range 1.73, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-02 10:40  pattern #197 SELL (range 2.333, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-02 11:15  pattern #198 BUY (range 1.61, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-02 13:05  pattern #199 BUY (range 1.107, lookback 4/5): limit order at midpoint 1289.2
+Tue 2019-04-02 13:05  pattern #199 BUY filled by the limit at the midpoint at 1289.2
+Tue 2019-04-02 13:10  pattern #200 SELL (range 1.087, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-02 13:10  pattern #199 closed: stop (-1R) at 1288.7 (-1.00R before swaps)
+Tue 2019-04-02 15:20  pattern #201 BUY (range 1.91, lookback 4/5): limit order at midpoint 1290.9
+Tue 2019-04-02 15:33  pattern #201 BUY filled by the limit at the midpoint at 1290.9
+Tue 2019-04-02 15:37  pattern #201 closed: stop (-1R) at 1289.9 (-1.00R before swaps)
+Wed 2019-04-03 02:25  pattern #202 SELL (range 0.89, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-03 02:50  pattern #203 BUY (range 0.5, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-03 04:30  pattern #204 BUY (range 0.47, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-03 19:45  pattern #205 BUY (range 0.507, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-03 23:45  pattern #206 BUY (range 0.43, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-04 07:15  pattern #207 SELL (range 0.823, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-04 18:05  pattern #208 BUY (range 0.663, lookback 4/5): limit order at midpoint 1291
+Thu 2019-04-04 18:09  pattern #208 pending order cancelled: price reached the target before filling
+Thu 2019-04-04 23:16  pattern #209 SELL (range 0.633, lookback 4/5): limit order at midpoint 1292.5
+Thu 2019-04-04 23:17  pattern #209 SELL filled by the limit at the midpoint at 1292.5
+Thu 2019-04-04 23:27  pattern #209 closed: stop (-1R) at 1292.9 (-1.00R before swaps)
+Fri 2019-04-05 01:20  pattern #210 SELL (range 0.807, lookback 3/5): limit order at midpoint 1291.4
+Fri 2019-04-05 03:08  pattern #210 pending order cancelled: price reached the target before filling
+Fri 2019-04-05 07:55  pattern #211 BUY (range 1.67, lookback 3/5): limit order at midpoint 1290
+Fri 2019-04-05 08:03  pattern #211 BUY filled by the limit at the midpoint at 1290
+Fri 2019-04-05 08:23  pattern #211 closed: stop (-1R) at 1289.1 (-1.00R before swaps)
+Fri 2019-04-05 17:00  pattern #212 SELL (range 0.893, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-04-08 16:45  pattern #213 BUY (range 1.063, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-04-08 20:20  pattern #214 BUY (range 0.84, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-09 06:00  pattern #215 SELL (range 0.747, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-10 07:40  pattern #216 SELL (range 1.38, lookback 3/5): limit order at midpoint 1303.9
+Wed 2019-04-10 08:15  pattern #216 SELL filled by the limit at the midpoint at 1303.9
+Wed 2019-04-10 08:34  pattern #216 closed: stop (-1R) at 1304.6 (-1.00R before swaps)
+Wed 2019-04-10 10:20  pattern #217 SELL (range 0.643, lookback 3/5): limit order at midpoint 1304.4
+Wed 2019-04-10 11:11  pattern #217 pending order cancelled: price reached the target before filling
+Wed 2019-04-10 14:20  pattern #218 BUY (range 1.81, lookback 3/5): limit order at midpoint 1306
+Wed 2019-04-10 14:30  pattern #219 BUY (range 0.99, lookback 3/5): same direction, replaces pending #218
+Wed 2019-04-10 14:30  pattern #219 BUY (range 0.99, lookback 3/5): limit order at midpoint 1306.5
+Wed 2019-04-10 14:35  pattern #219 BUY filled by the limit at the midpoint at 1306.5
+Wed 2019-04-10 14:40  pattern #219 closed: stop (-1R) at 1306 (-1.00R before swaps)
+Wed 2019-04-10 17:25  pattern #220 SELL (range 1.21, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-11 00:00  pattern #221 SELL (range 1.18, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-11 03:45  pattern #222 BUY (range 0.383, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-11 10:00  pattern #223 BUY (range 0.423, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-11 11:05  pattern #224 SELL (range 0.717, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-04-12 12:35  pattern #225 SELL (range 3.26, lookback 3/5): limit order at midpoint 1292.6
+Fri 2019-04-12 13:58  pattern #225 SELL filled by the limit at the midpoint at 1292.6
+Fri 2019-04-12 14:00  pattern #225 closed: stop (-1R) at 1294.2 (-1.00R before swaps)
+Mon 2019-04-15 15:45  pattern #226 BUY (range 1.497, lookback 4/5): limit order at midpoint 1288.5
+Mon 2019-04-15 17:28  pattern #226 BUY filled by the limit at the midpoint at 1288.5
+Mon 2019-04-15 18:59  pattern #226 closed: stop (-1R) at 1287.7 (-1.00R before swaps)
+Tue 2019-04-16 06:20  pattern #227 BUY (range 0.98, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-16 06:30  pattern #228 BUY (range 0.64, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-16 09:15  pattern #229 SELL (range 1.35, lookback 3/5): limit order at midpoint 1284
+Tue 2019-04-16 11:03  pattern #229 SELL filled by the limit at the midpoint at 1284
+Tue 2019-04-16 11:10  pattern #229 closed: stop (-1R) at 1284.7 (-1.00R before swaps)
+Wed 2019-04-17 01:30  pattern #230 BUY (range 1.503, lookback 3/5): limit order at midpoint 1276.3
+Wed 2019-04-17 02:15  pattern #231 SELL (range 1.21, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-17 06:11  pattern #230 pending order cancelled: price reached the target before filling
+Wed 2019-04-17 11:00  pattern #232 BUY (range 0.88, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-18 12:15  pattern #233 BUY (range 0.873, lookback 4/5): limit order at midpoint 1276.4
+Thu 2019-04-18 12:18  pattern #233 BUY filled by the limit at the midpoint at 1276.4
+Thu 2019-04-18 12:19  pattern #233 closed: stop (-1R) at 1275.9 (-1.00R before swaps)
+Mon 2019-04-22 02:50  pattern #234 SELL (range 0.553, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-04-22 09:00  pattern #235 BUY (range 0.52, lookback 3/5): limit order at midpoint 1278.7
+Mon 2019-04-22 10:38  pattern #235 pending order cancelled: price reached the target before filling
+Mon 2019-04-22 23:30  pattern #236 BUY (range 0.28, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-23 02:40  pattern #237 SELL (range 0.64, lookback 5/5): limit order at midpoint 1275
+Tue 2019-04-23 02:43  pattern #237 SELL filled by the limit at the midpoint at 1275
+Tue 2019-04-23 02:44  pattern #237 closed: stop (-1R) at 1275.3 (-1.00R before swaps)
+Tue 2019-04-23 19:25  pattern #238 BUY (range 0.373, lookback 3/5): limit order at midpoint 1270.8
+Tue 2019-04-23 19:57  pattern #238 pending order cancelled: price reached the target before filling
+Tue 2019-04-23 23:30  pattern #239 BUY (range 0.65, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-24 11:15  pattern #240 BUY (range 0.6, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-04-24 19:15  pattern #241 BUY (range 0.523, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-04-25 01:05  pattern #242 BUY (range 1.27, lookback 4/5): limit order at midpoint 1274.5
+Thu 2019-04-25 01:06  pattern #242 BUY filled by the limit at the midpoint at 1274.5
+Thu 2019-04-25 01:14  pattern #242 closed: stop (-1R) at 1273.9 (-1.00R before swaps)
+Thu 2019-04-25 04:25  pattern #243 SELL (range 0.56, lookback 4/5): limit order at midpoint 1275.9
+Thu 2019-04-25 04:28  pattern #243 SELL filled by the limit at the midpoint at 1275.9
+Thu 2019-04-25 05:04  pattern #243 reached +2R: stop moved to breakeven
+Thu 2019-04-25 05:42  pattern #243 closed: breakeven stop at 1275.9 (-0.00R before swaps)
+Fri 2019-04-26 02:00  pattern #244 BUY (range 0.693, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-04-26 08:00  pattern #245 SELL (range 1.25, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-04-26 18:55  pattern #246 SELL (range 0.553, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-04-26 19:40  pattern #247 SELL (range 0.413, lookback 4/5): limit order at midpoint 1286.3
+Fri 2019-04-26 20:30  pattern #247 pending order cancelled: Friday close
+Mon 2019-04-29 01:15  pattern #248 BUY (range 0.688, lookback 3/5): limit order at midpoint 1285.3
+Mon 2019-04-29 04:58  pattern #248 BUY filled by the limit at the midpoint at 1285.3
+Mon 2019-04-29 05:08  pattern #248 closed: stop (-1R) at 1285 (-1.00R before swaps)
+Mon 2019-04-29 11:55  pattern #249 SELL (range 0.677, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-04-30 15:45  pattern #250 BUY (range 1, lookback 4/5): limit order at midpoint 1284.1
+Tue 2019-04-30 15:56  pattern #250 BUY filled by the limit at the midpoint at 1284.1
+Tue 2019-04-30 15:56  pattern #250 closed: stop (-1R) at 1283.6 (-1.00R before swaps)
+Wed 2019-05-01 06:10  pattern #251 BUY (range 0.73, lookback 3/5): limit order at midpoint 1279.8
+Wed 2019-05-01 06:12  pattern #251 BUY filled by the limit at the midpoint at 1279.8
+Wed 2019-05-01 06:12  pattern #251 closed: stop (-1R) at 1279.4 (-1.00R before swaps)
+Wed 2019-05-01 08:05  pattern #252 BUY (range 0.85, lookback 3/5): limit order at midpoint 1280.9
+Wed 2019-05-01 08:14  pattern #252 BUY filled by the limit at the midpoint at 1280.9
+Wed 2019-05-01 09:04  pattern #252 reached +2R: stop moved to breakeven
+Wed 2019-05-01 09:47  pattern #252 closed: target (+4R) at 1282.6 (+4.00R before swaps)
+Wed 2019-05-01 14:15  pattern #253 BUY (range 4.743, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-01 20:50  pattern #254 BUY (range 0.317, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-02 00:05  pattern #255 SELL (range 0.743, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-02 12:20  pattern #256 BUY (range 1.97, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-03 15:05  pattern #257 BUY (range 1.353, lookback 3/5): limit order at midpoint 1280.8
+Fri 2019-05-03 15:30  pattern #257 BUY filled by the limit at the midpoint at 1280.8
+Fri 2019-05-03 15:32  pattern #257 closed: stop (-1R) at 1280.1 (-1.00R before swaps)
+Mon 2019-05-06 02:35  pattern #258 BUY (range 0.87, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-06 02:45  pattern #259 BUY (range 0.723, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-06 03:10  pattern #260 BUY (range 0.52, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-06 05:00  pattern #261 SELL (range 1.17, lookback 4/5): limit order at midpoint 1282.8
+Mon 2019-05-06 06:48  pattern #261 SELL filled by the limit at the midpoint at 1282.8
+Mon 2019-05-06 07:02  pattern #261 closed: stop (-1R) at 1283.4 (-1.00R before swaps)
+Mon 2019-05-06 08:00  pattern #262 BUY (range 1.423, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-06 17:25  pattern #263 BUY (range 0.83, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-07 11:35  pattern #264 SELL (range 1.21, lookback 4/5): limit order at midpoint 1280.5
+Tue 2019-05-07 11:47  pattern #264 SELL filled by the limit at the midpoint at 1280.5
+Tue 2019-05-07 12:13  pattern #264 reached +2R: stop moved to breakeven
+Tue 2019-05-07 12:45  pattern #264 closed: breakeven stop at 1280.5 (-0.00R before swaps)
+Tue 2019-05-07 15:50  pattern #265 BUY (range 0.95, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-08 03:45  pattern #266 BUY (range 0.47, lookback 4/5): limit order at midpoint 1286.1
+Wed 2019-05-08 05:00  pattern #266 pending order cancelled: price reached the target before filling
+Wed 2019-05-08 14:45  pattern #267 SELL (range 1.888, lookback 4/5): limit order at midpoint 1283.4
+Wed 2019-05-08 17:05  pattern #267 pending order cancelled: price reached the target before filling
+Thu 2019-05-09 07:30  pattern #268 SELL (range 0.81, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-09 07:35  pattern #269 BUY (range 1.07, lookback 3/5): limit order at midpoint 1283.5
+Thu 2019-05-09 10:42  pattern #269 BUY filled by the limit at the midpoint at 1283.5
+Thu 2019-05-09 10:52  pattern #269 closed: stop (-1R) at 1283 (-1.00R before swaps)
+Thu 2019-05-09 13:45  pattern #270 BUY (range 2.67, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-10 07:40  pattern #271 BUY (range 1.133, lookback 3/5): limit order at midpoint 1285.1
+Fri 2019-05-10 07:58  pattern #271 BUY filled by the limit at the midpoint at 1285.1
+Fri 2019-05-10 08:04  pattern #271 closed: stop (-1R) at 1284.5 (-1.00R before swaps)
+Fri 2019-05-10 10:55  pattern #272 BUY (range 0.713, lookback 3/5): limit order at midpoint 1285.5
+Fri 2019-05-10 11:05  pattern #272 BUY filled by the limit at the midpoint at 1285.5
+Fri 2019-05-10 11:16  pattern #272 closed: stop (-1R) at 1285.2 (-1.00R before swaps)
+Fri 2019-05-10 12:10  pattern #273 SELL (range 1.453, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-13 11:45  pattern #274 BUY (range 0.657, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-13 13:50  pattern #275 SELL (range 2.543, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-13 14:00  pattern #276 SELL (range 2.26, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-13 14:10  pattern #277 SELL (range 3.03, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-13 14:50  pattern #278 BUY (range 2.02, lookback 3/5): limit order at midpoint 1297.4
+Mon 2019-05-13 15:00  pattern #278 BUY filled by the limit at the midpoint at 1297.4
+Mon 2019-05-13 16:14  pattern #278 reached +2R: stop moved to breakeven
+Mon 2019-05-13 16:45  pattern #279 BUY (range 1.063, lookback 4/5): ignored, a trade is open
+Mon 2019-05-13 19:35  pattern #280 BUY (range 0.98, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-13 23:58  pattern #278 closed: target (+4R) at 1301.5 (+4.00R before swaps)
+Tue 2019-05-14 02:00  pattern #281 SELL (range 0.848, lookback 4/5): limit order at midpoint 1299.4
+Tue 2019-05-14 02:30  pattern #282 BUY (range 0.91, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-14 04:02  pattern #281 SELL filled by the limit at the midpoint at 1299.4
+Tue 2019-05-14 05:37  pattern #281 closed: stop (-1R) at 1299.8 (-1.00R before swaps)
+Tue 2019-05-14 09:00  pattern #283 BUY (range 0.403, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-14 09:10  pattern #284 BUY (range 0.713, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-14 09:20  pattern #285 BUY (range 0.72, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-14 10:55  pattern #286 SELL (range 0.473, lookback 3/5): limit order at midpoint 1297.6
+Tue 2019-05-14 10:58  pattern #286 SELL filled by the limit at the midpoint at 1297.6
+Tue 2019-05-14 10:59  pattern #286 closed: stop (-1R) at 1297.8 (-1.00R before swaps)
+Tue 2019-05-14 11:05  pattern #287 SELL (range 0.867, lookback 3/5): limit order at midpoint 1297.3
+Tue 2019-05-14 11:39  pattern #287 SELL filled by the limit at the midpoint at 1297.3
+Tue 2019-05-14 11:46  pattern #287 closed: stop (-1R) at 1297.8 (-1.00R before swaps)
+Tue 2019-05-14 19:25  pattern #288 BUY (range 0.503, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-14 23:25  pattern #289 SELL (range 0.233, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-14 23:45  pattern #290 BUY (range 0.493, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-15 20:00  pattern #291 BUY (range 0.363, lookback 3/5): limit order at midpoint 1296.1
+Wed 2019-05-15 20:29  pattern #291 BUY filled by the limit at the midpoint at 1296.1
+Wed 2019-05-15 20:58  pattern #291 closed: stop (-1R) at 1295.9 (-1.00R before swaps)
+Thu 2019-05-16 04:25  pattern #292 SELL (range 0.343, lookback 3/5): limit order at midpoint 1296.2
+Thu 2019-05-16 04:40  pattern #292 SELL filled by the limit at the midpoint at 1296.2
+Thu 2019-05-16 04:40  pattern #292 closed: stop (-1R) at 1296.3 (-1.00R before swaps)
+Thu 2019-05-16 09:35  pattern #293 BUY (range 1.147, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-16 18:35  pattern #294 BUY (range 0.683, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-16 20:05  pattern #295 SELL (range 0.563, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-17 03:00  pattern #296 BUY (range 0.528, lookback 3/5): limit order at midpoint 1285.3
+Fri 2019-05-17 03:27  pattern #296 pending order cancelled: price reached the target before filling
+Fri 2019-05-17 07:40  pattern #297 SELL (range 1.12, lookback 4/5): limit order at midpoint 1287.1
+Fri 2019-05-17 08:53  pattern #297 SELL filled by the limit at the midpoint at 1287.1
+Fri 2019-05-17 09:32  pattern #297 reached +2R: stop moved to breakeven
+Fri 2019-05-17 10:23  pattern #297 closed: target (+4R) at 1284.8 (+4.00R before swaps)
+Fri 2019-05-17 10:25  pattern #298 SELL (range 0.83, lookback 4/5): limit order at midpoint 1284.9
+Fri 2019-05-17 10:35  pattern #298 SELL filled by the limit at the midpoint at 1284.9
+Fri 2019-05-17 10:36  pattern #298 closed: stop (-1R) at 1285.3 (-1.00R before swaps)
+Fri 2019-05-17 17:50  pattern #299 BUY (range 1.133, lookback 3/5): limit order at midpoint 1276.2
+Fri 2019-05-17 18:16  pattern #299 BUY filled by the limit at the midpoint at 1276.2
+Fri 2019-05-17 19:05  pattern #299 reached +2R: stop moved to breakeven
+Fri 2019-05-17 19:25  pattern #300 SELL (range 0.79, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-17 20:30  pattern #299 closed: Friday close at 1277.6 (+2.41R before swaps)
+Mon 2019-05-20 00:05  pattern #301 SELL (range 0.857, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-05-20 02:50  pattern #302 SELL (range 1.03, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-21 04:30  pattern #303 BUY (range 0.4, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-21 19:05  pattern #304 BUY (range 0.437, lookback 4/5): limit order at midpoint 1274.4
+Tue 2019-05-21 20:35  pattern #305 BUY (range 0.29, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-21 22:35  pattern #304 BUY filled by the limit at the midpoint at 1274.4
+Tue 2019-05-21 22:35  pattern #304 closed: stop (-1R) at 1274.1 (-1.00R before swaps)
+Tue 2019-05-21 23:20  pattern #306 BUY (range 0.337, lookback 4/5): limit order at midpoint 1274.4
+Wed 2019-05-22 00:08  pattern #306 pending order cancelled: price reached the target before filling
+Wed 2019-05-22 10:20  pattern #307 BUY (range 1.03, lookback 3/5): limit order at midpoint 1274
+Wed 2019-05-22 10:24  pattern #307 BUY filled by the limit at the midpoint at 1274
+Wed 2019-05-22 10:35  pattern #308 SELL (range 0.79, lookback 3/5): ignored, a trade is open
+Wed 2019-05-22 11:10  pattern #309 BUY (range 0.543, lookback 3/5): ignored, a trade is open
+Wed 2019-05-22 11:36  pattern #307 reached +2R: stop moved to breakeven
+Wed 2019-05-22 11:47  pattern #307 closed: target (+4R) at 1276.1 (+4.00R before swaps)
+Wed 2019-05-22 14:00  pattern #310 SELL (range 1.19, lookback 3/5): limit order at midpoint 1274.4
+Wed 2019-05-22 14:24  pattern #310 SELL filled by the limit at the midpoint at 1274.4
+Wed 2019-05-22 14:39  pattern #310 closed: stop (-1R) at 1275 (-1.00R before swaps)
+Thu 2019-05-23 00:10  pattern #311 SELL (range 0.67, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-23 03:30  pattern #312 SELL (range 0.51, lookback 4/5): limit order at midpoint 1273.3
+Thu 2019-05-23 05:26  pattern #312 SELL filled by the limit at the midpoint at 1273.3
+Thu 2019-05-23 05:26  pattern #312 closed: stop (-1R) at 1273.6 (-1.00R before swaps)
+Thu 2019-05-23 12:25  pattern #313 BUY (range 3.473, lookback 4/5): limit order at midpoint 1279.4
+Thu 2019-05-23 13:22  pattern #313 BUY filled by the limit at the midpoint at 1279.4
+Thu 2019-05-23 13:45  pattern #313 reached +2R: stop moved to breakeven
+Thu 2019-05-23 15:03  pattern #313 closed: target (+4R) at 1286.4 (+4.00R before swaps)
+Thu 2019-05-23 15:55  pattern #314 BUY (range 1.28, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-24 02:00  pattern #315 SELL (range 0.6, lookback 4/5): limit order at midpoint 1282.9
+Fri 2019-05-24 02:20  pattern #315 SELL filled by the limit at the midpoint at 1282.9
+Fri 2019-05-24 02:37  pattern #315 closed: stop (-1R) at 1283.2 (-1.00R before swaps)
+Fri 2019-05-24 03:40  pattern #316 SELL (range 0.61, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-24 06:40  pattern #317 SELL (range 0.693, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-24 12:15  pattern #318 BUY (range 0.907, lookback 3/5): limit order at midpoint 1282.5
+Fri 2019-05-24 12:34  pattern #318 pending order cancelled: price reached the target before filling
+Fri 2019-05-24 15:30  pattern #319 BUY (range 0.82, lookback 4/5): limit order at midpoint 1284
+Fri 2019-05-24 15:37  pattern #319 BUY filled by the limit at the midpoint at 1284
+Fri 2019-05-24 15:39  pattern #319 closed: stop (-1R) at 1283.6 (-1.00R before swaps)
+Mon 2019-05-27 00:45  pattern #320 SELL (range 0.633, lookback 4/5): limit order at midpoint 1284
+Mon 2019-05-27 00:47  pattern #320 SELL filled by the limit at the midpoint at 1284
+Mon 2019-05-27 00:47  pattern #320 closed: stop (-1R) at 1284.3 (-1.00R before swaps)
+Mon 2019-05-27 03:35  pattern #321 SELL (range 0.217, lookback 3/5): limit order at midpoint 1286.7
+Mon 2019-05-27 03:36  pattern #321: stop closer than costs, skipped
+Mon 2019-05-27 22:05  pattern #322 BUY (range 0.53, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-05-28 11:30  pattern #323 BUY (range 0.615, lookback 3/5): limit order at midpoint 1283.6
+Tue 2019-05-28 11:52  pattern #323 BUY filled by the limit at the midpoint at 1283.6
+Tue 2019-05-28 11:53  pattern #323 closed: stop (-1R) at 1283.3 (-1.00R before swaps)
+Wed 2019-05-29 00:45  pattern #324 BUY (range 1.05, lookback 3/5): limit order at midpoint 1281.4
+Wed 2019-05-29 00:51  pattern #324 BUY filled by the limit at the midpoint at 1281.4
+Wed 2019-05-29 00:55  pattern #324 closed: stop (-1R) at 1280.9 (-1.00R before swaps)
+Wed 2019-05-29 02:05  pattern #325 SELL (range 1.7, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-29 04:05  pattern #326 BUY (range 0.44, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-29 13:40  pattern #327 BUY (range 2.223, lookback 4/5): limit order at midpoint 1283.3
+Wed 2019-05-29 13:40  pattern #327 BUY filled by the limit at the midpoint at 1283.3
+Wed 2019-05-29 13:41  pattern #327 closed: stop (-1R) at 1282.2 (-1.02R before swaps)
+Wed 2019-05-29 13:45  pattern #328 SELL (range 2.85, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-29 15:05  pattern #329 SELL (range 0.953, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-29 18:10  pattern #330 BUY (range 0.803, lookback 3/5): limit order at midpoint 1281.3
+Wed 2019-05-29 19:21  pattern #330 BUY filled by the limit at the midpoint at 1281.3
+Wed 2019-05-29 19:22  pattern #330 closed: stop (-1R) at 1280.9 (-1.00R before swaps)
+Wed 2019-05-29 20:55  pattern #331 BUY (range 0.527, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-05-29 22:55  pattern #332 BUY (range 0.29, lookback 3/5): limit order at midpoint 1279.8
+Wed 2019-05-29 23:05  pattern #333 BUY (range 0.38, lookback 4/5): same direction, replaces pending #332
+Wed 2019-05-29 23:05  pattern #333 BUY (range 0.38, lookback 4/5): limit order at midpoint 1279.9
+Wed 2019-05-29 23:35  pattern #333 BUY filled by the limit at the midpoint at 1279.9
+Wed 2019-05-29 23:36  pattern #333 closed: stop (-1R) at 1279.7 (-1.00R before swaps)
+Thu 2019-05-30 07:35  pattern #334 BUY (range 1.217, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-30 10:50  pattern #335 BUY (range 0.84, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-30 13:10  pattern #336 BUY (range 2.273, lookback 3/5): limit order at midpoint 1281.5
+Thu 2019-05-30 13:10  pattern #336 BUY filled by the limit at the midpoint at 1281.5
+Thu 2019-05-30 13:35  pattern #336 closed: stop (-1R) at 1280.4 (-1.00R before swaps)
+Thu 2019-05-30 14:00  pattern #337 BUY (range 1.03, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-30 14:10  pattern #338 BUY (range 1.693, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-05-30 17:10  pattern #339 BUY (range 1.143, lookback 3/5): limit order at midpoint 1286.8
+Thu 2019-05-30 17:17  pattern #339 BUY filled by the limit at the midpoint at 1286.8
+Thu 2019-05-30 17:30  pattern #339 reached +2R: stop moved to breakeven
+Thu 2019-05-30 23:32  pattern #339 closed: target (+4R) at 1289.1 (+4.00R before swaps)
+Fri 2019-05-31 17:50  pattern #340 SELL (range 2.26, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-31 18:00  pattern #341 SELL (range 2.433, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-05-31 19:35  pattern #342 BUY (range 0.703, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-06-03 02:50  pattern #343 SELL (range 0.697, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-06-03 15:35  pattern #344 SELL (range 1.96, lookback 3/5): limit order at midpoint 1319
+Mon 2019-06-03 15:36  pattern #344 SELL filled by the limit at the midpoint at 1319
+Mon 2019-06-03 16:07  pattern #344 closed: stop (-1R) at 1320 (-1.00R before swaps)
+Mon 2019-06-03 17:15  pattern #345 BUY (range 1.4, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-04 14:45  pattern #346 SELL (range 4.85, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-05 08:35  pattern #347 SELL (range 1.237, lookback 4/5): limit order at midpoint 1333.4
+Wed 2019-06-05 08:45  pattern #348 SELL (range 1.517, lookback 3/5): same direction, replaces pending #347
+Wed 2019-06-05 08:45  pattern #348 SELL (range 1.517, lookback 3/5): limit order at midpoint 1333.3
+Wed 2019-06-05 08:55  pattern #349 SELL (range 1.495, lookback 3/5): same direction, replaces pending #348
+Wed 2019-06-05 08:55  pattern #349 SELL filled at market (price already past the midpoint) at 1332.7
+Wed 2019-06-05 08:56  pattern #349 closed: stop (-1R) at 1333.2 (-1.00R before swaps)
+Wed 2019-06-05 16:10  pattern #350 BUY (range 1.55, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-06-07 01:45  pattern #351 SELL (range 0.81, lookback 3/5): limit order at midpoint 1333.2
+Fri 2019-06-07 01:48  pattern #351 SELL filled by the limit at the midpoint at 1333.2
+Fri 2019-06-07 01:56  pattern #351 closed: stop (-1R) at 1333.6 (-1.00R before swaps)
+Fri 2019-06-07 06:20  pattern #352 BUY (range 0.5, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-06-07 09:15  pattern #353 SELL (range 1.523, lookback 3/5): limit order at midpoint 1335.3
+Fri 2019-06-07 11:53  pattern #353 SELL filled by the limit at the midpoint at 1335.3
+Fri 2019-06-07 12:03  pattern #353 closed: stop (-1R) at 1336.1 (-1.00R before swaps)
+Fri 2019-06-07 14:00  pattern #354 SELL (range 2.223, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-06-10 05:10  pattern #355 SELL (range 0.777, lookback 4/5): limit order at midpoint 1328.3
+Mon 2019-06-10 05:23  pattern #355 SELL filled by the limit at the midpoint at 1328.3
+Mon 2019-06-10 05:56  pattern #355 reached +2R: stop moved to breakeven
+Mon 2019-06-10 06:01  pattern #355 closed: target (+4R) at 1326.8 (+4.00R before swaps)
+Mon 2019-06-10 15:20  pattern #356 SELL (range 1.31, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-06-10 15:30  pattern #357 SELL (range 0.94, lookback 3/5): limit order at midpoint 1328.8
+Mon 2019-06-10 15:36  pattern #357 SELL filled by the limit at the midpoint at 1328.8
+Mon 2019-06-10 15:37  pattern #357 closed: stop (-1R) at 1329.2 (-1.00R before swaps)
+Mon 2019-06-10 22:15  pattern #358 BUY (range 0.81, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-06-10 22:35  pattern #359 SELL (range 0.3, lookback 3/5): limit order at midpoint 1328.2
+Mon 2019-06-10 22:40  pattern #359: stop closer than costs, skipped
+Tue 2019-06-11 11:55  pattern #360 SELL (range 1.587, lookback 3/5): limit order at midpoint 1321.2
+Tue 2019-06-11 12:08  pattern #360 SELL filled by the limit at the midpoint at 1321.2
+Tue 2019-06-11 12:11  pattern #360 closed: stop (-1R) at 1322 (-1.00R before swaps)
+Tue 2019-06-11 18:45  pattern #361 BUY (range 0.453, lookback 4/5): limit order at midpoint 1327.8
+Tue 2019-06-11 18:48  pattern #361 BUY filled by the limit at the midpoint at 1327.8
+Tue 2019-06-11 18:51  pattern #361 closed: stop (-1R) at 1327.5 (-1.00R before swaps)
+Tue 2019-06-11 20:45  pattern #362 SELL (range 0.237, lookback 4/5): limit order at midpoint 1326.8
+Tue 2019-06-11 22:00  pattern #362: stop closer than costs, skipped
+Tue 2019-06-11 23:22  pattern #363 SELL (range 0.453, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-12 01:15  pattern #364 BUY (range 1.347, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-12 05:00  pattern #365 BUY (range 0.527, lookback 3/5): limit order at midpoint 1332.1
+Wed 2019-06-12 05:06  pattern #365 BUY filled by the limit at the midpoint at 1332.1
+Wed 2019-06-12 05:22  pattern #365 reached +2R: stop moved to breakeven
+Wed 2019-06-12 05:41  pattern #365 closed: target (+4R) at 1333.2 (+4.00R before swaps)
+Thu 2019-06-13 05:15  pattern #366 BUY (range 0.78, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-06-13 13:05  pattern #367 SELL (range 2.44, lookback 3/5): limit order at midpoint 1335
+Thu 2019-06-13 13:24  pattern #367 SELL filled by the limit at the midpoint at 1335
+Thu 2019-06-13 13:47  pattern #367 closed: stop (-1R) at 1336.2 (-1.00R before swaps)
+Thu 2019-06-13 16:10  pattern #368 BUY (range 0.957, lookback 3/5): limit order at midpoint 1339.1
+Thu 2019-06-13 17:42  pattern #368 pending order cancelled: price reached the target before filling
+Thu 2019-06-13 20:40  pattern #369 SELL (range 0.63, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-06-13 23:00  pattern #370 BUY (range 0.48, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-06-14 03:20  pattern #371 BUY (range 0.88, lookback 3/5): limit order at midpoint 1346.8
+Fri 2019-06-14 03:28  pattern #371 BUY filled by the limit at the midpoint at 1346.8
+Fri 2019-06-14 03:31  pattern #371 closed: stop (-1R) at 1346.3 (-1.00R before swaps)
+Fri 2019-06-14 09:15  pattern #372 SELL (range 1.28, lookback 4/5): limit order at midpoint 1353.4
+Fri 2019-06-14 09:43  pattern #372 SELL filled by the limit at the midpoint at 1353.4
+Fri 2019-06-14 09:54  pattern #372 closed: stop (-1R) at 1354 (-1.00R before swaps)
+Fri 2019-06-14 14:10  pattern #373 SELL (range 2.23, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-06-14 16:40  pattern #374 SELL (range 1.447, lookback 4/5): limit order at midpoint 1347.6
+Fri 2019-06-14 17:02  pattern #374 pending order cancelled: price reached the target before filling
+Mon 2019-06-17 02:05  pattern #375 SELL (range 1.15, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-06-17 04:45  pattern #376 SELL (range 0.47, lookback 4/5): limit order at midpoint 1341.7
+Mon 2019-06-17 05:15  pattern #376 pending order cancelled: price reached the target before filling
+Mon 2019-06-17 16:40  pattern #377 BUY (range 0.58, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-18 07:10  pattern #378 SELL (range 1.66, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-18 07:20  pattern #379 SELL (range 2.137, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-18 07:30  pattern #380 SELL (range 1.64, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-18 23:50  pattern #381 SELL (range 1.05, lookback 4/5): limit order at midpoint 1345.1
+Tue 2019-06-18 23:57  pattern #381 SELL filled by the limit at the midpoint at 1345.1
+Tue 2019-06-18 23:58  pattern #381 closed: stop (-1R) at 1345.6 (-1.00R before swaps)
+Wed 2019-06-19 06:55  pattern #382 BUY (range 0.62, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-19 08:00  pattern #383 BUY (range 1.17, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-19 15:30  pattern #384 BUY (range 0.953, lookback 3/5): limit order at midpoint 1344.3
+Wed 2019-06-19 16:37  pattern #384 pending order cancelled: price reached the target before filling
+Wed 2019-06-19 17:20  pattern #385 SELL (range 1.203, lookback 3/5): limit order at midpoint 1345.8
+Wed 2019-06-19 17:30  pattern #386 SELL (range 1.22, lookback 3/5): same direction, replaces pending #385
+Wed 2019-06-19 17:30  pattern #386 SELL (range 1.22, lookback 3/5): limit order at midpoint 1345.5
+Wed 2019-06-19 17:43  pattern #386 SELL filled by the limit at the midpoint at 1345.5
+Wed 2019-06-19 18:00  pattern #386 closed: stop (-1R) at 1346.1 (-1.00R before swaps)
+Wed 2019-06-19 23:20  pattern #387 SELL (range 0.79, lookback 3/5): limit order at midpoint 1359.2
+Thu 2019-06-20 00:03  pattern #387 SELL filled by the limit at the midpoint at 1359.2
+Thu 2019-06-20 00:03  pattern #387 closed: stop (-1R) at 1359.6 (-1.00R before swaps)
+Thu 2019-06-20 05:30  pattern #388 BUY (range 1.627, lookback 4/5): limit order at midpoint 1379.6
+Thu 2019-06-20 05:51  pattern #388 pending order cancelled: price reached the target before filling
+Thu 2019-06-20 11:10  pattern #389 BUY (range 1.927, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-06-20 13:30  pattern #390 SELL (range 3.353, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-06-20 15:35  pattern #391 SELL (range 1.5, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-06-20 23:00  pattern #392 SELL (range 0.61, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-06-21 09:05  pattern #393 SELL (range 2.313, lookback 3/5): limit order at midpoint 1388.6
+Fri 2019-06-21 09:19  pattern #393 SELL filled by the limit at the midpoint at 1388.6
+Fri 2019-06-21 09:43  pattern #393 reached +2R: stop moved to breakeven
+Fri 2019-06-21 09:50  pattern #393 closed: breakeven stop at 1388.6 (-0.00R before swaps)
+Fri 2019-06-21 11:20  pattern #394 SELL (range 2.48, lookback 3/5): limit order at midpoint 1394.9
+Fri 2019-06-21 11:32  pattern #394 SELL filled by the limit at the midpoint at 1394.9
+Fri 2019-06-21 11:33  pattern #394 closed: stop (-1R) at 1396.2 (-1.00R before swaps)
+Fri 2019-06-21 18:55  pattern #395 BUY (range 0.96, lookback 4/5): limit order at midpoint 1397.7
+Fri 2019-06-21 19:01  pattern #395 BUY filled by the limit at the midpoint at 1397.7
+Fri 2019-06-21 19:15  pattern #395 reached +2R: stop moved to breakeven
+Fri 2019-06-21 19:25  pattern #395 closed: target (+4R) at 1399.6 (+4.00R before swaps)
+Mon 2019-06-24 07:10  pattern #396 SELL (range 3, lookback 4/5): limit order at midpoint 1402.5
+Mon 2019-06-24 07:15  pattern #396 SELL filled by the limit at the midpoint at 1402.5
+Mon 2019-06-24 08:24  pattern #396 closed: stop (-1R) at 1404 (-1.00R before swaps)
+Mon 2019-06-24 11:45  pattern #397 BUY (range 2.06, lookback 5/5): limit order at midpoint 1409.6
+Mon 2019-06-24 11:52  pattern #397 BUY filled by the limit at the midpoint at 1409.6
+Mon 2019-06-24 12:00  pattern #397 closed: stop (-1R) at 1408.6 (-1.00R before swaps)
+Mon 2019-06-24 15:00  pattern #398 SELL (range 1.25, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-25 00:55  pattern #399 SELL (range 4.317, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-25 10:55  pattern #400 SELL (range 1.635, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-06-25 19:10  pattern #401 SELL (range 1.803, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-26 00:25  pattern #402 SELL (range 4.423, lookback 3/5): limit order at midpoint 1418.3
+Wed 2019-06-26 02:00  pattern #403 BUY (range 2.213, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-06-26 02:47  pattern #402 pending order cancelled: price reached the target before filling
+Wed 2019-06-26 22:35  pattern #404 SELL (range 0.97, lookback 5/5): limit order at midpoint 1407.6
+Wed 2019-06-26 22:37  pattern #404 SELL filled by the limit at the midpoint at 1407.6
+Wed 2019-06-26 22:39  pattern #404 closed: stop (-1R) at 1408.1 (-1.00R before swaps)
+Thu 2019-06-27 15:40  pattern #405 SELL (range 3.697, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-06-28 04:50  pattern #406 SELL (range 1.08, lookback 3/5): limit order at midpoint 1419.2
+Fri 2019-06-28 04:54  pattern #406 SELL filled by the limit at the midpoint at 1419.2
+Fri 2019-06-28 05:09  pattern #406 closed: stop (-1R) at 1419.7 (-1.00R before swaps)
+Fri 2019-06-28 16:15  pattern #407 BUY (range 2.073, lookback 3/5): limit order at midpoint 1412
+Fri 2019-06-28 16:27  pattern #407 BUY filled by the limit at the midpoint at 1412
+Fri 2019-06-28 16:32  pattern #407 closed: stop (-1R) at 1410.9 (-1.00R before swaps)
+Mon 2019-07-01 09:35  pattern #408 SELL (range 0.97, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-02 18:50  pattern #409 SELL (range 2.79, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-02 20:30  pattern #410 BUY (range 1.483, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-07-03 09:35  pattern #411 BUY (range 0.96, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-07-04 07:50  pattern #412 SELL (range 0.78, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-07-04 10:05  pattern #413 SELL (range 0.8, lookback 3/5): limit order at midpoint 1414.8
+Thu 2019-07-04 10:25  pattern #413 SELL filled by the limit at the midpoint at 1414.8
+Thu 2019-07-04 10:35  pattern #413 closed: stop (-1R) at 1415.2 (-1.00R before swaps)
+Fri 2019-07-05 02:10  pattern #414 BUY (range 1.4, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-07-05 09:30  pattern #415 BUY (range 1.233, lookback 3/5): limit order at midpoint 1414.2
+Fri 2019-07-05 09:34  pattern #415 BUY filled by the limit at the midpoint at 1414.2
+Fri 2019-07-05 10:39  pattern #415 closed: stop (-1R) at 1413.6 (-1.00R before swaps)
+Fri 2019-07-05 13:30  pattern #416 SELL (range 6.727, lookback 3/5): limit order at midpoint 1395.6
+Fri 2019-07-05 14:57  pattern #416 SELL filled by the limit at the midpoint at 1395.6
+Fri 2019-07-05 15:34  pattern #416 closed: stop (-1R) at 1399 (-1.00R before swaps)
+Fri 2019-07-05 18:05  pattern #417 SELL (range 1.51, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-07-08 15:45  pattern #418 SELL (range 1.727, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-09 16:00  pattern #419 BUY (range 1.393, lookback 3/5): limit order at midpoint 1397.2
+Tue 2019-07-09 16:00  pattern #419 BUY filled by the limit at the midpoint at 1397.2
+Tue 2019-07-09 16:04  pattern #419 closed: stop (-1R) at 1396.5 (-1.00R before swaps)
+Wed 2019-07-10 18:55  pattern #420 BUY (range 1.54, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-07-11 01:35  pattern #421 SELL (range 1.443, lookback 3/5): limit order at midpoint 1423.9
+Thu 2019-07-11 01:59  pattern #421 pending order cancelled: price reached the target before filling
+Thu 2019-07-11 16:45  pattern #422 SELL (range 2.057, lookback 4/5): limit order at midpoint 1409.9
+Thu 2019-07-11 16:45  pattern #422 SELL filled by the limit at the midpoint at 1409.9
+Thu 2019-07-11 16:50  pattern #422 closed: stop (-1R) at 1410.9 (-1.00R before swaps)
+Thu 2019-07-11 22:40  pattern #423 SELL (range 0.927, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-07-11 22:50  pattern #424 SELL (range 1.097, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-07-12 00:00  pattern #425 SELL (range 0.86, lookback 3/5): limit order at midpoint 1404
+Fri 2019-07-12 00:01  pattern #425 SELL filled by the limit at the midpoint at 1404
+Fri 2019-07-12 00:01  pattern #425 closed: stop (-1R) at 1404.5 (-1.00R before swaps)
+Fri 2019-07-12 01:35  pattern #426 BUY (range 1.707, lookback 4/5): limit order at midpoint 1408.2
+Fri 2019-07-12 03:31  pattern #426 BUY filled by the limit at the midpoint at 1408.2
+Fri 2019-07-12 03:50  pattern #426 closed: stop (-1R) at 1407.3 (-1.00R before swaps)
+Fri 2019-07-12 07:45  pattern #427 SELL (range 1.7, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-07-12 13:10  pattern #428 SELL (range 2.73, lookback 3/5): limit order at midpoint 1405.9
+Fri 2019-07-12 13:10  pattern #428 SELL filled by the limit at the midpoint at 1405.9
+Fri 2019-07-12 13:15  pattern #428 closed: stop (-1R) at 1407.2 (-1.00R before swaps)
+Fri 2019-07-12 17:45  pattern #429 BUY (range 1.09, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Sun 2019-07-14 00:00  pattern #430 BUY (range 1.85, lookback 1/5): ignored, formed in the Friday-to-Sunday window
+Sun 2019-07-14 23:05  pattern #431 SELL (range 1.17, lookback 3/5): limit order at midpoint 1417.4
+Sun 2019-07-14 23:06  pattern #431 pending order cancelled: price reached the target before filling
+Mon 2019-07-15 12:00  pattern #432 SELL (range 2.527, lookback 3/5): limit order at midpoint 1414.9
+Mon 2019-07-15 12:25  pattern #432 SELL filled by the limit at the midpoint at 1414.9
+Mon 2019-07-15 12:33  pattern #432 reached +2R: stop moved to breakeven
+Mon 2019-07-15 14:24  pattern #432 closed: target (+4R) at 1409.8 (+4.00R before swaps)
+Tue 2019-07-16 10:00  pattern #433 SELL (range 0.79, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-07-17 16:00  pattern #434 BUY (range 2.65, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-07-17 17:05  pattern #435 SELL (range 1.4, lookback 3/5): limit order at midpoint 1421.9
+Wed 2019-07-17 17:08  pattern #435 SELL filled by the limit at the midpoint at 1421.9
+Wed 2019-07-17 17:54  pattern #435 closed: stop (-1R) at 1422.6 (-1.00R before swaps)
+Thu 2019-07-18 09:30  pattern #436 SELL (range 1.317, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-07-18 10:25  pattern #437 BUY (range 1.47, lookback 4/5): limit order at midpoint 1420.6
+Thu 2019-07-18 10:30  pattern #437 BUY filled by the limit at the midpoint at 1420.6
+Thu 2019-07-18 10:40  pattern #437 closed: stop (-1R) at 1419.9 (-1.00R before swaps)
+Thu 2019-07-18 12:45  pattern #438 SELL (range 7.427, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-07-18 15:15  pattern #439 BUY (range 4.5, lookback 4/5): limit order at midpoint 1423.7
+Thu 2019-07-18 18:19  pattern #439 pending order cancelled: price reached the target before filling
+Fri 2019-07-19 20:55  pattern #440 SELL (range 1.1, lookback 3/5): ignored, formed in the Friday-to-Sunday window
+Mon 2019-07-22 11:50  pattern #441 BUY (range 0.96, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-07-22 16:05  pattern #442 SELL (range 1.1, lookback 3/5): limit order at midpoint 1426.3
+Mon 2019-07-22 16:37  pattern #442 SELL filled by the limit at the midpoint at 1426.3
+Mon 2019-07-22 16:43  pattern #442 closed: stop (-1R) at 1426.9 (-1.00R before swaps)
+Tue 2019-07-23 00:10  pattern #443 SELL (range 1.24, lookback 4/5): limit order at midpoint 1423.7
+Tue 2019-07-23 00:11  pattern #443 SELL filled by the limit at the midpoint at 1423.7
+Tue 2019-07-23 00:18  pattern #443 reached +2R: stop moved to breakeven
+Tue 2019-07-23 00:49  pattern #443 closed: target (+4R) at 1421.2 (+4.00R before swaps)
+Tue 2019-07-23 10:25  pattern #444 BUY (range 1.15, lookback 3/5): limit order at midpoint 1418.7
+Tue 2019-07-23 11:06  pattern #444 pending order cancelled: price reached the target before filling
+Tue 2019-07-23 12:55  pattern #445 BUY (range 3.187, lookback 3/5): limit order at midpoint 1425.3
+Tue 2019-07-23 13:01  pattern #445 BUY filled by the limit at the midpoint at 1425.3
+Tue 2019-07-23 13:14  pattern #445 closed: stop (-1R) at 1423.7 (-1.00R before swaps)
+Tue 2019-07-23 15:35  pattern #446 SELL (range 4.66, lookback 3/5): limit order at midpoint 1422.3
+Tue 2019-07-23 15:55  pattern #446 SELL filled by the limit at the midpoint at 1422.3
+Tue 2019-07-23 19:22  pattern #446 reached +2R: stop moved to breakeven
+Wed 2019-07-24 02:52  pattern #446 closed: breakeven stop at 1422.3 (-0.00R before swaps)
+Wed 2019-07-24 08:55  pattern #447 BUY (range 0.743, lookback 4/5): limit order at midpoint 1424
+Wed 2019-07-24 08:56  pattern #447 pending order cancelled: price reached the target before filling
+Wed 2019-07-24 10:05  pattern #448 SELL (range 0.95, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-07-24 12:20  pattern #449 BUY (range 2.11, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-07-24 17:05  pattern #450 SELL (range 2.083, lookback 3/5): limit order at midpoint 1421.7
+Wed 2019-07-24 17:18  pattern #450 SELL filled by the limit at the midpoint at 1421.7
+Wed 2019-07-24 17:22  pattern #450 closed: stop (-1R) at 1422.8 (-1.00R before swaps)
+Thu 2019-07-25 08:40  pattern #451 BUY (range 1.123, lookback 4/5): limit order at midpoint 1426.2
+Thu 2019-07-25 09:03  pattern #451 BUY filled by the limit at the midpoint at 1426.2
+Thu 2019-07-25 09:18  pattern #451 reached +2R: stop moved to breakeven
+Thu 2019-07-25 09:41  pattern #451 closed: breakeven stop at 1426.2 (+0.00R before swaps)
+Fri 2019-07-26 08:45  pattern #452 BUY (range 0.96, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-07-26 13:05  pattern #453 BUY (range 5.217, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-07-26 14:00  pattern #454 SELL (range 2.82, lookback 4/5): limit order at midpoint 1421.9
+Fri 2019-07-26 14:05  pattern #454 SELL filled by the limit at the midpoint at 1421.9
+Fri 2019-07-26 14:18  pattern #454 reached +2R: stop moved to breakeven
+Fri 2019-07-26 20:30  pattern #454 closed: Friday close at 1417.9 (+2.77R before swaps)
+Sun 2019-07-28 23:30  pattern #455 BUY (range 0.667, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-07-29 03:10  pattern #456 SELL (range 1.11, lookback 5/5): limit order at midpoint 1421.9
+Mon 2019-07-29 05:25  pattern #456 pending order cancelled: price reached the target before filling
+Mon 2019-07-29 13:00  pattern #457 SELL (range 1.23, lookback 3/5): limit order at midpoint 1420.2
+Mon 2019-07-29 13:02  pattern #457 SELL filled by the limit at the midpoint at 1420.2
+Mon 2019-07-29 13:08  pattern #457 closed: stop (-1R) at 1420.8 (-1.00R before swaps)
+Mon 2019-07-29 14:50  pattern #458 BUY (range 1.63, lookback 3/5): limit order at midpoint 1420.2
+Mon 2019-07-29 15:01  pattern #458 BUY filled by the limit at the midpoint at 1420.2
+Mon 2019-07-29 15:05  pattern #458 closed: stop (-1R) at 1419.4 (-1.00R before swaps)
+Mon 2019-07-29 19:00  pattern #459 BUY (range 2.98, lookback 3/5): limit order at midpoint 1423.8
+Mon 2019-07-29 19:50  pattern #460 SELL (range 1.59, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 01:08  pattern #459 BUY filled by the limit at the midpoint at 1423.8
+Tue 2019-07-30 01:32  pattern #459 closed: stop (-1R) at 1422.3 (-1.00R before swaps)
+Tue 2019-07-30 02:35  pattern #461 BUY (range 0.52, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 08:20  pattern #462 BUY (range 0.503, lookback 3/5): limit order at midpoint 1425.7
+Tue 2019-07-30 08:26  pattern #462 BUY filled by the limit at the midpoint at 1425.7
+Tue 2019-07-30 08:26  pattern #462 closed: stop (-1R) at 1425.5 (-1.00R before swaps)
+Tue 2019-07-30 10:40  pattern #463 SELL (range 1.49, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 10:50  pattern #464 SELL (range 1.237, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 11:00  pattern #465 SELL (range 1.44, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 12:15  pattern #466 SELL (range 2.163, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 13:50  pattern #467 SELL (range 2.957, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-07-30 18:55  pattern #468 BUY (range 0.843, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-07-31 04:15  pattern #469 SELL (range 0.41, lookback 3/5): limit order at midpoint 1428
+Wed 2019-07-31 04:18  pattern #469 SELL filled by the limit at the midpoint at 1428
+Wed 2019-07-31 04:18  pattern #469 closed: stop (-1R) at 1428.2 (-1.00R before swaps)
+Wed 2019-07-31 18:00  pattern #470 BUY (range 4.88, lookback 4/5): limit order at midpoint 1426.1
+Wed 2019-07-31 18:00  pattern #470 BUY filled by the limit at the midpoint at 1426.1
+Wed 2019-07-31 18:00  pattern #470 closed: stop (-1R) at 1423.7 (-1.00R before swaps)
+Fri 2019-08-02 14:10  pattern #471 BUY (range 5.443, lookback 4/5): limit order at midpoint 1440.6
+Fri 2019-08-02 17:00  pattern #472 BUY (range 1.183, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-08-02 17:15  pattern #473 SELL (range 2.117, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-08-02 17:25  pattern #474 SELL (range 1.8, lookback 3/5): opposite direction with a narrower range, ignored (keeps #471)
+Fri 2019-08-02 19:37  pattern #471 BUY filled by the limit at the midpoint at 1440.6
+Fri 2019-08-02 20:30  pattern #471 closed: Friday close at 1441.3 (+0.27R before swaps)
+Mon 2019-08-05 00:30  pattern #475 BUY (range 1.273, lookback 4/5): limit order at midpoint 1442.4
+Mon 2019-08-05 01:15  pattern #475 BUY filled by the limit at the midpoint at 1442.4
+Mon 2019-08-05 01:15  pattern #475 closed: stop (-1R) at 1441.8 (-1.00R before swaps)
+Mon 2019-08-05 03:45  pattern #476 SELL (range 1.93, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-08-05 12:40  pattern #477 BUY (range 3.59, lookback 3/5): limit order at midpoint 1461.8
+Mon 2019-08-05 12:42  pattern #477 BUY filled by the limit at the midpoint at 1461.8
+Mon 2019-08-05 13:00  pattern #477 reached +2R: stop moved to breakeven
+Mon 2019-08-05 13:02  pattern #477 closed: breakeven stop at 1461.8 (+0.00R before swaps)
+Mon 2019-08-05 13:25  pattern #478 SELL (range 2.86, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-08-05 23:45  pattern #479 BUY (range 1.683, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-06 01:30  pattern #480 SELL (range 7.097, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-06 16:45  pattern #481 SELL (range 1.633, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-07 00:10  pattern #482 BUY (range 3.177, lookback 4/5): limit order at midpoint 1477.3
+Wed 2019-08-07 01:00  pattern #482 BUY filled by the limit at the midpoint at 1477.3
+Wed 2019-08-07 01:00  pattern #482 closed: stop (-1R) at 1475.7 (-1.00R before swaps)
+Wed 2019-08-07 06:25  pattern #483 BUY (range 2.393, lookback 3/5): limit order at midpoint 1486
+Wed 2019-08-07 06:31  pattern #483 pending order cancelled: price reached the target before filling
+Wed 2019-08-07 08:40  pattern #484 SELL (range 2.24, lookback 3/5): limit order at midpoint 1486.7
+Wed 2019-08-07 08:43  pattern #484 SELL filled by the limit at the midpoint at 1486.7
+Wed 2019-08-07 09:18  pattern #484 closed: stop (-1R) at 1487.8 (-1.00R before swaps)
+Wed 2019-08-07 11:20  pattern #485 BUY (range 2.367, lookback 3/5): limit order at midpoint 1489.9
+Wed 2019-08-07 11:30  pattern #485 pending order cancelled: price reached the target before filling
+Wed 2019-08-07 14:15  pattern #486 SELL (range 11.15, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-07 16:00  pattern #487 SELL (range 3.477, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-07 20:40  pattern #488 BUY (range 3.19, lookback 3/5): limit order at midpoint 1499.7
+Wed 2019-08-07 20:50  pattern #488 BUY filled by the limit at the midpoint at 1499.7
+Wed 2019-08-07 22:13  pattern #488 closed: stop (-1R) at 1498.1 (-1.00R before swaps)
+Thu 2019-08-08 01:20  pattern #489 SELL (range 6.33, lookback 3/5): limit order at midpoint 1502.6
+Thu 2019-08-08 01:20  pattern #489 SELL filled by the limit at the midpoint at 1502.6
+Thu 2019-08-08 01:34  pattern #489 reached +2R: stop moved to breakeven
+Thu 2019-08-08 02:43  pattern #489 closed: breakeven stop at 1502.6 (-0.00R before swaps)
+Thu 2019-08-08 02:45  pattern #490 BUY (range 5.28, lookback 4/5): limit order at midpoint 1500.3
+Thu 2019-08-08 03:07  pattern #490 BUY filled by the limit at the midpoint at 1500.3
+Thu 2019-08-08 05:55  pattern #491 BUY (range 2.917, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-08 06:43  pattern #490 closed: stop (-1R) at 1497.6 (-1.00R before swaps)
+Thu 2019-08-08 09:15  pattern #492 BUY (range 1.293, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-08 09:25  pattern #493 BUY (range 0.96, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-08 19:45  pattern #494 SELL (range 2.88, lookback 4/5): limit order at midpoint 1503.8
+Thu 2019-08-08 19:55  pattern #495 SELL (range 1.583, lookback 4/5): same direction, replaces pending #494
+Thu 2019-08-08 19:55  pattern #495 SELL (range 1.583, lookback 4/5): limit order at midpoint 1503.1
+Thu 2019-08-08 19:58  pattern #495 SELL filled by the limit at the midpoint at 1503.1
+Thu 2019-08-08 19:58  pattern #495 closed: stop (-1R) at 1503.9 (-1.00R before swaps)
+Fri 2019-08-09 00:55  pattern #496 SELL (range 3.42, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-08-09 16:55  pattern #497 SELL (range 5.647, lookback 4/5): limit order at midpoint 1499.8
+Fri 2019-08-09 16:57  pattern #497 SELL filled by the limit at the midpoint at 1499.8
+Fri 2019-08-09 17:05  pattern #498 SELL (range 4.947, lookback 4/5): ignored, a trade is open
+Fri 2019-08-09 20:30  pattern #497 closed: Friday close at 1498.2 (+0.57R before swaps)
+Sun 2019-08-11 23:55  pattern #499 BUY (range 3.1, lookback 3/5): limit order at midpoint 1499.8
+Mon 2019-08-12 00:03  pattern #499 BUY filled by the limit at the midpoint at 1499.8
+Mon 2019-08-12 00:21  pattern #499 closed: stop (-1R) at 1498.3 (-1.00R before swaps)
+Tue 2019-08-13 00:15  pattern #500 SELL (range 1.25, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-13 08:25  pattern #501 SELL (range 2.383, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-13 15:15  pattern #502 SELL (range 5.687, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-13 16:25  pattern #503 SELL (range 2.53, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-13 16:50  pattern #504 BUY (range 2.25, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-13 20:25  pattern #505 SELL (range 1.67, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-14 00:35  pattern #506 BUY (range 1.703, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-14 03:30  pattern #507 BUY (range 1.49, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-14 05:35  pattern #508 BUY (range 3.01, lookback 3/5): limit order at midpoint 1499
+Wed 2019-08-14 06:00  pattern #509 BUY (range 1.223, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-14 06:27  pattern #508 BUY filled by the limit at the midpoint at 1499
+Wed 2019-08-14 06:27  pattern #508 closed: stop (-1R) at 1497.5 (-1.00R before swaps)
+Wed 2019-08-14 10:40  pattern #510 SELL (range 2.883, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-14 20:45  pattern #511 BUY (range 0.743, lookback 3/5): limit order at midpoint 1513.9
+Wed 2019-08-14 20:45  pattern #511 pending order cancelled: price reached the target before filling
+Thu 2019-08-15 13:15  pattern #512 BUY (range 3.05, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-15 18:10  pattern #513 SELL (range 4.433, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-08-16 02:35  pattern #514 SELL (range 1.917, lookback 3/5): limit order at midpoint 1521.7
+Fri 2019-08-16 02:41  pattern #514 SELL filled by the limit at the midpoint at 1521.7
+Fri 2019-08-16 02:43  pattern #514 reached +2R: stop moved to breakeven
+Fri 2019-08-16 02:45  pattern #515 SELL (range 3.827, lookback 3/5): ignored, a trade is open
+Fri 2019-08-16 02:54  pattern #514 closed: target (+4R) at 1517.9 (+4.00R before swaps)
+Fri 2019-08-16 05:20  pattern #516 SELL (range 1.397, lookback 3/5): limit order at midpoint 1521.5
+Fri 2019-08-16 05:34  pattern #516 pending order cancelled: price reached the target before filling
+Fri 2019-08-16 08:35  pattern #517 SELL (range 2.43, lookback 4/5): limit order at midpoint 1513
+Fri 2019-08-16 08:35  pattern #517 SELL filled by the limit at the midpoint at 1513
+Fri 2019-08-16 08:44  pattern #517 reached +2R: stop moved to breakeven
+Fri 2019-08-16 08:45  pattern #518 SELL (range 3.93, lookback 4/5): ignored, a trade is open
+Fri 2019-08-16 09:10  pattern #517 closed: target (+4R) at 1508.1 (+4.00R before swaps)
+Mon 2019-08-19 01:25  pattern #519 SELL (range 3.213, lookback 3/5): limit order at midpoint 1507
+Mon 2019-08-19 01:37  pattern #519 SELL filled by the limit at the midpoint at 1507
+Mon 2019-08-19 01:57  pattern #519 closed: stop (-1R) at 1508.6 (-1.00R before swaps)
+Mon 2019-08-19 20:40  pattern #520 BUY (range 0.487, lookback 4/5): limit order at midpoint 1495.9
+Mon 2019-08-19 20:54  pattern #520 BUY filled by the limit at the midpoint at 1495.9
+Mon 2019-08-19 20:55  pattern #520 closed: stop (-1R) at 1495.6 (-1.00R before swaps)
+Mon 2019-08-19 23:50  pattern #521 SELL (range 1.51, lookback 3/5): limit order at midpoint 1495.1
+Mon 2019-08-19 23:52  pattern #521 SELL filled by the limit at the midpoint at 1495.1
+Mon 2019-08-19 23:56  pattern #521 closed: stop (-1R) at 1495.8 (-1.00R before swaps)
+Tue 2019-08-20 01:25  pattern #522 SELL (range 1.673, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-20 03:25  pattern #523 BUY (range 1.13, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-20 14:20  pattern #524 SELL (range 2.723, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-20 14:50  pattern #525 SELL (range 2.54, lookback 3/5): limit order at midpoint 1503.4
+Tue 2019-08-20 15:36  pattern #525 SELL filled by the limit at the midpoint at 1503.4
+Tue 2019-08-20 16:05  pattern #526 BUY (range 1.183, lookback 3/5): ignored, a trade is open
+Tue 2019-08-20 16:09  pattern #525 closed: stop (-1R) at 1504.7 (-1.00R before swaps)
+Wed 2019-08-21 00:20  pattern #527 BUY (range 1.04, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-21 18:15  pattern #528 BUY (range 6.72, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-22 00:00  pattern #529 BUY (range 0.6, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-22 02:40  pattern #530 SELL (range 1.06, lookback 4/5): limit order at midpoint 1502
+Thu 2019-08-22 02:50  pattern #530 SELL filled by the limit at the midpoint at 1502
+Thu 2019-08-22 04:07  pattern #530 reached +2R: stop moved to breakeven
+Thu 2019-08-22 04:46  pattern #530 closed: target (+4R) at 1499.8 (+4.00R before swaps)
+Thu 2019-08-22 08:30  pattern #531 BUY (range 0.74, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-22 08:55  pattern #532 SELL (range 1.333, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-08-22 19:30  pattern #533 SELL (range 0.93, lookback 3/5): limit order at midpoint 1499
+Thu 2019-08-22 19:56  pattern #533 SELL filled by the limit at the midpoint at 1499
+Thu 2019-08-22 19:58  pattern #533 closed: stop (-1R) at 1499.5 (-1.00R before swaps)
+Thu 2019-08-22 20:25  pattern #534 SELL (range 0.547, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-08-23 11:45  pattern #535 BUY (range 0.88, lookback 4/5): limit order at midpoint 1496.1
+Fri 2019-08-23 11:55  pattern #536 BUY (range 0.777, lookback 4/5): same direction, replaces pending #535
+Fri 2019-08-23 11:55  pattern #536 BUY (range 0.777, lookback 4/5): limit order at midpoint 1496.2
+Fri 2019-08-23 11:59  pattern #536 BUY filled by the limit at the midpoint at 1496.2
+Fri 2019-08-23 11:59  pattern #536 closed: stop (-1R) at 1495.8 (-1.00R before swaps)
+Fri 2019-08-23 12:05  pattern #537 BUY (range 5.64, lookback 3/5): limit order at midpoint 1498.4
+Fri 2019-08-23 14:25  pattern #537 pending order cancelled: price reached the target before filling
+Fri 2019-08-23 19:40  pattern #538 BUY (range 1.093, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-08-26 16:00  pattern #539 BUY (range 2.747, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-08-26 20:10  pattern #540 BUY (range 1.31, lookback 4/5): limit order at midpoint 1528.5
+Mon 2019-08-26 20:33  pattern #540 BUY filled by the limit at the midpoint at 1528.5
+Mon 2019-08-26 20:45  pattern #540 closed: stop (-1R) at 1527.9 (-1.00R before swaps)
+Tue 2019-08-27 01:05  pattern #541 SELL filled at market (price already past the midpoint) at 1527.6
+Tue 2019-08-27 01:10  pattern #541 closed: stop (-1R) at 1529.2 (-1.00R before swaps)
+Tue 2019-08-27 08:40  pattern #542 BUY (range 0.98, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-08-27 10:30  pattern #543 BUY (range 1.44, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-28 04:30  pattern #544 BUY (range 0.45, lookback 3/5): limit order at midpoint 1535.7
+Wed 2019-08-28 04:33  pattern #544 BUY filled by the limit at the midpoint at 1535.7
+Wed 2019-08-28 04:33  pattern #544 closed: stop (-1R) at 1535.5 (-1.00R before swaps)
+Wed 2019-08-28 09:35  pattern #545 BUY (range 1.95, lookback 4/5): limit order at midpoint 1540.9
+Wed 2019-08-28 11:23  pattern #545 pending order cancelled: price reached the target before filling
+Wed 2019-08-28 19:50  pattern #546 SELL (range 2.163, lookback 4/5): limit order at midpoint 1539.3
+Wed 2019-08-28 19:52  pattern #546 SELL filled by the limit at the midpoint at 1539.3
+Wed 2019-08-28 20:45  pattern #547 BUY (range 0.44, lookback 3/5): ignored, a trade is open
+Wed 2019-08-28 20:52  pattern #546 closed: stop (-1R) at 1540.4 (-1.00R before swaps)
+Wed 2019-08-28 22:40  pattern #548 SELL (range 0.98, lookback 3/5): limit order at midpoint 1538.5
+Wed 2019-08-28 22:50  pattern #549 SELL (range 0.663, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-08-28 23:08  pattern #548 SELL filled by the limit at the midpoint at 1538.5
+Wed 2019-08-28 23:11  pattern #548 closed: stop (-1R) at 1538.9 (-1.00R before swaps)
+Thu 2019-08-29 15:15  pattern #550 SELL (range 3.88, lookback 3/5): limit order at midpoint 1537.7
+Thu 2019-08-29 15:16  pattern #550 SELL filled by the limit at the midpoint at 1537.7
+Thu 2019-08-29 16:24  pattern #550 reached +2R: stop moved to breakeven
+Thu 2019-08-29 16:42  pattern #550 closed: target (+4R) at 1530 (+4.00R before swaps)
+Thu 2019-08-29 18:35  pattern #551 SELL (range 4.337, lookback 4/5): limit order at midpoint 1521.8
+Thu 2019-08-29 18:36  pattern #551 SELL filled by the limit at the midpoint at 1521.8
+Thu 2019-08-29 19:21  pattern #551 closed: stop (-1R) at 1523.9 (-1.00R before swaps)
+Fri 2019-08-30 06:40  pattern #552 SELL (range 3.32, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-08-30 16:00  pattern #553 SELL (range 1.59, lookback 3/5): limit order at midpoint 1527.9
+Fri 2019-08-30 16:02  pattern #553 SELL filled by the limit at the midpoint at 1527.9
+Fri 2019-08-30 16:10  pattern #554 SELL (range 2.11, lookback 4/5): ignored, a trade is open
+Fri 2019-08-30 16:19  pattern #553 reached +2R: stop moved to breakeven
+Fri 2019-08-30 16:24  pattern #553 closed: target (+4R) at 1524.7 (+4.00R before swaps)
+Fri 2019-08-30 17:10  pattern #555 SELL (range 3.303, lookback 5/5): limit order at midpoint 1523
+Fri 2019-08-30 17:18  pattern #555 SELL filled by the limit at the midpoint at 1523
+Fri 2019-08-30 17:31  pattern #555 reached +2R: stop moved to breakeven
+Fri 2019-08-30 18:37  pattern #555 closed: breakeven stop at 1523 (-0.00R before swaps)
+Mon 2019-09-02 05:10  pattern #556 SELL (range 1.06, lookback 3/5): limit order at midpoint 1525.3
+Mon 2019-09-02 05:28  pattern #556 SELL filled by the limit at the midpoint at 1525.3
+Mon 2019-09-02 05:55  pattern #556 reached +2R: stop moved to breakeven
+Mon 2019-09-02 06:35  pattern #556 closed: target (+4R) at 1523.2 (+4.00R before swaps)
+Mon 2019-09-02 11:25  pattern #557 SELL (range 0.64, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-03 06:05  pattern #558 BUY (range 3.33, lookback 5/5): limit order at midpoint 1526.2
+Tue 2019-09-03 06:07  pattern #558 BUY filled by the limit at the midpoint at 1526.2
+Tue 2019-09-03 06:37  pattern #558 closed: stop (-1R) at 1524.5 (-1.00R before swaps)
+Tue 2019-09-03 07:15  pattern #559 BUY (range 2.45, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-03 08:45  pattern #560 BUY (range 1.867, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-03 15:15  pattern #561 BUY (range 5.427, lookback 3/5): limit order at midpoint 1546.5
+Tue 2019-09-03 15:28  pattern #561 BUY filled by the limit at the midpoint at 1546.5
+Tue 2019-09-03 16:36  pattern #561 closed: stop (-1R) at 1543.8 (-1.00R before swaps)
+Tue 2019-09-03 16:40  pattern #562 SELL (range 2.427, lookback 3/5): limit order at midpoint 1544.8
+Tue 2019-09-03 16:52  pattern #562 SELL filled by the limit at the midpoint at 1544.8
+Tue 2019-09-03 16:58  pattern #562 closed: stop (-1R) at 1546.1 (-1.00R before swaps)
+Wed 2019-09-04 06:45  pattern #563 BUY (range 2.47, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-04 12:50  pattern #564 BUY (range 1.825, lookback 4/5): limit order at midpoint 1538.7
+Wed 2019-09-04 13:00  pattern #564 pending order cancelled: price reached the target before filling
+Wed 2019-09-04 17:10  pattern #565 BUY (range 1.403, lookback 3/5): limit order at midpoint 1547.6
+Wed 2019-09-04 17:15  pattern #565 pending order cancelled: price reached the target before filling
+Thu 2019-09-05 00:35  pattern #566 BUY (range 1.467, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-09-05 05:00  pattern #567 SELL (range 0.68, lookback 4/5): limit order at midpoint 1544.6
+Thu 2019-09-05 05:01  pattern #567 SELL filled by the limit at the midpoint at 1544.6
+Thu 2019-09-05 05:02  pattern #567 closed: stop (-1R) at 1544.9 (-1.00R before swaps)
+Thu 2019-09-05 11:05  pattern #568 BUY (range 2.02, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-09-05 12:00  pattern #569 BUY (range 1.28, lookback 3/5): limit order at midpoint 1542.5
+Thu 2019-09-05 12:15  pattern #569 BUY filled by the limit at the midpoint at 1542.5
+Thu 2019-09-05 12:15  pattern #569 closed: stop (-1R) at 1541.9 (-1.00R before swaps)
+Thu 2019-09-05 18:20  pattern #570 SELL (range 1.723, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-06 14:25  pattern #571 SELL (range 7.623, lookback 4/5): limit order at midpoint 1521.2
+Fri 2019-09-06 14:37  pattern #571 SELL filled by the limit at the midpoint at 1521.2
+Fri 2019-09-06 16:47  pattern #571 reached +2R: stop moved to breakeven
+Fri 2019-09-06 16:56  pattern #571 closed: breakeven stop at 1521.2 (-0.00R before swaps)
+Fri 2019-09-06 20:00  pattern #572 SELL (range 2.687, lookback 3/5): limit order at midpoint 1506.3
+Fri 2019-09-06 20:26  pattern #572 SELL filled by the limit at the midpoint at 1506.3
+Fri 2019-09-06 20:30  pattern #572 closed: Friday close at 1506.7 (-0.29R before swaps)
+Mon 2019-09-09 02:10  pattern #573 SELL (range 2.95, lookback 3/5): limit order at midpoint 1511
+Mon 2019-09-09 05:47  pattern #573 SELL filled by the limit at the midpoint at 1511
+Mon 2019-09-09 06:35  pattern #573 reached +2R: stop moved to breakeven
+Mon 2019-09-09 07:58  pattern #573 closed: target (+4R) at 1505.1 (+4.00R before swaps)
+Mon 2019-09-09 16:55  pattern #574 SELL (range 3.55, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-09 17:05  pattern #575 SELL (range 2.49, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-09 18:35  pattern #576 SELL (range 2.66, lookback 3/5): limit order at midpoint 1502.1
+Mon 2019-09-09 20:10  pattern #577 SELL (range 1.09, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-09 23:18  pattern #576 pending order cancelled: price reached the target before filling
+Tue 2019-09-10 09:05  pattern #578 SELL (range 3.177, lookback 3/5): limit order at midpoint 1494.3
+Tue 2019-09-10 09:25  pattern #578 SELL filled by the limit at the midpoint at 1494.3
+Tue 2019-09-10 09:43  pattern #578 closed: stop (-1R) at 1495.9 (-1.00R before swaps)
+Tue 2019-09-10 12:30  pattern #579 BUY (range 3.977, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-11 00:50  pattern #580 BUY (range 1.15, lookback 3/5): limit order at midpoint 1488.5
+Wed 2019-09-11 00:55  pattern #580 BUY filled by the limit at the midpoint at 1488.5
+Wed 2019-09-11 00:55  pattern #580 closed: stop (-1R) at 1487.9 (-1.00R before swaps)
+Wed 2019-09-11 07:25  pattern #581 SELL (range 1.927, lookback 3/5): limit order at midpoint 1492.7
+Wed 2019-09-11 08:55  pattern #581 SELL filled by the limit at the midpoint at 1492.7
+Wed 2019-09-11 08:55  pattern #581 closed: stop (-1R) at 1493.6 (-1.00R before swaps)
+Wed 2019-09-11 09:50  pattern #582 SELL (range 1.1, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-11 19:15  pattern #583 BUY (range 1.05, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-11 22:40  pattern #584 BUY (range 1.607, lookback 3/5): limit order at midpoint 1495.9
+Wed 2019-09-11 23:19  pattern #584 BUY filled by the limit at the midpoint at 1495.9
+Wed 2019-09-11 23:22  pattern #584 closed: stop (-1R) at 1495.1 (-1.00R before swaps)
+Thu 2019-09-12 07:20  pattern #585 BUY (range 2.8, lookback 4/5): limit order at midpoint 1501.6
+Thu 2019-09-12 07:25  pattern #585 BUY filled by the limit at the midpoint at 1501.6
+Thu 2019-09-12 08:19  pattern #585 reached +2R: stop moved to breakeven
+Thu 2019-09-12 08:40  pattern #586 BUY (range 2.333, lookback 4/5): ignored, a trade is open
+Thu 2019-09-12 10:30  pattern #587 SELL (range 1.02, lookback 4/5): ignored, a trade is open
+Thu 2019-09-12 11:09  pattern #585 closed: breakeven stop at 1501.6 (+0.00R before swaps)
+Thu 2019-09-12 17:10  pattern #588 BUY (range 3.717, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-13 00:30  pattern #589 SELL (range 1.597, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-13 00:55  pattern #590 BUY (range 2.227, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-13 01:45  pattern #591 SELL (range 1.767, lookback 4/5): limit order at midpoint 1496.4
+Fri 2019-09-13 01:50  pattern #591 SELL filled by the limit at the midpoint at 1496.4
+Fri 2019-09-13 02:13  pattern #591 closed: stop (-1R) at 1497.3 (-1.00R before swaps)
+Fri 2019-09-13 05:15  pattern #592 SELL (range 1.083, lookback 3/5): limit order at midpoint 1497.4
+Fri 2019-09-13 05:25  pattern #592 SELL filled by the limit at the midpoint at 1497.4
+Fri 2019-09-13 05:28  pattern #592 closed: stop (-1R) at 1497.9 (-1.00R before swaps)
+Mon 2019-09-16 00:15  pattern #593 BUY (range 3.02, lookback 4/5): limit order at midpoint 1507.3
+Mon 2019-09-16 00:49  pattern #593 BUY filled by the limit at the midpoint at 1507.3
+Mon 2019-09-16 00:57  pattern #593 closed: stop (-1R) at 1505.7 (-1.00R before swaps)
+Mon 2019-09-16 07:40  pattern #594 SELL (range 2.22, lookback 3/5): limit order at midpoint 1503.8
+Mon 2019-09-16 07:44  pattern #594 SELL filled by the limit at the midpoint at 1503.8
+Mon 2019-09-16 08:40  pattern #594 reached +2R: stop moved to breakeven
+Mon 2019-09-16 08:47  pattern #594 closed: target (+4R) at 1499.4 (+4.00R before swaps)
+Mon 2019-09-16 09:45  pattern #595 BUY (range 1.583, lookback 3/5): limit order at midpoint 1502.8
+Mon 2019-09-16 10:39  pattern #595 BUY filled by the limit at the midpoint at 1502.8
+Mon 2019-09-16 11:16  pattern #595 reached +2R: stop moved to breakeven
+Mon 2019-09-16 12:10  pattern #596 SELL (range 1.293, lookback 3/5): ignored, a trade is open
+Mon 2019-09-16 12:33  pattern #595 closed: breakeven stop at 1502.8 (+0.00R before swaps)
+Mon 2019-09-16 22:20  pattern #597 BUY (range 1.47, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-16 22:30  pattern #598 BUY (range 0.96, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-17 11:50  pattern #599 SELL (range 1.48, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-17 14:05  pattern #600 BUY (range 4.5, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-18 07:05  pattern #601 BUY (range 0.68, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-18 12:05  pattern #602 BUY (range 1.56, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-18 12:15  pattern #603 BUY (range 1.2, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-18 18:35  pattern #604 BUY (range 6.23, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-18 22:35  pattern #605 BUY (range 1.187, lookback 4/5): limit order at midpoint 1493.3
+Wed 2019-09-18 22:44  pattern #605 BUY filled by the limit at the midpoint at 1493.3
+Wed 2019-09-18 23:03  pattern #605 closed: stop (-1R) at 1492.7 (-1.00R before swaps)
+Wed 2019-09-18 23:50  pattern #606 BUY (range 1.667, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-09-19 00:50  pattern #607 SELL (range 1.93, lookback 3/5): limit order at midpoint 1490
+Thu 2019-09-19 00:52  pattern #607 SELL filled by the limit at the midpoint at 1490
+Thu 2019-09-19 01:04  pattern #607 closed: stop (-1R) at 1490.9 (-1.00R before swaps)
+Thu 2019-09-19 10:00  pattern #608 SELL (range 1.043, lookback 3/5): limit order at midpoint 1496.9
+Thu 2019-09-19 10:00  pattern #608 SELL filled by the limit at the midpoint at 1496.9
+Thu 2019-09-19 10:11  pattern #608 reached +2R: stop moved to breakeven
+Thu 2019-09-19 10:34  pattern #608 closed: breakeven stop at 1496.9 (-0.00R before swaps)
+Thu 2019-09-19 19:40  pattern #609 SELL (range 1.67, lookback 5/5): limit order at midpoint 1498
+Thu 2019-09-19 19:44  pattern #609 SELL filled by the limit at the midpoint at 1498
+Thu 2019-09-19 19:59  pattern #609 closed: stop (-1R) at 1498.8 (-1.00R before swaps)
+Thu 2019-09-19 23:15  pattern #610 BUY (range 0.465, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-20 03:50  pattern #611 SELL (range 0.66, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-20 04:55  pattern #612 SELL (range 0.613, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-20 06:55  pattern #613 SELL (range 1.37, lookback 3/5): limit order at midpoint 1504.8
+Fri 2019-09-20 07:15  pattern #613 SELL filled by the limit at the midpoint at 1504.8
+Fri 2019-09-20 07:16  pattern #613 closed: stop (-1R) at 1505.5 (-1.00R before swaps)
+Mon 2019-09-23 01:00  pattern #614 SELL (range 0.51, lookback 3/5): limit order at midpoint 1514.2
+Mon 2019-09-23 01:00  pattern #614 pending order cancelled: price reached the target before filling
+Mon 2019-09-23 02:30  pattern #615 SELL (range 1.705, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-23 05:05  pattern #616 BUY (range 1.1, lookback 3/5): limit order at midpoint 1515.4
+Mon 2019-09-23 05:15  pattern #616 BUY filled by the limit at the midpoint at 1515.4
+Mon 2019-09-23 05:26  pattern #616 closed: stop (-1R) at 1514.8 (-1.00R before swaps)
+Mon 2019-09-23 13:25  pattern #617 SELL (range 4.677, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-23 15:55  pattern #618 BUY (range 1.6, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-23 19:30  pattern #619 BUY (range 0.823, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-24 00:35  pattern #620 SELL (range 1.41, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-24 00:55  pattern #621 BUY (range 0.98, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-24 02:45  pattern #622 BUY (range 0.78, lookback 3/5): limit order at midpoint 1520.6
+Tue 2019-09-24 03:30  pattern #623 SELL (range 0.503, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-09-24 04:50  pattern #622 BUY filled by the limit at the midpoint at 1520.6
+Tue 2019-09-24 04:50  pattern #622 closed: stop (-1R) at 1520.2 (-1.00R before swaps)
+Wed 2019-09-25 04:10  pattern #624 BUY (range 0.7, lookback 3/5): limit order at midpoint 1529.7
+Wed 2019-09-25 04:20  pattern #625 BUY (range 0.6, lookback 3/5): same direction, replaces pending #624
+Wed 2019-09-25 04:20  pattern #625 BUY (range 0.6, lookback 3/5): limit order at midpoint 1529.9
+Wed 2019-09-25 04:23  pattern #625 BUY filled by the limit at the midpoint at 1529.9
+Wed 2019-09-25 04:24  pattern #625 closed: stop (-1R) at 1529.6 (-1.00R before swaps)
+Wed 2019-09-25 04:35  pattern #626 SELL (range 0.91, lookback 3/5): limit order at midpoint 1529.8
+Wed 2019-09-25 05:15  pattern #626 pending order cancelled: price reached the target before filling
+Wed 2019-09-25 11:10  pattern #627 BUY (range 1.053, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-09-25 20:00  pattern #628 SELL (range 1.887, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-09-26 04:55  pattern #629 BUY (range 0.45, lookback 3/5): limit order at midpoint 1509.1
+Thu 2019-09-26 05:00  pattern #629 pending order cancelled: price reached the target before filling
+Thu 2019-09-26 08:45  pattern #630 SELL (range 2.147, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-09-26 17:00  pattern #631 SELL (range 1.377, lookback 4/5): limit order at midpoint 1506.6
+Thu 2019-09-26 17:15  pattern #631 SELL filled by the limit at the midpoint at 1506.6
+Thu 2019-09-26 17:19  pattern #631 closed: stop (-1R) at 1507.2 (-1.00R before swaps)
+Thu 2019-09-26 20:35  pattern #632 BUY (range 0.69, lookback 4/5): limit order at midpoint 1505.2
+Thu 2019-09-26 20:43  pattern #632 BUY filled by the limit at the midpoint at 1505.2
+Thu 2019-09-26 20:48  pattern #632 closed: stop (-1R) at 1504.9 (-1.00R before swaps)
+Fri 2019-09-27 06:10  pattern #633 SELL (range 1.437, lookback 4/5): limit order at midpoint 1504.6
+Fri 2019-09-27 06:24  pattern #633 SELL filled by the limit at the midpoint at 1504.6
+Fri 2019-09-27 06:32  pattern #633 reached +2R: stop moved to breakeven
+Fri 2019-09-27 06:35  pattern #633 closed: target (+4R) at 1501.7 (+4.00R before swaps)
+Fri 2019-09-27 14:30  pattern #634 SELL (range 3.59, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-09-27 14:40  pattern #635 SELL (range 3.403, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Sun 2019-09-29 23:45  pattern #636 BUY (range 0.75, lookback 3/5): limit order at midpoint 1497.5
+Sun 2019-09-29 23:46  pattern #636 BUY filled by the limit at the midpoint at 1497.5
+Sun 2019-09-29 23:54  pattern #636 closed: stop (-1R) at 1497.1 (-1.00R before swaps)
+Mon 2019-09-30 00:26  pattern #637 BUY (range 0.92, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-30 03:45  pattern #638 BUY (range 0.76, lookback 3/5): limit order at midpoint 1492.1
+Mon 2019-09-30 03:47  pattern #638 BUY filled by the limit at the midpoint at 1492.1
+Mon 2019-09-30 04:00  pattern #639 SELL (range 0.727, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-09-30 04:00  pattern #638 closed: stop (-1R) at 1491.7 (-1.00R before swaps)
+Mon 2019-09-30 09:35  pattern #640 BUY (range 2.213, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-01 14:25  pattern #641 BUY (range 5.96, lookback 4/5): limit order at midpoint 1475.6
+Tue 2019-10-01 14:35  pattern #642 BUY (range 3.55, lookback 4/5): same direction, replaces pending #641
+Tue 2019-10-01 14:35  pattern #642 BUY (range 3.55, lookback 4/5): limit order at midpoint 1476.8
+Tue 2019-10-01 15:00  pattern #643 BUY (range 4.28, lookback 3/5): same direction, replaces pending #642
+Tue 2019-10-01 15:00  pattern #643 BUY (range 4.28, lookback 3/5): limit order at midpoint 1481.5
+Tue 2019-10-01 16:46  pattern #643 BUY filled by the limit at the midpoint at 1481.5
+Tue 2019-10-01 18:15  pattern #644 SELL (range 2.95, lookback 3/5): ignored, a trade is open
+Tue 2019-10-01 18:25  pattern #645 SELL (range 2.36, lookback 3/5): ignored, a trade is open
+Tue 2019-10-01 18:32  pattern #643 closed: stop (-1R) at 1479.3 (-1.00R before swaps)
+Tue 2019-10-01 20:25  pattern #646 BUY (range 0.95, lookback 3/5): limit order at midpoint 1480.3
+Tue 2019-10-01 20:45  pattern #646 BUY filled by the limit at the midpoint at 1480.3
+Tue 2019-10-01 20:48  pattern #646 closed: stop (-1R) at 1479.8 (-1.00R before swaps)
+Wed 2019-10-02 00:25  pattern #647 BUY (range 1.497, lookback 3/5): limit order at midpoint 1480.8
+Wed 2019-10-02 00:27  pattern #647 BUY filled by the limit at the midpoint at 1480.8
+Wed 2019-10-02 01:00  pattern #647 closed: stop (-1R) at 1480 (-1.00R before swaps)
+Wed 2019-10-02 16:15  pattern #648 BUY (range 2.927, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-10-02 17:25  pattern #649 BUY (range 3.033, lookback 3/5): limit order at midpoint 1501.3
+Wed 2019-10-02 17:55  pattern #650 SELL (range 2.163, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-10-02 18:15  pattern #649 BUY filled by the limit at the midpoint at 1501.3
+Wed 2019-10-02 18:37  pattern #649 closed: stop (-1R) at 1499.8 (-1.00R before swaps)
+Thu 2019-10-03 08:40  pattern #651 BUY (range 2.297, lookback 3/5): limit order at midpoint 1498.8
+Thu 2019-10-03 08:50  pattern #651 pending order cancelled: price reached the target before filling
+Thu 2019-10-03 23:45  pattern #652 BUY (range 0.97, lookback 4/5): limit order at midpoint 1507.1
+Fri 2019-10-04 01:05  pattern #652 BUY filled by the limit at the midpoint at 1507.1
+Fri 2019-10-04 01:27  pattern #652 reached +2R: stop moved to breakeven
+Fri 2019-10-04 02:10  pattern #652 closed: target (+4R) at 1509.1 (+4.00R before swaps)
+Fri 2019-10-04 03:15  pattern #653 SELL (range 0.837, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-04 03:25  pattern #654 SELL (range 0.71, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-04 19:50  pattern #655 SELL (range 1.193, lookback 3/5): limit order at midpoint 1504.9
+Fri 2019-10-04 19:57  pattern #655 SELL filled by the limit at the midpoint at 1504.9
+Fri 2019-10-04 19:59  pattern #655 closed: stop (-1R) at 1505.5 (-1.00R before swaps)
+Mon 2019-10-07 06:45  pattern #656 BUY (range 1.153, lookback 4/5): limit order at midpoint 1506.3
+Mon 2019-10-07 06:46  pattern #656 BUY filled by the limit at the midpoint at 1506.3
+Mon 2019-10-07 06:48  pattern #656 closed: stop (-1R) at 1505.7 (-1.00R before swaps)
+Tue 2019-10-08 20:00  pattern #657 BUY (range 2.05, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-08 22:35  pattern #658 BUY (range 0.827, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-10-09 03:45  pattern #659 BUY (range 0.513, lookback 3/5): limit order at midpoint 1505.6
+Wed 2019-10-09 04:00  pattern #659 BUY filled by the limit at the midpoint at 1505.6
+Wed 2019-10-09 04:33  pattern #659 reached +2R: stop moved to breakeven
+Wed 2019-10-09 05:13  pattern #659 closed: breakeven stop at 1505.6 (+0.00R before swaps)
+Wed 2019-10-09 13:15  pattern #660 BUY (range 3.63, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-10-09 16:25  pattern #661 SELL (range 1.07, lookback 3/5): limit order at midpoint 1506.6
+Wed 2019-10-09 16:25  pattern #661 SELL filled by the limit at the midpoint at 1506.6
+Wed 2019-10-09 16:49  pattern #661 closed: target (+4R) at 1504.5 (+4.00R before swaps)
+Wed 2019-10-09 19:25  pattern #662 BUY (range 1.217, lookback 3/5): limit order at midpoint 1508.2
+Wed 2019-10-09 19:25  pattern #662 BUY filled by the limit at the midpoint at 1508.2
+Wed 2019-10-09 19:31  pattern #662 closed: stop (-1R) at 1507.6 (-1.00R before swaps)
+Thu 2019-10-10 03:45  pattern #663 SELL (range 0.58, lookback 3/5): limit order at midpoint 1509.2
+Thu 2019-10-10 05:09  pattern #663 pending order cancelled: price reached the target before filling
+Fri 2019-10-11 01:25  pattern #664 BUY (range 2.45, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-11 07:15  pattern #665 BUY (range 2.57, lookback 3/5): limit order at midpoint 1499.9
+Fri 2019-10-11 08:29  pattern #665 BUY filled by the limit at the midpoint at 1499.9
+Fri 2019-10-11 08:33  pattern #665 closed: stop (-1R) at 1498.6 (-1.00R before swaps)
+Fri 2019-10-11 14:50  pattern #666 BUY (range 2.653, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-11 17:00  pattern #667 BUY (range 2.907, lookback 3/5): limit order at midpoint 1483.9
+Fri 2019-10-11 17:26  pattern #667 BUY filled by the limit at the midpoint at 1483.9
+Fri 2019-10-11 17:26  pattern #667 closed: stop (-1R) at 1482.4 (-1.00R before swaps)
+Mon 2019-10-14 08:20  pattern #668 BUY (range 0.88, lookback 5/5): limit order at midpoint 1490.1
+Mon 2019-10-14 08:20  pattern #668 BUY filled by the limit at the midpoint at 1490.1
+Mon 2019-10-14 08:30  pattern #668 closed: stop (-1R) at 1489.6 (-1.00R before swaps)
+Mon 2019-10-14 10:25  pattern #669 BUY (range 1.213, lookback 4/5): limit order at midpoint 1494.9
+Mon 2019-10-14 10:45  pattern #669 BUY filled by the limit at the midpoint at 1494.9
+Mon 2019-10-14 10:54  pattern #669 closed: stop (-1R) at 1494.3 (-1.00R before swaps)
+Mon 2019-10-14 14:40  pattern #670 BUY (range 1.59, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-15 19:10  pattern #671 BUY (range 1.757, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-15 19:25  pattern #672 SELL (range 1, lookback 4/5): limit order at midpoint 1481.2
+Tue 2019-10-15 19:28  pattern #672 SELL filled by the limit at the midpoint at 1481.2
+Tue 2019-10-15 19:49  pattern #672 closed: stop (-1R) at 1481.7 (-1.00R before swaps)
+Tue 2019-10-15 19:50  pattern #673 BUY (range 1.38, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-15 22:00  pattern #674 SELL (range 0.9, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-10-16 00:50  pattern #675 BUY (range 3.21, lookback 3/5): limit order at midpoint 1483.3
+Wed 2019-10-16 01:00  pattern #675 BUY filled by the limit at the midpoint at 1483.3
+Wed 2019-10-16 06:06  pattern #675 closed: stop (-1R) at 1481.7 (-1.00R before swaps)
+Wed 2019-10-16 15:10  pattern #676 BUY (range 1.83, lookback 3/5): limit order at midpoint 1484.7
+Wed 2019-10-16 16:08  pattern #676 pending order cancelled: price reached the target before filling
+Thu 2019-10-17 00:30  pattern #677 BUY (range 1.227, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-10-17 19:25  pattern #678 SELL (range 0.807, lookback 4/5): limit order at midpoint 1491.8
+Thu 2019-10-17 19:38  pattern #678 SELL filled by the limit at the midpoint at 1491.8
+Thu 2019-10-17 19:39  pattern #678 closed: stop (-1R) at 1492.2 (-1.00R before swaps)
+Fri 2019-10-18 14:50  pattern #679 SELL (range 1.81, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-10-21 01:05  pattern #680 SELL (range 1.043, lookback 5/5): limit order at midpoint 1490.7
+Mon 2019-10-21 03:14  pattern #680 SELL filled by the limit at the midpoint at 1490.7
+Mon 2019-10-21 05:33  pattern #680 closed: stop (-1R) at 1491.2 (-1.00R before swaps)
+Mon 2019-10-21 07:55  pattern #681 SELL (range 2.94, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-10-21 12:35  pattern #682 BUY (range 1.813, lookback 3/5): limit order at midpoint 1491.4
+Mon 2019-10-21 12:40  pattern #682 BUY filled by the limit at the midpoint at 1491.4
+Mon 2019-10-21 12:40  pattern #682 closed: stop (-1R) at 1490.5 (-1.00R before swaps)
+Wed 2019-10-23 00:05  pattern #683 BUY (range 0.727, lookback 4/5): limit order at midpoint 1489
+Wed 2019-10-23 00:20  pattern #683 pending order cancelled: price reached the target before filling
+Wed 2019-10-23 06:15  pattern #684 SELL (range 1.257, lookback 4/5): limit order at midpoint 1488.7
+Wed 2019-10-23 06:15  pattern #684 SELL filled by the limit at the midpoint at 1488.7
+Wed 2019-10-23 06:18  pattern #684 closed: stop (-1R) at 1489.3 (-1.00R before swaps)
+Wed 2019-10-23 11:40  pattern #685 SELL (range 1.01, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-10-24 17:45  pattern #686 BUY (range 1.09, lookback 3/5): limit order at midpoint 1501.7
+Thu 2019-10-24 18:18  pattern #686 pending order cancelled: price reached the target before filling
+Thu 2019-10-24 20:05  pattern #687 BUY (range 1.04, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-25 01:20  pattern #688 SELL (range 1.763, lookback 3/5): limit order at midpoint 1501.6
+Fri 2019-10-25 01:23  pattern #688 SELL filled by the limit at the midpoint at 1501.6
+Fri 2019-10-25 01:39  pattern #688 closed: stop (-1R) at 1502.5 (-1.00R before swaps)
+Fri 2019-10-25 02:05  pattern #689 SELL (range 1.007, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-25 07:00  pattern #690 SELL (range 1.29, lookback 3/5): limit order at midpoint 1505.3
+Fri 2019-10-25 07:03  pattern #690 SELL filled by the limit at the midpoint at 1505.3
+Fri 2019-10-25 07:07  pattern #690 closed: stop (-1R) at 1506 (-1.00R before swaps)
+Fri 2019-10-25 08:05  pattern #691 SELL (range 1.48, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-10-25 08:35  pattern #692 SELL (range 1.517, lookback 3/5): limit order at midpoint 1505
+Fri 2019-10-25 08:53  pattern #692 SELL filled by the limit at the midpoint at 1505
+Fri 2019-10-25 08:54  pattern #692 closed: stop (-1R) at 1505.8 (-1.00R before swaps)
+Mon 2019-10-28 07:35  pattern #693 BUY (range 1.12, lookback 3/5): limit order at midpoint 1507.2
+Mon 2019-10-28 07:45  pattern #693 BUY filled by the limit at the midpoint at 1507.2
+Mon 2019-10-28 07:46  pattern #693 closed: stop (-1R) at 1506.6 (-1.00R before swaps)
+Mon 2019-10-28 12:45  pattern #694 SELL (range 3.98, lookback 4/5): limit order at midpoint 1501.2
+Mon 2019-10-28 13:45  pattern #694 pending order cancelled: price reached the target before filling
+Mon 2019-10-28 14:15  pattern #695 BUY (range 1.48, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-10-28 17:45  pattern #696 SELL (range 1.133, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-29 00:35  pattern #697 SELL (range 0.743, lookback 3/5): limit order at midpoint 1492.1
+Tue 2019-10-29 00:57  pattern #697 SELL filled by the limit at the midpoint at 1492.1
+Tue 2019-10-29 01:00  pattern #697 closed: stop (-1R) at 1492.4 (-1.00R before swaps)
+Tue 2019-10-29 01:05  pattern #698 BUY (range 1.953, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-10-29 14:25  pattern #699 SELL (range 1.633, lookback 3/5): limit order at midpoint 1487.3
+Tue 2019-10-29 14:25  pattern #699 SELL filled by the limit at the midpoint at 1487.3
+Tue 2019-10-29 14:33  pattern #699 reached +2R: stop moved to breakeven
+Tue 2019-10-29 14:56  pattern #699 closed: breakeven stop at 1487.3 (-0.00R before swaps)
+Wed 2019-10-30 08:10  pattern #700 SELL (range 0.9, lookback 3/5): limit order at midpoint 1488.7
+Wed 2019-10-30 08:11  pattern #700 SELL filled by the limit at the midpoint at 1488.7
+Wed 2019-10-30 08:14  pattern #700 closed: stop (-1R) at 1489.2 (-1.00R before swaps)
+Wed 2019-10-30 19:20  pattern #701 BUY (range 6.047, lookback 4/5): limit order at midpoint 1491.1
+Thu 2019-10-31 08:00  pattern #702 BUY (range 1.873, lookback 5/5): same direction, replaces pending #701
+Thu 2019-10-31 08:00  pattern #702 BUY (range 1.873, lookback 5/5): limit order at midpoint 1499.5
+Thu 2019-10-31 08:23  pattern #702 BUY filled by the limit at the midpoint at 1499.5
+Thu 2019-10-31 09:04  pattern #702 reached +2R: stop moved to breakeven
+Thu 2019-10-31 09:05  pattern #702 closed: target (+4R) at 1503.2 (+4.00R before swaps)
+Thu 2019-10-31 09:40  pattern #703 BUY (range 2.01, lookback 5/5): limit order at midpoint 1504.3
+Thu 2019-10-31 11:15  pattern #704 BUY (range 1.68, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-10-31 12:05  pattern #705 SELL (range 2.983, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-10-31 12:32  pattern #703 pending order cancelled: price reached the target before filling
+Thu 2019-10-31 18:05  pattern #706 SELL (range 0.87, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-10-31 20:30  pattern #707 BUY (range 0.56, lookback 3/5): limit order at midpoint 1512.2
+Thu 2019-10-31 20:31  pattern #707 BUY filled by the limit at the midpoint at 1512.2
+Thu 2019-10-31 20:47  pattern #707 reached +2R: stop moved to breakeven
+Thu 2019-10-31 20:52  pattern #707 closed: breakeven stop at 1512.2 (+0.00R before swaps)
+Thu 2019-10-31 22:00  pattern #708 BUY (range 0.62, lookback 3/5): limit order at midpoint 1512.4
+Thu 2019-10-31 22:00  pattern #708 BUY filled by the limit at the midpoint at 1512.4
+Thu 2019-10-31 22:01  pattern #708 closed: stop (-1R) at 1512.1 (-1.00R before swaps)
+Thu 2019-10-31 22:05  pattern #709 SELL (range 0.977, lookback 3/5): limit order at midpoint 1512.3
+Thu 2019-10-31 22:18  pattern #709 SELL filled by the limit at the midpoint at 1512.3
+Thu 2019-10-31 22:18  pattern #709 closed: stop (-1R) at 1512.8 (-1.00R before swaps)
+Fri 2019-11-01 00:40  pattern #710 SELL (range 0.7, lookback 3/5): limit order at midpoint 1511.9
+Fri 2019-11-01 00:52  pattern #710 SELL filled by the limit at the midpoint at 1511.9
+Fri 2019-11-01 00:55  pattern #710 closed: stop (-1R) at 1512.3 (-1.00R before swaps)
+Fri 2019-11-01 13:50  pattern #711 BUY (range 2.99, lookback 3/5): limit order at midpoint 1509.9
+Fri 2019-11-01 14:01  pattern #711 pending order cancelled: price reached the target before filling
+Fri 2019-11-01 20:00  pattern #712 BUY (range 1.27, lookback 4/5): limit order at midpoint 1512.8
+Fri 2019-11-01 20:02  pattern #712 BUY filled by the limit at the midpoint at 1512.8
+Fri 2019-11-01 20:30  pattern #712 closed: Friday close at 1512.7 (-0.04R before swaps)
+Mon 2019-11-04 08:05  pattern #713 SELL (range 2.013, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-04 10:30  pattern #714 SELL (range 2.05, lookback 4/5): limit order at midpoint 1509.9
+Mon 2019-11-04 10:34  pattern #714 SELL filled by the limit at the midpoint at 1509.9
+Mon 2019-11-04 11:25  pattern #714 closed: stop (-1R) at 1510.9 (-1.00R before swaps)
+Mon 2019-11-04 15:15  pattern #715 BUY (range 2.48, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-04 20:00  pattern #716 BUY (range 1.04, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-04 20:10  pattern #717 BUY (range 0.99, lookback 3/5): limit order at midpoint 1508.1
+Mon 2019-11-04 20:51  pattern #717 BUY filled by the limit at the midpoint at 1508.1
+Mon 2019-11-04 21:06  pattern #717 reached +2R: stop moved to breakeven
+Mon 2019-11-04 21:13  pattern #717 closed: target (+4R) at 1510 (+4.00R before swaps)
+Mon 2019-11-04 23:55  pattern #718 SELL (range 1.68, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-11-05 10:45  pattern #719 BUY (range 0.853, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-11-05 11:25  pattern #720 BUY (range 3.567, lookback 3/5): limit order at midpoint 1503.5
+Tue 2019-11-05 12:02  pattern #720 BUY filled by the limit at the midpoint at 1503.5
+Tue 2019-11-05 12:09  pattern #720 closed: stop (-1R) at 1501.7 (-1.00R before swaps)
+Tue 2019-11-05 17:30  pattern #721 BUY (range 1.88, lookback 4/5): limit order at midpoint 1483
+Tue 2019-11-05 18:03  pattern #721 BUY filled by the limit at the midpoint at 1483
+Tue 2019-11-05 18:19  pattern #721 closed: stop (-1R) at 1482.1 (-1.00R before swaps)
+Wed 2019-11-06 01:00  pattern #722 BUY (range 0.67, lookback 4/5): limit order at midpoint 1485.7
+Wed 2019-11-06 01:00  pattern #722 BUY filled by the limit at the midpoint at 1485.7
+Wed 2019-11-06 01:00  pattern #722 closed: stop (-1R) at 1485.4 (-1.00R before swaps)
+Wed 2019-11-06 04:00  pattern #723 BUY (range 0.48, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-06 07:30  pattern #724 SELL (range 1.57, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-06 14:35  pattern #725 BUY (range 1.74, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-06 20:00  pattern #726 SELL (range 0.91, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-11-07 01:10  pattern #727 BUY (range 1.653, lookback 3/5): limit order at midpoint 1490.6
+Thu 2019-11-07 01:31  pattern #727 BUY filled by the limit at the midpoint at 1490.6
+Thu 2019-11-07 07:19  pattern #727 closed: stop (-1R) at 1489.8 (-1.00R before swaps)
+Thu 2019-11-07 09:15  pattern #728 SELL (range 1.61, lookback 4/5): limit order at midpoint 1486.6
+Thu 2019-11-07 10:25  pattern #728 pending order cancelled: price reached the target before filling
+Thu 2019-11-07 20:50  pattern #729 SELL (range 1.37, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-11-07 21:00  pattern #730 SELL (range 1.817, lookback 3/5): limit order at midpoint 1468.6
+Thu 2019-11-07 21:15  pattern #730 SELL filled by the limit at the midpoint at 1468.6
+Fri 2019-11-08 00:09  pattern #730 reached +2R: stop moved to breakeven
+Fri 2019-11-08 00:33  pattern #730 closed: breakeven stop at 1468.6 (-0.00R before swaps)
+Fri 2019-11-08 14:00  pattern #731 SELL (range 2.233, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-11 00:40  pattern #732 SELL (range 0.8, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-11 03:00  pattern #733 SELL (range 0.95, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-11 11:35  pattern #734 BUY (range 0.55, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-11-12 13:00  pattern #735 BUY (range 1.8, lookback 3/5): limit order at midpoint 1453.7
+Tue 2019-11-12 13:00  pattern #735 BUY filled by the limit at the midpoint at 1453.7
+Tue 2019-11-12 13:03  pattern #735 closed: stop (-1R) at 1452.8 (-1.00R before swaps)
+Tue 2019-11-12 16:30  pattern #736 BUY (range 1.443, lookback 3/5): limit order at midpoint 1451.7
+Tue 2019-11-12 16:33  pattern #736 BUY filled by the limit at the midpoint at 1451.7
+Tue 2019-11-12 16:43  pattern #736 reached +2R: stop moved to breakeven
+Tue 2019-11-12 16:49  pattern #736 closed: target (+4R) at 1454.6 (+4.00R before swaps)
+Wed 2019-11-13 04:55  pattern #737 SELL (range 0.673, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-13 20:45  pattern #738 SELL (range 1.05, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-11-14 11:25  pattern #739 BUY (range 1.183, lookback 4/5): limit order at midpoint 1468.1
+Thu 2019-11-14 11:31  pattern #739 BUY filled by the limit at the midpoint at 1468.1
+Thu 2019-11-14 12:01  pattern #739 closed: stop (-1R) at 1467.5 (-1.00R before swaps)
+Thu 2019-11-14 12:20  pattern #740 BUY (range 1.66, lookback 3/5): limit order at midpoint 1467.6
+Thu 2019-11-14 13:03  pattern #740 BUY filled by the limit at the midpoint at 1467.6
+Thu 2019-11-14 13:24  pattern #740 reached +2R: stop moved to breakeven
+Thu 2019-11-14 14:02  pattern #740 closed: breakeven stop at 1467.6 (+0.00R before swaps)
+Thu 2019-11-14 17:30  pattern #741 SELL (range 1.077, lookback 4/5): limit order at midpoint 1472.2
+Thu 2019-11-14 17:32  pattern #741 SELL filled by the limit at the midpoint at 1472.2
+Thu 2019-11-14 17:43  pattern #741 reached +2R: stop moved to breakeven
+Thu 2019-11-14 17:52  pattern #741 closed: breakeven stop at 1472.2 (-0.00R before swaps)
+Fri 2019-11-15 09:35  pattern #742 BUY (range 1.56, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-15 15:00  pattern #743 BUY (range 1.527, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-15 18:00  pattern #744 BUY (range 0.79, lookback 4/5): limit order at midpoint 1467.3
+Fri 2019-11-15 19:02  pattern #744 BUY filled by the limit at the midpoint at 1467.3
+Fri 2019-11-15 19:03  pattern #744 closed: stop (-1R) at 1466.9 (-1.00R before swaps)
+Mon 2019-11-18 14:05  pattern #745 BUY (range 2.45, lookback 4/5): limit order at midpoint 1465.1
+Mon 2019-11-18 14:26  pattern #745 pending order cancelled: price reached the target before filling
+Tue 2019-11-19 01:20  pattern #746 SELL (range 1.3, lookback 3/5): limit order at midpoint 1472.9
+Tue 2019-11-19 01:49  pattern #746 pending order cancelled: price reached the target before filling
+Tue 2019-11-19 11:05  pattern #747 BUY (range 1.48, lookback 3/5): limit order at midpoint 1465.8
+Tue 2019-11-19 12:25  pattern #748 SELL (range 0.66, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-11-19 13:00  pattern #747 pending order cancelled: price reached the target before filling
+Tue 2019-11-19 14:30  pattern #749 SELL (range 2.053, lookback 4/5): limit order at midpoint 1466.9
+Tue 2019-11-19 14:30  pattern #749 SELL filled by the limit at the midpoint at 1466.9
+Tue 2019-11-19 14:33  pattern #749 closed: stop (-1R) at 1467.9 (-1.00R before swaps)
+Wed 2019-11-20 02:00  pattern #750 SELL (range 1.647, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-20 17:10  pattern #751 BUY (range 1.26, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-22 03:30  pattern #752 BUY (range 0.553, lookback 3/5): limit order at midpoint 1464.6
+Fri 2019-11-22 05:37  pattern #752 pending order cancelled: price reached the target before filling
+Fri 2019-11-22 14:50  pattern #753 SELL (range 4.07, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-22 15:00  pattern #754 SELL (range 4.363, lookback 3/5): limit order at midpoint 1467.4
+Fri 2019-11-22 16:05  pattern #754 SELL filled by the limit at the midpoint at 1467.4
+Fri 2019-11-22 17:07  pattern #754 reached +2R: stop moved to breakeven
+Fri 2019-11-22 20:30  pattern #754 closed: Friday close at 1462.9 (+2.05R before swaps)
+Fri 2019-11-22 20:50  pattern #755 SELL (range 0.473, lookback 4/5): ignored, formed in the Friday-to-Sunday window
+Mon 2019-11-25 03:36  pattern #756 BUY (range 0.587, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-25 04:55  pattern #757 BUY (range 0.63, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-25 10:55  pattern #758 SELL (range 0.98, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-11-25 11:05  pattern #759 SELL (range 1.1, lookback 3/5): limit order at midpoint 1458.4
+Mon 2019-11-25 13:01  pattern #759 SELL filled by the limit at the midpoint at 1458.4
+Mon 2019-11-25 13:02  pattern #759 closed: stop (-1R) at 1458.9 (-1.00R before swaps)
+Tue 2019-11-26 00:30  pattern #760 SELL (range 0.46, lookback 4/5): limit order at midpoint 1453.4
+Tue 2019-11-26 00:42  pattern #760 SELL filled by the limit at the midpoint at 1453.4
+Tue 2019-11-26 00:42  pattern #760 closed: stop (-1R) at 1453.6 (-1.00R before swaps)
+Tue 2019-11-26 02:05  pattern #761 BUY (range 2.19, lookback 3/5): limit order at midpoint 1452.7
+Tue 2019-11-26 06:32  pattern #761 pending order cancelled: price reached the target before filling
+Tue 2019-11-26 16:40  pattern #762 SELL (range 4.137, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-27 01:30  pattern #763 SELL (range 0.727, lookback 3/5): limit order at midpoint 1460.4
+Wed 2019-11-27 05:30  pattern #763 pending order cancelled: price reached the target before filling
+Wed 2019-11-27 07:35  pattern #764 BUY (range 1.2, lookback 3/5): limit order at midpoint 1459.3
+Wed 2019-11-27 07:38  pattern #764 BUY filled by the limit at the midpoint at 1459.3
+Wed 2019-11-27 07:40  pattern #764 closed: stop (-1R) at 1458.7 (-1.00R before swaps)
+Wed 2019-11-27 20:30  pattern #765 BUY (range 0.637, lookback 3/5): limit order at midpoint 1454.5
+Wed 2019-11-27 20:35  pattern #765 BUY filled by the limit at the midpoint at 1454.5
+Wed 2019-11-27 20:40  pattern #766 BUY (range 0.58, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-11-27 20:56  pattern #765 reached +2R: stop moved to breakeven
+Wed 2019-11-27 21:30  pattern #765 closed: breakeven stop at 1454.5 (+0.00R before swaps)
+Wed 2019-11-27 21:40  pattern #767 SELL (range 0.427, lookback 3/5): limit order at midpoint 1454.6
+Wed 2019-11-27 23:00  pattern #767 SELL filled by the limit at the midpoint at 1454.6
+Wed 2019-11-27 23:00  pattern #767 closed: stop (-1R) at 1454.8 (-1.00R before swaps)
+Thu 2019-11-28 03:35  pattern #768 SELL (range 0.57, lookback 4/5): limit order at midpoint 1456.2
+Thu 2019-11-28 04:01  pattern #768 SELL filled by the limit at the midpoint at 1456.2
+Thu 2019-11-28 04:12  pattern #768 closed: stop (-1R) at 1456.4 (-1.00R before swaps)
+Fri 2019-11-29 01:25  pattern #769 BUY (range 0.97, lookback 4/5): limit order at midpoint 1456.2
+Fri 2019-11-29 03:12  pattern #769 pending order cancelled: price reached the target before filling
+Fri 2019-11-29 09:30  pattern #770 BUY (range 0.58, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-29 14:15  pattern #771 BUY (range 2.373, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-29 16:10  pattern #772 SELL (range 2.307, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-11-29 18:05  pattern #773 BUY (range 1.16, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-03 02:20  pattern #774 SELL (range 0.54, lookback 5/5): limit order at midpoint 1462.8
+Tue 2019-12-03 03:22  pattern #774 pending order cancelled: price reached the target before filling
+Tue 2019-12-03 08:15  pattern #775 SELL (range 1.54, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-03 12:30  pattern #776 SELL (range 1.47, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-03 23:25  pattern #777 BUY (range 1.09, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-04 00:15  pattern #778 BUY (range 2.673, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-04 08:15  pattern #779 SELL (range 1.583, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-04 16:20  pattern #780 BUY (range 1.94, lookback 4/5): limit order at midpoint 1472.8
+Wed 2019-12-04 16:30  pattern #781 BUY (range 1.353, lookback 3/5): same direction, replaces pending #780
+Wed 2019-12-04 16:30  pattern #781 BUY (range 1.353, lookback 3/5): limit order at midpoint 1473.5
+Wed 2019-12-04 16:30  pattern #781 BUY filled by the limit at the midpoint at 1473.5
+Wed 2019-12-04 16:40  pattern #781 closed: stop (-1R) at 1472.8 (-1.00R before swaps)
+Wed 2019-12-04 17:00  pattern #782 BUY (range 1.113, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-04 21:15  pattern #783 SELL (range 0.867, lookback 3/5): limit order at midpoint 1474.8
+Wed 2019-12-04 23:14  pattern #783 SELL filled by the limit at the midpoint at 1474.8
+Wed 2019-12-04 23:25  pattern #783 closed: stop (-1R) at 1475.3 (-1.00R before swaps)
+Thu 2019-12-05 01:05  pattern #784 SELL (range 1.12, lookback 4/5): limit order at midpoint 1475.3
+Thu 2019-12-05 01:12  pattern #784 SELL filled by the limit at the midpoint at 1475.3
+Thu 2019-12-05 01:12  pattern #784 closed: stop (-1R) at 1475.8 (-1.00R before swaps)
+Thu 2019-12-05 01:15  pattern #785 SELL (range 0.97, lookback 3/5): limit order at midpoint 1475.2
+Thu 2019-12-05 01:21  pattern #785 SELL filled by the limit at the midpoint at 1475.2
+Thu 2019-12-05 01:25  pattern #785 closed: stop (-1R) at 1475.7 (-1.00R before swaps)
+Thu 2019-12-05 19:05  pattern #786 SELL (range 1.06, lookback 5/5): limit order at midpoint 1476.3
+Thu 2019-12-05 19:08  pattern #786 SELL filled by the limit at the midpoint at 1476.3
+Thu 2019-12-05 19:15  pattern #787 SELL (range 0.69, lookback 4/5): ignored, a trade is open
+Thu 2019-12-05 19:20  pattern #788 BUY (range 0.783, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-12-05 19:52  pattern #786 reached +2R: stop moved to breakeven
+Thu 2019-12-05 19:57  pattern #786 closed: breakeven stop at 1476.3 (-0.00R before swaps)
+Thu 2019-12-05 23:15  pattern #789 BUY (range 1.047, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-12-06 05:30  pattern #790 BUY (range 0.21, lookback 3/5): limit order at midpoint 1475.5
+Fri 2019-12-06 05:30  pattern #790: stop closer than costs, skipped
+Fri 2019-12-06 13:30  pattern #791 BUY (range 1.723, lookback 4/5): limit order at midpoint 1476.5
+Fri 2019-12-06 13:30  pattern #791 BUY filled by the limit at the midpoint at 1476.5
+Fri 2019-12-06 13:30  pattern #791 closed: stop (-1R) at 1475.7 (-1.00R before swaps)
+Fri 2019-12-06 13:35  pattern #792 SELL (range 14.863, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-12-06 14:35  pattern #793 SELL (range 3, lookback 4/5): limit order at midpoint 1462.3
+Fri 2019-12-06 14:36  pattern #793 SELL filled by the limit at the midpoint at 1462.3
+Fri 2019-12-06 16:15  pattern #793 reached +2R: stop moved to breakeven
+Fri 2019-12-06 17:20  pattern #794 BUY (range 1.19, lookback 4/5): ignored, a trade is open
+Fri 2019-12-06 20:30  pattern #793 closed: Friday close at 1459.8 (+1.71R before swaps)
+Mon 2019-12-09 06:45  pattern #795 BUY (range 0.79, lookback 3/5): limit order at midpoint 1461.3
+Mon 2019-12-09 06:52  pattern #795 BUY filled by the limit at the midpoint at 1461.3
+Mon 2019-12-09 06:52  pattern #795 closed: stop (-1R) at 1460.9 (-1.00R before swaps)
+Mon 2019-12-09 07:30  pattern #796 BUY (range 0.8, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-09 08:55  pattern #797 BUY (range 1.063, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-09 09:20  pattern #798 BUY (range 0.793, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-09 19:30  pattern #799 SELL (range 1.243, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-10 10:00  pattern #800 SELL (range 0.88, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-10 10:45  pattern #801 BUY (range 0.61, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-10 17:25  pattern #802 BUY (range 0.85, lookback 4/5): limit order at midpoint 1464
+Tue 2019-12-10 17:31  pattern #802 pending order cancelled: price reached the target before filling
+Wed 2019-12-11 01:00  pattern #803 SELL (range 0.9, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-11 06:05  pattern #804 BUY (range 0.5, lookback 3/5): limit order at midpoint 1463.1
+Wed 2019-12-11 07:20  pattern #804 pending order cancelled: price reached the target before filling
+Wed 2019-12-11 15:55  pattern #805 SELL (range 1.85, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-11 19:05  pattern #806 SELL filled at market (price already past the midpoint) at 1469.8
+Wed 2019-12-11 19:10  pattern #806 closed: stop (-1R) at 1471 (-1.00R before swaps)
+Thu 2019-12-12 21:10  pattern #807 BUY (range 1.4, lookback 3/5): limit order at midpoint 1469.4
+Thu 2019-12-12 21:26  pattern #807 BUY filled by the limit at the midpoint at 1469.4
+Thu 2019-12-12 23:00  pattern #807 closed: stop (-1R) at 1467.7 (-2.46R before swaps)
+Thu 2019-12-12 23:35  pattern #808 BUY (range 2.917, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-12-13 13:35  pattern #809 SELL (range 3.053, lookback 3/5): limit order at midpoint 1472
+Fri 2019-12-13 14:07  pattern #809 SELL filled by the limit at the midpoint at 1472
+Fri 2019-12-13 14:42  pattern #809 closed: stop (-1R) at 1473.5 (-1.00R before swaps)
+Mon 2019-12-16 07:20  pattern #810 BUY (range 1.143, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-16 07:30  pattern #811 BUY (range 1.143, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-16 20:30  pattern #812 BUY (range 0.387, lookback 4/5): limit order at midpoint 1476.2
+Mon 2019-12-16 20:40  pattern #813 BUY (range 0.653, lookback 4/5): same direction, replaces pending #812
+Mon 2019-12-16 20:40  pattern #813 BUY (range 0.653, lookback 4/5): limit order at midpoint 1476.4
+Mon 2019-12-16 20:50  pattern #813 BUY filled by the limit at the midpoint at 1476.4
+Mon 2019-12-16 21:47  pattern #813 closed: stop (-1R) at 1476 (-1.00R before swaps)
+Tue 2019-12-17 01:40  pattern #814 BUY (range 1.047, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-17 17:35  pattern #815 BUY (range 1.23, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-18 07:30  pattern #816 SELL (range 1.12, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-18 09:15  pattern #817 BUY (range 2.083, lookback 4/5): limit order at midpoint 1478
+Wed 2019-12-18 09:25  pattern #818 BUY (range 1.3, lookback 4/5): same direction, replaces pending #817
+Wed 2019-12-18 09:25  pattern #818 BUY (range 1.3, lookback 4/5): limit order at midpoint 1478.6
+Wed 2019-12-18 09:32  pattern #818 BUY filled by the limit at the midpoint at 1478.6
+Wed 2019-12-18 09:36  pattern #818 closed: stop (-1R) at 1477.9 (-1.00R before swaps)
+Wed 2019-12-18 14:15  pattern #819 BUY (range 2.123, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Wed 2019-12-18 16:10  pattern #820 SELL (range 2.963, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-12-19 02:15  pattern #821 BUY (range 0.65, lookback 4/5): limit order at midpoint 1477.4
+Thu 2019-12-19 03:25  pattern #822 BUY (range 0.423, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-12-19 05:25  pattern #821 BUY filled by the limit at the midpoint at 1477.4
+Thu 2019-12-19 05:35  pattern #821 closed: stop (-1R) at 1477.1 (-1.00R before swaps)
+Thu 2019-12-19 07:10  pattern #823 BUY (range 0.877, lookback 3/5): limit order at midpoint 1476.3
+Thu 2019-12-19 07:10  pattern #823 BUY filled by the limit at the midpoint at 1476.3
+Thu 2019-12-19 07:10  pattern #823 closed: stop (-1R) at 1475.8 (-1.00R before swaps)
+Thu 2019-12-19 07:20  pattern #824 BUY (range 1.15, lookback 3/5): limit order at midpoint 1476.3
+Thu 2019-12-19 07:45  pattern #824 BUY filled by the limit at the midpoint at 1476.3
+Thu 2019-12-19 07:51  pattern #824 closed: stop (-1R) at 1475.7 (-1.00R before swaps)
+Thu 2019-12-19 08:45  pattern #825 BUY (range 0.907, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-12-19 09:05  pattern #826 SELL (range 1.86, lookback 3/5): limit order at midpoint 1474.8
+Thu 2019-12-19 10:10  pattern #826 SELL filled by the limit at the midpoint at 1474.8
+Thu 2019-12-19 13:30  pattern #826 closed: stop (-1R) at 1475.7 (-1.00R before swaps)
+Thu 2019-12-19 20:05  pattern #827 SELL (range 0.9, lookback 4/5): limit order at midpoint 1479.9
+Thu 2019-12-19 21:40  pattern #828 BUY (range 0.31, lookback 0/5): ignored, lookback has fewer than 3 candles in its direction
+Fri 2019-12-20 02:50  pattern #827 pending order cancelled: price reached the target before filling
+Fri 2019-12-20 11:10  pattern #829 BUY (range 0.585, lookback 3/5): limit order at midpoint 1477.3
+Fri 2019-12-20 11:19  pattern #829 BUY filled by the limit at the midpoint at 1477.3
+Fri 2019-12-20 12:03  pattern #829 reached +2R: stop moved to breakeven
+Fri 2019-12-20 12:12  pattern #829 closed: target (+4R) at 1478.5 (+4.00R before swaps)
+Fri 2019-12-20 16:35  pattern #830 SELL (range 1.977, lookback 4/5): limit order at midpoint 1476.8
+Fri 2019-12-20 16:41  pattern #830 SELL filled by the limit at the midpoint at 1476.8
+Fri 2019-12-20 16:59  pattern #830 closed: stop (-1R) at 1477.7 (-1.00R before swaps)
+Fri 2019-12-20 17:30  pattern #831 SELL (range 0.5, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-23 16:35  pattern #832 BUY (range 0.84, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-24 03:35  pattern #833 SELL (range 0.49, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-24 06:15  pattern #834 BUY (range 0.843, lookback 4/5): limit order at midpoint 1490.6
+Tue 2019-12-24 06:35  pattern #834 BUY filled by the limit at the midpoint at 1490.6
+Tue 2019-12-24 06:45  pattern #835 SELL (range 0.98, lookback 3/5): ignored, a trade is open
+Tue 2019-12-24 06:45  pattern #834 closed: stop (-1R) at 1490.2 (-1.00R before swaps)
+Tue 2019-12-24 13:05  pattern #836 SELL (range 1.64, lookback 4/5): limit order at midpoint 1489.8
+Tue 2019-12-24 13:20  pattern #836 SELL filled by the limit at the midpoint at 1489.8
+Tue 2019-12-24 13:23  pattern #836 closed: stop (-1R) at 1490.6 (-1.00R before swaps)
+Tue 2019-12-24 16:50  pattern #837 SELL (range 1.643, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-12-26 03:30  pattern #838 SELL (range 0.77, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Thu 2019-12-26 15:10  pattern #839 BUY (range 1.59, lookback 3/5): limit order at midpoint 1509.3
+Thu 2019-12-26 15:13  pattern #839 pending order cancelled: price reached the target before filling
+Thu 2019-12-26 21:00  pattern #840 BUY (range 1.093, lookback 3/5): limit order at midpoint 1511.4
+Thu 2019-12-26 21:02  pattern #840 BUY filled by the limit at the midpoint at 1511.4
+Thu 2019-12-26 21:55  pattern #840 closed: stop (-1R) at 1510.8 (-1.00R before swaps)
+Fri 2019-12-27 06:50  pattern #841 SELL (range 1.037, lookback 4/5): limit order at midpoint 1508.5
+Fri 2019-12-27 06:54  pattern #841 SELL filled by the limit at the midpoint at 1508.5
+Fri 2019-12-27 07:01  pattern #841 closed: stop (-1R) at 1509 (-1.00R before swaps)
+Fri 2019-12-27 20:15  pattern #842 SELL (range 0.533, lookback 3/5): limit order at midpoint 1512.4
+Fri 2019-12-27 20:28  pattern #842 pending order cancelled: price reached the target before filling
+Mon 2019-12-30 13:20  pattern #843 BUY (range 1.9, lookback 3/5): limit order at midpoint 1512.5
+Mon 2019-12-30 13:20  pattern #843 BUY filled by the limit at the midpoint at 1512.5
+Mon 2019-12-30 13:27  pattern #843 closed: stop (-1R) at 1511.5 (-1.00R before swaps)
+Mon 2019-12-30 18:45  pattern #844 SELL (range 0.66, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-30 23:35  pattern #845 SELL (range 0.373, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Mon 2019-12-30 23:50  pattern #846 BUY (range 0.4, lookback 4/5): limit order at midpoint 1515.2
+Mon 2019-12-30 23:55  pattern #846 BUY filled by the limit at the midpoint at 1515.2
+Mon 2019-12-30 23:55  pattern #846 closed: stop (-1R) at 1515 (-1.00R before swaps)
+Tue 2019-12-31 03:45  pattern #847 SELL (range 0.417, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-31 11:00  pattern #848 SELL (range 0.683, lookback 3/5): limit order at midpoint 1522.7
+Tue 2019-12-31 11:02  pattern #848 SELL filled by the limit at the midpoint at 1522.7
+Tue 2019-12-31 11:26  pattern #848 closed: stop (-1R) at 1523 (-1.00R before swaps)
+Tue 2019-12-31 12:30  pattern #849 SELL (range 2.163, lookback 1/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-31 14:55  pattern #850 BUY (range 3.233, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
+Tue 2019-12-31 15:05  pattern #851 BUY (range 3, lookback 2/5): ignored, lookback has fewer than 3 candles in its direction
