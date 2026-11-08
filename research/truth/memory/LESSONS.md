@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-110 ideas tested, about 318,134 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+112 ideas tested, about 325,046 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,17 +16,17 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 49 | 0 | 16,389 |
-| intraday | 42 | 1 | 191,480 |
-| engulfing | 26 | 0 | 18,200 |
+| owner-idea | 51 | 0 | 23,301 |
+| intraday | 44 | 1 | 198,392 |
+| engulfing | 28 | 0 | 25,112 |
 | flow | 22 | 1 | 96 |
+| limit-entry | 21 | 0 | 16,590 |
 | calendar | 20 | 1 | 179 |
 | ema | 19 | 0 | 12,489 |
-| limit-entry | 19 | 0 | 9,678 |
+| multi-market | 18 | 0 | 15,758 |
+| multi-timeframe | 18 | 0 | 21,274 |
 | index | 17 | 0 | 122 |
-| multi-market | 16 | 0 | 8,846 |
-| multi-timeframe | 16 | 0 | 14,362 |
-| session | 15 | 0 | 184,648 |
+| session | 17 | 0 | 191,560 |
 | awesome-list | 13 | 0 | 147 |
 | breadth | 13 | 0 | 697 |
 | reversal | 13 | 1 | 105,864 |
@@ -36,21 +36,21 @@
 | trend | 12 | 4 | 102,718 |
 | sizing | 11 | 0 | 276 |
 | seesare | 10 | 0 | 232 |
+| breakeven | 9 | 0 | 111,092 |
 | portfolio | 9 | 4 | 145 |
 | seasonal | 9 | 2 | 23 |
 | chop | 8 | 0 | 11,362 |
 | daily | 8 | 1 | 172 |
 | payer | 8 | 0 | 40 |
+| range | 8 | 0 | 8,832 |
 | risk | 8 | 1 | 173 |
 | structure | 8 | 0 | 1,634 |
-| breakeven | 7 | 0 | 104,180 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
 | repo-funnel | 7 | 0 | 222 |
 | smc | 7 | 0 | 14,992 |
 | control | 6 | 0 | 1,282 |
 | momentum | 6 | 0 | 61 |
-| range | 6 | 0 | 1,920 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
 | futures | 5 | 1 | 138 |
@@ -60,6 +60,7 @@
 | month-end | 5 | 0 | 32 |
 | sweep | 5 | 0 | 1,380 |
 | batch01 | 4 | 0 | 24 |
+| large-target | 4 | 0 | 7,680 |
 | monthly | 4 | 0 | 20 |
 | ny-open | 4 | 0 | 128 |
 | oil | 4 | 0 | 7 |
@@ -92,10 +93,10 @@
 | fvg | 2 | 0 | 9,312 |
 | hedging | 2 | 0 | 12 |
 | ict | 2 | 0 | 784 |
-| large-target | 2 | 0 | 768 |
 | lifecycle | 2 | 0 | 80 |
 | math | 2 | 0 | 80 |
 | mss | 2 | 0 | 4 |
+| news-filter | 2 | 0 | 6,912 |
 | price-action | 2 | 0 | 1,080 |
 | rsi2 | 2 | 0 | 8 |
 | scanner | 2 | 0 | 61,803 |
@@ -170,6 +171,8 @@
 | 2026-11-08 | Body-engulf range at 1:2 and 1:1 (owner: try 1:2R and 1:1R): targets, win rates, paired comparisons | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, small-target | 384 | Rejected. 0 of 384 positive after costs; best with 200+ trades -0.10R (H4). Breakeven off, 2011-19: 1R wins 34-47% (needs 53-72%), 2R 25-35% (needs 35-48%). Before costs slightly negative at 1R (M15 -0.04, H1 -0.06R). 2R beats 1R in 85% of pairs; breakeven lowers PF in 85%; 50% beats 70% in 84%; 20% buffer beats 0% in 83%; lookback no effect. 1 of 63 market x timeframe picks positive in both periods (weak). |  |
 | 2026-11-08 | body4_range_v3 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target | 384 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-08 | Body-engulf range v3 (dojis bullish, 1:2 and 1:10, breakeven at 75%) + bug audit | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target, audit | 384 | Rejected, no bug. Audit: 464,614 setups re-checked (0 broken), 0 missed in an independent re-scan, 215,119 trades re-scored by a separate exit checker (0 differences), 0 entry violations; truly unclear minutes <= 0.2%; gaps move the mean by 0.01R. v3: 0 of 384 positive after costs, best -0.09R; before costs about 0 (101 of 384 positive in 2011-19, best t 2.8). 10R hit by 6.6% of trades (needs ~9% before costs). Breakeven at 75% lowers PF in 69% of pairs. |  |
+| 2026-11-08 | body4_range_v4 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter | 3456 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
+| 2026-11-08 | Body-engulf range v4: loss attribution, safe windows (London/NY, no US news, flat at 20:30 UTC), 2R-10R, RR hit-rate curve | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, session, news-filter, large-target | 3456 | Rejected. 0 of 3,456 positive after costs. Losses = price move -0.03R (no edge) + spread 0.13 + commission 0.11 + slippage 0.11 + swaps 0.01 a trade; 46 of the 50 worst = gaps through the stop (indices closed overnight, Brexit, data holes); Asia costs 0.40R, overlap 0.29R; news days no different. Safe window better in 90% of pairs (+0.05R) but median -0.175R. Best target-hit rates 2R-10R (30%, 22%, 18% ... 7.5%) at or below pure chance 1/(1+RR). Half the trades reach only 0.3-0.9R before the stop. |  |
 | 2026-11-06 | Noise gate (efficiency-ratio gate with threshold, hysteresis, hold) on the 13 survivors | filter, regime, noise-gate, efficiency-ratio, owner-idea, portfolio | 8 | Rejected. Best (H1, 67th pct, by-type): s 0.074 vs 0.068 ungated 2011-19, 0.082 vs 0.066 2020-22, but random gates of the same size do as well (p 0.36; all 8 within random range). 2023-25 look 0.047 vs 0.043; untouched 2026 book reversed (passed -0.054, blocked +0.086). Halves trades and yearly return; cycle +0.105% vs +0.10%. |  |
 | 2026-11-06 | Cycle goal with a 2-week cycle instead of 10 trades (survivors) | cycle-goal, risk, portfolio, owner-question | 1 | Needed fortnight Sharpe 1.17 (+2% in 3.6%; 0.79 in 8%). Best mix (13 survivors, leg weights) 0.33: +0.19% per 2 weeks, 4.9%/yr at 3.6%, 10.8%/yr at 8%; 3.6x short in Sharpe, ~10x in return. Same yearly money as the 10-trade cycle. 2026 forward about 0. |  |
 | 2026-11-03 | ema4_flip_v2 | ema, engulfing, intraday, multi-market, multi-timeframe, owner-idea, limit-entry, chop | 1260 | Rejected: no configuration passed the development gate | share_dev_positive +0.087 |

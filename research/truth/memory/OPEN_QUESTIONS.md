@@ -294,6 +294,9 @@ v2 (2026-11-08, owner: "try 1:2R and 1:1R"): 384 configurations, REJECTED; 1R wi
 v3 (2026-11-08, owner: dojis count as bullish, 1:2 and 1:10, breakeven at 75%; "check for bugs"): REJECTED, no bug found
 (full audit: patterns, entries and exits independently re-checked); 10R hit by 6.6% of trades vs about 9% needed before
 costs. research/results/body4/v3/RESULT.md.
+v4 (2026-11-08, owner: biggest losers, safe windows, 2R-10R, the RR hit 50% of the time): REJECTED, 3,456 settings. Losses
+= no edge in the move + 0.35R costs a trade; biggest losers = overnight index gaps, Brexit, data holes; safe window +0.05R,
+still negative; hit rates at chance; half the trades reach only 0.3-0.9R. research/results/body4/v4/RESULT.md.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

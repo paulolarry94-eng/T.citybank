@@ -1,0 +1,981 @@
+{
+ "settings": "v3 main settings at 10R (entry 50%, stop at range end, breakeven at 75%, lookback on, dojis bullish), 2011-22",
+ "all": {
+  "n": 121822,
+  "R": -0.3917,
+  "move": -0.0338,
+  "spread": 0.1329,
+  "commission": 0.1067,
+  "slippage": 0.1052,
+  "swaps": 0.013,
+  "gap_loss": 0.0491,
+  "gap_gain": 0.0017,
+  "stopped": 0.892,
+  "target": 0.066
+ },
+ "by_session": {
+  "Asia (23:00-07:00 UTC)": {
+   "n": 36512,
+   "R": -0.4307,
+   "move": -0.0329,
+   "spread": 0.148,
+   "commission": 0.1273,
+   "slippage": 0.1202,
+   "swaps": 0.0023,
+   "gap_loss": 0.1404,
+   "gap_gain": 0.0019,
+   "stopped": 0.908,
+   "target": 0.066
+  },
+  "London (07:00-12:00)": {
+   "n": 32115,
+   "R": -0.336,
+   "move": -0.0053,
+   "spread": 0.127,
+   "commission": 0.0999,
+   "slippage": 0.099,
+   "swaps": 0.0048,
+   "gap_loss": 0.0124,
+   "gap_gain": 0.0003,
+   "stopped": 0.894,
+   "target": 0.073
+  },
+  "London-New York overlap (12:00-16:00)": {
+   "n": 28949,
+   "R": -0.3088,
+   "move": -0.0042,
+   "spread": 0.1166,
+   "commission": 0.0858,
+   "slippage": 0.0883,
+   "swaps": 0.0139,
+   "gap_loss": 0.0037,
+   "gap_gain": 0.0008,
+   "stopped": 0.882,
+   "target": 0.068
+  },
+  "New York (16:00-20:30)": {
+   "n": 24246,
+   "R": -0.5056,
+   "move": -0.1083,
+   "spread": 0.1375,
+   "commission": 0.1096,
+   "slippage": 0.1112,
+   "swaps": 0.039,
+   "gap_loss": 0.0145,
+   "gap_gain": 0.0045,
+   "stopped": 0.879,
+   "target": 0.056
+  }
+ },
+ "by_news_day": {
+  "US news day": {
+   "n": 13626,
+   "R": -0.3881,
+   "move": -0.0432,
+   "spread": 0.1299,
+   "commission": 0.1018,
+   "slippage": 0.1019,
+   "swaps": 0.0113,
+   "gap_loss": 0.037,
+   "gap_gain": 0.0008,
+   "stopped": 0.879,
+   "target": 0.061
+  },
+  "other days": {
+   "n": 108196,
+   "R": -0.3921,
+   "move": -0.0326,
+   "spread": 0.1333,
+   "commission": 0.1073,
+   "slippage": 0.1056,
+   "swaps": 0.0132,
+   "gap_loss": 0.0507,
+   "gap_gain": 0.0019,
+   "stopped": 0.894,
+   "target": 0.067
+  }
+ },
+ "by_overnight": {
+  "closed the same day": {
+   "n": 115950,
+   "R": -0.5023,
+   "move": -0.1469,
+   "spread": 0.1366,
+   "commission": 0.11,
+   "slippage": 0.1088,
+   "swaps": 0.0,
+   "gap_loss": 0.0485,
+   "gap_gain": 0.0007,
+   "stopped": 0.91,
+   "target": 0.058
+  },
+  "held overnight": {
+   "n": 5872,
+   "R": 1.7924,
+   "move": 2.1988,
+   "spread": 0.0612,
+   "commission": 0.0414,
+   "slippage": 0.0337,
+   "swaps": 0.2701,
+   "gap_loss": 0.0606,
+   "gap_gain": 0.0216,
+   "stopped": 0.549,
+   "target": 0.228
+  }
+ },
+ "by_timeframe": {
+  "H1": {
+   "n": 2794,
+   "R": -0.1059,
+   "move": 0.0417,
+   "spread": 0.0487,
+   "commission": 0.0268,
+   "slippage": 0.033,
+   "swaps": 0.0392,
+   "gap_loss": 0.0098,
+   "gap_gain": 0.0004,
+   "stopped": 0.806,
+   "target": 0.049
+  },
+  "H4": {
+   "n": 670,
+   "R": -0.2085,
+   "move": -0.1013,
+   "spread": 0.0277,
+   "commission": 0.0148,
+   "slippage": 0.0181,
+   "swaps": 0.0465,
+   "gap_loss": 0.0039,
+   "gap_gain": 0.0,
+   "stopped": 0.694,
+   "target": 0.01
+  },
+  "M1": {
+   "n": 76848,
+   "R": -0.476,
+   "move": -0.0476,
+   "spread": 0.1591,
+   "commission": 0.1338,
+   "slippage": 0.1292,
+   "swaps": 0.0063,
+   "gap_loss": 0.0604,
+   "gap_gain": 0.0022,
+   "stopped": 0.907,
+   "target": 0.067
+  },
+  "M15": {
+   "n": 10286,
+   "R": -0.161,
+   "move": 0.0474,
+   "spread": 0.0762,
+   "commission": 0.0487,
+   "slippage": 0.0532,
+   "swaps": 0.0303,
+   "gap_loss": 0.0188,
+   "gap_gain": 0.0002,
+   "stopped": 0.858,
+   "target": 0.07
+  },
+  "M30": {
+   "n": 5723,
+   "R": -0.1896,
+   "move": -0.0161,
+   "spread": 0.0616,
+   "commission": 0.0365,
+   "slippage": 0.0424,
+   "swaps": 0.033,
+   "gap_loss": 0.0198,
+   "gap_gain": 0.0016,
+   "stopped": 0.85,
+   "target": 0.058
+  },
+  "M5": {
+   "n": 25501,
+   "R": -0.3122,
+   "move": -0.0355,
+   "spread": 0.1049,
+   "commission": 0.0754,
+   "slippage": 0.0783,
+   "swaps": 0.018,
+   "gap_loss": 0.0394,
+   "gap_gain": 0.0012,
+   "stopped": 0.887,
+   "target": 0.068
+  }
+ },
+ "by_market": {
+  "EURGBP": {
+   "n": 12235,
+   "R": -0.4794,
+   "move": -0.0454,
+   "spread": 0.2204,
+   "commission": 0.0992,
+   "slippage": 0.1043,
+   "swaps": 0.0102,
+   "gap_loss": 0.0382,
+   "gap_gain": 0.0007,
+   "stopped": 0.901,
+   "target": 0.057
+  },
+  "EURUSD": {
+   "n": 19659,
+   "R": -0.3294,
+   "move": -0.0483,
+   "spread": 0.0511,
+   "commission": 0.1277,
+   "slippage": 0.0949,
+   "swaps": 0.0074,
+   "gap_loss": 0.048,
+   "gap_gain": 0.0,
+   "stopped": 0.886,
+   "target": 0.072
+  },
+  "GBPUSD": {
+   "n": 19672,
+   "R": -0.3925,
+   "move": -0.0473,
+   "spread": 0.1548,
+   "commission": 0.1122,
+   "slippage": 0.0727,
+   "swaps": 0.0055,
+   "gap_loss": 0.0689,
+   "gap_gain": 0.002,
+   "stopped": 0.901,
+   "target": 0.065
+  },
+  "GER40": {
+   "n": 7267,
+   "R": -0.249,
+   "move": 0.0007,
+   "spread": 0.0679,
+   "commission": 0.043,
+   "slippage": 0.1051,
+   "swaps": 0.0336,
+   "gap_loss": 0.0683,
+   "gap_gain": 0.0077,
+   "stopped": 0.874,
+   "target": 0.074
+  },
+  "JP225": {
+   "n": 2352,
+   "R": -0.4941,
+   "move": -0.0792,
+   "spread": 0.2858,
+   "commission": 0.0166,
+   "slippage": 0.0997,
+   "swaps": 0.0127,
+   "gap_loss": 0.0216,
+   "gap_gain": 0.001,
+   "stopped": 0.907,
+   "target": 0.042
+  },
+  "NAS100": {
+   "n": 9275,
+   "R": -0.3196,
+   "move": 0.0358,
+   "spread": 0.1041,
+   "commission": 0.059,
+   "slippage": 0.1609,
+   "swaps": 0.0315,
+   "gap_loss": 0.0286,
+   "gap_gain": 0.0012,
+   "stopped": 0.884,
+   "target": 0.075
+  },
+  "UK100": {
+   "n": 5903,
+   "R": -0.5584,
+   "move": -0.1054,
+   "spread": 0.2194,
+   "commission": 0.1097,
+   "slippage": 0.104,
+   "swaps": 0.0198,
+   "gap_loss": 0.0599,
+   "gap_gain": 0.007,
+   "stopped": 0.9,
+   "target": 0.052
+  },
+  "US500": {
+   "n": 4784,
+   "R": -0.3975,
+   "move": -0.0318,
+   "spread": 0.1414,
+   "commission": 0.0353,
+   "slippage": 0.1657,
+   "swaps": 0.0233,
+   "gap_loss": 0.0369,
+   "gap_gain": 0.0009,
+   "stopped": 0.898,
+   "target": 0.066
+  },
+  "USDJPY": {
+   "n": 17917,
+   "R": -0.4031,
+   "move": -0.0501,
+   "spread": 0.1074,
+   "commission": 0.1342,
+   "slippage": 0.1005,
+   "swaps": 0.0109,
+   "gap_loss": 0.0623,
+   "gap_gain": 0.0001,
+   "stopped": 0.891,
+   "target": 0.067
+  },
+  "WTI": {
+   "n": 4406,
+   "R": -0.4044,
+   "move": -0.0003,
+   "spread": 0.2028,
+   "commission": 0.0835,
+   "slippage": 0.1124,
+   "swaps": 0.0054,
+   "gap_loss": 0.0248,
+   "gap_gain": 0.0031,
+   "stopped": 0.894,
+   "target": 0.062
+  },
+  "XAGUSD": {
+   "n": 2218,
+   "R": -0.655,
+   "move": -0.065,
+   "spread": 0.2912,
+   "commission": 0.1456,
+   "slippage": 0.1396,
+   "swaps": 0.0136,
+   "gap_loss": 0.0264,
+   "gap_gain": 0.0003,
+   "stopped": 0.89,
+   "target": 0.041
+  },
+  "XAUUSD": {
+   "n": 16134,
+   "R": -0.3759,
+   "move": -0.0012,
+   "spread": 0.1165,
+   "commission": 0.1398,
+   "slippage": 0.1081,
+   "swaps": 0.0102,
+   "gap_loss": 0.0366,
+   "gap_gain": 0.002,
+   "stopped": 0.891,
+   "target": 0.072
+  }
+ },
+ "by_timeframe_and_session": {
+  "H1 | Asia (23:00-07:00 UTC)": {
+   "n": 842,
+   "R": -0.1748,
+   "move": -0.0313,
+   "spread": 0.0571,
+   "commission": 0.0329,
+   "slippage": 0.0366,
+   "swaps": 0.0168,
+   "gap_loss": 0.0195,
+   "gap_gain": 0.0002,
+   "stopped": 0.868,
+   "target": 0.057
+  },
+  "H1 | London (07:00-12:00)": {
+   "n": 785,
+   "R": -0.2444,
+   "move": -0.1042,
+   "spread": 0.0493,
+   "commission": 0.0271,
+   "slippage": 0.0356,
+   "swaps": 0.0282,
+   "gap_loss": 0.0079,
+   "gap_gain": 0.0008,
+   "stopped": 0.838,
+   "target": 0.042
+  },
+  "H1 | London-New York overlap (12:00-16:00)": {
+   "n": 775,
+   "R": 0.0284,
+   "move": 0.1687,
+   "spread": 0.0423,
+   "commission": 0.0222,
+   "slippage": 0.0292,
+   "swaps": 0.0467,
+   "gap_loss": 0.001,
+   "gap_gain": 0.0004,
+   "stopped": 0.757,
+   "target": 0.048
+  },
+  "H1 | New York (16:00-20:30)": {
+   "n": 392,
+   "R": 0.0537,
+   "move": 0.2396,
+   "spread": 0.0418,
+   "commission": 0.0219,
+   "slippage": 0.0277,
+   "swaps": 0.0946,
+   "gap_loss": 0.01,
+   "gap_gain": 0.0,
+   "stopped": 0.707,
+   "target": 0.048
+  },
+  "H4 | Asia (23:00-07:00 UTC)": {
+   "n": 131,
+   "R": -0.2482,
+   "move": -0.1313,
+   "spread": 0.0327,
+   "commission": 0.0151,
+   "slippage": 0.0185,
+   "swaps": 0.0506,
+   "gap_loss": 0.0005,
+   "gap_gain": 0.0,
+   "stopped": 0.794,
+   "target": 0.008
+  },
+  "H4 | London (07:00-12:00)": {
+   "n": 175,
+   "R": -0.3382,
+   "move": -0.2634,
+   "spread": 0.021,
+   "commission": 0.0125,
+   "slippage": 0.014,
+   "swaps": 0.0272,
+   "gap_loss": 0.0002,
+   "gap_gain": 0.0,
+   "stopped": 0.72,
+   "target": 0.006
+  },
+  "H4 | London-New York overlap (12:00-16:00)": {
+   "n": 243,
+   "R": -0.0419,
+   "move": 0.0807,
+   "spread": 0.0302,
+   "commission": 0.0161,
+   "slippage": 0.0205,
+   "swaps": 0.0558,
+   "gap_loss": 0.009,
+   "gap_gain": 0.0,
+   "stopped": 0.667,
+   "target": 0.012
+  },
+  "H4 | New York (16:00-20:30)": {
+   "n": 121,
+   "R": -0.3127,
+   "move": -0.1999,
+   "spread": 0.0272,
+   "commission": 0.0153,
+   "slippage": 0.0187,
+   "swaps": 0.0516,
+   "gap_loss": 0.0029,
+   "gap_gain": 0.0,
+   "stopped": 0.603,
+   "target": 0.017
+  },
+  "M1 | Asia (23:00-07:00 UTC)": {
+   "n": 21175,
+   "R": -0.5633,
+   "move": -0.07,
+   "spread": 0.1786,
+   "commission": 0.1631,
+   "slippage": 0.1515,
+   "swaps": 0.0001,
+   "gap_loss": 0.1953,
+   "gap_gain": 0.0029,
+   "stopped": 0.918,
+   "target": 0.063
+  },
+  "M1 | London (07:00-12:00)": {
+   "n": 20848,
+   "R": -0.4186,
+   "move": -0.0185,
+   "spread": 0.1528,
+   "commission": 0.1257,
+   "slippage": 0.121,
+   "swaps": 0.0006,
+   "gap_loss": 0.0141,
+   "gap_gain": 0.0002,
+   "stopped": 0.904,
+   "target": 0.073
+  },
+  "M1 | London-New York overlap (12:00-16:00)": {
+   "n": 18969,
+   "R": -0.3685,
+   "move": -0.0094,
+   "spread": 0.1395,
+   "commission": 0.1076,
+   "slippage": 0.1074,
+   "swaps": 0.0048,
+   "gap_loss": 0.0028,
+   "gap_gain": 0.0005,
+   "stopped": 0.899,
+   "target": 0.073
+  },
+  "M1 | New York (16:00-20:30)": {
+   "n": 15856,
+   "R": -0.5636,
+   "move": -0.1018,
+   "spread": 0.1648,
+   "commission": 0.1368,
+   "slippage": 0.1361,
+   "swaps": 0.024,
+   "gap_loss": 0.0099,
+   "gap_gain": 0.006,
+   "stopped": 0.904,
+   "target": 0.06
+  },
+  "M15 | Asia (23:00-07:00 UTC)": {
+   "n": 3640,
+   "R": -0.1697,
+   "move": 0.0495,
+   "spread": 0.0897,
+   "commission": 0.0615,
+   "slippage": 0.062,
+   "swaps": 0.0061,
+   "gap_loss": 0.0386,
+   "gap_gain": 0.0,
+   "stopped": 0.887,
+   "target": 0.076
+  },
+  "M15 | London (07:00-12:00)": {
+   "n": 2518,
+   "R": -0.1071,
+   "move": 0.0766,
+   "spread": 0.0718,
+   "commission": 0.044,
+   "slippage": 0.0514,
+   "swaps": 0.0165,
+   "gap_loss": 0.0056,
+   "gap_gain": 0.0006,
+   "stopped": 0.872,
+   "target": 0.075
+  },
+  "M15 | London-New York overlap (12:00-16:00)": {
+   "n": 2207,
+   "R": -0.0731,
+   "move": 0.1135,
+   "spread": 0.0653,
+   "commission": 0.0376,
+   "slippage": 0.0451,
+   "swaps": 0.0386,
+   "gap_loss": 0.0075,
+   "gap_gain": 0.0,
+   "stopped": 0.836,
+   "target": 0.068
+  },
+  "M15 | New York (16:00-20:30)": {
+   "n": 1921,
+   "R": -0.3159,
+   "move": -0.0706,
+   "spread": 0.0691,
+   "commission": 0.0432,
+   "slippage": 0.0484,
+   "swaps": 0.0846,
+   "gap_loss": 0.0116,
+   "gap_gain": 0.0002,
+   "stopped": 0.811,
+   "target": 0.053
+  },
+  "M30 | Asia (23:00-07:00 UTC)": {
+   "n": 2023,
+   "R": -0.1628,
+   "move": 0.0229,
+   "spread": 0.0745,
+   "commission": 0.0465,
+   "slippage": 0.0507,
+   "swaps": 0.014,
+   "gap_loss": 0.0214,
+   "gap_gain": 0.0013,
+   "stopped": 0.884,
+   "target": 0.068
+  },
+  "M30 | London (07:00-12:00)": {
+   "n": 1464,
+   "R": -0.0691,
+   "move": 0.0805,
+   "spread": 0.0543,
+   "commission": 0.0322,
+   "slippage": 0.0381,
+   "swaps": 0.025,
+   "gap_loss": 0.0166,
+   "gap_gain": 0.0006,
+   "stopped": 0.857,
+   "target": 0.068
+  },
+  "M30 | London-New York overlap (12:00-16:00)": {
+   "n": 1379,
+   "R": -0.3085,
+   "move": -0.1448,
+   "spread": 0.0554,
+   "commission": 0.03,
+   "slippage": 0.0384,
+   "swaps": 0.0399,
+   "gap_loss": 0.0126,
+   "gap_gain": 0.001,
+   "stopped": 0.84,
+   "target": 0.038
+  },
+  "M30 | New York (16:00-20:30)": {
+   "n": 857,
+   "R": -0.2672,
+   "move": -0.066,
+   "spread": 0.0533,
+   "commission": 0.031,
+   "slippage": 0.0366,
+   "swaps": 0.0804,
+   "gap_loss": 0.0334,
+   "gap_gain": 0.005,
+   "stopped": 0.775,
+   "target": 0.049
+  },
+  "M5 | Asia (23:00-07:00 UTC)": {
+   "n": 8701,
+   "R": -0.3073,
+   "move": 0.0112,
+   "spread": 0.1256,
+   "commission": 0.0974,
+   "slippage": 0.0942,
+   "swaps": 0.0014,
+   "gap_loss": 0.0909,
+   "gap_gain": 0.0007,
+   "stopped": 0.903,
+   "target": 0.073
+  },
+  "M5 | London (07:00-12:00)": {
+   "n": 6325,
+   "R": -0.2281,
+   "move": 0.005,
+   "spread": 0.0936,
+   "commission": 0.0643,
+   "slippage": 0.0695,
+   "swaps": 0.0056,
+   "gap_loss": 0.0092,
+   "gap_gain": 0.0007,
+   "stopped": 0.889,
+   "target": 0.077
+  },
+  "M5 | London-New York overlap (12:00-16:00)": {
+   "n": 5376,
+   "R": -0.2555,
+   "move": -0.0268,
+   "spread": 0.0871,
+   "commission": 0.0557,
+   "slippage": 0.063,
+   "swaps": 0.023,
+   "gap_loss": 0.0033,
+   "gap_gain": 0.002,
+   "stopped": 0.88,
+   "target": 0.066
+  },
+  "M5 | New York (16:00-20:30)": {
+   "n": 5099,
+   "R": -0.4846,
+   "move": -0.1746,
+   "spread": 0.1025,
+   "commission": 0.0723,
+   "slippage": 0.0784,
+   "swaps": 0.0567,
+   "gap_loss": 0.0272,
+   "gap_gain": 0.0017,
+   "stopped": 0.866,
+   "target": 0.05
+  }
+ },
+ "worst50": {
+  "causes": {
+   "gap through the stop": 46,
+   "held overnight": 27,
+   "market closed overnight": 23,
+   "Asian session entry": 18,
+   "costs > 0.5R": 17,
+   "swaps > 0.5R": 16,
+   "hole in the price data": 14,
+   "US news day": 4
+  },
+  "list": [
+   {
+    "sym": "UK100",
+    "tf": "M30",
+    "R": -22.57,
+    "fill": "2016-06-22 19:59",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight"
+    ],
+    "gap_loss": 21.29,
+    "swaps": 0.25,
+    "costs": 0.07
+   },
+   {
+    "sym": "GER40",
+    "tf": "M1",
+    "R": -21.11,
+    "fill": "2017-04-03 19:57",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "swaps > 0.5R",
+     "costs > 0.5R"
+    ],
+    "gap_loss": 18.0,
+    "swaps": 1.71,
+    "costs": 0.57
+   },
+   {
+    "sym": "GER40",
+    "tf": "M5",
+    "R": -20.44,
+    "fill": "2015-08-31 19:48",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight"
+    ],
+    "gap_loss": 19.07,
+    "swaps": 0.3,
+    "costs": 0.1
+   },
+   {
+    "sym": "UK100",
+    "tf": "M5",
+    "R": -20.2,
+    "fill": "2015-05-07 19:01",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight"
+    ],
+    "gap_loss": 18.81,
+    "swaps": 0.25,
+    "costs": 0.29
+   },
+   {
+    "sym": "UK100",
+    "tf": "M5",
+    "R": -19.55,
+    "fill": "2016-11-08 16:40",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight"
+    ],
+    "gap_loss": 18.36,
+    "swaps": 0.12,
+    "costs": 0.14
+   },
+   {
+    "sym": "GBPUSD",
+    "tf": "M1",
+    "R": -18.08,
+    "fill": "2014-04-16 23:50",
+    "causes": [
+     "gap through the stop",
+     "hole in the price data",
+     "Asian session entry",
+     "costs > 0.5R"
+    ],
+    "gap_loss": 16.79,
+    "swaps": 0.0,
+    "costs": 0.54
+   },
+   {
+    "sym": "GER40",
+    "tf": "M1",
+    "R": -16.63,
+    "fill": "2013-07-31 19:39",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "US news day",
+     "swaps > 0.5R"
+    ],
+    "gap_loss": 12.11,
+    "swaps": 3.27,
+    "costs": 0.36
+   },
+   {
+    "sym": "UK100",
+    "tf": "M30",
+    "R": -15.34,
+    "fill": "2016-11-07 15:04",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight"
+    ],
+    "gap_loss": 14.04,
+    "swaps": 0.23,
+    "costs": 0.13
+   },
+   {
+    "sym": "GBPUSD",
+    "tf": "M1",
+    "R": -13.54,
+    "fill": "2014-11-13 23:54",
+    "causes": [
+     "gap through the stop",
+     "hole in the price data",
+     "Asian session entry",
+     "costs > 0.5R"
+    ],
+    "gap_loss": 12.09,
+    "swaps": 0.0,
+    "costs": 0.81
+   },
+   {
+    "sym": "GER40",
+    "tf": "M1",
+    "R": -12.39,
+    "fill": "2018-06-19 19:55",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "swaps > 0.5R"
+    ],
+    "gap_loss": 10.1,
+    "swaps": 1.04,
+    "costs": 0.34
+   },
+   {
+    "sym": "UK100",
+    "tf": "M5",
+    "R": -12.29,
+    "fill": "2016-12-16 08:00",
+    "causes": [
+     "gap through the stop"
+    ],
+    "gap_loss": 11.14,
+    "swaps": 0.0,
+    "costs": 0.29
+   },
+   {
+    "sym": "NAS100",
+    "tf": "M1",
+    "R": -12.12,
+    "fill": "2018-03-06 18:56",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "swaps > 0.5R"
+    ],
+    "gap_loss": 10.33,
+    "swaps": 0.65,
+    "costs": 0.21
+   },
+   {
+    "sym": "GER40",
+    "tf": "M1",
+    "R": -11.6,
+    "fill": "2013-10-09 19:08",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "swaps > 0.5R"
+    ],
+    "gap_loss": 7.72,
+    "swaps": 3.6,
+    "costs": 0.4
+   },
+   {
+    "sym": "GBPUSD",
+    "tf": "M1",
+    "R": -11.43,
+    "fill": "2016-05-29 23:28",
+    "causes": [
+     "gap through the stop",
+     "hole in the price data",
+     "Asian session entry",
+     "costs > 0.5R"
+    ],
+    "gap_loss": 10.89,
+    "swaps": 0.0,
+    "costs": 0.99
+   },
+   {
+    "sym": "UK100",
+    "tf": "M5",
+    "R": -11.22,
+    "fill": "2011-08-15 17:11",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight"
+    ],
+    "gap_loss": 10.79,
+    "swaps": 0.27,
+    "costs": 0.32
+   },
+   {
+    "sym": "GBPUSD",
+    "tf": "M1",
+    "R": -10.74,
+    "fill": "2011-04-20 23:41",
+    "causes": [
+     "gap through the stop",
+     "hole in the price data",
+     "Asian session entry"
+    ],
+    "gap_loss": 9.53,
+    "swaps": 0.0,
+    "costs": 0.38
+   },
+   {
+    "sym": "GER40",
+    "tf": "M1",
+    "R": -10.69,
+    "fill": "2018-07-18 19:56",
+    "causes": [
+     "held overnight",
+     "swaps > 0.5R",
+     "costs > 0.5R"
+    ],
+    "gap_loss": 0.0,
+    "swaps": 9.0,
+    "costs": 0.99
+   },
+   {
+    "sym": "GER40",
+    "tf": "M5",
+    "R": -10.47,
+    "fill": "2015-05-27 19:32",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "swaps > 0.5R"
+    ],
+    "gap_loss": 7.26,
+    "swaps": 2.06,
+    "costs": 0.23
+   },
+   {
+    "sym": "GER40",
+    "tf": "M5",
+    "R": -10.45,
+    "fill": "2011-02-15 18:46",
+    "causes": [
+     "gap through the stop",
+     "market closed overnight",
+     "held overnight",
+     "swaps > 0.5R"
+    ],
+    "gap_loss": 8.11,
+    "swaps": 1.09,
+    "costs": 0.36
+   },
+   {
+    "sym": "WTI",
+    "tf": "M1",
+    "R": -10.43,
+    "fill": "2018-06-06 14:22",
+    "causes": [
+     "gap through the stop",
+     "costs > 0.5R"
+    ],
+    "gap_loss": 9.0,
+    "swaps": 0.0,
+    "costs": 0.85
+   }
+  ]
+ }
+}

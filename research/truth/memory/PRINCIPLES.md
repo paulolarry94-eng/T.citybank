@@ -20,6 +20,10 @@ Evidence (2026-11-08, owner's body-engulf 4-candle range, RoboForex Prime): roun
 M15 0.18R, M30 0.14R, H1 0.12R, H4 0.06R; after costs every one of 192 settings x 12 markets lost (-0.11 to -0.47R a trade).
 research/results/body4/RESULT.md.
 
+Evidence (2026-11-08, cost attribution of 121,822 body-engulf trades): price move -0.03R a trade, costs 0.35R (spread 0.13,
+commission 0.11, slippage 0.11), swaps 0.01R. Costs in R are highest where ranges are small: Asia 0.40R vs London-New York
+overlap 0.29R; M1 0.42R vs H4 0.06R. research/results/body4/v4/RESULT.md.
+
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
 97% of paired settings (−0.081R); supply/demand −0.035 to −0.084R; FVG midpoint depth worse in 96%.
@@ -195,6 +199,10 @@ moves the target out by the same amount, so it buys fewer wick-outs, not more wi
 Evidence (2026-11-08, body-engulf range at 1:1): 44% wins on M15-H1 looks close to a coin flip, but a 1:1 trade needs
 53-59% wins after these costs; every 1R setting lost. research/results/body4/v2/RESULT.md.
 
+Evidence (2026-11-08, body-engulf range at 2R-10R): the best target-hit rates of 3,456 settings (2R 30%, 3R 22%, 4R 18%,
+5R 15%, 10R 7.5%) sit at or just below pure chance 1/(1+RR) (33%, 25%, 20%, 17%, 9%), in both periods. Half of all trades
+reach only 0.3-0.9R before the stop. research/results/body4/v4/RESULT.md.
+
 ### P17 Active hours picked from a backtest do not carry forward
 Choosing a strategy's best trading hours on past data mostly selects luck. Dark Mimas family: best 6 hours picked on
 2011–19 made +1.11 pips per trade before costs, then −0.13 in 2020–25 (0 of 18 positive after costs). Grid best hours:
@@ -209,6 +217,10 @@ Evidence (2026-11-02): a time picked from recent LIVE experience behaves the sam
 Nigerian time = 10:30 New York in US summer) made money in Jan-Oct 2026 (summer: +0.23R / +0.42R on 73 / 65 trades, t 1.1 /
 1.8, two data feeds agree), but that exact timing was the worst variant in 2011-22 (-0.27R on 1,106 trades, every year
 negative). Whether 2026 started something new is untested (Q25). research/results/owner330/season_split.json.
+
+Evidence (2026-11-08): a safe window fixed in advance for cost reasons (setups 07:00-19:00 UTC, no US news days, flat at
+20:30 UTC) cut the body-engulf loss in 90% of 1,712 paired settings (+0.045R a trade; +0.053R in 2020-22) but turned none
+positive (median -0.175R). Windows reduce costs and gap risk; they do not create an edge. research/results/body4/v4/RESULT.md.
 
 ### P18 Case studies select winners; only a coded scan of every setup shows the hit rate
 The owner's 4-leg SOP documents showed mostly wins. Coded so that it reproduces the owner's own cases (same legs, entry and

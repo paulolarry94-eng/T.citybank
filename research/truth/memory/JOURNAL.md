@@ -721,3 +721,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   to reach the stop). Truly unclear minutes are <= 0.2%. History kept in P30.
 - **Next:** this pattern family is closed in backtests (960 settings of this version alone). The owner's discretion can
   only be measured forward (log calls before the outcome).
+
+## 2026-11-08 (19) · owner: "what made the biggest loser, the cost ... avoid Asians and news ... test 2RR to 10RR ... safe windows ... find the RR that hits 50% and the config"
+- **Done:** pre-registered v4 (PREREGISTRATION_V4.md): engines got a daily 20:30 UTC close and per-setup allow flags (tests +
+  parity); loss attribution on v3 trades; lab v4 (2R-10R x window safe/all, 3,456 settings); study_v4 (parallel); hit-rate
+  curve (furthest favourable move before the stop).
+- **Learned:** REJECTED, 0 of 3,456. Losses = price move about 0 (-0.03R) + 0.35R costs; costs highest in Asia (0.40R) and on
+  M1 (0.42R); news days no different; the 50 worst losers are gaps (46), mostly indices closed overnight. Safe window +0.05R
+  in 90% of pairs, still negative. Target hit rates at or below chance 1/(1+RR); half the trades reach 0.3-0.9R. M15 safe
+  window slightly positive before costs in both periods (t <= 1.2), far below its 0.18R costs. Evidence added to P1, P16, P17.
+- **Next:** nothing left to tune in this family; only a forward log of the owner's discretionary calls could show an edge.

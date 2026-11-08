@@ -141,6 +141,9 @@ Learning rules:
   v3 (dojis bullish in the lookback, 1:2 and 1:10, breakeven at 75%) REJECTED, and a full bug audit found nothing (464,614
   setups and 215,119 trades independently re-checked): `research/results/body4/v3/RESULT.md`; 10 biggest winners/losers are
   all gap trades (`research/results/body4/v3/best_worst/`).
+  v4 (2R-10R x safe window: London/NY setups, no US news days, flat at 20:30 UTC; 3,456 settings) REJECTED: losses = price
+  move about 0 + costs 0.35R a trade; worst losers = overnight index gaps; safe window +0.05R, still negative; target hit
+  rates at chance (2R 30% vs 33%); half the trades reach only 0.3-0.9R (`research/results/body4/v4/RESULT.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
