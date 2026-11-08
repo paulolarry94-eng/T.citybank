@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(HERE, "..")); sys.path.insert(0, os.path.join(HE
 import engine as E, gold_lab as GL
 from execution import manage
 
-MINUTES = {"M5": 5, "M15": 15, "M30": 30, "H1": 60, "H4": 240, "D1": 1440}
+MINUTES = {"M1": 1, "M5": 5, "M15": 15, "M30": 30, "H1": 60, "H4": 240, "D1": 1440}
 SWAP = {"XAUUSD": 0.20, "EURUSD": 0.00006, "GBPUSD": 0.00006, "USDJPY": 0.008}     # per night held, price units
 BLOCK = (20 * 3600 + 1800, 23 * 3600)        # 20:30-23:00 UTC: no entries, no pending fills
 TIME_STOP = 50

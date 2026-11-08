@@ -1,14 +1,18 @@
-"""Owner's body-engulf 4-candle range (Q30): detector and reference order engine on hand-made 1-minute candles."""
+"""Owner's body-engulf 4-candle range (Q30, rules of 2026-11-08): detector, reference order engine (the specification)
+on hand-made 1-minute candles, and the fast engine agreeing with the reference trade for trade."""
 import os, sys, unittest, datetime as dt
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "..", "body4"))
-import body4_scan as SC   # noqa: E402
+import body4_scan as SC     # noqa: E402
 import body4_orders as OR   # noqa: E402
+import body4_fast as FA     # noqa: E402
 
 LOOK = [(101.5, 101.6, 101.0, 101.1)] * 5          # five bearish candles before candle 1 (o, h, l, c)
 SELL4 = [(100.0, 101.2, 99.9, 101.0), (101.0, 101.3, 99.4, 99.5), (99.5, 100.6, 99.45, 100.5), (100.5, 100.6, 99.3, 99.4)]
+COST0 = dict(spread=0.01, commission=0.0, slippage=0.0)
+MON = int(dt.datetime(2019, 1, 7, 10, tzinfo=dt.timezone.utc).timestamp())
 
 
 def market(rows, start):
@@ -17,39 +21,133 @@ def market(rows, start):
     return dict(t=t, ts=t, o=o, h=h, l=l, c=c)
 
 
-class TestBody4(unittest.TestCase):
+def ref(M, cost=COST0, **kw):
+    return OR.run(M, OR.patterns(M, 1), cost["spread"], cost["commission"], cost["slippage"], **kw)
+
+
+class TestDetector(unittest.TestCase):
     def test_wick_does_not_engulf(self):
         o = np.array([100.0, 101.0]); c = np.array([101.0, 100.05])
         self.assertFalse(SC.body_engulf(o, c, 1, -1))           # body closes above candle 1's open: no engulf
-        c2 = np.array([101.0, 99.9])
-        self.assertTrue(SC.body_engulf(o, c2, 1, -1))
+        self.assertTrue(SC.body_engulf(o, np.array([101.0, 99.9]), 1, -1))
 
+    def test_doji_counts_for_neither_side(self):
+        look = [(101.5, 101.6, 101.0, 101.1)] * 2 + [(101.2, 101.4, 101.0, 101.2)] + [(101.0, 101.6, 100.9, 101.5)] * 2
+        M = market(look + SELL4, MON)
+        P = SC.setups(M, 1)
+        self.assertEqual(int(P["lookback"][0]), 2)             # 2 bearish, 1 doji, 2 bullish -> 2, not 3
+
+    def test_control_sample_has_no_engulfing(self):
+        rows = LOOK + [(100.0, 101.2, 99.9, 101.0), (101.0, 101.3, 100.2, 100.4), (100.4, 100.9, 100.3, 100.8), (100.8, 100.9, 100.5, 100.6)]
+        M = market(rows, MON)
+        self.assertEqual(len(SC.setups(M, 1)["k"]), 0)
+        C = SC.setups(M, 1, sample="control")                 # the sell shape, and a buy shape one candle earlier
+        self.assertEqual(sorted(zip(C["k"].tolist(), C["side"].tolist())), [(7, 1), (8, -1)])
+
+
+class TestOrders(unittest.TestCase):
     def test_sell_limit_breakeven_then_target(self):
         after = [(99.6, 100.4, 99.5, 100.0), (100.0, 100.1, 98.0, 98.2), (98.2, 98.3, 96.2, 96.4)]
-        start = int(dt.datetime(2019, 1, 7, 10, tzinfo=dt.timezone.utc).timestamp())
-        M = market(LOOK + SELL4 + after, start)
+        M = market(LOOK + SELL4 + after, MON)
         P = OR.patterns(M, 1)
         # candles 3, 4 and the next two form a second valid sell (overlapping); it arrives while the trade is open
         self.assertEqual([(p["side"], round(p["mid"], 2), p["lookback"]) for p in P], [(-1, 100.3, 5), (-1, 99.3, 4)])
-        tr, log = OR.run(M, P, cost=0.01)
-        self.assertTrue(any("ignored, a trade is open" in x[1] for x in log))
+        tr, log, _ = ref(M)
         self.assertEqual(len(tr), 1)
         self.assertAlmostEqual(tr[0]["entry"], 100.3); self.assertAlmostEqual(tr[0]["R"], 4.0)
-        self.assertTrue(any("breakeven" in x[1] for x in log))
+        self.assertTrue(any("ignored, a trade is open" in x[1] for x in log))
+        self.assertTrue(any("stop moved to the entry" in x[1] for x in log))
 
-    def test_lookback_and_friday_close(self):
+    def test_target_needs_the_ask_but_only_the_spread(self):
+        """Image 6 (2026-11-08): a sell's target is hit when the ASK reaches it; commission does not move the ask."""
+        after = [(99.6, 100.4, 99.5, 100.0), (100.0, 100.1, 96.27, 96.5), (96.5, 96.6, 96.4, 96.5)]   # bid low 96.27
+        M = market(LOOK + SELL4 + after, MON)
+        cost = dict(spread=0.02, commission=0.10, slippage=0.05)  # total 0.17: bid + total would miss 96.30
+        tr, _, _ = ref(M, cost)
+        self.assertEqual(tr[0]["reason"], "target (+4R)")
+        self.assertAlmostEqual(tr[0]["R"], 4.0 - 0.10 / 1.0)
+
+    def test_skip_when_candle_4_closes_beyond_the_midpoint(self):
+        sell = SELL4[:3] + [(100.5, 100.6, 97.0, 99.4)]         # engulfs (below 3's open 99.5) but closes above the mid 99.15
+        tr, log, _ = ref(market(LOOK + sell + [(100.35, 100.5, 100.2, 100.3)] * 3, MON))
+        self.assertEqual(tr, []); self.assertTrue(any("no intent" in x[1] for x in log))
+
+    def test_entry_level_70_percent_fills(self):
+        after = [(99.6, 100.8, 99.5, 100.0), (100.0, 100.1, 97.0, 97.2)] + [(97.2, 97.3, 97.1, 97.2)] * 3
+        tr, _, _ = ref(market(LOOK + SELL4 + after, MON), entry=0.7, breakeven=False)
+        self.assertAlmostEqual(tr[0]["entry"], 100.7)                 # sell at lo + 0.7 x range
+        self.assertAlmostEqual(tr[0]["risk"], 0.6)                    # stop at the range high 101.3
+
+    def test_friday_close_and_lookback(self):
         after = [(99.6, 100.4, 99.5, 100.0)] + [(100.0, 100.2, 99.8, 100.0)] * 40
-        start = int(dt.datetime(2019, 1, 11, 20, 0, tzinfo=dt.timezone.utc).timestamp())   # Friday 20:00 UTC
-        M = market(LOOK + SELL4 + after, start)
-        tr, log = OR.run(M, OR.patterns(M, 1), cost=0.01)
+        fri = int(dt.datetime(2019, 1, 11, 20, 0, tzinfo=dt.timezone.utc).timestamp())
+        tr, _, _ = ref(market(LOOK + SELL4 + after, fri))
         self.assertEqual(tr[0]["reason"], "Friday close")
         self.assertEqual(dt.datetime.fromtimestamp(tr[0]["t_out"], dt.timezone.utc).strftime("%a %H:%M"), "Fri 20:30")
-        bull = [(r[0], r[1], r[2], r[0] + 0.5) for r in LOOK]                # lookback now bullish: sell rejected
-        M2 = market(bull + SELL4 + after, start)
-        tr2, log2 = OR.run(M2, OR.patterns(M2, 1), cost=0.01)
+        bull = [(r[0], r[1], r[2], r[0] + 0.5) for r in LOOK]
+        tr2, log2, _ = ref(market(bull + SELL4 + after, fri))
         self.assertEqual(tr2, []); self.assertTrue(any("lookback" in x[1] for x in log2))
-        tr3, _ = OR.run(M2, OR.patterns(M2, 1), cost=0.01, use_lookback=False)
-        self.assertEqual(len(tr3), 1)
+        self.assertEqual(len(ref(market(bull + SELL4 + after, fri), use_lookback=False)[0]), 1)
+
+    def _setups(self, rows):
+        """Hand-made setups for the order rules: (minute, side, hi, lo, c4)."""
+        return [dict(id=n + 1, k=0, side=s, hi=hi, lo=lo, width=hi - lo, mid=(hi + lo) / 2, c4=c4, lookback=5, t1=0,
+                     t_conf=MON + 60 * mnt) for n, (mnt, s, hi, lo, c4) in enumerate(rows)]
+
+    def test_same_direction_orders_wait_and_the_first_fill_removes_the_rest(self):
+        # buy #1 range 100-102 (limit 101), buy #2 range 101.5-103 (limit 102.25): price falls, #2 fills first
+        bars = [(102.6, 102.7, 102.5, 102.6)] * 6 + [(102.6, 102.6, 102.2, 102.3), (102.3, 102.4, 101.5, 101.6)] + [(101.6, 101.7, 101.5, 101.6)] * 5
+        M = market(bars, MON)
+        pats = self._setups([(1, 1, 102.0, 100.0, 101.8), (3, 1, 103.0, 101.5, 102.9)])
+        tr, log, _ = OR.run(M, pats, 0.01, 0.0, 0.0)
+        self.assertTrue(any("filled at 102.25; removed pending #1" in x[1] for x in log))
+        F, _ = FA.run(dict(ts=M["ts"], o=M["o"], h=M["h"], l=M["l"], c=M["c"]), _arr(pats), dict(spread=0.01, commission=0, slippage=0),
+                      dict(entry=0.5, buffer=0.0, be=True, lookback=True))
+        self.assertEqual(len(F), len(tr))
+
+    def test_opposite_setup_needs_a_wider_range(self):
+        bars = [(102.0, 102.1, 101.9, 102.0)] * 12
+        M = market(bars, MON)
+        narrow = self._setups([(1, 1, 102.0, 100.0, 101.8), (3, -1, 103.5, 102.2, 102.5)])   # sell range 1.3 < 2.0
+        _, log, _ = OR.run(M, narrow, 0.01, 0.0, 0.0)
+        self.assertTrue(any("not wider" in x[1] for x in log))
+        wide = self._setups([(1, 1, 102.0, 100.0, 101.8), (3, -1, 104.5, 102.2, 102.4)])     # sell range 2.3 > 2.0
+        _, log2, _ = OR.run(M, wide, 0.01, 0.0, 0.0)
+        self.assertTrue(any("WIDER than every pending order: replaces #1" in x[1] for x in log2))
+
+
+def _arr(pats):
+    keys = ("side", "hi", "lo", "c4", "lookback", "t_conf")
+    return {k: np.array([p[k] for p in pats]) for k in keys}
+
+
+class TestParity(unittest.TestCase):
+    """The fast engine must reproduce the reference trade for trade on real data."""
+    def test_gold_2019_m5_and_m1(self):
+        try:
+            sys.path.insert(0, os.path.join(HERE, "..", ".."))
+            import engine as EN
+            ts, o, h, l, c = EN.load_m1("XAUUSD", 2019, 2019)
+        except Exception as e:                                     # data not present
+            self.skipTest(str(e))
+        keep = ts < int(dt.datetime(2019, 4, 1, tzinfo=dt.timezone.utc).timestamp())
+        ts, o, h, l, c = ts[keep], o[keep], h[keep], l[keep], c[keep]
+        M = dict(ts=ts, o=o, h=h, l=l, c=c)
+        cost = dict(spread=0.05, commission=0.06, slippage=0.05, swap=0.2)
+        for tf in (5, 1):
+            bt, bo, bh, bl, bc, _ = EN.resample(ts, o, h, l, c, tf)
+            B = dict(t=bt, o=bo, h=bh, l=bl, c=bc)
+            S = SC.setups(B, tf)
+            for p in (dict(entry=0.5, buffer=0.0, be=True, lookback=True), dict(entry=0.7, buffer=0.1, be=False, lookback=False),
+                      dict(entry=0.5, buffer=0.2, be=True, lookback=False)):
+                tr, _, _ = OR.run(M, OR.patterns(B, tf), cost["spread"], cost["commission"], cost["slippage"], swap=cost["swap"],
+                                  entry=p["entry"], buffer=p["buffer"], breakeven=p["be"], use_lookback=p["lookback"])
+                F, _ = FA.run(M, S, cost, p)
+                self.assertEqual(len(F), len(tr), (tf, p))
+                self.assertTrue(len(tr) > 10)
+                for a, b in zip(tr, F):
+                    self.assertEqual((a["t_in"], a["t_out"], a["side"]), (int(b[0]), int(b[1]), int(b[2])))
+                    self.assertAlmostEqual(a["R"], b[3], places=9)
 
 
 if __name__ == "__main__":
