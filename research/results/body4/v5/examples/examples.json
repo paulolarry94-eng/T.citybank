@@ -1,0 +1,203 @@
+{
+ "seed": 20261108,
+ "groups": [
+  {
+   "id": "A",
+   "what": "strict engulf, no layering",
+   "setting": {
+    "tf": "M15",
+    "engulf": "body",
+    "layer": "none",
+    "target": 10,
+    "be": 1,
+    "buffer": 0.2,
+    "lookback": 1
+   },
+   "examples": 2
+  },
+  {
+   "id": "B",
+   "what": "loose engulf (loose only), no layering",
+   "setting": {
+    "tf": "H1",
+    "engulf": "loose",
+    "layer": "none",
+    "target": 10,
+    "be": 0,
+    "buffer": 0.0,
+    "lookback": 0
+   },
+   "examples": 3
+  },
+  {
+   "id": "C",
+   "what": "strict engulf + layering (M15 big, M1 entry)",
+   "setting": {
+    "tf": "M1",
+    "engulf": "body",
+    "layer": "on",
+    "target": 10,
+    "be": 1,
+    "buffer": 0.2,
+    "lookback": 1
+   },
+   "examples": 2
+  },
+  {
+   "id": "D",
+   "what": "loose engulf + layering (H1 big, M5 entry)",
+   "setting": {
+    "tf": "M5",
+    "engulf": "loose",
+    "layer": "on",
+    "target": 5,
+    "be": 0,
+    "buffer": 0.2,
+    "lookback": 1
+   },
+   "examples": 3
+  }
+ ],
+ "examples": [
+  {
+   "n": 1,
+   "group": "A",
+   "what": "strict engulf, no layering",
+   "market": "USDJPY",
+   "tf": "M15",
+   "side": "buy",
+   "fill": "2019-02-11T20:11:00+00:00",
+   "exit": "2019-02-11T20:30:00+00:00",
+   "reason": "time close at 20:30 UTC",
+   "R": 0.088,
+   "cost_R": 0.088,
+   "file": "example_01_A_USDJPY_M15.png"
+  },
+  {
+   "n": 2,
+   "group": "A",
+   "what": "strict engulf, no layering",
+   "market": "EURUSD",
+   "tf": "M15",
+   "side": "buy",
+   "fill": "2018-06-21T19:06:00+00:00",
+   "exit": "2018-06-21T20:06:00+00:00",
+   "reason": "stop",
+   "R": -1.042,
+   "cost_R": 0.052,
+   "file": "example_02_A_EURUSD_M15.png"
+  },
+  {
+   "n": 3,
+   "group": "B",
+   "what": "loose engulf (loose only), no layering",
+   "market": "UK100",
+   "tf": "H1",
+   "side": "sell",
+   "fill": "2021-03-09T17:10:00+00:00",
+   "exit": "2021-03-09T20:30:00+00:00",
+   "reason": "time close at 20:30 UTC",
+   "R": 0.151,
+   "cost_R": 0.04,
+   "file": "example_03_B_UK100_H1.png"
+  },
+  {
+   "n": 4,
+   "group": "B",
+   "what": "loose engulf (loose only), no layering",
+   "market": "EURGBP",
+   "tf": "H1",
+   "side": "buy",
+   "fill": "2023-11-20T16:50:00+00:00",
+   "exit": "2023-11-20T20:30:00+00:00",
+   "reason": "time close at 20:30 UTC",
+   "R": -0.516,
+   "cost_R": 0.067,
+   "file": "example_04_B_EURGBP_H1.png"
+  },
+  {
+   "n": 5,
+   "group": "B",
+   "what": "loose engulf (loose only), no layering",
+   "market": "GER40",
+   "tf": "H1",
+   "side": "sell",
+   "fill": "2019-09-17T08:02:00+00:00",
+   "exit": "2019-09-17T20:30:00+00:00",
+   "reason": "time close at 20:30 UTC",
+   "R": -0.518,
+   "cost_R": 0.037,
+   "file": "example_05_B_GER40_H1.png"
+  },
+  {
+   "n": 6,
+   "group": "C",
+   "what": "strict engulf + layering (M15 big, M1 entry)",
+   "market": "XAUUSD",
+   "tf": "M1",
+   "side": "buy",
+   "fill": "2020-07-23T14:42:00+00:00",
+   "exit": "2020-07-23T18:08:00+00:00",
+   "reason": "breakeven stop",
+   "R": -0.081,
+   "cost_R": 0.118,
+   "file": "example_06_C_XAUUSD_M1.png"
+  },
+  {
+   "n": 7,
+   "group": "C",
+   "what": "strict engulf + layering (M15 big, M1 entry)",
+   "market": "EURUSD",
+   "tf": "M1",
+   "side": "sell",
+   "fill": "2018-02-07T18:31:00+00:00",
+   "exit": "2018-02-07T18:31:00+00:00",
+   "reason": "stop in the fill minute",
+   "R": -1.105,
+   "cost_R": 0.129,
+   "file": "example_07_C_EURUSD_M1.png"
+  },
+  {
+   "n": 8,
+   "group": "D",
+   "what": "loose engulf + layering (H1 big, M5 entry)",
+   "market": "EURGBP",
+   "tf": "M5",
+   "side": "sell",
+   "fill": "2015-08-25T15:53:00+00:00",
+   "exit": "2015-08-25T16:15:00+00:00",
+   "reason": "stop",
+   "R": -1.065,
+   "cost_R": 0.134,
+   "file": "example_08_D_EURGBP_M5.png"
+  },
+  {
+   "n": 9,
+   "group": "D",
+   "what": "loose engulf + layering (H1 big, M5 entry)",
+   "market": "USDJPY",
+   "tf": "M5",
+   "side": "sell",
+   "fill": "2021-04-12T10:42:00+00:00",
+   "exit": "2021-04-12T10:55:00+00:00",
+   "reason": "stop",
+   "R": -1.102,
+   "cost_R": 0.147,
+   "file": "example_09_D_USDJPY_M5.png"
+  },
+  {
+   "n": 10,
+   "group": "D",
+   "what": "loose engulf + layering (H1 big, M5 entry)",
+   "market": "GBPUSD",
+   "tf": "M5",
+   "side": "buy",
+   "fill": "2011-03-22T08:56:00+00:00",
+   "exit": "2011-03-22T10:13:00+00:00",
+   "reason": "target",
+   "R": 4.967,
+   "cost_R": 0.101,
+   "file": "example_10_D_GBPUSD_M5.png"
+  }
+ ]
+}

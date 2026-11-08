@@ -335,6 +335,10 @@ layering helps a little (+0.03 to +0.06R in 62-75% of pairs) but keeps 1-2% of t
 chosen on 2011-22 first): all negative, -0.07 to -0.38R a trade; 16 of 448 settings positive, median -0.18R. 2023-25 is
 used up for this family (5,184 settings in v1-v5); only Jan-Oct 2026 is unseen. research/results/body4/v5/RESULT.md.
 Open only as a forward log of the owner's own calls (setups marked before the outcome).
+Examples (2026-11-08): 10 v5 trades drawn at random from the 4 look settings, every rule written on the chart
+(research/results/body4/v5/examples/). About 2 in 3 loose setups fail the strict rule only because candle 2 or 4
+opens inside the previous body by less than one spread (median 0.6-0.75 spread; M5 296,083 and H1 29,497 setups):
+tick noise, which is why strict and loose tested the same.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

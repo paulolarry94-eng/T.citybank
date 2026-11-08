@@ -786,3 +786,13 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   today; under a cap, return grows with the square of edge quality (FORTNIGHT_CYCLE.md: 3.6x short in Sharpe, ~10x in
   return), so alpha is the lever. Proposed layers and missing pieces (payout ratchet, drift check) in Q33.
 - **Next:** owner decides which governs (cap vs return target); then compile and self-test the router on a RoboForex demo.
+
+## 2026-11-08 (24) · owner: "our last test, show me 10 examples, let me be sure you understood"
+- **Done:** `research/body4/examples_v5.py`: 10 v5 trades from the 4 settings chosen for the 2023-25 look (2 strict, 3 loose
+  only, 2 strict + layering, 3 loose + layering), random with a fixed seed, drawn with the lab's own setups, masks and M1
+  engine; each chart writes out the engulf checks, intent, lookback, safe window, layering times, orders and result.
+- **Learned:** the 10 net -0.02R a trade (1 target +4.97R, 1 breakeven, 3 time closes, 5 stops, one in the fill minute).
+  About 2 in 3 loose setups fail the strict rule only by opening inside the previous body by less than a spread (median
+  0.6-0.75 spread): strict vs loose is tick noise, matching the paired result (Q30).
+- **Next:** owner confirms the rules on the charts (loose = close beyond the previous open; layering = same-direction big
+  setup confirmed less than 2 big candles before the small one, orders from the small range).
