@@ -266,7 +266,7 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
-### Q30 Owner's body-engulf 4-candle range (2026-11-07) — TESTED, rejected
+### Q30 Owner's body-engulf 4-candle range (2026-11-07) — TESTED, rejected; CLOSED 2026-11-08 (2023-25 look failed)
 FAMILY: engulfing, owner-idea, limit-entry, breakeven, synthetic-index, intraday. Candles 1-4 alternate; the 2nd and 4th
 bodies engulf the 1st and 3rd bodies (wicks ignored); range = high-low of the four; limit at the midpoint, stop at the far
 end, target 4R, stop to breakeven at +2R. Scanner and 5 random examples (XAUUSD/EURUSD): research/body4/.
@@ -297,6 +297,12 @@ costs. research/results/body4/v3/RESULT.md.
 v4 (2026-11-08, owner: biggest losers, safe windows, 2R-10R, the RR hit 50% of the time): REJECTED, 3,456 settings. Losses
 = no edge in the move + 0.35R costs a trade; biggest losers = overnight index gaps, Brexit, data holes; safe window +0.05R,
 still negative; hit rates at chance; half the trades reach only 0.3-0.9R. research/results/body4/v4/RESULT.md.
+v5 (2026-11-08, owner: "test both engulf, loosen ones, then test the data in 2023-2025, then try layering timeframes"):
+768 settings (strict vs loose engulf x layering on/off), REJECTED. Loose is no better (26%/56% of pairs, 3x the trades);
+layering helps a little (+0.03 to +0.06R in 62-75% of pairs) but keeps 1-2% of trades. Owner's 2023-25 look (4 primaries
+chosen on 2011-22 first): all negative, -0.07 to -0.38R a trade; 16 of 448 settings positive, median -0.18R. 2023-25 is
+used up for this family (5,184 settings in v1-v5); only Jan-Oct 2026 is unseen. research/results/body4/v5/RESULT.md.
+Open only as a forward log of the owner's own calls (setups marked before the outcome).
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

@@ -45,6 +45,11 @@ an idea that already has an edge.
 Evidence (2026-11-02, owner's 4-flip EMA pattern, 12 markets): median R per trade by timeframe M5 -0.17, M15 -0.09, M30 -0.11,
 H1 -0.09, H4 +0.05R; before costs about 0 up to H1 and positive only on H4, on too few trades to trust (t <= 1.9).
 
+Evidence (2026-11-08, body-engulf range v5, unseen 2023-25, 448 settings with >= 100 trades): median R per trade M1
+-0.38, M5 -0.22, M15 -0.13, M30 -0.06, H1 -0.15, H4 -0.004R. Higher timeframes lose less because costs per unit of risk
+shrink (M1 0.42R, H4 0.06R a trade); H4 lands on about zero (16 of 32 settings positive), not on an edge.
+research/results/body4/v5/RESULT.md.
+
 ### P4 Breakeven stops are a backtest mirage
 They add no out-of-sample edge; small targets hurt. Evidence: four-strategy study (mgmt_oos, exit_eras).
 Confidence: medium-high.
@@ -127,6 +132,11 @@ alone afterwards (hindsight, called out), its 2023–25 look was −0.18R per tr
 Evidence (2026-11-03): the best of about 6,200 owner-pattern settings (t 1.96 over 2011-22, positive in both periods) lost
 0.12R a trade on the unseen 2023-25 holdout (with a trend filter added before the look, -0.03R). research/results/final/FINAL.md.
 
+Evidence (2026-11-08, body-engulf range v5): the one primary that did well in 2020-22 (loose engulf + layering M5,
++0.213R on 233 trades, t 1.46) lost -0.067R a trade on unseen 2023-25 data; the best of 448 settings in 2023-25
+(+0.052R, t 1.12) had lost -0.099R a trade (t -4.77) in 2011-22. A good period picked from many is mostly luck.
+research/results/body4/v5/RESULT.md.
+
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
 on untouched January–October 2026 Exness data made +0.022R per trade against +0.078R in its 2011–25 backtest (about 70%
@@ -174,6 +184,11 @@ than the same four-flips without it (-0.002 to -0.017R). research/results/ema4/R
 Evidence (2026-11-08): owner's body-engulf 4-candle range, 192 configurations x 12 markets x M1-H4: 0% positive after costs
 in 2011-19; before costs about zero (M1 -0.07R t -8.5, M5 -0.03R, M15 +0.03R, H1 -0.01R); 64 best market x timeframe
 picks from 2011-19, 8 positive in 2020-22, the top four all lost. research/results/body4/RESULT.md.
+
+Evidence (2026-11-08, body-engulf range v5 and the owner's 2023-25 look): strict or loose engulfing, with or without
+timeframe layering, 768 settings: 0 pass the gate; the 4 settings chosen on 2011-22 all lost in 2023-25 (-0.07 to -0.38R
+a trade); 16 of 448 settings positive (4%), median -0.18R. Five versions of this pattern (5,184 settings) all failed.
+research/results/body4/v5/RESULT.md.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
@@ -269,6 +284,11 @@ own learning halves. Winners are the tail of a noisy distribution, not a separat
 before costs can be filtered into a better one. Evidence: research/hunter5m/ (two pre-registered steps). Confidence: high.
 Evidence (2026-11-01): the same holds for pockets: of 396 market x timeframe x session cells, cells positive before
 costs in 2011-19 were positive in 2020-22 34% of the time, cells negative 32%: no persistence, so no pocket to pick.
+
+Evidence (2026-11-08, multi-timeframe layering of the body-engulf range): requiring the same setup on a bigger timeframe
+kept 0.7-1.7% of the trades and improved R per trade in 56-75% of paired settings (+0.03 to +0.06R), but every primary
+stayed negative in 2023-25. A filter on a setup with no raw edge cuts the loss and the trades, not the sign.
+research/results/body4/v5/RESULT.md.
 
 ### P22 Edges with a payer survive where shapes do not
 After ~300,000 configurations of chart shapes rejected after costs, the first new survivor is a flow with a known payer:

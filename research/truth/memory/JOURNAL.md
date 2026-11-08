@@ -731,3 +731,22 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   in 90% of pairs, still negative. Target hit rates at or below chance 1/(1+RR); half the trades reach 0.3-0.9R. M15 safe
   window slightly positive before costs in both periods (t <= 1.2), far below its 0.18R costs. Evidence added to P1, P16, P17.
 - **Next:** nothing left to tune in this family; only a forward log of the owner's discretionary calls could show an edge.
+
+## 2026-11-08 (20) · owner (after the XAGUSD M5 chart): "test both engulf, loosen ones then test the data in 2023-2025...then try layering timeframe one big with small both align then entry in small"
+- **Done:** pre-registered v5 (PREREGISTRATION_V5.md, committed before any result): strict ("body") vs loose engulf (close
+  beyond the previous open only) x layering (same-direction setup on the bigger timeframe, candle 4 closed <= 2 big candles
+  earlier; M1>M15, M5>H1, M15/M30/H1>H4, H4>D1) in the safe window; 768 settings; engines + 18 body4 tests (loose engulf,
+  layer mask). Lab run; study on 2011-22 (paired comparisons, before costs) that chose 4 primaries (best 2011-22 edge quality,
+  >= 300 trades) and wrote them to the look file before the owner's 2023-25 look; look logged once (768 lab entries).
+- **Learned:** REJECTED and the look FAILS. Loose engulf no better (26%/56%/55% of pairs in 2011-19/2020-22/2023-25), 3x the
+  trades. Layering +0.03/+0.06/+0.03R in 62%/75%/56% of pairs but keeps 0.7-1.7% of trades. Primaries 2023-25: -0.129R
+  (1,236), -0.384R (74), -0.133R (1,836), -0.067R (229; it was +0.213R in 2020-22). 16 of 448 settings positive (all H4,
+  about 0 there), median -0.18R; the best of 2023-25 had lost -0.10R a trade in 2011-22. Before costs 23 of 96 main cells
+  positive in both periods, all small; only M15 strict + layering beat its costs, on 25-28 and 11 trades (t < 1), and lost
+  on 5 trades in 2023-25. Evidence added to P3, P10, P14, P21; Q30 closed.
+- **Decisions:** 2023-25 is used up for the body-engulf family (5,184 settings in v1-v5); a later version would have only
+  Jan-Oct 2026 as unseen data. The owner's silver-chart questions (date, red box, which engulf) are moot: both engulf rules
+  were tested.
+- **Facts vs estimates:** costs per timeframe in R (0.06-0.42R) come from the v4 attribution; swaps are zero by construction
+  (flat at 20:30 UTC). XAGUSD/UK100 cost split 50/25/25 is an assumption.
+- **Next:** nothing left to tune in backtests; a forward log of the owner's own calls is the only open test for this pattern.

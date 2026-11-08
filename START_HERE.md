@@ -41,7 +41,7 @@ carry (Sharpe 0.50 2011-24, works only on real futures, not CFDs).
 |---|---|---|
 | Owner's 4-flip EMA / four-candle price action (v1-v4, no-EMA, best + trend filter) | about 6,200 settings | best of all lost -0.03R to -0.12R a trade on unseen 2023-25; family closed (`research/results/final/FINAL.md`) |
 | Month-end FX hedge rebalancing at the 4 pm fix (last push, payer + known direction) | 6 | real in 2011-19 (+0.10R, s 0.12), reversed 2020-22 (s -0.41), flat on unseen 2023-25 (-0.03R); competed away after publication (`research/results/flows/MONTHEND_HEDGE.md`) |
-| Owner's body-engulf 4-candle range (50/70% entry, 1R-10R, breakeven, lookback, dojis, safe windows; M1-H4, 12 markets; 2026-11-08) | 4,416 | every setting lost after costs (best -0.10R a trade); about 0 before costs; 1:1 wins 34-47% vs 53-72% needed; 10R hit by 6.6% vs ~9% needed; target hit rates at chance; safe windows +0.05R, still negative; bug audit clean (`research/results/body4/RESULT.md`, `v2/`, `v3/`, `v4/`) |
+| Owner's body-engulf 4-candle range (50/70% entry, 1R-10R, breakeven, lookback, dojis, safe windows, strict/loose engulf, timeframe layering; M1-H4, 12 markets; 2026-11-08) | 5,184 | every setting lost after costs (best -0.10R a trade); the 4 settings chosen for the 2023-25 look all lost (-0.07 to -0.38R a trade); about 0 before costs; loose engulf no better, layering keeps 1-2% of trades; 1:1 wins 34-47% vs 53-72% needed; 10R hit by 6.6% vs ~9% needed; target hit rates at chance; safe windows +0.05R, still negative; bug audit clean; family closed (`research/results/body4/RESULT.md`, `v2/` to `v5/`) |
 | Noise gate on the survivors (trade only when movement is clean; 2026-11-06) | 8 | no better than random filtering (p 0.36), halves trades, reversed on 2026 (`research/results/noisegate/RESULT.md`) |
 | Owner's 3:30 EMA retest (incl. 1:1 stop grid) | 64 | -0.16 to -0.22R a trade, edge quality -0.18 to -0.08 (`research/results/owner330/RESULT.md`) |
 | Chart-pattern families (ORB, FVG, supply/demand, Quasimodo, SnR, engulfing, ~1,400 liquidity grabs, Leg 34) | ~250,000 | about 0 before costs, negative after (P1, P14) |
@@ -74,5 +74,5 @@ not carrying forward (P10, P11).
 `research/results/final/FINAL.md` (owner patterns, final) · `research/results/ema4/` and `research/results/pa4/` (4-flip
 versions) · `research/results/owner330/` (3:30 retest) · `research/results/batch01/` (payer-flow batch) ·
 `research/results/flows/MONTHEND_HEDGE.md` (last push, month-end hedge flow) ·
-`research/results/body4/RESULT.md` (body-engulf range, 2026-11-08) ·
+`research/results/body4/RESULT.md` and `v5/RESULT.md` (body-engulf range and its 2023-25 look, 2026-11-08) ·
 `research/goal/` (cycle maths) · `tools/histdata_clock.py` (data clock fix) · `research/truth/README.md` (lab tools).

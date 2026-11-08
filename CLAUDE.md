@@ -144,6 +144,9 @@ Learning rules:
   v4 (2R-10R x safe window: London/NY setups, no US news days, flat at 20:30 UTC; 3,456 settings) REJECTED: losses = price
   move about 0 + costs 0.35R a trade; worst losers = overnight index gaps; safe window +0.05R, still negative; target hit
   rates at chance (2R 30% vs 33%); half the trades reach only 0.3-0.9R (`research/results/body4/v4/RESULT.md`).
+  v5 (strict vs loose engulf x timeframe layering, 768 settings) REJECTED; loose no better, layering +0.03-0.06R but keeps
+  1-2% of trades. Owner's 2023-25 look: the 4 settings chosen on 2011-22 all lost (-0.07 to -0.38R a trade); 16 of 448
+  positive (H4, about 0). 2023-25 used up for this family (5,184 settings); CLOSED (`research/results/body4/v5/RESULT.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
