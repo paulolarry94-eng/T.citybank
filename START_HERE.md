@@ -6,7 +6,7 @@ One page to pick the project up later. Details live in `CLAUDE.md` (rules + ever
 ## 1. How to resume (3 commands)
 ```bash
 bash tools/bootstrap.sh                                   # installs packages, prints the research memory digest
-python3 -m unittest $(ls research/truth/tests/test_*.py)  # 164 tests, about 1 minute: should end with OK
+python3 -m unittest $(ls research/truth/tests/test_*.py)  # 175 tests, about 1 minute: should end with OK
 python3 research/truth/cyclegoal.py --survivors           # the scoreboard below, recomputed
 ```
 Test any new idea only as a strategy file through the Truth Lab:
@@ -41,6 +41,7 @@ carry (Sharpe 0.50 2011-24, works only on real futures, not CFDs).
 |---|---|---|
 | Owner's 4-flip EMA / four-candle price action (v1-v4, no-EMA, best + trend filter) | about 6,200 settings | best of all lost -0.03R to -0.12R a trade on unseen 2023-25; family closed (`research/results/final/FINAL.md`) |
 | Month-end FX hedge rebalancing at the 4 pm fix (last push, payer + known direction) | 6 | real in 2011-19 (+0.10R, s 0.12), reversed 2020-22 (s -0.41), flat on unseen 2023-25 (-0.03R); competed away after publication (`research/results/flows/MONTHEND_HEDGE.md`) |
+| Owner's body-engulf 4-candle range (50/70% entry, 4R, breakeven, lookback; M1-H4, 12 markets; 2026-11-08) | 192 | every setting lost after costs (-0.11 to -0.47R a trade); about 0 before costs; best market x timeframe picks did not hold (`research/results/body4/RESULT.md`) |
 | Noise gate on the survivors (trade only when movement is clean; 2026-11-06) | 8 | no better than random filtering (p 0.36), halves trades, reversed on 2026 (`research/results/noisegate/RESULT.md`) |
 | Owner's 3:30 EMA retest (incl. 1:1 stop grid) | 64 | -0.16 to -0.22R a trade, edge quality -0.18 to -0.08 (`research/results/owner330/RESULT.md`) |
 | Chart-pattern families (ORB, FVG, supply/demand, Quasimodo, SnR, engulfing, ~1,400 liquidity grabs, Leg 34) | ~250,000 | about 0 before costs, negative after (P1, P14) |
@@ -73,4 +74,5 @@ not carrying forward (P10, P11).
 `research/results/final/FINAL.md` (owner patterns, final) · `research/results/ema4/` and `research/results/pa4/` (4-flip
 versions) · `research/results/owner330/` (3:30 retest) · `research/results/batch01/` (payer-flow batch) ·
 `research/results/flows/MONTHEND_HEDGE.md` (last push, month-end hedge flow) ·
+`research/results/body4/RESULT.md` (body-engulf range, 2026-11-08) ·
 `research/goal/` (cycle maths) · `tools/histdata_clock.py` (data clock fix) · `research/truth/README.md` (lab tools).

@@ -16,6 +16,10 @@ Evidence (2026-11-02, owner's 3:30 EMA retest, 48 configurations x 12 markets): 
 one-M5-candle stop makes RoboForex Prime's published costs 0.10-0.25R of risk (0.17R on average), so every configuration
 loses -0.16 to -0.22R in 2011-19 and again in 2020-22. research/results/owner330/RESULT.md.
 
+Evidence (2026-11-08, owner's body-engulf 4-candle range, RoboForex Prime): round-trip cost per trade M1 0.43R, M5 0.26R,
+M15 0.18R, M30 0.14R, H1 0.12R, H4 0.06R; after costs every one of 192 settings x 12 markets lost (-0.11 to -0.47R a trade).
+research/results/body4/RESULT.md.
+
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
 97% of paired settings (−0.081R); supply/demand −0.035 to −0.084R; FVG midpoint depth worse in 96%.
@@ -24,6 +28,9 @@ Evidence: North Star ablation. Confidence: high.
 Evidence (2026-11-03, owner's four-candle price action, 12 markets, M5-H4): a limit at the 4th candle's far end (high for
 sells) was the worst of three entries on every timeframe (medians -0.12 to -0.23R vs -0.03 to -0.15R at the close; it filled
 on about 1 setup in 5). research/results/pa4/RESULT.md.
+
+Evidence (2026-11-08, body-engulf range): a limit at the 50% midpoint beat the deeper 70% pull-back in 74% of 1,102 paired
+settings (+0.08R a trade 2011-19; 70% and +0.05R 2020-22): the deeper fill picks worse trades. research/results/body4/RESULT.md.
 
 ### P3 Higher timeframes beat lower ones
 Costs per unit of risk shrink and noise falls. FVG M5→H1 +0.15R in every paired setting; QM M15→H1 +0.05R.
@@ -41,6 +48,10 @@ Confidence: medium-high.
 More evidence (2026-10-31): owner's SOP: breakeven at 1:1 added +0.01 to +0.02R in 2011–22, then cost money in
 February–October 2026 (M30 +0.02R → −0.16R). It is not an edge.
 Evidence (2026-11-02, owner's 3:30 EMA retest): breakeven at +1R was worse in 16 of 24 paired settings (-0.004R on average).
+
+Evidence (2026-11-08, owner's body-engulf range, 4R target): breakeven at +2R had the higher profit factor in only 25% of
+1,110 paired settings (2011-19) and 27% of 962 (2020-22), PF -0.03, R per trade unchanged (+0.001). The early exits pay
+commission and slippage. research/results/body4/RESULT.md.
 
 ### P5 Overnight swaps matter for multi-day trades
 Gold trend 2011–18 +0.13R → +0.01R with a constant swap; four strategies 2023–25 +0.036 → +0.005R; the book
@@ -148,6 +159,10 @@ EMA cross inside its range, 2R/3R/4R, breakeven, 4 entries, 2 anchors): 0 of 48 
 Evidence (2026-11-03): the owner's 4-flip EMA pattern in four versions (open engulf, full engulf, breaks from the other side,
 obvious breaks), 5,680 settings over 12 markets and M5-H4: 0 pass; about 0 before costs; the engulfing grade does no better
 than the same four-flips without it (-0.002 to -0.017R). research/results/ema4/RESULT.md, RESULT_V2_V4.md.
+
+Evidence (2026-11-08): owner's body-engulf 4-candle range, 192 configurations x 12 markets x M1-H4: 0% positive after costs
+in 2011-19; before costs about zero (M1 -0.07R t -8.5, M5 -0.03R, M15 +0.03R, H1 -0.01R); 64 best market x timeframe
+picks from 2011-19, 8 positive in 2020-22, the top four all lost. research/results/body4/RESULT.md.
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:
@@ -346,3 +361,13 @@ trusted reference at -60/0/+60 minutes, week by week, across daylight-saving cha
 exchange opens land on the open minute in summer and in winter. Evidence: research/results/data/histdata_clock.json (8 markets,
 2011-2026, 98-100% of weeks agree; after the fix EURGBP 832/833 and XAGUSD 743/743 weeks align), the 2026 HistData feed vs
 Exness (43/43 weeks). Confidence: high.
+
+### P30 Model the order book, not a lump cost; one-minute bars cannot judge a one-minute strategy
+Use bid data with ask = bid + spread: the SPREAD decides whether a limit, target or stop level is reached; commission is
+charged per trade; slippage applies to stop and market exits only. A lump cost treated as spread wrongly turned a gold sell
+that reached its 4R target into a breakeven exit (owner's image 6, 2026-11-08: bid touched the target by 0.10, the lump
+cost was 0.16, the spread 0.05). Stops, targets and breakeven levels are fixed prices set with the order; 1R is the planned
+entry-to-stop distance (a gap through both entry and stop otherwise divides by zero). On M1 a fill, stop and target inside
+the same minute cannot be ordered: 20% of M1 trades, 7% M5, 4% M15, 1% H4 (body-engulf range); count them and treat them
+against the trade, and use ticks before trusting an M1 result. Evidence: research/body4/body4_orders.py (specification),
+research/truth/tests/test_body4.py, research/results/body4/RESULT.md. Confidence: high.

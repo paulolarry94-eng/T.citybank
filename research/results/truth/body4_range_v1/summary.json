@@ -1,0 +1,457 @@
+{
+ "name": "body4_range_v1",
+ "hypothesis": "Four alternating candles whose 2nd and 4th bodies engulf the 1st and 3rd mark a range whose midpoint (or 70% pull-back) is a good place to join the 4th candle's direction for a 4R move, after costs and swaps.",
+ "fingerprint": "9ae0e7fecfab060dd8e5549370d01872155810d85e881418ae1ab45f99cd17cc",
+ "started": "2026-11-08 01:25:23 UTC",
+ "markets": [
+  "XAUUSD",
+  "XAGUSD",
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "EURGBP",
+  "WTI",
+  "US500",
+  "NAS100",
+  "GER40",
+  "UK100",
+  "JP225"
+ ],
+ "timeframes": [
+  "M1",
+  "M5",
+  "M15",
+  "M30",
+  "H1",
+  "H4"
+ ],
+ "params": {
+  "entry": [
+   0.5,
+   0.7
+  ],
+  "be": [
+   1,
+   0
+  ],
+  "buffer": [
+   0.0,
+   0.05,
+   0.1,
+   0.2
+  ],
+  "lookback": [
+   1,
+   0
+  ]
+ },
+ "management": {
+  "tgt": [
+   0.0
+  ],
+  "trail": [
+   0.0
+  ],
+  "bias": [
+   0
+  ]
+ },
+ "time_stop": 1000000,
+ "priors": [
+  {
+   "name": "ORB 50 study",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Gold WAT session + Malaysian SnR",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Four strategies (trend continuation, failed breakout, vol contraction/expansion)",
+   "verdict": "Rejected (as a set)"
+  },
+  {
+   "name": "Daily London best-setup scanner",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Dark Mimas (Marco Solito, free MQL5 EA; owner's classic and grid .set files)",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "osc_turn_sessions_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Dark Mimas timing study (winner hours; learn 2011-19, check 2020-25)",
+   "verdict": "Study: informative (no new edge)"
+  },
+  {
+   "name": "sop_4leg_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "sop_4leg_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner's 4-leg engulfing SOP: case-study parity + Feb-Oct 2026 holdout",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SOP winning-conditions study (learn 2011-19, check later)",
+   "verdict": "Rejected: no winning condition exists"
+  },
+  {
+   "name": "leg34_gold_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Leg 34 gold M5: 2026 check, cost/excursion and EMA-slope diagnostics",
+   "verdict": "Rejected (confirms the lab)"
+  },
+  {
+   "name": "5-min hunter step 1: Leg 34 winner anatomy, 11 markets (learn gold 2011-19)",
+   "verdict": "Rejected: winners' attributes do not select winners"
+  },
+  {
+   "name": "5-min hunter step 2: top-1% runner-profile score (declared before out-of-sample)",
+   "verdict": "Rejected: worse than taking every setup"
+  },
+  {
+   "name": "Hunter step 3: Leg 34 pocket scan, 11 markets x 6 timeframes x 3 sessions x 2 exits",
+   "verdict": "Rejected: no pocket survives"
+  },
+  {
+   "name": "Tokyo fix (Gotobi) study: USDJPY moves into/after the 00:55 UTC fix, gotobi vs other days",
+   "verdict": "Study: informative (supports tokyo_fix_gotobi_v1)"
+  },
+  {
+   "name": "seesare_ladder_envelope_v1",
+   "verdict": "Rejected as a guarantee: ladder rules alone allow 29.55% (time exits at -0.6R, manual) and 14.96% (stop at 3.5:1 then two 1:1 wins); a pre-trade check (drawdown + all-in risk <= $36) holds 3.53% / 3.60%. With losing time exits counted NEGATIVE: 0.19%."
+  },
+  {
+   "name": "wmr_fix_reversion_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "wmr_fix_postfade_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Tokyo fix payoff shape and declared-bracket study",
+   "verdict": "Rejected: payoff ratio about 1:1 (avg win 11.3/14.8/18.4 pips vs avg loss 11.0/11.4/20.1 in 2011-19/2020-22/2023-25); a 7:1 target is reached on 0.1-3.3% of mornings for stops of 5-20 pips. Declaring a high ratio only raises SEESARE size; it does not add convexity. Descriptive (all years at once): not a strategy selection."
+  },
+  {
+   "name": "SEESARE cycle-block study on a cent account (Tokyo fix through the real ledger rules)",
+   "verdict": "Rejected as stated: the box holds (max drawdown 0.005-0.016%) only because real trading almost stops. With losing time exits NEGATIVE (hardcoded) and no target, the ladder can only descend: L15 from event 13, 98.8% of 1,071 events there, 6 REAL trades in 15 years (-$0.04), 0 cycles closed. Target at 1.04: same 6 REAL. Time exits MANUAL: 25 REAL, 2 cycles (+0.003%, +0.116%). The cent account makes the Tokyo fix REAL only at L0-L3 (ratio 1.04), L0-L9 at 3.5. +2% per cycle needs +1.46R per event at L0 (mult 1.0); the Tokyo fix earns about +0.05R."
+  },
+  {
+   "name": "SEESARE time-exit ascension study (Tokyo fix, cent account)",
+   "verdict": "Rejected: the ladder still sinks. The flow wins 52.6% of mornings after the 1.9-pip spread (49.3% at 2.85); with +1 up and -2/-3/-4 down the ladder settles near L13 (mean level 13.1-13.9, L0 0.1-0.5% of mornings). Real trades in 15 years: 15 (default ladder), 22 (owner-scaled), 191 (owner-scaled and declared 4:1, which the flow does not have). Cycles closed 1/2/19; best variant's cycles: mean +0.021%, median -0.003%, 26% positive; at 2.85 pips -0.018% mean, 8% positive. Max drawdown 0.005-0.24%, guard never needed. Arithmetic: the ladder needs about a 75% win rate to spend half its time in L0-L3."
+  },
+  {
+   "name": "Strategy universe under a 3.6% lifecycle drawdown cap (4 sizing rules)",
+   "verdict": "Study: the cap buys about 6-7% a year from the book in backtest, not great alpha. Chosen on 2011-22, one look at 2023-25 (Exness Zero + swaps): book + guard 0.75% +6.83%/yr (worst lifecycle 3.47%, across lifecycles 4.29%); book + drawdown-keyed 16-level ladder (m 0.3) +5.99%/yr (3.43%, 4.32%); book fixed 0.5% +3.41%/yr but 4.71% (cap broken); book + Tokyo fix + EURUSD reversal: guard +4.27%/yr, ladder +3.30%/yr (better 2011-22, worse 2023-25); SEESARE outcome ladder about 0 in every case. Untouched Jan-Oct 2026 (book): guard -2.34% and trading halted after about 5 months; drawdown ladder -1.52%; fixed -0.60%; SEESARE +2.09% at 0.64% drawdown."
+  },
+  {
+   "name": "Strategy universe scored per 360-trade lifecycle (4 sizing rules)",
+   "verdict": "Study: about +5-6% per lifecycle (one lifecycle = 360 trades = about 11 months for the book). 2011-22: book + drawdown ladder 13 completed, 0 stopped, mean +6.1%, median +5.8%, worst -2.6%, best +18.3%, worst drawdown 3.2%; book + guard 9 completed + 5 stopped, mean +6.4%; fixed 0.5% +5.1%; SEESARE outcome ladder +0.7%. 2023-25 (already seen in v1, not clean): ladder +0.1%, -0.7%, stopped +5.3%, unfinished +13.2%; guard +4.5%, stopped -2.8% and +6.7%, unfinished +9.0%. 2026 unfinished (333 trades): ladder -1.5%, guard two stopped lifecycles (-2.3%, +0.3%). Owner's +2% per 10-trade cycle = +72% per lifecycle; measured about +6% (0.17% per 10 trades)."
+  },
+  {
+   "name": "Drawdown-keyed ladder: Tokyo fix alone and Tokyo weight 0.57 / 1.00 / 2.00",
+   "verdict": "Rejected as a lever: Tokyo weight 1.00 vs 0.57 in the book + Tokyo + EURUSD universe: +6.84% vs +6.56% per lifecycle 2011-22 and +2.62% vs +2.18% 2023-25 at Exness costs, but +5.22% vs +5.97% and +1.14% vs +1.37% at lab costs; 2.00 worse everywhere (more stopped lifecycles). Tokyo fix alone (all the router can trade today): +11.8% per lifecycle, but one lifecycle takes about 5 years (72 trades a year). Descriptive: both periods had been seen."
+  },
+  {
+   "name": "Daily one-trade queue over the 13 validated strategies (Monte Carlo, 3.6% / 5% drawdown sizing)",
+   "verdict": "Rejected for the target. Real-time queue (first signalling moment of the session day, best 2011-19 quality at that moment). Every-day version (all 13 legs, ~250 trades/yr): Monte Carlo median +0.00 to +0.05% per cycle at 3.6% sizing (~2.3-3.0%/yr). Best per cycle: top-3 legs (XAU EMA20-50 H4, XAU S1 reversion, JPY S2 Donchian), +0.59% median per cycle at 3.6% (+0.82% at 5%), 76% of cycles positive, but only ~22 trades a year (a cycle every ~5.5 months, ~1.3%/yr); actual 2020-22 / 2023-25 median cycles +0.15% / +0.20% (in-sample for the book); 2026 untouched: -0.10R/trade, -0.31% over 19 trades. Taking every signal (no queue) earns more per year (~4.9%) at the same cap: the queue throws away breadth."
+  },
+  {
+   "name": "Q21 diagnostic: tick-volume surge on opening-range breakouts vs range expansion and direction",
+   "verdict": "Study: activity predicts a little more movement in both directions, not direction. USDJPY 2011-25 (9,252 breakouts, Tokyo/London/New York): rank correlation with 60-min range expansion +0.05 / +0.07, with follow-through +0.001 / -0.008; top-quintile follow-through +0.0135 ATR_D in 2011-19 (t 2.4 of 5 quintiles) and +0.006 (t 0.8) in 2020-25, below the 0.0187 ATR_D round-trip cost. GER40 2020-25 (2,396): expansion +0.19, follow-through -0.009. Only USDJPY (all years) and GER40 (2020+) have tick volume in our data."
+  },
+  {
+   "name": "ecb_fix_eurusd_v1",
+   "verdict": "Rejected: no configuration passed the development gate (4 configurations, 1 positive in 2011-19, 0 in both 2011-19 and 2020-22; 2023-25 never opened). RoboForex Prime costs (0.55 pip round trip, published). Into the fix (14:00->14:10 CET with the drift): 2011-19 -0.020R (t -5.5), 2020-22 -0.035R; after the fix (fade 14:10->15:10): -0.004R (t -0.3), -0.013R. Gross (zero cost) the edge is about nothing: into -0.16 / -0.64 pip, after +0.40 / +0.14 pip (t 0.9 / 0.2). Costs are not the reason; there is no flow to pay for."
+  },
+  {
+   "name": "Q19 ECB fix: the same trades at four cost levels (gross, RoboForex Prime, Exness Zero, lab standard)",
+   "verdict": "Study: no edge at any cost. Mean pips per trade 2011-19 / 2020-22, gross -> RoboForex Prime 0.55 -> Exness Zero 0.95 -> lab 1.5 pips: into/all -0.16/-0.64 -> -0.71/-1.19 -> -1.11/-1.59 -> -1.66/-2.14; after/all +0.40/+0.14 (t 0.9/0.2) -> -0.15/-0.41 -> -0.55/-0.81 -> -1.10/-1.36; month-end after +2.0/-2.6 (107/32 trades, t 1.0/-0.9). Average absolute move 4.6 pips in 10 minutes, 15 pips in an hour: a cheaper account shrinks the loss, it does not create an edge. 2023-25 not opened."
+  },
+  {
+   "name": "Cycle math: what +2% per 10-trade cycle needs vs the 360-trade lifecycle drawdown",
+   "verdict": "Study (model: independent trades, fixed risk, after costs): +2% per 10-trade cycle needs a per-trade Sharpe of about 0.42 for a 95th-percentile lifecycle drawdown of 3.6%, 0.36 for 5%, 0.32 for 6%, 0.28 for 8% (fit DD95 = 0.69% x s^-1.91 over 80 cells). Examples inside 3.6%: 70% wins at 1:1 gives 4.0%; 55% at 2:1 3.4%; 45% at 3:1 3.5%; 40% at 4:1 3.2%. Ours per trade after Exness costs + swaps: book 0.062, Tokyo fix 0.088, EURUSD reversal 0.125, all 13 0.063, book Jan-Oct 2026 0.020: about +0.09 / +0.12 / +0.20% per cycle for the book at a 3.6 / 5 / 8% drawdown; forcing +2% needs 2.6% risk and an 80% drawdown. Combining strategies leaves the per-trade Sharpe unchanged (all 13: 0.063). The drawdown-keyed ladder at weight 1.00 never passes 3.6% but stops lifecycles at the wall: median +2% needs about s 0.41 AND a high win rate (75% at 0.75:1: median +1.99%, 4.7% stopped; 40% at 4:1: 95% stopped)."
+  },
+  {
+   "name": "tokyo_fix_gotobi_v1",
+   "verdict": "Tier B: forward-test candidate"
+  },
+  {
+   "name": "Cycle goal by trades per cycle (quality x breadth)",
+   "verdict": "Study: edge quality x sqrt(independent trades per cycle) stays about 1.4 for +2% inside 3.6% (1.38-1.47 for n = 10-160) and about 2.8 for +7% inside 3.6%. Needed s for +2%/3.6%: n 10 0.43, 20 0.32, 40 0.23, 80 0.16, 160 0.12; the book (s 0.062) would need about 530 independent trades per cycle."
+  },
+  {
+   "name": "Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule)",
+   "verdict": "Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened."
+  },
+  {
+   "name": "ssr_sweep_shift_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "SSR controls: sweep-and-shift vs near-miss control, by market and side",
+   "verdict": "Rejected by the owner's rule: selected config (5 x M15 shift window, confirmation entry) 2011-19 +0.107R t 2.09 (493 trades) vs near-miss control -0.088R (differential +0.19R, t 3.2), but 2020-22 -0.087R and stress negative. By market 2011-19 / 2020-22 / 2023-25: XAUUSD +0.044 / -0.160 / -0.077R, EURUSD +0.151 / -0.017 / +0.194R. Gold longs +0.16R, shorts -0.08R (2011-19). Near-miss controls lost in every 2011-19 cell (-0.02 to -0.20R): fading a failed approach to the 20-bar extreme loses. EURUSD-only would be chosen after seeing results (hindsight). Edge quality s 0.094 (2011-19), needed 0.42."
+  },
+  {
+   "name": "owner330_ema_retest_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "us_close_flow_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner 3:30 replay: scanner vs the owner's ten example days (Oct 2026)",
+   "verdict": "Implementation check passed: 9 of 10 days match the owner's call (references within one M5 candle, entry and stop within cents / 0.4 pip). Miss: EURGBP 27 Oct, the owner's reference closed exactly on the M5 EMA in our data (sub-pip feed difference). Led to two changes before any backtest: the HistData clock fix and 'within the range' = the reference candle touches the range. Not evidence of an edge (P18)."
+  },
+  {
+   "name": "Owner 3:30 follow-up: cycle league, 2-hour control, 2026 on two feeds, season split, audit charts",
+   "verdict": "Rejected for 2011-22; 2026 is an open lead. Cycles (12 markets, 2011-19): edge quality -0.18 to -0.08 (needed +0.42), an average 10-trade cycle -1.4R to -1.8R, 22-37% of cycles positive, every 360-trade lifecycle negative (best config: -10R to -116R). Before costs about 0 (-0.03 to +0.02R); costs 0.17R a trade (one-candle stop). Control (2 h later) lost more in 2011-19 (diff +0.08R, t up to 2.9) but not in 2020-22 (t about 0). 2026 Jan-Oct, 5 markets: 15:30 WAT anchor 23/24 configs positive (median +0.17R) on Exness data and 24/24 (+0.19R) on HistData; 9:30 NY 0/24. All of it in US summer time (15:30 WAT = 10:30 NY): A 3R +0.23R (73 trades, t 1.1), B3 3R +0.42R (65, t 1.8), while the same timing was the worst in 2011-22 (-0.27R, 1,106 trades, t -6.2; every year negative). Owner chose this timing in 2026 (selection). Even at face value s 0.13-0.23 < 0.42."
+  },
+  {
+   "name": "owner330_ema_retest_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Owner 3:30 v2 win-rate study: 1:1 with stop placement grid (pullback touch)",
+   "verdict": "Rejected. 2011-19 win rate 40-46% vs 56-59% needed after costs at 1:1 (net -0.08 to -0.19R; t -4 to -10); 2020-22 41-45%, negative; Jan-Oct 2026 (owner's period, 5 markets) negative for all 16 on both feeds (best -0.005R, 50% wins). Wider stops cut wick-outs (52% -> 23% of stopped trades later reached the target) and cost share (0.17 -> 0.12R) but raise the win rate only 40 -> 46%; before costs at most +0.04R. Best setting (pullback extreme + 0.5 ATR) at the grid edge. Only GER40 positive (1 of 12, hindsight)."
+  },
+  {
+   "name": "ema4_flip_v1",
+   "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
+  },
+  {
+   "name": "ema4_flip_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "4-flip EMA: where/when search, profile, rejected-pattern control, replay",
+   "verdict": "Rejected. Replay 5 of 7 owner calls (misses are sub-pip feed differences). Before costs about 0 on M5-H1 (-0.04 to +0.04R), costs 0.06-0.16R; only H4 positive (A+ +0.14R, A+B+ +0.11R in 2011-19, t 1.7-1.9, 106-282 trades; 2020-22 about 0). Where/when: 0 of 69 cells t >= 3 in 2011-19 (best t 2.4), 0 pass. Control: graded beat rejected four-flips in 2011-19 (H4 +0.14R) but not in 2020-22 (H4 -0.10R). Close entry beat the 50% limit. Best edge quality 0.18 (H4 A+), -0.09 in 2020-22."
+  },
+  {
+   "name": "ema4_flip_v2",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ema4_flip_v3",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "ema4_flip_v4",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "4-flip EMA v2-v4: owner's corrections (full engulfing, real breaks, obvious breaks), stops, trailing exits",
+   "verdict": "Rejected. 0 of 1,260 / 1,260 / 2,520 pass the gate; among settings with >= 200 trades positive in both 2011-19 and 2020-22: v2 22, v3 11, v4 0 of 826; medians -0.115 to -0.120R. Full engulfing vs non-engulfing four-flips: -0.002 to -0.017R (no selection value). Obvious breaks lose slightly less but leave few trades. Trailing/EMA exits no better than targets. Where/when 0 of 180 in each version."
+  },
+  {
+   "name": "pa4_engulf_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Four-candle price action without EMA (A+ only): entry comparison incl. 4th-candle-high entry",
+   "verdict": "Rejected. 0 of 540 positive in 2011-19. Entry medians (2011-19): close -0.03 to -0.15R, 50% -0.10 to -0.20R, 4th-candle high/low -0.12 to -0.23R (worst on every timeframe; fills on about 1 setup in 5). Best: H4 close -0.014R / -0.022R. Control: alternating candles without the full closes do the same (-0.005 / +0.005R). Where/when 0 of 138 cells."
+  },
+  {
+   "name": "ema4_final_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Final: best 4-flip variant + H4 50-EMA trend filter, one logged look at 2023-25 and Jan-Oct 2026",
+   "verdict": "FAILS. With the filter: 2011-19 +0.116R (198, t 1.79), 2020-22 +0.069R (84), 2023-25 -0.033R (86, t -0.40), Jan-Oct 2026 -0.42R (6 trades). Without: 2023-25 -0.122R (117, t -1.66), 2026 -0.30R (7). The best-of-many 2011-22 result did not carry forward (P10/P11); the trend filter reduced the loss but added no edge."
+  },
+  {
+   "name": "monthend_hedge_fix_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Noise gate (efficiency-ratio gate with threshold, hysteresis, hold) on the 13 survivors",
+   "verdict": "Rejected. Best (H1, 67th pct, by-type): s 0.074 vs 0.068 ungated 2011-19, 0.082 vs 0.066 2020-22, but random gates of the same size do as well (p 0.36; all 8 within random range). 2023-25 look 0.047 vs 0.043; untouched 2026 book reversed (passed -0.054, blocked +0.086). Halves trades and yearly return; cycle +0.105% vs +0.10%."
+  }
+ ],
+ "lookahead": {
+  "ok": true,
+  "checks": [
+   {
+    "tf": "M1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M5",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M15",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "M30",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H1",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "real-time decision",
+    "checked": 40,
+    "ok": true
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.4,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.6,
+    "ok": true,
+    "example": null
+   },
+   {
+    "tf": "H4",
+    "test": "prefix",
+    "cut": 0.8,
+    "ok": true,
+    "example": null
+   }
+  ]
+ },
+ "grid_summary": {
+  "configs": 192,
+  "passed_gate": 0,
+  "share_dev_positive": 0.0,
+  "median_dev_E": -0.19831398205376105,
+  "share_dev_and_val_positive": 0.0
+ },
+ "verdict": "Rejected: no configuration passed the development gate"
+}

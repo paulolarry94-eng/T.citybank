@@ -12,7 +12,8 @@ New setup (tradeable from the first minute after candle 4 closes, + `delay` minu
      ("price above the midpoint shows no intent").
   5. entry level: 50% of the range (the midpoint) or 70% (a 70% pull-back: buy hi - 0.7 x range, sell lo + 0.7 x range).
      If price is already through that level when the order would be placed, it is skipped.
-  6. stop = far end of the range + buffer x range; 1R = entry to stop; target = entry +/- 4R; breakeven level = +2R.
+  6. stop = far end of the range + buffer x range; 1R = entry level to stop; target = entry level +/- 4R; breakeven
+     level = +2R. All three are fixed prices set with the order (as in MT5); a gap fill at a better price keeps them.
      A setup whose 1R is not bigger than the round-trip cost cannot be traded and is skipped.
   7. pending orders: same direction -> the new order is added; when one order fills, all other pending orders are
      removed. Opposite direction -> the new setup replaces all pending orders if its range is wider than every one of
@@ -156,7 +157,8 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
                                 + ", ".join(f"#{q['p']['id']}" for q in pend)))
                     pend = []
                 else:
-                    log.append((t, f"{stamp(i)}  {name(p)}: opposite direction, not wider than the pending order(s): ignored")); continue
+                    log.append((t, f"{stamp(i)}  {name(p)}: opposite direction, not wider than pending "
+                                + ", ".join(f"#{q['p']['id']}" for q in pend) + ": ignored")); continue
             pend.append(order)
             log.append((t, f"{stamp(i)}  {name(p)}: limit order at {lvl:.5g} ({int(entry * 100)}% of the range), stop {stop:.5g}, "
                         f"target {order['tp']:.5g}"))
@@ -182,17 +184,17 @@ def run(M, pats, spread, commission, slippage, swap=0.0, entry=0.5, buffer=0.0, 
                 # a falling price meets the highest buy level first; a rising price the lowest sell level
                 q = max(filled, key=lambda x: x["level"]) if filled[0]["side"] > 0 else min(filled, key=lambda x: x["level"])
                 s = q["side"]
-                px = min(q["level"], o[i] + spread) if s > 0 else max(q["level"], o[i])
-                d = abs(px - q["stop"])
-                pos = dict(p=q["p"], side=s, entry=px, stop=q["stop"], stop0=q["stop"], risk=d, tp=px + s * target_r * d,
-                           be=px + s * be_r * d, moved=False, i_in=i, t_in=t, cut=friday_cut_after(t))
+                px = min(q["level"], o[i] + spread) if s > 0 else max(q["level"], o[i])     # a gap fills at the open
+                # stop, target and breakeven level are fixed prices set with the order; 1R = planned entry to stop
+                pos = dict(p=q["p"], side=s, entry=px, stop=q["stop"], stop0=q["stop"], risk=q["risk"], tp=q["tp"],
+                           be=q["be"], moved=False, i_in=i, t_in=t, cut=friday_cut_after(t))
                 others = [x for x in pend + filled if x is not q]
                 log.append((t, f"{stamp(i)}  pattern #{q['p']['id']} {'SELL' if s < 0 else 'BUY'} filled at {px:.5g}"
                             + (("; removed pending " + ", ".join(f"#{x['p']['id']}" for x in others)) if others else "")))
                 pend = []
                 if (l[i] <= pos["stop"]) if s > 0 else (h[i] + spread >= pos["stop"]):
                     stats["ambiguous"] += 1
-                    px2 = pos["stop"] - slippage if s > 0 else pos["stop"] + slippage
+                    px2 = (min(pos["stop"], o[i]) - slippage) if s > 0 else (max(pos["stop"], o[i] + spread) + slippage)
                     close(i, t, px2, "stop (-1R), same minute as the fill")
             continue
         # open trade, from the minute after the fill

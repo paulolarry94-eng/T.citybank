@@ -266,7 +266,7 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
-### Q30 Owner's body-engulf 4-candle range on Boom 1000 M5 (2026-11-07)
+### Q30 Owner's body-engulf 4-candle range (2026-11-07) — TESTED, rejected
 FAMILY: engulfing, owner-idea, limit-entry, breakeven, synthetic-index, intraday. Candles 1-4 alternate; the 2nd and 4th
 bodies engulf the 1st and 3rd bodies (wicks ignored); range = high-low of the four; limit at the midpoint, stop at the far
 end, target 4R, stop to breakeven at +2R. Scanner and 5 random examples (XAUUSD/EURUSD): research/body4/.
@@ -282,6 +282,13 @@ higher timeframes; lookback: >= 3 of 5 candles in the trade's direction, with an
 `research/body4/body4_orders.py` + 8 rule examples (`research/results/body4/examples2/`) + 3 tests.
 Still open: which 5 candles (the owner's own Boom buy chart has 0 of 5 bullish before candle 1); an open trade when a
 new setup forms (assumed: kept, setup ignored); Boom 1000 data + broker specs.
+
+Answer (2026-11-08): Boom 1000 dropped by the owner. Owner's corrections applied (skip if candle 4 closes beyond the midpoint;
+every same-direction order waits and the first fill removes the others; lookback main; 50% and 70% entries; spread-only
+fills, P30). Pre-registered, 192 configurations x 12 markets x M1-H4: REJECTED. Every setting loses after costs (-0.11 to
+-0.47R a trade), about 0 before costs; breakeven lowers profit factor; 50% beats 70%; wider stops lose less; lookback no
+effect; engulfing loses a little less than the plain shape on M1-M15 only; best market x timeframe picks did not hold.
+research/results/body4/RESULT.md. Open only if the owner's discretion (which setups he skips by eye) is logged forward.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

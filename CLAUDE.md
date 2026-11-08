@@ -45,7 +45,7 @@ Learning rules:
 3. Before ending a session that produced results: append a JOURNAL entry, update OPEN_QUESTIONS and
    PRINCIPLES if evidence changed them, run `--render`, commit and push.
 
-## What is known (updated 2026-11-03; details in `research/CONCLUSION.md` and `START_HERE.md`)
+## What is known (updated 2026-11-08; details in `research/CONCLUSION.md` and `START_HERE.md`)
 - Survivors: **TimelessCity v2.42** (`mt5/TimelessCity.mq5` + presets: gold dip reversion S1, USDJPY trend S2,
   gold trend S3); the **11-leg book** (`research/results/book_v3.json`, Tier B forward-test candidate);
   **futures trend + carry** (works only on real futures, not CFDs).
@@ -130,6 +130,12 @@ Learning rules:
   REJECTED: no better than random filtering (p 0.36), halves trades, reversed on 2026 (`research/results/noisegate/RESULT.md`).
 - 2-week cycle (2026-11-06): +2% per 2 weeks inside 3.6% needs a fortnight Sharpe of 1.17; best mix 0.33 (+0.19% per 2 weeks,
   ~5%/yr; 8% cap ~11%/yr). TradingView "Noise Gate" (Q29) has no trade rule: waiting for the owner's usage.
+- Body-engulf 4-candle range (2026-11-08, owner, Q30; Boom 1000 dropped by the owner): candles 2 and 4 body-engulf 1 and 3,
+  limit at 50% / 70% of the range, stop at the range end (+buffer), 4R, breakeven at +2R on/off, lookback >= 3 of 5, skip if
+  candle 4 closes beyond the midpoint; 192 configurations x 12 markets x M1-H4 REJECTED (0% positive after costs; about 0
+  before costs; best market x timeframe picks did not hold). Breakeven lowers profit factor (P4); 50% beats 70% (P2); wider
+  stop buffers lose less. Engine: `research/body4/` (spec + numba twin, trade-for-trade parity; spread decides fills,
+  commission per trade, slippage on stops: P30). Report `research/results/body4/RESULT.md`.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

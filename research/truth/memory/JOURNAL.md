@@ -683,3 +683,19 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts:** 2019 XAUUSD M5: 851 patterns; 306 trades with the lookback filter, 541 without (counts only, no results).
 - **Open:** which 5 candles the lookback means; open trade vs new setup; Boom 1000 data + specs.
 - **Next:** owner confirms -> pre-register the grid -> numba engine with trade-for-trade parity -> lab.
+
+## 2026-11-08 (16) · owner: corrections on the 8 rule charts, "breakevens can kill the profit factor ... what does test say", 50% and 70% entries; Boom out
+- **Done:** checked the two disputed charts against the data: image 6 WAS a win (the engine used the whole 0.16 round-trip
+  cost as spread; the bid passed the target by 0.10, the spread is 0.05) and image 7's third "blue" candle was a doji
+  (open = close = 1285.43) my chart drew blue. Rebuilt the reference engine to the corrected rules (skip beyond the
+  midpoint, waiting same-direction orders with first-fill-removes-others, 50/70% entries, spread-only fills, commission per
+  trade, slippage on stops, fixed order prices with planned 1R) and a numba twin with trade-for-trade parity; 11 tests
+  (175 OK). Pre-registered (research/body4/PREREGISTRATION.md, committed before any result); lab: 192 configurations x 12
+  markets x M1-H4; study of the owner's questions; zero-cost run; control without engulfing; corrected example charts.
+- **Learned:** REJECTED. 0 of 192 positive after costs in 2011-19 (best -0.11R); before costs about 0 (M1/M5 below 0).
+  Breakeven lowers PF in 75% of pairs (P4); 50% beats 70% (P2); wider stop buffers lose less (cost share); lookback no
+  effect; engulfing beats the plain shape only on M1-M15 and only by losing less; best market x timeframe picks did not
+  hold. New P30 (order-book cost model; M1 needs ticks: 20% unclear minutes). The lab crashed once on a gap through entry
+  and stop (division by zero) before any result; fixed by using the planned 1R.
+- **Facts vs estimates:** XAGUSD/UK100 cost split 50/25/25 is an assumption; the lab's swap is a constant per night.
+- **Next:** if the owner believes his discretion adds the edge, log his own calls forward (screenshots before the outcome).

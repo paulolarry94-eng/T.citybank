@@ -147,14 +147,15 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, hi, lo, c4, lb, spread, c
                         best = q
             if best >= 0:
                 s = ps[best]
-                px = min(plev[best], o[i] + spread) if s > 0 else max(plev[best], o[i])
-                pos = True; xj = pp[best]; xs = s; xe = px; xst = pstop[best]; xst0 = xst; xr = abs(px - xst)
-                xtp = px + s * tgt_r * xr; xbe = px + s * be_r * xr; xmv = False; xi = i; xt = t; xcut = _fri_cut(t)
+                px = min(plev[best], o[i] + spread) if s > 0 else max(plev[best], o[i])     # a gap fills at the open
+                # stop, target and breakeven level are fixed prices set with the order; 1R = planned entry to stop
+                pos = True; xj = pp[best]; xs = s; xe = px; xst = pstop[best]; xst0 = xst; xr = abs(plev[best] - xst)
+                xtp = ptp[best]; xbe = plev[best] + s * be_r * xr; xmv = False; xi = i; xt = t; xcut = _fri_cut(t)
                 xamb = 0
                 npend = 0                              # every other pending order is removed
                 if (l[i] <= xst) if s > 0 else (h[i] + spread >= xst):
                     amb += 1; xamb = 1
-                    cpx = xst - slip if s > 0 else xst + slip
+                    cpx = (min(xst, o[i]) - slip) if s > 0 else (max(xst, o[i] + spread) + slip)
                     m = _record(out, m, gaps, xj, xs, xe, xst0, xr, xtp, xmv, xi, xt, i, t, cpx, 5, comm, swap, cost, xamb)
                     pos = False
             else:
