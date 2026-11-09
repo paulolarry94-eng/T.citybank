@@ -648,6 +648,25 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Next:** see START_HERE.md section 6 (stronger or hard-to-front-run flows, relaxed cycle definition, forward evidence via
   demo; Q1, Q22, Q25, Q26).
 
+## 2026-11-03 (11b, parallel session) · task: re-run the intraday studies that used HistData markets before the clock fix (Q26)
+- **Done:** re-ran on the clock-fixed data, same code and strategy files: Leg 34 pocket scan, winner anatomy, runner profile
+  (research/hunter5m/), Q21 opening-range diagnostic, and the lab strategies tom_indices_v2, opex_week_indices_v2,
+  oil_equity_v2 (--no-look: they never had a look) and payday_indices_v1 (the lab replays its logged look). Recomputed
+  payday's 2023-25 on fixed data for information (research/q26/payday_holdout_corrected.py; oos_log unchanged). Old vs new
+  from git 76d7dfe by research/q26/compare.py -> research/results/q26/RERUN.md, rerun_compare.json.
+- **Learned:** no verdict changed, nothing new passes. Control: XAUUSD, EURUSD, GBPUSD, USDJPY identical in every study, so
+  the differences are the data fix alone. Pocket scan: same single discovery cell (GBPUSD, unaffected), 0 confirmed;
+  persistence before costs 27% vs 33% (was 34% vs 32%). Anatomy and runner profile: same rule and cut points, pooled
+  other-markets results unchanged (-0.101R, -0.345R). Q21 byte-identical (its GER40 window, 2020-25, is outside the shifted
+  period). Payday weaker in 2011-19 (t 2.11 -> 1.69), 2023-25 about 0 either way (+0.002R fixed vs -0.006R logged).
+- **Decisions:** P3, P17, P21 evidence numbers updated with the old text under History; P29 evidence added; Q26 to Answered;
+  ledger: one Q26 study entry plus re-run notes on the hunter, Q21 and payday entries. No strategy rules changed, no new holdout
+  look opened. No new configurations tried.
+- **Facts vs estimates:** costs for silver, oil and the indices are lab estimates; silver's before-costs mean in the anatomy
+  study is outlier-driven (cost about 1.3R a trade) and not meaningful. Daily studies were not re-run (one-hour day-boundary
+  shift; low priority).
+- **Next:** nothing in Q26 reopens a family. Hunt flows with a payer (P22); daily-study re-runs only if one of them is revived.
+
 ## 2026-11-06 (12) · owner: "Do you know about noise gates and how it works? Can you test it"
 - **Done:** translated the audio noise gate (threshold, hysteresis, hold) into a trading filter on Kaufman's efficiency
   ratio; pre-registered 8 configurations; applied to the 13 survivors (a filter cannot create an edge, so only where one

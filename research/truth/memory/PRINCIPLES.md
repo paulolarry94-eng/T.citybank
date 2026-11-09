@@ -45,9 +45,11 @@ settings (+0.08R a trade 2011-19; 70% and +0.05R 2020-22): the deeper fill picks
 ### P3 Higher timeframes beat lower ones
 Costs per unit of risk shrink and noise falls. FVG M5→H1 +0.15R in every paired setting; QM M15→H1 +0.05R.
 Evidence: North Star ablation. Confidence: high.
-Evidence (2026-11-01, Leg 34 pocket scan, 11 markets): moving from M5 to H1 cuts the cost share (median -0.27R -> -0.20R
-after costs) but does not create a raw edge (before costs -0.01 to -0.05R at every timeframe). Higher timeframes help only
-an idea that already has an edge.
+Evidence (2026-11-01, Leg 34 pocket scan, 11 markets; re-run 2026-11-03 on clock-fixed data, Q26): moving from M5 to H1
+cuts the cost share (median -0.30R -> -0.20R after costs) but does not create a raw edge (before costs -0.01 to -0.06R at
+every timeframe). Higher timeframes help only an idea that already has an edge. research/results/q26/RERUN.md.
+History (2026-11-03): first written as "median -0.27R -> -0.20R" and "before costs -0.01 to -0.05R", from data whose HistData
+markets were one hour late in daylight-saving periods (P29). Same conclusion after the fix.
 Evidence (2026-11-02, owner's 4-flip EMA pattern, 12 markets): median R per trade by timeframe M5 -0.17, M15 -0.09, M30 -0.11,
 H1 -0.09, H4 +0.05R; before costs about 0 up to H1 and positive only on H4, on too few trades to trust (t <= 1.9).
 
@@ -248,8 +250,11 @@ Choosing a strategy's best trading hours on past data mostly selects luck. Dark 
 same (−0.04 to −0.05R). The big winners of high-frequency bots are trend days that start near the London or New York
 open, and a trend day is known only after it ends. A time filter must survive a learn-then-check split before anyone
 trusts it. Evidence: research/gridbot/DARK_MIMAS_REPORT.md, research/results/truth/osc_turn_sessions_v1/. Confidence: medium-high.
-Evidence (2026-11-01): Leg 34 by session (Asia, London, New York) x 6 timeframes x 11 markets: no session differs
-(median -0.23R); the past M30 16-20 UTC pocket (EUR/GBP) lost on all 9 other markets.
+Evidence (2026-11-01; re-run 2026-11-03 on clock-fixed data, Q26): Leg 34 by session (Asia, London, New York) x 6 timeframes
+x 11 markets: no session differs (medians -0.21 to -0.25R in 2011-19); the past M30 16-20 UTC pocket (EUR/GBP) lost on all 9
+other markets (-0.04 to -0.53R). research/results/q26/RERUN.md.
+History (2026-11-03): first written as "median -0.23R" (all three sessions alike), from HistData data one hour late in
+daylight-saving periods (P29). Same conclusion after the fix.
 Evidence (2026-11-02): a time picked from recent LIVE experience behaves the same way so far. The owner's 3:30 anchor (15:30
 Nigerian time = 10:30 New York in US summer) made money in Jan-Oct 2026 (summer: +0.23R / +0.42R on 73 / 65 trades, t 1.1 /
 1.8, two data feeds agree), but that exact timing was the worst variant in 2011-22 (-0.27R on 1,106 trades, every year
@@ -309,8 +314,11 @@ top 1% lean to quiet conditions and a strong 4-hour push, but a filter that keep
 -0.20R vs -0.15R for every setup, worse again on 10 other markets and in 2026. The best rule from 133 conditions failed its
 own learning halves. Winners are the tail of a noisy distribution, not a separate kind of trade; only a positive mean
 before costs can be filtered into a better one. Evidence: research/hunter5m/ (two pre-registered steps). Confidence: high.
-Evidence (2026-11-01): the same holds for pockets: of 396 market x timeframe x session cells, cells positive before
-costs in 2011-19 were positive in 2020-22 34% of the time, cells negative 32%: no persistence, so no pocket to pick.
+Evidence (2026-11-01; re-run 2026-11-03 on clock-fixed data, Q26): the same holds for pockets: of 396 market x timeframe x
+session cells, cells positive before costs in 2011-19 were positive in 2020-22 27% of the time, cells negative 33%: no
+persistence, so no pocket to pick. research/results/q26/RERUN.md.
+History (2026-11-03): first written as "34% of the time, cells negative 32%", from HistData data one hour late in
+daylight-saving periods (P29). The fix makes persistence slightly worse, not better.
 
 Evidence (2026-11-08, multi-timeframe layering of the body-engulf range): requiring the same setup on a bigger timeframe
 kept 0.7-1.7% of the trades and improved R per trade in 56-75% of paired settings (+0.03 to +0.06R), but every primary
@@ -439,6 +447,11 @@ trusted reference at -60/0/+60 minutes, week by week, across daylight-saving cha
 exchange opens land on the open minute in summer and in winter. Evidence: research/results/data/histdata_clock.json (8 markets,
 2011-2026, 98-100% of weeks agree; after the fix EURGBP 832/833 and XAGUSD 743/743 weeks align), the 2026 HistData feed vs
 Exness (43/43 weeks). Confidence: high.
+Evidence (2026-11-03, Q26): every intraday study that used HistData markets was re-run on the fixed data (Leg 34 pocket scan,
+winner anatomy, runner profile, Q21, four H1 index calendar strategies): no verdict changed, no new survivor, and the four
+never-affected markets came out identical (code unchanged, only the data moved). A typical pocket cell moved by about 0.02R
+a trade. Largest changes: the US close slice above (an artifact) and payday_indices_v1 weaker in 2011-19 (t 2.11 -> 1.69,
+still rejected). research/results/q26/RERUN.md.
 
 ### P30 Model the order book, not a lump cost; one-minute bars cannot judge a one-minute strategy
 Use bid data with ask = bid + spread: the SPREAD decides whether a limit, target or stop level is reached; commission is

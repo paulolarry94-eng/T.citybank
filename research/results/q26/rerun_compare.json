@@ -1,0 +1,1103 @@
+{
+ "note": "Q26: old vs new results of the intraday studies that used HistData markets, before and after the clock fix (P29).\n\nHistData's M1 stamps were one hour late in daylight-saving periods (EURGBP, XAGUSD, US500, NAS100, UK100, JP225 all years;\nGER40 to 2020-01-29; WTI to 2023-12-01). The data was fixed in place in commit e68f660. The studies below were re-run on\n2026-11-03 with the same code and the same strategy files (same fingerprints); nothing about the rules changed.\n\nOld results are read from git at OLD (the last commit before the re-runs); new results from the working tree.\nControl: XAUUSD, EURUSD, GBPUSD and USDJPY were never HistData; their numbers must be identical, which shows that every\ndifference comes from the data fix and not from code changes since the studies were first run.\n\n    python3 research/q26/compare.py            # prints the tables, writes research/results/q26/rerun_compare.json\n",
+ "old_commit": "76d7dfe",
+ "pocket_scan": {
+  "old": {
+   "discovery_pass": 1,
+   "confirmed": 0,
+   "survivors": 0,
+   "discovery_cells": [
+    "GBPUSD H1 london t3 (dev +0.387 t 2.13, val -0.367)"
+   ],
+   "persistence_after": {
+    "cells_positive_2011_19": 15,
+    "P_val_pos_if_dev_pos": 0.133,
+    "P_val_pos_if_dev_neg": 0.066
+   },
+   "persistence_before": {
+    "cells_positive_2011_19": 132,
+    "P_val_pos_if_dev_pos": 0.341,
+    "P_val_pos_if_dev_neg": 0.318
+   },
+   "share_pos_after": {
+    "dev": 0.038,
+    "val": 0.068,
+    "oos": 0.141
+   },
+   "share_pos_before": {
+    "dev": 0.333,
+    "val": 0.326,
+    "oos": 0.419
+   },
+   "median_after_by_tf": {
+    "H1": {
+     "dev_E": -0.202,
+     "val_E": -0.177,
+     "oos_E": -0.134
+    },
+    "M10": {
+     "dev_E": -0.28,
+     "val_E": -0.199,
+     "oos_E": -0.191
+    },
+    "M15": {
+     "dev_E": -0.258,
+     "val_E": -0.15,
+     "oos_E": -0.172
+    },
+    "M30": {
+     "dev_E": -0.214,
+     "val_E": -0.17,
+     "oos_E": -0.125
+    },
+    "M45": {
+     "dev_E": -0.206,
+     "val_E": -0.194,
+     "oos_E": -0.114
+    },
+    "M5": {
+     "dev_E": -0.275,
+     "val_E": -0.222,
+     "oos_E": -0.174
+    }
+   },
+   "median_before_by_tf": {
+    "H1": {
+     "dev_Egross": -0.051,
+     "val_Egross": -0.071,
+     "oos_Egross": -0.048
+    },
+    "M10": {
+     "dev_Egross": -0.013,
+     "val_Egross": -0.027,
+     "oos_Egross": -0.021
+    },
+    "M15": {
+     "dev_Egross": -0.025,
+     "val_Egross": -0.007,
+     "oos_Egross": -0.032
+    },
+    "M30": {
+     "dev_Egross": -0.048,
+     "val_Egross": -0.035,
+     "oos_Egross": -0.026
+    },
+    "M45": {
+     "dev_Egross": -0.04,
+     "val_Egross": -0.112,
+     "oos_Egross": -0.005
+    },
+    "M5": {
+     "dev_Egross": -0.012,
+     "val_Egross": -0.022,
+     "oos_Egross": -0.002
+    }
+   },
+   "median_after_by_session": {
+    "asia": {
+     "dev_E": -0.236,
+     "val_E": -0.197,
+     "oos_E": -0.183
+    },
+    "london": {
+     "dev_E": -0.233,
+     "val_E": -0.21,
+     "oos_E": -0.158
+    },
+    "newyork": {
+     "dev_E": -0.226,
+     "val_E": -0.154,
+     "oos_E": -0.151
+    }
+   },
+   "hint": {
+    "t3": {
+     "2011-19": -0.271,
+     "2020-22": -0.287,
+     "2023-25": -0.178
+    },
+    "ladder": {
+     "2011-19": -0.27,
+     "2020-22": -0.26,
+     "2023-25": -0.169
+    }
+   },
+   "hint_by_market": {
+    "t3": {
+     "GER40": -0.101,
+     "JP225": -0.374,
+     "NAS100": -0.411,
+     "UK100": -0.176,
+     "US500": -0.273,
+     "USDJPY": -0.044,
+     "WTI": -0.293,
+     "XAGUSD": -0.513,
+     "XAUUSD": -0.091
+    },
+    "ladder": {
+     "GER40": -0.196,
+     "JP225": -0.296,
+     "NAS100": -0.306,
+     "UK100": -0.214,
+     "US500": -0.211,
+     "USDJPY": -0.05,
+     "WTI": -0.309,
+     "XAGUSD": -0.481,
+     "XAUUSD": -0.145
+    }
+   }
+  },
+  "new": {
+   "discovery_pass": 1,
+   "confirmed": 0,
+   "survivors": 0,
+   "discovery_cells": [
+    "GBPUSD H1 london t3 (dev +0.387 t 2.13, val -0.367)"
+   ],
+   "persistence_after": {
+    "cells_positive_2011_19": 13,
+    "P_val_pos_if_dev_pos": 0.077,
+    "P_val_pos_if_dev_neg": 0.063
+   },
+   "persistence_before": {
+    "cells_positive_2011_19": 126,
+    "P_val_pos_if_dev_pos": 0.27,
+    "P_val_pos_if_dev_neg": 0.333
+   },
+   "share_pos_after": {
+    "dev": 0.033,
+    "val": 0.063,
+    "oos": 0.129
+   },
+   "share_pos_before": {
+    "dev": 0.318,
+    "val": 0.313,
+    "oos": 0.437
+   },
+   "median_after_by_tf": {
+    "H1": {
+     "dev_E": -0.198,
+     "val_E": -0.169,
+     "oos_E": -0.115
+    },
+    "M10": {
+     "dev_E": -0.26,
+     "val_E": -0.188,
+     "oos_E": -0.194
+    },
+    "M15": {
+     "dev_E": -0.262,
+     "val_E": -0.152,
+     "oos_E": -0.167
+    },
+    "M30": {
+     "dev_E": -0.214,
+     "val_E": -0.174,
+     "oos_E": -0.151
+    },
+    "M45": {
+     "dev_E": -0.216,
+     "val_E": -0.184,
+     "oos_E": -0.092
+    },
+    "M5": {
+     "dev_E": -0.3,
+     "val_E": -0.223,
+     "oos_E": -0.172
+    }
+   },
+   "median_before_by_tf": {
+    "H1": {
+     "dev_Egross": -0.063,
+     "val_Egross": -0.069,
+     "oos_Egross": -0.025
+    },
+    "M10": {
+     "dev_Egross": -0.01,
+     "val_Egross": -0.022,
+     "oos_Egross": -0.015
+    },
+    "M15": {
+     "dev_Egross": -0.025,
+     "val_Egross": -0.016,
+     "oos_Egross": -0.028
+    },
+    "M30": {
+     "dev_Egross": -0.04,
+     "val_Egross": -0.042,
+     "oos_Egross": -0.037
+    },
+    "M45": {
+     "dev_Egross": -0.046,
+     "val_Egross": -0.08,
+     "oos_Egross": -0.01
+    },
+    "M5": {
+     "dev_Egross": -0.01,
+     "val_Egross": -0.024,
+     "oos_Egross": -0.002
+    }
+   },
+   "median_after_by_session": {
+    "asia": {
+     "dev_E": -0.254,
+     "val_E": -0.196,
+     "oos_E": -0.178
+    },
+    "london": {
+     "dev_E": -0.214,
+     "val_E": -0.192,
+     "oos_E": -0.154
+    },
+    "newyork": {
+     "dev_E": -0.232,
+     "val_E": -0.154,
+     "oos_E": -0.132
+    }
+   },
+   "hint": {
+    "t3": {
+     "2011-19": -0.257,
+     "2020-22": -0.259,
+     "2023-25": -0.163
+    },
+    "ladder": {
+     "2011-19": -0.271,
+     "2020-22": -0.255,
+     "2023-25": -0.146
+    }
+   },
+   "hint_by_market": {
+    "t3": {
+     "GER40": -0.129,
+     "JP225": -0.401,
+     "NAS100": -0.422,
+     "UK100": -0.147,
+     "US500": -0.2,
+     "USDJPY": -0.044,
+     "WTI": -0.236,
+     "XAGUSD": -0.529,
+     "XAUUSD": -0.091
+    },
+    "ladder": {
+     "GER40": -0.239,
+     "JP225": -0.318,
+     "NAS100": -0.313,
+     "UK100": -0.176,
+     "US500": -0.169,
+     "USDJPY": -0.05,
+     "WTI": -0.305,
+     "XAGUSD": -0.506,
+     "XAUUSD": -0.145
+    }
+   }
+  },
+  "control_cells": 144,
+  "control_changed": 0,
+  "hist_cells": 252,
+  "hist_changed": 252,
+  "hist_median_abs_change_dev_Egross": 0.022,
+  "by_market": {
+   "XAUUSD": {
+    "cells": 36,
+    "changed": 0,
+    "dev_Egross_median_old": -0.033,
+    "dev_Egross_median_new": -0.033,
+    "dev_E_median_old": -0.149,
+    "dev_E_median_new": -0.149
+   },
+   "EURUSD": {
+    "cells": 36,
+    "changed": 0,
+    "dev_Egross_median_old": -0.03,
+    "dev_Egross_median_new": -0.03,
+    "dev_E_median_old": -0.135,
+    "dev_E_median_new": -0.135
+   },
+   "GBPUSD": {
+    "cells": 36,
+    "changed": 0,
+    "dev_Egross_median_old": -0.011,
+    "dev_Egross_median_new": -0.011,
+    "dev_E_median_old": -0.103,
+    "dev_E_median_new": -0.103
+   },
+   "USDJPY": {
+    "cells": 36,
+    "changed": 0,
+    "dev_Egross_median_old": -0.043,
+    "dev_Egross_median_new": -0.043,
+    "dev_E_median_old": -0.192,
+    "dev_E_median_new": -0.192
+   },
+   "XAGUSD": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": 0.046,
+    "dev_Egross_median_new": 0.033,
+    "dev_E_median_old": -0.595,
+    "dev_E_median_new": -0.599
+   },
+   "WTI": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": -0.042,
+    "dev_Egross_median_new": -0.015,
+    "dev_E_median_old": -0.366,
+    "dev_E_median_new": -0.367
+   },
+   "US500": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": -0.02,
+    "dev_Egross_median_new": -0.038,
+    "dev_E_median_old": -0.263,
+    "dev_E_median_new": -0.279
+   },
+   "NAS100": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": -0.035,
+    "dev_Egross_median_new": -0.06,
+    "dev_E_median_old": -0.461,
+    "dev_E_median_new": -0.473
+   },
+   "GER40": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": -0.04,
+    "dev_Egross_median_new": -0.025,
+    "dev_E_median_old": -0.192,
+    "dev_E_median_new": -0.19
+   },
+   "UK100": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": -0.032,
+    "dev_Egross_median_new": -0.02,
+    "dev_E_median_old": -0.205,
+    "dev_E_median_new": -0.204
+   },
+   "JP225": {
+    "cells": 36,
+    "changed": 36,
+    "dev_Egross_median_old": 0.021,
+    "dev_Egross_median_new": 0.034,
+    "dev_E_median_old": -0.378,
+    "dev_E_median_new": -0.384
+   }
+  },
+  "hist_markets_by_session": {
+   "asia": {
+    "dev_Egross_old": -0.028,
+    "dev_Egross_new": -0.03,
+    "dev_E_old": -0.325,
+    "dev_E_new": -0.349
+   },
+   "london": {
+    "dev_Egross_old": -0.018,
+    "dev_Egross_new": -0.011,
+    "dev_E_old": -0.313,
+    "dev_E_new": -0.302
+   },
+   "newyork": {
+    "dev_Egross_old": -0.035,
+    "dev_Egross_new": -0.032,
+    "dev_E_old": -0.332,
+    "dev_E_new": -0.329
+   }
+  }
+ },
+ "winner_anatomy": {
+  "rule_same": true,
+  "kept_old": false,
+  "kept_new": false,
+  "learning_same": true,
+  "baseline_ladder": {
+   "XAGUSD 2011-19": {
+    "old": -0.795,
+    "new": -0.799,
+    "old_gross": 0.853,
+    "new_gross": 0.295,
+    "n_old": 9155,
+    "n_new": 9142
+   },
+   "XAGUSD 2020-22": {
+    "old": -0.73,
+    "new": -0.733,
+    "old_gross": 0.036,
+    "new_gross": 0.031,
+    "n_old": 3496,
+    "n_new": 3483
+   },
+   "XAGUSD 2023-25": {
+    "old": -0.638,
+    "new": -0.638,
+    "old_gross": 0.009,
+    "new_gross": 0.004,
+    "n_old": 3316,
+    "n_new": 3300
+   },
+   "WTI 2011-19": {
+    "old": -0.542,
+    "new": -0.543,
+    "old_gross": 0.002,
+    "new_gross": -0.005,
+    "n_old": 7253,
+    "n_new": 7218
+   },
+   "WTI 2020-22": {
+    "old": -0.452,
+    "new": -0.46,
+    "old_gross": -0.022,
+    "new_gross": -0.031,
+    "n_old": 3424,
+    "n_new": 3398
+   },
+   "WTI 2023-25": {
+    "old": -0.525,
+    "new": -0.526,
+    "old_gross": 0.018,
+    "new_gross": 0.013,
+    "n_old": 3365,
+    "n_new": 3359
+   },
+   "US500 2011-19": {
+    "old": -0.324,
+    "new": -0.322,
+    "old_gross": -0.007,
+    "new_gross": -0.013,
+    "n_old": 4789,
+    "n_new": 4899
+   },
+   "US500 2020-22": {
+    "old": -0.226,
+    "new": -0.23,
+    "old_gross": -0.057,
+    "new_gross": -0.064,
+    "n_old": 3673,
+    "n_new": 3718
+   },
+   "US500 2023-25": {
+    "old": -0.166,
+    "new": -0.152,
+    "old_gross": 0.002,
+    "new_gross": 0.011,
+    "n_old": 3474,
+    "n_new": 3506
+   },
+   "NAS100 2011-19": {
+    "old": -0.646,
+    "new": -0.651,
+    "old_gross": -0.01,
+    "new_gross": -0.021,
+    "n_old": 8054,
+    "n_new": 8206
+   },
+   "NAS100 2020-22": {
+    "old": -0.188,
+    "new": -0.197,
+    "old_gross": -0.022,
+    "new_gross": -0.031,
+    "n_old": 3838,
+    "n_new": 3882
+   },
+   "NAS100 2023-25": {
+    "old": -0.147,
+    "new": -0.145,
+    "old_gross": 0.005,
+    "new_gross": 0.006,
+    "n_old": 3604,
+    "n_new": 3635
+   },
+   "GER40 2011-19": {
+    "old": -0.228,
+    "new": -0.224,
+    "old_gross": -0.018,
+    "new_gross": -0.017,
+    "n_old": 6498,
+    "n_new": 6621
+   },
+   "GER40 2020-22": {
+    "old": -0.182,
+    "new": -0.182,
+    "old_gross": -0.034,
+    "new_gross": -0.034,
+    "n_old": 3379,
+    "n_new": 3379
+   },
+   "GER40 2023-25": {
+    "old": -0.174,
+    "new": -0.174,
+    "old_gross": -0.031,
+    "new_gross": -0.031,
+    "n_old": 3411,
+    "n_new": 3411
+   },
+   "UK100 2011-19": {
+    "old": -0.292,
+    "new": -0.295,
+    "old_gross": -0.008,
+    "new_gross": -0.016,
+    "n_old": 5312,
+    "n_new": 5420
+   },
+   "UK100 2020-22": {
+    "old": -0.248,
+    "new": -0.249,
+    "old_gross": 0.013,
+    "new_gross": 0.011,
+    "n_old": 3683,
+    "n_new": 3734
+   },
+   "UK100 2023-25": {
+    "old": -0.344,
+    "new": -0.342,
+    "old_gross": -0.071,
+    "new_gross": -0.073,
+    "n_old": 3343,
+    "n_new": 3355
+   },
+   "JP225 2011-19": {
+    "old": -0.553,
+    "new": -0.552,
+    "old_gross": 0.011,
+    "new_gross": 0.009,
+    "n_old": 3471,
+    "n_new": 3499
+   },
+   "JP225 2020-22": {
+    "old": -0.435,
+    "new": -0.438,
+    "old_gross": -0.054,
+    "new_gross": -0.059,
+    "n_old": 2993,
+    "n_new": 3020
+   },
+   "JP225 2023-25": {
+    "old": -0.296,
+    "new": -0.29,
+    "old_gross": -0.005,
+    "new_gross": -0.005,
+    "n_old": 3079,
+    "n_new": 3079
+   },
+   "XAUUSD 2011-19": {
+    "old": -0.151,
+    "new": -0.151,
+    "old_gross": 0.006,
+    "new_gross": 0.006,
+    "n_old": 10600,
+    "n_new": 10600
+   },
+   "XAUUSD 2020-22": {
+    "old": -0.114,
+    "new": -0.114,
+    "old_gross": -0.004,
+    "new_gross": -0.004,
+    "n_old": 4265,
+    "n_new": 4265
+   },
+   "XAUUSD 2023-25": {
+    "old": -0.051,
+    "new": -0.051,
+    "old_gross": 0.033,
+    "new_gross": 0.033,
+    "n_old": 4064,
+    "n_new": 4064
+   },
+   "EURUSD 2011-19": {
+    "old": -0.144,
+    "new": -0.144,
+    "old_gross": -0.016,
+    "new_gross": -0.016,
+    "n_old": 13149,
+    "n_new": 13149
+   },
+   "EURUSD 2020-22": {
+    "old": -0.17,
+    "new": -0.17,
+    "old_gross": -0.032,
+    "new_gross": -0.032,
+    "n_old": 4099,
+    "n_new": 4099
+   },
+   "EURUSD 2023-25": {
+    "old": -0.162,
+    "new": -0.162,
+    "old_gross": -0.011,
+    "new_gross": -0.011,
+    "n_old": 4074,
+    "n_new": 4074
+   },
+   "GBPUSD 2011-19": {
+    "old": -0.093,
+    "new": -0.093,
+    "old_gross": 0.021,
+    "new_gross": 0.021,
+    "n_old": 12040,
+    "n_new": 12040
+   },
+   "GBPUSD 2020-22": {
+    "old": -0.129,
+    "new": -0.129,
+    "old_gross": -0.015,
+    "new_gross": -0.015,
+    "n_old": 4206,
+    "n_new": 4206
+   },
+   "GBPUSD 2023-25": {
+    "old": -0.107,
+    "new": -0.107,
+    "old_gross": 0.024,
+    "new_gross": 0.024,
+    "n_old": 4117,
+    "n_new": 4117
+   },
+   "USDJPY 2011-19": {
+    "old": -0.23,
+    "new": -0.23,
+    "old_gross": -0.023,
+    "new_gross": -0.023,
+    "n_old": 12596,
+    "n_new": 12596
+   },
+   "USDJPY 2020-22": {
+    "old": -0.223,
+    "new": -0.223,
+    "old_gross": -0.027,
+    "new_gross": -0.027,
+    "n_old": 3970,
+    "n_new": 3970
+   },
+   "USDJPY 2023-25": {
+    "old": -0.106,
+    "new": -0.106,
+    "old_gross": 0.035,
+    "new_gross": 0.035,
+    "n_old": 4054,
+    "n_new": 4054
+   }
+  },
+  "rule_results_ladder": {
+   "gold 2011-19 (learned)": {
+    "old": -0.011,
+    "new": -0.011,
+    "n_old": 1178,
+    "n_new": 1178
+   },
+   "gold 2020-22": {
+    "old": -0.08,
+    "new": -0.08,
+    "n_old": 991,
+    "n_new": 991
+   },
+   "gold 2023-25": {
+    "old": -0.057,
+    "new": -0.057,
+    "n_old": 1124,
+    "n_new": 1124
+   },
+   "other 10 markets 2011-25 (pooled)": {
+    "old": -0.101,
+    "new": -0.101,
+    "n_old": 10345,
+    "n_new": 10382
+   },
+   "EURUSD 2011-25": {
+    "old": -0.122,
+    "new": -0.122,
+    "n_old": 2499,
+    "n_new": 2499
+   },
+   "GBPUSD 2011-25": {
+    "old": -0.095,
+    "new": -0.095,
+    "n_old": 3873,
+    "n_new": 3873
+   },
+   "USDJPY 2011-25": {
+    "old": -0.115,
+    "new": -0.115,
+    "n_old": 783,
+    "n_new": 783
+   },
+   "XAGUSD 2011-25": {
+    "old": -0.227,
+    "new": -0.227,
+    "n_old": 22,
+    "n_new": 22
+   },
+   "WTI 2011-25": {
+    "old": -0.125,
+    "new": -0.14,
+    "n_old": 58,
+    "n_new": 59
+   },
+   "US500 2011-25": {
+    "old": -0.052,
+    "new": -0.078,
+    "n_old": 634,
+    "n_new": 649
+   },
+   "NAS100 2011-25": {
+    "old": -0.051,
+    "new": -0.053,
+    "n_old": 895,
+    "n_new": 914
+   },
+   "GER40 2011-25": {
+    "old": -0.128,
+    "new": -0.114,
+    "n_old": 1262,
+    "n_new": 1262
+   },
+   "UK100 2011-25": {
+    "old": -0.203,
+    "new": -0.184,
+    "n_old": 227,
+    "n_new": 229
+   },
+   "JP225 2011-25": {
+    "old": 0.19,
+    "new": 0.103,
+    "n_old": 92,
+    "n_new": 92
+   },
+   "4 markets Jan-Sep 2026 (untouched)": {
+    "old": -0.021,
+    "new": -0.021,
+    "n_old": 604,
+    "n_new": 604
+   },
+   "gold Jan-Sep 2026 (untouched)": {
+    "old": 0.015,
+    "new": 0.015,
+    "n_old": 359,
+    "n_new": 359
+   },
+   "4 markets Oct 2026": {
+    "old": -0.154,
+    "new": -0.154,
+    "n_old": 58,
+    "n_new": 58
+   }
+  }
+ },
+ "runner_profile": {
+  "cuts_same": true,
+  "groups": {
+   "gold 2011-19 (in-sample)": {
+    "all_old": -0.151,
+    "all_new": -0.151,
+    "s3_old": -0.204,
+    "s3_new": -0.204,
+    "s3_n_old": 2393,
+    "s3_n_new": 2393
+   },
+   "gold 2020-22": {
+    "all_old": -0.114,
+    "all_new": -0.114,
+    "s3_old": -0.133,
+    "s3_new": -0.133,
+    "s3_n_old": 1015,
+    "s3_n_new": 1015
+   },
+   "gold 2023-25": {
+    "all_old": -0.051,
+    "all_new": -0.051,
+    "s3_old": -0.12,
+    "s3_new": -0.12,
+    "s3_n_old": 911,
+    "s3_n_new": 911
+   },
+   "other 10 markets 2011-25 (pooled)": {
+    "all_old": -0.314,
+    "all_new": -0.314,
+    "s3_old": -0.345,
+    "s3_new": -0.345,
+    "s3_n_old": 36772,
+    "s3_n_new": 36740
+   },
+   "EURUSD 2011-25": {
+    "all_old": -0.152,
+    "all_new": -0.152,
+    "s3_old": -0.196,
+    "s3_new": -0.196,
+    "s3_n_old": 5893,
+    "s3_n_new": 5893
+   },
+   "GBPUSD 2011-25": {
+    "all_old": -0.103,
+    "all_new": -0.103,
+    "s3_old": -0.137,
+    "s3_new": -0.137,
+    "s3_n_old": 5829,
+    "s3_n_new": 5829
+   },
+   "GER40 2011-25": {
+    "all_old": -0.202,
+    "all_new": -0.201,
+    "s3_old": -0.224,
+    "s3_new": -0.23,
+    "s3_n_old": 2871,
+    "s3_n_new": 2903
+   },
+   "JP225 2011-25": {
+    "all_old": -0.433,
+    "all_new": -0.432,
+    "s3_old": -0.498,
+    "s3_new": -0.484,
+    "s3_n_old": 1194,
+    "s3_n_new": 1189
+   },
+   "NAS100 2011-25": {
+    "all_old": -0.417,
+    "all_new": -0.422,
+    "s3_old": -0.434,
+    "s3_new": -0.437,
+    "s3_n_old": 4620,
+    "s3_n_new": 4636
+   },
+   "UK100 2011-25": {
+    "all_old": -0.293,
+    "all_new": -0.294,
+    "s3_old": -0.334,
+    "s3_new": -0.327,
+    "s3_n_old": 2582,
+    "s3_n_new": 2601
+   },
+   "US500 2011-25": {
+    "all_old": -0.248,
+    "all_new": -0.244,
+    "s3_old": -0.241,
+    "s3_new": -0.254,
+    "s3_n_old": 3053,
+    "s3_n_new": 3065
+   },
+   "USDJPY 2011-25": {
+    "all_old": -0.204,
+    "all_new": -0.204,
+    "s3_old": -0.224,
+    "s3_new": -0.224,
+    "s3_n_old": 3852,
+    "s3_n_new": 3852
+   },
+   "WTI 2011-25": {
+    "all_old": -0.516,
+    "all_new": -0.518,
+    "s3_old": -0.634,
+    "s3_new": -0.634,
+    "s3_n_old": 3620,
+    "s3_n_new": 3589
+   },
+   "XAGUSD 2011-25": {
+    "all_old": -0.748,
+    "all_new": -0.751,
+    "s3_old": -0.843,
+    "s3_new": -0.842,
+    "s3_n_old": 3258,
+    "s3_n_new": 3183
+   },
+   "4 markets Jan-Sep 2026 (untouched)": {
+    "all_old": -0.146,
+    "all_new": -0.146,
+    "s3_old": -0.144,
+    "s3_new": -0.144,
+    "s3_n_old": 903,
+    "s3_n_new": 903
+   },
+   "gold Jan-Sep 2026 (untouched)": {
+    "all_old": -0.095,
+    "all_new": -0.095,
+    "s3_old": -0.188,
+    "s3_new": -0.188,
+    "s3_n_old": 191,
+    "s3_n_new": 191
+   },
+   "4 markets Oct 2026": {
+    "all_old": -0.069,
+    "all_new": -0.069,
+    "s3_old": 0.04,
+    "s3_new": 0.04,
+    "s3_n_old": 88,
+    "s3_n_new": 88
+   }
+  }
+ },
+ "q21": {
+  "identical": true,
+  "why": "GER40 is studied 2020-25 only (no tick volume before 2020); its HistData part ends 2020-01-29, in winter, when the stamps were already right; USDJPY was never HistData."
+ },
+ "lab": {
+  "tom_indices_v2": {
+   "fingerprint": "6f860d8435d8",
+   "verdict_old": "Rejected: no configuration passed the development gate",
+   "verdict_new": "Rejected: no configuration passed the development gate",
+   "configs": [
+    {
+     "config": "H1 d-1_d+3 0.0 0.0 0",
+     "dev_old": {
+      "n": 506,
+      "E": -0.0582,
+      "t": -2.86
+     },
+     "dev_new": {
+      "n": 509,
+      "E": -0.0529,
+      "t": -2.67
+     },
+     "val_old": {
+      "n": 150,
+      "E": -0.0372,
+      "t": -0.84
+     },
+     "val_new": {
+      "n": 145,
+      "E": -0.0272,
+      "t": -0.61
+     },
+     "gate_old": false,
+     "gate_new": false
+    }
+   ]
+  },
+  "opex_week_indices_v2": {
+   "fingerprint": "ae5ea2cef194",
+   "verdict_old": "Rejected: no configuration passed the development gate",
+   "verdict_new": "Rejected: no configuration passed the development gate",
+   "configs": [
+    {
+     "config": "H1 opex 0.0 0.0 0",
+     "dev_old": {
+      "n": 531,
+      "E": -0.0324,
+      "t": -1.61
+     },
+     "dev_new": {
+      "n": 527,
+      "E": -0.0311,
+      "t": -1.57
+     },
+     "val_old": {
+      "n": 154,
+      "E": -0.1129,
+      "t": -2.47
+     },
+     "val_new": {
+      "n": 147,
+      "E": -0.1259,
+      "t": -2.65
+     },
+     "gate_old": false,
+     "gate_new": false
+    }
+   ]
+  },
+  "oil_equity_v2": {
+   "fingerprint": "90e65c160f8d",
+   "verdict_old": "Rejected: no configuration passed the development gate",
+   "verdict_new": "Rejected: no configuration passed the development gate",
+   "configs": [
+    {
+     "config": "H1 long_cash 0.0 0.0 0",
+     "dev_old": {
+      "n": 233,
+      "E": -0.0144,
+      "t": -0.48
+     },
+     "dev_new": {
+      "n": 231,
+      "E": -0.0137,
+      "t": -0.45
+     },
+     "val_old": {
+      "n": 66,
+      "E": 0.0532,
+      "t": 0.56
+     },
+     "val_new": {
+      "n": 63,
+      "E": 0.0518,
+      "t": 0.51
+     },
+     "gate_old": false,
+     "gate_new": false
+    },
+    {
+     "config": "H1 long_short 0.0 0.0 0",
+     "dev_old": {
+      "n": 470,
+      "E": -0.0745,
+      "t": -3.66
+     },
+     "dev_new": {
+      "n": 468,
+      "E": -0.074,
+      "t": -3.55
+     },
+     "val_old": {
+      "n": 143,
+      "E": -0.0316,
+      "t": -0.59
+     },
+     "val_new": {
+      "n": 136,
+      "E": -0.0322,
+      "t": -0.57
+     },
+     "gate_old": false,
+     "gate_new": false
+    }
+   ]
+  },
+  "payday_indices_v1": {
+   "fingerprint": "360f43f984ad",
+   "verdict_old": "Rejected",
+   "verdict_new": "Rejected",
+   "configs": [
+    {
+     "config": "H1 payday 0.0 0.0 0",
+     "dev_old": {
+      "n": 529,
+      "E": 0.0163,
+      "t": 2.11
+     },
+     "dev_new": {
+      "n": 529,
+      "E": 0.0135,
+      "t": 1.69
+     },
+     "val_old": {
+      "n": 152,
+      "E": -0.0101,
+      "t": -0.34
+     },
+     "val_new": {
+      "n": 146,
+      "E": -0.0249,
+      "t": -0.84
+     },
+     "gate_old": true,
+     "gate_new": true
+    }
+   ],
+   "2023-25": {
+    "logged": {
+     "n": 151,
+     "E": -0.006276819521271405,
+     "t": -0.4462637662939487,
+     "PF": 0.9019654512034965,
+     "win": 0.5033112582781457
+    },
+    "corrected": {
+     "n": 149,
+     "E": 0.0019528449272184626,
+     "t": 0.14373667562962342,
+     "PF": 1.0324731831666065,
+     "win": 0.4966442953020134
+    }
+   }
+  }
+ }
+}

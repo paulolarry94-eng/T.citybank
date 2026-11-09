@@ -2,7 +2,7 @@
  "name": "oil_equity_v2",
  "hypothesis": "A falling oil price this month predicts higher equity index returns next month, a rising one lower returns.",
  "fingerprint": "90e65c160f8d58f381df54aed07c2ee3284c6c4bc678aba977cba8b899894dc9",
- "started": "2026-11-01 07:22:52 UTC",
+ "started": "2026-11-03 07:54:11 UTC",
  "markets": [
   "US500",
   "NAS100",
@@ -57,6 +57,50 @@
    "verdict": "Rejected: look-ahead (signals change when future bars are removed)"
   },
   {
+   "name": "Calendar study: turn of month, option-expiry week, oil->equity in 5 indexes (drift-controlled)",
+   "verdict": "Rejected: no effect beyond drift (TOM, OPEX); oil weak and inconsistent"
+  },
+  {
+   "name": "Oil predicts equity returns on real futures (pysystemtrade, 6 index futures, 1990-2024)",
+   "verdict": "Rejected: the effect faded after publication"
+  },
+  {
+   "name": "ath_trend_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "payday_indices_v1",
+   "verdict": "Rejected"
+  },
+  {
+   "name": "Repo funnel futures v2: 16 awesome-list cross-asset strategies (pysystemtrade futures, one-day execution lag)",
+   "verdict": "Rejected except time-series momentum (confirms the futures trend family) and four weak futures-only passes"
+  },
+  {
+   "name": "Repo funnel futures v1 (same-day execution)",
+   "verdict": "Invalid: look-ahead through markets closing at different hours (and stale holiday prices)"
+  },
+  {
+   "name": "Repo funnel: 132 strategies from trustdan, sofus-nl and awesome-systematic-trading",
+   "verdict": "Rejected for CFDs (0 of 68 testable strategies survive); futures: time-series momentum only (already held as a futures-only family)"
+  },
+  {
+   "name": "Batch 01: 13 owner payer-flow candidates (triage, controls, batch rule)",
+   "verdict": "Rejected: 0 of 13. 11 not testable here (no data for front/second futures, dividend or coupon calendars, option open interest, basis, KRW; several not tradeable on MT5 Prime). Tested 2 (8 configurations), both rejected at the lab gate: US close flow (US500/NAS100, last 15-30 min with the day's move): before costs about 0 in 2011-19 (-0.011 to +0.011R), net -0.03 to -0.05R, no better than small-move control days. Month-end rebalancing (4 indices, against the month's move): before costs and swaps +0.05 to +0.17R (t about 2) in 2011-19, swaps took it to about 0, and 2020-22 was negative even before costs (-0.05 to -0.22R). 2023-25 not opened."
+  },
+  {
+   "name": "us_close_flow_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "monthend_rebalance_v1",
+   "verdict": "Rejected: no configuration passed the development gate"
+  },
+  {
+   "name": "Batch 01 re-run on clock-fixed HistData (US close flow, month-end rebalancing)",
+   "verdict": "Verdicts unchanged (both rejected at the gate). US close flow 2011-19 net -0.029 to -0.036R, before costs +0.006 to +0.014R; the one 2020-22 slice that looked positive before (prev close 15:30: +0.031R, t 2.1) was a clock artifact (now -0.011R). Month-end barely moved (2011-19 before costs +0.04 to +0.17R, 2020-22 negative even before costs)."
+  },
+  {
    "name": "tom_indices_v2",
    "verdict": "Rejected: no configuration passed the development gate"
   },
@@ -101,7 +145,7 @@
   "configs": 2,
   "passed_gate": 0,
   "share_dev_positive": 0.0,
-  "median_dev_E": -0.04445122739467383,
+  "median_dev_E": -0.04381125125652721,
   "share_dev_and_val_positive": 0.0
  },
  "verdict": "Rejected: no configuration passed the development gate"
