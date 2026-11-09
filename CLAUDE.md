@@ -45,7 +45,13 @@ Learning rules:
 3. Before ending a session that produced results: append a JOURNAL entry, update OPEN_QUESTIONS and
    PRINCIPLES if evidence changed them, run `--render`, commit and push.
 
-## What is known (updated 2026-11-08; details in `research/CONCLUSION.md` and `START_HERE.md`)
+## What is known (updated 2026-11-09; final summary `research/FINAL_REPORT.md`, details in `research/CONCLUSION.md` and `START_HERE.md`)
+- **Final status (2026-11-09): the recommended system is the timeless mix** (`research/results/goal/TIMELESS_MIX.md`, pre-registered
+  `research/goal/PREREGISTRATION_TIMELESS.md`): the 10 survivor legs positive after costs + swaps in each of 2011-14, 2015-18 and
+  2019-22 (out: JPY VolBreakout, JPY Donchian55, EURGBP Bollinger). 3.6% cap (0.46% risk a trade x weight, set on 2011-22): +6.0%/yr
+  2011-22, +4.7% 2023-25, +0.3% Jan-Oct 2026; 8% cap: +13.3 / +10.6 / +0.7%; every year 2011-25 positive; two-week Sharpe 0.37 /
+  0.24 / 0.03 vs 1.17 needed. Beat all 13 survivors (0.20 vs 0.18 on 2023-Oct 2026). Tokyo fix and EURUSD reversal re-run on 2026
+  (2011-25 identical to their parity trades). About a tenth of the goal; next: EAs + parity + 3-6 months demo, account export.
 - Survivors: **TimelessCity v2.42** (`mt5/TimelessCity.mq5` + presets: gold dip reversion S1, USDJPY trend S2,
   gold trend S3); the **11-leg book** (`research/results/book_v3.json`, Tier B forward-test candidate);
   **futures trend + carry** (works only on real futures, not CFDs).
@@ -156,6 +162,8 @@ Learning rules:
   v7 curated (lookback candles 60% body, M5/M15, 13-17 UTC, 10 Prime markets, 3R-6R; 16 settings) REJECTED: our Prime
   costs match the published figures (EURUSD 0.06-0.11R a trade); ~9 trades a year; 2011-19 profit reversed in 2020-22 even
   at zero cost (`research/results/body4/v7/RESULT.md`).
+  v7's one logged Jan-Oct 2026 look (owner: "run the final check"; 5 markets with 2026 data): 4 trades, all stopped, -1.08R a
+  trade. The body-engulf family has no unseen data left.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
@@ -177,5 +185,7 @@ Learning rules:
   `parity_check.py`, `bootstrap.sh`.
 
 ## Next steps (gated)
-Exness export → re-score at real costs → compile TimelessCity and parity-check it → 3–6 months demo with the
-weekly report → code the remaining book legs → breadth on new markets → live small, scale only if live matches.
+Account export (`mt5/NorthStarExport.mq5`) -> re-score the timeless mix at real costs and swaps -> EAs for its legs (TimelessCity
+covers S1 and relatives of the Donchian legs; specs for the rest) + parity check -> 3-6 months demo with the two-week report ->
+decide the cap (3.6% or 8%) and payouts from a buffer -> live small, scale only if live matches. Bigger goals need a futures
+account (trend + carry), prop capital, or new payer flows.

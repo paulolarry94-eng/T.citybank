@@ -275,6 +275,9 @@ ratchet -> drift check (a module whose live R per trade falls below its backtest
 plumbing (VPS that reaches Telegram, restart recovery, heartbeat). Inside a fixed cap, return grows with the square of edge
 quality (fortnight study: 3.6x short in Sharpe = about 10x short in return), so ~60% a year inside 3.6% needs about 3.5x
 the best mix's edge quality and ~120% about 5x (estimates). Not built: payout ratchet and drift check (twin first).
+Update 2026-11-09 (owner: "without my instruction find the most timeless mix"): the mix to run is the timeless mix
+(research/results/goal/TIMELESS_MIX.md; 10 legs; 3.6% cap about 5-6% a year, 8% about 11-13%, flat in 2026). The cap and
+payout decision is still the owner's; the ratchet and drift check are still unbuilt.
 
 ### Q31 RoboForex VPS + copy trading + affiliate "cycle" (owner, 2026-11-08): what does it need?
 FAMILY: business, copy-trading, affiliate, vps, roboforex, seesare, owner-idea.
@@ -351,6 +354,8 @@ v7 (2026-11-09, owner: "lookback candles obey the same 60% threshold ... how rea
 strategy, timeframe and account": Prime, M5/M15, 13-17 UTC, 3R-6R): REJECTED (16 lab configurations, 0 pass). Our
 Prime costs match the owner's figures (0.06-0.11R a trade on EURUSD); about 9 trades a year; the 2011-19 profit (86
 trades) reversed in 2020-22, even at zero cost. research/results/body4/v7/RESULT.md.
+Final check (2026-11-09, owner: "run the final check"): v7's one logged Jan-Oct 2026 look, 4 trades on the 5 markets with
+2026 data, all stopped (-1.08R a trade). No unseen data left for this family. research/results/body4/v7/LOOK_2026.json.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

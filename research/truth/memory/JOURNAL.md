@@ -860,3 +860,16 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Decisions:** Jan-Oct 2026 look not taken (already rejected on 2011-25); the data stays unseen.
 - **Next:** the account choice (Prime) is right and costs are modest; the pattern has no edge. A forward log of the owner's
   own calls is the only open test.
+
+## 2026-11-09 (28) · owner: "run the final check and config mix ... without my instruction find the most timeless mix ... put it all together ... final report ... clean up the container so it's not lost and I can always test"
+- **Done:** merged the parallel session's Q26 commit (claude/focused-cray-fmonpz) into the default branch, memory conflicts
+  resolved by keeping both sides; ran v7's one logged Jan-Oct 2026 look (v6's look dropped: the owner's lookback correction
+  made v7 the version to check); pre-registered (76afc11) and built the timeless mix (`research/goal/timeless_mix.py`),
+  re-running the Tokyo fix and EURUSD reversal on 2026 for the first time (2011-25 identical to their parity trades);
+  wrote `research/FINAL_REPORT.md`, rewrote START_HERE.md, updated CLAUDE.md and CONCLUSION.md; repo clean-up (task 65).
+- **Learned:** v7 2026: 4 trades, all stopped (-1.08R). Timeless mix = 10 of 13 legs; 3.6% cap +6.0% a year 2011-22, +4.7%
+  2023-25, +0.3% Jan-Oct 2026 (8%: +13.3 / +10.6 / +0.7%); every year 2011-25 positive; it beat all 13 survivors on 2023-Oct
+  2026 (two-week Sharpe 0.20 vs 0.18), so the pre-registered rule picks it. Swap-free, all 13 slightly ahead. P27 evidence.
+- **Facts vs estimates:** costs are Exness Zero (measured spreads, estimated commission); 2023-25 and 2026 had been seen for
+  most legs (not by this rule); live is expected 30-50% weaker (P11).
+- **Next:** EAs for the mix's legs + parity, 3-6 months demo, account export; the owner decides the cap and payout rule.

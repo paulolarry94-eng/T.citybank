@@ -1,5 +1,11 @@
 # Conclusion of the research phase (2026-10-31)
 
+## Update 2026-11-09: final
+**The recommended system is the timeless mix** (10 survivor legs that made money in every era since 2011): about 5-6% a year
+inside a 3.6% drawdown in backtests (about 11-13% inside 8%), every year 2011-2025 positive, about flat on untouched Jan-Oct
+2026. The owner's patterns (body-engulf v1-v7, four-candle family, 3:30, Leg 34, SOP) have no edge before costs. Full
+summary and next steps: `research/FINAL_REPORT.md`; the mix: `research/results/goal/TIMELESS_MIX.md`.
+
 ## Update 2026-11-01 (late night): three public strategy collections, funnelled
 **132 strategies from trustdan, sofus-nl and awesome-systematic-trading: nothing new for Exness CFDs.** 84 were testable (68 on
 our 11 CFDs, 16 on futures); 0 of 87 CFD configurations survive (payday passed 2011-19, then failed). The trend variants lose
