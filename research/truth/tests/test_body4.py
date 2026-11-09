@@ -37,6 +37,24 @@ class TestDetector(unittest.TestCase):
         P = SC.setups(M, 1)
         self.assertEqual(int(P["lookback"][0]), 2)             # 2 bearish, 1 doji, 2 bullish -> 2, not 3
 
+    def test_v6_body_share_and_two_candle_lookback(self):
+        """v6 (owner, 2026-11-09): candles 2 and 4 need a body of 60% of their own high-low; the 2 candles right before
+        candle 1 must both go the trade's way (dojis bullish)."""
+        P = SC.setups(market(LOOK + SELL4, MON), 1, doji_bullish=True)
+        self.assertAlmostEqual(float(P["body2"][-1]), 1.5 / 1.9, places=6)
+        self.assertAlmostEqual(float(P["body4"][-1]), 1.1 / 1.3, places=6)
+        self.assertEqual(int(P["lookback2"][-1]), 2)
+        wick2 = [SELL4[0], (101.0, 101.3, 97.0, 99.5)] + SELL4[2:]          # candle 2: long lower wick, body 35% of its size
+        self.assertLess(float(SC.setups(market(LOOK + wick2, MON), 1, doji_bullish=True)["body2"][-1]), 0.6)
+        mixed = LOOK[:3] + [(101.0, 101.6, 100.9, 101.5), LOOK[0]]          # candle before 1 bearish, the one before bullish
+        P = SC.setups(market(mixed + SELL4, MON), 1, doji_bullish=True)
+        self.assertEqual(int(P["lookback2"][-1]), 1)                        # 1 of 2: not valid
+        self.assertEqual(int(P["lookback"][-1]), 4)                         # the old 5-candle count was 4 of 5
+        buy4 = [(101.0, 101.1, 99.9, 100.0), (100.0, 101.3, 99.9, 101.1), (101.1, 101.2, 100.4, 100.5), (100.5, 101.9, 100.4, 101.8)]
+        look = [(101.0, 101.1, 100.4, 100.5)] * 3 + [(100.5, 100.7, 100.3, 100.5), (100.0, 100.6, 99.9, 100.5)]   # doji, bullish
+        self.assertEqual(int(SC.setups(market(look + buy4, MON), 1, doji_bullish=True)["lookback2"][-1]), 2)
+        self.assertEqual(int(SC.setups(market(look + buy4, MON), 1)["lookback2"][-1]), 1)
+
     def test_doji_bullish_mode(self):
         """v3 (owner, 2026-11-08): a doji counts as bullish in the lookback (close >= open)."""
         buy4 = [(101.0, 101.1, 99.9, 100.0), (100.0, 101.3, 99.9, 101.1), (101.1, 101.2, 100.4, 100.5), (100.5, 101.9, 100.4, 101.8)]

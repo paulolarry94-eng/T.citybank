@@ -1,0 +1,117 @@
+{
+ "seed": 20261109,
+ "main": {
+  "body60": 1,
+  "lb2": 1,
+  "target": 5
+ },
+ "examples": [
+  {
+   "n": 1,
+   "kind": "traded",
+   "market": "USDJPY",
+   "tf": "M1",
+   "side": "sell",
+   "fill": "2019-09-25T12:18:00+00:00",
+   "reason": "stop in the fill minute",
+   "R": -1.281,
+   "file": "example_01_traded_USDJPY_M1.png"
+  },
+  {
+   "n": 2,
+   "kind": "traded",
+   "market": "XAUUSD",
+   "tf": "M1",
+   "side": "sell",
+   "fill": "2022-12-23T08:33:00+00:00",
+   "reason": "stop",
+   "R": -1.229,
+   "file": "example_02_traded_XAUUSD_M1.png"
+  },
+  {
+   "n": 3,
+   "kind": "traded",
+   "market": "NAS100",
+   "tf": "M1",
+   "side": "buy",
+   "fill": "2011-10-28T14:43:00+00:00",
+   "reason": "stop in the fill minute",
+   "R": -1.315,
+   "file": "example_03_traded_NAS100_M1.png"
+  },
+  {
+   "n": 4,
+   "kind": "traded",
+   "market": "EURGBP",
+   "tf": "M5",
+   "side": "buy",
+   "fill": "2021-08-26T14:14:00+00:00",
+   "reason": "stop",
+   "R": -1.165,
+   "file": "example_04_traded_EURGBP_M5.png"
+  },
+  {
+   "n": 5,
+   "kind": "traded",
+   "market": "GBPUSD",
+   "tf": "M1",
+   "side": "sell",
+   "fill": "2015-05-13T13:13:00+00:00",
+   "reason": "stop",
+   "R": -1.068,
+   "file": "example_05_traded_GBPUSD_M1.png"
+  },
+  {
+   "n": 6,
+   "kind": "traded",
+   "market": "EURUSD",
+   "tf": "M1",
+   "side": "buy",
+   "fill": "2016-08-31T19:00:00+00:00",
+   "reason": "stop",
+   "R": -1.196,
+   "file": "example_06_traded_EURUSD_M1.png"
+  },
+  {
+   "n": 7,
+   "kind": "traded",
+   "market": "GER40",
+   "tf": "M5",
+   "side": "buy",
+   "fill": "2014-01-31T14:37:00+00:00",
+   "reason": "target",
+   "R": 4.985,
+   "file": "example_07_traded_GER40_M5.png"
+  },
+  {
+   "n": 8,
+   "kind": "rejected",
+   "why": "candle 2 body below 60%",
+   "market": "USDJPY",
+   "tf": "M1",
+   "side": "sell",
+   "candle4_close": "2016-07-21T15:47:00+00:00",
+   "file": "example_08_rejected_USDJPY_M1.png"
+  },
+  {
+   "n": 9,
+   "kind": "rejected",
+   "why": "candle 4 body below 60%",
+   "market": "EURGBP",
+   "tf": "M1",
+   "side": "sell",
+   "candle4_close": "2020-07-31T11:03:00+00:00",
+   "file": "example_09_rejected_EURGBP_M1.png"
+  },
+  {
+   "n": 10,
+   "kind": "rejected",
+   "why": "lookback 1 of 2",
+   "market": "USDJPY",
+   "tf": "M1",
+   "side": "sell",
+   "candle4_close": "2014-04-07T16:16:00+00:00",
+   "file": "example_10_rejected_USDJPY_M1.png"
+  }
+ ]
+}

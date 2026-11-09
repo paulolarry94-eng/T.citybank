@@ -149,6 +149,8 @@ Learning rules:
   positive (H4, about 0). 2023-25 used up for this family (5,184 settings); CLOSED (`research/results/body4/v5/RESULT.md`).
   Gold characteristics (learn 2019, 20 traits, 70 conditions, 14 check years + Jan-Oct 2026) REJECTED: every group loses
   after costs, about 0 before; only cost traits matter (`research/results/body4/gold/RESULT.md`, P21).
+  v6 (2026-11-09: 60% bodies on candles 2 and 4, 2-candle lookback, 4R-6R, best two-week mix; 72 settings) REJECTED:
+  about -0.35R a trade everywhere; the best 2011-19 mix lost in 2020-25; Jan-Oct 2026 kept unseen (`research/results/body4/v6/RESULT.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

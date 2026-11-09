@@ -812,3 +812,18 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** costs are RoboForex's published figures; 2026 data are Exness ticks (gold $3,870-5,593, M1
   candles 11 times taller than 2019, which is why 2026 loses less).
 - **Next:** nothing left to mine in this pattern on gold; only a forward log of the owner's own calls.
+
+## 2026-11-09 (26) · owner: "the last config: candles 2 and 4 at least 60% body, lookback just 2 candles (two bearish before a sell) ... is 60% body better than just two bearish candles ... hammer down on all markets ... best architecture mix, 2 wins every 2 weeks at minimum 1:4 ... test 5R, 6R ... give me the examples"
+- **Priors told first:** every earlier version rejected; body share and lookback did nothing on gold; 4R-6R hits at chance.
+- **Done:** pre-registered (PREREGISTRATION_V6.md, b313931); scanner gained body share of candles 2 and 4 and the 2-candle
+  lookback (test added, 19 body4 tests OK); strategy `body4_range_v6.py` (72 configurations); 10 examples (7 trades, 3
+  setups rejected only by a new rule); Truth Lab `--no-look`; `study_v6.py` (four combinations, hit rates, two-week mixes).
+- **Learned:** REJECTED. About -0.35R a trade in every combination and period, -0.01 to -0.09R before costs. 2-candle
+  lookback +0.02R (better in 54-60% of pairs); 60% body no help; lookback beats body. Hits 4R 15%, 5R 12%, 6R 10%, below even
+  zero-cost needs (the 20:30 close cuts big targets on M30-H4). Best mix from 2011-19 (WTI M5, UK100 M15, GER40 M5 at 4R)
+  +0.28R a fortnight, then -0.36R (2020-22) and -0.18R (2023-25). Everywhere: 2+ wins in 94-99% of fortnights, 10-12%
+  positive. Evidence added to P10 (lucky cells) and P16 (two wins a fortnight is not the goal).
+- **Decisions:** Jan-Oct 2026 look NOT taken: the mix already fails the pre-registered pass on 2020-25; 2026 stays unseen
+  for this family. Asked the owner whether "60% body" should also mean a minimum candle size (implemented: body share).
+- **Next:** the pattern family is closed (5,326 settings and conditions); the remaining test is a forward log of the
+  owner's own marked setups.

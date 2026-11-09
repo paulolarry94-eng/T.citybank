@@ -343,6 +343,10 @@ Gold characteristics (2026-11-08, owner: "focus on gold, all the setups in 2019,
 pre-registered, learn 2019): REJECTED. 20 characteristics, 70 conditions; every group loses after costs, about 0
 before; only cost traits matter; the 2019 rule (M30 + loose) lost in 14 years and in 2026.
 research/results/body4/gold/RESULT.md.
+v6 (2026-11-09, owner's last configuration: candles 2 and 4 at least 60% body, 2-candle lookback, 4R/5R/6R, "best
+architecture mix" for two-week cycles): REJECTED (72 lab configurations, 0 pass). 2-candle lookback +0.02R, 60% body
+nothing; targets hit below even zero-cost needs; the best mix (3 of 72 cells) lost in 2020-22 and 2023-25. Jan-Oct
+2026 kept unseen. research/results/body4/v6/RESULT.md.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

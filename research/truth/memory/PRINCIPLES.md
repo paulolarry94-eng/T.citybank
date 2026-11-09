@@ -145,6 +145,10 @@ research/results/body4/v5/RESULT.md.
 Evidence (2026-11-08, gold body-engulf): 'lookback 5 of 5' made +0.235R a trade on 203 unseen 2026 trades and lost in
 all 14 other years (-0.373R on 2,316): one good stretch is not a characteristic. research/results/body4/gold/RESULT.md.
 
+Evidence (2026-11-09, body-engulf v6): the best two-week mix from 2011-19 (the 3 of 72 market x timeframe cells that
+made money, +0.28R a fortnight) lost -0.36R a fortnight in 2020-22 and -0.18R in 2023-25; none of the 12 configurations'
+mixes made money in both later periods. research/results/body4/v6/RESULT.md.
+
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
 on untouched January–October 2026 Exness data made +0.022R per trade against +0.078R in its 2011–25 backtest (about 70%
@@ -225,6 +229,10 @@ Evidence (2026-11-08, body-engulf range at 1:1): 44% wins on M15-H1 looks close 
 Evidence (2026-11-08, body-engulf range at 2R-10R): the best target-hit rates of 3,456 settings (2R 30%, 3R 22%, 4R 18%,
 5R 15%, 10R 7.5%) sit at or just below pure chance 1/(1+RR) (33%, 25%, 20%, 17%, 9%), in both periods. Half of all trades
 reach only 0.3-0.9R before the stop. research/results/body4/v4/RESULT.md.
+
+Evidence (2026-11-09, body-engulf v6, two-week goal): trading the pattern everywhere gives 2 or more 5R wins in 94-99%
+of fortnights, yet only 10-12% of fortnights make money: about 8 trades per win against 4.4 needed after costs. 'Two
+wins every two weeks' says nothing without the losses that come with them. research/results/body4/v6/RESULT.md.
 
 ### P17 Active hours picked from a backtest do not carry forward
 Choosing a strategy's best trading hours on past data mostly selects luck. Dark Mimas family: best 6 hours picked on
