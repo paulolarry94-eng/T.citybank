@@ -416,6 +416,11 @@ Update 2026-11-01 (per-lifecycle scoring, 360 real trades = one unit, reset): bo
 lifecycle (13 completed, 0 stopped, 2011-22), book + guard +6.4% (9 completed, 5 stopped); one lifecycle is about 11
 months, so the unit changes the count, not the money. Evidence: research/results/seesare/universe_lifecycle_study.json.
 
+Evidence (2026-11-09, the most timeless mix: 10 survivor legs positive in each of 2011-14, 2015-18, 2019-22): at a 3.6%
+cap (0.46% risk a trade, set on 2011-22) +6.0% a year 2011-22, +4.7% 2023-25, about 0 in Jan-Oct 2026; at 8% (1.0% risk)
++13.3%, +10.6%, about +0.8%. Every year 2011-25 positive at 3.6%. Picking legs by era consistency helped a little
+(fortnight Sharpe 0.20 vs 0.18 for all 13 in 2023-Oct 2026). research/results/goal/TIMELESS_MIX.md.
+
 ### P28 A cycle target within a drawdown cap is a demand on the per-trade Sharpe, and mixing strategies does not meet it
 With independent trades and fixed risk, +2% per 10-trade cycle with 95% of 360-trade lifecycles inside a drawdown D needs a
 per-trade Sharpe s (mean R / spread of R, after costs) of about 0.42 for D = 3.6%, 0.36 for 5%, 0.32 for 6%, 0.28 for 8%

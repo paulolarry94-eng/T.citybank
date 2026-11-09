@@ -1,0 +1,769 @@
+{
+ "prereg": "research/goal/PREREGISTRATION_TIMELESS.md",
+ "eras": {
+  "EUR_EuroHours_short_TueThu": {
+   "2011-14": {
+    "n": 612,
+    "E": 0.0483
+   },
+   "2015-18": {
+    "n": 623,
+    "E": 0.0814
+   },
+   "2019-22": {
+    "n": 622,
+    "E": 0.0582
+   }
+  },
+  "XAU_S1_reversion_H1M30M20": {
+   "2011-14": {
+    "n": 25,
+    "E": 0.0662
+   },
+   "2015-18": {
+    "n": 20,
+    "E": 0.4465
+   },
+   "2019-22": {
+    "n": 30,
+    "E": 0.4265
+   }
+  },
+  "JPY_VolBreakout_D1_k0.7": {
+   "2011-14": {
+    "n": 398,
+    "E": 0.1276
+   },
+   "2015-18": {
+    "n": 386,
+    "E": -0.0227
+   },
+   "2019-22": {
+    "n": 398,
+    "E": 0.0849
+   }
+  },
+  "XAU_Donchian20_H4_turtle": {
+   "2011-14": {
+    "n": 166,
+    "E": 0.1341
+   },
+   "2015-18": {
+    "n": 156,
+    "E": 0.0729
+   },
+   "2019-22": {
+    "n": 185,
+    "E": 0.0817
+   }
+  },
+  "JPY_S2_Donchian20_H4_long": {
+   "2011-14": {
+    "n": 43,
+    "E": 0.2567
+   },
+   "2015-18": {
+    "n": 30,
+    "E": 0.1972
+   },
+   "2019-22": {
+    "n": 26,
+    "E": 0.4145
+   }
+  },
+  "XAU_EMA20-50_H4": {
+   "2011-14": {
+    "n": 34,
+    "E": 0.6018
+   },
+   "2015-18": {
+    "n": 25,
+    "E": 0.3828
+   },
+   "2019-22": {
+    "n": 39,
+    "E": 0.104
+   }
+  },
+  "GBP_WeeklySweep_FollowThrough": {
+   "2011-14": {
+    "n": 15,
+    "E": 0.0667
+   },
+   "2015-18": {
+    "n": 16,
+    "E": 0.3717
+   },
+   "2019-22": {
+    "n": 11,
+    "E": 0.5751
+   }
+  },
+  "JPY_Donchian55_D1_trail": {
+   "2011-14": {
+    "n": 20,
+    "E": 0.5062
+   },
+   "2015-18": {
+    "n": 22,
+    "E": -0.1613
+   },
+   "2019-22": {
+    "n": 23,
+    "E": 0.2379
+   }
+  },
+  "JPY_RSI2_D1_lo5": {
+   "2011-14": {
+    "n": 30,
+    "E": 0.2027
+   },
+   "2015-18": {
+    "n": 42,
+    "E": 0.0267
+   },
+   "2019-22": {
+    "n": 32,
+    "E": 0.1083
+   }
+  },
+  "GBPJPY_Donchian20_H4_trail": {
+   "2011-14": {
+    "n": 181,
+    "E": 0.0333
+   },
+   "2015-18": {
+    "n": 169,
+    "E": 0.1585
+   },
+   "2019-22": {
+    "n": 174,
+    "E": 0.0754
+   }
+  },
+  "EURGBP_Bollinger_D1_k1.5": {
+   "2011-14": {
+    "n": 96,
+    "E": 0.1187
+   },
+   "2015-18": {
+    "n": 103,
+    "E": -0.0714
+   },
+   "2019-22": {
+    "n": 116,
+    "E": -0.0188
+   }
+  },
+  "tokyo_fix_gotobi_v1": {
+   "2011-14": {
+    "n": 287,
+    "E": 0.051
+   },
+   "2015-18": {
+    "n": 287,
+    "E": 0.0266
+   },
+   "2019-22": {
+    "n": 284,
+    "E": 0.0635
+   }
+  },
+  "eurusd_close_beyond_reversal_v1": {
+   "2011-14": {
+    "n": 127,
+    "E": 0.0545
+   },
+   "2015-18": {
+    "n": 105,
+    "E": 0.052
+   },
+   "2019-22": {
+    "n": 109,
+    "E": 0.0417
+   }
+  }
+ },
+ "timeless": {
+  "EUR_EuroHours_short_TueThu": true,
+  "XAU_S1_reversion_H1M30M20": true,
+  "JPY_VolBreakout_D1_k0.7": false,
+  "XAU_Donchian20_H4_turtle": true,
+  "JPY_S2_Donchian20_H4_long": true,
+  "XAU_EMA20-50_H4": true,
+  "GBP_WeeklySweep_FollowThrough": true,
+  "JPY_Donchian55_D1_trail": false,
+  "JPY_RSI2_D1_lo5": true,
+  "GBPJPY_Donchian20_H4_trail": true,
+  "EURGBP_Bollinger_D1_k1.5": false,
+  "tokyo_fix_gotobi_v1": true,
+  "eurusd_close_beyond_reversal_v1": true
+ },
+ "sets": {
+  "Timeless mix | swaps": {
+   "2011-22": {
+    "fortnights": 313,
+    "trades_per_fortnight": 14.38,
+    "mean_R": 0.501,
+    "sharpe": 0.373,
+    "positive": 0.613,
+    "pct_a_year_at_1pct": 13.1,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.459,
+     "pct_per_fortnight": 0.23,
+     "pct_a_year": 6.0,
+     "worst_fortnight_pct": -1.47,
+     "max_drawdown_pct": 4.26
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.02,
+     "pct_per_fortnight": 0.511,
+     "pct_a_year": 13.3,
+     "worst_fortnight_pct": -3.27,
+     "max_drawdown_pct": 9.46
+    }
+   },
+   "2023-25": {
+    "fortnights": 80,
+    "trades_per_fortnight": 14.5,
+    "mean_R": 0.388,
+    "sharpe": 0.237,
+    "positive": 0.537,
+    "pct_a_year_at_1pct": 10.3,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.459,
+     "pct_per_fortnight": 0.178,
+     "pct_a_year": 4.7,
+     "worst_fortnight_pct": -1.62,
+     "max_drawdown_pct": 3.2
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.02,
+     "pct_per_fortnight": 0.396,
+     "pct_a_year": 10.6,
+     "worst_fortnight_pct": -3.61,
+     "max_drawdown_pct": 7.11
+    }
+   },
+   "Jan-Oct 2026": {
+    "fortnights": 22,
+    "trades_per_fortnight": 14.18,
+    "mean_R": 0.031,
+    "sharpe": 0.027,
+    "positive": 0.5,
+    "pct_a_year_at_1pct": 0.8,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.459,
+     "pct_per_fortnight": 0.014,
+     "pct_a_year": 0.4,
+     "worst_fortnight_pct": -0.95,
+     "max_drawdown_pct": 2.2
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.02,
+     "pct_per_fortnight": 0.031,
+     "pct_a_year": 0.8,
+     "worst_fortnight_pct": -2.11,
+     "max_drawdown_pct": 4.88
+    }
+   },
+   "2023-Oct 2026 fortnight Sharpe": 0.201,
+   "legs": [
+    "EUR_EuroHours_short_TueThu",
+    "XAU_S1_reversion_H1M30M20",
+    "XAU_Donchian20_H4_turtle",
+    "JPY_S2_Donchian20_H4_long",
+    "XAU_EMA20-50_H4",
+    "GBP_WeeklySweep_FollowThrough",
+    "JPY_RSI2_D1_lo5",
+    "GBPJPY_Donchian20_H4_trail",
+    "tokyo_fix_gotobi_v1",
+    "eurusd_close_beyond_reversal_v1"
+   ]
+  },
+  "All 13 survivors | swaps": {
+   "2011-22": {
+    "fortnights": 313,
+    "trades_per_fortnight": 19.37,
+    "mean_R": 0.57,
+    "sharpe": 0.358,
+    "positive": 0.639,
+    "pct_a_year_at_1pct": 14.9,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.393,
+     "pct_per_fortnight": 0.224,
+     "pct_a_year": 5.8,
+     "worst_fortnight_pct": -1.57,
+     "max_drawdown_pct": 4.4
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 0.873,
+     "pct_per_fortnight": 0.497,
+     "pct_a_year": 13.0,
+     "worst_fortnight_pct": -3.49,
+     "max_drawdown_pct": 9.78
+    }
+   },
+   "2023-25": {
+    "fortnights": 80,
+    "trades_per_fortnight": 19.54,
+    "mean_R": 0.409,
+    "sharpe": 0.22,
+    "positive": 0.575,
+    "pct_a_year_at_1pct": 10.9,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.393,
+     "pct_per_fortnight": 0.161,
+     "pct_a_year": 4.3,
+     "worst_fortnight_pct": -1.61,
+     "max_drawdown_pct": 3.75
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 0.873,
+     "pct_per_fortnight": 0.357,
+     "pct_a_year": 9.5,
+     "worst_fortnight_pct": -3.58,
+     "max_drawdown_pct": 8.33
+    }
+   },
+   "Jan-Oct 2026": {
+    "fortnights": 22,
+    "trades_per_fortnight": 18.95,
+    "mean_R": 0.013,
+    "sharpe": 0.009,
+    "positive": 0.409,
+    "pct_a_year_at_1pct": 0.4,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.393,
+     "pct_per_fortnight": 0.005,
+     "pct_a_year": 0.1,
+     "worst_fortnight_pct": -1.44,
+     "max_drawdown_pct": 2.64
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 0.873,
+     "pct_per_fortnight": 0.012,
+     "pct_a_year": 0.3,
+     "worst_fortnight_pct": -3.2,
+     "max_drawdown_pct": 5.86
+    }
+   },
+   "2023-Oct 2026 fortnight Sharpe": 0.181,
+   "legs": [
+    "EUR_EuroHours_short_TueThu",
+    "XAU_S1_reversion_H1M30M20",
+    "JPY_VolBreakout_D1_k0.7",
+    "XAU_Donchian20_H4_turtle",
+    "JPY_S2_Donchian20_H4_long",
+    "XAU_EMA20-50_H4",
+    "GBP_WeeklySweep_FollowThrough",
+    "JPY_Donchian55_D1_trail",
+    "JPY_RSI2_D1_lo5",
+    "GBPJPY_Donchian20_H4_trail",
+    "EURGBP_Bollinger_D1_k1.5",
+    "tokyo_fix_gotobi_v1",
+    "eurusd_close_beyond_reversal_v1"
+   ]
+  },
+  "11-leg book | swaps": {
+   "2011-22": {
+    "fortnights": 313,
+    "trades_per_fortnight": 15.54,
+    "mean_R": 0.442,
+    "sharpe": 0.293,
+    "positive": 0.575,
+    "pct_a_year_at_1pct": 11.5,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.409,
+     "pct_per_fortnight": 0.181,
+     "pct_a_year": 4.7,
+     "worst_fortnight_pct": -1.01,
+     "max_drawdown_pct": 3.31
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 0.908,
+     "pct_per_fortnight": 0.402,
+     "pct_a_year": 10.5,
+     "worst_fortnight_pct": -2.23,
+     "max_drawdown_pct": 7.35
+    }
+   },
+   "2023-25": {
+    "fortnights": 80,
+    "trades_per_fortnight": 15.45,
+    "mean_R": 0.294,
+    "sharpe": 0.177,
+    "positive": 0.613,
+    "pct_a_year_at_1pct": 7.8,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.409,
+     "pct_per_fortnight": 0.12,
+     "pct_a_year": 3.2,
+     "worst_fortnight_pct": -1.5,
+     "max_drawdown_pct": 4.14
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 0.908,
+     "pct_per_fortnight": 0.267,
+     "pct_a_year": 7.1,
+     "worst_fortnight_pct": -3.33,
+     "max_drawdown_pct": 9.21
+    }
+   },
+   "Jan-Oct 2026": {
+    "fortnights": 22,
+    "trades_per_fortnight": 15.14,
+    "mean_R": -0.055,
+    "sharpe": -0.046,
+    "positive": 0.5,
+    "pct_a_year_at_1pct": -1.4,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.409,
+     "pct_per_fortnight": -0.022,
+     "pct_a_year": -0.6,
+     "worst_fortnight_pct": -1.08,
+     "max_drawdown_pct": 2.21
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 0.908,
+     "pct_per_fortnight": -0.05,
+     "pct_a_year": -1.3,
+     "worst_fortnight_pct": -2.39,
+     "max_drawdown_pct": 4.9
+    }
+   },
+   "2023-Oct 2026 fortnight Sharpe": 0.139,
+   "legs": [
+    "EUR_EuroHours_short_TueThu",
+    "XAU_S1_reversion_H1M30M20",
+    "JPY_VolBreakout_D1_k0.7",
+    "XAU_Donchian20_H4_turtle",
+    "JPY_S2_Donchian20_H4_long",
+    "XAU_EMA20-50_H4",
+    "GBP_WeeklySweep_FollowThrough",
+    "JPY_Donchian55_D1_trail",
+    "JPY_RSI2_D1_lo5",
+    "GBPJPY_Donchian20_H4_trail",
+    "EURGBP_Bollinger_D1_k1.5"
+   ]
+  },
+  "Timeless mix | swap-free": {
+   "2011-22": {
+    "fortnights": 313,
+    "trades_per_fortnight": 14.38,
+    "mean_R": 0.583,
+    "sharpe": 0.429,
+    "positive": 0.633,
+    "pct_a_year_at_1pct": 15.2,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.501,
+     "pct_per_fortnight": 0.292,
+     "pct_a_year": 7.6,
+     "worst_fortnight_pct": -1.56,
+     "max_drawdown_pct": 4.47
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.113,
+     "pct_per_fortnight": 0.649,
+     "pct_a_year": 16.9,
+     "worst_fortnight_pct": -3.47,
+     "max_drawdown_pct": 9.93
+    }
+   },
+   "2023-25": {
+    "fortnights": 80,
+    "trades_per_fortnight": 14.5,
+    "mean_R": 0.45,
+    "sharpe": 0.273,
+    "positive": 0.575,
+    "pct_a_year_at_1pct": 12.0,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.501,
+     "pct_per_fortnight": 0.225,
+     "pct_a_year": 6.0,
+     "worst_fortnight_pct": -1.76,
+     "max_drawdown_pct": 3.33
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.113,
+     "pct_per_fortnight": 0.501,
+     "pct_a_year": 13.4,
+     "worst_fortnight_pct": -3.91,
+     "max_drawdown_pct": 7.39
+    }
+   },
+   "Jan-Oct 2026": {
+    "fortnights": 22,
+    "trades_per_fortnight": 14.18,
+    "mean_R": 0.079,
+    "sharpe": 0.068,
+    "positive": 0.5,
+    "pct_a_year_at_1pct": 2.1,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.501,
+     "pct_per_fortnight": 0.039,
+     "pct_a_year": 1.0,
+     "worst_fortnight_pct": -1.01,
+     "max_drawdown_pct": 2.34
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.113,
+     "pct_per_fortnight": 0.087,
+     "pct_a_year": 2.3,
+     "worst_fortnight_pct": -2.25,
+     "max_drawdown_pct": 5.2
+    }
+   },
+   "2023-Oct 2026 fortnight Sharpe": 0.237,
+   "legs": [
+    "EUR_EuroHours_short_TueThu",
+    "XAU_S1_reversion_H1M30M20",
+    "XAU_Donchian20_H4_turtle",
+    "JPY_S2_Donchian20_H4_long",
+    "XAU_EMA20-50_H4",
+    "GBP_WeeklySweep_FollowThrough",
+    "JPY_RSI2_D1_lo5",
+    "GBPJPY_Donchian20_H4_trail",
+    "tokyo_fix_gotobi_v1",
+    "eurusd_close_beyond_reversal_v1"
+   ]
+  },
+  "All 13 survivors | swap-free": {
+   "2011-22": {
+    "fortnights": 313,
+    "trades_per_fortnight": 19.37,
+    "mean_R": 0.707,
+    "sharpe": 0.44,
+    "positive": 0.671,
+    "pct_a_year_at_1pct": 18.4,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.451,
+     "pct_per_fortnight": 0.319,
+     "pct_a_year": 8.3,
+     "worst_fortnight_pct": -1.76,
+     "max_drawdown_pct": 4.47
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.002,
+     "pct_per_fortnight": 0.709,
+     "pct_a_year": 18.5,
+     "worst_fortnight_pct": -3.92,
+     "max_drawdown_pct": 9.92
+    }
+   },
+   "2023-25": {
+    "fortnights": 80,
+    "trades_per_fortnight": 19.54,
+    "mean_R": 0.529,
+    "sharpe": 0.283,
+    "positive": 0.625,
+    "pct_a_year_at_1pct": 14.1,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.451,
+     "pct_per_fortnight": 0.238,
+     "pct_a_year": 6.4,
+     "worst_fortnight_pct": -1.82,
+     "max_drawdown_pct": 4.01
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.002,
+     "pct_per_fortnight": 0.53,
+     "pct_a_year": 14.1,
+     "worst_fortnight_pct": -4.04,
+     "max_drawdown_pct": 8.91
+    }
+   },
+   "Jan-Oct 2026": {
+    "fortnights": 22,
+    "trades_per_fortnight": 18.95,
+    "mean_R": 0.125,
+    "sharpe": 0.082,
+    "positive": 0.545,
+    "pct_a_year_at_1pct": 3.3,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.451,
+     "pct_per_fortnight": 0.056,
+     "pct_a_year": 1.5,
+     "worst_fortnight_pct": -1.61,
+     "max_drawdown_pct": 2.9
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.002,
+     "pct_per_fortnight": 0.125,
+     "pct_a_year": 3.3,
+     "worst_fortnight_pct": -3.58,
+     "max_drawdown_pct": 6.45
+    }
+   },
+   "2023-Oct 2026 fortnight Sharpe": 0.245,
+   "legs": [
+    "EUR_EuroHours_short_TueThu",
+    "XAU_S1_reversion_H1M30M20",
+    "JPY_VolBreakout_D1_k0.7",
+    "XAU_Donchian20_H4_turtle",
+    "JPY_S2_Donchian20_H4_long",
+    "XAU_EMA20-50_H4",
+    "GBP_WeeklySweep_FollowThrough",
+    "JPY_Donchian55_D1_trail",
+    "JPY_RSI2_D1_lo5",
+    "GBPJPY_Donchian20_H4_trail",
+    "EURGBP_Bollinger_D1_k1.5",
+    "tokyo_fix_gotobi_v1",
+    "eurusd_close_beyond_reversal_v1"
+   ]
+  },
+  "11-leg book | swap-free": {
+   "2011-22": {
+    "fortnights": 313,
+    "trades_per_fortnight": 15.54,
+    "mean_R": 0.572,
+    "sharpe": 0.374,
+    "positive": 0.617,
+    "pct_a_year_at_1pct": 14.9,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.477,
+     "pct_per_fortnight": 0.273,
+     "pct_a_year": 7.1,
+     "worst_fortnight_pct": -1.14,
+     "max_drawdown_pct": 3.16
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.06,
+     "pct_per_fortnight": 0.606,
+     "pct_a_year": 15.8,
+     "worst_fortnight_pct": -2.54,
+     "max_drawdown_pct": 7.02
+    }
+   },
+   "2023-25": {
+    "fortnights": 80,
+    "trades_per_fortnight": 15.45,
+    "mean_R": 0.399,
+    "sharpe": 0.238,
+    "positive": 0.65,
+    "pct_a_year_at_1pct": 10.6,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.477,
+     "pct_per_fortnight": 0.19,
+     "pct_a_year": 5.1,
+     "worst_fortnight_pct": -1.71,
+     "max_drawdown_pct": 4.11
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.06,
+     "pct_per_fortnight": 0.423,
+     "pct_a_year": 11.3,
+     "worst_fortnight_pct": -3.8,
+     "max_drawdown_pct": 9.14
+    }
+   },
+   "Jan-Oct 2026": {
+    "fortnights": 22,
+    "trades_per_fortnight": 15.14,
+    "mean_R": 0.043,
+    "sharpe": 0.036,
+    "positive": 0.545,
+    "pct_a_year_at_1pct": 1.1,
+    "cap_0.036": {
+     "risk_per_trade_pct": 0.477,
+     "pct_per_fortnight": 0.021,
+     "pct_a_year": 0.5,
+     "worst_fortnight_pct": -1.23,
+     "max_drawdown_pct": 2.5
+    },
+    "cap_0.08": {
+     "risk_per_trade_pct": 1.06,
+     "pct_per_fortnight": 0.046,
+     "pct_a_year": 1.2,
+     "worst_fortnight_pct": -2.74,
+     "max_drawdown_pct": 5.55
+    }
+   },
+   "2023-Oct 2026 fortnight Sharpe": 0.203,
+   "legs": [
+    "EUR_EuroHours_short_TueThu",
+    "XAU_S1_reversion_H1M30M20",
+    "JPY_VolBreakout_D1_k0.7",
+    "XAU_Donchian20_H4_turtle",
+    "JPY_S2_Donchian20_H4_long",
+    "XAU_EMA20-50_H4",
+    "GBP_WeeklySweep_FollowThrough",
+    "JPY_Donchian55_D1_trail",
+    "JPY_RSI2_D1_lo5",
+    "GBPJPY_Donchian20_H4_trail",
+    "EURGBP_Bollinger_D1_k1.5"
+   ]
+  }
+ },
+ "yearly": {
+  "Timeless mix": {
+   "2011": 3.44,
+   "2012": 5.24,
+   "2013": 7.26,
+   "2014": 7.2,
+   "2015": 4.99,
+   "2016": 10.24,
+   "2017": 4.84,
+   "2018": 3.71,
+   "2019": 6.97,
+   "2020": 2.33,
+   "2021": 5.13,
+   "2022": 10.62,
+   "2023": 2.99,
+   "2024": 4.3,
+   "2025": 6.96,
+   "2026": 0.31
+  },
+  "All 13 survivors": {
+   "2011": 3.0,
+   "2012": 6.07,
+   "2013": 10.4,
+   "2014": 8.75,
+   "2015": 2.73,
+   "2016": 7.67,
+   "2017": 2.19,
+   "2018": 4.19,
+   "2019": 6.6,
+   "2020": 2.16,
+   "2021": 4.23,
+   "2022": 12.05,
+   "2023": 3.71,
+   "2024": 5.32,
+   "2025": 3.82,
+   "2026": 0.12
+  },
+  "11-leg book": {
+   "2011": 0.13,
+   "2012": 5.09,
+   "2013": 8.14,
+   "2014": 9.74,
+   "2015": 1.61,
+   "2016": 6.63,
+   "2017": -0.13,
+   "2018": 5.32,
+   "2019": 5.54,
+   "2020": 1.53,
+   "2021": 2.88,
+   "2022": 10.07,
+   "2023": 1.96,
+   "2024": 4.55,
+   "2025": 3.12,
+   "2026": -0.49
+  }
+ },
+ "lab_rerun_checks": {
+  "tokyo_fix_gotobi_v1": {
+   "lab_trades_2011_25": 1072,
+   "rerun_trades_2011_25": 1072,
+   "sum_r_lab": 51.478,
+   "sum_r_rerun": 51.478
+  },
+  "eurusd_close_beyond_reversal_v1": {
+   "lab_trades_2011_25": 453,
+   "rerun_trades_2011_25": 453,
+   "sum_r_lab": 14.084,
+   "sum_r_rerun": 14.084
+  }
+ },
+ "recommendation": "Timeless mix"
+}
