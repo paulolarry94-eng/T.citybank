@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-119 ideas tested, about 327,579 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+121 ideas tested, about 327,611 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,18 +16,18 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 58 | 0 | 25,834 |
-| intraday | 50 | 1 | 200,910 |
-| engulfing | 34 | 0 | 27,630 |
-| limit-entry | 27 | 0 | 19,108 |
-| multi-timeframe | 24 | 0 | 23,792 |
-| multi-market | 23 | 0 | 18,206 |
+| owner-idea | 60 | 0 | 25,866 |
+| intraday | 52 | 1 | 200,942 |
+| engulfing | 36 | 0 | 27,662 |
+| limit-entry | 29 | 0 | 19,140 |
+| multi-market | 25 | 0 | 18,238 |
+| multi-timeframe | 25 | 0 | 23,808 |
+| session | 24 | 0 | 194,040 |
 | flow | 22 | 1 | 96 |
-| session | 22 | 0 | 194,008 |
 | calendar | 20 | 1 | 179 |
 | ema | 19 | 0 | 12,489 |
 | index | 17 | 0 | 122 |
-| range | 14 | 0 | 11,350 |
+| range | 16 | 0 | 11,382 |
 | awesome-list | 13 | 0 | 147 |
 | breadth | 13 | 0 | 697 |
 | reversal | 13 | 1 | 105,864 |
@@ -37,9 +37,10 @@
 | retest | 12 | 0 | 10,437 |
 | sizing | 12 | 0 | 291 |
 | trend | 12 | 4 | 102,718 |
+| large-target | 11 | 0 | 10,160 |
 | portfolio | 10 | 4 | 217 |
 | seesare | 10 | 0 | 232 |
-| large-target | 9 | 0 | 10,128 |
+| news-filter | 9 | 0 | 9,392 |
 | risk | 9 | 1 | 188 |
 | seasonal | 9 | 2 | 23 |
 | chop | 8 | 0 | 11,362 |
@@ -48,7 +49,6 @@
 | structure | 8 | 0 | 1,634 |
 | drawdown-cap | 7 | 0 | 204 |
 | eurusd | 7 | 1 | 163 |
-| news-filter | 7 | 0 | 9,360 |
 | repo-funnel | 7 | 0 | 222 |
 | smc | 7 | 0 | 14,992 |
 | control | 6 | 0 | 1,282 |
@@ -62,7 +62,10 @@
 | month-end | 5 | 0 | 32 |
 | sweep | 5 | 0 | 1,380 |
 | batch01 | 4 | 0 | 24 |
+| candle-body | 4 | 0 | 176 |
+| costs | 4 | 0 | 24 |
 | filter-mining | 4 | 0 | 314 |
+| lookback | 4 | 0 | 176 |
 | monthly | 4 | 0 | 20 |
 | ny-open | 4 | 0 | 128 |
 | oil | 4 | 0 | 7 |
@@ -70,7 +73,6 @@
 | third-party-ea | 4 | 0 | 304 |
 | carry | 3 | 1 | 18 |
 | close | 3 | 0 | 20 |
-| costs | 3 | 0 | 8 |
 | cross-asset | 3 | 0 | 4 |
 | fx | 3 | 0 | 28 |
 | gbpusd | 3 | 0 | 152 |
@@ -86,10 +88,10 @@
 | winner-anatomy | 3 | 0 | 205 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
-| candle-body | 2 | 0 | 144 |
 | cent-account | 2 | 0 | 12 |
 | clock | 2 | 0 | 8 |
 | cross-sectional | 2 | 0 | 17 |
+| curated | 2 | 0 | 32 |
 | cycle-goal | 2 | 1 | 73 |
 | data | 2 | 0 | 8 |
 | dip-buying | 2 | 0 | 8 |
@@ -100,7 +102,6 @@
 | holdout | 2 | 0 | 770 |
 | ict | 2 | 0 | 784 |
 | lifecycle | 2 | 0 | 80 |
-| lookback | 2 | 0 | 144 |
 | math | 2 | 0 | 80 |
 | mss | 2 | 0 | 4 |
 | price-action | 2 | 0 | 1,080 |
@@ -172,6 +173,8 @@
 |---|---|---|---|---|---|
 | 2026-11-09 | body4_range_v6 | engulfing, owner-idea, limit-entry, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, candle-body, lookback | 72 | Rejected: no configuration passed the development gate | share_dev_positive +0.042 |
 | 2026-11-09 | Body-engulf range v6 study: 60% bodies vs 2-candle lookback, 4R-6R, best two-week mix | engulfing, owner-idea, limit-entry, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, candle-body, lookback, portfolio, cycle-goal | 72 | Rejected (lab: 0 of 72 pass). All 12 combinations about -0.35R a trade after costs in 2011-19, 2020-22 and 2023-25; -0.01 to -0.09R before costs. 2-candle lookback better in 54-60% of pairs (+0.02R); 60% body 21-53% (no help); body alone vs lookback alone: lookback better. Target hits 4R 15%, 5R 12%, 6R 10% vs 20/16.7/14.3% needed with no costs (26.7/22.5/19.3% after). Best mix chosen on 2011-19 (3 of 72 cells: WTI M5, UK100 M15, GER40 M5, 4R): +0.28R a fortnight 2011-19, -0.36R 2020-22, -0.18R 2023-25; 0 of 12 mixes positive in both later periods. Everywhere: 2+ wins in 94-99% of fortnights, 10-12% of fortnights positive, about 8 trades per win. Jan-Oct 2026 look not taken (already failed; kept unseen). |  |
+| 2026-11-09 | body4_range_v7 | engulfing, owner-idea, limit-entry, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, candle-body, lookback, curated | 16 | Rejected: no configuration passed the development gate | share_dev_positive +0.250 |
+| 2026-11-09 | Body-engulf range v7 study: curated version (lookback candles 60% body, M5/M15, 13-17 UTC, Prime markets) + cost realism | engulfing, owner-idea, limit-entry, intraday, multi-market, range, large-target, session, news-filter, candle-body, lookback, curated, costs | 16 | Rejected (lab 0 of 16). Costs realistic: our Prime model = the owner's figures (EURUSD 0.1 + 0.25 pip, +0.2 slippage on stops); median EURUSD stop 5.1 pips M5 / 9.4 M15, so 0.06-0.11R a trade. With the lookback-body rule only ~9 trades a year on 10 markets (0.37 per fortnight, 70% of fortnights empty). Primary 5R: 2011-19 +0.23R (86, t 0.9), 2020-22 -0.57R (28, t -2.3; -0.41R at zero cost), 2023-25 +0.18R (22); 2020-25 -0.24R (t -1.0). Without it: ~700 trades, negative every period, about 0 before costs. 3R hit 25.6% -> 11.5% -> 10% (25% needed at zero cost). Jan-Oct 2026 kept unseen. |  |
 | 2026-11-08 | body4_range_v1 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range | 192 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-08 | Body-engulf 4-candle range: owner's questions (breakeven, 50/70% entry, stop buffer, lookback, candle size, best market x timeframe, before costs) | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range | 192 | Rejected. Main settings after costs 2011-19: M1 -0.47, M5 -0.28, M15 -0.16, M30 -0.19, H1 -0.14, H4 -0.14R a trade (2020-22 similar); before costs about 0 (M1 -0.07 t -8.5, M5 -0.03). Breakeven lowered PF in 75% of 1,110 pairs, R unchanged; 50% entry beat 70% in 74% (+0.08R); 20% stop buffer beat 0% in 75% (+0.08R); lookback no effect; bigger candles less negative, never positive. 64 best market x timeframe picks: 8 positive in 2020-22, top four all lost. Unclear M1 minutes 20%. |  |
 | 2026-11-08 | body4_range_v2 | engulfing, owner-idea, limit-entry, breakeven, intraday, multi-market, multi-timeframe, range, small-target | 384 | Rejected: no configuration passed the development gate | share_dev_positive +0.003 |

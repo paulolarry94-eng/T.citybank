@@ -827,3 +827,17 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   for this family. Asked the owner whether "60% body" should also mean a minimum candle size (implemented: body share).
 - **Next:** the pattern family is closed (5,326 settings and conditions); the remaining test is a forward log of the
   owner's own marked setups.
+
+## 2026-11-09 (27) · owner: "the lookback candles obey the same above-60% threshold ... how realistic is this cost? ... we can curate a strategy, timeframe and account" (+ a pasted RoboForex Prime M5/M15 3R scalping plan)
+- **Done:** checked our cost model against the pasted figures and measured stop sizes (before any v7 result); pre-registered
+  v7 (PREREGISTRATION_V7.md, 7cea2ab): v6 + lookback candles 60% body (on/off), M5/M15, 13-17 UTC, 10 Prime markets, 3R-6R,
+  three cost views of the same trades; scanner `lbbody2` + test (20 body4 tests OK); `body4_range_v7.py`; 10 examples; lab
+  `--no-look`; `study_v7.py`.
+- **Learned:** our Prime costs equal the published ones (EURUSD 0.35 pip, 0.55 on stops); median EURUSD stop 5-9 pips, so
+  0.06-0.11R a trade; the pasted arithmetic charged costs only on wins (3R needs 26.9% wins at their cost, 28.1% at ours, not
+  25%). v7 REJECTED: ~9 trades a year on 10 markets; the 5R primary +0.23R on 86 trades in 2011-19 (t 0.9), -0.57R in 2020-22
+  (-0.41R at zero cost), +0.18R on 22 in 2023-25. Without the lookback-body rule ~700 trades, negative everywhere, about 0
+  before costs. Evidence added to P1 and P19.
+- **Decisions:** Jan-Oct 2026 look not taken (already rejected on 2011-25); the data stays unseen.
+- **Next:** the account choice (Prime) is right and costs are modest; the pattern has no edge. A forward log of the owner's
+  own calls is the only open test.

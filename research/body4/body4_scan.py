@@ -97,7 +97,10 @@ def detect_arrays(o, h, l, c, sample="flow", doji_bullish=False, engulf="body"):
     lb2 = np.where(side > 0, cb[b] - cb[a2], cs[b] - cs[a2])
     return dict(k=kk.astype(np.int64), side=side.astype(np.int64), hi=hi, lo=lo, lookback=lb.astype(np.int64),
                 body2=frac[kk - 2] if len(kk) else np.zeros(0), body4=frac[kk] if len(kk) else np.zeros(0),
-                lookback2=lb2.astype(np.int64))
+                lookback2=lb2.astype(np.int64),
+                # v7 (owner, 2026-11-09): "the lookback candles obey the same 60% threshold": the smaller body share of the
+                # two lookback candles k-5 and k-4
+                lbbody2=np.minimum(frac[np.maximum(kk - 5, 0)], frac[np.maximum(kk - 4, 0)]) if len(kk) else np.zeros(0))
 
 
 def setups(B, tf_min, sample="flow", doji_bullish=False, engulf="body"):

@@ -347,6 +347,10 @@ v6 (2026-11-09, owner's last configuration: candles 2 and 4 at least 60% body, 2
 architecture mix" for two-week cycles): REJECTED (72 lab configurations, 0 pass). 2-candle lookback +0.02R, 60% body
 nothing; targets hit below even zero-cost needs; the best mix (3 of 72 cells) lost in 2020-22 and 2023-25. Jan-Oct
 2026 kept unseen. research/results/body4/v6/RESULT.md.
+v7 (2026-11-09, owner: "lookback candles obey the same 60% threshold ... how realistic is this cost ... curate
+strategy, timeframe and account": Prime, M5/M15, 13-17 UTC, 3R-6R): REJECTED (16 lab configurations, 0 pass). Our
+Prime costs match the owner's figures (0.06-0.11R a trade on EURUSD); about 9 trades a year; the 2011-19 profit (86
+trades) reversed in 2020-22, even at zero cost. research/results/body4/v7/RESULT.md.
 
 ### Q29 TradingView "Noise Gate" (The_Peaceful_Lizard, 2022, open source) as the owner uses it (2026-11-06)
 FAMILY: filter, noise-gate, owner-idea, tradingview. The script only reshapes a signal (source, moving-average length,

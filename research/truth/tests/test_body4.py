@@ -55,6 +55,15 @@ class TestDetector(unittest.TestCase):
         self.assertEqual(int(SC.setups(market(look + buy4, MON), 1, doji_bullish=True)["lookback2"][-1]), 2)
         self.assertEqual(int(SC.setups(market(look + buy4, MON), 1)["lookback2"][-1]), 1)
 
+    def test_v7_lookback_candles_body_share(self):
+        """v7 (owner, 2026-11-09): the 2 lookback candles must also be at least 60% body; lbbody2 = the smaller share."""
+        P = SC.setups(market(LOOK + SELL4, MON), 1, doji_bullish=True)
+        self.assertAlmostEqual(float(P["lbbody2"][-1]), 0.4 / 0.6, places=6)              # LOOK candles: body 0.4 of 0.6
+        wicky = LOOK[:4] + [(101.5, 101.9, 100.9, 101.3)]                               # last lookback candle: body 0.2 of 1.0
+        P = SC.setups(market(wicky + SELL4, MON), 1, doji_bullish=True)
+        self.assertAlmostEqual(float(P["lbbody2"][-1]), 0.2, places=6)
+        self.assertEqual(int(P["lookback2"][-1]), 2)                                     # still bearish: only the body rule fails
+
     def test_doji_bullish_mode(self):
         """v3 (owner, 2026-11-08): a doji counts as bullish in the lookback (close >= open)."""
         buy4 = [(101.0, 101.1, 99.9, 100.0), (100.0, 101.3, 99.9, 101.1), (101.1, 101.2, 100.4, 100.5), (100.5, 101.9, 100.4, 101.8)]

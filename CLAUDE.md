@@ -151,6 +151,9 @@ Learning rules:
   after costs, about 0 before; only cost traits matter (`research/results/body4/gold/RESULT.md`, P21).
   v6 (2026-11-09: 60% bodies on candles 2 and 4, 2-candle lookback, 4R-6R, best two-week mix; 72 settings) REJECTED:
   about -0.35R a trade everywhere; the best 2011-19 mix lost in 2020-25; Jan-Oct 2026 kept unseen (`research/results/body4/v6/RESULT.md`).
+  v7 curated (lookback candles 60% body, M5/M15, 13-17 UTC, 10 Prime markets, 3R-6R; 16 settings) REJECTED: our Prime
+  costs match the published figures (EURUSD 0.06-0.11R a trade); ~9 trades a year; 2011-19 profit reversed in 2020-22 even
+  at zero cost (`research/results/body4/v7/RESULT.md`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

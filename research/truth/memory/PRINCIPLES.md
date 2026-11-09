@@ -24,6 +24,12 @@ Evidence (2026-11-08, cost attribution of 121,822 body-engulf trades): price mov
 commission 0.11, slippage 0.11), swaps 0.01R. Costs in R are highest where ranges are small: Asia 0.40R vs London-New York
 overlap 0.29R; M1 0.42R vs H4 0.06R. research/results/body4/v4/RESULT.md.
 
+Evidence (2026-11-09, cost realism check for the owner's curated plan): our RoboForex Prime model equals the published
+figures (EURUSD spread 0.1 + commission 0.25 pip, plus 0.2 pip slippage on stop exits). On M5/M15 body-engulf setups the
+median EURUSD stop is 5-9 pips, so Prime costs are 0.06-0.11R a trade (0.13-0.39R on EURGBP, indices, WTI, JP225). Costs
+decide only where a raw edge exists: the curated version still lost in 2020-22 at zero cost.
+research/results/body4/v7/RESULT.md.
+
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
 97% of paired settings (−0.081R); supply/demand −0.035 to −0.084R; FVG midpoint depth worse in 96%.
@@ -283,6 +289,11 @@ a 90% chance of being up needs about 250-430 trades (8-13 months of the book). (
 bug; first written as 54-59% of fortnights, one leg 26%, 55-66% of years.) Even then 4 fortnights in 10 lose, so
 fortnightly payouts must come from a buffer, not from each fortnight. Without positive expectancy no filter raises the
 odds (P16, P18). Evidence: research/results/probability/odds.json. Confidence: high (backtest; live will be weaker, P11).
+
+Evidence (2026-11-09, body-engulf v7): stacking filters (60% bodies on four candles, 2-candle lookback, 13-17 UTC, no
+news days) left about 9 trades a year on 10 markets: 0.37 a fortnight, 70% of fortnights without a trade. Its 2011-19
+profit (+0.23R on 86 trades, t 0.9) reversed in 2020-22 (-0.57R on 28). Too few trades to judge or to fund a two-week
+cycle. research/results/body4/v7/RESULT.md.
 
 ### P20 Every trade must reach the daily P&L: a weekday calendar silently drops Sunday-open exits
 Daily series built by re-indexing to business days lost every trade that closed at the Sunday-night FX open. Those exits
