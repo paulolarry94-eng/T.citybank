@@ -132,6 +132,8 @@ class TestMemory(unittest.TestCase):
         self.assertEqual([e["name"] for e in MEMORY.priors(["liquidity"])], ["x"])
         self.assertFalse(MEMORY.survived(MEMORY.load()[0])); self.assertTrue(MEMORY.survived(MEMORY.load()[1]))
         self.assertFalse(MEMORY.survived(dict(verdict="Rejected (equity-index RSI2 on watch)")))
+        self.assertFalse(MEMORY.survived(dict(verdict="Needed fortnight Sharpe 1.17. Best mix (13 survivors, leg weights) 0.33")))
+        self.assertTrue(MEMORY.survived(dict(verdict="Tier B: forward-test candidate")))
 
     def test_lab_run_is_recorded_in_memory(self):
         with tempfile.TemporaryDirectory() as d:

@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-124 ideas tested, about 327,613 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+124 ideas tested, about 327,613 configurations; 6 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -11,7 +11,6 @@
 | Hunt 2 / 11-leg book | portfolio, trend, reversion, seasonal | Survivor: Tier B forward-test candidate | Sharpe 1.00 after costs+swaps (1.64 low-cost swap-free); 2023-25 +0.044R/trade, PF 1.12. CORRECTED 2026-10-31 (Sunday-exit bug, P20): Sharpe 1.24 after research costs+swaps 2011-24Q1 (1.03 after 2016); Exness Zero 1.36 with swaps, 1.74 swap-free 2011-25; untouched Jan-Oct 2026 -1.36% | research/hunt/HUNT2_REPORT.md; research/northstar/NORTHSTAR_REPORT.md |
 | tokyo_fix_gotobi_v1 | calendar, flow, fix, intraday, usdjpy, seasonal | Tier B: forward-test candidate |  | research/results/truth/tokyo_fix_gotobi_v1/REPORT.md |
 | eurusd_close_beyond_reversal_v1 | reversal, daily, stop-entry, eurusd, bailout-exit | Tier B: forward-test candidate |  | research/results/truth/eurusd_close_beyond_reversal_v1/REPORT.md |
-| Cycle goal with a 2-week cycle instead of 10 trades (survivors) | cycle-goal, risk, portfolio, owner-question | Needed fortnight Sharpe 1.17 (+2% in 3.6%; 0.79 in 8%). Best mix (13 survivors, leg weights) 0.33: +0.19% per 2 weeks, 4.9%/yr at 3.6%, 10.8%/yr at 8%; 3.6x short in Sharpe, ~10x in return. Same yearly money as the 10-trade cycle. 2026 forward about 0. |  | research/results/goal/FORTNIGHT_CYCLE.md |
 
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
@@ -38,10 +37,10 @@
 | sizing | 12 | 0 | 291 |
 | trend | 12 | 4 | 102,718 |
 | large-target | 11 | 0 | 10,160 |
-| portfolio | 11 | 4 | 218 |
+| portfolio | 11 | 3 | 218 |
 | seesare | 10 | 0 | 232 |
 | news-filter | 9 | 0 | 9,392 |
-| risk | 9 | 1 | 188 |
+| risk | 9 | 0 | 188 |
 | seasonal | 9 | 2 | 23 |
 | chop | 8 | 0 | 11,362 |
 | daily | 8 | 1 | 172 |
@@ -76,7 +75,7 @@
 | close | 3 | 0 | 20 |
 | cross-asset | 3 | 0 | 4 |
 | curated | 3 | 0 | 33 |
-| cycle-goal | 3 | 1 | 74 |
+| cycle-goal | 3 | 0 | 74 |
 | data | 3 | 0 | 8 |
 | fx | 3 | 0 | 28 |
 | gbpusd | 3 | 0 | 152 |
@@ -139,7 +138,7 @@
 | noise-gate | 1 | 0 | 8 |
 | orb | 1 | 0 | 0 |
 | out-of-sample | 1 | 1 | 1 |
-| owner-question | 1 | 1 | 1 |
+| owner-question | 1 | 0 | 1 |
 | pairs | 1 | 0 | 1 |
 | payday | 1 | 0 | 1 |
 | payoff | 1 | 0 | 16 |

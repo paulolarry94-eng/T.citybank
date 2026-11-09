@@ -17,7 +17,8 @@ from collections import Counter, defaultdict
 HERE = os.path.dirname(os.path.abspath(__file__))
 MEM = os.path.join(HERE, "memory")
 LEDGER = os.path.join(MEM, "ledger.jsonl")
-SURVIVE = ("survivor", "tier a", "tier b", "forward-test", "deployment")
+SURVIVE = ("survivor", "tier a", "tier b")       # the verdict must START with one of these (2026-11-09: a study whose
+                                                 # verdict only mentioned "13 survivors" was counted as a survivor)
 
 
 def load():
@@ -27,8 +28,8 @@ def load():
 
 
 def survived(e):
-    v = e.get("verdict", "").lower()
-    return any(s in v for s in SURVIVE) and not v.startswith("rejected")
+    v = e.get("verdict", "").lower().strip()
+    return v.startswith(SURVIVE)
 
 
 def record(entry):
