@@ -1,0 +1,72 @@
+{
+ "name": "body4_range_v7",
+ "primary": "lbbody=1|target=5",
+ "markets": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "EURGBP",
+  "XAUUSD"
+ ],
+ "missing": [
+  "US500",
+  "NAS100",
+  "GER40",
+  "WTI",
+  "JP225"
+ ],
+ "decided_by": "owner, 2026-11-09 ('run the final check')",
+ "started": "2026-11-09 20:56:27 UTC",
+ "trades": [
+  {
+   "market": "USDJPY",
+   "tf": "M5",
+   "fill": "2026-09-23T16:49:00+00:00",
+   "side": "sell",
+   "reason": 1,
+   "R_prime": -1.0968,
+   "R_low": -1.0538,
+   "R_zero": -0.957
+  },
+  {
+   "market": "EURGBP",
+   "tf": "M5",
+   "fill": "2026-06-19T13:55:00+00:00",
+   "side": "buy",
+   "reason": 1,
+   "R_prime": -1.1949,
+   "R_low": -1.0923,
+   "R_zero": -0.7949
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M5",
+   "fill": "2026-05-22T16:43:00+00:00",
+   "side": "buy",
+   "reason": 1,
+   "R_prime": -1.0226,
+   "R_low": -1.0123,
+   "R_zero": -0.9897
+  },
+  {
+   "market": "XAUUSD",
+   "tf": "M15",
+   "fill": "2026-06-16T15:52:00+00:00",
+   "side": "sell",
+   "reason": 1,
+   "R_prime": -1.0095,
+   "R_low": -1.0052,
+   "R_zero": -0.9957
+  }
+ ],
+ "result": {
+  "n": 4,
+  "E_prime": -1.081,
+  "E_low": -1.0409,
+  "E_zero": -0.9343,
+  "targets_hit": 0,
+  "total_R_prime": -4.324
+ },
+ "verdict": "v7 was already rejected on 2011-25 (pre-registered pass not met); this look is the last unseen data for the body-engulf family and cannot change that",
+ "finished": "2026-11-09 20:56:37 UTC"
+}

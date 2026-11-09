@@ -46,8 +46,8 @@ So the Prime account is the right choice for this kind of trading, and our model
 | v6 lookback, 5R | 704, -0.10 / -0.05 / +0.06R | 234, -0.28 / -0.24 / -0.15R | 216, -0.17 / -0.13 / -0.02R |
 | v6 lookback, 6R | 710, -0.16 / -0.11 / -0.00R | 239, -0.29 / -0.24 / -0.15R | 219, -0.19 / -0.15 / -0.04R |
 
-- The primary (chosen on 2011-19) fails: 2020-25 pooled -0.24R a trade on 50 trades (t -1.0). The Jan-Oct 2026 check is not
-  needed: it cannot change the verdict, so that data stays unseen.
+- The primary (chosen on 2011-19) fails: 2020-25 pooled -0.24R a trade on 50 trades (t -1.0); the 2026 check (section 4)
+  lost too.
 - Without your new lookback-body rule there are 8 times more trades, and they lose in every period after costs and are about
   zero before costs. With it, 2011-19 looks better on 82-86 trades (t below 1), and that did not carry into 2020-22.
 - 3R was reached by 25.6% of trades in 2011-19 (82 trades), then 11.5% and 10.0%; 25% is needed at zero cost, about 28%
@@ -66,6 +66,12 @@ So the Prime account is the right choice for this kind of trading, and our model
 
 With every filter stacked, the system trades about once every 5-6 weeks across all 10 markets, so "2 wins every 2 weeks"
 cannot happen, and a handful of trades a year cannot be told apart from luck.
+
+## 4. The final check: January-October 2026 (run 2026-11-09 on the owner's go-ahead)
+One logged look, primary only, on the 5 markets that have 2026 data here (EURUSD, GBPUSD, USDJPY, EURGBP, XAUUSD; the
+indices, WTI and JP225 have none): **4 trades in 10 months, all stopped: -1.08R a trade** (-0.93R at zero cost), 0 targets.
+Too few trades to prove anything alone, but it agrees with the rejection. This used the last unseen data for the
+body-engulf family (`LOOK_2026.json`).
 
 ## Where this leaves it
 The body-engulf range has now been tested in seven versions plus a gold study (5,342 settings and conditions). The account
