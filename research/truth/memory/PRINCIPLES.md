@@ -29,6 +29,7 @@ figures (EURUSD spread 0.1 + commission 0.25 pip, plus 0.2 pip slippage on stop 
 median EURUSD stop is 5-9 pips, so Prime costs are 0.06-0.11R a trade (0.13-0.39R on EURGBP, indices, WTI, JP225). Costs
 decide only where a raw edge exists: the curated version still lost in 2020-22 at zero cost.
 research/results/body4/v7/RESULT.md.
+- 2026-11-12 (pivot-sweep range, `research/results/sweep4/RESULT.md`): M5 with the sweep +0.07R before costs, -0.18R after (2011-19); a raw effect smaller than the 0.25R a trade that costs take on 2-pip stops.
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -156,6 +157,7 @@ all 14 other years (-0.373R on 2,316): one good stretch is not a characteristic.
 Evidence (2026-11-09, body-engulf v6): the best two-week mix from 2011-19 (the 3 of 72 market x timeframe cells that
 made money, +0.28R a fortnight) lost -0.36R a fortnight in 2020-22 and -0.18R in 2023-25; none of the 12 configurations'
 mixes made money in both later periods. research/results/body4/v6/RESULT.md.
+- 2026-11-12 (pivot-sweep range): 149 of 1,403 market x timeframe cells positive in 2011-19, 37 of those positive in 2020-22; the best cell (EURUSD M5 15R, +1.63R on 98 trades, t about 2.7) is below the luck ceiling for 1,403 tries (about 3.8).
 
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
@@ -209,6 +211,7 @@ Evidence (2026-11-08, body-engulf range v5 and the owner's 2023-25 look): strict
 timeframe layering, 768 settings: 0 pass the gate; the 4 settings chosen on 2011-22 all lost in 2023-25 (-0.07 to -0.38R
 a trade); 16 of 448 settings positive (4%), median -0.18R. Five versions of this pattern (5,184 settings) all failed.
 research/results/body4/v5/RESULT.md.
+- 2026-11-12: requiring a TradingView pivot sweep right before the body-engulf range beat the same pattern without a sweep in 83% of pairs in 2011-19 (+0.09R before costs) but only 60% in 2020-22 (+0.01R); still negative after costs everywhere (`research/results/sweep4/RESULT.md`).
 
 ### P15 Judge any bot by equity, not balance: realised P&L hides open risk
 Averaging grids bank many small wins while a losing basket grows. Gold Hunter V9's settings, replayed 2011–2025:

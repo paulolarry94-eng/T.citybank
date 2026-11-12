@@ -165,6 +165,12 @@ Learning rules:
   v7's one logged Jan-Oct 2026 look (owner: "run the final check"; 5 markets with 2026 data): 4 trades, all stopped, -1.08R a
   trade. The body-engulf family has no unseen data left.
 
+- Pivot-sweep body-engulf range (2026-11-12, owner, Q34): TradingView Pivot Points High Low built (`research/sweep4/`,
+  parity-tested engines with pivot trailing stop); 4 candles right after a pivot sweep, 60% bodies, 60% entry, 3 stops x
+  3-15R / structural targets, 504 settings x 12 markets x M1-H4: REJECTED (lab 0 pass). The sweep adds ~+0.1R before
+  costs vs no sweep in 2011-19, ~0 in 2020-22; after costs negative (M5 -0.18R); 3R wins 23%. No bug. One lead: EURUSD M5
+  (best of 1,403 cells, +1.63R / 98 trades then +0.32R / 22). 2023-25 / 2026 not opened (`research/results/sweep4/RESULT.md`).
+
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,
   GER40, WTI, XAGUSD, NAS100, UK100, JP225, EURGBP from HistData (clock-fixed) + Exness ticks (sources and seams in OPEN_QUESTIONS

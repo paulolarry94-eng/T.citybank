@@ -266,6 +266,18 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q34 Owner's pivot-sweep body-engulf range (2026-11-12) — TESTED, rejected after costs; waiting on the owner's answers
+Owner: "build an indicator just like pivot points high low on TradingView ... keep 60 body of 2nd and 4th candle but they
+must appear immediately after a sweep of a pivot point ... enter at 60% of the range ... stop styles ... 3-15R ... best
+timeframe ... cycle centric ... 10 trades high win rate". FAMILY: engulfing, owner-idea, liquidity, sweep, pivot, range.
+- Done (evidence `research/results/sweep4/RESULT.md`, pre-registration `research/sweep4/PREREGISTRATION.md`): 504 settings x
+  12 markets, lab 0 pass. The sweep adds ~+0.1R before costs in 2011-19 over the same pattern without a sweep, ~0 in
+  2020-22; after costs negative on every timeframe with enough trades. EURUSD M5 is the one lead (best of 1,403 cells).
+- Open for the owner: (1) the dates of the two screenshots (DAX is past our GER40 data; the EURUSD one is not in 2011-25);
+  (2) is the target the opposite pivot (the DAX screenshot's target sits on the 25,832 pivot highs)? tested as p1/p2;
+  (3) "high win rate" and 3-15R conflict (3R wins 23%); (4) spend the one logged 2023-25 + 2026 look on a single setting
+  named now (e.g. EURUSD M5, pivots 10, sweep candle 1/2, 15R), knowing it was picked after seeing 2011-22.
+
 ### Q33 Architecture for a hands-off system: Wealth Game or SEESARE cap with higher alpha? (owner, 2026-11-08)
 FAMILY: architecture, sizing, seesare, payout, owner-idea. Proposal (awaiting the owner's decision; blueprint decision 2):
 the 3.6% cap governs; the Wealth Game survives only as the payout rule (when a lifecycle ends in profit, withdraw half the

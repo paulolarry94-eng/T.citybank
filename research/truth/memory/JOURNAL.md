@@ -873,3 +873,20 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Facts vs estimates:** costs are Exness Zero (measured spreads, estimated commission); 2023-25 and 2026 had been seen for
   most legs (not by this rule); live is expected 30-50% weaker (P11).
 - **Next:** EAs for the mix's legs + parity, 3-6 months demo, account export; the owner decides the cap and payout rule.
+
+## 2026-11-12 (29) · owner: "build an indicator just like pivot points high low ... the 4 candles must appear immediately after a sweep of a pivot ... enter at 60% ... find the stop style, the target (3-15R or structural) and the timeframe ... find the bug ... cycle centric, 10 trades high win rate"
+- **Done:** `research/sweep4/`: TradingView-style Pivot Points High Low (`pivots.py`, checked against brute force), sweep
+  detector, reference and fast order engines with a pivot trailing stop (trade-for-trade parity, 2,089 gold trades + tests:
+  `research/truth/tests/test_sweep4.py`); pre-registered before results (796b079); lab `sweep4_pivot_v1` --no-look (504
+  settings x 12 markets x M1-H4); cycle study with a no-sweep control; 9 example charts in the owner's TradingView style.
+  Searched our data for the owner's two screenshots: not found (DAX is past our data; EURUSD sequence not in 2011-25).
+- **Learned:** REJECTED, no bug. The sweep is the first change in this family with a raw effect (+0.09R before costs vs the
+  no-sweep twin, 83% of pairs 2011-19) but it faded in 2020-22 (+0.01R, 60%). After costs every timeframe with enough trades
+  is negative (M5 -0.18R, before costs +0.07R); win rates 3R 23%, 15R 9%; no stop style positive (trailing least bad).
+  EURUSD M5 is the one lead (+1.63R on 98 trades 2011-19, +0.32R on 22 in 2020-22), chosen as best of 1,403 cells. Pivots
+  "appear randomly" because a 10/10 pivot is known only 10 candles later; TradingView draws it back. Evidence in P1, P10, P14.
+- **Decisions:** 2023-25 and Jan-Oct 2026 not opened (nothing passed 2011-22). Q34 opened with four questions for the owner.
+- **Facts vs estimates:** costs are RoboForex Prime published figures (lab estimates for XAGUSD, UK100); 2023-25 had been seen
+  for the body-engulf family (v5) but not with this rule.
+- **Next:** the owner's answers (screenshot dates, target rule, win-rate vs R, whether to spend one logged look on EURUSD M5).
+
