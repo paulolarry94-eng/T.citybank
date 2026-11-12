@@ -1,6 +1,6 @@
 # LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)
 
-130 ideas tested, about 328,237 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
+131 ideas tested, about 328,243 configurations; 7 survivors. Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.
 
 ## Survivors
 | Idea | Family | Verdict | Key numbers | Evidence |
@@ -16,23 +16,23 @@
 ## Family priors (how earlier ideas with this tag ended)
 | Tag | Ideas | Survived | Configurations |
 |---|---|---|---|
-| owner-idea | 66 | 0 | 26,491 |
+| owner-idea | 67 | 0 | 26,497 |
 | intraday | 54 | 1 | 200,943 |
-| engulfing | 42 | 0 | 28,287 |
-| limit-entry | 34 | 0 | 19,764 |
-| multi-market | 29 | 0 | 18,862 |
-| multi-timeframe | 29 | 0 | 24,432 |
-| session | 25 | 0 | 194,040 |
+| engulfing | 43 | 0 | 28,293 |
+| limit-entry | 35 | 0 | 19,770 |
+| multi-market | 30 | 0 | 18,868 |
+| multi-timeframe | 30 | 0 | 24,438 |
+| session | 26 | 0 | 194,046 |
 | flow | 22 | 1 | 96 |
 | calendar | 21 | 1 | 179 |
-| range | 20 | 0 | 12,006 |
+| range | 21 | 0 | 12,012 |
 | ema | 19 | 0 | 12,489 |
+| reversal | 19 | 1 | 106,494 |
 | index | 18 | 0 | 122 |
-| reversal | 18 | 1 | 106,488 |
 | breadth | 14 | 0 | 697 |
 | breakeven | 14 | 0 | 113,516 |
+| large-target | 14 | 0 | 10,670 |
 | awesome-list | 13 | 0 | 147 |
-| large-target | 13 | 0 | 10,664 |
 | sizing | 13 | 1 | 291 |
 | structure | 13 | 0 | 2,258 |
 | breakout | 12 | 0 | 119,496 |
@@ -40,9 +40,9 @@
 | portfolio | 12 | 4 | 218 |
 | retest | 12 | 0 | 10,437 |
 | trend | 12 | 4 | 102,718 |
-| liquidity | 10 | 0 | 2,004 |
+| liquidity | 11 | 0 | 2,010 |
+| sweep | 11 | 0 | 2,010 |
 | seesare | 10 | 0 | 232 |
-| sweep | 10 | 0 | 2,004 |
 | news-filter | 9 | 0 | 9,392 |
 | risk | 9 | 0 | 188 |
 | seasonal | 9 | 2 | 23 |
@@ -58,23 +58,24 @@
 | gold | 6 | 0 | 433 |
 | holdout | 6 | 1 | 771 |
 | momentum | 6 | 0 | 61 |
+| pivot | 6 | 0 | 630 |
 | trailing | 6 | 0 | 5,700 |
 | usdjpy | 6 | 1 | 42 |
 | book | 5 | 1 | 105 |
 | costs | 5 | 0 | 24 |
 | cycle-goal | 5 | 1 | 74 |
+| filter-mining | 5 | 0 | 320 |
 | futures | 5 | 1 | 138 |
 | mean-reversion | 5 | 0 | 47 |
 | month-end | 5 | 0 | 32 |
-| pivot | 5 | 0 | 624 |
 | batch01 | 4 | 0 | 24 |
-| filter-mining | 4 | 0 | 314 |
 | lookback | 4 | 0 | 176 |
 | monthly | 4 | 0 | 20 |
 | ny-open | 4 | 0 | 128 |
 | oil | 4 | 0 | 7 |
 | rebalancing | 4 | 0 | 24 |
 | third-party-ea | 4 | 0 | 304 |
+| winner-anatomy | 4 | 0 | 211 |
 | carry | 3 | 1 | 18 |
 | clock | 3 | 0 | 8 |
 | close | 3 | 0 | 20 |
@@ -91,7 +92,6 @@
 | pattern | 3 | 0 | 4,932 |
 | reversion | 3 | 3 | 16 |
 | turn-of-month | 3 | 0 | 4 |
-| winner-anatomy | 3 | 0 | 205 |
 | averaging | 2 | 0 | 160 |
 | bailout-exit | 2 | 1 | 6 |
 | cent-account | 2 | 0 | 12 |
@@ -183,6 +183,7 @@
 | 2026-11-12 | sweep5_pivot_v2 | engulfing, owner-idea, limit-entry, multi-market, multi-timeframe, range, candle-body, liquidity, sweep, pivot, reversal, structure, partial-exit, breakeven | 120 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-12 | Portfolio Pareto: survivors +/- pivot-sweep v2 legs at 3.6% / 8% / 15% / 25% envelopes | portfolio, cycle-goal, envelope, sizing, holdout | — | Tier B candidate mix: Timeless 10 + v2 (B and C); A by rule Book 11 + v2 |  |
 | 2026-11-12 | Pivot-sweep v2 study: owner's chart reading (loose engulf, doji bullish, 50% bodies, fill-time TP1/TP2, 60% partial), loser study, logged look | engulfing, owner-idea, limit-entry, multi-market, multi-timeframe, range, candle-body, liquidity, sweep, pivot, reversal, structure, partial-exit, breakeven, holdout | — | Rejected (lab 0 of 120; 3 thin legs survive era rule + look) |  |
+| 2026-11-12 | sweep6_scanner_v1 | engulfing, owner-idea, limit-entry, multi-market, multi-timeframe, range, large-target, session, liquidity, sweep, pivot, reversal, filter-mining, winner-anatomy | 6 | Rejected: no configuration passed the development gate | share_dev_positive +0.000 |
 | 2026-11-09 | body4_range_v6 | engulfing, owner-idea, limit-entry, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, candle-body, lookback | 72 | Rejected: no configuration passed the development gate | share_dev_positive +0.042 |
 | 2026-11-09 | Body-engulf range v6 study: 60% bodies vs 2-candle lookback, 4R-6R, best two-week mix | engulfing, owner-idea, limit-entry, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, candle-body, lookback, portfolio, cycle-goal | 72 | Rejected (lab: 0 of 72 pass). All 12 combinations about -0.35R a trade after costs in 2011-19, 2020-22 and 2023-25; -0.01 to -0.09R before costs. 2-candle lookback better in 54-60% of pairs (+0.02R); 60% body 21-53% (no help); body alone vs lookback alone: lookback better. Target hits 4R 15%, 5R 12%, 6R 10% vs 20/16.7/14.3% needed with no costs (26.7/22.5/19.3% after). Best mix chosen on 2011-19 (3 of 72 cells: WTI M5, UK100 M15, GER40 M5, 4R): +0.28R a fortnight 2011-19, -0.36R 2020-22, -0.18R 2023-25; 0 of 12 mixes positive in both later periods. Everywhere: 2+ wins in 94-99% of fortnights, 10-12% of fortnights positive, about 8 trades per win. Jan-Oct 2026 look not taken (already failed; kept unseen). |  |
 | 2026-11-09 | body4_range_v7 | engulfing, owner-idea, limit-entry, intraday, multi-market, multi-timeframe, range, large-target, session, news-filter, candle-body, lookback, curated | 16 | Rejected: no configuration passed the development gate | share_dev_positive +0.250 |

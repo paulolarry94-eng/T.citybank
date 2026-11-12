@@ -1,0 +1,342 @@
+{
+ "assumptions": "Account size, payout sizing, leg contributions and rule-chosen trade examples for the portfolio report.\nContract assumptions (standard CFD specifications; to be confirmed with mt5/NorthStarExport.mq5 on the real account): FX 100,000\nunits a lot; XAUUSD 100 oz a lot; NAS100 1 USD per point a lot; minimum 0.01 lot. Conversion prices: USDJPY 145, GBPUSD 1.27.\nMinimum account per leg = the smallest account where the target risk on its 75th-percentile stop is at least two 0.01-lot\nsteps (so rounding to the 0.01-lot grid moves the risk by at most 25%). Cent account (USC): steps 100x smaller.\nExamples: the four legs with the largest 2011-22 contribution (weight x total R); for each, the first winning and the first\nlosing trade of 2019 (by entry time), drawn on the leg's own timeframe.\n    python3 research/portfolio/extras.py -> research/results/portfolio/extras.json, examples/*.png\n",
+ "account": {
+  "3.6%": {
+   "legs": {
+    "EUR_EuroHours_short_TueThu": {
+     "market": "EURUSD",
+     "usd_per_001_lot_p75": 4.75,
+     "risk_pct": 0.143,
+     "min_account_usd": 6670.0,
+     "min_account_cent_usd": 67.0
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "market": "GBPJPY",
+     "usd_per_001_lot_p75": 10.0,
+     "risk_pct": 0.108,
+     "min_account_usd": 18510.0,
+     "min_account_cent_usd": 185.0
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "market": "GBPUSD",
+     "usd_per_001_lot_p75": 13.45,
+     "risk_pct": 0.402,
+     "min_account_usd": 6690.0,
+     "min_account_cent_usd": 67.0
+    },
+    "JPY_RSI2_D1_lo5": {
+     "market": "USDJPY",
+     "usd_per_001_lot_p75": 12.87,
+     "risk_pct": 0.432,
+     "min_account_usd": 5960.0,
+     "min_account_cent_usd": 60.0
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "market": "USDJPY",
+     "usd_per_001_lot_p75": 5.76,
+     "risk_pct": 0.16,
+     "min_account_usd": 7210.0,
+     "min_account_cent_usd": 72.0
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "market": "XAUUSD",
+     "usd_per_001_lot_p75": 18.51,
+     "risk_pct": 0.091,
+     "min_account_usd": 40800.0,
+     "min_account_cent_usd": 408.0
+    },
+    "XAU_EMA20-50_H4": {
+     "market": "XAUUSD",
+     "usd_per_001_lot_p75": 27.74,
+     "risk_pct": 0.147,
+     "min_account_usd": 37780.0,
+     "min_account_cent_usd": 378.0
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "market": "XAUUSD",
+     "usd_per_001_lot_p75": 10.25,
+     "risk_pct": 0.272,
+     "min_account_usd": 7530.0,
+     "min_account_cent_usd": 75.0
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "market": "EURUSD",
+     "usd_per_001_lot_p75": 25.0,
+     "risk_pct": 0.432,
+     "min_account_usd": 11570.0,
+     "min_account_cent_usd": 116.0
+    },
+    "tokyo_fix_gotobi_v1": {
+     "market": "USDJPY",
+     "usd_per_001_lot_p75": 2.44,
+     "risk_pct": 0.246,
+     "min_account_usd": 1980.0,
+     "min_account_cent_usd": 20.0
+    },
+    "v2_EURGBP_H1": {
+     "market": "EURGBP",
+     "usd_per_001_lot_p75": 3.61,
+     "risk_pct": 0.117,
+     "min_account_usd": 6180.0,
+     "min_account_cent_usd": 62.0
+    },
+    "v2_GBPUSD_M15": {
+     "market": "GBPUSD",
+     "usd_per_001_lot_p75": 2.74,
+     "risk_pct": 0.112,
+     "min_account_usd": 4880.0,
+     "min_account_cent_usd": 49.0
+    },
+    "v2_NAS100_H1": {
+     "market": "NAS100",
+     "usd_per_001_lot_p75": 0.2,
+     "risk_pct": 0.069,
+     "min_account_usd": 560.0,
+     "min_account_cent_usd": 6.0
+    }
+   },
+   "portfolio_min_usd": 40800.0,
+   "portfolio_min_cent_usd": 408.0,
+   "binding_leg": "XAU_Donchian20_H4_turtle"
+  },
+  "8%": {
+   "legs": {
+    "EUR_EuroHours_short_TueThu": {
+     "market": "EURUSD",
+     "usd_per_001_lot_p75": 4.75,
+     "risk_pct": 0.316,
+     "min_account_usd": 3000.0,
+     "min_account_cent_usd": 30.0
+    },
+    "GBPJPY_Donchian20_H4_trail": {
+     "market": "GBPJPY",
+     "usd_per_001_lot_p75": 10.0,
+     "risk_pct": 0.24,
+     "min_account_usd": 8340.0,
+     "min_account_cent_usd": 83.0
+    },
+    "GBP_WeeklySweep_FollowThrough": {
+     "market": "GBPUSD",
+     "usd_per_001_lot_p75": 13.45,
+     "risk_pct": 0.892,
+     "min_account_usd": 3020.0,
+     "min_account_cent_usd": 30.0
+    },
+    "JPY_RSI2_D1_lo5": {
+     "market": "USDJPY",
+     "usd_per_001_lot_p75": 12.87,
+     "risk_pct": 0.959,
+     "min_account_usd": 2680.0,
+     "min_account_cent_usd": 27.0
+    },
+    "JPY_S2_Donchian20_H4_long": {
+     "market": "USDJPY",
+     "usd_per_001_lot_p75": 5.76,
+     "risk_pct": 0.355,
+     "min_account_usd": 3250.0,
+     "min_account_cent_usd": 32.0
+    },
+    "XAU_Donchian20_H4_turtle": {
+     "market": "XAUUSD",
+     "usd_per_001_lot_p75": 18.51,
+     "risk_pct": 0.201,
+     "min_account_usd": 18380.0,
+     "min_account_cent_usd": 184.0
+    },
+    "XAU_EMA20-50_H4": {
+     "market": "XAUUSD",
+     "usd_per_001_lot_p75": 27.74,
+     "risk_pct": 0.326,
+     "min_account_usd": 17020.0,
+     "min_account_cent_usd": 170.0
+    },
+    "XAU_S1_reversion_H1M30M20": {
+     "market": "XAUUSD",
+     "usd_per_001_lot_p75": 10.25,
+     "risk_pct": 0.604,
+     "min_account_usd": 3390.0,
+     "min_account_cent_usd": 34.0
+    },
+    "eurusd_close_beyond_reversal_v1": {
+     "market": "EURUSD",
+     "usd_per_001_lot_p75": 25.0,
+     "risk_pct": 0.959,
+     "min_account_usd": 5210.0,
+     "min_account_cent_usd": 52.0
+    },
+    "tokyo_fix_gotobi_v1": {
+     "market": "USDJPY",
+     "usd_per_001_lot_p75": 2.44,
+     "risk_pct": 0.547,
+     "min_account_usd": 890.0,
+     "min_account_cent_usd": 9.0
+    },
+    "v2_EURGBP_H1": {
+     "market": "EURGBP",
+     "usd_per_001_lot_p75": 3.61,
+     "risk_pct": 0.259,
+     "min_account_usd": 2790.0,
+     "min_account_cent_usd": 28.0
+    },
+    "v2_GBPUSD_M15": {
+     "market": "GBPUSD",
+     "usd_per_001_lot_p75": 2.74,
+     "risk_pct": 0.249,
+     "min_account_usd": 2200.0,
+     "min_account_cent_usd": 22.0
+    },
+    "v2_NAS100_H1": {
+     "market": "NAS100",
+     "usd_per_001_lot_p75": 0.2,
+     "risk_pct": 0.153,
+     "min_account_usd": 250.0,
+     "min_account_cent_usd": 3.0
+    }
+   },
+   "portfolio_min_usd": 18380.0,
+   "portfolio_min_cent_usd": 184.0,
+   "binding_leg": "XAU_Donchian20_H4_turtle"
+  }
+ },
+ "payouts": {
+  "3.6%": {
+   "mean_fortnight_pct": {
+    "2011-2022 (in-sample)": 0.249,
+    "2023-2025 (seen)": 0.199,
+    "Jan-Oct 2026 (out-of-sample)": 0.037
+   },
+   "account_for_usd_per_fortnight": {
+    "100": {
+     "2011-2022 (in-sample)": 40200.0,
+     "2023-2025 (seen)": 50300.0,
+     "Jan-Oct 2026 (out-of-sample)": 270300.0
+    },
+    "250": {
+     "2011-2022 (in-sample)": 100400.0,
+     "2023-2025 (seen)": 125600.0,
+     "Jan-Oct 2026 (out-of-sample)": 675700.0
+    },
+    "500": {
+     "2011-2022 (in-sample)": 200800.0,
+     "2023-2025 (seen)": 251300.0,
+     "Jan-Oct 2026 (out-of-sample)": 1351400.0
+    },
+    "1000": {
+     "2011-2022 (in-sample)": 401600.0,
+     "2023-2025 (seen)": 502500.0,
+     "Jan-Oct 2026 (out-of-sample)": 2702700.0
+    }
+   }
+  },
+  "8%": {
+   "mean_fortnight_pct": {
+    "2011-2022 (in-sample)": 0.554,
+    "2023-2025 (seen)": 0.443,
+    "Jan-Oct 2026 (out-of-sample)": 0.082
+   },
+   "account_for_usd_per_fortnight": {
+    "100": {
+     "2011-2022 (in-sample)": 18100.0,
+     "2023-2025 (seen)": 22600.0,
+     "Jan-Oct 2026 (out-of-sample)": 122000.0
+    },
+    "250": {
+     "2011-2022 (in-sample)": 45100.0,
+     "2023-2025 (seen)": 56400.0,
+     "Jan-Oct 2026 (out-of-sample)": 304900.0
+    },
+    "500": {
+     "2011-2022 (in-sample)": 90300.0,
+     "2023-2025 (seen)": 112900.0,
+     "Jan-Oct 2026 (out-of-sample)": 609800.0
+    },
+    "1000": {
+     "2011-2022 (in-sample)": 180500.0,
+     "2023-2025 (seen)": 225700.0,
+     "Jan-Oct 2026 (out-of-sample)": 1219500.0
+    }
+   }
+  }
+ },
+ "examples": {
+  "contribution_R": {
+   "EUR_EuroHours_short_TueThu": 38.6,
+   "tokyo_fix_gotobi_v1": 23.0,
+   "eurusd_close_beyond_reversal_v1": 17.1,
+   "XAU_S1_reversion_H1M30M20": 14.7,
+   "v2_EURGBP_H1": 12.5,
+   "GBP_WeeklySweep_FollowThrough": 12.3,
+   "XAU_EMA20-50_H4": 11.6,
+   "GBPJPY_Donchian20_H4_trail": 11.5,
+   "JPY_RSI2_D1_lo5": 10.7,
+   "JPY_S2_Donchian20_H4_long": 10.3,
+   "XAU_Donchian20_H4_turtle": 10.2,
+   "v2_NAS100_H1": 6.6,
+   "v2_GBPUSD_M15": 4.2
+  },
+  "top4": [
+   "EUR_EuroHours_short_TueThu",
+   "tokyo_fix_gotobi_v1",
+   "eurusd_close_beyond_reversal_v1",
+   "XAU_S1_reversion_H1M30M20"
+  ],
+  "charts": [
+   {
+    "leg": "EUR_EuroHours_short_TueThu",
+    "kind": "win",
+    "file": "EUR_EuroHours_short_TueThu_win.png",
+    "t_in": "2019-01-02 09:00",
+    "R": 1.45
+   },
+   {
+    "leg": "EUR_EuroHours_short_TueThu",
+    "kind": "loss",
+    "file": "EUR_EuroHours_short_TueThu_loss.png",
+    "t_in": "2019-01-08 09:00",
+    "R": -0.05
+   },
+   {
+    "leg": "tokyo_fix_gotobi_v1",
+    "kind": "win",
+    "file": "tokyo_fix_gotobi_v1_win.png",
+    "t_in": "2019-01-14 23:00",
+    "R": 0.55
+   },
+   {
+    "leg": "tokyo_fix_gotobi_v1",
+    "kind": "loss",
+    "file": "tokyo_fix_gotobi_v1_loss.png",
+    "t_in": "2019-01-03 23:00",
+    "R": -0.06
+   },
+   {
+    "leg": "eurusd_close_beyond_reversal_v1",
+    "kind": "win",
+    "file": "eurusd_close_beyond_reversal_v1_win.png",
+    "t_in": "2019-01-15 09:13",
+    "R": 0.16
+   },
+   {
+    "leg": "eurusd_close_beyond_reversal_v1",
+    "kind": "loss",
+    "file": "eurusd_close_beyond_reversal_v1_loss.png",
+    "t_in": "2019-05-07 11:56",
+    "R": -0.01
+   },
+   {
+    "leg": "XAU_S1_reversion_H1M30M20",
+    "kind": "win",
+    "file": "XAU_S1_reversion_H1M30M20_win.png",
+    "t_in": "2019-01-16 00:30",
+    "R": 0.92
+   },
+   {
+    "leg": "XAU_S1_reversion_H1M30M20",
+    "kind": "loss",
+    "file": "XAU_S1_reversion_H1M30M20_loss.png",
+    "t_in": "2019-02-05 21:00",
+    "R": -0.97
+   }
+  ]
+ }
+}
