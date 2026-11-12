@@ -3,7 +3,9 @@ for trade in research/truth/tests/test_sweep5.py.
 Rows: 0 t_in, 1 t_out, 2 side, 3 net R, 4 risk, 5 cost R, 6 nights, 7 swap R, 8 setup index, 9 reason (1 stop, 2 target,
 3 breakeven stop after TP1, 4 time close, 5 stop in the fill minute, 6 time close after TP1), 10 entry, 11 exit,
 12 stop, 13 TP1, 14 TP2, 15 TP1 taken (0/1), 16 best open R before the exit.
-exit_mode: 0 partial (60% at TP1, rest to TP2 with the stop at entry +/- (spread + commission)), 1 all at TP1, 2 all at TP2.
+exit_mode: 0 partial (60% at TP1, rest to TP2 with the stop at entry +/- (spread + commission)), 1 all at TP1, 2 all at TP2,
+3 a fixed target tgt_r R from the level (no pivots needed); be_frac > 0 moves the stop to the entry once price has covered
+be_frac of the distance from the level to the final target (from the next minute; 2026-11-12, research/sweep6).
 """
 import os, sys
 import numpy as np
@@ -18,7 +20,7 @@ MAXP = 64
 
 @njit(cache=True)
 def simulate(ts, o, h, l, c, gaps, start, tconf, side, level, stop, width, texp, allow, bt, LH, LL,
-             spread, comm, slip, swap, exit_mode, cut):
+             spread, comm, slip, swap, exit_mode, cut, tgt_r, be_frac):
     N = len(ts); P = len(start)
     out = np.zeros((P + 1, 17)); m = 0
     cost = spread + comm + slip
@@ -26,7 +28,7 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, level, stop, width, texp,
     pwid = np.zeros(MAXP); pexp = np.zeros(MAXP, np.int64)
     npend = 0; pcut = 0
     pos = False; xj = 0; xs = 0; xe = 0.0; xst = 0.0; xst0 = 0.0; xr = 0.0; xtp1 = 0.0; xtp2 = 0.0; xtgt = 0.0
-    part = False; px1 = 0.0; xi = 0; xt = 0; xcut = 0; xk = 0; xmfe = 0.0
+    part = False; px1 = 0.0; xi = 0; xt = 0; xcut = 0; xk = 0; xmfe = 0.0; xtrig = 0.0; xbe = False
     pj = 0
     i = start[0] if P > 0 else N
     while i < N:
@@ -109,9 +111,13 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, level, stop, width, texp,
                             n_ok += 1
                 rk = abs(plev[best] - pst[best]); st0 = pst[best]; jj = pj_[best]
                 npend = 0
-                if n_ok >= 2:
+                if n_ok >= 2 or exit_mode == 3:
                     pos = True; xj = jj; xs = s; xe = px; xst = st0; xst0 = st0; xr = rk; xtp1 = a1; xtp2 = a2
                     xtgt = a2 if exit_mode == 2 else a1; part = False; px1 = 0.0; xi = i; xt = t; xcut = _fri_cut(t); xk = i
+                    if exit_mode == 3:
+                        xtgt = plev[best] + s * tgt_r * rk; xtp1 = xtgt; xtp2 = xtgt
+                    xbe = False
+                    xtrig = plev[best] + be_frac * (xtgt - plev[best]) if be_frac > 0 else 0.0
                     xmfe = 0.0
                     if (l[i] <= xst) if s > 0 else (h[i] + spread >= xst):
                         cpx = (min(xst, o[i]) - slip) if s > 0 else (max(xst, o[i] + spread) + slip)
@@ -136,7 +142,7 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, level, stop, width, texp,
             fin_now = False
             if hit_sl:
                 cpx = (min(o[i], xst) - slip) if s > 0 else (max(o[i] + spread, xst) + slip)
-                why = 3 if part else 1; fin_now = True
+                why = 3 if (part or xbe) else 1; fin_now = True
             elif hit_tp:
                 cpx = max(xtgt, o[i]) if s > 0 else min(xtgt, o[i] + spread)
                 r_ = (cpx - xe) / xr * s
@@ -150,6 +156,8 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, level, stop, width, texp,
                 run_ = (h[i] - xe) / xr if s > 0 else (xe - (l[i] + spread)) / xr
                 if run_ > xmfe:
                     xmfe = run_
+                if be_frac > 0 and not xbe and not part and ((s > 0 and h[i] >= xtrig) or (s < 0 and l[i] + spread <= xtrig)):
+                    xst = xe; xbe = True
             if fin_now:
                 ok = True
                 for g in gaps:
@@ -172,7 +180,7 @@ def simulate(ts, o, h, l, c, gaps, start, tconf, side, level, stop, width, texp,
     return out[:m]
 
 
-def run(M1, O, S, costs, exit="partial", allow=None, cut=2 ** 62, gaps=None):
+def run(M1, O, S, costs, exit="partial", allow=None, cut=2 ** 62, gaps=None, tgt_r=0.0, be_frac=0.0):
     ts = np.asarray(M1["ts"], np.int64)
     start = np.searchsorted(ts, np.asarray(O["t_conf"], np.int64)).astype(np.int64)
     P = len(start)
@@ -182,4 +190,5 @@ def run(M1, O, S, costs, exit="partial", allow=None, cut=2 ** 62, gaps=None):
                     np.asarray(O["stop"], float), np.asarray(O["width"], float), np.asarray(O["t_exp"], np.int64),
                     np.asarray(allow if allow is not None else np.ones(P), np.int64), np.asarray(S["bt"], np.int64),
                     S["LH"], S["LL"], float(costs["spread"]), float(costs["commission"]), float(costs["slippage"]),
-                    float(costs.get("swap", 0.0)), {"partial": 0, "tp1": 1, "tp2": 2}[exit], int(cut))
+                    float(costs.get("swap", 0.0)), {"partial": 0, "tp1": 1, "tp2": 2, "fixed": 3}[exit], int(cut),
+                    float(tgt_r), float(be_frac))

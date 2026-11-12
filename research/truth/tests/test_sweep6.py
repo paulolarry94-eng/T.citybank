@@ -85,3 +85,37 @@ class TestSpec(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestFixedModePortfolioEngine(unittest.TestCase):
+    """The v2 portfolio engines' fixed-R mode (used by sweep6_scanner_v1): fast = reference, with and without breakeven."""
+    def test_fixed_mode_parity_on_real_data(self):
+        try:
+            sys.path.insert(0, os.path.join(HERE, "..", ".."))
+            sys.path.insert(0, os.path.join(HERE, "..", "..", "sweep5"))
+            import engine as EN
+            import sweep5_orders as OR5
+            import sweep5_fast as FA5
+            ts, o, h, l, c = EN.load_m1("EURUSD", 2019, 2019)
+        except Exception as e:
+            self.skipTest(str(e))
+        keep = ts < int(dt.datetime(2019, 3, 1, tzinfo=dt.timezone.utc).timestamp())
+        ts, o, h, l, c = ts[keep], o[keep], h[keep], l[keep], c[keep]
+        M = dict(ts=ts, o=o, h=h, l=l, c=c)
+        n = 0
+        for tf in (1, 5):
+            bt, bo, bh, bl, bc, _ = EN.resample(ts, o, h, l, c, tf)
+            S, L = SC.setups(dict(t=bt, o=bo, h=bh, l=bl, c=bc, atr=np.nan_to_num(EN.atr_sma(bh, bl, bc, 14))), tf, "EURUSD")
+            O = dict(t_conf=S["t_conf"], side=S["side"], level=S["level"], stop=S["stop"], width=S["hi"] - S["lo"],
+                     t_exp=S["t_conf"] + 60 * tf * 60)
+            allow = (S["hour"] >= 12) & (S["hour"] < 16)
+            for tgt, be in ((20.0, 0.0), (5.0, 0.75), (3.0, 0.0)):
+                cost = dict(spread=1e-5, commission=2.5e-5, slippage=2e-5, swap=1e-5)
+                T = OR5.run(M, O, L, cost["spread"], cost["commission"], cost["slippage"], cost["swap"], "fixed", allow=allow, tgt_r=tgt, be_frac=be)
+                F = FA5.run(M, O, L, cost, "fixed", allow=allow, tgt_r=tgt, be_frac=be)
+                self.assertEqual(len(T), len(F))
+                for a, b in zip(T, F):
+                    self.assertEqual((a["t_in"], a["t_out"], a["why"]), (int(b[0]), int(b[1]), int(b[9])))
+                    self.assertAlmostEqual(a["R"], b[3], places=9)
+                n += len(T)
+        self.assertGreater(n, 50)

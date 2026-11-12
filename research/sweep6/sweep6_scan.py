@@ -73,7 +73,8 @@ def setups(B, tf_min, sym, piv=10, body_min=0.4):
     o, h, l, c = (np.asarray(B[x], float) for x in "ohlc")
     t = np.asarray(B["t"], np.int64)
     k, side, frac = detect(o, h, l, c, body_min)
-    keep = k >= 1440 + WIN
+    day = max(1440 // int(tf_min), 24); hour = max(60 // int(tf_min), 3)   # one day / one hour of bars (M1: 1440 / 60)
+    keep = k >= day + WIN
     k, side = k[keep], side[keep]
     sell = side < 0
     ph, pl = PV.pivots(h, l, piv, piv)
@@ -105,8 +106,8 @@ def setups(B, tf_min, sym, piv=10, body_min=0.4):
     atr = np.asarray(B["atr"], float)[k]
     atr = np.where(atr > 0, atr, np.nan)
     tr = np.r_[h[0] - l[0], np.maximum(h[1:], c[:-1]) - np.minimum(l[1:], c[:-1])]
-    atr_day = rolling(tr, 1440, "mean")[k]
-    dmax = rolling(h, 1440, "max")[k]; dmin = rolling(l, 1440, "min")[k]
+    atr_day = rolling(tr, day, "mean")[k]
+    dmax = rolling(h, day, "max")[k]; dmin = rolling(l, day, "min")[k]
     drng = np.where(dmax - dmin > 0, dmax - dmin, np.nan)
     ext = np.where(sell, h[js], l[js])
     room = []
@@ -128,7 +129,7 @@ def setups(B, tf_min, sym, piv=10, body_min=0.4):
              ratio2=(h[k - 2] - l[k - 2]) / np.where(h[k - 3] - l[k - 3] > 0, h[k - 3] - l[k - 3], np.nan),
              c4pos=np.where(sell, c[k] - lo, hi - c[k]) / np.where(w > 0, w, np.nan),
              hour=((tconf - 1) // 3600) % 24, weekday=((tconf - 1) // 86400 + 3) % 7,
-             mom60=(c[k] - c[k - 60]) * side / atr, mom1440=(c[k] - c[k - 1440]) * side / drng,
+             mom60=(c[k] - c[k - hour]) * side / atr, mom1440=(c[k] - c[k - day]) * side / drng,
              vol_regime=atr / atr_day, daypos=np.where(sell, c[k] - dmin, dmax - c[k]) / drng,
              room1=room[0], room2=room[1], two_sided=(tgmask & swmask) >= 0 & (tgmask > 0))
     S["two_sided"] = tgmask > 0

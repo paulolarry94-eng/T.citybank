@@ -22,7 +22,9 @@ from body4_orders import weekend, friday_cut_after, nights_held, BLOCK   # noqa:
 FRAC1 = 0.6
 
 
-def run(M, O, S, spread, commission, slippage, swap=0.0, exit="partial", allow=None, cut=2 ** 62, gaps=()):
+def run(M, O, S, spread, commission, slippage, swap=0.0, exit="partial", allow=None, cut=2 ** 62, gaps=(), tgt_r=0.0, be_frac=0.0):
+    """exit "fixed": all at tgt_r R from the level (no pivots needed); be_frac > 0: the stop moves to the entry once price
+    has covered be_frac of the distance from the level to the target (from the next minute)."""
     ts, o, h, l, c = M["ts"], M["o"], M["h"], M["l"], M["c"]
     N = len(ts); P = len(O["t_conf"])
     cost = spread + commission + slippage
@@ -83,11 +85,15 @@ def run(M, O, S, spread, commission, slippage, swap=0.0, exit="partial", allow=N
                 jb = int(np.searchsorted(S["bt"], t, side="right")) - 2      # the last closed pattern candle
                 lev = S["LH"][jb] if s > 0 else S["LL"][jb]
                 lev = [float(x) for x in lev if not np.isnan(x) and (x - px) * s > 0] if jb >= 0 else []
-                if len(lev) >= 2:
-                    tp1, tp2 = lev[0], lev[1]
-                    tp = tp2 if exit == "tp2" else tp1          # partial and tp1 aim at TP1 first
+                if len(lev) >= 2 or exit == "fixed":
+                    if exit == "fixed":
+                        tp1 = tp2 = tp = q["level"] + s * tgt_r * q["risk"]
+                    else:
+                        tp1, tp2 = lev[0], lev[1]
+                        tp = tp2 if exit == "tp2" else tp1      # partial and tp1 aim at TP1 first
                     pos = dict(j=q["j"], side=s, entry=px, stop=q["stop"], stop0=q["stop"], risk=q["risk"], tp1=tp1, tp2=tp2,
-                               tgt=tp, part=False, px1=0.0, i_in=i, t_in=t, cut=friday_cut_after(t), mfe=0.0, k=i)
+                               tgt=tp, part=False, px1=0.0, i_in=i, t_in=t, cut=friday_cut_after(t), mfe=0.0, k=i, be=False,
+                               trig=q["level"] + be_frac * (tp - q["level"]) if be_frac > 0 else None)
                     if (l[i] <= pos["stop"]) if s > 0 else (h[i] + spread >= pos["stop"]):
                         px2 = (min(pos["stop"], o[i]) - slippage) if s > 0 else (max(pos["stop"], o[i] + spread) + slippage)
                         finish(i, t, px2, 5)
@@ -105,7 +111,7 @@ def run(M, O, S, spread, commission, slippage, swap=0.0, exit="partial", allow=N
             hit_tp = (h[i] >= pos["tgt"]) if s > 0 else (l[i] + spread <= pos["tgt"])
             if hit_sl:
                 px = (min(o[i], pos["stop"]) - slippage) if s > 0 else (max(o[i] + spread, pos["stop"]) + slippage)
-                finish(i, t, px, 3 if pos["part"] else 1)
+                finish(i, t, px, 3 if (pos["part"] or pos.get("be")) else 1)
             elif hit_tp:
                 px = max(pos["tgt"], o[i]) if s > 0 else min(pos["tgt"], o[i] + spread)
                 pos["mfe"] = max(pos["mfe"], (px - pos["entry"]) / pos["risk"] * s)
@@ -117,4 +123,7 @@ def run(M, O, S, spread, commission, slippage, swap=0.0, exit="partial", allow=N
             else:
                 run_ = (h[i] - pos["entry"]) / pos["risk"] if s > 0 else (pos["entry"] - (l[i] + spread)) / pos["risk"]
                 pos["mfe"] = max(pos["mfe"], run_)
+                if pos.get("trig") is not None and not pos["be"] and not pos["part"] and \
+                        ((s > 0 and h[i] >= pos["trig"]) or (s < 0 and l[i] + spread <= pos["trig"])):
+                    pos["stop"] = pos["entry"]; pos["be"] = True
     return trades
