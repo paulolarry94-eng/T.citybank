@@ -1,4 +1,4 @@
-# START HERE — T.citybank status and handover (2026-11-09)
+# START HERE — T.citybank status and handover (2026-11-09, updated 2026-11-12)
 
 One page to pick the project up later. The full summary for the owner is `research/FINAL_REPORT.md`. Details live in
 `CLAUDE.md` (rules + everything known), the research memory (`research/truth/memory/`) and the reports linked below.
@@ -6,7 +6,7 @@ One page to pick the project up later. The full summary for the owner is `resear
 ## 1. How to resume (4 commands)
 ```bash
 bash tools/bootstrap.sh                                      # installs packages, checks the data files
-python3 -m unittest discover -s research/truth/tests         # 184 tests, about 30 seconds: should end with OK
+python3 -m unittest discover -s research/truth/tests         # 207 tests, about 35 seconds: should end with OK
 python3 research/truth/memory.py --digest                    # what has been tested, survivors, principles
 python3 research/goal/timeless_mix.py                        # the recommended mix (section 3), recomputed
 ```
@@ -34,10 +34,17 @@ Legs: EUR EuroHours, gold S1 reversion, gold Donchian20, USDJPY S2 Donchian, gol
 GBPJPY Donchian20, Tokyo fix (gotobi), EURUSD close-beyond reversal. Not on CFDs but the most timeless edge found: futures
 trend + carry (Sharpe 0.96 since 2000, 0.50 2011-24; `research/multiasset/`).
 
+**Update 2026-11-12: Timeless 10 + v2 (13 legs).** Three thin pivot-sweep v2 legs (EURGBP H1, NAS100 H1, GBPUSD M15, RoboForex
+Prime costs) joined after a logged look (`research/results/sweep5/PARETO.md`). At 3.6%: +6.66% / +5.38% a year (2011-22 / 2023-25),
++0.80% Jan-Oct 2026, worst drawdown 4.11%, every year 2011-25 positive; at 8%: +15.2% / +12.1% / +1.7%. Full report with cost
+profiles, Monte Carlo, account size ($40,800 standard / $408 cent at 3.6%), payouts and examples:
+https://claude.ai/artifact/QRh9Gy181Wsd2pn7uYgx8K (data: `research/results/portfolio/`). 2026 is not a clean test for the v2 legs.
+
 ## 4. Worst results (what does not work, and why)
 | Idea | Tried | Result |
 |---|---|---|
 | Owner's body-engulf 4-candle range (v1-v7: entries, 1R-10R, breakeven, lookbacks, dojis, safe windows, strict/loose, layering, 60% bodies, two-week mixes, curated Prime M5/M15 13-17 UTC; gold study) | 5,342 | loses after costs everywhere, about 0 before; the 2023-25 look and the 2026 look both lost; Prime costs are realistic (EURUSD 0.06-0.11R a trade) and not the reason (`research/results/body4/`) |
+| Owner's pivot-sweep range (v1, v2 chart reading, deep M1 study without costs: exits, 1,142 entry tests, scanner on 12 markets x 6 timeframes) | about 8,700 | wins at chance for every exit before costs; losers are breakouts; negative after costs; no Monte Carlo survivor; 3 thin v2 legs kept for the mix (`research/results/sweep4/`, `sweep5/`, `sweep6/`) |
 | Owner's 4-flip EMA / four-candle price action | about 6,200 | best of all lost on unseen 2023-25 (`research/results/final/FINAL.md`) |
 | Owner's 3:30 EMA retest, Leg 34, 4-leg SOP | about 1,700 | about 0 before costs, negative after |
 | Chart-pattern families (ORB, FVG, supply/demand, Quasimodo, SnR, engulfing, ~1,400 liquidity grabs) | ~250,000 | about 0 before costs, negative after (P1, P14) |
@@ -47,7 +54,7 @@ trend + carry (Sharpe 0.96 since 2000, 0.50 2011-24; `research/multiasset/`).
 Common causes: no raw edge before costs on 1-minute to 1-hour shapes; best-of-many backtests not carrying forward (P10, P11).
 
 ## 5. Where we are
-- **124 ideas, about 327,600 configurations tested; the survivors combine into the timeless mix above**: a real but small
+- **133 ideas, about 329,500 configurations tested; the survivors combine into the timeless mix above**: a real but small
   edge, a few % a year inside 3.6% (about 10% inside 8%), about flat on untouched 2026. That is roughly a tenth of the goal.
 - Built: the Truth Lab (pre-registration, look-ahead check, gates, holdout log, cost ladder, cycle reports), M1 engines with
   tests, detectors and chart replays for the owner's patterns, the research memory, TimelessCity (compiled earlier by the

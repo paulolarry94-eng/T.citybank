@@ -1,0 +1,9 @@
+example,leg,market,kind,side,tf_min,t_in,t_out,entry,stop,exit,R
+ex1,EUR_EuroHours_short_TueThu,EURUSD,win,sell,15,2019-01-02 09:00,2019-01-02 13:00,1.1448,1.1477,1.14005,1.45
+ex2,EUR_EuroHours_short_TueThu,EURUSD,loss,sell,15,2019-01-08 09:00,2019-01-08 13:00,1.14488,1.14791,1.14459,-0.05
+ex3,tokyo_fix_gotobi_v1,USDJPY,win,buy,5,2019-01-14 23:00,2019-01-15 00:55,108.155,107.81507,108.368,0.55
+ex4,tokyo_fix_gotobi_v1,USDJPY,loss,buy,5,2019-01-03 23:00,2019-01-04 00:55,107.673,107.33752,107.631,-0.06
+ex5,eurusd_close_beyond_reversal_v1,EURUSD,win,sell,240,2019-01-15 09:13,2019-01-15 21:45,1.14542,1.17042,1.14102,0.16
+ex6,eurusd_close_beyond_reversal_v1,EURUSD,loss,sell,240,2019-05-07 11:56,2019-05-16 20:45,1.11846,1.14346,1.11731,-0.01
+ex7,XAU_S1_reversion_H1M30M20,XAUUSD,win,buy,30,2019-01-16 00:30,2019-01-17 02:01,1291.008,1287.015,1294.878,0.92
+ex8,XAU_S1_reversion_H1M30M20,XAUUSD,loss,buy,30,2019-02-05 21:00,2019-02-06 11:06,1315.648,1312.615,1312.658,-0.97

@@ -177,6 +177,11 @@ Learning rules:
   (+15.5R 60/40, +19.2R all at TP2; an earlier +21.5R was a pre-fix replay, corrected); lab 0 of 120; before costs PF ~1.0, after 0.54-0.82. 3 thin legs pass era rule + look (EURGBP H1, NAS100 H1, GBPUSD
   M15). Pareto (`research/results/sweep5/PARETO.md`): Timeless 10 + v2 = B and C, 6.5 / 5.3 / 1.0% a year at 3.6%
   (2011-22 / 2023-25 / Jan-Oct 2026), every year positive; 80% a year needs a 44% envelope.
+- Deep M1 study (2026-11-12, owner, no costs, `research/results/sweep6/`): the pivot-sweep setup wins at chance for every exit (TP2 1.05 in
+  10 at 8.1R = -0.43R per 10 trades; BE75 adds nothing); 0 of 1,142 entry tests hold; winners and losers look alike; losers are
+  breakouts; scanner after Prime costs -0.10 to -0.47R a trade; no Monte Carlo survivor, no leg, holdout unopened; candle-4 sweep = Q35.
+  Ticks match M1 from 5R up (P30). Portfolio report of Timeless 10 + v2 (cost profiles, Monte Carlo, account $40,800 / $408 cent at
+  3.6%, payouts, examples): https://claude.ai/artifact/QRh9Gy181Wsd2pn7uYgx8K, data and page source `research/results/portfolio/report/`.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

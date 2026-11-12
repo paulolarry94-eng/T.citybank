@@ -1,0 +1,7 @@
+id,category,learn,confirm,validate
+l1,Never reached +0.3R,52.5,51.8,49.8
+l2,"Reached +0.3 to +1R, then stopped",10.8,10.9,11.3
+l3,"Reached +1R or more, then stopped",36.7,37.4,38.8
+l4,Wick stop (saved by a slightly wider stop),6.0,5.7,5.1
+l5,Ran 3R or more past the stop first,68.1,67.9,68.7
+l6,Reached TP1 later that day,79.9,80.6,80.8

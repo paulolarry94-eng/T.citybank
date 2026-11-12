@@ -1,0 +1,4 @@
+cell,trades_per_year,p_losing_year_pct,median_year_pct,p5_year_pct,median_maxdd_pct,survives
+XAUUSD H1,9,50.4,-0.14,-9.45,5.27,no
+EURUSD M15,44,36.5,9.19,-29.65,19.06,no
+WTI H1,12,56.2,-1.47,-11.64,6.65,no

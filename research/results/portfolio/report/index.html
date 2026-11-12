@@ -1,0 +1,1015 @@
+<meta name="dash-one-writer">
+<style>
+.rp{display:flex;flex-direction:column;gap:var(--cds-gap-xl);min-width:0}
+.rp-sec{display:flex;flex-direction:column;gap:var(--cds-gap-md);min-width:0}
+.rp-title{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.15;margin:0}
+.rp-h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0;line-height:1.3}
+.rp-h3{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:0 0 var(--cds-gap-xs);line-height:1.35}
+.rp-p{margin:0;line-height:1.55;max-width:78ch}
+.rp-sub{margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);line-height:1.45}
+.rp-lede{margin:0;line-height:1.6;max-width:78ch}
+.rp-filters{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm) var(--cds-gap-md);align-items:center}
+.rp-flabel{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rp-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr));gap:var(--cds-gap-md)}
+.rp-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);min-width:0;margin:0}
+.rp-tlabel{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.rp-tvalue{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.2;margin-top:var(--cds-gap-xs)}
+.rp-tsub{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-top:var(--cds-gap-xs);line-height:1.45}
+.rp-chart{position:relative;width:100%;min-width:0}
+.rp-chart svg{display:block;overflow:visible}
+.rp-chart text{font-size:var(--cds-font-size-caption);fill:var(--cds-text-secondary);font-family:var(--font-anthropic-sans)}
+.rp-chart text.rp-in{fill:var(--color-fg)}
+.rp-chart .rp-gr line{stroke:var(--cds-chart-grid);stroke-width:1}
+.rp-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);border-radius:var(--cds-radius);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);color:var(--color-fg);white-space:nowrap;z-index:3;display:none;font-variant-numeric:tabular-nums;line-height:1.5}
+.rp-tip b{font-weight:var(--cds-font-weight-medium)}
+.rp-tip .k{color:var(--cds-text-secondary)}
+.rp-scroll{overflow-x:auto;min-width:0}
+.rp-table{border-collapse:collapse;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;width:100%}
+.rp-table th{text-align:right;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);padding:var(--cds-pad-xs) var(--cds-pad-sm);border-bottom:1px solid var(--color-border-line);white-space:nowrap;vertical-align:bottom}
+.rp-table td{text-align:right;padding:var(--cds-pad-xs) var(--cds-pad-sm);border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.rp-table .l{text-align:left}
+.rp-table tr.rp-grp td{color:var(--color-fg);font-weight:var(--cds-font-weight-medium);padding-top:var(--cds-pad-md)}
+.rp-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-xs) var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-bottom:var(--cds-gap-sm)}
+.rp-sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.rp-ring{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:2px solid var(--cds-chart-muted)}
+.rp-note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);border-left:2px solid var(--color-border-line);padding-left:var(--cds-pad-sm);margin:0;max-width:82ch;line-height:1.5}
+.rp-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:var(--cds-gap-md)}
+.rp-details summary{cursor:pointer;font-weight:var(--cds-font-weight-medium)}
+.rp-details ul{margin:var(--cds-gap-sm) 0 0;padding-left:1.2em;line-height:1.55;max-width:82ch}
+.rp-details li{margin-bottom:var(--cds-gap-xs)}
+.rp-tag{display:inline-block;font-size:var(--cds-font-size-caption);font-weight:var(--cds-font-weight-medium);border:1px solid var(--color-bad);color:var(--color-bad);border-radius:999px;padding:0 var(--cds-pad-sm);vertical-align:2px;margin-left:var(--cds-gap-xs)}
+.rp-tag.ok{border-color:var(--color-ok);color:var(--color-ok)}
+.rp [data-dash-source-state=refreshing]{opacity:.5}
+.rp [hidden]{display:none !important}
+</style>
+
+<div class="rp" id="report">
+
+<header class="rp-sec" id="top">
+  <h1 class="rp-title">Timeless 10 + v2: portfolio backtest report</h1>
+  <p class="rp-sub"><span data-draw="val" data-src="headline" data-fld="value" data-match="metric=legs" data-fmt="int">—</span> rule-based legs on <span data-draw="val" data-src="leg_markets" data-fld="markets" data-row="0" data-fmt="int">—</span> markets · one-minute data, Jan 2011 to Oct 2026 · after spread, commission, slippage and overnight swaps · report of 12 Nov 2026</p>
+  <p class="rp-lede" id="takeaway">After costs and swaps, at the <b data-draw="envlabel">—</b> drawdown envelope the mix made <b data-draw="val" data-src="kpis" data-fld="cagr_pct" data-match="key={env}-base-insample" data-fmt="pct">—</b> a year in 2011-22, <b data-draw="val" data-src="kpis" data-fld="cagr_pct" data-match="key={env}-base-seen" data-fmt="pct">—</b> a year in 2023-25 and <b data-draw="val" data-src="kpis" data-fld="total_pct" data-match="key={env}-base-oos" data-fmt="pct">—</b> in Jan-Oct 2026. <span data-draw="val" data-src="years_positive" data-fld="positive_{envk}" data-row="0" data-fmt="int">—</span> of <span data-draw="val" data-src="years_positive" data-fld="years" data-row="0" data-fmt="int">—</span> calendar years from 2011 to 2025 ended positive. <span data-verdict="below">The owner's goal of <span data-draw="goal">—</span> a year is out of reach at this envelope.</span><span data-verdict="within" hidden>The owner's goal of <span data-draw="goal">—</span> a year is within reach at this envelope.</span><span data-draw="verdict"></span></p>
+</header>
+
+<div class="rp-filters" id="filters">
+  <span class="rp-flabel" id="env-label">Drawdown envelope</span>
+  <select class="dash-select rp-env" aria-labelledby="env-label">
+    <option value="3.6">3.6% (the owner's cap)</option>
+    <option value="8">8% (outside the cap)</option>
+  </select>
+  <span class="rp-sub">Every trade risks a fixed share of equity, set on 2011-22 so that 95% of simulated 36-fortnight lifecycles stay inside this drawdown.</span>
+</div>
+
+<section class="rp-sec" id="headline">
+  <h2 class="rp-h2">Headline, at the brokers' costs and swaps</h2>
+  <div class="rp-tiles">
+    <div class="rp-card" id="tile-insample">
+      <div class="rp-tlabel">Return a year, 2011-22</div>
+      <div class="rp-tvalue" data-draw="val" data-src="kpis" data-fld="cagr_pct" data-match="key={env}-base-insample" data-fmt="pct">—</div>
+      <div class="rp-tsub">In-sample · Sharpe <span data-draw="val" data-src="kpis" data-fld="sharpe" data-match="key={env}-base-insample" data-fmt="n2">—</span></div>
+    </div>
+    <div class="rp-card" id="tile-seen">
+      <div class="rp-tlabel">Return a year, 2023-25</div>
+      <div class="rp-tvalue" data-draw="val" data-src="kpis" data-fld="cagr_pct" data-match="key={env}-base-seen" data-fmt="pct">—</div>
+      <div class="rp-tsub">Seen before the mix was built · Sharpe <span data-draw="val" data-src="kpis" data-fld="sharpe" data-match="key={env}-base-seen" data-fmt="n2">—</span></div>
+    </div>
+    <div class="rp-card" id="tile-oos">
+      <div class="rp-tlabel">Return, Jan-Oct 2026</div>
+      <div class="rp-tvalue" data-draw="val" data-src="kpis" data-fld="total_pct" data-match="key={env}-base-oos" data-fmt="pct">—</div>
+      <div class="rp-tsub">Latest data · Sharpe <span data-draw="val" data-src="kpis" data-fld="sharpe" data-match="key={env}-base-oos" data-fmt="n2">—</span></div>
+    </div>
+    <div class="rp-card" id="tile-dd">
+      <div class="rp-tlabel">Worst drawdown, 2011-Oct 2026</div>
+      <div class="rp-tvalue" data-draw="val" data-src="kpis" data-fld="max_dd_pct" data-match="key={env}-base-all" data-fmt="pu2">—</div>
+      <div class="rp-tsub">Longest time under water <span data-draw="val" data-src="kpis" data-fld="longest_dd_days" data-match="key={env}-base-all" data-fmt="int">—</span> days</div>
+    </div>
+    <div class="rp-card" id="tile-months">
+      <div class="rp-tlabel">Positive months, 2011-Oct 2026</div>
+      <div class="rp-tvalue" data-draw="val" data-src="kpis" data-fld="pos_months_pct" data-match="key={env}-base-all" data-fmt="pu1">—</div>
+      <div class="rp-tsub">Positive fortnights <span data-draw="val" data-src="kpis" data-fld="pos_fortnights_pct" data-match="key={env}-base-all" data-fmt="pu1">—</span></div>
+    </div>
+    <div class="rp-card" id="tile-account">
+      <div class="rp-tlabel">Smallest account to run all legs</div>
+      <div class="rp-tvalue" data-draw="val" data-src="headline" data-fld="value" data-match="metric=min_acc_{envk}" data-fmt="usd">—</div>
+      <div class="rp-tsub">Cent account <span data-draw="val" data-src="headline" data-fld="value" data-match="metric=min_acc_cent_{envk}" data-fmt="usd">—</span></div>
+    </div>
+  </div>
+  <p class="rp-note">About 2026: the older legs never used 2026 to set a rule or a weight. The three v2 legs (EURGBP H1, NAS100 H1, GBPUSD M15) were kept after a logged look at 2023-25 and Jan-Oct 2026, so 2026 is not a clean test for them, and NAS100 has no 2026 data, so that leg is idle there. 2023-25 was looked at for every leg before this mix was put together.</p>
+</section>
+
+<section class="rp-sec" id="performance">
+  <h2 class="rp-h2">Performance by cost profile and period</h2>
+  <p class="rp-p">Base is the brokers' costs and swaps: Exness Zero for the older legs, RoboForex Prime for the v2 legs. Swap-free removes overnight swaps and counts only if the account really is swap-free, which is not confirmed. Stress multiplies costs by 1.5 and swaps by 2. No costs is for reference only.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-kpis" data-source="kpis" data-row-key="key" aria-label="Performance by cost profile and period">
+      <thead><tr>
+        <th class="l" data-field="profile">Costs</th><th class="l" data-field="period">Period</th><th data-field="cagr_pct">Return a year</th><th data-field="total_pct">Total return</th><th data-field="sharpe">Sharpe</th><th data-field="sortino">Sortino</th><th data-field="max_dd_pct">Worst drawdown</th><th data-field="calmar">Calmar</th><th data-field="longest_dd_days">Longest drawdown, days</th><th data-field="pos_months_pct">Positive months</th><th data-field="pos_fortnights_pct">Positive fortnights</th><th data-field="mean_fortnight_pct">Average fortnight</th><th data-field="worst_fortnight_pct">Worst fortnight</th><th data-field="worst_month_pct">Worst month</th><th data-field="vol_pct">Volatility a year</th>
+      </tr></thead>
+      <tbody data-draw="rows" data-src="kpis" data-filter="envelope={env}" data-cols="profile:prof,period:per,cagr_pct:pct,total_pct:pct,sharpe:n2,sortino:n2,max_dd_pct:pu2,calmar:n2,longest_dd_days:int,pos_months_pct:pu1,pos_fortnights_pct:pu1,mean_fortnight_pct:pct3,worst_fortnight_pct:pct,worst_month_pct:pct,vol_pct:pu2"></tbody>
+    </table>
+  </div>
+  <p class="rp-note">Sharpe and Sortino use weekly returns scaled by the square root of 52. Calmar is the return a year divided by the worst drawdown. A fortnight is two calendar weeks; the average fortnight is what a fortnightly payout could take out.</p>
+</section>
+
+<section class="rp-sec" id="equity">
+  <h2 class="rp-h2">Growth and drawdown, week by week</h2>
+  <figure class="rp-card" id="fig-equity" data-source="equity">
+    <h3 class="rp-h3">Growth of 1 (top) and drawdown from the last high (bottom)</h3>
+    <div class="rp-chart" data-draw="equity" style="min-height:430px"></div>
+  </figure>
+  <p class="rp-note">The envelope line is the 95% level of simulated 36-fortnight lifecycles, not a hard stop. The worst real drawdown from 2011 to Oct 2026 was <span data-draw="val" data-src="kpis" data-fld="max_dd_pct" data-match="key={env}-base-all" data-fmt="pu2">—</span>; drawdown beyond the envelope line is drawn in red. Shaded bands mark 2023-25 and 2026.</p>
+</section>
+
+<section class="rp-sec" id="calendar">
+  <h2 class="rp-h2">Every year and every month</h2>
+  <figure class="rp-card" id="fig-years" data-source="yearly">
+    <h3 class="rp-h3">Return by calendar year</h3>
+    <div class="rp-chart" data-draw="years" style="min-height:230px"></div>
+    <p class="rp-sub">2026 covers January to October. Shaded: 2023-25 and 2026.</p>
+  </figure>
+  <figure class="rp-card" id="fig-months" data-source="monthly yearly">
+    <h3 class="rp-h3">Return by month, %</h3>
+    <div class="rp-legend"><span><span class="rp-sw" style="background:var(--color-ok)"></span>gain</span><span><span class="rp-sw" style="background:var(--color-bad)"></span>loss</span><span>darker means larger · last column is the calendar year</span></div>
+    <div class="rp-chart" data-draw="months" style="min-height:380px"></div>
+  </figure>
+</section>
+
+<section class="rp-sec" id="legs">
+  <h2 class="rp-h2">The legs</h2>
+  <p class="rp-p">Each leg is one fixed rule on one market. A trade risks the base risk times the leg's weight. Weights were set on 2011-22 data and are not changed by later results.</p>
+  <figure class="rp-card" id="fig-contrib" data-source="legs">
+    <h3 class="rp-h3">Where the 2011-22 profit came from, weight × total R</h3>
+    <div class="rp-chart" data-draw="contrib" style="min-height:320px"></div>
+  </figure>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-legs" data-source="legs" data-row-key="leg" aria-label="The legs, 2011-22">
+      <thead><tr>
+        <th class="l" data-field="name">Leg</th><th class="l" data-field="market">Market</th><th class="l" data-field="timeframe">Timeframe</th><th data-field="weight">Weight</th><th data-field="risk_pct_36">Risk a trade at 3.6%</th><th data-field="trades">Trades 2011-22</th><th data-field="per_month">A month</th><th data-field="win_pct">Win rate</th><th data-field="avg_win_R">Average win, R</th><th data-field="avg_loss_R">Average loss, R</th><th data-field="expectancy_R">R a trade</th><th data-field="pf">Profit factor</th><th data-field="cost_R">Costs, R a trade</th><th data-field="swap_R">Swaps, R a trade</th><th data-field="hold_h">Median hold, hours</th><th data-field="later_R">R a trade, 2023-Oct 2026</th><th data-field="later_trades">Trades 2023-Oct 2026</th>
+      </tr></thead>
+      <tbody data-draw="rows" data-src="legs" data-sort="-contribution_R" data-cols="name:tl,market:tl,timeframe:tl,weight:n2,risk_pct_36:pu3,trades:int,per_month:n2,win_pct:pu1,avg_win_R:s2,avg_loss_R:s2,expectancy_R:s3,pf:n2,cost_R:n3,swap_R:n3,hold_h:n1,later_R:s3,later_trades:int"></tbody>
+    </table>
+  </div>
+  <p class="rp-note">R is a profit or loss in multiples of the amount risked. R a trade is after costs and swaps, which are shown separately. The 2023-Oct 2026 columns were seen when the v2 legs were kept.</p>
+</section>
+
+<section class="rp-sec" id="correlation">
+  <h2 class="rp-h2">Diversification</h2>
+  <p class="rp-p">The average correlation between two legs' daily results in 2011-22 was <b data-draw="val" data-src="headline" data-fld="value" data-match="metric=avg_corr" data-fmt="n3">—</b>. Legs that rarely move together are what turn many small edges into a smoother line than any one of them.</p>
+  <figure class="rp-card" id="fig-corr" data-source="correlation legs">
+    <h3 class="rp-h3">Correlation of daily results, 2011-22</h3>
+    <div class="rp-legend"><span><span class="rp-sw" data-sw="0"></span>move together</span><span><span class="rp-sw" data-sw="1"></span>move opposite</span><span>darker means stronger · column numbers match the row numbers</span></div>
+    <div class="rp-chart" data-draw="corr" style="min-height:360px"></div>
+  </figure>
+</section>
+
+<section class="rp-sec" id="montecarlo">
+  <h2 class="rp-h2">Monte Carlo at the 3.6% envelope</h2>
+  <p class="rp-p">Each path draws fortnights of 2011-22 at random, with replacement: <span data-draw="val" data-src="headline" data-fld="value" data-match="metric=mc_paths" data-fmt="int">—</span> paths for one year (26 fortnights) and as many for one lifecycle (36 fortnights).</p>
+  <figure class="rp-card" id="fig-mc" data-source="montecarlo">
+    <h3 class="rp-h3">Return: 5th to 95th percentile, middle half shaded, median as a dot</h3>
+    <div class="rp-chart" data-draw="mc" style="min-height:150px"></div>
+  </figure>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-mc" data-source="montecarlo" data-row-key="horizon" aria-label="Monte Carlo percentiles">
+      <thead><tr>
+        <th class="l" data-field="horizon">Horizon</th><th data-field="ret_p5">Return, 5th pct</th><th data-field="ret_p25">25th</th><th data-field="ret_p50">Median</th><th data-field="ret_p75">75th</th><th data-field="ret_p95">95th</th><th data-field="dd_p50">Worst drawdown, median</th><th data-field="dd_p95">95th</th><th data-field="dd_p99">99th</th><th data-field="p_loss_pct">Chance of a loss</th><th data-field="p_dd_36_pct">Chance drawdown over 3.6%</th><th data-field="p_dd_8_pct">Over 8%</th>
+      </tr></thead>
+      <tbody data-draw="rows" data-src="montecarlo" data-cols="horizon:hz,ret_p5:pct,ret_p25:pct,ret_p50:pct,ret_p75:pct,ret_p95:pct,dd_p50:pu2,dd_p95:pu2,dd_p99:pu2,p_loss_pct:pu2,p_dd_36_pct:pu2,p_dd_8_pct:pu2"></tbody>
+    </table>
+  </div>
+  <p class="rp-note">The paths reuse 2011-22, the data the legs were chosen on, so they carry its edge. 2023-25 and 2026 were weaker; read these ranges as the optimistic side.</p>
+</section>
+
+<section class="rp-sec" id="account">
+  <h2 class="rp-h2">Account size and payouts</h2>
+  <div class="rp-tiles">
+    <div class="rp-card" id="tile-minacc">
+      <div class="rp-tlabel">Smallest standard account</div>
+      <div class="rp-tvalue" data-draw="val" data-src="headline" data-fld="value" data-match="metric=min_acc_{envk}" data-fmt="usd">—</div>
+      <div class="rp-tsub">Lots of 100,000 units, 0.01-lot steps</div>
+    </div>
+    <div class="rp-card" id="tile-mincent">
+      <div class="rp-tlabel">Smallest cent account</div>
+      <div class="rp-tvalue" data-draw="val" data-src="headline" data-fld="value" data-match="metric=min_acc_cent_{envk}" data-fmt="usd">—</div>
+      <div class="rp-tsub">Cent lots are 100 times smaller</div>
+    </div>
+    <div class="rp-card" id="tile-risk">
+      <div class="rp-tlabel">Base risk a trade</div>
+      <div class="rp-tvalue" data-draw="val" data-src="headline" data-fld="value" data-match="metric=risk_{envk}" data-fmt="pu3">—</div>
+      <div class="rp-tsub">of equity, times the leg's weight</div>
+    </div>
+  </div>
+  <p class="rp-p">The smallest account is the one at which each leg's planned risk on a typical stop (its 75th-percentile stop) is at least twice what 0.01 lot would risk, so rounding to the broker's 0.01-lot step moves the risk of at least three trades in four by a quarter or less. The leg that needs the most sets the minimum. Contract sizes assumed: 100,000 units for FX, 100 ounces for gold, $1 a point for NAS100.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-account" data-source="account" data-row-key="envelope,leg" aria-label="Smallest account per leg">
+      <thead><tr>
+        <th class="l" data-field="leg">Leg</th><th class="l" data-field="market">Market</th><th data-field="usd_per_001_lot">USD risk of 0.01 lot, typical stop</th><th data-field="risk_pct">Risk a trade</th><th data-field="min_account">Smallest standard account</th><th data-field="min_account_cent">Smallest cent account</th>
+      </tr></thead>
+      <tbody data-draw="rows" data-src="account" data-filter="envelope={env}" data-sort="-min_account" data-cols="leg:legname,market:tl,usd_per_001_lot:n2,risk_pct:pu3,min_account:usd,min_account_cent:usd"></tbody>
+    </table>
+  </div>
+  <h3 class="rp-h3">Account needed for a payout every two weeks</h3>
+  <p class="rp-p">Account = payout ÷ average fortnight return. Taking the profit out every fortnight stops compounding, and a losing fortnight pays nothing and has to be made back first.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-payouts" aria-label="Account needed for each fortnightly payout">
+      <thead><tr><th class="l">Payout every two weeks</th><th>At the 2011-22 pace</th><th>At the 2023-25 pace</th><th>At the Jan-Oct 2026 pace</th></tr></thead>
+      <tbody data-draw="payrows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="rp-sec" id="examples">
+  <h2 class="rp-h2">Examples of the edge</h2>
+  <p class="rp-p">Picked by rule, not by hand: the four legs that made the most in 2011-22, and for each its first winning and first losing trade of 2019. Times are UTC; prices are bid.</p>
+  <div class="rp-legend"><span><span class="rp-sw" data-sw="0"></span>entry level, entry (ring) and exit (dot)</span><span><span class="rp-sw" style="background:var(--cds-chart-status-critical)"></span>stop</span><span>shaded: time in the trade</span></div>
+  <div class="rp-grid2">
+    <figure class="rp-card" id="ex1" data-source="examples candles">
+      <h3 class="rp-h3">EURUSD Euro-hours short · first win of 2019</h3>
+      <p class="rp-sub">Sells at 09:00 London time, Tuesday to Thursday, and buys back at 13:00; stop at half the daily ATR.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex1">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex1" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex2" data-source="examples candles">
+      <h3 class="rp-h3">EURUSD Euro-hours short · first loss of 2019</h3>
+      <p class="rp-sub">Same rule: the exit is the 13:00 close unless the stop is hit first.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex2">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex2" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex3" data-source="examples candles">
+      <h3 class="rp-h3">USDJPY Tokyo fix, gotobi days · first win of 2019</h3>
+      <p class="rp-sub">Buys at 23:00 UTC before a Japanese settlement (gotobi) day and sells at 00:55 UTC, just before the Tokyo fix.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex3">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex3" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex4" data-source="examples candles">
+      <h3 class="rp-h3">USDJPY Tokyo fix, gotobi days · first loss of 2019</h3>
+      <p class="rp-sub">Same rule: the exit is at 00:55 UTC unless the stop is hit first.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex4">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex4" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex5" data-source="examples candles">
+      <h3 class="rp-h3">EURUSD close-beyond reversal · first win of 2019</h3>
+      <p class="rp-sub">After a daily candle closes beyond the previous day's range, a stop order back through that candle's far end for the next session; exit at the first profitable New York close (16:45-16:55), else a 250-pip stop. Shown on 4-hour candles.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex5">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex5" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex6" data-source="examples candles">
+      <h3 class="rp-h3">EURUSD close-beyond reversal · first loss of 2019</h3>
+      <p class="rp-sub">Same rule. Shown on 4-hour candles.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex6">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex6" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex7" data-source="examples candles">
+      <h3 class="rp-h3">Gold dip reversion (S1) · first win of 2019</h3>
+      <p class="rp-sub">The TimelessCity S1 rule on gold (H1, M30 and M20 settings). Shown on 30-minute candles.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex7">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex7" style="min-height:230px"></div>
+    </figure>
+    <figure class="rp-card" id="ex8" data-source="examples candles">
+      <h3 class="rp-h3">Gold dip reversion (S1) · first loss of 2019</h3>
+      <p class="rp-sub">Same rule. Shown on 30-minute candles.</p>
+      <p class="rp-sub" data-draw="exinfo" data-ex="ex8">—</p>
+      <div class="rp-chart" data-draw="excandles" data-ex="ex8" style="min-height:230px"></div>
+    </figure>
+  </div>
+</section>
+
+<section class="rp-sec" id="pattern">
+  <h2 class="rp-h2">The pivot-sweep pattern, studied on one-minute data without costs <span class="rp-tag" data-sverdict="rejected">Rejected</span><span class="rp-tag ok" data-sverdict="survivors" hidden>Survivors found</span><span data-draw="studyverdict"></span></h2>
+  <p class="rp-p" id="pattern-summary">The owner's setup (four candles right after a pivot sweep, entry at 60% of the range) was followed on <b data-draw="val" data-src="headline" data-fld="value" data-match="metric=study_setups" data-fmt="int">—</b> filled setups, 12 markets, 2011-22, with no spread, commission, slippage or swaps. Every target won about as often as chance predicts, and <b data-draw="val" data-src="headline" data-fld="value" data-match="metric=study_tests_edge" data-fmt="int">—</b> of <b data-draw="val" data-src="headline" data-fld="value" data-match="metric=study_tests" data-fmt="int">—</b> entry-condition tests found an edge that held in both 2011-15 and 2016-19. <b data-draw="val" data-src="mc_count" data-fld="survivors" data-row="0" data-fmt="int">—</b> of the <b data-draw="val" data-src="mc_count" data-fld="cells" data-row="0" data-fmt="int">—</b> cells that reached the Monte Carlo step survived it, so the pattern adds nothing to the portfolio and its 2023-26 data stays unopened.</p>
+
+  <div class="rp-grid2">
+    <figure class="rp-card" id="fig-payout-r" data-source="study_payout">
+      <h3 class="rp-h3">R per 10 trades for each exit, 2011-15</h3>
+      <div class="rp-chart" data-draw="payr" style="min-height:330px"></div>
+    </figure>
+    <figure class="rp-card" id="fig-payout-w" data-source="study_payout">
+      <h3 class="rp-h3">Wins per 10 trades: measured and chance, 2011-15</h3>
+      <div class="rp-legend"><span><span class="rp-sw" data-sw="0" style="border-radius:50%"></span>measured</span><span><span class="rp-ring"></span>chance</span></div>
+      <div class="rp-chart" data-draw="payw" style="min-height:260px"></div>
+    </figure>
+  </div>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-payout" data-source="study_payout" data-row-key="structure" aria-label="Pattern study: exits">
+      <thead><tr>
+        <th class="l" data-field="structure">Exit</th><th data-field="wins_per_10">Wins per 10</th><th data-field="chance_per_10">Chance per 10</th><th data-field="avg_win_R">Average win, R</th><th data-field="R_per_10">R per 10 trades</th><th data-field="E_learn">R a trade, 2011-15</th><th data-field="E_confirm">2016-19</th><th data-field="E_validate">2020-22</th><th data-field="losing_streak">Longest losing run</th>
+      </tr></thead>
+      <tbody data-draw="rows" data-src="study_payout" data-cols="structure:tl,wins_per_10:n2,chance_per_10:n2,avg_win_R:n2,R_per_10:s2,E_learn:s4,E_confirm:s4,E_validate:s4,losing_streak:int"></tbody>
+    </table>
+  </div>
+  <p class="rp-note">nR is a fixed target n times the risk. BE75 moves the stop to the entry once price has covered 75% of the way to the target. TP1 and TP2 are the first and second live pivots past the entry. P60 closes 60% at TP1 and the rest at TP2, with the stop at entry after TP1. Chance is how often a target comes first if price moves at random: 1 in (1 + n), or 0.75 in (1 + 0.75n) with BE75.</p>
+
+  <h3 class="rp-h3">Why a few big winners do not make a profitable year</h3>
+  <p class="rp-p">With TP2 as the only target, a winning trade paid <b data-draw="val" data-src="study_payout" data-fld="avg_win_R" data-match="structure=TP2" data-fmt="n2">—</b>R on average, but only <b data-draw="val" data-src="study_payout" data-fld="wins_per_10" data-match="structure=TP2" data-fmt="n2">—</b> trades in 10 won and each of the others lost 1R. Per 10 trades that came to <b data-draw="val" data-src="study_payout" data-fld="R_per_10" data-match="structure=TP2" data-fmt="s2">—</b>R. The big winners on a chart are real, but so are the losers around them, and a rule earns on all of its trades, not on the ones that are shown.</p>
+
+  <h3 class="rp-h3">Is one-minute data good enough? Checked against ticks</h3>
+  <p class="rp-p">The same setups on EURUSD, GBPUSD and XAUUSD in March 2021, September 2021 and June 2022 were re-run tick by tick from Exness's public tick archive.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-tick" data-source="study_tick" data-row-key="structure" aria-label="One-minute bars against ticks">
+      <thead><tr><th class="l" data-field="structure">Exit</th><th data-field="win_m1_pct">Win rate, one-minute bars</th><th data-field="win_tick_pct">Win rate, ticks</th><th data-field="n">Trades</th></tr></thead>
+      <tbody data-draw="rows" data-src="study_tick" data-cols="structure:tl,win_m1_pct:pu1,win_tick_pct:pu1,n:int"></tbody>
+    </table>
+  </div>
+
+  <h3 class="rp-h3">Entry conditions: the owner's questions</h3>
+  <p class="rp-p">R a trade with a 20R target (the exit chosen on 2011-15), no costs. "Loses less" means better than the other setups by a t-statistic of at least 3 in 2011-15 and 2 in 2016-19; "edge" means above zero by the same bars; 2020-22 is shown but never used to choose.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-questions" data-source="study_questions" data-row-key="id" aria-label="Entry conditions">
+      <thead><tr><th class="l" data-field="condition">Condition</th><th data-field="trades_learn">Trades 2011-15</th><th data-field="E_learn">R a trade, 2011-15</th><th data-field="E_confirm">2016-19</th><th data-field="E_validate">2020-22</th><th class="l" data-field="verdict">Verdict</th></tr></thead>
+      <tbody data-draw="qrows"></tbody>
+    </table>
+  </div>
+  <p class="rp-note">A sweep by candle 4 was above zero in all three periods, but on only <span data-draw="val" data-src="study_questions" data-fld="trades_learn" data-match="id=q1" data-fmt="int">—</span> trades in 2011-15; among <span data-draw="val" data-src="headline" data-fld="value" data-match="metric=study_tests" data-fmt="int">—</span> tests a result like that is expected by luck. It is logged as a question to watch, not a rule.</p>
+
+  <figure class="rp-card" id="fig-smd" data-source="study_features">
+    <h3 class="rp-h3">Winners against losers: how different were they before the entry?</h3>
+    <p class="rp-sub">Standardised difference of the average, 2011-15. <span data-draw="smdbar">—</span> is the usual bar for even a small effect.</p>
+    <div class="rp-chart" data-draw="smd" style="min-height:420px"></div>
+  </figure>
+
+  <h3 class="rp-h3">Why the losers lose</h3>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-losers" data-source="study_losers" data-row-key="id" aria-label="Losing trades">
+      <thead><tr><th class="l" data-field="category">Losing trades that…</th><th data-field="learn">2011-15</th><th data-field="confirm">2016-19</th><th data-field="validate">2020-22</th></tr></thead>
+      <tbody data-draw="rows" data-src="study_losers" data-cols="category:tl,learn:pu1,confirm:pu1,validate:pu1"></tbody>
+    </table>
+  </div>
+  <p class="rp-note">Losers were mostly not near-misses: <span data-draw="val" data-src="study_losers" data-fld="learn" data-match="id=l5" data-fmt="pu1">—</span> ran 3R or more beyond the stop first (2011-15), and only <span data-draw="val" data-src="study_losers" data-fld="learn" data-match="id=l4" data-fmt="pu1">—</span> were wick stops that a slightly wider stop would have saved. Many reached TP1 later, but only after the stop had been hit.</p>
+
+  <h3 class="rp-h3">The scanner, every timeframe, without and with costs</h3>
+  <p class="rp-p">The scanner kept the conditions that lost less in both 2011-15 and 2016-19, with a 20R target, and was then run on all 12 markets and six timeframes through the Truth Lab (development 2011-19, validation 2020-22). With costs means RoboForex Prime spread and commission plus slippage on stops.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-scanner" data-source="study_scanner" data-row-key="step" aria-label="Scanner steps">
+      <thead><tr><th data-field="step">Step</th><th class="l" data-field="condition">Condition added</th><th data-field="trades_learn">Trades 2011-15</th><th data-field="E_learn">R a trade, 2011-15</th><th data-field="E_confirm">2016-19</th><th data-field="E_validate">2020-22</th></tr></thead>
+      <tbody data-draw="rows" data-src="study_scanner" data-cols="step:int,condition:tl,trades_learn:int,E_learn:s4,E_confirm:s4,E_validate:s4"></tbody>
+    </table>
+  </div>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-tf" data-source="study_timeframes" data-row-key="tf" aria-label="Scanner by timeframe">
+      <thead><tr><th class="l" data-field="tf">Timeframe</th><th data-field="trades">Trades 2011-19</th><th data-field="zero_dev">No costs, R a trade 2011-19</th><th data-field="zero_val">No costs, 2020-22</th><th data-field="cost_dev">With costs, 2011-19</th><th data-field="cost_val">With costs, 2020-22</th><th data-field="markets_positive_after_costs">Markets positive after costs, 2011-19</th></tr></thead>
+      <tbody data-draw="rows" data-src="study_timeframes" data-cols="tf:tl,trades:int,zero_dev:s4,zero_val:s4,cost_dev:s4,cost_val:s4,markets_positive_after_costs:int"></tbody>
+    </table>
+  </div>
+  <h3 class="rp-h3">Monte Carlo of the cells that passed the era rule</h3>
+  <p class="rp-p">A cell passed the era rule if it was positive after costs in each of 2011-14, 2015-18 and 2019-22 with 20 or more trades in each. To survive the Monte Carlo (one-year paths at 1% risk) it needed a losing year in at most 1 path in 5 and a median worst drawdown within the year of 10% or less.</p>
+  <div class="rp-scroll">
+    <table class="rp-table" id="tbl-smc" data-source="study_mc" data-row-key="cell" aria-label="Monte Carlo of the era-rule cells">
+      <thead><tr><th class="l" data-field="cell">Cell</th><th data-field="trades_per_year">Trades a year</th><th data-field="p_losing_year_pct">Chance of a losing year</th><th data-field="median_year_pct">Median year</th><th data-field="p5_year_pct">Bad year (5th pct)</th><th data-field="median_maxdd_pct">Median worst drawdown</th><th class="l" data-field="survives">Survives</th></tr></thead>
+      <tbody data-draw="rows" data-src="study_mc" data-cols="cell:tl,trades_per_year:int,p_losing_year_pct:pu1,median_year_pct:pct,p5_year_pct:pct,median_maxdd_pct:pu2,survives:tl"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="rp-sec" id="method">
+  <details class="rp-details">
+    <summary>Method, data, costs and what is not yet proven</summary>
+    <ul>
+      <li><b>Data.</b> One-minute bid bars from 2011 to 2025; EURGBP, NAS100 and the other HistData markets were clock-corrected for daylight saving. Jan-Oct 2026 comes from Exness's public tick archive. All times are UTC.</li>
+      <li><b>Costs.</b> Older legs: Exness Zero, with spreads measured from Exness's tick archive and commission taken at the high end of published rates. v2 legs: RoboForex Prime published spreads and commission. Slippage is added on stops. Overnight swaps are charged for every night a trade is held. The stress profile multiplies costs by 1.5 and swaps by 2.</li>
+      <li><b>Sizing.</b> Fixed fraction: each trade risks the base risk times its leg's weight, of current equity, compounding daily. Profit or loss is booked on the exit day. The base risk was set on 2011-22 so that 95% of bootstrapped 36-fortnight lifecycles stay within the envelope.</li>
+      <li><b>Periods.</b> 2011-22 is in-sample: the legs, weights and base risk were chosen on it. 2023-25 had been looked at for every leg before the mix was built. Jan-Oct 2026 was never used to set a rule or a weight of the older legs; the v2 legs were kept after a look that included it.</li>
+      <li><b>How hard the search was.</b> The legs are survivors of <span data-draw="val" data-src="headline" data-fld="value" data-match="metric=configs_tried" data-fmt="int">—</span> configurations across <span data-draw="val" data-src="headline" data-fld="value" data-match="metric=ideas_tested" data-fmt="int">—</span> ideas tested in this project; the v2 legs were picked from <span data-draw="val" data-src="headline" data-fld="value" data-match="metric=v2_cells" data-fmt="int">—</span> cells. A heavily searched backtest usually runs 30 to 50% weaker live, so treat the in-sample figures as an upper bound.</li>
+      <li><b>Statistics.</b> Sharpe and Sortino from weekly returns times the square root of 52; drawdowns on daily equity; Calmar = return a year ÷ worst drawdown; correlations on daily results.</li>
+      <li><b>Not yet proven.</b> There is no live or demo record. Most legs have no Expert Advisor yet (TimelessCity covers the gold S1 leg; the rest exist as research code). The account's real costs and swap status need exporting from the account and the mix re-scored before money is risked, followed by 3 to 6 months on demo.</li>
+    </ul>
+  </details>
+</section>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var LOC = d3.formatLocale({decimal: '.', thousands: ',', grouping: [3], currency: ['$', ''], minus: '-'});
+  var GOAL = {lo: 60, hi: 120};      // the owner's goal, % a year
+  var SMD_SMALL = 0.2;               // the usual bar for a small effect
+  var PD = d3.utcParse('%Y-%m-%d');
+  var FD = d3.utcFormat('%-d %b %Y');
+  var isNum = function (v) { return v !== null && v !== undefined && v !== '' && !isNaN(+v); };
+  var fx = function (d, v) { return LOC.format('.' + d + 'f')(+v); };
+  var sg = function (d, v) { return (+v > 0 ? '+' : '') + fx(d, v); };
+  var PROF = {base: 'Base', swapfree: 'Swap-free', stress: 'Stress', nocosts: 'No costs'};
+  var PER = {insample: '2011-22', seen: '2023-25', oos: 'Jan-Oct 2026', all: '2011-Oct 2026'};
+  var HZ = {year: 'One year (26 fortnights)', lifecycle: 'Lifecycle (36 fortnights)'};
+  var LEGNAME = {};
+  var FMT = {
+    tl: function (v) { return v == null ? '' : String(v); },
+    int: function (v) { return isNum(v) ? LOC.format(',.0f')(+v) : '—'; },
+    n1: function (v) { return isNum(v) ? fx(1, v) : '—'; },
+    n2: function (v) { return isNum(v) ? fx(2, v) : '—'; },
+    n3: function (v) { return isNum(v) ? fx(3, v) : '—'; },
+    s2: function (v) { return isNum(v) ? sg(2, v) : '—'; },
+    s3: function (v) { return isNum(v) ? sg(3, v) : '—'; },
+    s4: function (v) { return isNum(v) ? sg(4, v) : '—'; },
+    pct: function (v) { return isNum(v) ? sg(2, v) + '%' : '—'; },
+    pct3: function (v) { return isNum(v) ? sg(3, v) + '%' : '—'; },
+    pu1: function (v) { return isNum(v) ? fx(1, v) + '%' : '—'; },
+    pu2: function (v) { return isNum(v) ? fx(2, v) + '%' : '—'; },
+    pu3: function (v) { return isNum(v) ? fx(3, v) + '%' : '—'; },
+    usd: function (v) { return isNum(v) ? '$' + LOC.format(',.0f')(+v) : '—'; },
+    prof: function (v) { return PROF[v] || String(v); },
+    per: function (v) { return PER[v] || String(v); },
+    hz: function (v) { return HZ[v] || String(v); },
+    legname: function (v) { return LEGNAME[v] || String(v); }
+  };
+  var LEFT = {tl: 1, prof: 1, per: 1, hz: 1, legname: 1};
+  var C = function (i) { return (dash.colors && dash.colors[i]) || 'var(--color-fg)'; };
+  var params = function () { return (dash.params && dash.params()) || {}; };
+  var env = function () { return String(params().env == null ? '3.6' : params().env) === '8' ? '8' : '3.6'; };
+  var envk = function () { return env() === '8' ? '8' : '36'; };
+  var sub = function (s) { return String(s || '').replace(/\{env\}/g, env()).replace(/\{envk\}/g, envk()); };
+  var enc = function (v) { return String(v).replace(/%/g, '%25').replace(/&/g, '%26').replace(/=/g, '%3D').replace(/,/g, '%2C'); };
+  var parseMatch = function (s) { var o = {}; sub(s).split('&').forEach(function (p) { var i = p.indexOf('='); o[p.slice(0, i)] = p.slice(i + 1); }); return o; };
+  var matches = function (row, w) { return Object.keys(w).every(function (k) { return String(row[k]) === w[k]; }); };
+
+  function mk(tag, source, field, where, text, cls) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (source) e.setAttribute('data-source', source);
+    if (field) e.setAttribute('data-field', field);
+    if (typeof where === 'number') e.setAttribute('data-row', String(where));
+    else if (where) e.setAttribute('data-where', Object.keys(where).map(function (k) { return enc(k) + '=' + enc(where[k]); }).join('&'));
+    e.textContent = text;
+    return e;
+  }
+  function failed(el, status) {
+    el.classList.toggle('dash-skeleton', status === 'loading');
+    var p = document.createElement('div');
+    p.className = 'rp-sub';
+    p.textContent = status === 'error' ? 'Failed to load' : '—';
+    el.replaceChildren(p);
+  }
+  function chart(el, H, label) {
+    el.classList.remove('dash-skeleton');
+    el.replaceChildren();
+    var W = Math.max(260, Math.floor(el.clientWidth || 640));
+    var svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('viewBox', '0 0 ' + W + ' ' + H)
+      .style('width', '100%').style('height', 'auto').attr('role', 'img').attr('aria-label', label);
+    var tip = d3.select(el).append('div').attr('class', 'rp-tip');
+    return {W: W, svg: svg, tip: tip};
+  }
+  function textWidth(svg, list) {
+    var g = svg.append('g').attr('opacity', 0), w = 0;
+    list.forEach(function (s) {
+      var t = g.append('text').text(s), L = t.node().getComputedTextLength();
+      w = Math.max(w, L > 0 ? L : String(s).length * 6.6);
+    });
+    g.remove();
+    return w;
+  }
+  function tipShow(el, tip, lines, px, py) {
+    var n = tip.node();
+    n.replaceChildren();
+    lines.forEach(function (ln) {
+      var row = document.createElement('div');
+      if (ln.length === 1) { var b = document.createElement('b'); b.textContent = ln[0]; row.appendChild(b); }
+      else { var k = document.createElement('span'); k.className = 'k'; k.textContent = ln[0] + ' '; var v = document.createElement('span'); v.textContent = ln[1]; row.appendChild(k); row.appendChild(v); }
+      n.appendChild(row);
+    });
+    n.style.display = 'block';
+    var W = el.clientWidth, w = n.offsetWidth, h = n.offsetHeight;
+    var x = px + 14; if (x + w > W) x = px - w - 14; if (x < 0) x = Math.max(0, W - w);
+    var y = py - h - 10; if (y < 0) y = py + 16;
+    n.style.left = x + 'px'; n.style.top = y + 'px';
+  }
+  function tipHide(tip) { tip.node().style.display = 'none'; }
+  function hoverRect(svg, el, tip, x, y, w, h, lines) {
+    svg.append('rect').attr('x', x).attr('y', y).attr('width', Math.max(1, w)).attr('height', Math.max(1, h)).style('fill', 'transparent')
+      .on('pointermove', function (ev) { var p = d3.pointer(ev, el); tipShow(el, tip, lines, p[0], p[1]); })
+      .on('pointerleave', function () { tipHide(tip); });
+  }
+  function barV(x, w, y0, y1, r) {
+    var h = Math.abs(y1 - y0); r = Math.max(0, Math.min(r, w / 2, h));
+    if (y1 <= y0) return 'M' + x + ',' + y0 + 'V' + (y1 + r) + 'Q' + x + ',' + y1 + ' ' + (x + r) + ',' + y1 + 'H' + (x + w - r) + 'Q' + (x + w) + ',' + y1 + ' ' + (x + w) + ',' + (y1 + r) + 'V' + y0 + 'Z';
+    return 'M' + x + ',' + y0 + 'V' + (y1 - r) + 'Q' + x + ',' + y1 + ' ' + (x + r) + ',' + y1 + 'H' + (x + w - r) + 'Q' + (x + w) + ',' + y1 + ' ' + (x + w) + ',' + (y1 - r) + 'V' + y0 + 'Z';
+  }
+  function barH(y, h, x0, x1, r) {
+    var w = Math.abs(x1 - x0); r = Math.max(0, Math.min(r, h / 2, w));
+    if (x1 >= x0) return 'M' + x0 + ',' + y + 'H' + (x1 - r) + 'Q' + x1 + ',' + y + ' ' + x1 + ',' + (y + r) + 'V' + (y + h - r) + 'Q' + x1 + ',' + (y + h) + ' ' + (x1 - r) + ',' + (y + h) + 'H' + x0 + 'Z';
+    return 'M' + x0 + ',' + y + 'H' + (x1 + r) + 'Q' + x1 + ',' + y + ' ' + x1 + ',' + (y + r) + 'V' + (y + h - r) + 'Q' + x1 + ',' + (y + h) + ' ' + (x1 + r) + ',' + (y + h) + 'H' + x0 + 'Z';
+  }
+  function hline(svg, x1, x2, y, color, width, dash_) {
+    var l = svg.append('line').attr('x1', x1).attr('x2', x2).attr('y1', y).attr('y2', y).style('stroke', color).style('stroke-width', width || 1);
+    if (dash_) l.style('stroke-dasharray', dash_);
+    return l;
+  }
+
+  // ---- calculations readers can inspect ----
+  dash.calc('years_positive', {
+    title: 'Positive calendar years, 2011-25',
+    description: 'How many calendar years from 2011 to 2025 ended with a gain, at each envelope.',
+    inputs: ['yearly'],
+    fn: function (yearly) {
+      var full = yearly.filter(function (r) { return +r.year >= 2011 && +r.year <= 2025; });
+      return [{years: full.length,
+        positive_36: full.filter(function (r) { return +r.ret_36 > 0; }).length,
+        positive_8: full.filter(function (r) { return +r.ret_8 > 0; }).length}];
+    }
+  });
+  dash.calc('leg_markets', {
+    title: 'Markets traded',
+    description: 'How many different markets the legs trade.',
+    inputs: ['legs'],
+    fn: function (legs) { var s = {}; legs.forEach(function (r) { s[r.market] = 1; }); return [{markets: Object.keys(s).length}]; }
+  });
+  dash.calc('mc_count', {
+    title: 'Pattern study: cells tested by Monte Carlo',
+    description: 'How many pattern-study cells reached the Monte Carlo step, and how many survived it.',
+    inputs: ['study_mc'],
+    fn: function (study_mc) { return [{cells: study_mc.length, survivors: study_mc.filter(function (r) { return r.survives === 'yes'; }).length}]; }
+  });
+
+  // ---- controls ----
+  document.querySelectorAll('.rp-env').forEach(function (sel) {
+    sel.value = env();
+    sel.addEventListener('change', function () { dash.setParams({env: sel.value}); });
+  });
+  dash.onData(function () {
+    document.querySelectorAll('.rp-env').forEach(function (sel) { if (document.activeElement !== sel) sel.value = env(); });
+  });
+  document.querySelectorAll('[data-sw]').forEach(function (s) { s.style.background = C(+s.getAttribute('data-sw')); });
+
+  // ---- words and single values ----
+  dash.draw('val', function (el) {
+    var src = el.getAttribute('data-src'), fld = sub(el.getAttribute('data-fld')), fmt = FMT[el.getAttribute('data-fmt')] || FMT.tl;
+    var d = dash.data(src);
+    el.classList.toggle('dash-skeleton', d.status === 'loading');
+    if (d.status !== 'ok' || !Array.isArray(d.data)) { el.textContent = '—'; return; }
+    var r, w;
+    if (el.hasAttribute('data-row')) { w = +el.getAttribute('data-row'); r = d.data[w]; }
+    else { w = parseMatch(el.getAttribute('data-match')); r = d.data.find(function (row) { return matches(row, w); }); }
+    el.replaceChildren(mk('span', src, fld, w, r ? fmt(r[fld]) : '—'));
+  });
+  dash.draw('envlabel', function (el) { el.textContent = env() + '%'; });
+  dash.draw('goal', function (el) { el.textContent = GOAL.lo + '-' + GOAL.hi + '%'; });
+  dash.draw('smdbar', function (el) { el.textContent = String(SMD_SMALL); });
+  dash.draw('verdict', function (el) {
+    var d = dash.data('kpis');
+    var r = d.status === 'ok' ? d.data.find(function (x) { return x.key === env() + '-base-insample'; }) : null;
+    var below = !r || +r.cagr_pct < GOAL.lo;
+    document.querySelectorAll('[data-verdict]').forEach(function (s) { s.hidden = (s.getAttribute('data-verdict') === 'below') !== below; });
+    el.textContent = '';
+  });
+  dash.draw('studyverdict', function (el) {
+    var d = dash.data('mc_count');
+    var none = !(d.status === 'ok' && d.data && d.data[0]) || +d.data[0].survivors === 0;
+    document.querySelectorAll('[data-sverdict]').forEach(function (s) { s.hidden = (s.getAttribute('data-sverdict') === 'rejected') !== none; });
+    el.textContent = '';
+  });
+
+  // ---- tables of rows ----
+  dash.draw('rows', function (tb) {
+    var src = tb.getAttribute('data-src');
+    var d = dash.data(src);
+    if (d.status !== 'ok' || !Array.isArray(d.data)) { tb.replaceChildren(); return; }
+    var cols = tb.getAttribute('data-cols').split(',').map(function (c) { var p = c.split(':'); return {f: p[0], t: p[1] || 'tl'}; });
+    if (cols.some(function (c) { return c.t === 'legname'; })) {
+      var dl = dash.data('legs');
+      if (dl.status === 'ok') dl.data.forEach(function (r) { LEGNAME[r.leg] = r.name; });
+    }
+    var data = d.data.slice();
+    var flt = tb.getAttribute('data-filter');
+    if (flt) { var w = parseMatch(flt); data = data.filter(function (r) { return matches(r, w); }); }
+    var srt = tb.getAttribute('data-sort');
+    if (srt) { var desc = srt.charAt(0) === '-', k = srt.replace(/^-/, ''); data.sort(function (a, b) { return desc ? (+b[k]) - (+a[k]) : (+a[k]) - (+b[k]); }); }
+    var table = tb.closest('table');
+    var keys = ((table && table.getAttribute('data-row-key')) || '').split(',').filter(Boolean);
+    tb.replaceChildren.apply(tb, data.map(function (r) {
+      var tr = document.createElement('tr');
+      if (keys.length) tr.setAttribute('data-key', keys.map(function (kk) { return enc(r[kk]); }).join(','));
+      cols.forEach(function (c) {
+        var td = document.createElement('td');
+        if (LEFT[c.t]) td.className = 'l';
+        td.textContent = (FMT[c.t] || FMT.tl)(r[c.f]);
+        tr.appendChild(td);
+      });
+      return tr;
+    }));
+  });
+  dash.draw('qrows', function (tb) {
+    var d = dash.data('study_questions');
+    if (d.status !== 'ok') { tb.replaceChildren(); return; }
+    var out = [], last = null;
+    d.data.forEach(function (r) {
+      if (r.question !== last) {
+        last = r.question;
+        var g = document.createElement('tr'); g.className = 'rp-grp';
+        var gt = document.createElement('td'); gt.className = 'l'; gt.colSpan = 6;
+        gt.appendChild(mk('span', 'study_questions', 'question', {id: r.id}, r.question));
+        g.appendChild(gt); out.push(g);
+      }
+      var tr = document.createElement('tr');
+      tr.setAttribute('data-key', enc(r.id));
+      [['condition', 'tl'], ['trades_learn', 'int'], ['E_learn', 's4'], ['E_confirm', 's4'], ['E_validate', 's4'], ['verdict', 'tl']].forEach(function (c) {
+        var td = document.createElement('td');
+        if (LEFT[c[1]]) td.className = 'l';
+        td.textContent = FMT[c[1]](r[c[0]]);
+        tr.appendChild(td);
+      });
+      out.push(tr);
+    });
+    tb.replaceChildren.apply(tb, out);
+  });
+  dash.draw('payrows', function (tb) {
+    var d = dash.data('payouts');
+    if (d.status !== 'ok') { tb.replaceChildren(); return; }
+    var E = env();
+    var rows = d.data.filter(function (r) { return r.envelope === E; });
+    var pays = []; rows.forEach(function (r) { if (pays.indexOf(r.payout) < 0) pays.push(r.payout); });
+    pays.sort(function (a, b) { return +a - +b; });
+    var pers = ['insample', 'seen', 'oos'];
+    var find = function (pay, p) { return rows.find(function (x) { return x.payout === pay && x.period === p; }); };
+    var out = [];
+    var tr0 = document.createElement('tr');
+    var l0 = document.createElement('td'); l0.className = 'l'; l0.textContent = 'Average fortnight return'; tr0.appendChild(l0);
+    pers.forEach(function (p) {
+      var r = find(pays[0], p), td = document.createElement('td');
+      td.appendChild(mk('span', 'payouts', 'fortnight_pct', r ? {envelope: E, payout: r.payout, period: p} : null, r ? FMT.pct3(r.fortnight_pct) : '—'));
+      tr0.appendChild(td);
+    });
+    out.push(tr0);
+    pays.forEach(function (pay) {
+      var tr = document.createElement('tr');
+      var l = document.createElement('td'); l.className = 'l';
+      l.appendChild(mk('span', 'payouts', 'payout', {envelope: E, payout: pay, period: 'insample'}, FMT.usd(pay)));
+      tr.appendChild(l);
+      pers.forEach(function (p) {
+        var r = find(pay, p), td = document.createElement('td');
+        td.appendChild(mk('span', 'payouts', 'account', r ? {envelope: E, payout: pay, period: p} : null, r ? FMT.usd(r.account) : '—'));
+        tr.appendChild(td);
+      });
+      out.push(tr);
+    });
+    tb.replaceChildren.apply(tb, out);
+  });
+  dash.draw('exinfo', function (el) {
+    var id = el.getAttribute('data-ex'), d = dash.data('examples');
+    if (d.status !== 'ok') { el.textContent = '—'; return; }
+    var r = d.data.find(function (x) { return x.example === id; });
+    if (!r) { el.textContent = '—'; return; }
+    var w = {example: id};
+    el.replaceChildren(
+      mk('span', 'examples', 'side', w, r.side === 'buy' ? 'Buy' : 'Sell'), document.createTextNode(' · '),
+      mk('span', 'examples', 't_in', w, r.t_in), document.createTextNode(' to '),
+      mk('span', 'examples', 't_out', w, r.t_out), document.createTextNode(' · entry '),
+      mk('span', 'examples', 'entry', w, r.entry), document.createTextNode(' · stop '),
+      mk('span', 'examples', 'stop', w, r.stop), document.createTextNode(' · exit '),
+      mk('span', 'examples', 'exit', w, r.exit), document.createTextNode(' · result '),
+      mk('b', 'examples', 'R', w, FMT.s2(r.R) + 'R'));
+  });
+
+  // ---- charts ----
+  dash.draw('equity', function (el) {
+    var d = dash.data('equity');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var E = env();
+    var pts = d.data.filter(function (r) { return r.envelope === E; }).map(function (r) {
+      return {t: PD(r.date), eq: +r.equity, dd: -Math.abs(+r.drawdown_pct)};
+    }).filter(function (p) { return p.t; });
+    if (!pts.length) return failed(el, 'empty');
+    var top = 22, H1 = 240, gap = 30, H2 = 110, bot = 24, H = top + H1 + gap + H2 + bot;
+    var c = chart(el, H, 'Growth of 1 at the ' + E + '% envelope each week from January 2011 to October 2026, with the drawdown from the last high below it');
+    var W = c.W, svg = c.svg, tip = c.tip, lim = -(+E);
+    var y1 = d3.scaleLinear().domain([Math.min(1, d3.min(pts, function (p) { return p.eq; })) * 0.97, d3.max(pts, function (p) { return p.eq; }) * 1.03]).nice().range([top + H1, top]);
+    var y2 = d3.scaleLinear().domain([Math.min(lim, d3.min(pts, function (p) { return p.dd; })) * 1.2, 0]).nice().range([top + H1 + gap + H2, top + H1 + gap]);
+    var t1 = y1.ticks(5), t2 = y2.ticks(3);
+    var f1 = function (v) { return fx(1, v); }, f2 = function (v) { return fx(0, v) + '%'; };
+    var ml = Math.ceil(textWidth(svg, t1.map(f1).concat(t2.map(f2)))) + 10, mr = 12;
+    var x = d3.scaleUtc().domain(d3.extent(pts, function (p) { return p.t; })).range([ml, W - mr]);
+    var bands = [[PD('2023-01-01'), PD('2026-01-01'), '2023-25'], [PD('2026-01-01'), x.domain()[1], '2026']];
+    var lab = svg.append('g');
+    var prevEnd = ml + textWidth(svg, ['2011-22 in-sample']) + 8;
+    lab.append('text').attr('x', ml).attr('y', top - 8).text('2011-22 in-sample');
+    bands.forEach(function (b, i) {
+      var xa = x(b[0]), xb = x(b[1]);
+      svg.append('rect').attr('x', xa).attr('y', top).attr('width', Math.max(0, xb - xa)).attr('height', H1 + gap + H2).style('fill', 'var(--cds-chart-grid)').style('opacity', 0.5);
+      svg.append('line').attr('x1', xa).attr('x2', xa).attr('y1', top - 4).attr('y2', top + H1 + gap + H2).style('stroke', 'var(--cds-chart-axis)').style('stroke-width', 1);
+      var tw = textWidth(svg, [b[2]]);
+      var tx = i === bands.length - 1 ? Math.min(xa + 4, W - mr - tw) : xa + 4;
+      if (tx >= prevEnd) { lab.append('text').attr('x', tx).attr('y', top - 8).text(b[2]); prevEnd = tx + tw + 8; }
+    });
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    t1.forEach(function (v) { gr.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y1(v)).attr('y2', y1(v)); });
+    t2.forEach(function (v) { gr.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y2(v)).attr('y2', y2(v)); });
+    var ax = svg.append('g');
+    t1.forEach(function (v) { ax.append('text').attr('x', ml - 6).attr('y', y1(v)).attr('dy', '0.32em').attr('text-anchor', 'end').text(f1(v)); });
+    t2.forEach(function (v) { ax.append('text').attr('x', ml - 6).attr('y', y2(v)).attr('dy', '0.32em').attr('text-anchor', 'end').text(f2(v)); });
+    var nT = Math.max(2, Math.min(16, Math.floor((W - ml - mr) / 56)));
+    x.ticks(nT).forEach(function (v) { ax.append('text').attr('x', x(v)).attr('y', H - 6).attr('text-anchor', 'middle').text(d3.utcFormat('%Y')(v)); });
+    var area = d3.area().x(function (p) { return x(p.t); }).y0(y2(0)).y1(function (p) { return y2(p.dd); });
+    svg.append('path').datum(pts).attr('d', area).style('fill', C(0)).style('opacity', 0.22);
+    var clipId = 'rp-ddclip-' + envk();
+    svg.append('clipPath').attr('id', clipId).append('rect').attr('x', ml).attr('y', y2(lim)).attr('width', W - ml - mr).attr('height', Math.max(0, y2.range()[0] - y2(lim)));
+    svg.append('path').datum(pts).attr('d', area).attr('clip-path', 'url(#' + clipId + ')').style('fill', 'var(--cds-chart-status-critical)').style('opacity', 0.85);
+    svg.append('path').datum(pts).attr('d', d3.line().x(function (p) { return x(p.t); }).y(function (p) { return y2(p.dd); })).style('fill', 'none').style('stroke', C(0)).style('stroke-width', 1.25);
+    hline(svg, ml, W - mr, y2(lim), 'var(--cds-chart-reference)', 1, '4 3');
+    svg.append('text').attr('x', W - mr).attr('y', y2(lim) + 14).attr('text-anchor', 'end').text('envelope ' + fx(1, lim) + '%');
+    svg.append('path').datum(pts).attr('d', d3.line().x(function (p) { return x(p.t); }).y(function (p) { return y1(p.eq); })).style('fill', 'none').style('stroke', C(0)).style('stroke-width', 2).style('stroke-linejoin', 'round');
+    var bis = d3.bisector(function (p) { return p.t; }).center;
+    var cross = svg.append('line').style('stroke', 'var(--cds-chart-axis)').style('display', 'none');
+    var dot1 = svg.append('circle').attr('r', 4).style('fill', C(0)).style('stroke', 'var(--color-panel)').style('stroke-width', 2).style('display', 'none');
+    var dot2 = svg.append('circle').attr('r', 4).style('fill', C(0)).style('stroke', 'var(--color-panel)').style('stroke-width', 2).style('display', 'none');
+    svg.append('rect').attr('x', ml).attr('y', top).attr('width', W - ml - mr).attr('height', H1 + gap + H2).style('fill', 'transparent').style('cursor', 'crosshair')
+      .on('pointermove', function (ev) {
+        var m = d3.pointer(ev), p = pts[bis(pts, x.invert(m[0]))], xx = x(p.t);
+        cross.attr('x1', xx).attr('x2', xx).attr('y1', top).attr('y2', top + H1 + gap + H2).style('display', null);
+        dot1.attr('cx', xx).attr('cy', y1(p.eq)).style('display', null);
+        dot2.attr('cx', xx).attr('cy', y2(p.dd)).style('display', null);
+        var q = d3.pointer(ev, el);
+        tipShow(el, tip, [['Week to ' + FD(p.t)], ['Growth of 1', fx(3, p.eq)], ['Drawdown', fx(2, p.dd) + '%']], q[0], q[1]);
+      })
+      .on('pointerleave', function () { cross.style('display', 'none'); dot1.style('display', 'none'); dot2.style('display', 'none'); tipHide(tip); });
+  });
+
+  dash.draw('years', function (el) {
+    var d = dash.data('yearly');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var fld = 'ret_' + envk();
+    var rows = d.data.map(function (r) { return {y: String(r.year), v: +r[fld], p: r.period}; });
+    var top = 20, H0 = 170, bot = 24, H = top + H0 + bot;
+    var c = chart(el, H, 'Return by calendar year at the ' + env() + '% envelope, 2011 to 2026');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var y = d3.scaleLinear().domain([Math.min(0, d3.min(rows, function (r) { return r.v; })), d3.max(rows, function (r) { return r.v; }) * 1.15]).nice().range([top + H0, top]);
+    var ticks = y.ticks(4), ft = function (v) { return fx(0, v) + '%'; };
+    var ml = Math.ceil(textWidth(svg, ticks.map(ft))) + 10, mr = 4;
+    var x = d3.scaleBand().domain(rows.map(function (r) { return r.y; })).range([ml, W - mr]).paddingInner(0.25).paddingOuter(0.1);
+    var half = x.step() * x.paddingInner() / 2;
+    ['seen', 'oos'].forEach(function (p) {
+      var ys = rows.filter(function (r) { return r.p === p; }).map(function (r) { return r.y; });
+      if (!ys.length) return;
+      var xa = x(ys[0]) - half, xb = x(ys[ys.length - 1]) + x.bandwidth() + half;
+      svg.append('rect').attr('x', xa).attr('y', top - 14).attr('width', xb - xa).attr('height', H0 + 14).style('fill', 'var(--cds-chart-grid)').style('opacity', 0.5);
+      svg.append('line').attr('x1', xa).attr('x2', xa).attr('y1', top - 14).attr('y2', top + H0).style('stroke', 'var(--cds-chart-axis)').style('stroke-width', 1);
+    });
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    ticks.forEach(function (v) { gr.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(v)).attr('y2', y(v)); });
+    ticks.forEach(function (v) { svg.append('text').attr('x', ml - 6).attr('y', y(v)).attr('dy', '0.32em').attr('text-anchor', 'end').text(ft(v)); });
+    var bw = x.bandwidth(), every = bw >= 26 ? 1 : 2;
+    rows.forEach(function (r, i) {
+      svg.append('path').attr('d', barV(x(r.y), bw, y(0), y(r.v), 3)).style('fill', C(0));
+      if (bw >= 24) svg.append('text').attr('x', x(r.y) + bw / 2).attr('y', r.v >= 0 ? y(r.v) - 4 : y(r.v) + 12).attr('text-anchor', 'middle').text(fx(1, r.v));
+      if (i % every === 0) svg.append('text').attr('x', x(r.y) + bw / 2).attr('y', H - 6).attr('text-anchor', 'middle').text(bw >= 30 ? r.y : "'" + r.y.slice(2));
+      hoverRect(svg, el, tip, x(r.y) - half, top - 14, x.step(), H0 + 14, [[r.y + (r.p === 'oos' ? ' (Jan-Oct)' : '')], ['Return', sg(2, r.v) + '%'], ['Envelope', env() + '%']]);
+    });
+  });
+
+  dash.draw('months', function (el) {
+    var dm = dash.data('monthly'), dy = dash.data('yearly');
+    if (dm.status !== 'ok') return failed(el, dm.status);
+    if (dy.status !== 'ok') return failed(el, dy.status);
+    var fld = 'ret_' + envk();
+    var rows = dm.data.map(function (r) { return {y: +r.year, m: +r.mon, v: +r[fld]}; });
+    var yrs = []; rows.forEach(function (r) { if (yrs.indexOf(r.y) < 0) yrs.push(r.y); }); yrs.sort(function (a, b) { return a - b; });
+    var yearRet = {}; dy.data.forEach(function (r) { yearRet[+r.year] = +r[fld]; });
+    var ch = 22, top = 20, H = top + yrs.length * ch + 4;
+    var c = chart(el, H, 'Monthly returns at the ' + env() + '% envelope, ' + yrs[0] + ' to ' + yrs[yrs.length - 1] + ', with the calendar-year return in the last column');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var lw = Math.ceil(textWidth(svg, ['2026'])) + 8, gapY = 8;
+    var cw = (W - lw - gapY) / 13, full = cw >= 34;
+    var MF = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var MN = full ? MF.map(function (m) { return m.slice(0, 3); }) : MF.map(function (m) { return m.charAt(0); });
+    var abs = rows.map(function (r) { return Math.abs(r.v); }).sort(d3.ascending);
+    var vmax = d3.quantile(abs, 0.95) || 1, ymax = d3.max(Object.keys(yearRet).map(function (k) { return Math.abs(yearRet[k]); })) || 1;
+    var colr = function (v) { return v >= 0 ? 'var(--color-ok)' : 'var(--color-bad)'; };
+    var op = function (v, mx) { return 0.1 + 0.45 * Math.min(Math.abs(v) / mx, 1); };
+    MN.forEach(function (m, i) { svg.append('text').attr('x', lw + (i + 0.5) * cw).attr('y', top - 6).attr('text-anchor', 'middle').text(m); });
+    svg.append('text').attr('x', lw + 12 * cw + gapY + cw / 2).attr('y', top - 6).attr('text-anchor', 'middle').text(full ? 'Year' : 'Yr');
+    var showText = cw >= 30;
+    yrs.forEach(function (yv, yi) {
+      var yy = top + yi * ch;
+      svg.append('text').attr('x', lw - 8).attr('y', yy + ch / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text(String(yv));
+      rows.filter(function (r) { return r.y === yv; }).forEach(function (r) {
+        var xx = lw + (r.m - 1) * cw;
+        svg.append('rect').attr('x', xx + 1).attr('y', yy + 1).attr('width', cw - 2).attr('height', ch - 2).attr('rx', 2).style('fill', colr(r.v)).style('opacity', op(r.v, vmax));
+        if (showText) svg.append('text').attr('class', 'rp-in').attr('x', xx + cw / 2).attr('y', yy + ch / 2).attr('dy', '0.32em').attr('text-anchor', 'middle').text(fx(1, r.v));
+        hoverRect(svg, el, tip, xx, yy, cw, ch, [[MF[r.m - 1] + ' ' + yv], ['Return', sg(2, r.v) + '%']]);
+      });
+      if (yearRet[yv] != null) {
+        var xr = lw + 12 * cw + gapY, v = yearRet[yv];
+        svg.append('rect').attr('x', xr + 1).attr('y', yy + 1).attr('width', cw - 2).attr('height', ch - 2).attr('rx', 2).style('fill', colr(v)).style('opacity', op(v, ymax));
+        if (showText) svg.append('text').attr('class', 'rp-in').attr('x', xr + cw / 2).attr('y', yy + ch / 2).attr('dy', '0.32em').attr('text-anchor', 'middle').text(fx(1, v));
+        hoverRect(svg, el, tip, xr, yy, cw, ch, [[String(yv) + (yv === 2026 ? ', Jan-Oct' : ', calendar year')], ['Return', sg(2, v) + '%']]);
+      }
+    });
+  });
+
+  dash.draw('contrib', function (el) {
+    var d = dash.data('legs');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var rows = d.data.map(function (r) { return {name: r.name, short: r.short, v: +r.contribution_R, w: +r.weight, mk: r.market}; })
+      .sort(function (a, b) { return b.v - a.v; });
+    var rh = 24, H = rows.length * rh + 6;
+    var c = chart(el, H, 'Contribution of each leg to the 2011-22 profit, in R weighted by the leg weight');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var labels = rows.map(function (r) { return r.name; });
+    var lw = Math.ceil(textWidth(svg, labels)) + 10;
+    if (lw > W * 0.45) { labels = rows.map(function (r) { return r.short; }); lw = Math.ceil(textWidth(svg, labels)) + 10; }
+    var vw = Math.ceil(textWidth(svg, rows.map(function (r) { return sg(1, r.v) + 'R'; }))) + 10;
+    var x = d3.scaleLinear().domain([Math.min(0, d3.min(rows, function (r) { return r.v; })), d3.max(rows, function (r) { return r.v; })]).range([lw, W - vw]);
+    rows.forEach(function (r, i) {
+      var yy = 3 + i * rh;
+      svg.append('text').attr('x', lw - 8).attr('y', yy + rh / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text(labels[i]);
+      svg.append('path').attr('d', barH(yy + 5, rh - 10, x(0), x(r.v), 3)).style('fill', C(0));
+      svg.append('text').attr('x', x(r.v) + 6).attr('y', yy + rh / 2).attr('dy', '0.32em').text(sg(1, r.v) + 'R');
+      hoverRect(svg, el, tip, 0, yy, W, rh, [[r.name], ['Market', r.mk], ['Contribution', sg(1, r.v) + 'R'], ['Weight', fx(2, r.w)]]);
+    });
+  });
+
+  dash.draw('corr', function (el) {
+    var dc = dash.data('correlation'), dl = dash.data('legs');
+    if (dc.status !== 'ok') return failed(el, dc.status);
+    if (dl.status !== 'ok') return failed(el, dl.status);
+    var legs = dl.data.slice().sort(function (a, b) { return +b.contribution_R - +a.contribution_R; });
+    var M = {}; dc.data.forEach(function (r) { M[r.leg_a + '|' + r.leg_b] = +r.corr; });
+    var n = legs.length;
+    var c = chart(el, 100, 'Correlation of daily results between each pair of legs, 2011-22');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var labels = legs.map(function (r, i) { return (i + 1) + '  ' + r.short; });
+    var lw = Math.ceil(textWidth(svg, labels)) + 10;
+    var cs = Math.max(16, Math.min(46, Math.floor((W - lw - 4) / n)));
+    var top = 20, H = top + n * cs + 4;
+    svg.attr('height', H).attr('viewBox', '0 0 ' + W + ' ' + H);
+    var showText = cs >= 36;
+    legs.forEach(function (a, i) {
+      svg.append('text').attr('x', lw + (i + 0.5) * cs).attr('y', top - 6).attr('text-anchor', 'middle').text(String(i + 1));
+      svg.append('text').attr('x', 2).attr('y', top + i * cs + cs / 2).attr('dy', '0.32em').text(labels[i]);
+      legs.forEach(function (b, j) {
+        var v = M[a.leg + '|' + b.leg];
+        if (v == null) return;
+        var xx = lw + j * cs, yy = top + i * cs, diag = i === j;
+        svg.append('rect').attr('x', xx + 1).attr('y', yy + 1).attr('width', cs - 2).attr('height', cs - 2).attr('rx', 2)
+          .style('fill', diag ? 'var(--cds-chart-muted)' : (v >= 0 ? C(0) : C(1)))
+          .style('opacity', diag ? 0.35 : 0.08 + 0.82 * Math.min(Math.abs(v) / 0.4, 1));
+        if (showText && !diag) svg.append('text').attr('class', 'rp-in').attr('x', xx + cs / 2).attr('y', yy + cs / 2).attr('dy', '0.32em').attr('text-anchor', 'middle').text(fx(2, v));
+        hoverRect(svg, el, tip, xx, yy, cs, cs, [[a.name], [diag ? 'with itself' : 'and ' + b.name], ['Correlation', fx(3, v)]]);
+      });
+    });
+  });
+
+  dash.draw('mc', function (el) {
+    var d = dash.data('montecarlo');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var rows = d.data.map(function (r) { return {h: r.horizon, p5: +r.ret_p5, p25: +r.ret_p25, p50: +r.ret_p50, p75: +r.ret_p75, p95: +r.ret_p95}; });
+    var NM = {year: 'One year', lifecycle: 'Lifecycle'};
+    var rh = 56, top = 6, bot = 24, H = top + rows.length * rh + bot;
+    var c = chart(el, H, 'Monte Carlo return ranges at the 3.6% envelope for one year and one lifecycle: 5th to 95th percentile with the median');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var lw = Math.ceil(textWidth(svg, rows.map(function (r) { return NM[r.h] || r.h; }))) + 14, mr = 24;
+    var lo = Math.min(0, d3.min(rows, function (r) { return r.p5; })), hi = d3.max(rows, function (r) { return r.p95; });
+    var x = d3.scaleLinear().domain([lo - 1, hi + 1]).nice().range([lw, W - mr]);
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    x.ticks(5).forEach(function (v) {
+      gr.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', top).attr('y2', H - bot);
+      svg.append('text').attr('x', x(v)).attr('y', H - 6).attr('text-anchor', 'middle').text(fx(0, v) + '%');
+    });
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', top).attr('y2', H - bot).style('stroke', 'var(--cds-chart-reference)').style('stroke-width', 1);
+    rows.forEach(function (r, i) {
+      var yc = top + i * rh + rh / 2 + 4;
+      svg.append('text').attr('x', lw - 12).attr('y', yc).attr('dy', '0.32em').attr('text-anchor', 'end').text(NM[r.h] || r.h);
+      svg.append('line').attr('x1', x(r.p5)).attr('x2', x(r.p95)).attr('y1', yc).attr('y2', yc).style('stroke', C(0)).style('stroke-width', 2);
+      svg.append('rect').attr('x', x(r.p25)).attr('y', yc - 6).attr('width', Math.max(1, x(r.p75) - x(r.p25))).attr('height', 12).attr('rx', 3).style('fill', C(0)).style('opacity', 0.35);
+      svg.append('circle').attr('cx', x(r.p50)).attr('cy', yc).attr('r', 5).style('fill', C(0)).style('stroke', 'var(--color-panel)').style('stroke-width', 2);
+      svg.append('text').attr('x', x(r.p50)).attr('y', yc - 12).attr('text-anchor', 'middle').text('median ' + sg(1, r.p50) + '%');
+      svg.append('text').attr('x', x(r.p5)).attr('y', yc + 20).attr('text-anchor', 'middle').text(sg(1, r.p5) + '%');
+      svg.append('text').attr('x', x(r.p95)).attr('y', yc + 20).attr('text-anchor', 'middle').text(sg(1, r.p95) + '%');
+      hoverRect(svg, el, tip, 0, top + i * rh, W, rh, [[FMT.hz(r.h)], ['5th percentile', sg(2, r.p5) + '%'], ['25th', sg(2, r.p25) + '%'], ['Median', sg(2, r.p50) + '%'], ['75th', sg(2, r.p75) + '%'], ['95th', sg(2, r.p95) + '%']]);
+    });
+  });
+
+  dash.draw('payr', function (el) {
+    var d = dash.data('study_payout');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var rows = d.data.map(function (r) { return {s: r.structure, v: +r.R_per_10, e: +r.E_learn}; });
+    var rh = 22, bot = 22, H = rows.length * rh + 4 + bot;
+    var c = chart(el, H, 'R per 10 trades for each exit, 2011-15, without costs: every exit loses');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var lw = Math.ceil(textWidth(svg, rows.map(function (r) { return r.s; }))) + 10;
+    var vw = Math.ceil(textWidth(svg, rows.map(function (r) { return sg(2, r.v); }))) + 10;
+    var lo = Math.min(0, d3.min(rows, function (r) { return r.v; })), hi = Math.max(0, d3.max(rows, function (r) { return r.v; }));
+    var x = d3.scaleLinear().domain([lo, hi]).nice().range([lw + vw, W - 10]);
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    x.ticks(4).forEach(function (v) {
+      gr.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', 2).attr('y2', H - bot);
+      svg.append('text').attr('x', x(v)).attr('y', H - 6).attr('text-anchor', 'middle').text(fx(1, v));
+    });
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 2).attr('y2', H - bot).style('stroke', 'var(--cds-chart-axis)');
+    rows.forEach(function (r, i) {
+      var yy = 2 + i * rh;
+      svg.append('text').attr('x', lw - 8).attr('y', yy + rh / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text(r.s);
+      svg.append('path').attr('d', barH(yy + 5, rh - 10, x(0), x(r.v), 3)).style('fill', C(0));
+      svg.append('text').attr('x', r.v < 0 ? x(r.v) - 6 : x(r.v) + 6).attr('y', yy + rh / 2).attr('dy', '0.32em').attr('text-anchor', r.v < 0 ? 'end' : 'start').text(sg(2, r.v));
+      hoverRect(svg, el, tip, 0, yy, W, rh, [[r.s], ['R per 10 trades', sg(2, r.v)], ['R a trade', sg(4, r.e)]]);
+    });
+  });
+
+  dash.draw('payw', function (el) {
+    var d = dash.data('study_payout');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var rows = d.data.filter(function (r) { return isNum(r.chance_per_10); }).map(function (r) { return {s: r.structure, m: +r.wins_per_10, c: +r.chance_per_10}; });
+    var rh = 24, bot = 22, H = rows.length * rh + 4 + bot;
+    var c = chart(el, H, 'Wins per 10 trades for each fixed target, measured against chance, 2011-15');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var lw = Math.ceil(textWidth(svg, rows.map(function (r) { return r.s; }))) + 10;
+    var vw = Math.ceil(textWidth(svg, ['0.00 vs 0.00'])) + 12;
+    var x = d3.scaleLinear().domain([0, d3.max(rows, function (r) { return Math.max(r.m, r.c); }) * 1.05]).nice().range([lw, W - vw]);
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    x.ticks(5).forEach(function (v) {
+      gr.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', 2).attr('y2', H - bot);
+      svg.append('text').attr('x', x(v)).attr('y', H - 6).attr('text-anchor', 'middle').text(fx(0, v));
+    });
+    rows.forEach(function (r, i) {
+      var yc = 2 + i * rh + rh / 2;
+      svg.append('text').attr('x', lw - 8).attr('y', yc).attr('dy', '0.32em').attr('text-anchor', 'end').text(r.s);
+      svg.append('line').attr('x1', x(Math.min(r.m, r.c))).attr('x2', x(Math.max(r.m, r.c))).attr('y1', yc).attr('y2', yc).style('stroke', 'var(--cds-chart-muted)').style('stroke-width', 2);
+      svg.append('circle').attr('cx', x(r.c)).attr('cy', yc).attr('r', 5).style('fill', 'none').style('stroke', 'var(--cds-chart-muted)').style('stroke-width', 2);
+      svg.append('circle').attr('cx', x(r.m)).attr('cy', yc).attr('r', 5).style('fill', C(0)).style('stroke', 'var(--color-panel)').style('stroke-width', 2);
+      svg.append('text').attr('x', x(Math.max(r.m, r.c)) + 10).attr('y', yc).attr('dy', '0.32em').text(fx(2, r.m) + ' vs ' + fx(2, r.c));
+      hoverRect(svg, el, tip, 0, yc - rh / 2, W, rh, [[r.s], ['Measured', fx(2, r.m) + ' in 10'], ['Chance', fx(2, r.c) + ' in 10']]);
+    });
+  });
+
+  dash.draw('smd', function (el) {
+    var d = dash.data('study_features');
+    if (d.status !== 'ok') return failed(el, d.status);
+    var rows = d.data.map(function (r) { return {f: r.feature, v: +r.smd_learn, c: +r.smd_confirm}; });
+    var rh = 21, top = 18, bot = 22, H = top + rows.length * rh + bot;
+    var c = chart(el, H, 'Standardised difference between winners and losers for each feature, 2011-15; every feature is far below the bar for a small effect');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var lw = Math.ceil(textWidth(svg, rows.map(function (r) { return r.f; }))) + 10;
+    var lim = Math.max(SMD_SMALL * 1.25, d3.max(rows, function (r) { return Math.abs(r.v); }) * 1.1);
+    var x = d3.scaleLinear().domain([-lim, lim]).range([lw + 4, W - 8]);
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    [-SMD_SMALL, -SMD_SMALL / 2, 0, SMD_SMALL / 2, SMD_SMALL].forEach(function (v) {
+      gr.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', top).attr('y2', H - bot);
+      svg.append('text').attr('x', x(v)).attr('y', H - 6).attr('text-anchor', 'middle').text(fx(1, v));
+    });
+    [-SMD_SMALL, SMD_SMALL].forEach(function (v) {
+      svg.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', top).attr('y2', H - bot).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '4 3');
+    });
+    svg.append('text').attr('x', x(SMD_SMALL)).attr('y', top - 6).attr('text-anchor', 'middle').text('small effect');
+    svg.append('text').attr('x', x(-SMD_SMALL)).attr('y', top - 6).attr('text-anchor', 'middle').text('small effect');
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', top).attr('y2', H - bot).style('stroke', 'var(--cds-chart-axis)');
+    rows.forEach(function (r, i) {
+      var yy = top + i * rh;
+      svg.append('text').attr('x', lw - 6).attr('y', yy + rh / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text(r.f);
+      svg.append('path').attr('d', barH(yy + 5, rh - 10, x(0), x(r.v), 2)).style('fill', C(0));
+      hoverRect(svg, el, tip, 0, yy, W, rh, [[r.f], ['2011-15', sg(3, r.v)], ['2016-19', sg(3, r.c)]]);
+    });
+  });
+
+  dash.draw('excandles', function (el) {
+    var id = el.getAttribute('data-ex');
+    var dc = dash.data('candles'), de = dash.data('examples');
+    if (dc.status !== 'ok') return failed(el, dc.status);
+    if (de.status !== 'ok') return failed(el, de.status);
+    var ex = de.data.find(function (r) { return r.example === id; });
+    var cs = dc.data.filter(function (r) { return r.example === id; }).map(function (r) { return {t: r.t, o: +r.o, h: +r.h, l: +r.l, c: +r.c}; });
+    if (!ex || !cs.length) return failed(el, 'empty');
+    var H = 230, top = 10, bot = 22;
+    var c = chart(el, H, (ex.side === 'buy' ? 'Buy ' : 'Sell ') + ex.market + ' from ' + ex.t_in + ' to ' + ex.t_out + ' UTC, with the entry, stop and exit drawn on the candles');
+    var W = c.W, svg = c.svg, tip = c.tip;
+    var ts = cs.map(function (k) { return k.t; });
+    var idx = function (t) { return Math.max(0, d3.bisectRight(ts, t) - 1); };
+    var iIn = idx(ex.t_in), iOut = idx(ex.t_out);
+    var entry = +ex.entry, stop = +ex.stop, exit = +ex.exit;
+    var lo = d3.min(cs, function (k) { return k.l; }), hi = d3.max(cs, function (k) { return k.h; }), span = hi - lo;
+    var stopOn = stop >= lo - 0.6 * span && stop <= hi + 0.6 * span;
+    [entry, exit].concat(stopOn ? [stop] : []).forEach(function (v) { lo = Math.min(lo, v); hi = Math.max(hi, v); });
+    var pad = (hi - lo) * 0.06 || 1e-4;
+    var y = d3.scaleLinear().domain([lo - pad, hi + pad]).range([H - bot, top]);
+    var dec = ex.market === 'USDJPY' ? 3 : (ex.market === 'XAUUSD' ? 2 : 5);
+    var yt = y.ticks(4);
+    var ml = Math.ceil(textWidth(svg, yt.map(function (v) { return fx(dec, v); }))) + 8;
+    var mr = Math.ceil(textWidth(svg, ['entry', 'stop \u2193', 'exit'])) + 10;
+    var x = d3.scaleBand().domain(d3.range(cs.length)).range([ml, W - mr]).padding(0.25);
+    var bw = x.bandwidth(), half = x.step() * 0.125;
+    var gr = svg.append('g').attr('class', 'rp-gr');
+    yt.forEach(function (v) {
+      gr.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(v)).attr('y2', y(v));
+      svg.append('text').attr('x', ml - 6).attr('y', y(v)).attr('dy', '0.32em').attr('text-anchor', 'end').text(fx(dec, v));
+    });
+    svg.append('rect').attr('x', x(iIn) - half).attr('y', top).attr('width', Math.max(2, x(iOut) + bw + half - (x(iIn) - half))).attr('height', H - bot - top).style('fill', 'var(--cds-chart-grid)').style('opacity', 0.55);
+    cs.forEach(function (k, i) {
+      var xc = x(i) + bw / 2, up = k.c >= k.o;
+      svg.append('line').attr('x1', xc).attr('x2', xc).attr('y1', y(k.h)).attr('y2', y(k.l)).style('stroke', 'var(--color-fg-muted)').style('stroke-width', 1);
+      var yb = y(Math.max(k.o, k.c)), hb = Math.max(1, Math.abs(y(k.o) - y(k.c)));
+      svg.append('rect').attr('x', x(i)).attr('y', yb).attr('width', bw).attr('height', hb)
+        .style('fill', up ? 'var(--color-panel)' : 'var(--color-fg-muted)').style('stroke', 'var(--color-fg-muted)').style('stroke-width', 1);
+      hoverRect(svg, el, tip, x(i) - half, top, x.step(), H - bot - top, [[k.t + ' UTC'], ['Open', fx(dec, k.o)], ['High', fx(dec, k.h)], ['Low', fx(dec, k.l)], ['Close', fx(dec, k.c)]]);
+    });
+    var xa = x(iIn), xb = x(iOut) + bw;
+    hline(svg, xa, W - mr + 2, y(entry), C(0), 1.5);
+    if (stopOn) hline(svg, xa, W - mr + 2, y(stop), 'var(--cds-chart-status-critical)', 1.5, '4 3');
+    svg.append('circle').attr('cx', x(iIn) + bw / 2).attr('cy', y(entry)).attr('r', 4.5).style('fill', 'var(--color-panel)').style('stroke', C(0)).style('stroke-width', 2).style('pointer-events', 'none');
+    svg.append('circle').attr('cx', xb - bw / 2).attr('cy', y(exit)).attr('r', 4.5).style('fill', C(0)).style('stroke', 'var(--color-panel)').style('stroke-width', 2).style('pointer-events', 'none');
+    var tags = [{t: 'entry', y: y(entry)}, {t: 'exit', y: y(exit)}];
+    if (stopOn) tags.push({t: 'stop', y: y(stop)});
+    else tags.push({t: stop > hi ? 'stop \u2191' : 'stop \u2193', y: stop > hi ? top + 4 : H - bot - 4});
+    tags.sort(function (a, b) { return a.y - b.y; });
+    for (var i = 1; i < tags.length; i++) if (tags[i].y - tags[i - 1].y < 12) tags[i].y = tags[i - 1].y + 12;
+    tags.forEach(function (g) { svg.append('text').attr('x', W - mr + 6).attr('y', g.y).attr('dy', '0.32em').text(g.t); });
+    svg.append('text').attr('x', ml).attr('y', H - 6).text(cs[0].t);
+    svg.append('text').attr('x', W - mr).attr('y', H - 6).attr('text-anchor', 'end').text(cs[cs.length - 1].t);
+  });
+})();
+</script>

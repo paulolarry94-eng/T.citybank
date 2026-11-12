@@ -1,0 +1,19 @@
+metric,value,meaning
+legs,13.0,legs in the mix
+avg_corr,0.017,"average correlation between legs (daily P&L, 2011-22)"
+risk_36,0.432,"base risk a trade at the 3.6% envelope, % of equity"
+risk_8,0.959,"base risk a trade at the 8% envelope, % of equity"
+trades_2011_22,4886.0,"trades 2011-22, all legs"
+trades_per_month,33.9,"trades a month, all legs"
+min_acc_36,40800.0,"minimum standard account at 3.6%, USD"
+min_acc_cent_36,408.0,"minimum cent account at 3.6%, USD"
+min_acc_8,18380.0,"minimum standard account at 8%, USD"
+min_acc_cent_8,184.0,"minimum cent account at 8%, USD"
+study_setups,80991.0,"pattern study: filled setups 2011-22 (M1, 12 markets)"
+study_tests,1142.0,pattern study: condition tests (single conditions + pairs)
+study_tests_edge,0.0,pattern study: tests with an edge in both LEARN and CONFIRM
+study_tests_lose_less,2.0,pattern study: conditions that lose less in both LEARN and CONFIRM
+ideas_tested,131.0,ideas tested in the project before this report (research memory ledger)
+configs_tried,328243.0,configurations tested in the project before this report
+v2_cells,1440.0,pivot-sweep v2 cells the 3 v2 legs were picked from (research/results/sweep5)
+mc_paths,10000.0,Monte Carlo paths per horizon

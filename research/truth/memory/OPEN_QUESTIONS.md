@@ -266,6 +266,13 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q35 Pivot sweep by candle 4 itself: luck or a real effect? (2026-11-12, forward log only)
+From the deep M1 study (`research/results/sweep6/PHASE2.md`, no costs, 20R target): setups where candle 4 itself swept the pivot made
++0.52R / +0.19R / +0.16R a trade in 2011-15 / 2016-19 / 2020-22 on 197 / 214 / 261 trades (t 1.4 / 0.6 / 0.5): positive in every period but
+not significant, and one of 1,142 tests, so luck is the likely reading. FAMILY: engulfing, owner-idea, liquidity, sweep, pivot. Not a rule.
+Cheapest honest test: log the owner's live candle-4-sweep calls (timestamps, broker prices) for a few months. Any backtest of it is a new
+name with its own pre-registration, and 2023-26 has already been looked at for parts of this family (v1, v2 looks).
+
 ### Q34 Owner's pivot-sweep body-engulf range (2026-11-12) — TESTED, rejected; owner's EURUSD M5 look FAILED (2026-11-12)
 Owner: "build an indicator just like pivot points high low on TradingView ... keep 60 body of 2nd and 4th candle but they
 must appear immediately after a sweep of a pivot point ... enter at 60% of the range ... stop styles ... 3-15R ... best
@@ -286,6 +293,7 @@ timeframe ... cycle centric ... 10 trades high win rate". FAMILY: engulfing, own
   breakeven + spread, 50% bodies. v2 (`research/results/sweep5/RESULT.md`): the reading gap is closed (28-29 Oct reproduced
   exactly); still negative after costs everywhere (0 of 120 in the lab); 3 thin legs (EURGBP H1, NAS100 H1, GBPUSD M15) pass
   the era rule + look and join the Pareto as weak forward-test candidates (`PARETO.md`).
+- 2026-11-12 (deep M1 study without costs, owner: payout first, then entries, then the perfect scanner, Monte Carlo, portfolio; `research/results/sweep6/PHASE1.md`, `PHASE2.md`, `PHASE3.md`): wins at chance for every exit (TP2 1.05 in 10 = -0.43R per 10 trades); 0 of 1,142 entry tests hold in 2011-15 and 2016-19; sweep depth, sweeping candle, 40/50/60% bodies and stop vs the sweep extreme show no consistent effect; losers are breakouts; scanner negative after costs on every timeframe; no Monte Carlo survivor, so no new leg and the 2023-26 holdout stays closed. The candle-4 sweep observation is Q35.
 
 ### Q33 Architecture for a hands-off system: Wealth Game or SEESARE cap with higher alpha? (owner, 2026-11-08)
 FAMILY: architecture, sizing, seesare, payout, owner-idea. Proposal (awaiting the owner's decision; blueprint decision 2):

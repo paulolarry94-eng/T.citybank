@@ -1,0 +1,17 @@
+year,period,ret_36,ret_8
+2011,insample,4.59,10.28
+2012,insample,4.8,10.76
+2013,insample,9.22,21.4
+2014,insample,6.78,15.5
+2015,insample,3.57,7.96
+2016,insample,11.11,26.14
+2017,insample,5.71,12.97
+2018,insample,3.61,8.06
+2019,insample,8.37,19.39
+2020,insample,2.91,6.39
+2021,insample,5.96,13.59
+2022,insample,13.77,32.91
+2023,seen,1.53,3.3
+2024,seen,7.52,17.24
+2025,seen,7.19,16.4
+2026,oos,0.8,1.7

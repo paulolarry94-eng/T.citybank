@@ -1,0 +1,14 @@
+leg,name,short,market,timeframe,weight,trades,per_month,win_pct,avg_win_R,avg_loss_R,expectancy_R,pf,gross_R,cost_R,swap_R,hold_h,later_R,later_trades,contribution_R,risk_pct_36
+EUR_EuroHours_short_TueThu,EURUSD Euro-hours short,EUR hours,EURUSD,clock 09-13 London,0.33,1857,12.9,53.9,0.54,-0.5,0.063,1.27,0.089,0.027,0.0,4.0,0.03,592,38.6,0.143
+tokyo_fix_gotobi_v1,"USDJPY Tokyo fix, gotobi days",Tokyo fix,USDJPY,M5 clock 23:00-00:55 UTC,0.57,858,5.96,54.0,0.37,-0.33,0.047,1.31,0.088,0.041,0.0,1.9,0.052,274,23.0,0.246
+eurusd_close_beyond_reversal_v1,EURUSD close-beyond reversal,EUR reversal,EURUSD,D1,1.0,341,2.37,91.2,0.15,-0.98,0.05,1.58,0.061,0.004,0.007,20.1,0.018,136,17.1,0.432
+XAU_S1_reversion_H1M30M20,Gold dip reversion (S1),Gold dip,XAUUSD,H1/M30/M20,0.63,75,0.52,64.0,1.03,-0.96,0.312,1.91,0.359,0.028,0.019,7.7,-0.018,27,14.7,0.272
+v2_EURGBP_H1,EURGBP pivot-sweep v2,EURGBP v2,EURGBP,H1,0.27,102,0.71,44.1,2.23,-0.95,0.454,1.85,0.533,0.049,0.031,9.3,0.366,35,12.5,0.117
+GBP_WeeklySweep_FollowThrough,GBPUSD weekly sweep follow-through,GBP sweep,GBPUSD,H1,0.93,42,0.29,54.8,0.94,-0.44,0.316,2.58,0.334,0.009,0.009,26.0,0.077,18,12.3,0.402
+XAU_EMA20-50_H4,Gold EMA 20/50 trend,Gold EMA,XAUUSD,H4,0.34,98,0.68,29.6,2.64,-0.62,0.348,1.8,0.484,0.008,0.129,195.8,0.712,27,11.6,0.147
+GBPJPY_Donchian20_H4_trail,GBPJPY Donchian 20 trend,GJ Donchian,GBPJPY,H4,0.25,524,3.64,42.0,1.6,-1.0,0.088,1.15,0.148,0.022,0.039,90.2,-0.071,161,11.5,0.108
+JPY_RSI2_D1_lo5,USDJPY RSI(2) dip,JPY RSI2,USDJPY,D1,1.0,104,0.72,66.3,0.47,-0.63,0.103,1.49,0.134,0.011,0.02,82.2,-0.065,33,10.7,0.432
+JPY_S2_Donchian20_H4_long,USDJPY Donchian 20 long (S2),JPY Donchian,USDJPY,H4,0.37,99,0.69,41.4,2.15,-1.04,0.28,1.46,0.382,0.024,0.078,87.5,0.316,26,10.3,0.16
+XAU_Donchian20_H4_turtle,Gold Donchian 20 trend,Gold Donchian,XAUUSD,H4,0.21,507,3.52,31.2,2.11,-0.81,0.096,1.17,0.182,0.012,0.074,96.0,0.2,175,10.2,0.091
+v2_NAS100_H1,NAS100 pivot-sweep v2,NAS v2,NAS100,H1,0.16,99,0.69,30.3,3.94,-1.11,0.417,1.54,0.622,0.156,0.049,2.7,0.733,20,6.6,0.069
+v2_GBPUSD_M15,GBPUSD pivot-sweep v2,GBP v2,GBPUSD,M15,0.26,180,1.25,31.1,2.59,-1.04,0.089,1.12,0.158,0.058,0.011,3.0,0.091,50,4.2,0.112

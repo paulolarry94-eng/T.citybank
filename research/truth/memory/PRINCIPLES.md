@@ -31,6 +31,7 @@ decide only where a raw edge exists: the curated version still lost in 2020-22 a
 research/results/body4/v7/RESULT.md.
 - 2026-11-12 (pivot-sweep range, `research/results/sweep4/RESULT.md`): M5 with the sweep +0.07R before costs, -0.18R after (2011-19); a raw effect smaller than the 0.25R a trade that costs take on 2-pip stops.
 - 2026-11-12 (pivot-sweep v2, owner's chart reading): before costs PF 0.94-1.03 on M1-H1, after costs 0.54-0.82; more trades did not add edge (`research/results/sweep5/RESULT.md`).
+- 2026-11-12 (deep M1 study, `research/results/sweep6/PHASE3.md`): the pivot-sweep scanner is about 0 without costs on every timeframe and -0.10 to -0.47R a trade with RoboForex Prime costs (M1 -0.47R, H4 -0.10R); with no raw edge, cheaper costs cannot help.
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -43,6 +44,7 @@ on about 1 setup in 5). research/results/pa4/RESULT.md.
 
 Evidence (2026-11-08, body-engulf range): a limit at the 50% midpoint beat the deeper 70% pull-back in 74% of 1,102 paired
 settings (+0.08R a trade 2011-19; 70% and +0.05R 2020-22): the deeper fill picks worse trades. research/results/body4/RESULT.md.
+- 2026-11-12 (deep M1 study, `research/results/sweep6/PHASE1.md`, no costs): the 60% limit entry won less often than chance at small targets (1R 4.16 vs 5.00 in 10, 2R 2.98 vs 3.33, 3R 2.30 vs 2.50) and at chance from 10R up: the fill picks the trades that keep going against it.
 
 ### P3 Higher timeframes beat lower ones
 Costs per unit of risk shrink and noise falls. FVG M5→H1 +0.15R in every paired setting; QM M15→H1 +0.05R.
@@ -115,6 +117,7 @@ within 3 H1 bars and confirmed by an M15 structure break, faded to the opposite 
 EURUSD at RoboForex Prime costs: 4 configurations, the best +0.107R (t 2.1) in 2011-19, -0.087R in 2020-22, +0.057R in
 2023-25 (gold negative in both later periods), stress negative: rejected. Near-miss controls (same break, no sweep) lost
 in every cell. Confidence raised to medium-high: about 1,400 earlier variants plus this one.
+- 2026-11-12 (deep M1 study, `research/results/sweep6/PHASE2.md`): 68% of the pivot-sweep reversal's losers first ran 3R or more beyond the stop (a breakout, not a near-miss); only 5-6% were wick stops a slightly wider stop would have saved.
 
 ### P8 Simple sizing beats clever risk states
 Halving size after a 10% drawdown slows recovery; plain fixed-fractional at lower risk dominates at equal
@@ -159,6 +162,7 @@ Evidence (2026-11-09, body-engulf v6): the best two-week mix from 2011-19 (the 3
 made money, +0.28R a fortnight) lost -0.36R a fortnight in 2020-22 and -0.18R in 2023-25; none of the 12 configurations'
 mixes made money in both later periods. research/results/body4/v6/RESULT.md.
 - 2026-11-12 (pivot-sweep range): 149 of 1,403 market x timeframe cells positive in 2011-19, 37 of those positive in 2020-22; the best cell (EURUSD M5 15R, +1.63R on 98 trades, t about 2.7) is below the luck ceiling for 1,403 tries (about 3.8).
+- 2026-11-12 (deep M1 study): a two-condition scanner that lost less in both 2011-15 and 2016-19 (12-16 UTC, not Monday) made +0.024R a trade in 2011-15 and -0.039R / -0.037R in 2016-19 / 2020-22; the three cells of 72 that passed the era rule all failed the Monte Carlo (`research/results/sweep6/PHASE2.md`, `PHASE3.md`).
 
 ### P11 Expect live results 30–50% weaker than heavily searched backtests
 Selection bias from wide searches. Evidence: industry and statistics. First measurement here (2026-10-31): the 11-leg book
@@ -291,6 +295,7 @@ Evidence (2026-11-08, body-engulf range at 10R): the owner has "seen it even at 
 121,822 trades, the biggest +17 to +27R after gaps), but 89% of trades were stopped; a 10R target needs about 9% winners
 before costs. research/results/body4/v3/RESULT.md.
 - 2026-11-12: of the owner's 3 replayable chart trades, one reproduced (+15.5R with the 60/40 split, +19.2R all at TP2; first reported as +21.5R from a pre-fix replay, corrected 2026-11-12), one missed the entry by 0.2 pip in our feed, one (5 Nov) was stopped on the owner's own chart before the drop; across 12 markets the rule wins 12-20% of trades.
+- 2026-11-12 (deep M1 study): the owner's big chart winner (+19.2R all at TP2) belongs to a rule whose TP2 exit wins 1.05 times in 10 at an 8.1R average: -0.43R per 10 trades before costs. Screenshots show the winners; the 9 losers around each are not in them (`research/results/sweep6/PHASE1.md`).
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
@@ -335,6 +340,7 @@ Evidence (2026-11-08, gold body-engulf characteristics, pre-registered, learn 20
 4's close, 70 conditions; every group lost after costs in 2019 and in 14 other years (except H4, +0.03R on 261 trades);
 before costs every group -0.09 to +0.05R. Only cost-related traits (timeframe, cost share, session, volatility) moved
 the result, toward zero. The rule learned on 2019 lost in 2026. research/results/body4/gold/RESULT.md.
+- 2026-11-12 (deep M1 study, `research/results/sweep6/PHASE2.md`): winners and losers of the pivot-sweep setup differ by less than 0.1 standard deviations on all 18 features known at the entry (0.2 is a small effect); 0 of 1,142 single and paired condition tests showed an edge in both 2011-15 and 2016-19.
 
 ### P22 Edges with a payer survive where shapes do not
 After ~300,000 configurations of chart shapes rejected after costs, the first new survivor is a flow with a known payer:
@@ -478,3 +484,5 @@ Correction (2026-11-08, v3 audit): for a resting limit entry, a fill and a stop 
 to pass the entry to reach the stop, so it is a certain loss. The truly unclear case (stop and target in the same minute)
 is at most 0.2% of M1 trades and 0.06% of M5+ trades for the body-engulf range. Minute bars are enough to judge it.
 History: the first version of P30 (above) counted every same-minute event as unclear (20% of M1 trades).
+- 2026-11-12 (tick check, `research/results/sweep6/tickcheck.json`): on 585 pivot-sweep trades (EURUSD, GBPUSD, XAUUSD; Mar 2021, Sep 2021, Jun 2022) one-minute bars gave the same win rate as Exness ticks from 5R up and 0.4-1.7 points fewer wins at 1-3R: one-minute bars are fine for stops several minutes wide, pessimistic at small targets.
+

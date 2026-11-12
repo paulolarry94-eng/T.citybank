@@ -1,0 +1,19 @@
+id,feature,smd_learn,smd_confirm,ks_learn
+f1,Volatility regime,0.094,0.0807,0.0397
+f2,Stop size (ATR),0.0613,0.0676,0.0244
+f3,Range size (ATR),0.0613,0.0676,0.0244
+f4,Sweep depth (R),-0.0504,-0.0494,0.0363
+f5,Room to TP2 (R),-0.0454,-0.0299,0.0267
+f6,"Momentum, last hour",-0.0412,-0.0257,0.024
+f7,Room to TP1 (R),-0.0322,-0.0198,0.0172
+f8,Minutes to fill,0.0284,0.025,0.0117
+f9,Candle 4 body,-0.0245,-0.0167,0.026
+f10,Sweep depth (ATR),-0.0236,-0.0314,0.0222
+f11,Place in the day's range,-0.0169,-0.0069,0.0124
+f12,Pull-back from the sweep,-0.0132,0.0033,0.0149
+f13,Candle 4 close in range,0.0126,0.0233,0.0195
+f14,"Momentum, last day",0.0112,0.0157,0.009
+f15,Candle 2 / candle 1 size,0.0054,0.0028,0.014
+f16,Candle 2 body,-0.0051,-0.0194,0.019
+f17,Candle 4 / candle 3 size,0.0048,-0.0061,0.0148
+f18,Pivot age,0.0028,0.0146,0.0161

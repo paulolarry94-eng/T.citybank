@@ -918,3 +918,28 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   were picked from 1,440 cells (about as many as luck would pass at the era step).
 - **Next:** forward demo of Timeless 10 + v2; the owner's 11-12 Nov trades once data is published.
 
+
+## 2026-11-12 (32) · owner: "a deep, reliable, consistent pattern test on M1 without costs ... payout structure first (TP2 only, breakeven at 75%, 3R-10R fixed) ... then the entry that loses least (sweep size, candle 2 or 4, candles after the sweep, 40/50/60% bodies) ... the perfect scanner on all timeframes and markets, without and with costs ... Monte Carlo survivors make the portfolio ... professional backtest report, examples, account size ... come back with good news"
+- **Done:** corrected the +21.5R replay everywhere (a9eaaf2: +15.5R 60/40, +19.2R all at TP2; it ran before the partial-mode fix).
+  Pre-registered the deep study (9305332) and a tick-check addendum before any result. Built a frictionless M1 outcome engine
+  (24 exit structures in one pass per setup, stop first when a minute holds both; a plain-Python reference agrees on 9,600
+  checks; 6 tests) and ran Phase 1 (payout), the tick check (585 trades on Exness ticks), Phase 2 (1,142 entry tests, winners vs
+  losers, loser anatomy, greedy scanner), Phase 3 (Truth Lab `sweep6_scanner_v1`, 12 markets x M1-H4, without and with costs,
+  era rule, Monte Carlo). Built the portfolio report for Timeless 10 + v2 (cost profiles, years, months, weekly equity,
+  correlation, Monte Carlo, account size, payouts, rule-chosen examples) as a page with 20 data files, every number marked
+  and checked locally against its data (1,120 numbers): https://claude.ai/artifact/QRh9Gy181Wsd2pn7uYgx8K.
+- **Learned:** REJECTED, no edge to find. Wins per 10 trades sit at chance for every exit (1R 4.16 vs 5.00; 5R 1.56 vs 1.67;
+  10R 0.89 vs 0.91; TP2 1.05 at an 8.1R average = -0.43R per 10 trades), which is why two big winners on a chart do not make
+  a year. No exit is positive in 2011-15 or 2016-19; breakeven at 75% adds nothing (P4). Ticks agree with M1 from 5R up.
+  Winners and losers look alike on all 18 features; 0 of 1,142 entry tests hold; only "a sweep at all", 12-16 UTC and not
+  Monday lose less. Losers are breakouts (68% run 3R+ past the stop). Scanner +0.024R -> -0.039R -> -0.037R; after costs
+  -0.10 to -0.47R a trade; the 3 era-rule cells fail the Monte Carlo. Portfolio at 3.6%: +6.66% / +5.38% a year (2011-22 /
+  2023-25), +0.80% Jan-Oct 2026, worst drawdown 4.11%, every year 2011-25 positive; smallest account $40,800 ($408 cent).
+  Evidence: P1, P2, P7, P10, P18, P21, P30.
+- **Decisions:** the 2023-26 holdout was not opened for this study (nothing survived Phase 3-4); no new leg; the candle-4
+  sweep observation is Q35 (forward log only).
+- **Facts vs estimates:** study figures are frictionless by request; Phase 3 costs are RoboForex Prime published figures plus
+  slippage; account sizes assume FX 100,000 units, gold 100 oz, NAS100 $1 a point, USDJPY 145, GBPUSD 1.27; the Monte Carlo
+  resamples in-sample fortnights (optimistic); 2026 is not a clean test for the v2 legs (kept after a look that included it).
+- **Next:** the gated plan (account export, re-score, EAs + parity, 3-6 months demo with the two-week report); a forward log
+  of the owner's live pivot-sweep calls if they want to keep watching the pattern.
