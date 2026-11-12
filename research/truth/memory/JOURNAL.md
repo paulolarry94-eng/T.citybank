@@ -910,7 +910,7 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   found five reading differences in v1; pre-registered v2 (7b6add8); new detector, fast + reference engines with fill-time
   TP1/TP2, 60% partial and breakeven-plus-spread; a unit test caught a partial-mode bug (first exit at TP2) before any result was
   used; 7 tests; lab `sweep5_pivot_v2` (0 of 120); study with loser study; one logged look (rule committed first); Pareto.
-- **Learned:** the owner's 28-29 Oct trade reproduces exactly (+21.5R); the rule still loses after costs (PF 0.54-0.82, before
+- **Learned:** the owner's 28-29 Oct trade reproduces exactly (+21.5R [CORRECTED in entry 32: +15.5R 60/40, +19.2R all at TP2; the +21.5R replay ran before the partial-mode fix]); the rule still loses after costs (PF 0.54-0.82, before
   costs ~1.0); wider stops lose less but stay negative; stopped trades often reach TP1 later, but only after running far past
   the stop. Three thin legs pass (EURGBP H1, NAS100 H1, GBPUSD M15); with them the timeless mix's later Sharpe goes 0.20 -> 0.24.
   80-120% a year needs a 44-66% envelope. Evidence: P1, P18, P27.

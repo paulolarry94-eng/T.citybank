@@ -8,7 +8,9 @@ Pre-registration: `research/sweep5/PREREGISTRATION.md` (7b6add8). Lab: `research
   clock is UTC+1). v1 missed your trades because of five readings: strict engulf (you use "closes beyond the open"), 60%
   bodies, dojis counted as neither colour, the sweep only on candle 1-2, and targets fixed at candle 4 with the order
   cancelled when price reached that target first. v2 follows your charts: your 28-29 Oct night trade is reproduced exactly
-  (sell 1.11582 at 02:09 UTC, stop 1.11600, TP1 1.11340, TP2 1.11226, +21.5R). The 29 Oct 11:25 trade misses by 0.2 pip in our
+  (sell 1.11582 at 02:09 UTC, stop 1.11600, TP1 1.11340 = 13.1R, TP2 1.11226 = 19.3R; after Prime costs +15.5R with the
+  60/40 split, +19.2R all at TP2, +13.0R all at TP1. CORRECTION 2026-11-12: an earlier version said +21.5R; that replay ran
+  before the partial-mode bug fix below and was wrong). The 29 Oct 11:25 trade misses by 0.2 pip in our
   feed (our high 1.11503, entry 1.11505). Your 5 Nov trade is not a setup in our feed (candle 4 body 47%) and was stopped at
   17:40 UTC on your own chart before the drop. 11-12 Nov has no data yet.
 - **Found and fixed while testing:** a bug in the new engines' partial mode (first exit aimed at TP2); caught by a unit test

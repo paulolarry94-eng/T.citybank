@@ -290,7 +290,7 @@ days (same reference candle, entry and stop within cents), so the rules were cap
 Evidence (2026-11-08, body-engulf range at 10R): the owner has "seen it even at 10R" and 10R winners are real (6.6% of
 121,822 trades, the biggest +17 to +27R after gaps), but 89% of trades were stopped; a 10R target needs about 9% winners
 before costs. research/results/body4/v3/RESULT.md.
-- 2026-11-12: of the owner's 3 replayable chart trades, one reproduced (+21.5R), one missed the entry by 0.2 pip in our feed, one (5 Nov) was stopped on the owner's own chart before the drop; across 12 markets the rule wins 12-20% of trades.
+- 2026-11-12: of the owner's 3 replayable chart trades, one reproduced (+15.5R with the 60/40 split, +19.2R all at TP2; first reported as +21.5R from a pre-fix replay, corrected 2026-11-12), one missed the entry by 0.2 pip in our feed, one (5 Nov) was stopped on the owner's own chart before the drop; across 12 markets the rule wins 12-20% of trades.
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
