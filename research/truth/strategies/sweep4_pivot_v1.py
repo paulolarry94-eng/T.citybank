@@ -66,7 +66,9 @@ def setups(B, p, M):
 def orders(S_, p):
     """Entry level, stop, target (R), width and the allow mask for one configuration."""
     lvl, stp, risk, w = SW.levels(S_, buffer=0.2 if p["stop"] == "buf20" else 0.0, entry=ENTRY)
-    if p["target"] in ("p1", "p2"):
+    if p["target"] == "pv2":                                 # owner 2026-11-12 (not in the grid): the 2nd pivot past entry
+        tgt = SW.pivot_r(S_, lvl, risk, 2)
+    elif p["target"] in ("p1", "p2"):
         tgt = SW.structural_r(S_, lvl, risk, which=1 if p["target"] == "p1" else 2)
     else:
         tgt = np.full(len(lvl), float(p["target"]))

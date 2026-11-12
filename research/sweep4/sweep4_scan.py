@@ -66,3 +66,10 @@ def structural_r(S, lvl, risk, which=1, rmin=3.0, rmax=15.0):
         if len(j) >= which:
             out[q] = r[q, j[which - 1]]
     return out
+
+
+def pivot_r(S, lvl, risk, n=2):
+    """Owner 2026-11-12: "you pass the first pivot, then the next pivot is the TP": target in R at the n-th live pivot on
+    the target side beyond the entry (known when candle 4 closes), with no minimum or maximum R. nan if there is none."""
+    r = (S["lev"][:, n - 1] - lvl) * S["side"] / risk
+    return np.where(r > 0, r, np.nan)
