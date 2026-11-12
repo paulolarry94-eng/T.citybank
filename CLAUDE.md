@@ -172,6 +172,11 @@ Learning rules:
   (best of 1,403 cells, +1.63R / 98 trades then +0.32R / 22). Owner's EURUSD M5 look (2nd-pivot target, trailing stop): 2023-25
   -0.20R (26), Jan-Oct 2026 -1.07R (6, all lost), ~0 before costs: FAILS; no broker fixes it (Prime cheapest). Owner's DAX
   screenshot = 6 Nov 2026 19:50 UTC (misses strict engulf by 0.5 pt in our feed). GER40 2026 added (`tools/histdata_months.py`).
+- Pivot-sweep v2 (2026-11-12, owner's chart reading: loose engulf, doji bullish, 50% bodies, sweep within 6 candles, order waits,
+  TP1/TP2 = live pivots at the fill, 60% at TP1 then breakeven + spread; `research/sweep5/`): owner's 28-29 Oct trade reproduced
+  (+21.5R); lab 0 of 120; before costs PF ~1.0, after 0.54-0.82. 3 thin legs pass era rule + look (EURGBP H1, NAS100 H1, GBPUSD
+  M15). Pareto (`research/results/sweep5/PARETO.md`): Timeless 10 + v2 = B and C, 6.5 / 5.3 / 1.0% a year at 3.6%
+  (2011-22 / 2023-25 / Jan-Oct 2026), every year positive; 80% a year needs a 44% envelope.
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

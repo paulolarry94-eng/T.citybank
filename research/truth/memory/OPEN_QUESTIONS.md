@@ -282,6 +282,10 @@ timeframe ... cycle centric ... 10 trades high win rate". FAMILY: engulfing, own
   lost); before costs about 0 / negative; every listed broker worse than RoboForex Prime. FAILS. DAX screenshot found
   (6 Nov 2026 19:50 UTC); in our feed it misses the rule by 0.5 points (engulf) and 4% (body); outcome after our data ends.
   Remaining: a forward log of the owner's live calls with exact candle times and the broker's own prices.
+- 2026-11-12 (later): owner sent 3 more dated charts (28-29 Oct, 5 Nov, 11-12 Nov 2026) and the rules TP1/TP2, 60% off at TP1,
+  breakeven + spread, 50% bodies. v2 (`research/results/sweep5/RESULT.md`): the reading gap is closed (28-29 Oct reproduced
+  exactly); still negative after costs everywhere (0 of 120 in the lab); 3 thin legs (EURGBP H1, NAS100 H1, GBPUSD M15) pass
+  the era rule + look and join the Pareto as weak forward-test candidates (`PARETO.md`).
 
 ### Q33 Architecture for a hands-off system: Wealth Game or SEESARE cap with higher alpha? (owner, 2026-11-08)
 FAMILY: architecture, sizing, seesare, payout, owner-idea. Proposal (awaiting the owner's decision; blueprint decision 2):

@@ -83,7 +83,7 @@ def evaluate(name, L, L26):
     rec["envelope_95_pct_at_3.6"] = 3.6
     rec["legs_detail"] = [dict(magic=i + 1, name=g["name"], market=META.get(g["name"], ("?", "?", "?"))[0],
                                timeframe=META.get(g["name"], ("?", "?", "?"))[1], weight=round(float(g["w"]), 2),
-                               avg_risk_pct_at_3.6=round(float(g["w"]) * risk[0.036] * 100, 3),
+                               avg_risk_pct_at_3p6=round(float(g["w"]) * risk[0.036] * 100, 3),
                                **{k: leg_stats(g, *v) for k, v in (("2011-22", (TM.T0, TM.Y23)), ("2023-25", (TM.Y23, TM.Y26)))})
                           for i, g in enumerate(L)]
     return rec

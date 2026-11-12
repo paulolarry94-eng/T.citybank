@@ -30,6 +30,7 @@ median EURUSD stop is 5-9 pips, so Prime costs are 0.06-0.11R a trade (0.13-0.39
 decide only where a raw edge exists: the curated version still lost in 2020-22 at zero cost.
 research/results/body4/v7/RESULT.md.
 - 2026-11-12 (pivot-sweep range, `research/results/sweep4/RESULT.md`): M5 with the sweep +0.07R before costs, -0.18R after (2011-19); a raw effect smaller than the 0.25R a trade that costs take on 2-pip stops.
+- 2026-11-12 (pivot-sweep v2, owner's chart reading): before costs PF 0.94-1.03 on M1-H1, after costs 0.54-0.82; more trades did not add edge (`research/results/sweep5/RESULT.md`).
 
 ### P2 Resting limit / retest entries suffer adverse selection
 They fill when price runs against you and miss the trades that work. QM: retest worse than market entry in
@@ -289,6 +290,7 @@ days (same reference candle, entry and stop within cents), so the rules were cap
 Evidence (2026-11-08, body-engulf range at 10R): the owner has "seen it even at 10R" and 10R winners are real (6.6% of
 121,822 trades, the biggest +17 to +27R after gaps), but 89% of trades were stopped; a 10R target needs about 9% winners
 before costs. research/results/body4/v3/RESULT.md.
+- 2026-11-12: of the owner's 3 replayable chart trades, one reproduced (+21.5R), one missed the entry by 0.2 pip in our feed, one (5 Nov) was stopped on the owner's own chart before the drop; across 12 markets the rule wins 12-20% of trades.
 
 ### P19 Probability of profit = edge per trade x number of independent edges x time, not setup picking
 On the 11-leg book's own trades: the share of profitable fortnights rises from 55% (lab costs) to 61% (Exness Zero
@@ -424,6 +426,7 @@ Evidence (2026-11-09, the most timeless mix: 10 survivor legs positive in each o
 cap (0.46% risk a trade, set on 2011-22) +6.0% a year 2011-22, +4.7% 2023-25, about 0 in Jan-Oct 2026; at 8% (1.0% risk)
 +13.3%, +10.6%, about +0.8%. Every year 2011-25 positive at 3.6%. Picking legs by era consistency helped a little
 (fortnight Sharpe 0.20 vs 0.18 for all 13 in 2023-Oct 2026). research/results/goal/TIMELESS_MIX.md.
+- 2026-11-12 (Pareto, `research/results/sweep5/PARETO.md`): best mix (timeless 10 + 3 thin v2 legs) 6.5% a year at 3.6% in 2011-22, 5.3% 2023-25, 1.0% Jan-Oct 2026; 80% a year would need a 44% envelope.
 
 ### P28 A cycle target within a drawdown cap is a demand on the per-trade Sharpe, and mixing strategies does not meet it
 With independent trades and fixed risk, +2% per 10-trade cycle with 95% of 360-trade lifecycles inside a drawdown D needs a
