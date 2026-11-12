@@ -890,3 +890,18 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   for the body-engulf family (v5) but not with this rule.
 - **Next:** the owner's answers (screenshot dates, target rule, win-rate vs R, whether to spend one logged look on EURUSD M5).
 
+## 2026-11-12 (30) · owner: "the target can be two pivots after entry ... those charts were from 2026 ... test 2026 too ... if M5 EU works let's test it proper ... we can always find the fees that align" (+ pasted copy-trading broker list)
+- **Done:** added the owner's `pv2` target (2nd live pivot past the entry); GER40 Jan-Nov 2026 from HistData by month
+  (`tools/histdata_months.py`, saved to data/holdout); pre-registered the single look (2111f5f) before any number; ran it
+  (`research/sweep4/look.py`, LOOK.json) with five cost profiles; found and replayed the owner's DAX screenshot.
+- **Learned:** FAILS. Stop picked on 2011-22 = pivot trailing. 2023-25 -0.20R (26 trades, 3 wins), Jan-Oct 2026 -1.07R
+  (6 trades, 0 wins); before costs -0.02 / -0.88R, so no broker can fix it. RoboForex Prime (0.55 pip with slippage) is
+  cheaper than Exness Zero, Tickmill Raw or Pepperstone Razor on the pasted figures. The DAX screenshot is 6 Nov 2026 19:50
+  UTC; in our feed it narrowly fails the strict engulf (0.5 points) and the 60% body (56%); its outcome is after our data
+  ends. The EURUSD screenshot is from 9-12 Nov 2026 (no data yet). P11 evidence added.
+- **Decisions:** the pivot-sweep family has no unseen EURUSD data left; Q34 updated.
+- **Facts vs estimates:** Tickmill/Pepperstone costs are the owner's pasted figures (unverified); FXCM prices differ from
+  HistData by about 4 DAX points, enough to flip a 60%-body or strict-engulf test.
+- **Next:** if the owner wants to keep this pattern: a forward log of live calls with timestamps and the broker's own
+  prices; otherwise back to the gated plan (timeless mix EAs + demo).
+

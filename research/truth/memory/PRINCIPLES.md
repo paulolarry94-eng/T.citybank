@@ -173,6 +173,7 @@ Evidence (2026-11-01, repo funnel): payday (S&P 500 on the day after the 15th) +
 2020-22 and 2023-25; on futures, commodity momentum and term structure made +17-18%/yr in 2000-09 and lost money after 2010,
 country betting-against-beta +16%/+30%/yr then -24%/yr in 2020-22. Public repos rank backtests on other assets with no costs
 or holdout: trustdan's champion (Alt10, "76% success" on US stocks) is -0.62R/trade on our markets.
+- 2026-11-12 (pivot-sweep, owner's EURUSD M5 look): best of 1,403 cells; +0.46R on 82 trades 2011-19 -> -0.07R 2020-22 -> -0.20R 2023-25 -> -1.07R Jan-Oct 2026 (`research/results/sweep4/LOOK.json`).
 
 ### P12 CFD financing kills high-notional strategies
 Trend + carry needs about 4x notional; CFD markups make it Sharpe 0.06 versus 0.50 on futures. Bonds are

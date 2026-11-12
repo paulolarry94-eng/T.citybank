@@ -1,0 +1,953 @@
+{
+ "prereg": "research/sweep4/PREREGISTRATION_LOOK.md",
+ "decided_by": "owner, 2026-11-12 ('test 2026 too ... if M5 EU works let's test it proper')",
+ "primary": {
+  "market": "EURUSD",
+  "tf": "M5",
+  "piv": 10,
+  "sweep": "c12",
+  "target": "pv2",
+  "stop": "trail"
+ },
+ "stop_choice_2011_22": {
+  "range": {
+   "s": 0.0945,
+   "2011-19": {
+    "n": 82,
+    "E": 0.455,
+    "win": 0.171,
+    "total_R": 37.3,
+    "t": 1.02,
+    "s": 0.113,
+    "rounds_of_10": 8,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 4.96
+   },
+   "2020-22": {
+    "n": 20,
+    "E": 0.37,
+    "win": 0.05,
+    "total_R": 7.4,
+    "t": 0.25,
+    "s": 0.057,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 3.7
+   }
+  },
+  "buf20": {
+   "s": 0.0538,
+   "2011-19": {
+    "n": 82,
+    "E": 0.235,
+    "win": 0.22,
+    "total_R": 19.3,
+    "t": 0.73,
+    "s": 0.081,
+    "rounds_of_10": 8,
+    "rounds_positive": 0.38,
+    "rounds_mean_R": 2.69
+   },
+   "2020-22": {
+    "n": 20,
+    "E": -0.07,
+    "win": 0.05,
+    "total_R": -1.4,
+    "t": -0.07,
+    "s": -0.016,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -0.7
+   }
+  },
+  "trail": {
+   "s": 0.0965,
+   "2011-19": {
+    "n": 82,
+    "E": 0.456,
+    "win": 0.22,
+    "total_R": 37.4,
+    "t": 1.14,
+    "s": 0.126,
+    "rounds_of_10": 8,
+    "rounds_positive": 0.75,
+    "rounds_mean_R": 4.97
+   },
+   "2020-22": {
+    "n": 21,
+    "E": -0.071,
+    "win": 0.095,
+    "total_R": -1.5,
+    "t": -0.09,
+    "s": -0.02,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -0.19
+   }
+  }
+ },
+ "started": "2026-11-12 07:49:25 UTC",
+ "primary_result": {
+  "2011-19": {
+   "n": 82,
+   "E": 0.456,
+   "win": 0.22,
+   "total_R": 37.4,
+   "t": 1.14,
+   "s": 0.126,
+   "rounds_of_10": 8,
+   "rounds_positive": 0.75,
+   "rounds_mean_R": 4.97
+  },
+  "2020-22": {
+   "n": 21,
+   "E": -0.071,
+   "win": 0.095,
+   "total_R": -1.5,
+   "t": -0.09,
+   "s": -0.02,
+   "rounds_of_10": 2,
+   "rounds_positive": 0.5,
+   "rounds_mean_R": -0.19
+  },
+  "2023-25": {
+   "n": 26,
+   "E": -0.198,
+   "win": 0.115,
+   "total_R": -5.1,
+   "t": -0.35,
+   "s": -0.068,
+   "rounds_of_10": 2,
+   "rounds_positive": 0.5,
+   "rounds_mean_R": 0.97
+  },
+  "2026": {
+   "n": 6,
+   "E": -1.071,
+   "win": 0.0,
+   "total_R": -6.4,
+   "t": -7.9,
+   "s": -3.226
+  }
+ },
+ "costs": {
+  "RoboForex Prime": {
+   "2011-19": {
+    "n": 82,
+    "E": 0.456,
+    "win": 0.22,
+    "total_R": 37.4,
+    "t": 1.14,
+    "s": 0.126,
+    "rounds_of_10": 8,
+    "rounds_positive": 0.75,
+    "rounds_mean_R": 4.97
+   },
+   "2020-22": {
+    "n": 21,
+    "E": -0.071,
+    "win": 0.095,
+    "total_R": -1.5,
+    "t": -0.09,
+    "s": -0.02,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -0.19
+   },
+   "2023-25": {
+    "n": 26,
+    "E": -0.198,
+    "win": 0.115,
+    "total_R": -5.1,
+    "t": -0.35,
+    "s": -0.068,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 0.97
+   },
+   "2026": {
+    "n": 6,
+    "E": -1.071,
+    "win": 0.0,
+    "total_R": -6.4,
+    "t": -7.9,
+    "s": -3.226
+   }
+  },
+  "Exness Zero": {
+   "2011-19": {
+    "n": 79,
+    "E": 0.339,
+    "win": 0.228,
+    "total_R": 26.8,
+    "t": 0.86,
+    "s": 0.096,
+    "rounds_of_10": 7,
+    "rounds_positive": 0.71,
+    "rounds_mean_R": 4.94
+   },
+   "2020-22": {
+    "n": 21,
+    "E": -0.206,
+    "win": 0.095,
+    "total_R": -4.3,
+    "t": -0.27,
+    "s": -0.058,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -1.56
+   },
+   "2023-25": {
+    "n": 25,
+    "E": -0.32,
+    "win": 0.12,
+    "total_R": -8.0,
+    "t": -0.55,
+    "s": -0.109,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -0.6
+   },
+   "2026": {
+    "n": 6,
+    "E": -1.261,
+    "win": 0.0,
+    "total_R": -7.6,
+    "t": -7.6,
+    "s": -3.102
+   }
+  },
+  "Tickmill Raw (owner's figures)": {
+   "2011-19": {
+    "n": 80,
+    "E": 0.22,
+    "win": 0.212,
+    "total_R": 17.6,
+    "t": 0.57,
+    "s": 0.064,
+    "rounds_of_10": 8,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 2.2
+   },
+   "2020-22": {
+    "n": 21,
+    "E": -0.176,
+    "win": 0.095,
+    "total_R": -3.7,
+    "t": -0.23,
+    "s": -0.05,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -1.26
+   },
+   "2023-25": {
+    "n": 25,
+    "E": -0.281,
+    "win": 0.12,
+    "total_R": -7.0,
+    "t": -0.48,
+    "s": -0.096,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -0.21
+   },
+   "2026": {
+    "n": 6,
+    "E": -1.219,
+    "win": 0.0,
+    "total_R": -7.3,
+    "t": -7.67,
+    "s": -3.13
+   }
+  },
+  "Pepperstone Razor (owner's figures)": {
+   "2011-19": {
+    "n": 79,
+    "E": 0.213,
+    "win": 0.215,
+    "total_R": 16.8,
+    "t": 0.55,
+    "s": 0.062,
+    "rounds_of_10": 7,
+    "rounds_positive": 0.71,
+    "rounds_mean_R": 3.66
+   },
+   "2020-22": {
+    "n": 21,
+    "E": -0.206,
+    "win": 0.095,
+    "total_R": -4.3,
+    "t": -0.27,
+    "s": -0.058,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -1.56
+   },
+   "2023-25": {
+    "n": 24,
+    "E": -0.255,
+    "win": 0.125,
+    "total_R": -6.1,
+    "t": -0.42,
+    "s": -0.086,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": -0.6
+   },
+   "2026": {
+    "n": 6,
+    "E": -1.261,
+    "win": 0.0,
+    "total_R": -7.6,
+    "t": -7.6,
+    "s": -3.102
+   }
+  },
+  "zero cost": {
+   "2011-19": {
+    "n": 82,
+    "E": 0.728,
+    "win": 0.232,
+    "total_R": 59.7,
+    "t": 1.79,
+    "s": 0.198,
+    "rounds_of_10": 8,
+    "rounds_positive": 0.88,
+    "rounds_mean_R": 7.71
+   },
+   "2020-22": {
+    "n": 21,
+    "E": 0.06,
+    "win": 0.095,
+    "total_R": 1.3,
+    "t": 0.08,
+    "s": 0.017,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 1.13
+   },
+   "2023-25": {
+    "n": 26,
+    "E": -0.015,
+    "win": 0.115,
+    "total_R": -0.4,
+    "t": -0.03,
+    "s": -0.005,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 2.76
+   },
+   "2026": {
+    "n": 6,
+    "E": -0.88,
+    "win": 0.0,
+    "total_R": -5.3,
+    "t": -8.05,
+    "s": -3.288
+   }
+  }
+ },
+ "trades_2023_2026": [
+  {
+   "fill": "2023-01-18 13:54",
+   "exit": "2023-01-18 14:15",
+   "side": "sell",
+   "R": -1.07,
+   "target_R": 15.5,
+   "reason": "stop"
+  },
+  {
+   "fill": "2023-02-08 02:38",
+   "exit": "2023-02-08 05:56",
+   "side": "sell",
+   "R": -1.08,
+   "target_R": 7.4,
+   "reason": "trailed stop"
+  },
+  {
+   "fill": "2023-02-17 06:58",
+   "exit": "2023-02-17 07:02",
+   "side": "buy",
+   "R": -1.21,
+   "target_R": 14.7,
+   "reason": "stop"
+  },
+  {
+   "fill": "2023-03-07 04:33",
+   "exit": "2023-03-07 06:54",
+   "side": "sell",
+   "R": 11.93,
+   "target_R": 12.1,
+   "reason": "target"
+  },
+  {
+   "fill": "2023-03-08 11:13",
+   "exit": "2023-03-08 14:30",
+   "side": "buy",
+   "R": 3.72,
+   "target_R": 3.8,
+   "reason": "target"
+  },
+  {
+   "fill": "2023-07-07 04:28",
+   "exit": "2023-07-07 04:29",
+   "side": "sell",
+   "R": -1.25,
+   "target_R": 4.9,
+   "reason": "stop"
+  },
+  {
+   "fill": "2023-07-19 02:02",
+   "exit": "2023-07-19 02:06",
+   "side": "buy",
+   "R": -1.15,
+   "target_R": 2.7,
+   "reason": "stop"
+  },
+  {
+   "fill": "2023-12-07 13:35",
+   "exit": "2023-12-07 13:37",
+   "side": "sell",
+   "R": -1.12,
+   "target_R": 21.1,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-01-09 08:07",
+   "exit": "2024-01-09 08:11",
+   "side": "buy",
+   "R": -1.09,
+   "target_R": 5.7,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-03-18 00:04",
+   "exit": "2024-03-18 00:04",
+   "side": "buy",
+   "R": -1.59,
+   "target_R": 11.6,
+   "reason": "stop in fill minute"
+  },
+  {
+   "fill": "2024-05-16 11:23",
+   "exit": "2024-05-16 11:27",
+   "side": "buy",
+   "R": -1.2,
+   "target_R": 5.9,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-06-03 14:38",
+   "exit": "2024-06-03 15:14",
+   "side": "sell",
+   "R": -1.13,
+   "target_R": 14.4,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-08-26 19:16",
+   "exit": "2024-08-26 19:56",
+   "side": "buy",
+   "R": -1.26,
+   "target_R": 10.0,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-08-29 00:22",
+   "exit": "2024-08-29 03:25",
+   "side": "sell",
+   "R": -0.48,
+   "target_R": 4.0,
+   "reason": "trailed stop"
+  },
+  {
+   "fill": "2024-10-01 04:00",
+   "exit": "2024-10-01 04:15",
+   "side": "buy",
+   "R": -1.25,
+   "target_R": 14.3,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-10-07 16:20",
+   "exit": "2024-10-07 17:05",
+   "side": "sell",
+   "R": -1.11,
+   "target_R": 4.8,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-10-11 07:38",
+   "exit": "2024-10-11 07:51",
+   "side": "sell",
+   "R": -1.12,
+   "target_R": 2.6,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-10-22 06:06",
+   "exit": "2024-10-22 06:15",
+   "side": "sell",
+   "R": -1.26,
+   "target_R": 4.3,
+   "reason": "stop"
+  },
+  {
+   "fill": "2024-11-22 03:57",
+   "exit": "2024-11-22 05:18",
+   "side": "sell",
+   "R": 5.77,
+   "target_R": 5.9,
+   "reason": "target"
+  },
+  {
+   "fill": "2024-11-28 07:29",
+   "exit": "2024-11-28 07:32",
+   "side": "buy",
+   "R": -1.11,
+   "target_R": 4.0,
+   "reason": "stop"
+  },
+  {
+   "fill": "2025-02-20 19:40",
+   "exit": "2025-02-20 19:43",
+   "side": "sell",
+   "R": -1.22,
+   "target_R": 32.9,
+   "reason": "stop"
+  },
+  {
+   "fill": "2025-02-26 12:12",
+   "exit": "2025-02-26 12:16",
+   "side": "buy",
+   "R": -1.14,
+   "target_R": 6.6,
+   "reason": "stop"
+  },
+  {
+   "fill": "2025-07-16 23:00",
+   "exit": "2025-07-17 00:01",
+   "side": "buy",
+   "R": -1.05,
+   "target_R": 5.7,
+   "reason": "stop"
+  },
+  {
+   "fill": "2025-08-12 00:33",
+   "exit": "2025-08-12 01:05",
+   "side": "sell",
+   "R": -1.14,
+   "target_R": 4.5,
+   "reason": "stop"
+  },
+  {
+   "fill": "2025-08-12 23:01",
+   "exit": "2025-08-12 23:01",
+   "side": "sell",
+   "R": -1.45,
+   "target_R": 12.2,
+   "reason": "stop in fill minute"
+  },
+  {
+   "fill": "2025-12-11 16:48",
+   "exit": "2025-12-11 17:09",
+   "side": "sell",
+   "R": -1.09,
+   "target_R": 8.7,
+   "reason": "stop"
+  },
+  {
+   "fill": "2026-02-26 07:02",
+   "exit": "2026-02-26 07:05",
+   "side": "buy",
+   "R": -1.28,
+   "target_R": 12.3,
+   "reason": "stop"
+  },
+  {
+   "fill": "2026-02-26 08:51",
+   "exit": "2026-02-26 09:00",
+   "side": "buy",
+   "R": -1.2,
+   "target_R": 8.0,
+   "reason": "stop"
+  },
+  {
+   "fill": "2026-04-16 13:51",
+   "exit": "2026-04-16 13:52",
+   "side": "buy",
+   "R": -1.2,
+   "target_R": 21.9,
+   "reason": "stop"
+  },
+  {
+   "fill": "2026-06-18 07:05",
+   "exit": "2026-06-18 07:25",
+   "side": "buy",
+   "R": -1.09,
+   "target_R": 15.4,
+   "reason": "stop"
+  },
+  {
+   "fill": "2026-09-09 06:01",
+   "exit": "2026-09-09 06:02",
+   "side": "sell",
+   "R": -1.31,
+   "target_R": 5.4,
+   "reason": "stop"
+  },
+  {
+   "fill": "2026-10-07 16:19",
+   "exit": "2026-10-07 22:00",
+   "side": "sell",
+   "R": -0.35,
+   "target_R": 5.1,
+   "reason": "trailed stop"
+  }
+ ],
+ "verdict": "FAILS the pre-registered look",
+ "described": {
+  "EURUSD M1": {
+   "2011-19": {
+    "n": 416,
+    "E": -0.419,
+    "win": 0.139,
+    "total_R": -174.3,
+    "t": -3.49,
+    "s": -0.171,
+    "rounds_of_10": 41,
+    "rounds_positive": 0.22,
+    "rounds_mean_R": -4.03
+   },
+   "2020-22": {
+    "n": 106,
+    "E": -0.559,
+    "win": 0.132,
+    "total_R": -59.2,
+    "t": -2.9,
+    "s": -0.282,
+    "rounds_of_10": 10,
+    "rounds_positive": 0.1,
+    "rounds_mean_R": -6.16
+   },
+   "2023-25": {
+    "n": 73,
+    "E": -0.762,
+    "win": 0.082,
+    "total_R": -55.6,
+    "t": -3.27,
+    "s": -0.383,
+    "rounds_of_10": 7,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -8.67
+   },
+   "2026": {
+    "n": 13,
+    "E": 0.105,
+    "win": 0.154,
+    "total_R": 1.4,
+    "t": 0.1,
+    "s": 0.029,
+    "rounds_of_10": 1,
+    "rounds_positive": 1.0,
+    "rounds_mean_R": 5.15
+   }
+  },
+  "EURUSD M15": {
+   "2011-19": {
+    "n": 26,
+    "E": 1.422,
+    "win": 0.269,
+    "total_R": 37.0,
+    "t": 1.21,
+    "s": 0.238,
+    "rounds_of_10": 2,
+    "rounds_positive": 1.0,
+    "rounds_mean_R": 9.85
+   },
+   "2020-22": {
+    "n": 11,
+    "E": -0.862,
+    "win": 0.091,
+    "total_R": -9.5,
+    "t": -5.67,
+    "s": -1.711,
+    "rounds_of_10": 1,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -8.37
+   },
+   "2023-25": {
+    "n": 6,
+    "E": -0.071,
+    "win": 0.167,
+    "total_R": -0.4,
+    "t": -0.07,
+    "s": -0.028
+   },
+   "2026": {
+    "n": 0
+   }
+  },
+  "EURUSD M30": {
+   "2011-19": {
+    "n": 8,
+    "E": 0.245,
+    "win": 0.25,
+    "total_R": 2.0,
+    "t": 0.34,
+    "s": 0.12
+   },
+   "2020-22": {
+    "n": 0
+   },
+   "2023-25": {
+    "n": 4,
+    "E": -1.09,
+    "win": 0.0,
+    "total_R": -4.4,
+    "t": -91.57,
+    "s": -45.787
+   },
+   "2026": {
+    "n": 0
+   }
+  },
+  "EURUSD H1": {
+   "2011-19": {
+    "n": 6,
+    "E": -1.047,
+    "win": 0.0,
+    "total_R": -6.3,
+    "t": -102.1,
+    "s": -41.682
+   },
+   "2020-22": {
+    "n": 2,
+    "E": 1.324,
+    "win": 0.5,
+    "total_R": 2.6
+   },
+   "2023-25": {
+    "n": 1,
+    "E": -1.022,
+    "win": 0.0,
+    "total_R": -1.0
+   },
+   "2026": {
+    "n": 0
+   }
+  },
+  "GBPUSD M5": {
+   "2011-19": {
+    "n": 74,
+    "E": -0.193,
+    "win": 0.135,
+    "total_R": -14.2,
+    "t": -0.65,
+    "s": -0.076,
+    "rounds_of_10": 7,
+    "rounds_positive": 0.57,
+    "rounds_mean_R": -1.45
+   },
+   "2020-22": {
+    "n": 20,
+    "E": 0.211,
+    "win": 0.15,
+    "total_R": 4.2,
+    "t": 0.26,
+    "s": 0.058,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 2.11
+   },
+   "2023-25": {
+    "n": 17,
+    "E": -0.966,
+    "win": 0.059,
+    "total_R": -16.4,
+    "t": -5.22,
+    "s": -1.266,
+    "rounds_of_10": 1,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -8.19
+   },
+   "2026": {
+    "n": 2,
+    "E": -1.308,
+    "win": 0.0,
+    "total_R": -2.6
+   }
+  },
+  "USDJPY M5": {
+   "2011-19": {
+    "n": 62,
+    "E": -0.313,
+    "win": 0.161,
+    "total_R": -19.4,
+    "t": -1.22,
+    "s": -0.156,
+    "rounds_of_10": 6,
+    "rounds_positive": 0.33,
+    "rounds_mean_R": -2.84
+   },
+   "2020-22": {
+    "n": 24,
+    "E": -0.1,
+    "win": 0.208,
+    "total_R": -2.4,
+    "t": -0.21,
+    "s": -0.043,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 0.22
+   },
+   "2023-25": {
+    "n": 16,
+    "E": -0.941,
+    "win": 0.0,
+    "total_R": -15.1,
+    "t": -10.16,
+    "s": -2.539,
+    "rounds_of_10": 1,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -9.31
+   },
+   "2026": {
+    "n": 6,
+    "E": 0.049,
+    "win": 0.167,
+    "total_R": 0.3,
+    "t": 0.05,
+    "s": 0.019
+   }
+  },
+  "EURGBP M5": {
+   "2011-19": {
+    "n": 47,
+    "E": -0.488,
+    "win": 0.17,
+    "total_R": -22.9,
+    "t": -2.15,
+    "s": -0.313,
+    "rounds_of_10": 4,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -6.45
+   },
+   "2020-22": {
+    "n": 31,
+    "E": -0.508,
+    "win": 0.097,
+    "total_R": -15.8,
+    "t": -1.4,
+    "s": -0.251,
+    "rounds_of_10": 3,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -8.53
+   },
+   "2023-25": {
+    "n": 15,
+    "E": -0.337,
+    "win": 0.133,
+    "total_R": -5.1,
+    "t": -0.52,
+    "s": -0.134,
+    "rounds_of_10": 1,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -9.24
+   },
+   "2026": {
+    "n": 5,
+    "E": -0.165,
+    "win": 0.4,
+    "total_R": -0.8,
+    "t": -0.38,
+    "s": -0.168
+   }
+  },
+  "XAUUSD M5": {
+   "2011-19": {
+    "n": 41,
+    "E": -0.152,
+    "win": 0.195,
+    "total_R": -6.3,
+    "t": -0.42,
+    "s": -0.066,
+    "rounds_of_10": 4,
+    "rounds_positive": 0.25,
+    "rounds_mean_R": -1.29
+   },
+   "2020-22": {
+    "n": 25,
+    "E": -0.049,
+    "win": 0.16,
+    "total_R": -1.2,
+    "t": -0.11,
+    "s": -0.022,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 0.2
+   },
+   "2023-25": {
+    "n": 28,
+    "E": 0.405,
+    "win": 0.25,
+    "total_R": 11.3,
+    "t": 0.78,
+    "s": 0.147,
+    "rounds_of_10": 2,
+    "rounds_positive": 1.0,
+    "rounds_mean_R": 6.46
+   },
+   "2026": {
+    "n": 2,
+    "E": 1.886,
+    "win": 0.5,
+    "total_R": 3.8
+   }
+  },
+  "GER40 M5": {
+   "2011-19": {
+    "n": 31,
+    "E": 0.358,
+    "win": 0.29,
+    "total_R": 11.1,
+    "t": 0.67,
+    "s": 0.12,
+    "rounds_of_10": 3,
+    "rounds_positive": 0.67,
+    "rounds_mean_R": 1.17
+   },
+   "2020-22": {
+    "n": 13,
+    "E": -0.749,
+    "win": 0.077,
+    "total_R": -9.7,
+    "t": -1.49,
+    "s": -0.414,
+    "rounds_of_10": 1,
+    "rounds_positive": 0.0,
+    "rounds_mean_R": -12.29
+   },
+   "2023-25": {
+    "n": 20,
+    "E": 0.36,
+    "win": 0.35,
+    "total_R": 7.2,
+    "t": 0.69,
+    "s": 0.155,
+    "rounds_of_10": 2,
+    "rounds_positive": 0.5,
+    "rounds_mean_R": 3.6
+   },
+   "2026": {
+    "n": 3,
+    "E": 0.435,
+    "win": 0.333,
+    "total_R": 1.3,
+    "t": 0.34,
+    "s": 0.195
+   }
+  }
+ },
+ "finished": "2026-11-12 07:49:38 UTC"
+}

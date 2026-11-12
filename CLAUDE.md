@@ -169,7 +169,9 @@ Learning rules:
   parity-tested engines with pivot trailing stop); 4 candles right after a pivot sweep, 60% bodies, 60% entry, 3 stops x
   3-15R / structural targets, 504 settings x 12 markets x M1-H4: REJECTED (lab 0 pass). The sweep adds ~+0.1R before
   costs vs no sweep in 2011-19, ~0 in 2020-22; after costs negative (M5 -0.18R); 3R wins 23%. No bug. One lead: EURUSD M5
-  (best of 1,403 cells, +1.63R / 98 trades then +0.32R / 22). 2023-25 / 2026 not opened (`research/results/sweep4/RESULT.md`).
+  (best of 1,403 cells, +1.63R / 98 trades then +0.32R / 22). Owner's EURUSD M5 look (2nd-pivot target, trailing stop): 2023-25
+  -0.20R (26), Jan-Oct 2026 -1.07R (6, all lost), ~0 before costs: FAILS; no broker fixes it (Prime cheapest). Owner's DAX
+  screenshot = 6 Nov 2026 19:50 UTC (misses strict engulf by 0.5 pt in our feed). GER40 2026 added (`tools/histdata_months.py`).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

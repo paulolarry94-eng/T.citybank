@@ -1,4 +1,4 @@
-# Pivot-sweep body-engulf range (owner, 2026-11-12) — REJECTED after costs; the sweep is real but small
+# Pivot-sweep body-engulf range (owner, 2026-11-12) — REJECTED after costs; the owner's EURUSD M5 look FAILS
 
 Pre-registration: `research/sweep4/PREREGISTRATION.md` (committed 796b079 before any result). Lab: `research/results/truth/sweep4_pivot_v1/`.
 Study: `research/sweep4/study.py` -> `study.json`. Examples: `examples/` (2019 trades). Tests: `research/truth/tests/test_sweep4.py`.
@@ -64,12 +64,53 @@ periods, and the same rule on GBPUSD (3 of 42), USDJPY (3 of 42), EURGBP (10 of 
 picked as the best of 1,403 cells; with that many tries the best looks this good by luck (expected best t about 3.8;
 its t is about 2.7). Five 15R winners make 45% of its profit.
 
-## What was not opened
-2023-25 and Jan-Oct 2026: no setting passed 2011-22, so no look was taken. A single logged look at one setting, named
-before looking, stays available for the owner to decide.
+## The later data
+No setting passed 2011-22. At the owner's request (2026-11-12), one logged look was spent on a single EURUSD M5 setting
+with the owner's second-pivot target: it FAILS (section below). The pivot-sweep family has no unseen EURUSD data left.
 
 ## Disclosed
 - Before the study, gold Jan-Jun 2019 numbers for 4 settings were seen in the engine parity check (8-14 trades); the grid
   was fixed in the pre-registration and not changed.
 - Owner's two screenshots could not be replayed: the DAX chart (about 25,800) is later than our GER40 data, and the EURUSD
   pivot sequence (1.10990, 1.10838, 1.11003) is not in our 2011-25 data.
+
+
+## The owner's EURUSD M5 setting: one logged look at 2023-25 and 2026 (2026-11-12) — FAILS
+Pre-registered `research/sweep4/PREREGISTRATION_LOOK.md` (2111f5f) before any number; script `research/sweep4/look.py`;
+record `LOOK.json`. Setting: EURUSD M5, pivots 10/10, sweep by candle 1 or 2, 60% bodies, 60% entry, target = the SECOND
+live pivot past the entry (owner's rule), stop chosen on 2011-22 by the fixed rule (best edge quality): the pivot
+trailing stop (edge quality 0.097 vs range end 0.095, +20% buffer 0.054). EURUSD M5 was picked after seeing 2011-22.
+
+| Period | trades | wins | R a trade (Prime) | before costs | 10-trade rounds positive |
+|---|---|---|---|---|---|
+| 2011-19 | 82 | 22% | +0.46 | +0.73 | 75% (8 rounds) |
+| 2020-22 | 21 | 10% | -0.07 | +0.06 | 1 of 2 |
+| 2023-25 (look) | 26 | 12% | -0.20 | -0.02 | 1 of 2 |
+| Jan-Oct 2026 (look) | 6 | 0% | -1.07 | -0.88 | - |
+
+By broker (R a trade; spread + commission + 0.2 pip slippage on stops; Tickmill and Pepperstone at the owner's pasted
+figures, unverified):
+| Costs (pip) | 2011-19 | 2020-22 | 2023-25 | 2026 |
+|---|---|---|---|---|
+| RoboForex Prime 0.1 + 0.25 | +0.46 | -0.07 | -0.20 | -1.07 |
+| Exness Zero 0.05 + 0.7 | +0.34 | -0.21 | -0.32 | -1.26 |
+| Tickmill Raw 0.11 + 0.6 | +0.22 | -0.18 | -0.28 | -1.22 |
+| Pepperstone Razor 0.1 + 0.7 | +0.21 | -0.21 | -0.26 | -1.26 |
+| zero cost | +0.73 | +0.06 | -0.02 | -0.88 |
+RoboForex Prime is the cheapest of the listed brokers; no broker makes 2023-26 positive, because the price move itself is
+about zero there.
+
+Described (same rule, M5, R a trade 2011-19 / 2020-22 / 2023-25 / 2026, trades in brackets): GBPUSD -0.19 (74) / +0.21
+(20) / -0.97 (17) / -1.31 (2); USDJPY -0.31 / -0.10 / -0.94 / +0.05 (6); EURGBP -0.49 / -0.51 / -0.34 / -0.17 (5); XAUUSD
+-0.15 / -0.05 / +0.41 (28) / +1.89 (2); GER40 +0.36 (31) / -0.75 (13) / +0.36 (20) / +0.44 (3). EURUSD M1 -0.42 / -0.56 /
+-0.76 / +0.11 (13); M15 +1.42 (26) / -0.86 (11) / -0.07 (6) / none.
+
+## The owner's two 2026 screenshots
+- DAX (FXCM GER30 M5) = Friday 6 November 2026, about 19:50 UTC, found in our GER40 data (HistData, downloaded
+  2026-11-12; FXCM about 4 points higher): pivots 25,827.76 / 25,827.60 / 25,748.10 / 25,679.06 vs the chart's 25,831.64 /
+  25,832.12 / 25,751.79 / 25,682.78. Candle 1 swept the 25,679 pivot low. In our feed the setup just misses the rule:
+  candle 2 opened 0.5 points above candle 1's close (not a strict body engulf) and candle 4's body is 56% (< 60%). The 60%
+  entry would be 25,682.2 (chart 25,684.74), stop 25,664.6 (chart 25,668.27). Our data ends at 20:58 UTC that Friday,
+  before the chart's rally to 25,854, so the outcome cannot be replayed. Chart: `replay/GER40_20261106.png`.
+- EURUSD (ICE M5, about 1.108-1.110): EURUSD traded above 1.11 for all of January to 6 November 2026 (Exness and
+  HistData), so the screenshot is from 9-12 November 2026, which no free source has published yet.

@@ -266,7 +266,7 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
-### Q34 Owner's pivot-sweep body-engulf range (2026-11-12) — TESTED, rejected after costs; waiting on the owner's answers
+### Q34 Owner's pivot-sweep body-engulf range (2026-11-12) — TESTED, rejected; owner's EURUSD M5 look FAILED (2026-11-12)
 Owner: "build an indicator just like pivot points high low on TradingView ... keep 60 body of 2nd and 4th candle but they
 must appear immediately after a sweep of a pivot point ... enter at 60% of the range ... stop styles ... 3-15R ... best
 timeframe ... cycle centric ... 10 trades high win rate". FAMILY: engulfing, owner-idea, liquidity, sweep, pivot, range.
@@ -277,6 +277,11 @@ timeframe ... cycle centric ... 10 trades high win rate". FAMILY: engulfing, own
   (2) is the target the opposite pivot (the DAX screenshot's target sits on the 25,832 pivot highs)? tested as p1/p2;
   (3) "high win rate" and 3-15R conflict (3R wins 23%); (4) spend the one logged 2023-25 + 2026 look on a single setting
   named now (e.g. EURUSD M5, pivots 10, sweep candle 1/2, 15R), knowing it was picked after seeing 2011-22.
+- Owner's answers (2026-11-12): target = the 2nd pivot past the entry; screenshots are from 2026; test EURUSD M5 properly.
+  Done: one logged look (`research/results/sweep4/LOOK.json`): 2023-25 -0.20R (26 trades), Jan-Oct 2026 -1.07R (6, all
+  lost); before costs about 0 / negative; every listed broker worse than RoboForex Prime. FAILS. DAX screenshot found
+  (6 Nov 2026 19:50 UTC); in our feed it misses the rule by 0.5 points (engulf) and 4% (body); outcome after our data ends.
+  Remaining: a forward log of the owner's live calls with exact candle times and the broker's own prices.
 
 ### Q33 Architecture for a hands-off system: Wealth Game or SEESARE cap with higher alpha? (owner, 2026-11-08)
 FAMILY: architecture, sizing, seesare, payout, owner-idea. Proposal (awaiting the owner's decision; blueprint decision 2):
