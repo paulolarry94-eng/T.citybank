@@ -96,3 +96,14 @@ winners and losers of 2019 on the scanner's best cell, not hand-picked), and acc
 steps keep each leg within 25% of its target risk on its median stop; contract sizes are standard specifications, to be
 confirmed with mt5/NorthStarExport.mq5).
 If no new cell survives, the report covers the current best mix, said plainly.
+
+## Addendum (2026-11-12, before any tick result): one-minute resolution check
+Phase 1 showed that about 22% of filled M1 trades stop out in the minute they fill, and that minute often also touched
++1R; the engine counts those as losses (pessimistic). To measure the true order, a fixed tick sample: Exness Zero bid ticks
+(ticks.ex2archive.com) for EURUSD, GBPUSD and XAUUSD in 2021-03, 2021-09 and 2022-06 (VALIDATE years, not the holdout).
+For each month: M1 bid bars are built from the ticks, the Phase 1 base setups are found on those bars, and every setup is
+simulated twice with the same engine and rules: on the M1 bars (pessimistic and optimistic) and tick by tick (each tick a
+zero-range bar: no same-minute ambiguity). Reported: R a trade by method and structure, and the share of trades whose
+outcome differs. If ticks change a structure's R a trade by more than 0.02R, Phase 1 and 2 conclusions are stated with that
+correction (M1 bars remain the study's data; the scanner's other timeframes are far less affected).
+Script: `research/sweep6/tickcheck.py` -> `research/results/sweep6/tickcheck.json`.
