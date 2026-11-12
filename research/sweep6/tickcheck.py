@@ -25,7 +25,7 @@ def ticks(sym, y, m):
     with z.open(z.namelist()[0]) as f:
         d = pd.read_csv(f, usecols=["Timestamp", "Bid"])
     t = pd.to_datetime(d["Timestamp"], format="%Y-%m-%d %H:%M:%S.%fZ", utc=True)
-    ms = (t.astype("int64") // 1_000_000).to_numpy()
+    ms = ((t - pd.Timestamp(0, tz="UTC")) // pd.Timedelta(milliseconds=1)).to_numpy().astype(np.int64)
     o = np.argsort(ms, kind="stable")
     return ms[o], d["Bid"].to_numpy(float)[o]
 

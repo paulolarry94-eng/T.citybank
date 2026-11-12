@@ -1,0 +1,1069 @@
+{
+ "prereg": "research/sweep6/PREREGISTRATION.md (addendum)",
+ "months": {
+  "EURUSD 2021-03": {
+   "setups": 83,
+   "filled_m1": 60,
+   "filled_tick": 60,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 60,
+     "m1_pessimistic": -0.1143,
+     "m1_optimistic": -0.1143,
+     "tick": -0.0894,
+     "differ": 0.6667,
+     "win_m1": 0.4167,
+     "win_tick": 0.4167
+    },
+    "2R": {
+     "n": 60,
+     "m1_pessimistic": -0.1966,
+     "m1_optimistic": -0.1966,
+     "tick": -0.0839,
+     "differ": 0.6167,
+     "win_m1": 0.2667,
+     "win_tick": 0.2833
+    },
+    "3R": {
+     "n": 60,
+     "m1_pessimistic": -0.1365,
+     "m1_optimistic": -0.1365,
+     "tick": -0.078,
+     "differ": 0.5833,
+     "win_m1": 0.2167,
+     "win_tick": 0.2167
+    },
+    "5R": {
+     "n": 60,
+     "m1_pessimistic": -0.0031,
+     "m1_optimistic": -0.0031,
+     "tick": 0.0517,
+     "differ": 0.5833,
+     "win_m1": 0.1667,
+     "win_tick": 0.1667
+    },
+    "10R": {
+     "n": 60,
+     "m1_pessimistic": -0.0881,
+     "m1_optimistic": -0.0881,
+     "tick": -0.0431,
+     "differ": 0.5667,
+     "win_m1": 0.0833,
+     "win_tick": 0.0833
+    },
+    "20R": {
+     "n": 60,
+     "m1_pessimistic": 0.3952,
+     "m1_optimistic": 0.3952,
+     "tick": 0.4415,
+     "differ": 0.55,
+     "win_m1": 0.0667,
+     "win_tick": 0.0667
+    },
+    "TP1": {
+     "n": 60,
+     "m1_pessimistic": -0.1448,
+     "m1_optimistic": -0.1448,
+     "tick": -0.1053,
+     "differ": 0.5333,
+     "win_m1": 0.1167,
+     "win_tick": 0.1167
+    },
+    "TP2": {
+     "n": 60,
+     "m1_pessimistic": 0.1009,
+     "m1_optimistic": 0.1009,
+     "tick": 0.1386,
+     "differ": 0.5333,
+     "win_m1": 0.0833,
+     "win_tick": 0.0833
+    },
+    "TP2-BE75": {
+     "n": 60,
+     "m1_pessimistic": 0.1009,
+     "m1_optimistic": 0.1009,
+     "tick": 0.1386,
+     "differ": 0.5333,
+     "win_m1": 0.0833,
+     "win_tick": 0.0833
+    },
+    "5R-BE75": {
+     "n": 60,
+     "m1_pessimistic": 0.0135,
+     "m1_optimistic": 0.0135,
+     "tick": 0.0693,
+     "differ": 0.5667,
+     "win_m1": 0.1667,
+     "win_tick": 0.1667
+    },
+    "P60": {
+     "n": 60,
+     "m1_pessimistic": -0.0325,
+     "m1_optimistic": -0.0325,
+     "tick": 0.0067,
+     "differ": 0.5167,
+     "win_m1": 0.1167,
+     "win_tick": 0.1167
+    }
+   }
+  },
+  "EURUSD 2021-09": {
+   "setups": 78,
+   "filled_m1": 62,
+   "filled_tick": 62,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 62,
+     "m1_pessimistic": -0.2064,
+     "m1_optimistic": -0.1739,
+     "tick": -0.0677,
+     "differ": 0.6935,
+     "win_m1": 0.371,
+     "win_tick": 0.4032
+    },
+    "2R": {
+     "n": 62,
+     "m1_pessimistic": -0.1159,
+     "m1_optimistic": -0.1159,
+     "tick": -0.0162,
+     "differ": 0.6452,
+     "win_m1": 0.2903,
+     "win_tick": 0.2903
+    },
+    "3R": {
+     "n": 62,
+     "m1_pessimistic": -0.2961,
+     "m1_optimistic": -0.2961,
+     "tick": -0.1927,
+     "differ": 0.6129,
+     "win_m1": 0.1774,
+     "win_tick": 0.1774
+    },
+    "5R": {
+     "n": 62,
+     "m1_pessimistic": -0.5219,
+     "m1_optimistic": -0.5219,
+     "tick": -0.4247,
+     "differ": 0.5968,
+     "win_m1": 0.0806,
+     "win_tick": 0.0806
+    },
+    "10R": {
+     "n": 62,
+     "m1_pessimistic": -0.1187,
+     "m1_optimistic": -0.1187,
+     "tick": -0.0274,
+     "differ": 0.5968,
+     "win_m1": 0.0806,
+     "win_tick": 0.0806
+    },
+    "20R": {
+     "n": 62,
+     "m1_pessimistic": 0.0103,
+     "m1_optimistic": 0.0103,
+     "tick": 0.1167,
+     "differ": 0.5968,
+     "win_m1": 0.0484,
+     "win_tick": 0.0484
+    },
+    "TP1": {
+     "n": 60,
+     "m1_pessimistic": 0.1218,
+     "m1_optimistic": 0.1218,
+     "tick": 0.2253,
+     "differ": 0.5667,
+     "win_m1": 0.1333,
+     "win_tick": 0.1333
+    },
+    "TP2": {
+     "n": 59,
+     "m1_pessimistic": -0.3298,
+     "m1_optimistic": -0.3298,
+     "tick": -0.2346,
+     "differ": 0.5763,
+     "win_m1": 0.0508,
+     "win_tick": 0.0508
+    },
+    "TP2-BE75": {
+     "n": 59,
+     "m1_pessimistic": -0.262,
+     "m1_optimistic": -0.262,
+     "tick": -0.1803,
+     "differ": 0.5424,
+     "win_m1": 0.0508,
+     "win_tick": 0.0508
+    },
+    "5R-BE75": {
+     "n": 62,
+     "m1_pessimistic": -0.4413,
+     "m1_optimistic": -0.4413,
+     "tick": -0.3571,
+     "differ": 0.5484,
+     "win_m1": 0.0806,
+     "win_tick": 0.0806
+    },
+    "P60": {
+     "n": 59,
+     "m1_pessimistic": -0.1754,
+     "m1_optimistic": -0.1754,
+     "tick": -0.0794,
+     "differ": 0.5424,
+     "win_m1": 0.1186,
+     "win_tick": 0.1186
+    }
+   }
+  },
+  "EURUSD 2022-06": {
+   "setups": 90,
+   "filled_m1": 69,
+   "filled_tick": 69,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 69,
+     "m1_pessimistic": 0.0009,
+     "m1_optimistic": 0.0299,
+     "tick": 0.0887,
+     "differ": 0.5652,
+     "win_m1": 0.4928,
+     "win_tick": 0.5072
+    },
+    "2R": {
+     "n": 69,
+     "m1_pessimistic": -0.1299,
+     "m1_optimistic": -0.1299,
+     "tick": -0.072,
+     "differ": 0.4348,
+     "win_m1": 0.2899,
+     "win_tick": 0.2899
+    },
+    "3R": {
+     "n": 69,
+     "m1_pessimistic": -0.071,
+     "m1_optimistic": -0.071,
+     "tick": -0.027,
+     "differ": 0.4058,
+     "win_m1": 0.2319,
+     "win_tick": 0.2319
+    },
+    "5R": {
+     "n": 69,
+     "m1_pessimistic": 0.131,
+     "m1_optimistic": 0.131,
+     "tick": 0.1815,
+     "differ": 0.4493,
+     "win_m1": 0.1884,
+     "win_tick": 0.1884
+    },
+    "10R": {
+     "n": 69,
+     "m1_pessimistic": 0.1165,
+     "m1_optimistic": 0.1165,
+     "tick": 0.1616,
+     "differ": 0.4203,
+     "win_m1": 0.1014,
+     "win_tick": 0.1014
+    },
+    "20R": {
+     "n": 69,
+     "m1_pessimistic": 0.2179,
+     "m1_optimistic": 0.2179,
+     "tick": 0.2558,
+     "differ": 0.3623,
+     "win_m1": 0.058,
+     "win_tick": 0.058
+    },
+    "TP1": {
+     "n": 69,
+     "m1_pessimistic": -0.1283,
+     "m1_optimistic": -0.1283,
+     "tick": -0.0927,
+     "differ": 0.3623,
+     "win_m1": 0.1014,
+     "win_tick": 0.1014
+    },
+    "TP2": {
+     "n": 67,
+     "m1_pessimistic": -0.3252,
+     "m1_optimistic": -0.3252,
+     "tick": -0.2882,
+     "differ": 0.3881,
+     "win_m1": 0.0597,
+     "win_tick": 0.0597
+    },
+    "TP2-BE75": {
+     "n": 67,
+     "m1_pessimistic": -0.2804,
+     "m1_optimistic": -0.2804,
+     "tick": -0.2509,
+     "differ": 0.3731,
+     "win_m1": 0.0597,
+     "win_tick": 0.0597
+    },
+    "5R-BE75": {
+     "n": 69,
+     "m1_pessimistic": 0.0295,
+     "m1_optimistic": 0.0295,
+     "tick": 0.0749,
+     "differ": 0.4348,
+     "win_m1": 0.1594,
+     "win_tick": 0.1594
+    },
+    "P60": {
+     "n": 67,
+     "m1_pessimistic": -0.2243,
+     "m1_optimistic": -0.2243,
+     "tick": -0.1916,
+     "differ": 0.3582,
+     "win_m1": 0.1045,
+     "win_tick": 0.1045
+    }
+   }
+  },
+  "GBPUSD 2021-03": {
+   "setups": 91,
+   "filled_m1": 70,
+   "filled_tick": 70,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 70,
+     "m1_pessimistic": -0.123,
+     "m1_optimistic": -0.0355,
+     "tick": -0.0198,
+     "differ": 0.6857,
+     "win_m1": 0.4,
+     "win_tick": 0.4429
+    },
+    "2R": {
+     "n": 70,
+     "m1_pessimistic": -0.1656,
+     "m1_optimistic": -0.1228,
+     "tick": -0.0599,
+     "differ": 0.6429,
+     "win_m1": 0.2714,
+     "win_tick": 0.2857
+    },
+    "3R": {
+     "n": 70,
+     "m1_pessimistic": -0.0891,
+     "m1_optimistic": -0.0319,
+     "tick": 0.1034,
+     "differ": 0.6714,
+     "win_m1": 0.2286,
+     "win_tick": 0.2571
+    },
+    "5R": {
+     "n": 70,
+     "m1_pessimistic": -0.1462,
+     "m1_optimistic": -0.1462,
+     "tick": -0.086,
+     "differ": 0.6143,
+     "win_m1": 0.1429,
+     "win_tick": 0.1429
+    },
+    "10R": {
+     "n": 70,
+     "m1_pessimistic": 0.0966,
+     "m1_optimistic": 0.0966,
+     "tick": 0.1532,
+     "differ": 0.5714,
+     "win_m1": 0.1,
+     "win_tick": 0.1
+    },
+    "20R": {
+     "n": 70,
+     "m1_pessimistic": -0.1034,
+     "m1_optimistic": -0.1034,
+     "tick": -0.0522,
+     "differ": 0.5571,
+     "win_m1": 0.0429,
+     "win_tick": 0.0429
+    },
+    "TP1": {
+     "n": 70,
+     "m1_pessimistic": 0.0245,
+     "m1_optimistic": 0.0245,
+     "tick": 0.0805,
+     "differ": 0.5714,
+     "win_m1": 0.1286,
+     "win_tick": 0.1286
+    },
+    "TP2": {
+     "n": 68,
+     "m1_pessimistic": 0.0838,
+     "m1_optimistic": 0.0838,
+     "tick": 0.1316,
+     "differ": 0.5441,
+     "win_m1": 0.1029,
+     "win_tick": 0.1029
+    },
+    "TP2-BE75": {
+     "n": 68,
+     "m1_pessimistic": 0.0985,
+     "m1_optimistic": 0.0985,
+     "tick": 0.1457,
+     "differ": 0.5441,
+     "win_m1": 0.1029,
+     "win_tick": 0.1029
+    },
+    "5R-BE75": {
+     "n": 70,
+     "m1_pessimistic": -0.1176,
+     "m1_optimistic": -0.1176,
+     "tick": -0.036,
+     "differ": 0.6286,
+     "win_m1": 0.1429,
+     "win_tick": 0.1429
+    },
+    "P60": {
+     "n": 68,
+     "m1_pessimistic": 0.0861,
+     "m1_optimistic": 0.0861,
+     "tick": 0.1299,
+     "differ": 0.5735,
+     "win_m1": 0.1324,
+     "win_tick": 0.1324
+    }
+   }
+  },
+  "GBPUSD 2021-09": {
+   "setups": 72,
+   "filled_m1": 51,
+   "filled_tick": 51,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 51,
+     "m1_pessimistic": -0.2318,
+     "m1_optimistic": -0.2318,
+     "tick": -0.2379,
+     "differ": 0.6275,
+     "win_m1": 0.3529,
+     "win_tick": 0.3529
+    },
+    "2R": {
+     "n": 51,
+     "m1_pessimistic": -0.1522,
+     "m1_optimistic": -0.1522,
+     "tick": -0.1316,
+     "differ": 0.5294,
+     "win_m1": 0.2745,
+     "win_tick": 0.2745
+    },
+    "3R": {
+     "n": 51,
+     "m1_pessimistic": -0.2846,
+     "m1_optimistic": -0.2846,
+     "tick": -0.2465,
+     "differ": 0.549,
+     "win_m1": 0.1765,
+     "win_tick": 0.1765
+    },
+    "5R": {
+     "n": 51,
+     "m1_pessimistic": -0.4022,
+     "m1_optimistic": -0.4022,
+     "tick": -0.3668,
+     "differ": 0.5294,
+     "win_m1": 0.098,
+     "win_tick": 0.098
+    },
+    "10R": {
+     "n": 51,
+     "m1_pessimistic": -0.1228,
+     "m1_optimistic": -0.1228,
+     "tick": -0.0979,
+     "differ": 0.4902,
+     "win_m1": 0.0784,
+     "win_tick": 0.0784
+    },
+    "20R": {
+     "n": 51,
+     "m1_pessimistic": -0.162,
+     "m1_optimistic": -0.162,
+     "tick": -0.1399,
+     "differ": 0.4902,
+     "win_m1": 0.0392,
+     "win_tick": 0.0392
+    },
+    "TP1": {
+     "n": 51,
+     "m1_pessimistic": -0.3035,
+     "m1_optimistic": -0.3035,
+     "tick": -0.2838,
+     "differ": 0.4706,
+     "win_m1": 0.098,
+     "win_tick": 0.098
+    },
+    "TP2": {
+     "n": 50,
+     "m1_pessimistic": -0.0239,
+     "m1_optimistic": -0.0239,
+     "tick": 0.0009,
+     "differ": 0.5,
+     "win_m1": 0.08,
+     "win_tick": 0.08
+    },
+    "TP2-BE75": {
+     "n": 50,
+     "m1_pessimistic": -0.0039,
+     "m1_optimistic": -0.0039,
+     "tick": 0.0203,
+     "differ": 0.5,
+     "win_m1": 0.08,
+     "win_tick": 0.08
+    },
+    "5R-BE75": {
+     "n": 51,
+     "m1_pessimistic": -0.4414,
+     "m1_optimistic": -0.4414,
+     "tick": -0.419,
+     "differ": 0.5294,
+     "win_m1": 0.0784,
+     "win_tick": 0.0784
+    },
+    "P60": {
+     "n": 50,
+     "m1_pessimistic": -0.2718,
+     "m1_optimistic": -0.2718,
+     "tick": -0.25,
+     "differ": 0.5,
+     "win_m1": 0.08,
+     "win_tick": 0.08
+    }
+   }
+  },
+  "GBPUSD 2022-06": {
+   "setups": 72,
+   "filled_m1": 58,
+   "filled_tick": 58,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 58,
+     "m1_pessimistic": -0.0406,
+     "m1_optimistic": -0.0406,
+     "tick": -0.0656,
+     "differ": 0.5517,
+     "win_m1": 0.431,
+     "win_tick": 0.431
+    },
+    "2R": {
+     "n": 58,
+     "m1_pessimistic": -0.033,
+     "m1_optimistic": -0.033,
+     "tick": 0.0105,
+     "differ": 0.5,
+     "win_m1": 0.3103,
+     "win_tick": 0.3103
+    },
+    "3R": {
+     "n": 58,
+     "m1_pessimistic": 0.1087,
+     "m1_optimistic": 0.1087,
+     "tick": 0.1841,
+     "differ": 0.4655,
+     "win_m1": 0.2759,
+     "win_tick": 0.2759
+    },
+    "5R": {
+     "n": 58,
+     "m1_pessimistic": -0.0673,
+     "m1_optimistic": -0.0673,
+     "tick": -0.0005,
+     "differ": 0.4138,
+     "win_m1": 0.1552,
+     "win_tick": 0.1552
+    },
+    "10R": {
+     "n": 58,
+     "m1_pessimistic": -0.2414,
+     "m1_optimistic": -0.2414,
+     "tick": -0.1925,
+     "differ": 0.3966,
+     "win_m1": 0.069,
+     "win_tick": 0.069
+    },
+    "20R": {
+     "n": 58,
+     "m1_pessimistic": -0.6379,
+     "m1_optimistic": -0.6379,
+     "tick": -0.6045,
+     "differ": 0.3793,
+     "win_m1": 0.0172,
+     "win_tick": 0.0172
+    },
+    "TP1": {
+     "n": 58,
+     "m1_pessimistic": 0.0056,
+     "m1_optimistic": 0.0056,
+     "tick": 0.0499,
+     "differ": 0.431,
+     "win_m1": 0.1207,
+     "win_tick": 0.1207
+    },
+    "TP2": {
+     "n": 58,
+     "m1_pessimistic": -0.5029,
+     "m1_optimistic": -0.5029,
+     "tick": -0.4667,
+     "differ": 0.4138,
+     "win_m1": 0.0517,
+     "win_tick": 0.0517
+    },
+    "TP2-BE75": {
+     "n": 58,
+     "m1_pessimistic": -0.4512,
+     "m1_optimistic": -0.4512,
+     "tick": -0.4172,
+     "differ": 0.431,
+     "win_m1": 0.0517,
+     "win_tick": 0.0517
+    },
+    "5R-BE75": {
+     "n": 58,
+     "m1_pessimistic": -0.1536,
+     "m1_optimistic": -0.1536,
+     "tick": -0.1173,
+     "differ": 0.3966,
+     "win_m1": 0.1207,
+     "win_tick": 0.1207
+    },
+    "P60": {
+     "n": 58,
+     "m1_pessimistic": -0.1703,
+     "m1_optimistic": -0.1703,
+     "tick": -0.1302,
+     "differ": 0.431,
+     "win_m1": 0.1207,
+     "win_tick": 0.1207
+    }
+   }
+  },
+  "XAUUSD 2021-03": {
+   "setups": 85,
+   "filled_m1": 68,
+   "filled_tick": 68,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 68,
+     "m1_pessimistic": -0.3108,
+     "m1_optimistic": -0.2214,
+     "tick": -0.2335,
+     "differ": 0.5294,
+     "win_m1": 0.3235,
+     "win_tick": 0.3676
+    },
+    "2R": {
+     "n": 68,
+     "m1_pessimistic": -0.454,
+     "m1_optimistic": -0.454,
+     "tick": -0.4701,
+     "differ": 0.4118,
+     "win_m1": 0.1765,
+     "win_tick": 0.1765
+    },
+    "3R": {
+     "n": 68,
+     "m1_pessimistic": -0.5275,
+     "m1_optimistic": -0.5275,
+     "tick": -0.5349,
+     "differ": 0.4118,
+     "win_m1": 0.1176,
+     "win_tick": 0.1176
+    },
+    "5R": {
+     "n": 68,
+     "m1_pessimistic": -0.5588,
+     "m1_optimistic": -0.5588,
+     "tick": -0.5684,
+     "differ": 0.3971,
+     "win_m1": 0.0735,
+     "win_tick": 0.0735
+    },
+    "10R": {
+     "n": 68,
+     "m1_pessimistic": -0.3529,
+     "m1_optimistic": -0.3529,
+     "tick": -0.3652,
+     "differ": 0.3676,
+     "win_m1": 0.0588,
+     "win_tick": 0.0588
+    },
+    "20R": {
+     "n": 68,
+     "m1_pessimistic": -0.6912,
+     "m1_optimistic": -0.6912,
+     "tick": -0.7075,
+     "differ": 0.3382,
+     "win_m1": 0.0147,
+     "win_tick": 0.0147
+    },
+    "TP1": {
+     "n": 68,
+     "m1_pessimistic": -0.1925,
+     "m1_optimistic": -0.1925,
+     "tick": -0.2035,
+     "differ": 0.4118,
+     "win_m1": 0.0882,
+     "win_tick": 0.0882
+    },
+    "TP2": {
+     "n": 68,
+     "m1_pessimistic": -0.4768,
+     "m1_optimistic": -0.4768,
+     "tick": -0.4921,
+     "differ": 0.3529,
+     "win_m1": 0.0294,
+     "win_tick": 0.0294
+    },
+    "TP2-BE75": {
+     "n": 68,
+     "m1_pessimistic": -0.4474,
+     "m1_optimistic": -0.4474,
+     "tick": -0.4649,
+     "differ": 0.3676,
+     "win_m1": 0.0294,
+     "win_tick": 0.0294
+    },
+    "5R-BE75": {
+     "n": 68,
+     "m1_pessimistic": -0.5294,
+     "m1_optimistic": -0.5294,
+     "tick": -0.5238,
+     "differ": 0.3971,
+     "win_m1": 0.0735,
+     "win_tick": 0.0735
+    },
+    "P60": {
+     "n": 68,
+     "m1_pessimistic": -0.2827,
+     "m1_optimistic": -0.2827,
+     "tick": -0.2966,
+     "differ": 0.3971,
+     "win_m1": 0.0882,
+     "win_tick": 0.0882
+    }
+   }
+  },
+  "XAUUSD 2021-09": {
+   "setups": 87,
+   "filled_m1": 73,
+   "filled_tick": 73,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 73,
+     "m1_pessimistic": -0.0535,
+     "m1_optimistic": -0.0261,
+     "tick": -0.0046,
+     "differ": 0.5205,
+     "win_m1": 0.4658,
+     "win_tick": 0.4658
+    },
+    "2R": {
+     "n": 73,
+     "m1_pessimistic": 0.0684,
+     "m1_optimistic": 0.0684,
+     "tick": 0.1292,
+     "differ": 0.4521,
+     "win_m1": 0.3562,
+     "win_tick": 0.3562
+    },
+    "3R": {
+     "n": 73,
+     "m1_pessimistic": 0.0958,
+     "m1_optimistic": 0.0958,
+     "tick": 0.1423,
+     "differ": 0.411,
+     "win_m1": 0.274,
+     "win_tick": 0.274
+    },
+    "5R": {
+     "n": 73,
+     "m1_pessimistic": -0.0138,
+     "m1_optimistic": -0.0138,
+     "tick": 0.0254,
+     "differ": 0.3973,
+     "win_m1": 0.1644,
+     "win_tick": 0.1644
+    },
+    "10R": {
+     "n": 73,
+     "m1_pessimistic": -0.1904,
+     "m1_optimistic": -0.1904,
+     "tick": -0.1668,
+     "differ": 0.4247,
+     "win_m1": 0.0822,
+     "win_tick": 0.0822
+    },
+    "20R": {
+     "n": 73,
+     "m1_pessimistic": -0.0835,
+     "m1_optimistic": -0.0835,
+     "tick": -0.0598,
+     "differ": 0.411,
+     "win_m1": 0.0548,
+     "win_tick": 0.0548
+    },
+    "TP1": {
+     "n": 73,
+     "m1_pessimistic": -0.353,
+     "m1_optimistic": -0.353,
+     "tick": -0.3278,
+     "differ": 0.411,
+     "win_m1": 0.0822,
+     "win_tick": 0.0822
+    },
+    "TP2": {
+     "n": 72,
+     "m1_pessimistic": -0.2912,
+     "m1_optimistic": -0.2912,
+     "tick": -0.2658,
+     "differ": 0.4306,
+     "win_m1": 0.0556,
+     "win_tick": 0.0556
+    },
+    "TP2-BE75": {
+     "n": 72,
+     "m1_pessimistic": -0.2912,
+     "m1_optimistic": -0.2912,
+     "tick": -0.2658,
+     "differ": 0.4306,
+     "win_m1": 0.0556,
+     "win_tick": 0.0556
+    },
+    "5R-BE75": {
+     "n": 73,
+     "m1_pessimistic": 0.041,
+     "m1_optimistic": 0.041,
+     "tick": 0.0766,
+     "differ": 0.3562,
+     "win_m1": 0.1644,
+     "win_tick": 0.1644
+    },
+    "P60": {
+     "n": 72,
+     "m1_pessimistic": -0.411,
+     "m1_optimistic": -0.411,
+     "tick": -0.3878,
+     "differ": 0.4167,
+     "win_m1": 0.0694,
+     "win_tick": 0.0694
+    }
+   }
+  },
+  "XAUUSD 2022-06": {
+   "setups": 92,
+   "filled_m1": 74,
+   "filled_tick": 74,
+   "fill_agree": 1.0,
+   "structures": {
+    "1R": {
+     "n": 74,
+     "m1_pessimistic": -0.1224,
+     "m1_optimistic": -0.0683,
+     "tick": -0.0917,
+     "differ": 0.4054,
+     "win_m1": 0.4189,
+     "win_tick": 0.4324
+    },
+    "2R": {
+     "n": 74,
+     "m1_pessimistic": 0.0151,
+     "m1_optimistic": 0.0557,
+     "tick": 0.0429,
+     "differ": 0.3378,
+     "win_m1": 0.3378,
+     "win_tick": 0.3378
+    },
+    "3R": {
+     "n": 74,
+     "m1_pessimistic": -0.027,
+     "m1_optimistic": -0.027,
+     "tick": -0.0035,
+     "differ": 0.3649,
+     "win_m1": 0.2432,
+     "win_tick": 0.2432
+    },
+    "5R": {
+     "n": 74,
+     "m1_pessimistic": -0.1077,
+     "m1_optimistic": -0.1077,
+     "tick": -0.1006,
+     "differ": 0.2973,
+     "win_m1": 0.1486,
+     "win_tick": 0.1486
+    },
+    "10R": {
+     "n": 74,
+     "m1_pessimistic": 0.1892,
+     "m1_optimistic": 0.1892,
+     "tick": 0.1948,
+     "differ": 0.3243,
+     "win_m1": 0.1081,
+     "win_tick": 0.1081
+    },
+    "20R": {
+     "n": 74,
+     "m1_pessimistic": 0.4189,
+     "m1_optimistic": 0.4189,
+     "tick": 0.4225,
+     "differ": 0.3108,
+     "win_m1": 0.0676,
+     "win_tick": 0.0676
+    },
+    "TP1": {
+     "n": 74,
+     "m1_pessimistic": 0.1954,
+     "m1_optimistic": 0.1954,
+     "tick": 0.1994,
+     "differ": 0.3378,
+     "win_m1": 0.1486,
+     "win_tick": 0.1486
+    },
+    "TP2": {
+     "n": 73,
+     "m1_pessimistic": 0.3489,
+     "m1_optimistic": 0.3489,
+     "tick": 0.3545,
+     "differ": 0.3151,
+     "win_m1": 0.1233,
+     "win_tick": 0.1233
+    },
+    "TP2-BE75": {
+     "n": 73,
+     "m1_pessimistic": 0.3626,
+     "m1_optimistic": 0.3626,
+     "tick": 0.368,
+     "differ": 0.3151,
+     "win_m1": 0.1233,
+     "win_tick": 0.1233
+    },
+    "5R-BE75": {
+     "n": 74,
+     "m1_pessimistic": -0.0268,
+     "m1_optimistic": -0.0268,
+     "tick": -0.0152,
+     "differ": 0.2703,
+     "win_m1": 0.1486,
+     "win_tick": 0.1486
+    },
+    "P60": {
+     "n": 73,
+     "m1_pessimistic": 0.2786,
+     "m1_optimistic": 0.2786,
+     "tick": 0.2824,
+     "differ": 0.3151,
+     "win_m1": 0.1507,
+     "win_tick": 0.1507
+    }
+   }
+  }
+ },
+ "pooled": {
+  "1R": {
+   "m1_pessimistic": -0.1307,
+   "m1_optimistic": -0.0927,
+   "tick": -0.0748,
+   "differ": 0.5778,
+   "win_m1": 0.4103,
+   "win_tick": 0.4273,
+   "n": 585
+  },
+  "2R": {
+   "m1_pessimistic": -0.1265,
+   "m1_optimistic": -0.1162,
+   "tick": -0.0695,
+   "differ": 0.5026,
+   "win_m1": 0.2872,
+   "win_tick": 0.2906,
+   "n": 585
+  },
+  "3R": {
+   "m1_pessimistic": -0.1312,
+   "m1_optimistic": -0.1244,
+   "tick": -0.0673,
+   "differ": 0.4923,
+   "win_m1": 0.2171,
+   "win_tick": 0.2205,
+   "n": 585
+  },
+  "5R": {
+   "m1_pessimistic": -0.1797,
+   "m1_optimistic": -0.1797,
+   "tick": -0.1362,
+   "differ": 0.4701,
+   "win_m1": 0.1367,
+   "win_tick": 0.1367,
+   "n": 585
+  },
+  "10R": {
+   "m1_pessimistic": -0.0718,
+   "m1_optimistic": -0.0718,
+   "tick": -0.0362,
+   "differ": 0.4581,
+   "win_m1": 0.0855,
+   "win_tick": 0.0855,
+   "n": 585
+  },
+  "20R": {
+   "m1_pessimistic": -0.0602,
+   "m1_optimistic": -0.0602,
+   "tick": -0.0268,
+   "differ": 0.4393,
+   "win_m1": 0.0462,
+   "win_tick": 0.0462,
+   "n": 585
+  },
+  "TP1": {
+   "m1_pessimistic": -0.0825,
+   "m1_optimistic": -0.0825,
+   "tick": -0.0483,
+   "differ": 0.4511,
+   "win_m1": 0.1132,
+   "win_tick": 0.1132,
+   "n": 583
+  },
+  "TP2": {
+   "m1_pessimistic": -0.1527,
+   "m1_optimistic": -0.1527,
+   "tick": -0.1211,
+   "differ": 0.4452,
+   "win_m1": 0.0713,
+   "win_tick": 0.0713,
+   "n": 575
+  },
+  "TP2-BE75": {
+   "m1_pessimistic": -0.1266,
+   "m1_optimistic": -0.1266,
+   "tick": -0.0979,
+   "differ": 0.4435,
+   "win_m1": 0.0713,
+   "win_tick": 0.0713,
+   "n": 575
+  },
+  "5R-BE75": {
+   "m1_pessimistic": -0.1695,
+   "m1_optimistic": -0.1695,
+   "tick": -0.1276,
+   "differ": 0.453,
+   "win_m1": 0.1282,
+   "win_tick": 0.1282,
+   "n": 585
+  },
+  "P60": {
+   "m1_pessimistic": -0.1277,
+   "m1_optimistic": -0.1277,
+   "tick": -0.0971,
+   "differ": 0.4452,
+   "win_m1": 0.1096,
+   "win_tick": 0.1096,
+   "n": 575
+  }
+ }
+}
