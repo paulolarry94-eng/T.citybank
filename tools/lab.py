@@ -3,9 +3,10 @@
 
     python3 tools/lab.py new my_idea_v1 --family reversal,intraday --markets XAUUSD,EURUSD --timeframes H1,H4 \
             --hypothesis "Who pays, and why?"          # scaffold from TEMPLATE.py + show how earlier ideas like it ended
+    python3 tools/lab.py tags                          # the family tags used so far, with ideas tried and survivors
     python3 tools/lab.py priors reversal,intraday      # the same priors on their own
     python3 tools/lab.py check my_idea_v1              # the file loads, markets have data and costs, grid size
-    python3 tools/lab.py run my_idea_v1                # everything except the final look (always safe to repeat)
+    python3 tools/lab.py run my_idea_v1                # everything except the final look (refuses a name that already has results)
     python3 tools/lab.py run my_idea_v1 --look         # + the ONE logged look at 2023-25 (the file must be committed)
     python3 tools/lab.py list [--tag T] [--survivors]  # every idea ever tested, and strategy files not yet run
     python3 tools/lab.py catalogue                     # rebuild docs/STRATEGY_CATALOGUE.md from the ledger
@@ -103,7 +104,7 @@ def scaffold(name, family, markets, timeframes, hypothesis="", strat_dir=STRAT_D
     if not NAME_RE.match(name):
         raise LabError("NAME must be lowercase letters, digits and underscores, start with a letter, 3-60 characters (example: tokyo_fix_v2)")
     if not family:
-        raise LabError("give at least one --family tag (tags already used: python3 tools/lab.py list)")
+        raise LabError("give at least one --family tag (tags used so far: python3 tools/lab.py tags)")
     if not markets or not timeframes:
         raise LabError("give --markets and --timeframes (fixed before any result)")
     if name in known_names(strat_dir, ledger_names):
@@ -155,7 +156,7 @@ def check_strategy(path, costs=None, data_dir=DATA):
         errors.append("HYPOTHESIS is empty or still the template text: say who is on the other side and why they pay")
     fam = getattr(S, "FAMILY", [])
     if not fam:
-        errors.append("FAMILY is empty: tags let the lab show how earlier ideas like this one ended")
+        warnings.append("FAMILY is empty: tag the idea so the ledger and the priors can find it (the lab does not require it)")
     if not isinstance(S.GRID, dict) or not all(isinstance(v, (list, tuple)) and len(v) > 0 for v in S.GRID.values()):
         errors.append("GRID must be a dict of non-empty lists (ordered: neighbours are one step either side)")
     if not S.TIMEFRAMES:
@@ -180,6 +181,19 @@ def is_committed(path, repo=ROOT):
     if git("ls-files", "--error-unmatch", "--", rel).returncode != 0:
         return False
     return git("status", "--porcelain", "--", rel).stdout.strip() == ""
+
+
+def results_dir(name, root=ROOT):
+    return os.path.join(root, "research", "results", "truth", name)
+
+
+def check_rerun(name, rerun=False, root=ROOT):
+    """A name that already has results is not run again by accident: a re-run replaces its report and its ledger verdict
+    (a --no-look re-run turns a Tier B verdict into 'Stopped before the final look')."""
+    if os.path.exists(os.path.join(results_dir(name, root), "REPORT.md")) and not rerun:
+        raise LabError(f"{name!r} already has results in research/results/truth/{name}/. Running it again overwrites its REPORT.md and summary and "
+                       "replaces its ledger verdict with the new run's. Different rules need a new NAME. To reproduce it on purpose, work in a scratch "
+                       f"copy of the repo, or add --rerun and restore afterwards: git checkout -- research/results/truth/{name} research/truth/memory")
 
 
 def priors_text(tags):
@@ -225,6 +239,15 @@ def cmd_priors(a):
     print(priors_text(_csv(a.tags)))
 
 
+def cmd_tags(a):
+    M = _memory()
+    T = M.family_table(M.load())
+    print(f"{'tag':24} {'ideas':>6} {'survived':>9} {'configurations':>15}")
+    for tag, (n, won, cfg) in T[:a.top]:
+        print(f"{tag:24} {n:6d} {won:9d} {cfg:15,d}")
+    print(f"\n{len(T)} tags" + (f" (top {a.top} shown; --top N for more)" if a.top < len(T) else "") + "; python3 tools/lab.py priors <tag,tag> lists the ideas behind them")
+
+
 def cmd_check(a):
     path = _resolve(a.target)
     r = check_strategy(path)
@@ -235,6 +258,7 @@ def cmd_check(a):
     for e in r["errors"]:
         print("ERROR:  ", e)
     print("committed:", "yes" if is_committed(path) else "no (commit and push it before the run: that is the pre-registration)")
+    print("results:  ", "exist (run refuses without --rerun)" if os.path.exists(os.path.join(results_dir(i["name"]), "REPORT.md")) else "none yet")
     return 1 if r["errors"] else 0
 
 
@@ -247,6 +271,7 @@ def cmd_run(a):
         for e in r["errors"]:
             print("ERROR:  ", e)
         raise LabError("fix the errors above first")
+    check_rerun(r["info"]["name"], a.rerun)
     committed = is_committed(path)
     if a.look and not committed:
         raise LabError("the final look needs a committed file: git add/commit/push it first, so the rules are on record before the answer is seen")
@@ -342,9 +367,11 @@ def main(argv=None):
     n.add_argument("--markets", default="XAUUSD,EURUSD,GBPUSD,USDJPY"); n.add_argument("--timeframes", default="H1,H4"); n.add_argument("--hypothesis")
     n.set_defaults(fn=cmd_new)
     p = sp.add_parser("priors", help="how earlier ideas with these tags ended"); p.add_argument("tags"); p.set_defaults(fn=cmd_priors)
+    g = sp.add_parser("tags", help="family tags used so far"); g.add_argument("--top", type=int, default=40); g.set_defaults(fn=cmd_tags)
     c = sp.add_parser("check", help="load the file, check markets, data, costs and grid size"); c.add_argument("target"); c.set_defaults(fn=cmd_check)
     r = sp.add_parser("run", help="run the Truth Lab (no final look unless --look)"); r.add_argument("target")
     r.add_argument("--look", action="store_true", help="the ONE logged look at 2023-25 (the file must be committed)"); r.add_argument("--markets")
+    r.add_argument("--rerun", action="store_true", help="run a name that already has results (overwrites its report and ledger verdict)")
     r.set_defaults(fn=cmd_run)
     l = sp.add_parser("list", help="every idea in the ledger"); l.add_argument("--tag"); l.add_argument("--survivors", action="store_true"); l.set_defaults(fn=cmd_list)
     k = sp.add_parser("catalogue", help="rebuild the strategy catalogue from the ledger"); k.add_argument("--out", default="docs/STRATEGY_CATALOGUE.md")

@@ -954,7 +954,7 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
 - **Learned (evidence):** (1) the GitHub repo is PUBLIC (read from GitHub): every rule, result and data file is visible; only the owner can
   change it (IP_REGISTER section 0). (2) The digest undercounted configurations tried by 7,497 because four entries used another key name (P31; total
   336,979). (3) `requirements.txt` lacked matplotlib and reportlab: a clean environment could not run the suite until they were added; the clean
-  clone then passed 219 tests in 42 s (222 with the later tests). (4) The portfolio build stops at 2026-10-31 by construction (Q36). (5) Rolling
+  clone then passed 219 tests in 42 s (225 at the freeze, after the later tests). (4) The portfolio build stops at 2026-10-31 by construction (Q36). (5) Rolling
   4-month windows of the portfolio at 3.6%: median +1.88% (+1.14% since 2023), 5th percentile -1.31%, 13% negative: the yardstick for the next
   months (`docs/RESUME_AFTER_4_MONTHS.md`).
 - **Decisions:** lab discipline is enforced by tooling where it is cheap (name reuse, committed file before the look) and by docs elsewhere;

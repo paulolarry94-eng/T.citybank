@@ -1,4 +1,4 @@
-# Exact package versions on which the full test suite (222 tests) passed in a clean Python 3.11.17 environment at the
+# Exact package versions on which the full test suite (225 tests) passed in a clean Python 3.11.17 environment at the
 # 2026-11-13 freeze: pip install -r requirements.txt into an empty virtual environment, then `pip freeze`.
 # Use this file to reproduce the results: pip install -r requirements-frozen.txt
 # requirements.txt keeps lower bounds only and will pick newer versions over time.

@@ -191,7 +191,7 @@ Learning rules:
 
 - Close-down (2026-11-13): no evidence paths moved. Added the front door `tools/lab.py`, `docs/` (routine, architecture, IP register, data and sources,
   resume guide, generated strategy catalogue), a single-file offline copy of the portfolio report, `requirements-frozen.txt` (the suite passes in a
-  clean environment built from it: 222 tests). Found and fixed: the ledger stored the configuration count under two key names, so the digest left
+  clean environment built from it: 225 tests). Found and fixed: the ledger stored the configuration count under two key names, so the digest left
   7,497 configurations out (total now about 337,000, P31); `requirements.txt` lacked matplotlib and reportlab. The repo is public (owner action).
 
 ## Map

@@ -9,7 +9,7 @@ One page to pick the project up later. The full summary for the owner is `resear
 ## 1. How to resume (4 commands)
 ```bash
 bash tools/bootstrap.sh                                      # installs packages (requirements-frozen.txt), checks the data files
-python3 -m unittest discover -s research/truth/tests         # 222 tests, about 45 seconds: should end with OK
+python3 -m unittest discover -s research/truth/tests         # 225 tests, about 45 seconds: should end with OK
 python3 research/truth/memory.py --digest                    # what has been tested, survivors, principles
 python3 research/goal/timeless_mix.py                        # the recommended mix (section 3), recomputed
 ```

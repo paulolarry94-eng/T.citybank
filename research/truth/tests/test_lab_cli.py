@@ -88,6 +88,14 @@ class Scaffold(unittest.TestCase):
         self.assertEqual(r["errors"], [])
         self.assertTrue(any("lottery" in w for w in r["warnings"]))
 
+    def test_an_untagged_older_strategy_is_a_warning_not_an_error(self):
+        p = os.path.join(self.d, "untagged.py")
+        open(p, "w").write('NAME = "untagged_v1"\nHYPOTHESIS = "Breakouts persist."\nTIMEFRAMES = ["H4"]\nGRID = {"n": [20, 55]}\n'
+                           'MARKETS = ["EURUSD"]\ndef signals(B, p, M):\n    return []\n')
+        r = L.check_strategy(p)
+        self.assertEqual(r["errors"], [])
+        self.assertTrue(any("FAMILY" in w for w in r["warnings"]))
+
     def test_broken_file_raises_a_clear_error(self):
         p = os.path.join(self.d, "broken.py")
         open(p, "w").write("NAME = 'x'\nthis is not python\n")
@@ -115,6 +123,19 @@ class Commit(unittest.TestCase):
         finally:
             shutil.rmtree(d, ignore_errors=True)
 
+    def test_a_name_with_results_is_not_run_again_by_accident(self):
+        root = tempfile.mkdtemp()
+        try:
+            L.check_rerun("fresh_idea_v1", False, root)                                  # no results yet: fine
+            d = L.results_dir("done_idea_v1", root); os.makedirs(d)
+            open(os.path.join(d, "REPORT.md"), "w").write("**Verdict: Tier B**")
+            with self.assertRaises(L.LabError) as c:
+                L.check_rerun("done_idea_v1", False, root)
+            self.assertIn("new NAME", str(c.exception)); self.assertIn("--rerun", str(c.exception))
+            L.check_rerun("done_idea_v1", True, root)                                    # explicit
+        finally:
+            shutil.rmtree(root, ignore_errors=True)
+
 
 class Memory(unittest.TestCase):
     def test_priors_text_reports_counts_and_the_all_rejected_warning(self):
@@ -133,6 +154,18 @@ class Memory(unittest.TestCase):
         MEMORY.record(dict(name="zz_cfg_old_key", date="2030-04-01", family=["zz_cfg"], verdict="Rejected: x", configurations=11, fingerprint="g1"))
         e = [r for r in MEMORY.load() if r["name"] == "zz_cfg_old_key"][0]
         self.assertEqual(e["configs"], 11); self.assertNotIn("configurations", e)
+
+    def test_tags_command_lists_tags_with_counts(self):
+        import io, contextlib
+        for i, v in enumerate(("Rejected: a", "Tier B: forward-test candidate")):
+            MEMORY.record(dict(name=f"zz_tag_{i}", date="2030-05-0%d" % (i + 1), family=["zz_tagcmd"], verdict=v, configs=10, fingerprint=f"t{i}"))
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = L.main(["tags", "--top", "1000"])
+        out = buf.getvalue()
+        self.assertEqual(rc, 0)
+        row = [ln for ln in out.splitlines() if ln.startswith("zz_tagcmd")][0].split()
+        self.assertEqual(row[1:], ["2", "1", "20"])                                   # ideas, survived, configurations
 
 
 class Catalogue(unittest.TestCase):

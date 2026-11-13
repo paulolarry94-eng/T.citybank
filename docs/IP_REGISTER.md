@@ -60,7 +60,7 @@ Negative results are part of the asset: 108 of 133 ideas were rejected, each wit
 ## 2. Software
 | Component | Where | Tests / status |
 |---|---|---|
-| The Truth Lab (protocol, costs, executors, controls, cycle goal) | `research/truth/` | `research/truth/tests/` (219 tests pass in a clean environment at the freeze) |
+| The Truth Lab (protocol, costs, executors, controls, cycle goal) | `research/truth/` | `research/truth/tests/` (225 tests pass in a clean environment at the freeze) |
 | Execution core and engine | `research/northstar/core.py`, `research/engine.py` | covered by the lab tests |
 | Pattern engines with reference + numba twins | `research/body4/`, `ema4/`, `owner330/`, `sweep4/`, `sweep5/`, `sweep6/`, `pa4/` | trade-for-trade parity tests |
 | Research memory (ledger, principles, journal, open questions) | `research/truth/memory/`, `research/truth/memory.py` | tested |
@@ -101,7 +101,8 @@ earlier champion dashboard (https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg), 
    `git clone --mirror https://github.com/paulolarry94-eng/T.citybank T.citybank.git` and copy it to a drive you control. Restore
    with `git clone T.citybank.git T.citybank`. A mirror holds every branch and tag.
 3. **Pick a licence or a notice** only after deciding who the rights holder is and whether anyone else will ever use the code.
-4. **Date evidence.** The git history (commit times, pre-registration commits such as `9305332`, `7b6add8`, `2111f5f`, `796b079`,
+4. **Date evidence.** Each entry of `research/truth/memory/JOURNAL.md` opens with the owner's own words and a date, which is the record of
+   which concepts came from the owner. The git history (commit times, pre-registration commits such as `9305332`, `7b6add8`, `2111f5f`, `796b079`,
    `76afc11`) and the `freeze-2026-11-13` tag are the record of what existed when. A public repository also shows that the material was
    disclosed from the date it went public.
 5. **Rebuild check.** From a fresh clone: `pip install -r requirements-frozen.txt`, then

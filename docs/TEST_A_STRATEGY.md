@@ -31,7 +31,8 @@ In a Claude Code cloud session the start-up hook installs the packages and print
 
 ## 2. Check the priors (30 seconds)
 ```bash
-python3 tools/lab.py priors reversal,intraday     # tags: python3 tools/lab.py list shows them in each idea's family
+python3 tools/lab.py tags                         # the tags used so far, with ideas tried and survivors
+python3 tools/lab.py priors reversal,intraday     # the ideas behind the tags you choose
 ```
 It says how many earlier ideas shared the tags and how many survived. If they were all rejected, write down why this one
 differs before spending effort (CLAUDE.md learning rule 1). As of the freeze: 133 ideas tested, 7 survivors or candidates.
@@ -58,12 +59,19 @@ specification), a numba twin, and a test that the two agree trade for trade (`re
 
 ## 4. Run
 ```bash
-python3 tools/lab.py run my_idea_v1               # everything except the final look; safe to repeat
+python3 tools/lab.py run my_idea_v1               # everything except the final look
 ```
-A small grid takes minutes; a large multi-market, multi-timeframe grid can take much longer (the 504-setting pivot-sweep grid ran
-for a long while on 12 markets). Output is `research/results/truth/my_idea_v1/REPORT.md`; read it top to bottom: verdict line,
+Measured at the freeze on a 4-core cloud machine, from a fresh clone: one market on daily bars, 3 settings: 6 seconds; one market on
+M5, 3 settings: 8 seconds; four markets on H4 and D1, 96 settings per market: 8 seconds. Minute-bar timeframes have five times the bars of M5
+and the pattern engines in `research/sweep*/` do more work per bar, so expect those to take longer.
+Output is `research/results/truth/my_idea_v1/REPORT.md`; read it top to bottom: verdict line,
 look-ahead check, development gate (2011-19), validation (2020-22), stress and deflated Sharpe, the cost ladder, the cycle goal.
 The lab appends the run to the memory ledger by itself.
+
+**A name that already has results is not run again by accident.** A re-run replaces the report and the ledger verdict (a `--no-look`
+re-run turns a Tier B verdict into "Stopped before the final look"; git history keeps the old version), so `tools/lab.py run` refuses
+unless you add `--rerun`. To reproduce an old result, do it in a scratch clone: re-running `eurusd_close_beyond_reversal_v1` there gave
+exactly its committed development, validation and walk-forward numbers.
 
 Editing the rules and re-running is tuning: each round is another lottery ticket. Different rules are a new file and a new NAME
 (`my_idea_v2`); the scaffold refuses a name that is already used.

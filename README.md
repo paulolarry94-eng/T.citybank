@@ -10,7 +10,7 @@ data for 12 markets (plus January-October 2026 for six of them) with spreads, co
 ## Test a strategy
 ```bash
 pip install -r requirements-frozen.txt                      # exact versions the tests passed on (Python 3.11)
-python3 -m unittest discover -s research/truth/tests        # 222 tests, under a minute: must end with OK
+python3 -m unittest discover -s research/truth/tests        # 225 tests, under a minute: must end with OK
 python3 tools/lab.py priors reversal,intraday               # how earlier ideas like it ended
 python3 tools/lab.py new my_idea_v1 --family reversal,intraday --markets XAUUSD,EURUSD --timeframes H1,H4 --hypothesis "Who pays?"
 # edit research/truth/strategies/my_idea_v1.py, commit it (the pre-registration), then:
