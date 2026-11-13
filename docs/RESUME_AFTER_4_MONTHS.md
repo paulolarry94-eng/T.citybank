@@ -5,7 +5,7 @@ Written at the freeze, 2026-11-13. Read this first when you come back; then `STA
 ## State at the freeze
 | | |
 |---|---|
-| Code and memory | branch `claude/loving-davinci-uzjf3z`, tag `freeze-2026-11-13` (`git show freeze-2026-11-13`) |
+| Code and memory | the commit titled `Freeze 2026-11-13` on branch `claude/loving-davinci-uzjf3z` (find it with `git log --grep='^Freeze 2026-11-13'`); tests verified at commit `02bf236`, and the freeze differs from it only in documentation. The cloud session's git proxy refuses tag pushes, so there is no tag; to make one: `git tag freeze-2026-11-13 <that commit> && git push origin freeze-2026-11-13` |
 | Research record | 133 ideas tested, about 337,000 configurations, 7 survivors or candidates (`docs/STRATEGY_CATALOGUE.md`) |
 | Recommended system | **Timeless 10 + v2**: 13 rule-based legs on 7 markets; a candidate for forward testing, not a proven system |
 | Backtest at the 3.6% envelope | +6.66% a year (2011-22), +5.38% (2023-25), +0.80% in Jan-Oct 2026 (10 months); worst drawdown 4.11%; every calendar year 2011-25 positive |
@@ -17,7 +17,7 @@ Written at the freeze, 2026-11-13. Read this first when you come back; then `STA
 
 ## Resume in six commands
 ```bash
-git clone https://github.com/paulolarry94-eng/T.citybank && cd T.citybank && git checkout freeze-2026-11-13
+git clone https://github.com/paulolarry94-eng/T.citybank && cd T.citybank     # the tip of the default branch is the freeze
 pip install -r requirements-frozen.txt            # Python 3.11; exact versions the tests passed on
 python3 -m unittest discover -s research/truth/tests    # must end with OK
 python3 research/truth/memory.py --digest         # what has been tested, principles, open questions

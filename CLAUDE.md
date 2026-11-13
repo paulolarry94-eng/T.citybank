@@ -5,7 +5,7 @@
 Owner goal: a systematic MT5 portfolio (Exness Zero account) with fortnightly payouts; aspiration 60–120% a
 year. The job is to find out what is TRUE, not what looks impressive in a backtest.
 
-**FROZEN 2026-11-13 (a break of about four months): tag `freeze-2026-11-13`. Resuming: `docs/RESUME_AFTER_4_MONTHS.md`. The GitHub repo was PUBLIC at the freeze (`docs/IP_REGISTER.md`).**
+**FROZEN 2026-11-13 (a break of about four months): the commit titled `Freeze 2026-11-13` (`git log --grep='^Freeze 2026-11-13'`). Resuming: `docs/RESUME_AFTER_4_MONTHS.md`. The GitHub repo was PUBLIC at the freeze (`docs/IP_REGISTER.md`).**
 
 ## How to test anything: the Truth Lab
 ```bash

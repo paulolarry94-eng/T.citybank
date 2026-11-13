@@ -4,7 +4,7 @@ Research lab for a systematic MT5 trading portfolio. Its job is to find out what
 backtest: every idea is written as a strategy file, its settings are fixed before results, and it is tested on 2011-2025 minute
 data for 12 markets (plus January-October 2026 for six of them) with spreads, commission, slippage and swaps included.
 
-**Status: frozen on 2026-11-13 for a break of about four months** (tag `freeze-2026-11-13`). Coming back? Start with
+**Status: frozen on 2026-11-13 for a break of about four months** (the commit titled `Freeze 2026-11-13`; `git log --grep='^Freeze 2026-11-13'`). Coming back? Start with
 `docs/RESUME_AFTER_4_MONTHS.md`. **The repository was public at the freeze**; read `docs/IP_REGISTER.md` section 0.
 
 ## Test a strategy

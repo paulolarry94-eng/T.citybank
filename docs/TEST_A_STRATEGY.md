@@ -6,7 +6,7 @@ the rest. Everything works from a fresh clone.
 
 ## 0. Set up (once per fresh computer or container)
 ```bash
-git clone https://github.com/paulolarry94-eng/T.citybank && cd T.citybank   # the frozen state is the tag freeze-2026-11-13
+git clone https://github.com/paulolarry94-eng/T.citybank && cd T.citybank   # the tip of the default branch is the frozen state
 python3 -m venv .venv && . .venv/bin/activate                                # optional; Python 3.11 was used
 pip install -r requirements-frozen.txt                                       # the exact versions the tests passed on
 python3 -m unittest discover -s research/truth/tests                         # must end with OK

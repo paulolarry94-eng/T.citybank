@@ -103,7 +103,7 @@ earlier champion dashboard (https://claude.ai/artifact/BohhgY8e3XiUhstZdVSTVg), 
 3. **Pick a licence or a notice** only after deciding who the rights holder is and whether anyone else will ever use the code.
 4. **Date evidence.** Each entry of `research/truth/memory/JOURNAL.md` opens with the owner's own words and a date, which is the record of
    which concepts came from the owner. The git history (commit times, pre-registration commits such as `9305332`, `7b6add8`, `2111f5f`, `796b079`,
-   `76afc11`) and the `freeze-2026-11-13` tag are the record of what existed when. A public repository also shows that the material was
+   `76afc11`) and the commit titled `Freeze 2026-11-13` are the record of what existed when (no tag: the cloud session cannot push tags). A public repository also shows that the material was
    disclosed from the date it went public.
 5. **Rebuild check.** From a fresh clone: `pip install -r requirements-frozen.txt`, then
    `python3 -m unittest discover -s research/truth/tests` must end with OK (verified at the freeze).

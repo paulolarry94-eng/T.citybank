@@ -3,7 +3,7 @@
 One page to pick the project up later. The full summary for the owner is `research/FINAL_REPORT.md`. Details live in
 `CLAUDE.md` (rules + everything known), the research memory (`research/truth/memory/`) and the reports linked below.
 
-**Frozen on 2026-11-13 for a break of about four months (tag `freeze-2026-11-13`). Resuming: `docs/RESUME_AFTER_4_MONTHS.md`; testing a new idea:
+**Frozen on 2026-11-13 for a break of about four months (the commit titled `Freeze 2026-11-13`). Resuming: `docs/RESUME_AFTER_4_MONTHS.md`; testing a new idea:
 `docs/TEST_A_STRATEGY.md`; what is where: `docs/ARCHITECTURE.md`; what exists and needs a decision (the repo was public): `docs/IP_REGISTER.md`.**
 
 ## 1. How to resume (4 commands)
