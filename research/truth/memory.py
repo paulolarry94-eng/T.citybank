@@ -32,9 +32,18 @@ def survived(e):
     return v.startswith(SURVIVE)
 
 
+def n_configs(e):
+    """Configurations tried by one ledger entry (two key names were used in 2026-11: configs, configurations)."""
+    return int(e.get("configs") or e.get("configurations") or 0)
+
+
 def record(entry):
     """Add or replace (same name + fingerprint) an entry, then rebuild LESSONS.md."""
     os.makedirs(MEM, exist_ok=True)
+    entry = dict(entry)
+    if "configurations" in entry:                              # one key name only: configs
+        entry.setdefault("configs", entry.pop("configurations"))
+        entry.pop("configurations", None)
     rows, prev = [], {}
     for e in load():
         if e.get("name") == entry.get("name") and e.get("fingerprint") == entry.get("fingerprint"):
@@ -78,7 +87,7 @@ def family_table(rows):
     T = defaultdict(lambda: [0, 0, 0])
     for e in rows:
         for f in e.get("family", []):
-            T[f][0] += 1; T[f][1] += int(survived(e)); T[f][2] += int(e.get("configs") or 0)
+            T[f][0] += 1; T[f][1] += int(survived(e)); T[f][2] += n_configs(e)
     return sorted(T.items(), key=lambda kv: (-kv[1][0], kv[0]))
 
 
@@ -88,7 +97,7 @@ def _num(x, nd=3):
 
 def render():
     rows = load()
-    n_cfg = sum(int(e.get("configs") or 0) for e in rows)
+    n_cfg = sum(n_configs(e) for e in rows)
     L = ["# LESSONS — generated from ledger.jsonl (do not edit; run `python3 research/truth/memory.py --render`)", "",
          f"{len(rows)} ideas tested, about {n_cfg:,} configurations; {sum(survived(e) for e in rows)} survivors. "
          "Principles: `PRINCIPLES.md` · queue: `OPEN_QUESTIONS.md` · sessions: `JOURNAL.md`.", "",
@@ -123,7 +132,7 @@ def digest(max_recent=6):
         last = ("## " + parts[-1]).strip() if len(parts) > 1 else ""
         last = "\n".join(last.splitlines()[:14])
     out = ["=== T.citybank RESEARCH MEMORY (loaded at session start) ===",
-           f"{len(rows)} ideas tested (~{sum(int(e.get('configs') or 0) for e in rows):,} configurations), {sum(survived(e) for e in rows)} survivors.",
+           f"{len(rows)} ideas tested (~{sum(n_configs(e) for e in rows):,} configurations), {sum(survived(e) for e in rows)} survivors.",
            "Survivors: " + "; ".join(f"{e['name']} ({e.get('summary') or e['verdict']})" for e in rows if survived(e)),
            "Principles (evidence in research/truth/memory/PRINCIPLES.md):"] + [f"  - {p}" for p in P] + \
           ["Open questions (research/truth/memory/OPEN_QUESTIONS.md):"] + [f"  - {q}" for q in Q] + \

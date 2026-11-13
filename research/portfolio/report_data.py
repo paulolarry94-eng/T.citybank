@@ -165,9 +165,10 @@ H = [("legs", len(PF["legs"]), "legs in the mix"), ("avg_corr", PF["avg_pairwise
       "pattern study: tests with an edge in both LEARN and CONFIRM"),
      ("study_tests_lose_less", int(sum(v["IMPROVE"] for g in P2["single"].values() for v in g.values()) + sum(v["IMPROVE"] for v in P2["pairs"].values())),
       "pattern study: conditions that lose less in both LEARN and CONFIRM")]
-LED = [json.loads(x) for x in open(os.path.join(ROOT, "truth", "memory", "ledger.jsonl")) if x.strip()]
+THIS_REPORT = ("sweep6-prereg-9305332", "portfolio-report-2026-11-12")           # this study and this report are not "before this report"
+LED = [e for e in (json.loads(x) for x in open(os.path.join(ROOT, "truth", "memory", "ledger.jsonl")) if x.strip()) if e.get("fingerprint") not in THIS_REPORT]
 H += [("ideas_tested", len(LED), "ideas tested in the project before this report (research memory ledger)"),
-      ("configs_tried", int(sum(int(e.get("configs") or 0) for e in LED)), "configurations tested in the project before this report"),
+      ("configs_tried", int(sum(int(e.get("configs") or e.get("configurations") or 0) for e in LED)), "configurations tested in the project before this report"),
       ("v2_cells", 1440, "pivot-sweep v2 cells the 3 v2 legs were picked from (research/results/sweep5)"),
       ("mc_paths", 10000, "Monte Carlo paths per horizon")]
 pd.DataFrame(H, columns=["metric", "value", "meaning"]).to_csv(os.path.join(OUT, "headline.csv"), index=False)

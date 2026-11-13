@@ -14,6 +14,6 @@ study_tests,1142.0,pattern study: condition tests (single conditions + pairs)
 study_tests_edge,0.0,pattern study: tests with an edge in both LEARN and CONFIRM
 study_tests_lose_less,2.0,pattern study: conditions that lose less in both LEARN and CONFIRM
 ideas_tested,131.0,ideas tested in the project before this report (research memory ledger)
-configs_tried,328243.0,configurations tested in the project before this report
+configs_tried,335740.0,configurations tested in the project before this report
 v2_cells,1440.0,pivot-sweep v2 cells the 3 v2 legs were picked from (research/results/sweep5)
 mc_paths,10000.0,Monte Carlo paths per horizon
