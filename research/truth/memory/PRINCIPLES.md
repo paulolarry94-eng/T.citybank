@@ -486,3 +486,11 @@ is at most 0.2% of M1 trades and 0.06% of M5+ trades for the body-engulf range. 
 History: the first version of P30 (above) counted every same-minute event as unclear (20% of M1 trades).
 - 2026-11-12 (tick check, `research/results/sweep6/tickcheck.json`): on 585 pivot-sweep trades (EURUSD, GBPUSD, XAUUSD; Mar 2021, Sep 2021, Jun 2022) one-minute bars gave the same win rate as Exness ticks from 5R up and 0.4-1.7 points fewer wins at 1-3R: one-minute bars are fine for stops several minutes wide, pessimistic at small targets.
 
+### P31 A ledger field with two names silently drops evidence
+Four ledger entries from one week (the 6,048-configuration pivot-sweep study among them) stored their configuration count under
+`configurations` while the digest summed only `configs`, so the "how many tried" total left out 7,497 configurations until a second
+count (the strategy catalogue) disagreed with the digest. The count matters: the deflated Sharpe and every report charge for each
+configuration tried. Fixed 2026-11-13: one helper `n_configs()` reads either name, `record()` writes `configs` only, the four entries
+were migrated, and a test covers it; the total moved from 329,482 to 336,979. Evidence: `research/truth/memory.py`,
+`research/truth/tests/test_lab_cli.py`. Confidence: high. Lesson: a safeguard that is reported to the owner needs one source, and any
+second view of it is a check worth keeping.

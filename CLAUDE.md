@@ -5,11 +5,17 @@
 Owner goal: a systematic MT5 portfolio (Exness Zero account) with fortnightly payouts; aspiration 60–120% a
 year. The job is to find out what is TRUE, not what looks impressive in a backtest.
 
+**FROZEN 2026-11-13 (a break of about four months): tag `freeze-2026-11-13`. Resuming: `docs/RESUME_AFTER_4_MONTHS.md`. The GitHub repo was PUBLIC at the freeze (`docs/IP_REGISTER.md`).**
+
 ## How to test anything: the Truth Lab
 ```bash
-bash tools/bootstrap.sh
-python3 research/truth/run.py research/truth/strategies/<idea>.py [--no-look]
+bash tools/bootstrap.sh                 # packages (requirements-frozen.txt) + data check
+python3 tools/lab.py priors <tags>      # what earlier ideas with these tags did
+python3 tools/lab.py new <name> --family a,b --markets X,Y --timeframes H1,H4 --hypothesis "who pays?"   # scaffold; commit it BEFORE running
+python3 tools/lab.py check <name>       # loads like the lab; markets, data, costs, settings per market
+python3 tools/lab.py run <name>         # the Truth Lab without the final look; add --look for the one logged look (needs a committed file)
 ```
+The routine in full: `docs/TEST_A_STRATEGY.md`; where things are: `docs/ARCHITECTURE.md`. (`python3 research/truth/run.py <file> [--no-look]` is what `tools/lab.py run` wraps.)
 Write new ideas as strategy files (`research/truth/strategies/TEMPLATE.py`). Do not write ad-hoc backtests
 for new ideas; the lab's protocol is the standard (`research/truth/README.md`).
 
@@ -182,6 +188,11 @@ Learning rules:
   breakouts; scanner after Prime costs -0.10 to -0.47R a trade; no Monte Carlo survivor, no leg, holdout unopened; candle-4 sweep = Q35.
   Ticks match M1 from 5R up (P30). Portfolio report of Timeless 10 + v2 (cost profiles, Monte Carlo, account $40,800 / $408 cent at
   3.6%, payouts, examples): https://claude.ai/artifact/QRh9Gy181Wsd2pn7uYgx8K, data and page source `research/results/portfolio/report/`.
+
+- Close-down (2026-11-13): no evidence paths moved. Added the front door `tools/lab.py`, `docs/` (routine, architecture, IP register, data and sources,
+  resume guide, generated strategy catalogue), a single-file offline copy of the portfolio report, `requirements-frozen.txt` (the suite passes in a
+  clean environment built from it: 222 tests). Found and fixed: the ledger stored the configuration count under two key names, so the digest left
+  7,497 configurations out (total now about 337,000, P31); `requirements.txt` lacked matplotlib and reportlab. The repo is public (owner action).
 
 ## Map
 - `data/` M1 bid bars 2011–2025 (`{SYM}_M1_bid_{YEAR}.npz`): XAUUSD, EURUSD, GBPUSD, USDJPY; and (breadth, Q4) US500,

@@ -943,3 +943,24 @@ Facts and estimates are labelled; nothing is recorded as learned without evidenc
   resamples in-sample fortnights (optimistic); 2026 is not a clean test for the v2 legs (kept after a look that included it).
 - **Next:** the gated plan (account export, re-score, EAs + parity, 3-6 months demo with the two-week report); a forward log
   of the owner's live pivot-sweep calls if they want to keep watching the pattern.
+
+## 2026-11-13 (33) · owner: "clean everything and make it modular so I can come and test a strategy over the next 4 months, we are just closing and keep everything stored and the IP documented, close down for now"
+- **Done:** surveyed the repo (clean, pushed, 284 commits, no secrets, no owner email, the other remote branch fully merged). Added the front door
+  `tools/lab.py` (new, priors, check, run, list, catalogue; refuses reused names, placeholder hypotheses, and a final look without a committed
+  file) with 12 tests; `docs/` (TEST_A_STRATEGY, ARCHITECTURE, IP_REGISTER, DATA_AND_SOURCES, RESUME_AFTER_4_MONTHS, generated
+  STRATEGY_CATALOGUE); a single-file offline copy of the portfolio report (`research/portfolio/make_offline_report.py`, 3 tests; checked in a
+  browser: no errors, no network, all 1,120 marked numbers match); `requirements-frozen.txt`; a new README; caches removed. No evidence path
+  was moved (the memory cites them). Verified a fresh clone in a clean environment.
+- **Learned (evidence):** (1) the GitHub repo is PUBLIC (read from GitHub): every rule, result and data file is visible; only the owner can
+  change it (IP_REGISTER section 0). (2) The digest undercounted configurations tried by 7,497 because four entries used another key name (P31; total
+  336,979). (3) `requirements.txt` lacked matplotlib and reportlab: a clean environment could not run the suite until they were added; the clean
+  clone then passed 219 tests in 42 s (222 with the later tests). (4) The portfolio build stops at 2026-10-31 by construction (Q36). (5) Rolling
+  4-month windows of the portfolio at 3.6%: median +1.88% (+1.14% since 2023), 5th percentile -1.31%, 13% negative: the yardstick for the next
+  months (`docs/RESUME_AFTER_4_MONTHS.md`).
+- **Decisions:** lab discipline is enforced by tooling where it is cheap (name reuse, committed file before the look) and by docs elsewhere;
+  nothing was reorganised; no licence or rights holder was chosen for the owner.
+- **Facts vs estimates:** the secret scan was a local pattern scan, not GitHub's scanner; third-party data and repo terms are unverified; the
+  authorship of the TimelessCity EA before this repo is not recorded; the data-extension commands (`exness_m1.py`, `histdata_months.py`) were
+  not re-run after the freeze.
+- **Next:** the owner makes the repo private if the rules are to stay private; Q36 (forward check) and the gated plan (account export,
+  re-score, EAs with parity, 3-6 months demo); test new ideas with `docs/TEST_A_STRATEGY.md`.

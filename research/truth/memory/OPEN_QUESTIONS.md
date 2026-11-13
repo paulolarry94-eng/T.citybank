@@ -266,6 +266,14 @@ v2 (owner's correction after the audit charts, 2026-11-02): reference may touch 
 candle or pullback extreme + 0-0.5 ATR; 1:1. REJECTED: 0 of 16; win rate 40-46% vs 56-59% needed (2011-19), negative in
 2020-22 and in 2026 on both feeds. research/results/owner330/RESULT.md (v2 section).
 
+### Q36 Forward check of the frozen mix on the months after 2026-10-30 (2026-11-13)
+Every window up to 2026-10-30 has been used by some study, so later data is the one clean out-of-sample window for Timeless 10 + v2.
+Rules fixed at the freeze: legs, weights and base risk unchanged. Judge 4-month results against the yardstick in
+`docs/RESUME_AFTER_4_MONTHS.md` (at 3.6%: 5th percentile -1.31%, median +1.88%, median since 2023 +1.14%). Blocker: `research/portfolio/build.py` is
+hard-wired to end at 2026-10-31 (lines 26, 93, 129) and takes the book legs' 2026 trades from `research/trades/champion_2026/`
+(`research/champion/regen_2026.py`). First step: make the end date a parameter and prove it by reproducing the published Jan-Oct 2026
+figures. FAMILY: portfolio, forward-test, holdout.
+
 ### Q35 Pivot sweep by candle 4 itself: luck or a real effect? (2026-11-12, forward log only)
 From the deep M1 study (`research/results/sweep6/PHASE2.md`, no costs, 20R target): setups where candle 4 itself swept the pivot made
 +0.52R / +0.19R / +0.16R a trade in 2011-15 / 2016-19 / 2020-22 on 197 / 214 / 261 trades (t 1.4 / 0.6 / 0.5): positive in every period but

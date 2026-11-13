@@ -1,12 +1,15 @@
-# START HERE — T.citybank status and handover (2026-11-09, updated 2026-11-12)
+# START HERE — T.citybank status and handover (2026-11-09, updated 2026-11-13: FROZEN)
 
 One page to pick the project up later. The full summary for the owner is `research/FINAL_REPORT.md`. Details live in
 `CLAUDE.md` (rules + everything known), the research memory (`research/truth/memory/`) and the reports linked below.
 
+**Frozen on 2026-11-13 for a break of about four months (tag `freeze-2026-11-13`). Resuming: `docs/RESUME_AFTER_4_MONTHS.md`; testing a new idea:
+`docs/TEST_A_STRATEGY.md`; what is where: `docs/ARCHITECTURE.md`; what exists and needs a decision (the repo was public): `docs/IP_REGISTER.md`.**
+
 ## 1. How to resume (4 commands)
 ```bash
-bash tools/bootstrap.sh                                      # installs packages, checks the data files
-python3 -m unittest discover -s research/truth/tests         # 207 tests, about 35 seconds: should end with OK
+bash tools/bootstrap.sh                                      # installs packages (requirements-frozen.txt), checks the data files
+python3 -m unittest discover -s research/truth/tests         # 222 tests, about 45 seconds: should end with OK
 python3 research/truth/memory.py --digest                    # what has been tested, survivors, principles
 python3 research/goal/timeless_mix.py                        # the recommended mix (section 3), recomputed
 ```
@@ -54,7 +57,7 @@ https://claude.ai/artifact/QRh9Gy181Wsd2pn7uYgx8K (data: `research/results/portf
 Common causes: no raw edge before costs on 1-minute to 1-hour shapes; best-of-many backtests not carrying forward (P10, P11).
 
 ## 5. Where we are
-- **133 ideas, about 329,500 configurations tested; the survivors combine into the timeless mix above**: a real but small
+- **133 ideas, about 337,000 configurations tested; the survivors combine into the timeless mix above**: a real but small
   edge, a few % a year inside 3.6% (about 10% inside 8%), about flat on untouched 2026. That is roughly a tenth of the goal.
 - Built: the Truth Lab (pre-registration, look-ahead check, gates, holdout log, cost ladder, cycle reports), M1 engines with
   tests, detectors and chart replays for the owner's patterns, the research memory, TimelessCity (compiled earlier by the

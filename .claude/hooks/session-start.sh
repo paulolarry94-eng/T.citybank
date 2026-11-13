@@ -5,8 +5,9 @@ cd "${CLAUDE_PROJECT_DIR:-.}"
 
 # 1. Python packages (system pip; checked every start, installed only when missing). Cloud sessions only.
 if [ "${CLAUDE_CODE_REMOTE:-}" = "true" ]; then
-  if ! python3 -c "import numpy, pandas, numba" >/dev/null 2>&1; then
-    pip install -q -r requirements.txt >&2
+  if ! python3 -c "import numpy, pandas, numba, holidays, matplotlib, reportlab" >/dev/null 2>&1; then
+    { pip install -q -r requirements-frozen.txt || pip install -q -r requirements.txt; } >&2 \
+      || echo "(package install failed: run pip install -r requirements-frozen.txt)" >&2
   fi
 fi
 

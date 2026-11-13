@@ -2,3 +2,5 @@ numpy>=1.26
 pandas>=2.1
 numba>=0.59
 holidays
+matplotlib>=3.8
+reportlab>=4.0
